@@ -13,13 +13,15 @@
 
 	class Category_SO
 	{
-		var $id;
+		var $id = 0;
 		var $name;
 		var $description;
 		var $sort_order;
-		var $parent;
+		var $parent = 0;
 		var $depth;
 		var $root;
+		var $state = 0;
+		var $index_page_id = 0;
 
 		function Category_SO()
 		{

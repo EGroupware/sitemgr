@@ -20,14 +20,17 @@
 			$this->so = CreateObject('sitemgr.Pages_SO',True);
 		}
 
-		function getPageOptionList()
+		function getPageOptionList($cats=0,$index='Show Site Index',$state='Production')
 		{
-			$pagelist = $this->so->getPageIDList(0,$GLOBALS['Common_BO']->getstates('Production'));
-			$retval[]=array('value'=>0,'display'=>'[' .lang('Show Site Index') . ']');
+			$pagelist = $this->so->getPageIDList($cats,$GLOBALS['Common_BO']->getstates($state));
+			if ($index)
+			{
+				$retval[]=array('value'=>0,'display'=>'[' .lang(/*'Show Site Index'*/$index) . ']');
+			}
 			foreach($pagelist as $page_id)
 			{
 				$page = $this->so->getPage($page_id);
-				$retval[]=array('value'=>$page_id,'display'=>$page->name);
+				$retval[]=array('value'=>$page_id,'display'=>$page->name.' - '.$page->title);
 			}
 			return $retval;
 		}

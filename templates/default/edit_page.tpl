@@ -1,4 +1,5 @@
 <!-- BEGIN form -->
+<script>window.focus();</script>
 <form method ="POST">
 <input type="hidden" name="inputpageid" value="{page_id}">
 <table align='center' border ="0" width="80%" cellpadding="5" cellspacing="0">

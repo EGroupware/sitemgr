@@ -59,6 +59,7 @@
 			$page_id = $inputpageid ? $inputpageid : $_GET['page_id'];
 			$category_id = $inputcategoryid ? $inputcategoryid : $_GET['cat_id'];
 
+			$GLOBALS['phpgw']->common->phpgw_header();
 			$this->t->set_file('EditPage', 'edit_page.tpl');
 
 			if($btnSave)

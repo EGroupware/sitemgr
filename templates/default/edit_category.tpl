@@ -1,6 +1,5 @@
-<html>
-<head></head>
-<body>
+<script>window.focus();</script>
+<div id="divMain">
 <form method="POST">
 <input type="hidden" name="inputcatid" value="{cat_id}">
 <input type="hidden" name="inputparentold" value="{old_parent}">
@@ -15,7 +14,7 @@
 		<td colspan="2"><b><u>{lang_basic}:</u></b></td>
 	</tr>
 	<tr>
-		<td>{lang_catname}:</td>
+		<td>{lang_catname}:<font size='2' color='#ff0000'><b>*</b></font></td>
 		<td><input type="text" name="inputcatname" value="{catname}"></td>
 	</tr>
 	<tr>
@@ -27,9 +26,13 @@
 		<td>{parent_dropdown}</td>
 	</tr>
 	<tr>
-		<td>{lang_catdesc}:</td>
+		<td>{lang_catdesc}:<font size='2' color='#ff0000'><b>*<br>&nbsp;<br>*</b> {lang_required}</font></td>
 		<td><textarea ROWS="3" COLS="50" name="inputcatdesc">{catdesc}</textarea></td>
-	</tr>	
+	</tr>
+	<tr>
+		<td>{lang_indexpage}:</td>
+		<td><select name="inputindexpage">{indexpageselect}</select></td>
+	</tr>
 	<tr>
 		<td>{lang_state}:</td>
 		<td><select name="inputstate">{stateselect}</select></td>
@@ -90,5 +93,4 @@
 	</tr>
 </table>
 </form>
-</body>
-</html>
+</div>

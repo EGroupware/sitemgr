@@ -81,12 +81,13 @@
 				'descr'		=> $cat_info->description,
 				'data'		=> (int) $cat_info->sort_order,
 				'access'	=> 'public',
-				'id'		=> $cat_info->id,
-				'parent'	=> $cat_info->parent,
-				'old_parent' => $cat_info->old_parent
+				'id'		=> (int) $cat_info->id,
+				'parent'	=> (int) $cat_info->parent,
+				'old_parent' => (int) $cat_info->old_parent,
 			);
 			$this->cats->edit($data);
-			$sql = "UPDATE phpgw_sitemgr_categories_state SET state = " . $cat_info->state . " WHERE cat_id = " . $cat_info->id;
+			$sql = "UPDATE phpgw_sitemgr_categories_state SET state = " . (int) $cat_info->state . ",index_page_id=" .
+				(int) $cat_info->index_page_id . " WHERE cat_id = " . (int) $cat_info->id;
 			$this->db->query($sql, __LINE__,__FILE__);
 		}
 
@@ -129,9 +130,12 @@
 				$cat_info->depth		= $cat[0]['level'];
 				$cat_info->root			= $cat[0]['main'];
 
-				$this->db->query("SELECT state FROM phpgw_sitemgr_categories_state WHERE cat_id=$cat_id");
-				$cat_info->state = $this->db->next_record() ? $this->db->f('state') : 0;
-
+				$this->db->query("SELECT state,index_page_id FROM phpgw_sitemgr_categories_state WHERE cat_id=$cat_id");
+				if ($this->db->next_record())
+				{
+					$cat_info->state = $this->db->f('state');
+					$cat_info->index_page_id = (int) $this->db->f('index_page_id');
+				}
 				if ($lang)
 				{
 					$this->db->query("SELECT * FROM phpgw_sitemgr_categories_lang WHERE cat_id=$cat_id and lang='$lang'");

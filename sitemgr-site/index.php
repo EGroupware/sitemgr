@@ -84,7 +84,19 @@
 	}
 	elseif($category_id)
 	{
-		$objui->displayTOC($category_id);
+		$cat = $Common_BO->cats->getCategory($category_id);
+		if ($cat->index_page_id > 0)
+		{
+			$page = $Common_BO->pages->getPage($cat->index_page_id);
+			if ($page->id)
+			{
+				$objui->displayPage($page->id);
+			}
+		}
+		if (!$cat->index_page_id || !is_object($page) || !$page->id)	// fallback to regular toc if index-page is missing
+		{
+			$objui->displayTOC($category_id);
+		}
 	}
 	elseif ($page_id)
 	{

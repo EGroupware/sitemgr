@@ -37,6 +37,7 @@ as	common	de	als
 asin[=title] pairs (title is optional)	sitemgr	de	ASIN=[Titel] Paare (Titel ist optional)
 attempt to access information outside current website	sitemgr	de	Versuch auf Informationen ausserhalb der aktuellen  Website zuzugreifen
 attempt to edit non-editable block	sitemgr	de	Versuch einen nicht-bearbeitbaren Block zu bearbeiten
+automatic index	sitemgr	de	Automatisches Inhaltsverzeichnis
 back to module manager	sitemgr	de	Zurück zum Modulmanager
 back to the list of languages	sitemgr	de	Zurück zur Liste der Sprachen
 basic settings	sitemgr	de	Basis Einstellungen
@@ -153,6 +154,7 @@ i'm sorry, you do not have write permissions for any site categories.	sitemgr	de
 if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	de	Falls Sie es nicht schon erfolgt ist, legen Sie bitte im Administrationsmenü einen Benutzer an, welcher benutzt wird als Benutzer für den öffentlichen Teil der Seite. Empfohlener Benutzername: anonymous
 image type	sitemgr	de	Bild Typ
 implies read permission	sitemgr	de	impliziert Leserechte
+index	sitemgr	de	Inhaltsverzeichnis
 individual access permission	sitemgr	de	Individuelles Zugriffrecht
 individual access permissions	sitemgr	de	Individuelle Zugriffsrechte
 interface to google website	sitemgr	de	Schnittstelle zur Google Webseite

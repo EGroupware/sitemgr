@@ -37,6 +37,7 @@ as	common	en	as
 asin[=title] pairs (title is optional)	sitemgr	en	ASIN[=title] pairs (title is optional)
 attempt to access information outside current website	sitemgr	en	Attempt to access information outside current website
 attempt to edit non-editable block	sitemgr	en	Attempt to edit non-editable block
+automatic index	sitemgr	en	Automatic index
 back to module manager	sitemgr	en	Back to module manager
 back to the list of languages	sitemgr	en	Back to the list of languages
 basic settings	sitemgr	en	Basic Settings
@@ -152,6 +153,7 @@ i'm sorry, you do not have write permissions for any site categories.	sitemgr	en
 if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	en	If you haven't done so already, create a user that will be used for public viewing of the site.  Recommended name: anonymous.
 image type	sitemgr	en	image type
 implies read permission	sitemgr	en	implies read permission
+index	sitemgr	en	Index
 individual access permission	sitemgr	en	Individual Access Permission
 individual access permissions	sitemgr	en	Individual Access Permissions
 interface to google website	sitemgr	en	Interface to google website

@@ -183,7 +183,7 @@
 			return True;
 		}
 
-		function saveCategoryInfo($cat_id, $cat_name, $cat_description, $lang, $sort_order, $state, $parent=False, $old_parent=False)
+		function saveCategoryInfo($cat_id, $cat_name, $cat_description, $lang, $sort_order, $state, $parent=False, $old_parent=False,$index_page_id=0)
 		{
 			if (!$parent)
 			{
@@ -197,6 +197,7 @@
 			$cat_info->state = $state;
 			$cat_info->parent = $parent;
 			$cat_info->old_parent = $old_parent ? $old_parent : $parent;
+			$cat_info->index_page_id = $index_page_id;
 
 			if ($GLOBALS['Common_BO']->acl->can_write_category($cat_id))
 			{

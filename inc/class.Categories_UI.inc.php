@@ -47,11 +47,11 @@
 
 			$GLOBALS['Common_BO']->globalize(array(
 				'btnSave','inputcatname','inputcatdesc','inputcatid','inputsortorder','inputparent','inputstate',
-				'inputparentold','savelanguage','inputgetparentpermissions','inputapplypermissionstosubs',
+				'inputindexpage','inputparentold','savelanguage','inputgetparentpermissions','inputapplypermissionstosubs',
 				'inputgroupaccessread','inputgroupaccesswrite','inputindividualaccessread','individualaccesswrite'
 			));
 
-			global $btnSave, $inputcatid,$inputcatname,$inputcatdesc,$inputsortorder,$inputparent,$inputparentold,$inputstate;
+			global $btnSave, $inputcatid,$inputcatname,$inputcatdesc,$inputsortorder,$inputparent,$inputparentold,$inputindexpage,$inputstate;
 			global $inputgroupaccessread, $inputgroupaccesswrite, $inputindividualaccessread, $inputindividualaccesswrite;
 			global $savelanguage, $inputgetparentpermissions,$inputapplypermissionstosubs;
 			$cat_id = $inputcatid ? $inputcatid : $_GET['cat_id'];
@@ -70,7 +70,7 @@
 					$groupaccess = array_merge_recursive($inputgroupaccessread, $inputgroupaccesswrite);
 					$individualaccess = array_merge_recursive($inputindividualaccessread, $inputindividualaccesswrite);
 					$savelanguage = $savelanguage ? $savelanguage : $this->sitelanguages[0];
-					$this->cat_bo->saveCategoryInfo($cat_id, $inputcatname, $inputcatdesc, $savelanguage, $inputsortorder, $inputstate, $inputparent, $inputparentold);
+					$this->cat_bo->saveCategoryInfo($cat_id, $inputcatname, $inputcatdesc, $savelanguage, $inputsortorder, $inputstate, $inputparent, $inputparentold,$inputindexpage);
 					if ($inputgetparentpermissions)
 					{
 						$this->cat_bo->saveCategoryPermsfromparent($cat_id);
@@ -98,6 +98,7 @@
 				$cat = $this->cat_bo->getCategory($cat_id,$this->sitelanguages[0],True);
 			}
 
+			$GLOBALS['phpgw']->common->phpgw_header();
 			$this->t->set_file('EditCategory', 'edit_category.tpl');
 			$this->t->set_block('EditCategory','GroupBlock', 'GBlock');
 
@@ -111,12 +112,19 @@
 				$select .= '</select> ';
 				$this->t->set_var('savelang',$select);
 			}
-
+			$indexpageselect = '';
+			$pages = $GLOBALS['Common_BO']->pages->getPageOptionList($cat_id,'Automatic index',$cat->state ? $cat->state : 'Production');
+			foreach($pages as $page)
+			{
+				$indexpageselect .= '<option value="'.$page[value].'"'.
+					($page['value'] == $cat->index_page_id ? ' selected="1"' : '').'>'.$page[display]."</option>\n";
+			}
 			$this->t->set_var(array(
 				'add_edit' => ($cat_id ? lang('Edit Category') : lang('Add Category')),
 				'cat_id' => $cat_id,
 				'catname' => $cat->name,
 				'catdesc' => $cat->description,
+				'indexpageselect' => $indexpageselect,
 				'sort_order' => $cat->sort_order,
 				'parent_dropdown' => $this->getParentOptions($cat->parent,$cat_id),
 				'stateselect' => $GLOBALS['Common_BO']->inputstateselect($cat->state),
@@ -126,6 +134,7 @@
 				'lang_catsort' => lang('Sort Order'),
 				'lang_catparent' => lang('Parent'),
 				'lang_catdesc' => lang('Category Description'),
+				'lang_indexpage' => lang('Index'),
 				'lang_groupaccess' => lang('Group Access Permissions'),
 				'lang_groupname' => lang('Group Name'),
 				'lang_readperm' => lang('Read Permission'),
@@ -139,6 +148,7 @@
 				'lang_done' => lang('Done'),
 				'lang_getparentpermissions' => lang('Fill in permissions from parent category? If you check this, below values will be ignored'),
 				'lang_applypermissionstosubs' => lang('Apply permissions also to subcategories?'),
+				'lang_required' => lang('Required Fields'),
 			));
 		
 			$acct = CreateObject('phpgwapi.accounts');
