@@ -2,32 +2,32 @@ add a category	sitemgr	de	Kategorie hinzufügen
 add category	sitemgr	de	Kategorie hinzufügen
 add new page to this category	sitemgr	de	Eine neue Seite zu dieser Kategorie hinzufügen
 add page	sitemgr	de	Seite hinzufügen
-administration	sitemgr	de	Administration
+administration	sitemgr-site	de	Administration
 administrative menu	sitemgr	de	Administrations Menü
-amazon	sitemgr	de	Amazon
+amazon	sitemgr-site	de	Amazon
 anonymous user login domain	sitemgr	de	Anonymous User login Domain
 anonymous user's password	sitemgr	de	Anonymous User Password
 anonymous user's username	sitemgr	de	Anonymous User Username
 are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	de	Sind sie sicher das Sie die Kategorie %1 und alle dazugehörigen Seiten löschen möchten?  Diese Seiten werden hiermit endgültüg gelöscht.
 basic settings	sitemgr	de	Basis Einstellungen
-block not found	sitemgr	de	Block nicht gefunden
-block returned no content.	sitemgr	de	Dieser Block hat keinen Content.
+block not found	sitemgr-site	de	Block nicht gefunden
+block returned no content.	sitemgr-site	de	Dieser Block hat keinen Content.
 cancel the delete	sitemgr	de	Abbrechen, nicht löschen
 cannot move page until it has been saved.	sitemgr	de	Die Seite kann zuerst verschoben werden wenn Sie gespeichert wurde.
-category	sitemgr	de	Kategorie
+category	sitemgr-site	de	Kategorie
 category description	sitemgr	de	Kategorie Beschreibung
 category manager	sitemgr	de	Kategorie Manager
 category name	sitemgr	de	Kategorie Name
 changes saved.	sitemgr	de	Änderungen gespeichert.
 check here after every upgrade	sitemgr	de	Nach jedem upgrade bitte nochmals hier überprüfen
 check to hide from condensed site index.	sitemgr	de	Hier auswählen um eine Seite im Inhaltsverzeichnis nicht anzuzeigen.
-choose a category	sitemgr	de	Wählen Sie eine Kategorie
+choose a category	sitemgr-site	de	Wählen Sie eine Kategorie
 configure sitemgr	sitemgr	de	SiteMgr konfigurieren
-contact the administrator.	sitemgr	de	Kontaktieren Sie den Administrator
-content manager	sitemgr	de	Inhaltsmanager
+contact the administrator.	sitemgr-site	de	Kontaktieren Sie den Administrator
+content manager	sitemgr-site	de	Inhaltsmanager
 contributor menu	sitemgr	de	Autoren Menü
 default home page id number	sitemgr	de	Standard Home Page ID Nummer
-don't have an account?	sitemgr	de	Sie haben keinen Account?
+don't have an account?	sitemgr-site	de	Sie haben keinen Account?
 done	sitemgr	de	Fertig
 edit categories and permissions	common	de	Kategorien und Zugriffsrechte bearbeiten
 edit category	sitemgr	de	Kategorie bearbeiten
@@ -40,7 +40,7 @@ footer editor	sitemgr	de	Fusszeilen Editor
 go back to page manager	sitemgr	de	Zurück zum Seiten Manager
 go back to the category manager.	sitemgr	de	Zurück zum Kategorie Manager gehen
 go to page manager	sitemgr	de	Gehe zur Seiten Bearbeitung
-google search	sitemgr	de	Google Suche
+google search	sitemgr-site	de	Google Suche
 group access permissions	sitemgr	de	Gruppen Zugriffsrechte
 group name	sitemgr	de	Gruppen Name
 header editor	sitemgr	de	Kopfzeilen Editor
@@ -48,59 +48,59 @@ headlines	sitemgr	de	Kopfzeilen
 i'm sorry, you do not have write permissions for any site categories.	sitemgr	de	Sie haben keine Schreibrechte für die Seiten Kategorien.
 individual access permission	sitemgr	de	Individuelle Zugriffs Rechte
 languages the site user can choose from	sitemgr	de	Sprachen die der Benutzer auswählen kann
-login	sitemgr	de	Login
-login name	sitemgr	de	Login Name
+login	sitemgr-site	de	Login
+login name	sitemgr-site	de	Login Name
 main content	sitemgr	de	Hauptinhalt
 manage categories	sitemgr	de	Kategorien bearbeiten
 manage pages	common	de	Seiten verwalten
 manage translations	sitemgr	de	Übersetzungen verwalten
 move to	sitemgr	de	Verschieben nach
 name	sitemgr	de	Name
-no anonymous user accounts installed. notify the administrator.	sitemgr	de	DER USER ANONYMOUS IST NICHT INSTALLIERT. BENACHRICHTIGEN SIE DEN ADMINISTRATOR.
+no anonymous user accounts installed. notify the administrator.	sitemgr-site	de	DER USER ANONYMOUS IST NICHT INSTALLIERT. BENACHRICHTIGEN SIE DEN ADMINISTRATOR.
 no content found	sitemgr	de	Kein Inhalt gefunden
 no groups defined.	sitemgr	de	Keine Gruppen definiert.
 no options available.	sitemgr	de	Keine Optionen verfügbar.
-no pages available	sitemgr	de	Keine Seiten verfügbar
+no pages available	sitemgr-site	de	Keine Seiten verfügbar
 no users defined.	sitemgr	de	Keine Benutzer definiert.
 page manager	sitemgr	de	Seiten Manager
 page saved.	sitemgr	de	Seite gespeichert.
-pages	sitemgr	de	Seiten
+pages	sitemgr-site	de	Seiten
 parent	sitemgr	de	Übergeordnet
-password	sitemgr	de	Passwort
+password	sitemgr-site	de	Passwort
 read permission	sitemgr	de	Leserechte
-register for one now.	sitemgr	de	Hier können Sie sich Registrieren.
+register for one now.	sitemgr-site	de	Hier können Sie sich Registrieren.
 required fields	sitemgr	de	Benötigte Felder
 reset	sitemgr	de	Zurück Setzen
 return to main menu.	sitemgr	de	Zurück zum Hauptmenü.
-root site index	sitemgr	de	Wurzelverzeichnis
+root site index	sitemgr-site	de	Wurzelverzeichnis
 save	sitemgr	de	Speichern
 saved	sitemgr	de	Gespeichert
-selected template %1 does not exist.	sitemgr	de	Das ausgewählte Template %1 ist nicht verfügbar.
-selected theme %1 does not exist.	sitemgr	de	Das ausgewählte Thema %1 ist nicht verfügbar.
+selected template %1 does not exist.	sitemgr-site	de	Das ausgewählte Template %1 ist nicht verfügbar.
+selected theme %1 does not exist.	sitemgr-site	de	Das ausgewählte Thema %1 ist nicht verfügbar.
 show site index	sitemgr	de	Site Inhaltsverzeichnis anzeigen
 site format manager	sitemgr	de	Site Formatmanager
-site index	sitemgr	de	Site Inhaltsverzeichnis
+site index	sitemgr-site	de	Site Inhaltsverzeichnis
 site name	sitemgr	de	Site Name
 site setup	common	de	Setup der Website
 sitemgr options	sitemgr	de	SiteMgr Optionen
 sitemgr setup instructions	sitemgr	de	SiteMgr Setup Informationen
 sitemgr web content manager	common	de	SiteMgr Contentmanagement
 sort order	sitemgr	de	Reihenfolge der Sortierung
-subcategories	sitemgr	de	Unterkategorien
+subcategories	sitemgr-site	de	Unterkategorien
 subtitle	sitemgr	de	Untertitel
-table of contents	sitemgr	de	Themengebiete
+table of contents	sitemgr-site	de	Themengebiete
 the name field cannot contain punctuation or spaces (field modified).	sitemgr	de	Das Feld Name darf keine Punkte oder Leerzeichen enthalten (field modified).
 the page name must be unique.	sitemgr	de	Der Seiten Name muss einmalig sein.
 the page was successfully saved.	sitemgr	de	Die Seite wurde erfolgreich gespeichert.
 theme or template select	sitemgr	de	Thema oder Templateauswahl
-there are no pages in this section	sitemgr	de	In diesem Bereich sind keine Seiten vorhanden
-there are no sections available to you.	sitemgr	de	Sie haben auf keinen Zugriff auf die Sektionen.
+there are no pages in this section	sitemgr-site	de	In diesem Bereich sind keine Seiten vorhanden
+there are no sections available to you.	sitemgr-site	de	Sie haben auf keinen Zugriff auf die Sektionen.
 there was an error accessing the requested page. either you do not have permission to view this page, or the page does not exist.	common	de	Ein Fehler ist aufgetreten beim Aufruf der angeforderten Seite. Entweder haben Sie nicht die Rechte diese Seite anzusehen, oder diese Seite existiert nicht.
 there was an error writing to the database.	sitemgr	de	Beim schreiben in die Datenbank ist ein Fehler aufgetreten.
 this category has no pages.	sitemgr	de	Diese Kategorie hat keine Seiten.
 title	sitemgr	de	Titel
 translation manager	sitemgr	de	Übersetzungen
-up to table of contents	sitemgr	de	Zum Inhaltsverzeichnis wechseln
+up to table of contents	sitemgr-site	de	Zum Inhaltsverzeichnis wechseln
 updating to new category system	sitemgr	de	Update zum neuen Kategorie System
 url to sitemgr-site	sitemgr	de	URL zur sitemgr-site
 use phpnuke themes instead of templates	sitemgr	de	Benutze phpNuke Themen anstelle von Templates
@@ -111,11 +111,11 @@ web content manager	common	de	SiteMgr Contentmanagement
 web content manager administration	sitemgr	de	Web Content Manager Administration
 write permission	sitemgr	de	Schreibrechte
 yes, please delete it	sitemgr	de	Ja, löschen
-you do not have access to any content on this site.	sitemgr	de	Sie haben keinen Zugriff zum Inhalte dieser Seite.
+you do not have access to any content on this site.	sitemgr-site	de	Sie haben keinen Zugriff zum Inhalte dieser Seite.
 you don't have permission to write in the category	sitemgr	de	Sie haben keine Rechte um in dieser Kategorie zu schreiben
 you don't have permission to write to that category.	sitemgr	de	Sie haben nicht die Rechte in diese Kategorie zu schreiben.
 you failed to fill in one or more required fields.	sitemgr	de	Sie haben eines oder mehrere benötigte Felder nicht ausgefüllt.
 you must be an admin to edit categories.	sitemgr	de	Sie benötigen Administrator Rechte zum Editieren der Kategorien.
 you must be an admin to edit the site header and footer.	sitemgr	de	Sie müssen Admin Rechte  haben zum editieren der Seiten Kopf oder Fusszeile
 you must be an administrator to setup the site manager.	sitemgr	de	Sie müssen administrative Rechte haben zum Konfigurieren des Site Managers.
-your calendar	sitemgr	de	Ihr Kalendar
+your calendar	sitemgr-site	de	Ihr Kalendar
