@@ -23,7 +23,7 @@ class module_bookmarks extends Module
 	function get_user_interface()
 	{
 		$cat = createobject('phpgwapi.categories','','bookmarks');
-		$cats = $cat->return_array('mains',0,False,'','cat_name','',True);
+		$cats = $cat->return_array('all',0,False,'','cat_name','',True);
 		$cat_ids = array();
 		while (list(,$category) = @each($cats))
 		{
