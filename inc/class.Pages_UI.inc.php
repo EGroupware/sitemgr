@@ -35,9 +35,9 @@
 			$this->sitelanguages = $GLOBALS['Common_BO']->sites->current_site['sitelanguages'];
 		}
 	
-		function delete()
+		function delete($page_id = 0)
 		{
-			$page_id = $_GET['page_id'];
+			if (!$page_id) $page_id = $_GET['page_id'];
 			$this->pagebo->removePage($page_id);
 			if ($_GET['menuaction'] == 'sitemgr.Outline_UI.manage')
 			{
@@ -49,11 +49,10 @@
 		function edit()
 		{
 			$GLOBALS['Common_BO']->globalize(array(
-				'inputhidden','btnAddPage','btnDelete','btnEditPage','btnSave','inputsort','inputstate',
+				'inputhidden','inputsort','inputstate',
 				'inputtitle','inputname','inputsubtitle','savelanguage','inputpageid','inputcategoryid'));
 
 			global $inputpageid,$inputcategoryid, $inputhidden, $inputstate;
-			global $btnAddPage, $btnDelete, $btnEditPage, $btnSave;
 			global $inputsort,$inputtitle, $inputname, $inputsubtitle;
 			global $savelanguage;
 			$page_id = $inputpageid ? $inputpageid : $_GET['page_id'];
@@ -62,7 +61,13 @@
 			$GLOBALS['phpgw']->common->phpgw_header();
 			$this->t->set_file('EditPage', 'edit_page.tpl');
 
-			if($btnSave)
+			if ($_POST['btnDelete'])
+			{
+				return $this->delete($page_id);
+			}
+			$focus_reload_close = 'window.focus();';
+
+			if($_POST['btnSave'] || $_POST['btnApply'])
 			{
 				if ($inputname == '' || $inputtitle == '')
 				{
@@ -94,6 +99,12 @@
 					if (!is_string($save_msg))
 					{
 						$this->t->set_var('message',lang('Page saved'));
+
+						$focus_reload_close = 'opener.location.reload();';
+						if ($_POST['btnSave'])
+						{
+							$focus_reload_close .= 'self.close();';
+						}
 					}
 					else
 					{
@@ -104,7 +115,7 @@
 
 			if($page_id)
 			{
-				$page = $this->pagebo->getPage($page_id,$this->sitelanguages[0]);
+				$page = $this->pagebo->getPage($page_id,$this->sitelanguages[0],True);
 				if (!$GLOBALS['Common_BO']->acl->can_write_category($page->cat_id))
 				{
 					$GLOBALS['phpgw']->redirect($GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Outline_UI.manage'));
@@ -143,6 +154,7 @@
 			$link_data['page_id'] = $page_id;
 			$link_data['category_id'] = $inputcategoryid;
 			$this->t->set_var(array(
+				'focus_reload_close' => $focus_reload_close,
 				'title' =>$page->title,
 				'subtitle' => $page->subtitle,
 				'name'=>$page->name,
@@ -157,9 +169,11 @@
 				'lang_category' => lang('Category'),
 				'lang_hide' => lang('Check to hide from condensed site index.'),
 				'lang_required' => lang('Required Fields'),
-				'lang_done' => lang('Done'),
-				'lang_reset' => lang('Reset'),
+				'lang_apply' => lang('Apply'),
+				'lang_cancel' => lang('Cancel'),
 				'lang_save' => lang('Save'),
+				'lang_delete' => lang('Delete'),
+				'lang_confirm' => lang('Do you realy want to delete this page?'),
 				'lang_state' => lang('State'),
 				'lang_nameinfo' => lang('(Do not put spaces or punctuation in the Name field.)'),
 			));

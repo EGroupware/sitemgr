@@ -92,13 +92,13 @@
 			$GLOBALS['Common_BO']->content->removeBlocksInPageOrCat($cat_id,$page_id,True);
 		}
 
-		function getPage($page_id,$lang=False)
+		function getPage($page_id,$lang=False,$force=False)
 		{
 			$page = $this->so->getPage($page_id,$lang);
 			if ($page && in_array($page->cat_id,$GLOBALS['Common_BO']->cats->readablecats))
 			{
 				//if the page is not in published status we maintain its name so that switching from edit to prodcution mode works
-				if (!in_array($page->state,$GLOBALS['Common_BO']->visiblestates))
+				if (!in_array($page->state,$GLOBALS['Common_BO']->visiblestates) && !$force)
 				{
 					$page->title = lang('Error accessing page');
 					$page->subtitle = '';

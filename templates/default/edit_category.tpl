@@ -1,4 +1,4 @@
-<script>window.focus();</script>
+<script>{focus_reload_close}</script>
 <div id="divMain">
 <form method="POST">
 <input type="hidden" name="inputcatid" value="{cat_id}">
@@ -86,9 +86,10 @@
 	</tr>
 	<tr>
 		<td colspan="2" align="center">
-			<input type="reset" name="reset" value="{lang_reset}">
- 			<input type="submit" name="btnSave" value="{lang_save}"> {savelang}
-			<input type="reset" onclick="opener.location.reload();self.close()" value="{lang_done}"  />
+			<input type="submit" name="btnSave" value="{lang_save}" /> {savelang}
+			<input type="submit" name="btnApply" value="{lang_apply}" /> &nbsp;
+			<input type="submit" name="btnDelete" value="{lang_delete}" onClick="return confirm('{lang_confirm}');" /> &nbsp;
+			<input type="reset" value="{lang_cancel}" onClick="self.close();" />
 		</td>
 	</tr>
 </table>

@@ -1,7 +1,7 @@
 <!-- BEGIN Block -->
 <!-- BEGIN Moduleeditor -->
 {standalone}
-<script>window.focus();</script>
+<script>{focus_reload_close}</script>
 <div style="border-width:2px;border-style:solid; margin:5mm;padding:5mm">
 <h4>{moduleinfo}: {description}</h4>
 <div style="color:red; text-align: center; font-weight:bold;">{validationerror}</div>
@@ -19,11 +19,14 @@
 </table>
 </div>
 <!-- END Version -->
+<div align="center">
 <input type="hidden" value="{blockid}" name="inputblockid" />
-<input type="submit" value="{savebutton}" name="btnSaveBlock" /> {savelang}
-<input type="submit" value="{deletebutton}" name="btnDeleteBlock" />
-<input type="submit" value="{createbutton}" name="btnCreateVersion" />
-{donebutton}
+<input type="submit" value="{lang_save}" name="btnSaveBlock" /> {savelang}
+{apply_button} &nbsp;
+<input type="submit" value="{lang_delete}" name="btnDeleteBlock" onClick="return confirm('{lang_confirm}');" /> &nbsp;
+<input type="submit" value="{lang_createversion}" name="btnCreateVersion" /> &nbsp;
+{cancel_button}
+</div>
 </form>
 </div>
 <!-- END Moduleeditor -->

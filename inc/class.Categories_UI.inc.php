@@ -46,7 +46,7 @@
 			}
 
 			$GLOBALS['Common_BO']->globalize(array(
-				'btnSave','inputcatname','inputcatdesc','inputcatid','inputsortorder','inputparent','inputstate',
+				'inputcatname','inputcatdesc','inputcatid','inputsortorder','inputparent','inputstate',
 				'inputindexpage','inputparentold','savelanguage','inputgetparentpermissions','inputapplypermissionstosubs',
 				'inputgroupaccessread','inputgroupaccesswrite','inputindividualaccessread','individualaccesswrite'
 			));
@@ -56,7 +56,13 @@
 			global $savelanguage, $inputgetparentpermissions,$inputapplypermissionstosubs;
 			$cat_id = $inputcatid ? $inputcatid : $_GET['cat_id'];
 
-			if ($btnSave)
+			if ($_POST['btnDelete'])
+			{
+				return $this->delete($cat_id);
+			}
+			$focus_reload_close = 'window.focus();';
+
+			if ($_POST['btnSave'] || $_POST['btnApply'])
 			{
 				if ($inputcatname == '' || $inputcatdesc == '')
 				{
@@ -84,14 +90,14 @@
 						$this->cat_bo->applyCategoryPermstosubs($cat_id);
 					}
 					$this->t->set_var('message',lang('Category saved'));
+					$focus_reload_close = 'opener.location.reload();';
+					if ($_POST['btnSave'])
+					{
+						$focus_reload_close .= 'self.close();';
+					}
 				}
 			}
 
-			if ($_GET['addsub'])
-			{
-				$cat->parent = $cat_id;
-				$cat_id = 0;
-			}
 			if ($cat_id)
 			{
 				//we use force here since we might edit an archive category
@@ -120,13 +126,14 @@
 					($page['value'] == $cat->index_page_id ? ' selected="1"' : '').'>'.$page[display]."</option>\n";
 			}
 			$this->t->set_var(array(
+				'focus_reload_close' => $focus_reload_close,
 				'add_edit' => ($cat_id ? lang('Edit Category') : lang('Add Category')),
 				'cat_id' => $cat_id,
 				'catname' => $cat->name,
 				'catdesc' => $cat->description,
 				'indexpageselect' => $indexpageselect,
 				'sort_order' => $cat->sort_order,
-				'parent_dropdown' => $this->getParentOptions($cat->parent,$cat_id),
+				'parent_dropdown' => $this->getParentOptions($_GET['addsub'] ? $_GET['addsub'] : $cat->parent,$cat_id),
 				'stateselect' => $GLOBALS['Common_BO']->inputstateselect($cat->state),
 				'old_parent' => $cat->parent,
 				'lang_basic' => lang('Basic Settings'),
@@ -142,15 +149,17 @@
 				'lang_implies' => lang('implies read permission'),
 				'lang_useraccess' => lang('Individual Access Permissions'),
 				'lang_username' => lang('User Name'),
-				'lang_reset' => lang('Reset'),
+				'lang_apply' => lang('Apply'),
+				'lang_cancel' => lang('Cancel'),
 				'lang_save' => lang('Save'),
+				'lang_delete' => lang('Delete'),
+				'lang_confirm' => lang('Are you sure you want to delete the category %1 and all of its associated pages?  You cannot retrieve the deleted pages if you continue.',$cat->name),
 				'lang_state' => lang('State'),
-				'lang_done' => lang('Done'),
 				'lang_getparentpermissions' => lang('Fill in permissions from parent category? If you check this, below values will be ignored'),
 				'lang_applypermissionstosubs' => lang('Apply permissions also to subcategories?'),
 				'lang_required' => lang('Required Fields'),
 			));
-		
+
 			$acct = CreateObject('phpgwapi.accounts');
 			$grouplist = $this->acl->get_group_list();
 			$permissionlist = ($cat_id ? $this->acl->get_group_permission_list($cat_id) : array());
@@ -273,7 +282,7 @@
 			return $retval;
 		}
 
-		function delete()
+		function delete($cat_id = 0)
 		{
 			if (!$this->isadmin)
 			{
@@ -281,16 +290,18 @@
 				return;
 			}
 
-			$cat_id = $_GET['cat_id'];
+			$standalone = $_GET['standalone'] || $cat_id;	// standalone => close this window after deleting
 
-			if ($_POST['btnDelete'] || $_POST['btnCancel'] || $_GET['standalone'])
+			if (!$cat_id) $cat_id = $_GET['cat_id'];
+
+			if ($_POST['btnDelete'] || $_POST['btnCancel'] || $standalone)
 			{
-				if ($_POST['btnDelete'] || $_GET['standalone'])
+				if ($_POST['btnDelete'] || $standalone)
 				{
 					$this->cat_bo->removeCategory($cat_id);
 					$reload = 'opener.location.reload();';
 				}
-				if ($_GET['standalone'])
+				if ($standalone)
 				{
 					echo '<html><head></head><body onload="'.$reload.'self.close()"></body></html>';
 					return;
