@@ -43,14 +43,22 @@
 
 		function getChildrenIDList($parent)
 		{
-			// we need to sort after our sort-order in the cat-data-column as int
+			// we need to sort after our sort-order in the cat-data-column as integer (!) not char
 			$order_by = 'cat_data';
-			if ($this->db->Type == 'mssql')
+			switch($this->db->Type)
 			{
-				$order_by = "CAST($order_by AS varchar)";
+				case 'mysql':
+					// cast is mysql 4 only and has differnt types, eg. CAST(cat_data AS signed)
+					$order_by = "round($order_by)";
+					break;
+				case 'mssql':
+					// mssql cant cast direct from text to int
+					$order_by = "CAST($order_by AS varchar)";
+					// fall through
+				default:
+					$order_by = "CAST($order_by AS integer)";
+					break;
 			}
-			$order_by = "CAST($order_by AS int)";
-
 			$cats = $this->cats->return_array('all','',False,'','',$order_by,False,$parent,-1,'id');
 			$result = array();
 
