@@ -55,6 +55,7 @@
 		'sitetree' => array('left','right','__PAGE__'),
 		'toc_block' => array('left','right'),
 		'toc' => array('__PAGE__'),
+		'wiki' => array('__PAGE__'),
 	);
 	$dir = opendir(PHPGW_SERVER_ROOT.'/sitemgr/modules');
 	while($file = readdir($dir))
