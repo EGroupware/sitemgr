@@ -76,11 +76,11 @@
 		{
 			$GLOBALS['Common_BO']->globalize(array(
 				'inputblockid','inputblocktitle','inputblocksort','inputblockview',
-				'inputstate','btnSaveBlock','btnDeleteBlock','btnCreateVersion',
+				'inputstate','btnSaveBlock','btnApplyBlock','btnDeleteBlock','btnCreateVersion',
 				'btnDeleteVersion','inputmoduleid','inputarea','btnAddBlock','element'
 			));
 			global $inputblockid, $inputblocktitle, $inputblocksort,$inputblockview;
-			global $inputstate,$btnSaveBlock,$btnDeleteBlock,$btnCreateVersion;
+			global $inputstate,$btnSaveBlock,$btnApplyBlock,$btnDeleteBlock,$btnCreateVersion;
 			global $inputmoduleid, $inputarea, $btnAddBlock, $btnDeleteVersion, $element;
 
 			global $page_id,$cat_id;
@@ -89,7 +89,9 @@
 			$block_id = $_GET['block_id'];
 
 			if ($block_id)
-			{}
+			{
+				$focus_reload_close = 'window.focus();';
+			}
 			elseif ($page_id)
 			{
 				$page = $GLOBALS['Common_BO']->pages->getPage($page_id);
@@ -157,7 +159,7 @@
 					$this->errormsg[] = lang("You did not choose a module.");
 				}
 			}
-			elseif ($btnSaveBlock || $_GET['sort_order'] && $block_id)
+			elseif ($btnSaveBlock || $btnApplyBlock || $_GET['sort_order'] && $block_id)
 			{
 				if ($_GET['sort_order'])
 				{
@@ -183,8 +185,9 @@
 				else
 				{
 					$this->errormsg[] = lang('Block saved');
+					$focus_reload_close = 'opener.location.reload();';
 				}
-				if ($_GET['sort_order'])
+				if ($_GET['sort_order'] || $block_id && $btnSaveBlock && $result === True)
 				{
 					echo '<html><head></head><body onload="opener.location.reload();self.close()"></body></html>';
 				}
@@ -234,12 +237,15 @@
 
 				$this->t->set_var(array(
 					'validationerror' => implode('<br />',$this->errormsg),
-					'savebutton' => lang('Save block'),
-					'deletebutton' => lang('Delete block'),
+					'lang_save' => lang('Save'),
+					'lang_delete' => lang('Delete'),
+					'lang_confirm' => lang('Do you realy want to delete this block?'),
 					'contentarea' => lang('Contentarea'),
-					'createbutton' => lang('Create new version'),
+					'lang_createversion' => lang('Create new version'),
 					'standalone' => '<div id="divMain">',
-					'donebutton' => '<input type="reset" onclick="opener.location.reload();self.close()" value="' . lang('Done') . '"  />'
+					'cancel_button' => '<input type="reset" value="'.lang('Cancel').'" onClick="self.close();" />',
+					'apply_button' => '<input type="submit" name="btnApplyBlock" value="'.lang('Apply').'" />',
+					'focus_reload_close' => $focus_reload_close,
 				));
 				$this->showblock($block,True,True,True);
 				$GLOBALS['phpgw']->common->phpgw_header();
@@ -264,10 +270,12 @@
 			{
 				$this->t->set_var(array(
 					'help' => lang('You can override each content blocks default title. Be aware that not in all content areas the block title will be visible.'),
-					'savebutton' => lang('Save block'),
-					'deletebutton' => lang('Delete block'),
+					'lang_save' => lang('Save'),
+					'lang_delete' => lang('Delete'),
 					'contentarea' => lang('Contentarea'),
-					'createbutton' => lang('Create new version'),
+					'lang_createversion' => lang('Create new version'),
+					'apply_button' => '',
+					'cancel_button' => '',
 				));
 
 				foreach ($contentareas as $contentarea)
@@ -408,19 +416,49 @@
 
 		function archive()
 		{
-			if ($_POST['btnReactivate'])
+			if ($_POST['btnReactivate'] || $_POST['btnDelete'])
 			{
-				while(list($cat_id,) = @each($_POST['cat']))
+				if (is_array($_POST['cat']) && count($_POST['cat']) > 0)
 				{
-					$GLOBALS['Common_BO']->cats->reactivate($cat_id);
+					foreach($_POST['cat'] as $cat_id => $nul)
+					{
+						if ($_POST['btnReactivate'])
+						{
+							$GLOBALS['Common_BO']->cats->reactivate($cat_id);
+						}
+						elseif ($GLOBALS['Common_BO']->acl->is_admin())	// we need to do the ACL-check as we have to force
+						{
+							$GLOBALS['Common_BO']->cats->removeCategory($cat_id,True,True);
+						}
+					}
 				}
-				while(list($page_id,) = @each($_POST['page']))
+				if (is_array($_POST['page']) && count($_POST['page']) > 0)
 				{
-					$GLOBALS['Common_BO']->pages->reactivate($page_id);
+					foreach($_POST['page'] as $page_id => $nul)
+					{
+						if ($_POST['btnReactivate'])
+						{
+							$GLOBALS['Common_BO']->pages->reactivate($page_id);
+						}
+						else
+						{
+							$GLOBALS['Common_BO']->pages->removePage($page_id);
+						}
+					}
 				}
-				while(list($block_id,) = @each($_POST['block']))
+				if (is_array($_POST['block']) && count($_POST['block']) > 0)
 				{
-					$this->bo->reactivate($block_id);
+					foreach($_POST['block'] as $block_id => $nul)
+					{
+						if ($_POST['btnReactivate'])
+						{
+							$this->bo->reactivate($block_id);
+						}
+						else
+						{
+							$this->bo->removeBlock($block_id);
+						}
+					}
 				}
 			}
 
@@ -435,7 +473,9 @@
 				'lang_categories' => lang('Categories'),
 				'lang_pages' => lang('Pages'),
 				'lang_blocks' => lang('Content blocks'),
-				'lang_reactivate' => lang('Reactivate content')
+				'lang_reactivate' => lang('Reactivate content'),
+				'lang_delete' => lang('Delete'),
+				'lang_confirm' => lang('Do you realy want to delete the selected Categories (including all pages), Pages and Blocks?'),
 			));
 
 			//Categories
