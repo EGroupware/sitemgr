@@ -1,12 +1,15 @@
 %1 content manager	sitemgr	en	%1 content manager
+%1 module manager	sitemgr	en	%1 module manager
 a simple picture galery	sitemgr	en	A simple picture galery
 actif	sitemgr	en	Actif
 add a category	sitemgr	en	Add a category
 add a new application	sitemgr	en	Add a new application
+add a new guestbook	sitemgr	en	Add a new guestbook
 add block to content area %1	sitemgr	en	Add block to content area %1
 add category	sitemgr	en	Add Category
 add new page to this category	sitemgr	en	Add new page to this category
 add page	sitemgr	en	Add Page
+add page to category	sitemgr	en	Add page to category
 administration	sitemgr-site	en	Administration
 administrative menu	sitemgr	en	Administrative Menu
 administrators	sitemgr	en	administrators
@@ -18,16 +21,22 @@ anonymous	sitemgr	en	anonymous
 anonymous user login domain	sitemgr	en	Anonymous user login domain
 anonymous user's password	sitemgr	en	Anonymous user's password
 anonymous user's username	sitemgr	en	Anonymous user's username
-anonymous user\'s password	sitemgr	en	Anonymous user's password
-anonymous user\'s username	sitemgr	en	Anonymous user's username
+application sitemgr_module_guestbook must be installed as a phpgroupware application for this module to run	sitemgr	en	Application sitemgr_module_guestbook must be installed as a phpgroupware application for this module to run
 apply permissions also to subcategories?	sitemgr	en	Apply permissions also to subcategories?
+archived	sitemgr	en	archived
+archived content	sitemgr	en	Archived content
+are contributors allowed to define new guestbooks?	sitemgr	en	Are contributors allowed to define new guestbooks?
+are you sure you want to delete site %1 and all its content? you cannot retrieve it if you continue.	sitemgr	en	Are you sure you want to delete site %1 and all its content? You cannot retrieve it if you continue.
 are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	en	Are you sure you want to delete the category %1 and all of its associated pages?  You cannot retrieve the deleted pages if you continue.
 as	common	en	as
+attempt to access information outside current website	sitemgr	en	Attempt to access information outside current website
+attempt to edit non-editable block	sitemgr	en	Attempt to edit non-editable block
 back to module manager	sitemgr	en	Back to module manager
 basic settings	sitemgr	en	Basic Settings
 before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr	en	Before the public web site can be viewed, you must configure the various locations and preferences.  Please go to the sitemgr setup page by following this link:
-block not found.	sitemgr-site	en	Block not found.
+block not found	sitemgr	en	Block not found
 block not found.	sitemgr	en	Block not found.
+block not found.	sitemgr-site	en	Block not found.
 block returned no content.	sitemgr-site	en	Block returned no content.
 bookmarks	sitemgr	en	Bookmarks
 calendar	sitemgr	en	Calendar
@@ -37,37 +46,53 @@ category	sitemgr-site	en	Category
 category description	sitemgr	en	Category Description
 category manager	sitemgr	en	Category Manager
 category name	sitemgr	en	Category Name
+category saved	sitemgr	en	Category saved
 changes saved.	sitemgr	en	Changes saved.
 check here after every upgrade	sitemgr	en	check here after every upgrade
 check to hide from condensed site index.	sitemgr	en	Check to hide from condensed site index.
 choose a category	sitemgr-site	en	Choose a category
+choose a guestbook	sitemgr	en	Choose a guestbook
 choose language	sitemgr-site	en	Choose language
 choose the categories to display	sitemgr	en	Choose the categories to display
 choose your site's theme or template.  note that if you changed the above checkbox you need to save before choosing a theme or template.	sitemgr	en	Choose your site's theme or template.  Note that if you changed the above checkbox you need to save before choosing a theme or template.
 collapse threads	sitemgr	en	Collapse Threads
+commit changes	sitemgr	en	Commit changes
 configure module properties	sitemgr	en	Configure module properties
 configure sitemgr	sitemgr	en	Configure SiteMgr
 contact the administrator.	sitemgr-site	en	Contact the administrator.
+content blocks	sitemgr	en	Content blocks
 content manager	sitemgr-site	en	Content Manager
 contentarea	sitemgr	en	Contentarea
 contributor menu	sitemgr	en	Contributor Menu
+create new version	sitemgr	en	Create new version
 current section	sitemgr	en	Current Section
+default	sitemgr	en	Default
 default home page id number	sitemgr	en	Default home page ID number
+delete block	sitemgr	en	Delete block
+delete category	sitemgr	en	Delete category
+delete page	sitemgr	en	Delete page
 delete this application	sitemgr	en	Delete this application
+delete this guestbook	sitemgr	en	Delete this guestbook
+delete version	sitemgr	en	Delete Version
 deleting all data for %1	sitemgr	en	Deleting all data for %1
 discussions	sitemgr	en	Discussions
 display link to autoregistration below login form?	sitemgr	en	Display link to autoregistration below login form?
 do you want to delete them?	sitemgr	en	Do you want to delete them?
+do you want to publish a rss feed for this news category	sitemgr	en	Do you want to publish a RSS feed for this news category
 don't have an account?	sitemgr-site	en	Don't have an account?
 done	sitemgr	en	Done
 downloaded	sitemgr	en	downloaded
+draft	sitemgr	en	draft
 edit categories and permissions	common	en	Edit Categories and Permissions
 edit category	sitemgr	en	Edit Category
 edit individual pages	common	en	Edit Individual Pages
 edit page	sitemgr	en	Edit Page
 edit properties of module %1 for %2 with scope %3	sitemgr	en	Edit properties of module %1 for %2 with scope %3
 edit site header and footer	common	en	Edit Site Header and Footer
+edit this block	sitemgr	en	Edit this block
+edit website	sitemgr	en	Edit Website
 enter a name	sitemgr	en	Enter a name
+enter the block content here	sitemgr	en	Enter the block content here
 enter the page content here	sitemgr	en	Enter the page content here
 error accessing page	common	en	Error accessing page
 everybody	sitemgr	en	everybody
@@ -98,9 +123,12 @@ html module	sitemgr	en	HTML module
 i'm sorry, you do not have write permissions for any site categories.	sitemgr	en	I'm sorry, you do not have write permissions for any site categories.
 if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	en	If you haven't done so already, create a user that will be used for public viewing of the site.  Recommended name: anonymous.
 image type	sitemgr	en	image type
+implies read permission	sitemgr	en	implies read permission
 individual access permission	sitemgr	en	Individual Access Permission
+individual access permissions	sitemgr	en	Individual Access Permissions
 interface to google website	sitemgr	en	Interface to google website
 languages the site user can choose from	sitemgr	en	Languages the site user can choose from
+last entries to the guestbook	sitemgr	en	Last entries to the guestbook
 latest reply	sitemgr	en	Latest Reply
 list of permitted modules specific to content area %1	sitemgr	en	List of permitted modules specific to content area %1
 login	sitemgr-site	en	Login
@@ -109,8 +137,12 @@ main content	sitemgr	en	Main content
 mains	sitemgr	en	Mains
 maintainer	sitemgr	en	Maintainer
 manage categories	sitemgr	en	Manage Categories
+manage categories and pages	sitemgr	en	Manage categories and pages
+manage category wide content	sitemgr	en	Manage category wide content
+manage category wide module properties	sitemgr	en	Manage category wide module properties
 manage content	sitemgr	en	Manage Content
 manage modules	sitemgr	en	Manage Modules
+manage page specific content	sitemgr	en	Manage page specific content
 manage pages	common	en	Manage Pages
 manage site content	sitemgr	en	Manage Site Content
 manage site-wide module properties	sitemgr	en	Manage site-wide module properties
@@ -119,10 +151,12 @@ master list of permitted modules	sitemgr	en	Master list of permitted modules
 migrating data for %1 to %2	sitemgr	en	Migrating data for %1 to %2
 module %1 is not permitted in this context!	sitemgr	en	Module %1 is not permitted in this context!
 module manager	sitemgr	en	Module manager
+more news	sitemgr	en	More news
 move to	sitemgr	en	Move to
 name	sitemgr	en	Name
 name has been translated to lower case	sitemgr	en	Name has been translated to lower case
 new application	sitemgr	en	New application
+new guestbook	sitemgr	en	New guestbook
 new sitemgr site	sitemgr	en	New sitemgr site
 news module	sitemgr	en	News module
 no anonymous user accounts installed.  notify the administrator.	sitemgr	en	NO ANONYMOUS USER ACCOUNTS INSTALLED.  NOTIFY THE ADMINISTRATOR.
@@ -130,20 +164,27 @@ no anonymous user accounts installed.  notify the administrator.	sitemgr-site	en
 no content areas found in selected template	sitemgr	en	No content areas found in selected template
 no content found	sitemgr	en	No content found
 no groups defined.	sitemgr	en	No groups defined.
+no matching news item	sitemgr	en	No matching news item
 no modules permitted for this content area/category	sitemgr	en	No modules permitted for this content area/category
 no options available.	sitemgr	en	No options available.
 no pages available	sitemgr-site	en	No pages available
 no sitelanguages configured	sitemgr	en	No sitelanguages configured
+no template file found.	sitemgr	en	No template file found.
 no templates found.	sitemgr	en	No templates found.
 no users defined.	sitemgr	en	No users defined.
+no websites defined	sitemgr	en	No websites defined
 not yet translated	sitemgr	en	not yet translated
 note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	en	Note that you may get this message if your preferences are incorrect.  For example, if config.inc.php is not found in the directory that you specified.
+number of news items to be displayed on page	sitemgr	en	Number of news items to be displayed on page
+or enter the title for a new guestbook	sitemgr	en	or enter the title for a new guestbook
+other websites	sitemgr	en	Other websites
 overview of all available categories	sitemgr	en	Overview of all available categories
 overview of one specific category	sitemgr	en	Overview of one specific category
 page	sitemgr	en	Page
 page content	sitemgr	en	Page Content
 page manager	sitemgr	en	Page Manager
 page name	sitemgr	en	Page Name
+page saved	sitemgr	en	Page saved
 page saved.	sitemgr	en	Page saved.
 page subtitle	sitemgr	en	Page Subtitle
 page title	sitemgr	en	Page Title
@@ -152,8 +193,14 @@ parent	sitemgr	en	Parent
 password	sitemgr-site	en	Password
 password that you assigned for the anonymous user account.	sitemgr	en	Password that you assigned for the anonymous user account.
 phpgw users	sitemgr	en	phpgw users
+please enter a name for that site !	sitemgr	en	Please enter a name for that site !
+please sign the guestbook	sitemgr	en	Please sign the guestbook
 post a message to this thread	sitemgr	en	Post A Message To This Thread
+prepublished	sitemgr	en	prepublished
+preunpublished	sitemgr	en	preunpublished
 previous	sitemgr	en	Previous
+published	sitemgr	en	published
+reactivate content	sitemgr	en	Reactivate content
 read permission	sitemgr	en	Read Permission
 redirection	sitemgr	en	Redirection
 refresh	sitemgr	en	Refresh
@@ -167,26 +214,34 @@ return to main menu.	sitemgr	en	Return to main menu.
 return to message list	sitemgr	en	Return to message list
 root site index	sitemgr-site	en	Root Site Index
 save	sitemgr	en	Save
+save block	sitemgr	en	Save block
 saved	sitemgr	en	Saved
 scope	sitemgr	en	Scope
 seen by	sitemgr	en	Seen by
 select a category	sitemgr	en	Select a category
 select a forum	sitemgr	en	Select a forum
 select allowed modules	sitemgr	en	Select allowed modules
+select persons and groups that are entitled to configure the website.	sitemgr	en	Select persons and groups that are entitled to configure the website.
 selected template %1 does not exist.	sitemgr-site	en	Selected template %1 does not exist.
 selected theme %1 does not exist.	sitemgr-site	en	Selected theme %1 does not exist.
 should the file be viewed in the browser or downloaded	sitemgr	en	Should the file be viewed in the browser or downloaded
 show site index	sitemgr	en	Show Site Index
 site	sitemgr	en	Site
+site %1 has been added	sitemgr	en	Site %1 has been added
+site %1 has been updated	sitemgr	en	Site %1 has been updated
+site administrators	sitemgr	en	Site administrators
+site description	sitemgr	en	Site description
 site format manager	sitemgr	en	Site Format Manager
 site index	sitemgr-site	en	Site Index
 site name	sitemgr	en	Site name
 site setup	common	en	Site Setup
 site tree menu	sitemgr	en	Site Tree Menu
+site wide	sitemgr	en	Site wide
 sitemgr options	sitemgr	en	SiteMgr Options
 sitemgr setup instructions	sitemgr	en	SiteMgr Setup Instructions
 sitemgr setup page	sitemgr	en	sitemgr setup page
 sitemgr web content manager	common	en	SiteMgr Web Content Manager
+sitemgr websites	sitemgr	en	Sitemgr Websites
 sort order	sitemgr	en	Sort Order
 strip html from block content?	sitemgr	en	Strip HTML from block content?
 subcategories	sitemgr-site	en	Subcategories
@@ -209,6 +264,7 @@ the person to say hello to	sitemgr	en	The person to say hello to
 the second directory is the sitemgr-site directory.  this can be moved <i>anywhere</i>.  it can also be named <i>anything</i>.  wherever it winds up, when you point a web browser to it, you will get the generated website.  assuming, of course, that you've accurately completed the setup fields below and also <b><i>edited the config.inc.php</i></b> file.	sitemgr	en	The second directory is the sitemgr-site directory.  This can be moved <i>anywhere</i>.  It can also be named <i>anything</i>.  Wherever it winds up, when you point a web browser to it, you will get the generated website.  Assuming, of course, that you've accurately completed the setup fields below and also <b><i>edited the config.inc.php</i></b> file.
 the text for the link, if empty the module returns the raw URL (without the HTML A element)	sitemgr	en	The text for the link, if empty the module returns the raw URL (without the HTML A element
 the url can be relative or absolute.  name must end in a slash.	sitemgr	en	The URL can be relative or absolute.  Name must end in a slash.
+the url must be absolute and end in a slash, for example http://mydomain.com/mysite/	sitemgr	en	The URL must be absolute and end in a slash, for example http://mydomain.com/mysite/
 the url to redirect to	sitemgr	en	The URL to redirect to
 the whole page	sitemgr	en	the whole page
 the xml files' common name	sitemgr	en	the XML files' common name
@@ -219,13 +275,17 @@ there are no pages in this section	sitemgr-site	en	There are no pages in this se
 there are no properties defined for this module	sitemgr	en	There are no properties defined for this module
 there are no sections available to you.	sitemgr-site	en	There are no sections available to you.
 there are two subdirectories off of your sitemgr directory that you should move before you do anything else.  you don't <i>have</i> to move either of these directories, although you will probably want to.	sitemgr	en	There are two subdirectories off of your sitemgr directory that you should move before you do anything else.  You don't <i>have</i> to move either of these directories, although you will probably want to.
+there can only be one version in (pre(un))published state, with the one exeption that one prepublished version can coexist with one preunpublished version	sitemgr	en	There can only be one version in (pre(un))published state, with the one exeption that one prepublished version can coexist with one preunpublished version
+there is no website configured for url %1.  notify the administrator.	sitemgr	en	THERE IS NO WEBSITE CONFIGURED FOR URL %1.  NOTIFY THE ADMINISTRATOR.
 there was an error accessing the requested page. either you do not have permission to view this page, or the page does not exist.	common	en	There was an error accessing the requested page. Either you do not have permission to view this page, or the page does not exist.
 there was an error writing to the database.	sitemgr	en	There was an error writing to the database.
 this block displays a javascript based tree menu	sitemgr	en	This block displays a javascript based tree menu
 this block displays the current section's table of contents	sitemgr	en	This block displays the current section's table of contents
 this category has no pages.	sitemgr	en	This category has no pages.
 this is a simple sample module	sitemgr	en	This is a simple sample module
+this is only used as an internal name for the website.	sitemgr	en	This is only used as an internal name for the website.
 this is used chiefly for meta data and the title bar. if you change the site languages below you have to save before being able to set this preference for a new language.	sitemgr	en	This is used chiefly for meta data and the title bar. If you change the site languages below you have to save before being able to set this preference for a new language.
+this is used chiefly for meta data. if you change the site languages below you have to save before being able to set this preference for a new language.	sitemgr	en	This is used chiefly for meta data. If you change the site languages below you have to save before being able to set this preference for a new language.
 this module create a link for downloading a file from the vfs	sitemgr	en	This module create a link for downloading a file from the VFS
 this module demonstrates how handling data stored in xml and building an interacvite interface from it	sitemgr	en	This module demonstrates how handling data stored in XML and building an interacvite interface from it
 this module displays a login form	sitemgr	en	This module displays a login form
@@ -267,6 +327,7 @@ viewed	sitemgr	en	viewed
 web content manager	common	en	SiteMgr Web Content Manager
 web content manager administration	sitemgr	en	Web Content Manager Administration
 web site manager	sitemgr	en	Web Site Manager
+website	sitemgr	en	Website
 week	sitemgr	en	week
 what do you want to do with existing translations of categories and pages for this language?	sitemgr	en	What do you want to do with existing translations of categories and pages for this language?
 with which view should the module be displayed in the beginning?	sitemgr	en	With which view should the module be displayed in the beginning?
@@ -280,6 +341,7 @@ you can either migrate them to a new language or delete them	sitemgr	en	You can 
 you can override each content blocks default title. be aware that not in all content areas the block title will be visible.	sitemgr	en	You can override each content blocks default title. Be aware that not in all content areas the block title will be visible.
 you did not choose a module.	sitemgr	en	You did not choose a module.
 you do not have access to any content on this site.	sitemgr-site	en	You do not have access to any content on this site.
+you do not have write permissions for any site categories.	sitemgr	en	You do not have write permissions for any site categories.
 you don't have permission to write in the category	sitemgr	en	You don't have permission to write in the category
 you don't have permission to write to that category.	sitemgr	en	You don't have permission to write to that category.
 you failed to fill in one or more required fields.	sitemgr	en	You failed to fill in one or more required fields.
@@ -290,3 +352,5 @@ you must be an administrator to setup the site manager.	sitemgr	en	You must be a
 you removed one ore more languages from your site languages.	sitemgr	en	You removed one ore more languages from your site languages.
 your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr	en	Your administrator has not yet setup the web content manager for public viewing.  Go bug your administrator to get their butt in gear.
 your calendar	sitemgr-site	en	Your Calendar
+your comment	sitemgr	en	Your comment
+your name	sitemgr	en	Your name

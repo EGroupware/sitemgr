@@ -163,7 +163,7 @@
 						'default'=>lang('New sitemgr site')
 					);
 					 $preferences['site_desc_' . $lang] = array(
-						'title'=>lang('Site descriptioin'). ' ' . $langname,
+						'title'=>lang('Site description'). ' ' . $langname,
 						'note'=>lang('This is used chiefly for meta data. If you change the site languages below you have to save before being able to set this preference for a new language.'),
 						'input'=>'textarea'
 					);
