@@ -1,26 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <!--
-    Convert a XBEL document into a HTML directory
-
-    Copyright (c) 2000 by Jürgen Hermann <snibril@cscene.org>
-
-    The XML Bookmark Exchange Language, or XBEL, is an Internet "bookmarks"
-    interchange format. It was designed by the Python XML Special Interest
-    Group on the group's mailing list. It grew out of an idea for a
-    demonstration of using Python for XML processing. More information,
-    including complete documentation on the DTD, is available.
-
-    See: http://www.python.org/topics/xml/xbel/
-
-    I hope this program is a step towards that goal, besides being useful
-    and a non-trivial learning example for me. Use this code in whatever
-    manner you like, but give me credit when you use larger amounts of it.
-
-    An example of the resulting output can be viewed at
-
-        http://center.oftheinter.net/~jh/xml/bookmarks/bookmarks.html
-
     $Id$
 -->
 
@@ -146,6 +126,9 @@ function toggle(image, catid)
         </xsl:choose>
       </a>
      </td>
+  </tr>
+  <tr>
+   <td colspan="2" style="padding:3mm"><xsl:value-of select="desc"/></td>
   </tr>
  </xsl:template>
 </xsl:stylesheet>
