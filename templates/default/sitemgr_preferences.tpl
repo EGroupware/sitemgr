@@ -12,10 +12,10 @@
 	<hr>
 	<form action="{formaction}" method="post">
 
-	URL to sitemgr-site directory: <br><input type="text" name="sitemgr_gen_url" value="{sitemgr-gen-url}" size="100"><br>
+	URL to sitemgr-site directory: <br><input type="text" name="sitemgr_site_url" value="{sitemgr-site-url}" size="100"><br>
 	<i>Note: the url can be relative or absolute.  Directory name must end in a slash.</i><br><br>
 
-	Filesystem location of sitemgr-site directory: <br><input type="text" name="sitemgr_gen_dir" value="{sitemgr-gen-dir}" size="100"><br>
+	Filesystem location of sitemgr-site directory: <br><input type="text" name="sitemgr_site_dir" value="{sitemgr-site-dir}" size="100"><br>
 	<i>Note: this must be an absolute directory location.  <b>NO trailing slash.</b></i><br><br>
 
 	Default Home Page ID Number: <br><input type="text" name="home_page_id" value="{home-page-id}" size="10"><br>

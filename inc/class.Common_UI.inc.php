@@ -32,21 +32,21 @@
 				$prefs_so = CreateObject('sitemgr.sitePreference_SO', True);
 				if ($GLOBALS['btnSave'])
 				{
-					$prefs_so->setPreference('sitemgr-gen-url',$GLOBALS['sitemgr_gen_url']);
-					$prefs_so->setPreference('sitemgr-gen-dir',$GLOBALS['sitemgr_gen_dir']);
+					$prefs_so->setPreference('sitemgr-site-url',$GLOBALS['sitemgr_site_url']);
+					$prefs_so->setPreference('sitemgr-site-dir',$GLOBALS['sitemgr_site_dir']);
 					$prefs_so->setPreference('home-page-id',$GLOBALS['home_page_id']);
 					$prefs_so->setPreference('sitemgr-site-name',$GLOBALS['sitemgr_site_name']);
 					echo '<p><b>Changes Saved.</b></p>';
 				}
-				$sitemgr_gen_url = $prefs_so->getPreference('sitemgr-gen-url');
-				$sitemgr_gen_dir = $prefs_so->getPreference('sitemgr-gen-dir');
+				$sitemgr_site_url = $prefs_so->getPreference('sitemgr-site-url');
+				$sitemgr_site_dir = $prefs_so->getPreference('sitemgr-site-dir');
 				$home_page_id = $prefs_so->getPreference('home-page-id');
 				$sitemgr_site_name = $prefs_so->getPreference('sitemgr-site-name');
 				$this->t->set_file('sitemgr_prefs','sitemgr_preferences.tpl');
 				$this->t->set_var('formaction',$GLOBALS['phpgw']->link(
 					'/index.php','menuaction=sitemgr.Common_UI.DisplayPrefs'));
-				$this->t->set_var('sitemgr-gen-url',$sitemgr_gen_url);
-				$this->t->set_var('sitemgr-gen-dir',$sitemgr_gen_dir);
+				$this->t->set_var('sitemgr-site-url',$sitemgr_site_url);
+				$this->t->set_var('sitemgr-site-dir',$sitemgr_site_dir);
 				$this->t->set_var('home-page-id',$home_page_id);
 				$this->t->set_var('sitemgr-site-name',$sitemgr_site_name);
 				$this->t->pfp('out','sitemgr_prefs');
@@ -61,13 +61,13 @@
 		function DisplayHeader()
 		{
 			$GLOBALS['phpgw']->common->phpgw_header();
-			echo parse_navbar();
+			//echo parse_navbar_end();
 			$this->t->set_file('sitemgr_header','sitemgr_header.tpl');
 			$this->t->set_var('mainmenu',
 				$GLOBALS['phpgw']->link('/index.php',
 				'menuaction=sitemgr.MainMenu_UI.DisplayMenu')
 			);
-			$this->t->set_var('sitemgr-site', $GLOBALS['phpgw']->link('/sitemgr-site/'));
+			$this->t->set_var('sitemgr-site', $GLOBALS['phpgw']->link('/sitemgr-link/'));
 			$this->t->pfp('out','sitemgr_header');
 		}
 

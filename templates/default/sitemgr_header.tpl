@@ -7,7 +7,7 @@
 		<i>
 		<a href='{mainmenu}'>View Administrative Menu</a>
 		</i>&nbsp;|&nbsp;<i>
-		<a href='{sitemgr-pub}' target='_blank'>View Generated Site</a>
+		<a href='{sitemgr-site}' target='_blank'>View Generated Site</a>
 		</i>
 		]
 	<hr>
