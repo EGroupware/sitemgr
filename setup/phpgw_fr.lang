@@ -114,6 +114,7 @@ translate	sitemgr	fr	Traduire
 translate category	sitemgr	fr	Traduire la catégorie
 translate page	sitemgr	fr	Traduire la page
 translation manager	sitemgr	fr	Gestion des traductions
+up to parent	sitemgr-site	fr	Vers le niveau supérieur
 up to table of contents	sitemgr-site	fr	Vers la table de matières
 updating to new category system	sitemgr	fr	Mise à jour vers le nouveau système de catégories
 url to sitemgr-site	sitemgr	fr	URL de sitemgr-site

@@ -114,6 +114,7 @@ translate	sitemgr	en	Translate
 translate category	sitemgr	en	Translate Category
 translate page	sitemgr	en	Translate Page
 translation manager	sitemgr	en	Translation Manager
+up to parent	sitemgr-site	en	Up to parent
 up to table of contents	sitemgr-site	en	Up to table of contents
 updating to new category system	sitemgr	en	Updating to new category system
 url to sitemgr-site	sitemgr	en	URL to sitemgr-site
@@ -137,4 +138,3 @@ you must be an admin to edit the site header and footer.	sitemgr	en	You must be 
 you must be an administrator to setup the site manager.	sitemgr	en	You must be an administrator to setup the Site Manager.
 you removed one ore more languages from your site languages.	sitemgr	en	You removed one ore more languages from your site languages.
 your calendar	sitemgr-site	en	Your Calendar
-view full index	sitemgr-site	en	
