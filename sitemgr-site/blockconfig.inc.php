@@ -16,6 +16,12 @@
 	);
 	*/
 	$blocks[]=array(
+		'skipifblank' => 1,
+		'position' => 'r',
+		'blockfile' => 'block-Current_Section.php',
+		'view' => 0
+	);
+	$blocks[]=array(
 		'title' => 'Root Site Index',
 		'position' => 'l',
 		'blockfile' => 'block-SiteIndex.php',

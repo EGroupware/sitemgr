@@ -144,8 +144,8 @@
 							$content .= '<br><br><b>Subcategories:</b><br>';
 							foreach ($children as $child)
 							{
-								$content .= '<br>&nbsp;&nbsp;&nbsp;&middot;&nbsp;'.
-									$child['link'].' &ndash; '.$child['description'];
+								$content .= '<br>&nbsp;&nbsp;&nbsp;&middot;&nbsp;<b>'.
+									$child['link'].'</b> &ndash; '.$child['description'];
 							}
 						}
 						$content .= '<br><br><b>Pages:</b><br>';

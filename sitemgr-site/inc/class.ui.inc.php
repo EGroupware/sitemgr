@@ -14,6 +14,7 @@
 	{
 		var $bo;
 		var $t;
+		var $tmp_title;
 
 		function ui()
 		{
@@ -176,7 +177,14 @@
 
 		function get_blocktitle($block)
 		{
-			return $block['title'];
+			if (!$block['title'])
+			{
+				return $this->tmp_title;
+			}
+			else
+			{
+				return $block['title'];
+			}
 		}
 
 		function get_blockcontent($block)
@@ -184,11 +192,13 @@
 			$content='';
 			if (file_exists('blocks/'.$block['blockfile']) && trim($block['blockfile']))
 			{
+				$title = '';
 				include('blocks/'.$block['blockfile']);
-				if (!$content)
+				if (!$content && !$block['skipifblank'])
 				{
 					$content = 'No content found';
 				}
+				$this->tmp_title = $title;
 			}
 			elseif ($block['content'])
 			{
@@ -213,11 +223,14 @@
 				{
 					if ($this->block_allowed($block))
 					{
-						$title = $this->get_blocktitle($block);
 						$content = $this->get_blockcontent($block);
-						$this->t->set_var('block_title',$title);
-						$this->t->set_var('block_content',$content);
-						$this->t->parse('SBlock','SideBlock',true);
+						$title = $this->get_blocktitle($block);
+						if ($content)
+						{
+							$this->t->set_var('block_title',$title);
+							$this->t->set_var('block_content',$content);
+							$this->t->parse('SBlock','SideBlock',true);
+						}
 					}
 				}
 			}
