@@ -24,6 +24,7 @@
 
 		return $setup_info['sitemgr']['currentver'];
 	}
+
 	$test[] = '0.9.14.001';
 	function sitemgr_upgrade0_9_14_001()
 	{
@@ -37,6 +38,7 @@
 
 		return $setup_info['sitemgr']['currentver'];
 	}
+
 	$test[] = '0.9.14.002';
 	function sitemgr_upgrade0_9_14_002()
 	{
@@ -639,4 +641,39 @@
 		return $setup_info['sitemgr']['currentver'];
 	}
 
-?>
+
+	$test[] = '0.9.15.005';
+	function sitemgr_upgrade0_9_15_005()
+	{
+		// setting all lang-columns to varchar(5)
+		foreach(array(
+			'phpgw_sitemgr_pages_lang',
+			'phpgw_sitemgr_categories_lang',
+			'phpgw_sitemgr_blocks_lang',
+			'phpgw_sitemgr_content_lang',
+		) as $table)
+		{
+			$GLOBALS['phpgw_setup']->oProc->AlterColumn($table,'lang',array(
+				'type' => 'varchar',
+				'precision' => '5',
+				'nullable' => False
+			));
+		}
+		$GLOBALS['setup_info']['sitemgr']['currentver'] = '0.9.15.006';
+		return $GLOBALS['setup_info']['sitemgr']['currentver'];
+	}
+
+
+	$test[] = '0.9.15.006';
+	function sitemgr_upgrade0_9_15_006()
+	{
+		// add column for index-pages
+		$GLOBALS['phpgw_setup']->oProc->AddColumn('phpgw_sitemgr_categories_state','index_page_id',array(
+			'type' => 'int',
+			'precision' => '4',
+			'default' => '0'
+		));
+
+		$GLOBALS['setup_info']['sitemgr']['currentver'] = '0.9.15.007';
+		return $GLOBALS['setup_info']['sitemgr']['currentver'];
+	}
