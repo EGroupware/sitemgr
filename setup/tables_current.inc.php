@@ -89,7 +89,7 @@
 		),
 		'phpgw_sitemgr_blocks_lang' => array(
 			'fd' => array(
-				'block_id' => array('type' => 'auto','nullable' => False),
+				'block_id' => array('type' => 'int','precision' => '4','nullable' => False),
 				'lang' => array('type' => 'varchar','precision' => '5','nullable' => False),
 				'title' => array('type' => 'varchar','precision' => '255')
 			),

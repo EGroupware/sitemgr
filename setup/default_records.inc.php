@@ -68,7 +68,7 @@
 		$module = $parts[1];
 		if (ereg('\$this->description = lang\(\'([^'."\n".']*)\'\);',implode("\n",file(PHPGW_SERVER_ROOT.'/sitemgr/modules/'.$file)),$parts))
 		{
-			$description = $parts[1];
+			$description = $GLOBALS['phpgw_setup']->db->db_addslashes(str_replace("\\'","'",$parts[1]));
 		}
 		else
 		{

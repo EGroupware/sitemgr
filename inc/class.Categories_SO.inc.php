@@ -43,7 +43,15 @@
 
 		function getChildrenIDList($parent)
 		{
-			$cats = $this->cats->return_array('all','',False,'','','cat_data',False,$parent,-1,'id');
+			// we need to sort after our sort-order in the cat-data-column as int
+			$order_by = 'cat_data';
+			if ($this->db->Type == 'mssql')
+			{
+				$order_by = "CAST($order_by AS varchar)";
+			}
+			$order_by = "CAST($order_by AS int)";
+
+			$cats = $this->cats->return_array('all','',False,'','',$order_by,False,$parent,-1,'id');
 			$result = array();
 
 			while (list(,$subs) = @each($cats))
