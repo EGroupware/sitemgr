@@ -328,7 +328,7 @@
 
 		//we register some standard modules so that the default site template works
 		$db2 = $phpgw_setup->db;
-		foreach (array('html','index','toc') as $module)
+		foreach (array('index','toc','html') as $module)
 		{
 			$db2->query("INSERT INTO phpgw_sitemgr_modules (app_name,module_name) VALUES ('sitemgr','$module')",__LINE__,__FILE__);
 			$module_id = $db2->get_last_insert_id('phpgw_sitemgr_modules','module_id');
@@ -343,13 +343,14 @@
 		{
 			$page_id = $GLOBALS['phpgw_setup']->oProc->f('page_id');
 			$cat_id = $GLOBALS['phpgw_setup']->oProc->f('cat_id');
+			//module_id is still the id of html module since it is the last inserted above
 			$db2->query("INSERT INTO phpgw_sitemgr_content (area,cat_id,page_id,module_id,arguments,sort_order,view,actif) VALUES ('CENTER',$cat_id,$page_id,$module_id,'$emptyarray',0,0,1)",__LINE__,__FILE__);
 			$block_id = $db2->get_last_insert_id('phpgw_sitemgr_content','block_id');
 			$db2->query("select * from phpgw_sitemgr_pages_lang WHERE page_id = $page_id",__LINE__,__FILE__);
 			while($db2->next_record())
 			{
 				$lang = $db2->f('lang');
-				$content = serialize(array('htmlcontent' => $db2->f('content')));
+				$content = $db2->db_addslashes(serialize(array('htmlcontent' => stripslashes($db2->f('content')))));
 				$db3->query("INSERT INTO phpgw_sitemgr_content_lang (block_id,lang,arguments_lang,title) VALUES ($block_id,'$lang','$content','HTML')",__LINE__,__FILE__);
 			}
 		}
