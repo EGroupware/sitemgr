@@ -305,7 +305,7 @@ class Module
 				{
 					$GLOBALS['phpgw']->html = CreateObject('phpgwapi.html');
 				}
-				return $GLOBALS['phpgw']->html->htmlarea($elementname,$default,$input['params']['style']);
+				return $GLOBALS['phpgw']->html->htmlarea($elementname,$default,$input['params']['style'],$GLOBALS['Common_BO']->sites->current_site['site_url']);
 			case 'textarea':
 				return '<textarea ' . $inputdef . '>' . $default . '</textarea>';
 			case 'textfield':

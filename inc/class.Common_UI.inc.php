@@ -321,7 +321,7 @@
 			{
 				$GLOBALS['phpgw']->html = CreateObject('phpgwapi.html');
 			}
-			return $GLOBALS['phpgw']->html->htmlarea("pref[$name]",$default,$cols,$rows);
+			return $GLOBALS['phpgw']->html->htmlarea("pref[$name]",$default,'',$GLOBALS['Common_BO']->sites->current_site['site_url']);
 		}
 
 		function inputCheck($name = '')
