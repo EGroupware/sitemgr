@@ -25,15 +25,14 @@
 
 		function getChildrenIDList($parent)
 		{
-			//TODO add a return_id_array function to the API category class
-			$cats = $this->cats->return_array('all','',False,'','','',False,$parent);
+			$cats = $this->cats->return_array('all','',False,'','','cat_data',False,$parent,-1,'id');
 			$result = array();
 
 			while (list(,$subs) = @each($cats))
 			{
-				$subs_id_list[] = $subs['id'];
+				$result[] = $subs['id'];
 			}
-			return $subs_id_list;
+			return $result;
 		}
 
 		function addCategory($name, $description, $parent = False)

@@ -30,6 +30,7 @@
 				}
 				if ($query)
 				{
+					$query = $this->db->db_addslashes($query);
 					$whereclause = "WHERE site_name LIKE '%$query%'"
 						. "OR site_url LIKE '%$query%'"
 						. "OR site_dir LIKE '%$query%'";
@@ -73,7 +74,8 @@
 
 		function urltoid($url)
 		{
-			$sql = "SELECT site_id FROM phpgw_sitemgr_sites WHERE site_url = '$url'";
+			$sql  = 'SELECT site_id FROM phpgw_sitemgr_sites ';
+			$sql .= "WHERE site_url ='" . $this->db->db_addslashes($url) . "'";
 			$this->db->query($sql,__LINE__,__FILE__);
 			$this->db->next_record();
 			return $this->db->f('site_id');
@@ -81,7 +83,8 @@
 
 		function read($id)
 		{
-			$sql = "SELECT * from phpgw_sitemgr_sites WHERE site_id = $id";
+			$sql =  'SELECT * FROM phpgw_sitemgr_sites ';
+			$sql .= 'WHERE site_id = ' . intval($id);
 			$this->db->query($sql,__LINE__,__FILE__);
 			if ($this->db->next_record())
 			{
@@ -104,7 +107,8 @@
 
 		function read2($id)
 		{
-			$sql = "SELECT site_url,site_dir from phpgw_sitemgr_sites WHERE site_id = $id";
+			$sql  = 'SELECT site_url,site_dir FROM phpgw_sitemgr_sites ';
+			$sql .= 'WHERE site_id = ' . intval($id);
 			$this->db->query($sql,__LINE__,__FILE__);
 			if ($this->db->next_record())
 			{

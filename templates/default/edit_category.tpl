@@ -20,7 +20,7 @@
 	</tr>
 	<tr>
 		<td>{lang_catsort}:</td>
-		<td><input type="text" name="inputsort" value="{sort_order}"></td>
+		<td><input type="text" name="inputsortorder" value="{sort_order}"></td>
 	</tr>
 	<tr>
 		<td>{lang_catparent}:</td>

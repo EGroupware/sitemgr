@@ -28,9 +28,13 @@
 			//and not when it is generated for the web site, thus speeding the latter up slightly
 			$cat = createobject('phpgwapi.categories','','news_admin');
 			$cats = $cat->return_array('all',0,False,'','','cat_name',True);
-			while (list(,$category) = @each($cats))
+			if ($cats)
 			{
-				$cat_ids[$category['id']] = $category['name'];
+				$cat_ids['all'] = lang('All categories');
+				while (list(,$category) = each($cats))
+				{
+					$cat_ids[$category['id']] = $category['name'];
+				}
 			}
 			$this->arguments['category']['options'] = $cat_ids;
 			return parent::get_user_interface();
@@ -38,13 +42,15 @@
 
 		function get_content(&$arguments,$properties)
 		{
-			$bonews = CreateObject('news_admin.bo');
+			$bonews = CreateObject('news_admin.bonews');
 
 			$this->template = Createobject('phpgwapi.Template');
 			$this->template->set_root($this->find_template_dir());
 			$this->template->set_file('news','newsblock.tpl');
 			$this->template->set_block('news','NewsBlock','newsitem');
 			$this->template->set_block('news','RssBlock','rsshandle');
+
+			$limit = $arguments['limit'] ? $arguments['limit'] : 5;
 
 			if ($arguments['rsslink'])
 			{
@@ -77,8 +83,7 @@
 				}
 			}
 
-			$newslist = $bonews->get_newslist($arguments['category'],$arguments['start'],'','',$arguments['limit'],True);
-			$total = $bonews->total($arguments['category'],True);
+			$newslist = $bonews->get_newslist($arguments['category'],$arguments['start'],'','',$limit,True);
 
 			while (list(,$newsitem) = @each($newslist))
 			{
@@ -86,14 +91,14 @@
 			}
 			if ($arguments['start'])
 			{
-				$link_data['start'] = $arguments['start'] - $arguments['limit'];
+				$link_data['start'] = $arguments['start'] - $limit;
 				$this->template->set_var('lesslink',
 					'<a href="' . $this->link($link_data) . '">&lt;&lt;&lt;</a>'
 				);
 			}
-			if ($total > $arguments['start'] + $arguments['limit'])
+			if ($bonews->total > $arguments['start'] + $limit)
 			{
-				$link_data['start'] = $arguments['start'] + $arguments['limit'];
+				$link_data['start'] = $arguments['start'] + $limit;
 				$this->template->set_var('morelink',
 					'<a href="' . $this->link($link_data) . '">' . lang('More news') . '</a>'
 				);

@@ -6,9 +6,8 @@
 
 	$sitemgr_info = array(
 		// add trailing slash
-		'phpgw_path'		=> '/var/www/phpgw16/',
-		'htaccess_rewrite'	=> True,
-		'phpgw_domain'		=> 'default', //which phpgw install to use
+		'phpgw_path'           => '../../',
+		'htaccess_rewrite'         => False,
 	);
 
 	/***********************************************************\
@@ -22,14 +21,12 @@
 
 		include($sitemgr_info['phpgw_path'] . 'header.inc.php');
 
-		//hack to support sitemgr on non default domain
-		$_GET['domain'] = $sitemgr_info['phpgw_domain'];
-
 		$GLOBALS['phpgw_info']['flags']['currentapp'] = 'login';
 		include(PHPGW_SERVER_ROOT . '/phpgwapi/inc/functions.inc.php');
 		$GLOBALS['phpgw_info']['flags']['currentapp'] = 'sitemgr-site';
 
-		$site_url = 'http://' . preg_replace('/\/[^\/]*$/','',$_SERVER['SERVER_NAME'] . $_SERVER['PHP_SELF']) . '/';
+		$site_url  = ($_SERVER['HTTPS'] ? 'https://' : 'http://');
+		$site_url .=  preg_replace('/\/[^\/]*$/','',$_SERVER['SERVER_NAME'] . $_SERVER['PHP_SELF']) . '/';
 
 		$GLOBALS['phpgw']->db->query("SELECT anonymous_user,anonymous_passwd FROM phpgw_sitemgr_sites WHERE site_url = '$site_url'");
 		if ($GLOBALS['phpgw']->db->next_record())

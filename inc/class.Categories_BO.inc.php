@@ -170,7 +170,7 @@
 			return True;
 		}
 
-		function saveCategoryInfo($cat_id, $cat_name, $cat_description, $lang, $sort_order=0, $state, $parent=False, $old_parent=False)
+		function saveCategoryInfo($cat_id, $cat_name, $cat_description, $lang, $sort_order, $state, $parent=False, $old_parent=False)
 		{
 			if (!$parent)
 			{

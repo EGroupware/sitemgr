@@ -125,7 +125,7 @@ class module_galerie extends Module
 	function get_content(&$arguments,$properties)
 	{
 		$content .= '<div align="center"><img  hspace="20" align="absmiddle" src="'. $arguments['imagedirurl'] . SEP . $arguments['imagename'] . $arguments['filenumber'] . '.' . $arguments['imagetype'] . '" /></div>';
-		$content .= '<div align="center" style="margin:5mm">' . $arguments['subtext'][$arguments['filenumber']-1] . '</div><div align="center">';
+		$content .= '<div align="center" style="margin:5mm">' . $arguments['subtext'][$arguments['filenumber']-1] . '</div>';
 		return $content;
 	}
 }

@@ -110,16 +110,26 @@
 
 		function savePageInfo($page_Info,$lang)
 		{
+			$cats = CreateObject('phpgwapi.categories');
+			$cat_list = $cats->return_sorted_array(0, False, '', '', '', False, CURRENT_SITE_ID, -1, 'id');
+
+			if($cat_list)
+			{
+				foreach($cat_list as $null => $val)
+				{
+					$site_cats[] = $val['id'];
+				}
+			}
+
 			$oldpage = $this->getpage($page_Info->id);
 
-			if(
-				!($GLOBALS['Common_BO']->acl->can_write_category($page_Info->cat_id) && 
-				$GLOBALS['Common_BO']->acl->can_write_category($oldpage->cat_id))
-			)
+			if(!($GLOBALS['Common_BO']->acl->can_write_category($page_Info->cat_id) && 
+				$GLOBALS['Common_BO']->acl->can_write_category($oldpage->cat_id)))
 			{
 				return lang("You don't have permission to write to that category.");
 			}
-			$fixed_name = strtr($page_Info->name, '!@#$%^&*()-_=+	/?><,.\\\'":;|`~{}[]','                               ');
+
+			$fixed_name = strtr($page_Info->name, '!@#$%^&*()=+	/?><,.\\\'":;|`~{}[]','                               ');
 			$fixed_name = str_replace(' ', '', $fixed_name);
 			if ($fixed_name != $page_Info->name)
 			{
@@ -128,7 +138,8 @@
 				$this->so->savePageLang($page_Info,$lang);
 				return lang('The Name field cannot contain punctuation or spaces (field modified).');
 			}
-			if ($this->so->pageExists($page_Info->name,$page_Info->id))
+
+			if ($this->so->pageExists($page_Info->name,$page_Info->id, $site_cats))
 			{
 				$page_Info->name .= '--FIX-DUPLICATE-NAME';
 				$this->so->savePageInfo($page_Info);

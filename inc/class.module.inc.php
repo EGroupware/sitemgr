@@ -70,6 +70,7 @@ class Module
 			}
 			//contrary to $this->get, cookie and session, the argument name is the key in $this->post because this array also
 			//defines the form element
+
 			while (list($argument,) = @each($this->post))
 			{
 				if (isset($_POST['block'][$block->id][$argument]))
@@ -356,7 +357,7 @@ class Module
 						$sessionarguments[$argument] = $this->block->arguments[$argument];
 					}
 				}
-				$GLOBALS['phpgw']->session->appsession('block[' . $block->id . ']','sitemgr-site',$sessionarguments);
+				$GLOBALS['phpgw']->session->appsession('block[' . $this->block->id . ']','sitemgr-site',$sessionarguments);
 			}
 			return $content;
 		}

@@ -433,13 +433,17 @@
 		$db2 = $phpgw_setup->db;
 
 		//Create default site and hang all existing categories into it
-		$db2->query("INSERT INTO phpgw_categories (cat_parent,cat_owner,cat_access,cat_appname,cat_name,cat_description,last_mod) VALUES (0,-1,'public','sitemgr','Default Website','This website has been added by setup',0)");
-		$site_id = $db2->get_last_insert_id('phpgw_categories','cat_id');
-		$db2->query("UPDATE phpgw_categories SET cat_main = $site_id WHERE cat_appname = 'sitemgr'",__LINE__,__FILE__);
-		$db2->query("UPDATE phpgw_categories SET cat_parent = $site_id WHERE cat_appname = 'sitemgr' AND cat_parent = 0 AND cat_id != $site_id",__LINE__,__FILE__);
-		$db2->query("UPDATE phpgw_categories SET cat_level = cat_level +1 WHERE cat_appname = 'sitemgr' AND cat_id != $site_id",__LINE__,__FILE__);
-		$db2->query("INSERT INTO phpgw_sitemgr_sites (site_id,site_name)  VALUES ($site_id,'Default Website')");
+		$phpgw_setup->oProc->query("INSERT INTO phpgw_categories (cat_parent,cat_owner,cat_access,cat_appname,cat_name,cat_description,last_mod) VALUES (0,-1,'public','sitemgr','Default Website','This website has been added by setup',0)");
 
+		$phpgw_setup->oProc->query("SELECT cat_id FROM phpgw_categories WHERE cat_name='Default Website' AND cat_appname='sitemgr'");
+		if ($phpgw_setup->oProc->next_record())
+		{
+			$site_id = $phpgw_setup->oProc->f('cat_id');
+			$db2->query("UPDATE phpgw_categories SET cat_main = $site_id WHERE cat_appname = 'sitemgr'",__LINE__,__FILE__);
+			$db2->query("UPDATE phpgw_categories SET cat_parent = $site_id WHERE cat_appname = 'sitemgr' AND cat_parent = 0 AND cat_id != $site_id",__LINE__,__FILE__);
+			$db2->query("UPDATE phpgw_categories SET cat_level = cat_level +1 WHERE cat_appname = 'sitemgr' AND cat_id != $site_id",__LINE__,__FILE__);
+			$db2->query("INSERT INTO phpgw_sitemgr_sites (site_id,site_name)  VALUES ($site_id,'Default Website')");
+		}
 
 		//insert values from old preferences table into new sites table
 		$oldtonew = array(
@@ -454,54 +458,54 @@
 		foreach ($oldtonew as $old => $new)
 		{
 			$phpgw_setup->oProc->query("SELECT value from phpgw_sitemgr_preferences WHERE name = '$old'");
-			$phpgw_setup->oProc->next_record();
-			$value = $phpgw_setup->oProc->f('value');
-			$db2->query("UPDATE phpgw_sitemgr_sites SET $new = '$value' WHERE site_id = $site_id");
+			if ($phpgw_setup->oProc->next_record())
+			{
+				$value = $phpgw_setup->oProc->f('value');
+				$db2->query("UPDATE phpgw_sitemgr_sites SET $new = '$value' WHERE site_id = $site_id");
+			}
 		}
 
 		//site names and headers
-		$db2->query("SELECT site_languages from phpgw_sitemgr_sites");
-		if ($db2->next_record())
+		$phpgw_setup->oProc->query("SELECT site_languages from phpgw_sitemgr_sites");
+		if ($phpgw_setup->oProc->next_record())
 		{
-			$db2->f('site_languages');
-		}
-		$sitelanguages = $db2->f('site_languages');
-		$sitelanguages = explode(',',$sitelanguages);
-		$db2->query("SELECT module_id from phpgw_sitemgr_modules WHERE module_name='html'");
-		$db2->next_record();
-		$html_module = $db2->f('module_id');
-		$emptyarray = serialize(array());
-		$db2->query("INSERT INTO phpgw_sitemgr_content (area,cat_id,page_id,module_id,arguments,sort_order,viewable,actif) VALUES ('HEADER',$site_id,0,$html_module,'$emptyarray',0,0,1)",__LINE__,__FILE__);
-		$headerblock = $db2->get_last_insert_id('phpgw_sitemgr_content','block_id');
-		$db2->query("INSERT INTO phpgw_sitemgr_content (area,cat_id,page_id,module_id,arguments,sort_order,viewable,actif) VALUES ('FOOTER',$site_id,0,$html_module,'$emptyarray',0,0,1)",__LINE__,__FILE__);
-		$footerblock = $db2->get_last_insert_id('phpgw_sitemgr_content','block_id');
+			$sitelanguages = $db2->f('site_languages');
+			$sitelanguages = explode(',',$sitelanguages);
+			$db2->query("SELECT module_id from phpgw_sitemgr_modules WHERE module_name='html'");
+			$db2->next_record();
+			$html_module = $db2->f('module_id');
+			$emptyarray = serialize(array());
+			$db2->query("INSERT INTO phpgw_sitemgr_content (area,cat_id,page_id,module_id,arguments,sort_order,viewable,actif) VALUES ('HEADER',$site_id,0,$html_module,'$emptyarray',0,0,1)",__LINE__,__FILE__);
+			$headerblock = $db2->get_last_insert_id('phpgw_sitemgr_content','block_id');
+			$db2->query("INSERT INTO phpgw_sitemgr_content (area,cat_id,page_id,module_id,arguments,sort_order,viewable,actif) VALUES ('FOOTER',$site_id,0,$html_module,'$emptyarray',0,0,1)",__LINE__,__FILE__);
+			$footerblock = $db2->get_last_insert_id('phpgw_sitemgr_content','block_id');
 
-		foreach ($sitelanguages as $lang)
-		{
-			$db2->query("SELECT value from phpgw_sitemgr_preferences WHERE name = 'sitemgr-site-name-$lang'");
-			if ($db2->next_record())
+			foreach ($sitelanguages as $lang)
 			{
-				$name_lang = $db2->f('value');
-				$db2->query("INSERT INTO phpgw_sitemgr_categories_lang (cat_id,lang,name) VALUES ($site_id,'$lang','$name_lang')");
-			}
-			$db2->query("SELECT value from phpgw_sitemgr_preferences WHERE name = 'siteheader-$lang'");
-			if ($db2->next_record())
-			{
-				$header_lang = $db2->f('value');
-				$content = $db2->db_addslashes(serialize(array('htmlcontent' => stripslashes($header_lang))));
+				$db2->query("SELECT value from phpgw_sitemgr_preferences WHERE name = 'sitemgr-site-name-$lang'");
+				if ($db2->next_record())
+				{
+					$name_lang = $db2->f('value');
+					$db2->query("INSERT INTO phpgw_sitemgr_categories_lang (cat_id,lang,name) VALUES ($site_id,'$lang','$name_lang')");
+				}
+				$db2->query("SELECT value from phpgw_sitemgr_preferences WHERE name = 'siteheader-$lang'");
+				if ($db2->next_record())
+				{
+					$header_lang = $db2->f('value');
+					$content = $db2->db_addslashes(serialize(array('htmlcontent' => stripslashes($header_lang))));
 		
-				$db2->query("INSERT INTO phpgw_sitemgr_content_lang (block_id,lang,arguments_lang,title) VALUES ($headerblock,'$lang','$content','Site header')",__LINE__,__FILE__);
-			}
-			$db2->query("SELECT value from phpgw_sitemgr_preferences WHERE name = 'sitefooter-$lang'");
-			if ($db2->next_record())
-			{
-				$footer_lang = $db2->f('value');
-				$content = $db2->db_addslashes(serialize(array('htmlcontent' => stripslashes($footer_lang))));
+					$db2->query("INSERT INTO phpgw_sitemgr_content_lang (block_id,lang,arguments_lang,title) VALUES ($headerblock,'$lang','$content','Site header')",__LINE__,__FILE__);
+				}
+				$db2->query("SELECT value from phpgw_sitemgr_preferences WHERE name = 'sitefooter-$lang'");
+				if ($db2->next_record())
+				{
+					$footer_lang = $db2->f('value');
+					$content = $db2->db_addslashes(serialize(array('htmlcontent' => stripslashes($footer_lang))));
 				
-				$db2->query("INSERT INTO phpgw_sitemgr_content_lang (block_id,lang,arguments_lang,title) VALUES ($footerblock,'$lang','$content','Site footer')",__LINE__,__FILE__);
+					$db2->query("INSERT INTO phpgw_sitemgr_content_lang (block_id,lang,arguments_lang,title) VALUES ($footerblock,'$lang','$content','Site footer')",__LINE__,__FILE__);
+				}
 			}
 		}
-			
  		$phpgw_setup->oProc->DropTable('phpgw_sitemgr_preferences');
 
  		return $setup_info['sitemgr']['currentver'];
@@ -519,7 +523,7 @@
 		$phpgw_setup->oProc->AddColumn('phpgw_sitemgr_pages',
 			'state',array('type'=>int, 'precision'=>2));
 	
-		$db2->query("UPDATE phpgw_sitemgr_pages SET state = 2");
+		$phpgw_setup->oProc->query("UPDATE phpgw_sitemgr_pages SET state = 2");
 
 		$phpgw_setup->oProc->CreateTable('phpgw_sitemgr_categories_state',array(
 			'fd' => array(

@@ -20,6 +20,7 @@ define('SITEMGR_ACL_IS_ADMIN',1);
 		function ACL_BO()
 		{
 			$this->logged_in_user = $GLOBALS['phpgw_info']['user']['account_id'];
+			$this->acct = CreateObject('phpgwapi.accounts',$this->logged_in_user);
 			$this->acl = CreateObject('phpgwapi.acl',$this->logged_in_user);
 			$this->acl_so = CreateObject('sitemgr.ACL_SO');
 		}

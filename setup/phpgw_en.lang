@@ -4,7 +4,6 @@ a simple picture galery	sitemgr	en	A simple picture galery
 actif	sitemgr	en	Actif
 add a category	sitemgr	en	Add a category
 add a new application	sitemgr	en	Add a new application
-add a new guestbook	sitemgr	en	Add a new guestbook
 add block to content area %1	sitemgr	en	Add block to content area %1
 add category	sitemgr	en	Add Category
 add new page to this category	sitemgr	en	Add new page to this category
@@ -21,11 +20,9 @@ anonymous	sitemgr	en	anonymous
 anonymous user login domain	sitemgr	en	Anonymous user login domain
 anonymous user's password	sitemgr	en	Anonymous user's password
 anonymous user's username	sitemgr	en	Anonymous user's username
-application sitemgr_module_guestbook must be installed as a phpgroupware application for this module to run	sitemgr	en	Application sitemgr_module_guestbook must be installed as a phpgroupware application for this module to run
 apply permissions also to subcategories?	sitemgr	en	Apply permissions also to subcategories?
 archived	sitemgr	en	archived
 archived content	sitemgr	en	Archived content
-are contributors allowed to define new guestbooks?	sitemgr	en	Are contributors allowed to define new guestbooks?
 are you sure you want to delete site %1 and all its content? you cannot retrieve it if you continue.	sitemgr	en	Are you sure you want to delete site %1 and all its content? You cannot retrieve it if you continue.
 are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	en	Are you sure you want to delete the category %1 and all of its associated pages?  You cannot retrieve the deleted pages if you continue.
 as	common	en	as
@@ -34,7 +31,6 @@ attempt to edit non-editable block	sitemgr	en	Attempt to edit non-editable block
 back to module manager	sitemgr	en	Back to module manager
 basic settings	sitemgr	en	Basic Settings
 before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr	en	Before the public web site can be viewed, you must configure the various locations and preferences.  Please go to the sitemgr setup page by following this link:
-block not found	sitemgr	en	Block not found
 block not found.	sitemgr	en	Block not found.
 block not found.	sitemgr-site	en	Block not found.
 block returned no content.	sitemgr-site	en	Block returned no content.
@@ -51,7 +47,6 @@ changes saved.	sitemgr	en	Changes saved.
 check here after every upgrade	sitemgr	en	check here after every upgrade
 check to hide from condensed site index.	sitemgr	en	Check to hide from condensed site index.
 choose a category	sitemgr-site	en	Choose a category
-choose a guestbook	sitemgr	en	Choose a guestbook
 choose language	sitemgr-site	en	Choose language
 choose the categories to display	sitemgr	en	Choose the categories to display
 choose your site's theme or template.  note that if you changed the above checkbox you need to save before choosing a theme or template.	sitemgr	en	Choose your site's theme or template.  Note that if you changed the above checkbox you need to save before choosing a theme or template.
@@ -72,7 +67,6 @@ delete block	sitemgr	en	Delete block
 delete category	sitemgr	en	Delete category
 delete page	sitemgr	en	Delete page
 delete this application	sitemgr	en	Delete this application
-delete this guestbook	sitemgr	en	Delete this guestbook
 delete version	sitemgr	en	Delete Version
 deleting all data for %1	sitemgr	en	Deleting all data for %1
 discussions	sitemgr	en	Discussions
@@ -128,7 +122,6 @@ individual access permission	sitemgr	en	Individual Access Permission
 individual access permissions	sitemgr	en	Individual Access Permissions
 interface to google website	sitemgr	en	Interface to google website
 languages the site user can choose from	sitemgr	en	Languages the site user can choose from
-last entries to the guestbook	sitemgr	en	Last entries to the guestbook
 latest reply	sitemgr	en	Latest Reply
 list of permitted modules specific to content area %1	sitemgr	en	List of permitted modules specific to content area %1
 login	sitemgr-site	en	Login
@@ -156,7 +149,6 @@ move to	sitemgr	en	Move to
 name	sitemgr	en	Name
 name has been translated to lower case	sitemgr	en	Name has been translated to lower case
 new application	sitemgr	en	New application
-new guestbook	sitemgr	en	New guestbook
 new sitemgr site	sitemgr	en	New sitemgr site
 news module	sitemgr	en	News module
 no anonymous user accounts installed.  notify the administrator.	sitemgr	en	NO ANONYMOUS USER ACCOUNTS INSTALLED.  NOTIFY THE ADMINISTRATOR.
@@ -176,7 +168,6 @@ no websites defined	sitemgr	en	No websites defined
 not yet translated	sitemgr	en	not yet translated
 note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	en	Note that you may get this message if your preferences are incorrect.  For example, if config.inc.php is not found in the directory that you specified.
 number of news items to be displayed on page	sitemgr	en	Number of news items to be displayed on page
-or enter the title for a new guestbook	sitemgr	en	or enter the title for a new guestbook
 other websites	sitemgr	en	Other websites
 overview of all available categories	sitemgr	en	Overview of all available categories
 overview of one specific category	sitemgr	en	Overview of one specific category
@@ -194,7 +185,6 @@ password	sitemgr-site	en	Password
 password that you assigned for the anonymous user account.	sitemgr	en	Password that you assigned for the anonymous user account.
 phpgw users	sitemgr	en	phpgw users
 please enter a name for that site !	sitemgr	en	Please enter a name for that site !
-please sign the guestbook	sitemgr	en	Please sign the guestbook
 post a message to this thread	sitemgr	en	Post A Message To This Thread
 prepublished	sitemgr	en	prepublished
 preunpublished	sitemgr	en	preunpublished
@@ -352,5 +342,3 @@ you must be an administrator to setup the site manager.	sitemgr	en	You must be a
 you removed one ore more languages from your site languages.	sitemgr	en	You removed one ore more languages from your site languages.
 your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr	en	Your administrator has not yet setup the web content manager for public viewing.  Go bug your administrator to get their butt in gear.
 your calendar	sitemgr-site	en	Your Calendar
-your comment	sitemgr	en	Your comment
-your name	sitemgr	en	Your name

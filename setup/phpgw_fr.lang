@@ -4,7 +4,6 @@ a simple picture galery	sitemgr	fr	Une simple galerie d'images
 actif	sitemgr	fr	Actif
 add a category	sitemgr	fr	Ajouter une catégorie
 add a new application	sitemgr	fr	Ajouter une nouvelle application
-add a new guestbook	sitemgr	fr	Ajouter un nouveau livre d'or
 add block to content area %1	sitemgr	fr	Ajouter un bloc à la zone de contenu %1
 add category	sitemgr	fr	Ajouter une catégorie
 add new page to this category	sitemgr	fr	Ajouter une nouvelle page à cette catégorie
@@ -21,11 +20,9 @@ anonymous	sitemgr	fr	Anonyme
 anonymous user login domain	sitemgr	fr	Domaine de l'utilisateur anonyme
 anonymous user's password	sitemgr	fr	Mot de passe de l'utilisateur anonyme
 anonymous user's username	sitemgr	fr	Nom de l'utilisateur anonyme
-application sitemgr_module_guestbook must be installed as a phpgroupware application for this module to run	sitemgr	fr	L'application sitemgr_module_guestbook doit être installée comme une application phpGroupWare pour que ce module s'exécute
 apply permissions also to subcategories?	sitemgr	fr	Appliquer les permissions aussi aux sous-catégories?
 archived	sitemgr	fr	Archivé
 archived content	sitemgr	fr	Contenu archivé
-are contributors allowed to define new guestbooks?	sitemgr	fr	Les contributeurs sont-ils autorisés à définir de nouveaux livres d'or?
 are you sure you want to delete site %1 and all its content? you cannot retrieve it if you continue.	sitemgr	fr	Etes-vous sûr de vouloir effacer le site %1 et tout son contenu? Vous ne pourrez pas le récupérer si vous continuez.
 are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	fr	Etes-vous sûr de vouloir effacer la catégorie %1 et toutes ses pages associées?  Vous ne pourrez plus récupérer les pages effacées si vous continuez.
 as	common	fr	comme
@@ -34,7 +31,6 @@ attempt to edit non-editable block	sitemgr	fr	Tentative de modifier un bloc non 
 back to module manager	sitemgr	fr	Retourner au gestionnaire de modules
 basic settings	sitemgr	fr	Réglages de base
 before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr	fr	Avant que le site web public puisse être visualisé, vous devez configurer les différents emplacements et préférences. SVP allez à la page de configuration de sitemgr en suivant ce lien:
-block not found	sitemgr	fr	Bloc non trouvé
 block not found.	sitemgr-site	fr	Bloc non trouvé.
 block not found.	sitemgr-site	fr	Bloc non trouvé.
 block returned no content.	sitemgr-site	fr	Le bloc n'a retourné aucun contenu.
@@ -51,7 +47,6 @@ changes saved.	sitemgr	fr	Changements enregistrés.
 check here after every upgrade	sitemgr	fr	Vérifiez ici après chaque mise à jour
 check to hide from condensed site index.	sitemgr	fr	Cochez pour cacher de l'index condensé du site.
 choose a category	sitemgr-site	fr	Sélectionnez une catégorie
-choose a guestbook	sitemgr	fr	Choisir un livre d'or
 choose language	sitemgr-site	fr	Sélectionnez la langue
 choose the categories to display	sitemgr	fr	Sélectionnez les catégories à afficher
 choose your site's theme or template.  note that if you changed the above checkbox you need to save before choosing a theme or template.	sitemgr	fr	Sélectionnez le thème ou gabarit de votre site.  Notez que si vous avez changé la case à cocher ci-dessus vous devez enregistrer avant de sélectionner un thème ou gabarit.
@@ -72,7 +67,6 @@ delete block	sitemgr	fr	Effacer le bloc
 delete category	sitemgr	fr	Effacer la catégorie
 delete page	sitemgr	fr	Effacer la page
 delete this application	sitemgr	fr	Effacer cette application
-delete this guestbook	sitemgr	fr	Effacer ce livre d'or
 delete version	sitemgr	fr	Effacer la version
 deleting all data for %1	sitemgr	fr	Effacement de toutes les données pour %1
 discussions	sitemgr	fr	Discussions
@@ -128,7 +122,6 @@ individual access permission	sitemgr	fr	Permissions d'accès individuelles
 individual access permissions	sitemgr	fr	Permissions d'accès individuelles
 interface to google website	sitemgr	fr	Interface vers le site Web de Google
 languages the site user can choose from	sitemgr	fr	Les langues que l'utilisateur du site peut choisir
-last entries to the guestbook	sitemgr	fr	Dernières entrées dans le livre d'or
 latest reply	sitemgr	fr	Dernière réponse
 list of permitted modules specific to content area %1	sitemgr	fr	Liste de modules permis spécifiques à la zone de contenu %1
 login	sitemgr-site	fr	Login
@@ -156,7 +149,6 @@ move to	sitemgr	fr	Déplacer vers
 name	sitemgr	fr	Nom
 name has been translated to lower case	sitemgr	fr	Le nom a été traduit en caractères minuscules
 new application	sitemgr	fr	Nouvelle application
-new guestbook	sitemgr	fr	Nouveau livre d'or
 new sitemgr site	sitemgr	fr	Nouveau site sitemgr
 news module	sitemgr	fr	Module de nouvelles
 no anonymous user accounts installed.  notify the administrator.	sitemgr	fr	IL N'Y A PAS DE COMPTE UTILISATEUR ANONYME INSTALLE.  PREVENEZ L'ADMINISTRATEUR.
@@ -176,7 +168,6 @@ no websites defined	sitemgr	fr	Aucun site Web défini
 not yet translated	sitemgr	fr	pas encore traduit
 note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	fr	Notez que vous pouvez avoir ce message si vos préférences sont incorrectes. Par exemple, si config.inc.php n'est pas trouvé dans le répertoire que vous avez spécifié.
 number of news items to be displayed on page	sitemgr	fr	Nombre d'objets de nouvelles à afficher sur la page
-or enter the title for a new guestbook	sitemgr	fr	ou entrez le titre pour un nouveau livre d'or
 other websites	sitemgr	fr	Autres sites Web
 overview of all available categories	sitemgr	fr	Vue globale de toutes les catégories disponibles
 overview of one specific category	sitemgr	fr	Vue globale d'une catégorie spécifique
@@ -194,7 +185,6 @@ password	sitemgr-site	fr	Mot de passe
 password that you assigned for the anonymous user account.	sitemgr	fr	Le mot de passe que vous avez assigné pour le compte anonyme.
 phpgw users	sitemgr	fr	Utilisateurs phpGroupWare
 please enter a name for that site !	sitemgr	fr	SVP entrez un nom pour ce site !
-please sign the guestbook	sitemgr	fr	SVP signez le livre d'or
 post a message to this thread	sitemgr	fr	Poster un message dans ce fil de discussion
 prepublished	sitemgr	fr	Prépublié
 preunpublished	sitemgr	fr	Prédépublié
@@ -352,5 +342,3 @@ you must be an administrator to setup the site manager.	sitemgr	fr	Seul l'admini
 you removed one ore more languages from your site languages.	sitemgr	fr	Vous avez supprimé une ou plusieurs des langues de votre site.
 your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr	fr	Votre administrateur n'a pas encore configuré le gestionnaire de contenu Web pour l'accès public.  Allez pousser votre administrateur pour qu'il bouge ses fesses rapidement.
 your calendar	sitemgr-site	fr	Votre calendrier
-your comment	sitemgr	fr	Votre commentaire
-your name	sitemgr	fr	Votre nom

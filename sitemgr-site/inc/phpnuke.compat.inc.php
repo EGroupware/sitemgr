@@ -96,7 +96,7 @@
 			}
 			else
 			{
-				$title = lang('Block not found');
+				$title = lang('Block not found.');
 				$content = lang('Contact the administrator.');
 			}
 
