@@ -11,6 +11,7 @@
 
 	/* $Id$ */
 
+	// Note: all data to this class is run through addslashes or intval -- RalfBecker 2004/03/09
 	class Sites_SO
 	{
 		var $db;
@@ -18,12 +19,18 @@
 		function Sites_SO()
 		{
 			$this->db = $GLOBALS['phpgw']->db;
+			if (!is_array($GLOBALS['Common_BO']->table_definitions))
+			{
+				$GLOBALS['Common_BO']->table_definitons = $this->db->get_table_definitions('sitemgr');
+			}
+			$this->table = 'phpgw_sitemgr_sites';
+			$this->db->set_column_definitions($GLOBALS['Common_BO']->table_definitions[$this->table]['fd']);
 		}
 
 		function list_siteids()
 		{
 			$result = array();
-			$sql = "SELECT site_id FROM phpgw_sitemgr_sites";
+			$sql = "SELECT site_id FROM $this->table";
 			$this->db->query($sql,__LINE__,__FILE__);
 			while ($this->db->next_record())
 			{
@@ -55,14 +62,14 @@
 				{
 					$orderclause = 'ORDER BY site_name ASC';
 				}
-				$sql = "SELECT site_id,site_name,site_url from phpgw_sitemgr_sites $whereclause $orderclause";	
+				$sql = "SELECT site_id,site_name,site_url from $this->table $whereclause $orderclause";
 				$this->db->query($sql,__LINE__,__FILE__);
 				$total = $this->db->num_rows();
 				$this->db->limit_query($sql,$start,__LINE__,__FILE__);
 			}
 			else
 			{
-				$sql = "SELECT site_id,site_name,site_url from phpgw_sitemgr_sites";
+				$sql = "SELECT site_id,site_name,site_url from $this->table";
 				$this->db->query($sql,__LINE__,__FILE__);
 			}
 			while ($this->db->next_record())
@@ -78,7 +85,7 @@
 
 		function getnumberofsites()
 		{
-			$sql = "SELECT COUNT(*) FROM phpgw_sitemgr_sites";
+			$sql = "SELECT COUNT(*) FROM $this->table";
 			$this->db->query($sql,__LINE__,__FILE__);
 			$this->db->next_record();
 			return $this->db->f(0);
@@ -86,7 +93,7 @@
 
 		function urltoid($url)
 		{
-			$sql  = 'SELECT site_id FROM phpgw_sitemgr_sites ';
+			$sql  = "SELECT site_id FROM $this->table ";
 			$sql .= "WHERE site_url ='" . $this->db->db_addslashes($url) . "'";
 			$this->db->query($sql,__LINE__,__FILE__);
 			return $this->db->next_record() ? $this->db->f('site_id') : False;
@@ -94,8 +101,8 @@
 
 		function read($id)
 		{
-			$sql =  'SELECT * FROM phpgw_sitemgr_sites ';
-			$sql .= 'WHERE site_id = ' . intval($id);
+			$sql =  "SELECT * FROM $this->table ";
+			$sql .= 'WHERE site_id = ' . (int)$id;
 			$this->db->query($sql,__LINE__,__FILE__);
 			if ($this->db->next_record())
 			{
@@ -118,8 +125,8 @@
 
 		function read2($id)
 		{
-			$sql  = 'SELECT site_url,site_dir FROM phpgw_sitemgr_sites ';
-			$sql .= 'WHERE site_id = ' . intval($id);
+			$sql  = "SELECT site_url,site_dir FROM $this->table ";
+			$sql .= 'WHERE site_id = ' . (int)$id;
 			$this->db->query($sql,__LINE__,__FILE__);
 			if ($this->db->next_record())
 			{
@@ -142,40 +149,52 @@
 		function add($site)
 		{
 			$cats = CreateObject('phpgwapi.categories',-1,'sitemgr');
-				$data = array
-			(
+			$site_id =  $cats->add(array(
 				'name'		=> $site['name'],
 				'descr'		=> '',
 				'access'	=> 'public',
 				'parent'	=> 0,
 				'old_parent' => 0
+			));
+			$data = array(
+				'site_id'   => $site_id,
+				'site_name' => $site['name'],
+				'site_url'  => $site['url'],
+				'site_dir'  => $site['dir'],
+				'anonymous_user' => $site['anonuser'],
+				'anonymous_passwd' => $site['anonpasswd'],
 			);
-			$site_id =  $cats->add($data);
-			$sql = "INSERT INTO phpgw_sitemgr_sites (site_id,site_name,site_url,site_dir,anonymous_user,anonymous_passwd) VALUES ($site_id,'" . 
-				$site['name'] . "','" . $site['url'] . "','" . $site['dir'] . "','" . $site['anonuser'] . "','" . $site['anonpasswd'] .
-				"')";
-			$this->db->query($sql,__LINE__,__FILE__);
+			$this->db->query($sql="INSERT INTO $this->table (".implode(',',array_keys($data)).") VALUES (".
+				$this->db->column_data_implode(',',$data,False).')',__LINE__,__FILE__);
+
 			return $site_id;
 		}
 
 		function update($id,$site)
 		{
-			$sql = "UPDATE phpgw_sitemgr_sites SET site_name = '" . $site['name'] . "', site_url = '" . $site['url'] . "', site_dir = '" . 
-				$site['dir'] . "', anonymous_user = '" . $site['anonuser'] . "', anonymous_passwd = '" . $site['anonpasswd'] . 
-				"' WHERE site_id = $id";
-			 $this->db->query($sql,__LINE__,__FILE__);
+			$this->db->query($sql="UPDATE $this->table SET ".
+				$this->db->column_data_implode(',',array(
+					'site_name' => $site['name'],
+					'site_url'  => $site['url'],
+					'site_dir'  => $site['dir'],
+					'anonymous_user' => $site['anonuser'],
+					'anonymous_passwd' => $site['anonpasswd'],
+				))." WHERE site_id=".(int)$id,__LINE__,__FILE__);
 		}
 
 		function delete($id)
 		{
-			$sql = "DELETE FROM phpgw_sitemgr_sites WHERE site_id = $id";
+			$sql = "DELETE FROM $this->table WHERE site_id=".(int)$id;
 			$this->db->query($sql,__LINE__,__FILE__);
 		}
 
 		function saveprefs($prefs,$site_id=CURRENT_SITE_ID)
 		{
-			$sql = "UPDATE phpgw_sitemgr_sites SET themesel = '" . $prefs['themesel'] . "', site_languages = '" . $prefs['site_languages'] .
-				"', home_page_id = " . $prefs['home_page_id'] . " WHERE site_id = " . $site_id;
-			$this->db->query($sql,__LINE__,__FILE__);
+			$this->db->query($sql="UPDATE $this->table SET ".
+				$this->db->column_data_implode(',',array(
+					'themesel' => $prefs['themesel'],
+					'site_languages' => $prefs['site_languages'],
+					'home_page_id' => $prefs['home_page_id'],
+				))." WHERE site_id=".(int)$site_id,__LINE__,__FILE__);
 		}
 	}
