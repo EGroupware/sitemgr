@@ -1,15 +1,19 @@
-<?php 
+<?php
 
 class module_login extends Module
 {
 	function module_login()
 	{
-		$this->arguments = array(
-			'registration' => array(
-				'type' => 'checkbox',
-				'label' => lang('Display link to autoregistration below login form?')
-			)
-		);
+		$this->arguments = array();
+		if (file_exists(PHPGW_SERVER_ROOT . '/registration'))
+		{
+			$this->arguments = array(
+				'registration' => array(
+					'type' => 'checkbox',
+					'label' => lang('Display link to autoregistration below login form?')
+				)
+			);
+		}
 		$this->properties = array();
 		$this->title = lang('Login');
 		$this->description = lang('This module displays a login form');
@@ -26,7 +30,7 @@ class module_login extends Module
 		$content .= '<input name="passwd" size="8" type="password"><br>';
 		$content .= '<input type="submit" value="' . lang('Login') .'" name="submitit">';
 		$content .= '</font></center></form>';
-		if ($arguments['registration'])
+		if (file_exists(PHPGW_SERVER_ROOT . '/registration') && $arguments['registration'])
 		{
 			$content .= '<center><font class="content">' . lang("Don't have an account?") .'  ';
 			$content .= '<a href="'.phpgw_link('/registration/index.php').'">';

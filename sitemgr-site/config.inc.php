@@ -16,7 +16,7 @@
 
 		if (!file_exists($sitemgr_info['phpgw_path'] . 'header.inc.php'))
 		{
-			die("Header file not found.  Either your path to phpGroupWare in the config.inc.php file is bad, or you have not setup phpGroupWare.");
+			die("Header file not found.  Either your path to eGroupWare in the config.inc.php file is bad, or you have not setup eGroupWare.");
 		}
 
 		include($sitemgr_info['phpgw_path'] . 'header.inc.php');
@@ -25,10 +25,9 @@
 		include(PHPGW_SERVER_ROOT . '/phpgwapi/inc/functions.inc.php');
 		$GLOBALS['phpgw_info']['flags']['currentapp'] = 'sitemgr-site';
 
-		$site_url  = ($_SERVER['HTTPS'] ? 'https://' : 'http://');
-		$site_url .=  preg_replace('/\/[^\/]*$/','',$_SERVER['SERVER_NAME'] . $_SERVER['PHP_SELF']) . '/';
-
-		$GLOBALS['phpgw']->db->query("SELECT anonymous_user,anonymous_passwd FROM phpgw_sitemgr_sites WHERE site_url = '$site_url'");
+		$site_url2 = $GLOBALS['phpgw']->db->db_addslashes(preg_replace('/\/[^\/]*$/','',$_SERVER['PHP_SELF'])) . '/';
+		$site_url  = ($_SERVER['HTTPS'] ? 'https://' : 'http://') . $_SERVER['SERVER_NAME'] . $site_url2;
+		$GLOBALS['phpgw']->db->query("SELECT anonymous_user,anonymous_passwd FROM phpgw_sitemgr_sites WHERE site_url='$site_url' OR site_url='$site_url2'");
 		if ($GLOBALS['phpgw']->db->next_record())
 		{
 			$anonymous_user = $GLOBALS['phpgw']->db->f('anonymous_user');

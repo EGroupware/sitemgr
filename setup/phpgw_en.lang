@@ -9,12 +9,13 @@ add category	sitemgr	en	Add Category
 add new page to this category	sitemgr	en	Add new page to this category
 add page	sitemgr	en	Add Page
 add page to category	sitemgr	en	Add page to category
-administration	sitemgr-site	en	Administration
+add website	sitemgr	en	Add Website
+administration	sitemgr	en	Administration
 administrative menu	sitemgr	en	Administrative Menu
 administrators	sitemgr	en	administrators
 all categories	sitemgr	en	All categories
 all forums in category %1	sitemgr	en	All forums in category %1
-amazon	sitemgr-site	en	Amazon
+amazon	sitemgr	en	Amazon
 an application directory	sitemgr	en	An application directory
 anonymous	sitemgr	en	anonymous
 anonymous user login domain	sitemgr	en	Anonymous user login domain
@@ -32,13 +33,12 @@ back to module manager	sitemgr	en	Back to module manager
 basic settings	sitemgr	en	Basic Settings
 before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr	en	Before the public web site can be viewed, you must configure the various locations and preferences.  Please go to the sitemgr setup page by following this link:
 block not found.	sitemgr	en	Block not found.
-block not found.	sitemgr-site	en	Block not found.
-block returned no content.	sitemgr-site	en	Block returned no content.
+block returned no content.	sitemgr	en	Block returned no content.
 bookmarks	sitemgr	en	Bookmarks
 calendar	sitemgr	en	Calendar
 cancel the delete	sitemgr	en	Cancel the delete
 cannot move page until it has been saved.	sitemgr	en	Cannot move page until it has been saved.
-category	sitemgr-site	en	Category
+category	sitemgr	en	Category
 category description	sitemgr	en	Category Description
 category manager	sitemgr	en	Category Manager
 category name	sitemgr	en	Category Name
@@ -46,23 +46,25 @@ category saved	sitemgr	en	Category saved
 changes saved.	sitemgr	en	Changes saved.
 check here after every upgrade	sitemgr	en	check here after every upgrade
 check to hide from condensed site index.	sitemgr	en	Check to hide from condensed site index.
-choose a category	sitemgr-site	en	Choose a category
-choose language	sitemgr-site	en	Choose language
+choose a category	sitemgr	en	Choose a category
+choose language	sitemgr	en	Choose language
 choose the categories to display	sitemgr	en	Choose the categories to display
 choose your site's theme or template.  note that if you changed the above checkbox you need to save before choosing a theme or template.	sitemgr	en	Choose your site's theme or template.  Note that if you changed the above checkbox you need to save before choosing a theme or template.
 collapse threads	sitemgr	en	Collapse Threads
 commit changes	sitemgr	en	Commit changes
 configure module properties	sitemgr	en	Configure module properties
 configure sitemgr	sitemgr	en	Configure SiteMgr
-contact the administrator.	sitemgr-site	en	Contact the administrator.
+configure website	sitemgr	en	Configure Website
+contact the administrator.	sitemgr	en	Contact the administrator.
 content blocks	sitemgr	en	Content blocks
-content manager	sitemgr-site	en	Content Manager
+content manager	sitemgr	en	Content Manager
 contentarea	sitemgr	en	Contentarea
 contributor menu	sitemgr	en	Contributor Menu
 create new version	sitemgr	en	Create new version
 current section	sitemgr	en	Current Section
 default	sitemgr	en	Default
 default home page id number	sitemgr	en	Default home page ID number
+define websites	common	en	Define websites
 delete block	sitemgr	en	Delete block
 delete category	sitemgr	en	Delete category
 delete page	sitemgr	en	Delete page
@@ -73,7 +75,7 @@ discussions	sitemgr	en	Discussions
 display link to autoregistration below login form?	sitemgr	en	Display link to autoregistration below login form?
 do you want to delete them?	sitemgr	en	Do you want to delete them?
 do you want to publish a rss feed for this news category	sitemgr	en	Do you want to publish a RSS feed for this news category
-don't have an account?	sitemgr-site	en	Don't have an account?
+don't have an account?	sitemgr	en	Don't have an account?
 done	sitemgr	en	Done
 downloaded	sitemgr	en	downloaded
 draft	sitemgr	en	draft
@@ -106,7 +108,7 @@ go back to the category manager.	sitemgr	en	Go back to the category manager.
 go to	sitemgr	en	Go to
 go to page manager	sitemgr	en	Go to Page Manager
 google	sitemgr	en	Google
-google search	sitemgr-site	en	Google Search
+google search	sitemgr	en	Google Search
 group access permissions	sitemgr	en	Group Access Permissions
 group name	sitemgr	en	Group Name
 header editor	sitemgr	en	Header Editor
@@ -124,11 +126,11 @@ interface to google website	sitemgr	en	Interface to google website
 languages the site user can choose from	sitemgr	en	Languages the site user can choose from
 latest reply	sitemgr	en	Latest Reply
 list of permitted modules specific to content area %1	sitemgr	en	List of permitted modules specific to content area %1
-login	sitemgr-site	en	Login
-login name	sitemgr-site	en	Login Name
+login	sitemgr	en	Login
+login name	sitemgr	en	Login Name
 main content	sitemgr	en	Main content
 mains	sitemgr	en	Mains
-maintainer	sitemgr	en	Maintainer
+manage archived content	sitemgr	en	Manage archived content
 manage categories	sitemgr	en	Manage Categories
 manage categories and pages	sitemgr	en	Manage categories and pages
 manage category wide content	sitemgr	en	Manage category wide content
@@ -138,6 +140,7 @@ manage modules	sitemgr	en	Manage Modules
 manage page specific content	sitemgr	en	Manage page specific content
 manage pages	common	en	Manage Pages
 manage site content	sitemgr	en	Manage Site Content
+manage site-wide content	sitemgr	en	Manage site-wide content
 manage site-wide module properties	sitemgr	en	Manage site-wide module properties
 manage translations	sitemgr	en	Manage Translations
 master list of permitted modules	sitemgr	en	Master list of permitted modules
@@ -152,14 +155,13 @@ new application	sitemgr	en	New application
 new sitemgr site	sitemgr	en	New sitemgr site
 news module	sitemgr	en	News module
 no anonymous user accounts installed.  notify the administrator.	sitemgr	en	NO ANONYMOUS USER ACCOUNTS INSTALLED.  NOTIFY THE ADMINISTRATOR.
-no anonymous user accounts installed.  notify the administrator.	sitemgr-site	en	NO ANONYMOUS USER ACCOUNTS INSTALLED.  NOTIFY THE ADMINISTRATOR.
 no content areas found in selected template	sitemgr	en	No content areas found in selected template
 no content found	sitemgr	en	No content found
 no groups defined.	sitemgr	en	No groups defined.
 no matching news item	sitemgr	en	No matching news item
 no modules permitted for this content area/category	sitemgr	en	No modules permitted for this content area/category
 no options available.	sitemgr	en	No options available.
-no pages available	sitemgr-site	en	No pages available
+no pages available	sitemgr	en	No pages available
 no sitelanguages configured	sitemgr	en	No sitelanguages configured
 no template file found.	sitemgr	en	No template file found.
 no templates found.	sitemgr	en	No templates found.
@@ -179,9 +181,9 @@ page saved	sitemgr	en	Page saved
 page saved.	sitemgr	en	Page saved.
 page subtitle	sitemgr	en	Page Subtitle
 page title	sitemgr	en	Page Title
-pages	sitemgr-site	en	Pages
+pages	sitemgr	en	Pages
 parent	sitemgr	en	Parent
-password	sitemgr-site	en	Password
+password	sitemgr	en	Password
 password that you assigned for the anonymous user account.	sitemgr	en	Password that you assigned for the anonymous user account.
 phpgw users	sitemgr	en	phpgw users
 please enter a name for that site !	sitemgr	en	Please enter a name for that site !
@@ -194,7 +196,7 @@ reactivate content	sitemgr	en	Reactivate content
 read permission	sitemgr	en	Read Permission
 redirection	sitemgr	en	Redirection
 refresh	sitemgr	en	Refresh
-register for one now.	sitemgr-site	en	Register for one now.
+register for one now.	sitemgr	en	Register for one now.
 register new modules	sitemgr	en	Register new modules
 replies	sitemgr	en	Replies
 required fields	sitemgr	en	Required Fields
@@ -202,7 +204,7 @@ reset	sitemgr	en	Reset
 return to forums	sitemgr	en	Return to forums
 return to main menu.	sitemgr	en	Return to main menu.
 return to message list	sitemgr	en	Return to message list
-root site index	sitemgr-site	en	Root Site Index
+root site index	sitemgr	en	Root Site Index
 save	sitemgr	en	Save
 save block	sitemgr	en	Save block
 saved	sitemgr	en	Saved
@@ -212,8 +214,8 @@ select a category	sitemgr	en	Select a category
 select a forum	sitemgr	en	Select a forum
 select allowed modules	sitemgr	en	Select allowed modules
 select persons and groups that are entitled to configure the website.	sitemgr	en	Select persons and groups that are entitled to configure the website.
-selected template %1 does not exist.	sitemgr-site	en	Selected template %1 does not exist.
-selected theme %1 does not exist.	sitemgr-site	en	Selected theme %1 does not exist.
+selected template %1 does not exist.	sitemgr	en	Selected template %1 does not exist.
+selected theme %1 does not exist.	sitemgr	en	Selected theme %1 does not exist.
 should the file be viewed in the browser or downloaded	sitemgr	en	Should the file be viewed in the browser or downloaded
 show site index	sitemgr	en	Show Site Index
 site	sitemgr	en	Site
@@ -222,22 +224,24 @@ site %1 has been updated	sitemgr	en	Site %1 has been updated
 site administrators	sitemgr	en	Site administrators
 site description	sitemgr	en	Site description
 site format manager	sitemgr	en	Site Format Manager
-site index	sitemgr-site	en	Site Index
+site index	sitemgr	en	Site Index
 site name	sitemgr	en	Site name
 site setup	common	en	Site Setup
 site tree menu	sitemgr	en	Site Tree Menu
 site wide	sitemgr	en	Site wide
+sitemgr	common	en	SiteMgr
 sitemgr options	sitemgr	en	SiteMgr Options
 sitemgr setup instructions	sitemgr	en	SiteMgr Setup Instructions
 sitemgr setup page	sitemgr	en	sitemgr setup page
 sitemgr web content manager	common	en	SiteMgr Web Content Manager
 sitemgr websites	sitemgr	en	Sitemgr Websites
 sort order	sitemgr	en	Sort Order
+state	sitemgr	en	State
 strip html from block content?	sitemgr	en	Strip HTML from block content?
-subcategories	sitemgr-site	en	Subcategories
+subcategories	sitemgr	en	Subcategories
 subtitle	sitemgr	en	Subtitle
 summary of one forum	sitemgr	en	Summary of one forum
-table of contents	sitemgr-site	en	Table of Contents
+table of contents	sitemgr	en	Table of Contents
 template select	sitemgr	en	Template select
 textarea	sitemgr	en	textarea
 the category to display, 0 for complete table of contents	sitemgr	en	The category to display, 0 for complete table of contents
@@ -252,7 +256,7 @@ the page was successfully saved.	sitemgr	en	The page was successfully saved.
 the path to the file to be downloaded	sitemgr	en	The path to the file to be downloaded
 the person to say hello to	sitemgr	en	The person to say hello to
 the second directory is the sitemgr-site directory.  this can be moved <i>anywhere</i>.  it can also be named <i>anything</i>.  wherever it winds up, when you point a web browser to it, you will get the generated website.  assuming, of course, that you've accurately completed the setup fields below and also <b><i>edited the config.inc.php</i></b> file.	sitemgr	en	The second directory is the sitemgr-site directory.  This can be moved <i>anywhere</i>.  It can also be named <i>anything</i>.  Wherever it winds up, when you point a web browser to it, you will get the generated website.  Assuming, of course, that you've accurately completed the setup fields below and also <b><i>edited the config.inc.php</i></b> file.
-the text for the link, if empty the module returns the raw URL (without the HTML A element)	sitemgr	en	The text for the link, if empty the module returns the raw URL (without the HTML A element
+the text for the link, if empty the module returns the raw url (without the html a element)	sitemgr	en	The text for the link, if empty the module returns the raw URL (without the HTML A element
 the url can be relative or absolute.  name must end in a slash.	sitemgr	en	The URL can be relative or absolute.  Name must end in a slash.
 the url must be absolute and end in a slash, for example http://mydomain.com/mysite/	sitemgr	en	The URL must be absolute and end in a slash, for example http://mydomain.com/mysite/
 the url to redirect to	sitemgr	en	The URL to redirect to
@@ -261,9 +265,9 @@ the xml files' common name	sitemgr	en	the XML files' common name
 theme or template select	sitemgr	en	Theme or template select
 there are no categories	sitemgr	en	There are no categories
 there are no forums in this category	sitemgr	en	There are no forums in this category
-there are no pages in this section	sitemgr-site	en	There are no pages in this section
+there are no pages in this section	sitemgr	en	There are no pages in this section
 there are no properties defined for this module	sitemgr	en	There are no properties defined for this module
-there are no sections available to you.	sitemgr-site	en	There are no sections available to you.
+there are no sections available to you.	sitemgr	en	There are no sections available to you.
 there are two subdirectories off of your sitemgr directory that you should move before you do anything else.  you don't <i>have</i> to move either of these directories, although you will probably want to.	sitemgr	en	There are two subdirectories off of your sitemgr directory that you should move before you do anything else.  You don't <i>have</i> to move either of these directories, although you will probably want to.
 there can only be one version in (pre(un))published state, with the one exeption that one prepublished version can coexist with one preunpublished version	sitemgr	en	There can only be one version in (pre(un))published state, with the one exeption that one prepublished version can coexist with one preunpublished version
 there is no website configured for url %1.  notify the administrator.	sitemgr	en	THERE IS NO WEBSITE CONFIGURED FOR URL %1.  NOTIFY THE ADMINISTRATOR.
@@ -291,6 +295,7 @@ this module presents a link back to the sitemgr's administration menu. it is mea
 this module provides a complete table of contents, it is automatically used by the toc and category_id get parameters	sitemgr	en	This module provides a complete table of contents, it is automatically used by the toc and category_id GET parameters
 this module provides a condensed table of contents, meant for side areas	sitemgr	en	This module provides a condensed table of contents, meant for side areas
 this module provides the site index, it is automatically used by the index get parameter	sitemgr	en	This module provides the site index, it is automatically used by the index GET parameter
+this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	sitemgr	en	This module publishes news from the news_admin application on your website. Be aware of news_admin's ACL restrictions.
 this must be an absolute directory location.  <b>no trailing slash</b>.	sitemgr	en	This must be an absolute directory location.  <b>No trailing slash</b>.
 this should be a comma-separated list of language-codes.	sitemgr	en	This should be a comma-separated list of language-codes.
 this should be a page that is readable by everyone. if you leave this blank, the site index will be shown by default.	sitemgr	en	This should be a page that is readable by everyone. If you leave this blank, the site index will be shown by default.
@@ -301,8 +306,8 @@ translate category	sitemgr	en	Translate Category
 translate page	sitemgr	en	Translate Page
 translate site-wide content blocks	sitemgr	en	Translate site-wide content blocks
 translation manager	sitemgr	en	Translation Manager
-up to parent	sitemgr-site	en	Up to parent
-up to table of contents	sitemgr-site	en	Up to table of contents
+up to parent	sitemgr	en	Up to parent
+up to table of contents	sitemgr	en	Up to table of contents
 updating to new category system	sitemgr	en	Updating to new category system
 url pointing to the directory where the images are found (no trailing slash)	sitemgr	en	URL pointing to the directory where the images are found (no trailing slash)
 url to sitemgr-site	sitemgr	en	URL to sitemgr-site
@@ -310,7 +315,7 @@ use phpnuke themes instead of templates	sitemgr	en	Use phpNuke themes instead of
 use this module for displaying book ads for the amazon web site	sitemgr	en	Use this module for displaying book ads for the amazon web site
 user name	sitemgr	en	User Name
 view administrative menu	sitemgr	en	View Administrative Menu
-view full index	sitemgr-site	en	View full index
+view full index	sitemgr	en	View full index
 view generated site	sitemgr	en	View Generated Site
 view threads	sitemgr	en	View Threads
 viewed	sitemgr	en	viewed
@@ -330,7 +335,7 @@ you can choose the modules that can be used on the site. the first list is a sor
 you can either migrate them to a new language or delete them	sitemgr	en	You can either migrate them to a new language or delete them
 you can override each content blocks default title. be aware that not in all content areas the block title will be visible.	sitemgr	en	You can override each content blocks default title. Be aware that not in all content areas the block title will be visible.
 you did not choose a module.	sitemgr	en	You did not choose a module.
-you do not have access to any content on this site.	sitemgr-site	en	You do not have access to any content on this site.
+you do not have access to any content on this site.	sitemgr	en	You do not have access to any content on this site.
 you do not have write permissions for any site categories.	sitemgr	en	You do not have write permissions for any site categories.
 you don't have permission to write in the category	sitemgr	en	You don't have permission to write in the category
 you don't have permission to write to that category.	sitemgr	en	You don't have permission to write to that category.
@@ -341,4 +346,4 @@ you must be an admin to manage module properties.	sitemgr	en	You must be an admi
 you must be an administrator to setup the site manager.	sitemgr	en	You must be an administrator to setup the Site Manager.
 you removed one ore more languages from your site languages.	sitemgr	en	You removed one ore more languages from your site languages.
 your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr	en	Your administrator has not yet setup the web content manager for public viewing.  Go bug your administrator to get their butt in gear.
-your calendar	sitemgr-site	en	Your Calendar
+your calendar	sitemgr	en	Your Calendar

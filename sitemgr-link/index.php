@@ -15,14 +15,14 @@
 		'nonavbar'   => True,
 		'noapi'      => False
 	);
-	if (file_exists('../header.inc.php'))
+	$parentdir = dirname(dirname($_SERVER['SCRIPT_FILENAME']));
+	if (file_exists($parentdir.'/header.inc.php'))
 	{
-		include('../header.inc.php');
+		include($parentdir.'/header.inc.php');
 	}
 	else
 	{
-		echo "You need to make sure the sitemgr-link app is in the phpgroupware directory.  If you made a symbolic link... it isn't working.";
-		die();
+		die("You need to make sure the sitemgr-link app is in the eGroupWare directory.  Under *nix you can make a symbolic link.");
 	}
 	$sites_bo = createobject('sitemgr.Sites_BO');
 	$siteinfo = $sites_bo->get_currentsiteinfo();
@@ -33,7 +33,7 @@
 	{
 		require_once($dir . '/functions.inc.php');
 		
-		$GLOBALS['phpgw']->redirect(sitemgr_link(array("PHPSESSID" => session_id())));
+		$GLOBALS['phpgw']->redirect(sitemgr_link(/*array("PHPSESSID" => session_id())*/));
 		exit;
 	}
 	else
