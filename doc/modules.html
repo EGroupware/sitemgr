@@ -65,12 +65,12 @@ HREF="#AEN10"
 ></DT
 ><DT
 ><A
-HREF="#AEN77"
+HREF="#AEN79"
 >User manual</A
 ></DT
 ><DT
 ><A
-HREF="#AEN106"
+HREF="#AEN108"
 >Administrator manual<A
 NAME="ADMINISTRATOR-MANUAL"
 ></A
@@ -78,7 +78,7 @@ NAME="ADMINISTRATOR-MANUAL"
 ></DT
 ><DT
 ><A
-HREF="#AEN140"
+HREF="#AEN142"
 >Template designer manual<A
 NAME="TEMPLATE-DESIGNER-MANUAL"
 ></A
@@ -86,7 +86,7 @@ NAME="TEMPLATE-DESIGNER-MANUAL"
 ></DT
 ><DT
 ><A
-HREF="#AEN155"
+HREF="#AEN157"
 >Application developper manual<A
 NAME="APPLICATION-DEVELOPPER-MANUAL"
 ></A
@@ -109,7 +109,7 @@ CLASS="SECT2"
 ><A
 NAME="AEN13">Template</H3
 ><P
->Sitemgr builds web sites from templates. Those are stored in the directory sitemgr/sitemg-site/templates. Each of them has a directory of its own. The file main.tpl defines the template of the whole site, there can be other files that define code for separate areas of the page or for specific modules. Templates contain four kinds of variables. These are explained here since the types 2,3 and 4 can be used both in the template as in the page content a module generates.</P
+>Sitemgr builds web sites from templates. Those are stored in the directory sitemgr/sitemg-site/templates. Each of them has a directory of its own. The file main.tpl defines the template of the whole site, there can be other files that define code for separate areas of the page or for specific modules. Templates contain four kinds of variables. These are explained here since the types 2,3 and 4 and 5 can be used both in the template as in the page content a module generates.</P
 ><P
 ></P
 ><OL
@@ -138,6 +138,10 @@ TYPE="a"
 >Links to phpgw start with '?phpgw:' . You have to name the application followed by a comma, and optionnally arguments the application can interpret. For example {?phpgw:/addressbook,order=n_given&#38;sort=ASC}.</P
 ></LI
 ></OL
+></LI
+><LI
+><P
+>{lang_translatable_string} This lets you make the template internationalized. The translatable string is sent through phpgroupware's lang function. Thus you can add it to the lang files in the setup directory and install it through the setup programm.</P
 ></LI
 ><LI
 ><P
@@ -179,7 +183,7 @@ CLASS="SECT2"
 ><HR><H3
 CLASS="SECT2"
 ><A
-NAME="AEN43">Module</H3
+NAME="AEN45">Module</H3
 ><P
 >The main function of a sitemgr module is to generate dynamic web site content. To make the development of new modules, and the use of modules easy and convenient, sitemgr defines an &#8220;abstract&#8221; class module which each module should extend. This parent of all modules, provides one essential service: It hooks the module into the content managment interface and permits the editing of the module's arguments that determine what content will be generated. Thus in order to create a new module, all you have to do, is to extend the abstract super module, define the modules arguments, and write a get_content function that returns the content that should be displayed on the website. More on this in chapter<A
 HREF="#APPLICATION-DEVELOPPER-MANUAL"
@@ -191,7 +195,7 @@ CLASS="SECT2"
 ><HR><H3
 CLASS="SECT2"
 ><A
-NAME="AEN47">Argument/Content</H3
+NAME="AEN49">Argument/Content</H3
 ><P
 >A module can be seen as a transformation of input arguments into generated content. It is important to understand that the input arguments can be of completely different kinds. On the one hand there can be arguments that are as close as possible to the generated content. For example the html module's only argument is named &#8220;htmlcontent&#8221; and in normal circumstances it is not transformed at all but handed over as is to the page generation engine. On the other hand arguments can play any conceivable role in the generation of content that is driven by data coming from other phpgroupware applications. They can be used to select between different categories of content, they can choose a certain format of presentation, they can function as search terms, etc.</P
 ></DIV
@@ -200,7 +204,7 @@ CLASS="SECT2"
 ><HR><H3
 CLASS="SECT2"
 ><A
-NAME="AEN50">Properties</H3
+NAME="AEN52">Properties</H3
 ><P
 >A module can define properties. Properties are accessible to the modules get_content function in the same way as arguments, but they differ from them in two ways:</P
 ><P
@@ -224,7 +228,7 @@ CLASS="SECT2"
 ><HR><H3
 CLASS="SECT2"
 ><A
-NAME="AEN59">Blocks, content areas and scope</H3
+NAME="AEN61">Blocks, content areas and scope</H3
 ><P
 >There are three ways a module can generate content that will be displayed on a web page:</P
 ><P
@@ -252,7 +256,7 @@ CLASS="SECT2"
 ><HR><H3
 CLASS="SECT2"
 ><A
-NAME="AEN69">Transformer</H3
+NAME="AEN71">Transformer</H3
 ><P
 >The architecture for sitemgr modules provides for the distinction between some form of raw content a module produces and the way it should get displayed on the web site, with the future possibility to plug other display types into the same framework. The idea is that the raw content of a module gets passed through different transformers, possibly even several transformers in a sequence at the time of content generation. Additionally this provides for a use of modules outside of sitemgr, for example remote retrieval of information with something like XML-RPC. </P
 ><P
@@ -265,7 +269,7 @@ CLASS="SECT2"
 ><HR><H3
 CLASS="SECT2"
 ><A
-NAME="AEN74">Translations</H3
+NAME="AEN76">Translations</H3
 ><P
 >Sitemgr in its new modularized architecture continues to be fully multilingual. It is very simple to have a new module use this feature. All that is needed is to use a special flag in the definition of the module's arguments. All arguments that have this flag will be stored in a language specific database table, and can be translated in the translation manager, very similar to the way category and page definitions could already be translated to several languages.</P
 ></DIV
@@ -275,7 +279,7 @@ CLASS="SECT1"
 ><HR><H2
 CLASS="SECT1"
 ><A
-NAME="AEN77">User manual</H2
+NAME="AEN79">User manual</H2
 ><P
 >The most important difference for site contributors between the modularized sitemgr and its older versions is that in the page manager now there are two different interfaces for each page:</P
 ><P
@@ -336,7 +340,7 @@ CLASS="SECT1"
 ><HR><H2
 CLASS="SECT1"
 ><A
-NAME="AEN106">Administrator manual<A
+NAME="AEN108">Administrator manual<A
 NAME="ADMINISTRATOR-MANUAL"
 ></A
 ></H2
@@ -345,7 +349,7 @@ CLASS="SECT2"
 ><H3
 CLASS="SECT2"
 ><A
-NAME="AEN109">Installation</H3
+NAME="AEN111">Installation</H3
 ><P
 ></P
 ><OL
@@ -401,7 +405,7 @@ CLASS="PROGRAMLISTING"
 ></LI
 ><LI
 ><P
->You're almost set to go. Log in to phpGroupWare as an adminis trator. Make sure you gave yourself the sitemgr and sitemgr-link applications so that you see them on your navbar. Go to the sitemgr application and select "Configure SiteMgr". Fill in &#8220;URL to sitemgr-site&#8221; and &#8220;Filesystem path to sitemgr-site directory&#8221;, and the anonymous user's name and password. Then click on save, and you should know select the template for your site.</P
+>You're almost set to go. Log in to phpGroupWare as an administrator. Make sure you gave yourself the sitemgr and sitemgr-link applications so that you see them on your navbar. Go to the sitemgr application and select "Configure SiteMgr". Fill in &#8220;URL to sitemgr-site&#8221; and &#8220;Filesystem path to sitemgr-site directory&#8221;, and the anonymous user's name and password. Then click on save, and you should now select the template for your site.</P
 ></LI
 ><LI
 ><P
@@ -414,7 +418,7 @@ CLASS="SECT2"
 ><HR><H3
 CLASS="SECT2"
 ><A
-NAME="AEN130">Maintenance</H3
+NAME="AEN132">Maintenance</H3
 ><P
 >As a site administrator, you have three privileges/responsibilies:</P
 ><P
@@ -444,7 +448,7 @@ CLASS="SECT1"
 ><HR><H2
 CLASS="SECT1"
 ><A
-NAME="AEN140">Template designer manual<A
+NAME="AEN142">Template designer manual<A
 NAME="TEMPLATE-DESIGNER-MANUAL"
 ></A
 ></H2
@@ -480,7 +484,7 @@ CLASS="SECT1"
 ><HR><H2
 CLASS="SECT1"
 ><A
-NAME="AEN155">Application developper manual<A
+NAME="AEN157">Application developper manual<A
 NAME="APPLICATION-DEVELOPPER-MANUAL"
 ></A
 ></H2

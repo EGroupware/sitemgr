@@ -39,8 +39,8 @@ main.tpl defines the template of the whole site, there
 can be other files that define code for separate areas 
 of the page or for specific modules. Templates contain 
 four kinds of variables. These are explained here since 
-the types 2,3 and 4 can be used both in the template as 
-in the page content a module generates.
+the types 2,3 and 4 and 5 can be used both in the 
+template as in the page content a module generates.
 
 1. {contentarea: areaname} These define where 
   administrator and contributor provided content go. 
@@ -75,7 +75,13 @@ in the page content a module generates.
     interpret. For example 
     {?phpgw:/addressbook,order=n_given&sort=ASC}.
 
-4. {variable} Finally there are some simple variables 
+4. {lang_translatable_string} This lets you make the 
+  template internationalized. The translatable string 
+  is sent through phpgroupware's lang function. Thus 
+  you can add it to the lang files in the setup 
+  directory and install it through the setup programm.
+
+5. {variable} Finally there are some simple variables 
   you can use to retrieve metainformation about the 
   page or about the user's context:
 
@@ -394,14 +400,13 @@ need not necessarily be the case.
   '/path/to/phpgroupware/'
 
 6. You're almost set to go. Log in to phpGroupWare as 
-  an adminis trator. Make sure you gave yourself the 
+  an administrator. Make sure you gave yourself the 
   sitemgr and sitemgr-link applications so that you see 
   them on your navbar. Go to the sitemgr application 
   and select "Configure SiteMgr". Fill in "URL to sitemgr-site"
    and "Filesystem path to sitemgr-site directory", and 
   the anonymous user's name and password. Then click on 
-  save, and you should know select the template for 
-  your site.
+  save, and you should now select the template for your site.
 
 7. That's it. Go to the Category manager, add a 
   category or three and check who can view and edit 

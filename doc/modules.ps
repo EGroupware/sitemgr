@@ -10,7 +10,7 @@
 %DVIPSWebPage: (www.radicaleye.com)
 %DVIPSCommandLine: dvips -o modules.ps modules.dvi
 %DVIPSParameters: dpi=600, compressed
-%DVIPSSource:  TeX output 2003.01.16:1709
+%DVIPSSource:  TeX output 2003.01.18:0040
 %%BeginProcSet: texc.pro
 %!
 /TeXDict 300 dict def TeXDict begin/N{def}def/B{bind def}N/S{exch}N/X{S
@@ -349,7 +349,7 @@ rf /Fg 137[56 61 33 56 39 1[61 61 61 89 28 2[28 1[61
 1[56 61 56 1[56 11[73 61 10[28 7[73 65[{TeXBase1Encoding ReEncodeFont}
 20 100.457 /Helvetica-Bold rf /Fh 137[46 51 28 37 32
 1[51 46 51 74 28 2[28 1[46 1[42 51 37 1[42 11[65 55 10[32
-7[65 7[42 42 42 1[42 1[42 4[21 46[{TeXBase1Encoding ReEncodeFont}26
+7[65 7[42 42 42 42 2[42 4[21 46[{TeXBase1Encoding ReEncodeFont}26
 83.022 /Palatino-Bold rf /Fi 31[42 75[42 42 22[50 1[42
 46 43 69 47 50 27 35 33 46 50 45 48 73 24 46 19 24 48
 46 28 40 51 37 46 42 1[42 1[28 1[28 1[55 55 83 60 65
@@ -468,7 +468,7 @@ Black Black(.)p Black Black(.)p Black Black -1 w(.)p
 Black Black(.)p Black Black(.)p Black Black(.)p Black
 Black -1 w(.)p Black Black(.)p Black Black(.)p Black
 Black(.)p Black Black -1 w(.)p Black Black(.)p Black
-Black(.)p Black Black(.)p Black 0 TeXcolorgray -1 w(5)p
+Black(.)p Black Black(.)p Black 0 TeXcolorgray -1 w(6)p
 Black 0 TeXcolorgray 596 2036 a(Administrator)e(manual)p
 Black Black 1 w(.)p Black Black -3 w(.)p Black Black(.)p
 Black Black(.)p Black Black -1 w(.)p Black Black(.)p
@@ -591,21 +591,22 @@ b(de\002nes)h(the)g(template)f(of)h(the)g(whole)g(site,)g(ther)o(e)f
 (can)g(be)g(other)h(\002les)g(that)g(de\002ne)596 1259
 y(code)d(for)h(separate)e(ar)o(eas)h(of)g(the)i(page)e(or)h(for)g
 (speci\002c)f(modules.)i(T)-8 b(emplates)27 b(contain)g(four)596
-1350 y(kinds)i(of)h(variables.)e(These)h(ar)o(e)f(explained)g(her)o(e)h
-(since)g(the)h(types)f(2,3)f(and)h(4)g(can)g(be)g(used)596
-1442 y(both)21 b(in)g(the)g(template)f(as)h(in)g(the)g(page)f(content)h
-(a)g(module)g(generates.)p Black 712 1657 a(1.)p Black
-20 w Fe(f)p Fi(contentar)o(ea:)36 b(ar)o(eaname)p Fe(g)h
-Fi(These)h(de\002ne)h(wher)o(e)f(administrator)g(and)g(contributor)795
-1749 y(pr)o(ovided)30 b(content)i(go.)f(The)g(names)h(and)e(the)i
-(number)f(of)g(contentar)o(eas)g(a)f(template)795 1840
-y(de\002nes)21 b(ar)o(e)e(almost)i(arbitrary)-9 b(.)p
-Black 712 1973 a(2.)p Black 20 w Fe(f)p Fi(appname.modulename\(?ar)o
-(guments\))p Fe(g)p Fi(These)54 b(let)i(you)h(har)o(dcode)f(a)g(call)g
-(to)h(a)795 2064 y(module)25 b(into)i(a)e(template.)f(Ar)o(guments)h
-(ar)o(e)f(in)i(the)g(HTTP)f(GET)g(query)h(string)g(syntax)795
-2156 y(\(?key1=value1&key2=value2\).)16 b(At)k(the)g(moment,)g(if)g
-(you)h(use)f(this)g(type)g(of)g(variables,)795 2247 y(you)33
+1350 y(kinds)g(of)g(variables.)f(These)h(ar)o(e)f(explained)g(her)o(e)g
+(since)i(the)f(types)g(2,3)f(and)h(4)f(and)h(5)f(can)h(be)596
+1442 y(used)20 b(both)h(in)h(the)f(template)f(as)g(in)i(the)e(page)h
+(content)g(a)f(module)h(generates.)p Black 712 1657 a(1.)p
+Black 20 w Fe(f)p Fi(contentar)o(ea:)36 b(ar)o(eaname)p
+Fe(g)h Fi(These)h(de\002ne)h(wher)o(e)f(administrator)g(and)g
+(contributor)795 1749 y(pr)o(ovided)30 b(content)i(go.)f(The)g(names)h
+(and)e(the)i(number)f(of)g(contentar)o(eas)g(a)f(template)795
+1840 y(de\002nes)21 b(ar)o(e)e(almost)i(arbitrary)-9
+b(.)p Black 712 1973 a(2.)p Black 20 w Fe(f)p Fi
+(appname.modulename\(?ar)o(guments\))p Fe(g)p Fi(These)54
+b(let)i(you)h(har)o(dcode)f(a)g(call)g(to)h(a)795 2064
+y(module)25 b(into)i(a)e(template.)f(Ar)o(guments)h(ar)o(e)f(in)i(the)g
+(HTTP)f(GET)g(query)h(string)g(syntax)795 2156 y
+(\(?key1=value1&key2=value2\).)16 b(At)k(the)g(moment,)g(if)g(you)h
+(use)f(this)g(type)g(of)g(variables,)795 2247 y(you)33
 b(have)g(to)g(urlencode)f(the)h(query)h(string)f(yourself.)g(Futur)o(e)
 f(versions)i(of)e(sitemgr)795 2338 y(might)38 b(pr)o(ovide)f(a)g
 (simpler)h(notation.)h(For)f(example,)p Fe(f)p Fi(sitemgr)-6
@@ -629,363 +630,372 @@ Black 907 3285 a(b.)p Black 20 w(Links)k(to)g(phpgw)g(start)f(with)h
 (guments)e(the)h(application)f(can)h(in-)994 3467 y(terpr)o(et.)17
 b(For)h(example)g Fe(f)p Fi(?phpgw:/addr)o(essbook,or)o
 (der=n_given&sort=ASC)p Fe(g)p Fi(.)p Black 712 3733
-a(4.)p Black 20 w Fe(f)p Fi(variable)p Fe(g)37 b Fi(Finally)k(ther)o(e)
-d(ar)o(e)h(some)h(simple)g(variables)f(you)h(can)g(use)f(to)h(r)o
-(etrieve)795 3824 y(metainformation)21 b(about)g(the)g(page)f(or)h
-(about)f(the)h(user)6 b('s)21 b(context:)p Black 911
-3957 a(a.)p Black 20 w Fe(f)p Fi(title)p Fe(g)f Fi(the)h(page)f(title)p
-Black 907 4090 a(b.)p Black 20 w Fe(f)p Fi(subtitle)p
-Fe(g)g Fi(the)h(page)f(subtitle)p Black 916 4223 a(c.)p
+a(4.)p Black 20 w Fe(f)p Fi(lang_translatable_string)p
+Fe(g)27 b Fi(This)j(lets)g(you)g(make)f(the)h(template)f
+(internationalized.)795 3824 y(The)17 b(translatable)g(string)h(is)g
+(sent)g(thr)o(ough)g(phpgr)o(oupwar)o(e's)f(lang)g(function.)h(Thus)g
+(you)795 3916 y(can)h(add)g(it)h(to)g(the)g(lang)g(\002les)h(in)f(the)g
+(setup)g(dir)o(ectory)f(and)g(install)i(it)f(thr)o(ough)g(the)g(setup)
+795 4007 y(pr)o(ogramm.)p Black 712 4140 a(5.)p Black
+20 w Fe(f)p Fi(variable)p Fe(g)37 b Fi(Finally)k(ther)o(e)d(ar)o(e)h
+(some)h(simple)g(variables)f(you)h(can)g(use)f(to)h(r)o(etrieve)795
+4231 y(metainformation)21 b(about)g(the)g(page)f(or)h(about)f(the)h
+(user)6 b('s)21 b(context:)p Black 911 4364 a(a.)p Black
+20 w Fe(f)p Fi(title)p Fe(g)f Fi(the)h(page)f(title)p
+Black 907 4497 a(b.)p Black 20 w Fe(f)p Fi(subtitle)p
+Fe(g)g Fi(the)h(page)f(subtitle)p Black 916 4630 a(c.)p
 Black 20 w Fe(f)p Fi(sitename)p Fe(g)p Fi(the)g(sitename)h(the)g
 (administrator)f(has)h(chosen)h(for)e(the)h(site)p Black
-902 4356 a(d.)p Black 20 w Fe(f)p Fi(footer)p Fe(g)p
+902 4762 a(d.)p Black 20 w Fe(f)p Fi(footer)p Fe(g)p
 Fi(the)f(administrator)h(edited)f(footer)p Black 913
-4488 a(e.)p Black 20 w Fe(f)p Fi(header)p Fe(g)p Fi(the)f
-(administrator)i(edited)e(header)p Black 925 4621 a(f.)p
+4895 a(e.)p Black 20 w Fe(f)p Fi(header)p Fe(g)p Fi(the)f
+(administrator)i(edited)e(header)p Black 925 5028 a(f.)p
 Black 20 w Fe(f)p Fi(user)p Fe(g)p Fi(the)h(user)6 b('s)21
-b(account)g(name)596 5062 y Ff(Module)596 5199 y Fi(The)j(main)h
-(function)h(of)f(a)f(sitemgr)h(module)g(is)g(to)h(generate)e(dynamic)g
-(web)h(site)g(content.)g(T)-8 b(o)596 5290 y(make)30
-b(the)h(development)f(of)h(new)g(modules,)g(and)f(the)g(use)h(of)g
-(modules)g(easy)f(and)g(conve-)596 5382 y(nient,)20 b(sitemgr)g
-(de\002nes)h(an)e(\223abstract\224)f(class)i(module)h(which)g(each)e
-(module)i(should)g(extend.)596 5473 y(This)k(par)o(ent)f(of)g(all)h
-(modules,)g(pr)o(ovides)f(one)i(essential)f(service:)f(It)h(hooks)h
-(the)f(module)g(into)p Black 3642 5585 a Fd(3)p Black
-eop
+b(account)g(name)p Black 3642 5585 a Fd(3)p Black eop
 %%Page: 4 4
 4 3 bop Black 0 TeXcolorgray Black 197 -132 a Fd(Intr)o(oduction)19
-b(to)h(sitemgr)h(modules)p Black 596 89 a Fi(the)f(content)h(managment)
-f(interface)g(and)f(permits)i(the)f(editing)h(of)f(the)g(module's)h(ar)
-o(guments)596 180 y(that)k(determine)g(what)g(content)h(will)g(be)f
+b(to)h(sitemgr)h(modules)p Black 596 89 a Ff(Module)596
+226 y Fi(The)j(main)h(function)h(of)f(a)f(sitemgr)h(module)g(is)g(to)h
+(generate)e(dynamic)g(web)h(site)g(content.)g(T)-8 b(o)596
+317 y(make)30 b(the)h(development)f(of)h(new)g(modules,)g(and)f(the)g
+(use)h(of)g(modules)g(easy)f(and)g(conve-)596 409 y(nient,)20
+b(sitemgr)g(de\002nes)h(an)e(\223abstract\224)f(class)i(module)h(which)
+g(each)e(module)i(should)g(extend.)596 500 y(This)k(par)o(ent)f(of)g
+(all)h(modules,)g(pr)o(ovides)f(one)i(essential)f(service:)f(It)h
+(hooks)h(the)f(module)g(into)596 591 y(the)20 b(content)h(managment)f
+(interface)g(and)f(permits)i(the)f(editing)h(of)f(the)g(module's)h(ar)o
+(guments)596 683 y(that)k(determine)g(what)g(content)h(will)g(be)f
 (generated.)f(Thus)i(in)g(or)o(der)e(to)i(cr)o(eate)d(a)i(new)h(mod-)
-596 272 y(ule,)g(all)g(you)h(have)g(to)g(do,)f(is)h(to)g(extend)f(the)h
+596 774 y(ule,)g(all)g(you)h(have)g(to)g(do,)f(is)h(to)g(extend)f(the)h
 (abstract)e(super)i(module,)f(de\002ne)h(the)f(modules)596
-363 y(ar)o(guments,)d(and)g(write)h(a)f(get_content)h(function)h(that)e
+865 y(ar)o(guments,)d(and)g(write)h(a)f(get_content)h(function)h(that)e
 (r)o(eturns)h(the)f(content)i(that)f(should)g(be)596
-454 y(displayed)c(on)h(the)g(website.)g(Mor)o(e)e(on)j(this)f(in)g
-(chapter)p 0 TeXcolorgray(5)p Black(.)596 762 y Ff(Ar)o(gument/Content)
-596 899 y Fi(A)c(module)g(can)h(be)f(seen)g(as)g(a)g(transformation)h
-(of)g(input)g(ar)o(guments)f(into)h(generated)e(content.)596
-991 y(It)j(is)g(important)h(to)g(understand)e(that)h(the)h(input)g(ar)o
-(guments)e(can)h(be)g(of)g(completely)h(dif)o(fer)o(ent)596
-1082 y(kinds.)27 b(On)i(the)f(one)g(hand)f(ther)o(e)g(can)g(be)h(ar)o
-(guments)f(that)h(ar)o(e)e(as)h(close)h(as)f(possible)i(to)f(the)596
-1173 y(generated)d(content.)h(For)h(example)e(the)h(html)h(module's)g
-(only)g(ar)o(gument)f(is)g(named)g(\223html-)596 1265
-y(content\224)i(and)g(in)h(normal)f(cir)o(cumstances)g(it)h(is)f(not)h
-(transformed)f(at)g(all)g(but)g(handed)g(over)596 1356
-y(as)22 b(is)h(to)g(the)g(page)f(generation)h(engine.)g(On)g(the)g
+957 y(displayed)c(on)h(the)g(website.)g(Mor)o(e)e(on)j(this)f(in)g
+(chapter)p 0 TeXcolorgray(5)p Black(.)596 1265 y Ff(Ar)o
+(gument/Content)596 1402 y Fi(A)c(module)g(can)h(be)f(seen)g(as)g(a)g
+(transformation)h(of)g(input)g(ar)o(guments)f(into)h(generated)e
+(content.)596 1493 y(It)j(is)g(important)h(to)g(understand)e(that)h
+(the)h(input)g(ar)o(guments)e(can)h(be)g(of)g(completely)h(dif)o(fer)o
+(ent)596 1584 y(kinds.)27 b(On)i(the)f(one)g(hand)f(ther)o(e)g(can)g
+(be)h(ar)o(guments)f(that)h(ar)o(e)e(as)h(close)h(as)f(possible)i(to)f
+(the)596 1676 y(generated)d(content.)h(For)h(example)e(the)h(html)h
+(module's)g(only)g(ar)o(gument)f(is)g(named)g(\223html-)596
+1767 y(content\224)i(and)g(in)h(normal)f(cir)o(cumstances)g(it)h(is)f
+(not)h(transformed)f(at)g(all)g(but)g(handed)g(over)596
+1858 y(as)22 b(is)h(to)g(the)g(page)f(generation)h(engine.)g(On)g(the)g
 (other)g(hand)g(ar)o(guments)f(can)h(play)f(any)h(con-)596
-1447 y(ceivable)j(r)o(ole)g(in)i(the)f(generation)g(of)g(content)h
+1950 y(ceivable)j(r)o(ole)g(in)i(the)f(generation)g(of)g(content)h
 (that)f(is)g(driven)g(by)g(data)f(coming)i(fr)o(om)f(other)596
-1539 y(phpgr)o(oupwar)o(e)21 b(applications.)h(They)h(can)f(be)g(used)g
+2041 y(phpgr)o(oupwar)o(e)21 b(applications.)h(They)h(can)f(be)g(used)g
 (to)h(select)g(between)f(dif)o(fer)o(ent)e(categories)596
-1630 y(of)32 b(content,)h(they)f(can)g(choose)h(a)f(certain)g(format)g
+2132 y(of)32 b(content,)h(they)f(can)g(choose)h(a)f(certain)g(format)g
 (of)g(pr)o(esentation,)g(they)g(can)g(function)h(as)596
-1721 y(sear)o(ch)19 b(terms,)i(etc.)596 2029 y Ff(Pr)n(oper)r(ties)596
-2166 y Fi(A)d(module)h(can)g(de\002ne)g(pr)o(operties.)f(Pr)o(operties)
+2224 y(sear)o(ch)19 b(terms,)i(etc.)596 2532 y Ff(Pr)n(oper)r(ties)596
+2669 y Fi(A)d(module)h(can)g(de\002ne)g(pr)o(operties.)f(Pr)o(operties)
 g(ar)o(e)f(accessible)i(to)g(the)g(modules)h(get_content)596
-2258 y(function)h(in)g(the)g(same)g(way)f(as)h(ar)o(guments,)f(but)h
+2760 y(function)h(in)g(the)g(same)g(way)f(as)h(ar)o(guments,)f(but)h
 (they)g(dif)o(fer)e(fr)o(om)h(them)h(in)h(two)f(ways:)p
-Black 596 2473 a Fc(\225)p Black 43 w Fi(Pr)o(operties)e(ar)o(e)f
+Black 596 2976 a Fc(\225)p Black 43 w Fi(Pr)o(operties)e(ar)o(e)f
 (edited)h(by)h(the)g(site)h(administrator)-6 b(.)19 b(Their)h(intended)
-g(r)o(ole)f(is)h(to)h(put)e(certain)679 2565 y(constrains)k(on)g(the)f
+g(r)o(ole)f(is)h(to)h(put)e(certain)679 3067 y(constrains)k(on)g(the)f
 (workings)i(of)e(the)h(module,)f(so)h(that)f(a)g(site)h(administrator)f
-(can)g(enfor)o(ce)679 2656 y(certain)h(r)o(ules.)h(For)g(example)f(the)
+(can)g(enfor)o(ce)679 3158 y(certain)h(r)o(ules.)h(For)g(example)f(the)
 g(standar)o(d)g(html)h(module)g(de\002nes)g(a)f(pr)o(operty)g(called)g
-(st-)679 2747 y(riphtml.)16 b(If)g(this)h(boolean)g(pr)o(operty)e(is)i
+(st-)679 3250 y(riphtml.)16 b(If)g(this)h(boolean)g(pr)o(operty)e(is)i
 (set)f(the)g(module)h(r)o(eplaces)e(all)h(html)h(in)g(the)f(generated)
-679 2839 y(content)21 b(with)h(entities.)p Black 596
-2972 a Fc(\225)p Black 43 w Fi(Pr)o(operties)17 b(ar)o(e)f(not)i
+679 3341 y(content)21 b(with)h(entities.)p Black 596
+3474 a Fc(\225)p Black 43 w Fi(Pr)o(operties)17 b(ar)o(e)f(not)i
 (de\002ned)g(with)g(r)o(espect)f(to)h(a)f(certain)h(generated)e
-(content)j(block,)f(but)f(ar)o(e)679 3063 y(de\002ned)23
+(content)j(block,)f(but)f(ar)o(e)679 3565 y(de\002ned)23
 b(either)g(on)h(a)f(site-wide)h(level)f(or)h(on)g(the)g(level)f(of)h
-(speci\002c)f(categories.)g(Addition-)679 3154 y(ally)h(you)h(can)g
+(speci\002c)f(categories.)g(Addition-)679 3657 y(ally)h(you)h(can)g
 (dif)o(fer)o(enciate)d(on)j(each)f(scope)h(pr)o(operties)f(for)g(each)g
-(content)i(ar)o(ea.)c(When)j(a)679 3246 y(content)17
+(content)i(ar)o(ea.)c(When)j(a)679 3748 y(content)17
 b(block)g(is)g(generated,)e(pr)o(operties)h(ar)o(e)f(sear)o(ched)g(for)
 i(in)g(a)f(cascading)g(way)-9 b(,)16 b(i.e.)g(when)679
-3337 y(the)j(block)h(is)g(speci\002c)g(to)g(a)f(speci\002c)h(page)f
+3839 y(the)j(block)h(is)g(speci\002c)g(to)g(a)f(speci\002c)h(page)f
 (and)g(contentar)o(ea)f(and)i(the)f(module's)i(pr)o(operties)679
-3428 y(ar)o(e)15 b(not)i(de\002ned)f(for)g(the)h(combination)h(of)e
+3931 y(ar)o(e)15 b(not)i(de\002ned)f(for)g(the)h(combination)h(of)e
 (the)h(contentar)o(ea)e(and)h(the)h(page's)f(category)-9
-b(,)15 b(then)679 3520 y(pr)o(operties)k(de\002ned)i(for)f(higher)i
+b(,)15 b(then)679 4022 y(pr)o(operties)k(de\002ned)i(for)f(higher)i
 (scopes)f(ar)o(e)e(looked)i(for)g(in)g(a)f(certain)h(or)o(der)-6
-b(.)19 b(Mor)o(e)h(on)h(this)679 3611 y(in)g(chapter)p
-0 TeXcolorgray(3)p Black(.)596 3919 y Ff(Bloc)n(ks,)k(content)g(areas)f
-(and)h(scope)596 4056 y Fi(Ther)o(e)20 b(ar)o(e)g(thr)o(ee)h(ways)h(a)f
+b(.)19 b(Mor)o(e)h(on)h(this)679 4113 y(in)g(chapter)p
+0 TeXcolorgray(3)p Black(.)596 4421 y Ff(Bloc)n(ks,)k(content)g(areas)f
+(and)h(scope)596 4558 y Fi(Ther)o(e)20 b(ar)o(e)g(thr)o(ee)h(ways)h(a)f
 (module)h(can)f(generate)g(content)h(that)g(will)g(be)g(displayed)f(on)
-h(a)f(web)596 4147 y(page:)p Black 712 4363 a(1.)p Black
+h(a)f(web)596 4649 y(page:)p Black 712 4865 a(1.)p Black
 20 w(A)k(template)g(can)h(contain)g(har)o(dcoded)e(calls)h(to)h
-(modules)g(that)g(will)g(generate)f(content)795 4454
+(modules)g(that)g(will)g(generate)f(content)795 4957
 y(visible)c(on)g(each)f(page.)g(Thus)h(you)g(could)g(put)f(dynamic)h
-(content)g(that)g(is)g(visible)g(acr)o(oss)795 4546 y(the)i(whole)h
+(content)g(that)g(is)g(visible)g(acr)o(oss)795 5048 y(the)i(whole)h
 (site)g(on)g(a)e(place)h(of)g(its)h(own)g(dir)o(ectly)e(into)i(the)g
-(template.)e(But)h(bewar)o(e)f(that)795 4637 y(r)o(estrictions)d
+(template.)e(But)h(bewar)o(e)f(that)795 5139 y(r)o(estrictions)d
 (de\002ned)g(by)g(the)h(administrator)f(also)g(apply)g(to)h(these)f
-(har)o(dcoded)f(module)795 4728 y(calls.)p Black 712
-4861 a(2.)p Black 20 w(A)35 b(template)h(de\002nes)g(several)f(content)
+(har)o(dcoded)f(module)795 5231 y(calls.)p Black 712
+5363 a(2.)p Black 20 w(A)35 b(template)h(de\002nes)g(several)f(content)
 h(ar)o(eas.)e(This)j(is)f(one)g(important)h(dif)o(fer)o(enced)795
-4953 y(between)20 b(the)g(modularized)f(sitemgr)h(and)g(pr)o(evious)g
-(versions)g(wher)o(e)g(ther)o(e)f(wer)o(e)g(was)795 5044
-y(only)24 b(one)h(place)d(wher)o(e)i(contributor)g(edited)f(content)h
-(went)g(\(page_content\))f(and)g(two)795 5135 y(places)41
-b(for)g(administrator)h(con\002gur)o(ed)f(blocks)i(\(right_blocks,)f
-(left_blocks\).)e(Now)795 5226 y(templates)g(can)g(de\002ne)h(any)g
-(practical)e(number)i(of)f(content)i(ar)o(eas)d(with)i(arbitrary)795
-5318 y(names.)26 b(And)f(ther)o(e)g(is)i(no)f(mor)o(e)g(much)g(dif)o
-(fer)o(ence)e(between)i(central)f(and)h(peripheric)795
-5409 y(ar)o(eas.)17 b(All)i(can)g(show)h(administrator)f(and)g
-(contributor)h(pr)o(ovided)e(block)h(content.W)-5 b(ith)p
-Black 197 5585 a Fd(4)p Black eop
+5455 y(between)20 b(the)g(modularized)f(sitemgr)h(and)g(pr)o(evious)g
+(versions)g(wher)o(e)g(ther)o(e)f(wer)o(e)g(was)p Black
+197 5585 a Fd(4)p Black eop
 %%Page: 5 5
 5 4 bop Black 0 TeXcolorgray Black 2602 -132 a Fd(Intr)o(oduction)19
-b(to)i(sitemgr)f(modules)p Black 795 89 a Fi(one)44 b(exeption:)f(The)g
-(name)g(\223center\224)f(is)i(special)f(in)h(that)f(special)g(pages)g
-(that)g(get)795 180 y(generated)18 b(by)h(special)g(URLs)g(like)h
+b(to)i(sitemgr)f(modules)p Black 795 89 a Fi(only)k(one)h(place)d(wher)
+o(e)i(contributor)g(edited)f(content)h(went)g(\(page_content\))f(and)g
+(two)795 180 y(places)41 b(for)g(administrator)h(con\002gur)o(ed)f
+(blocks)i(\(right_blocks,)f(left_blocks\).)e(Now)795
+272 y(templates)g(can)g(de\002ne)h(any)g(practical)e(number)i(of)f
+(content)i(ar)o(eas)d(with)i(arbitrary)795 363 y(names.)26
+b(And)f(ther)o(e)g(is)i(no)f(mor)o(e)g(much)g(dif)o(fer)o(ence)e
+(between)i(central)f(and)h(peripheric)795 454 y(ar)o(eas.)17
+b(All)i(can)g(show)h(administrator)f(and)g(contributor)h(pr)o(ovided)e
+(block)h(content.W)-5 b(ith)795 546 y(one)44 b(exeption:)f(The)g(name)g
+(\223center\224)f(is)i(special)f(in)h(that)f(special)g(pages)g(that)g
+(get)795 637 y(generated)18 b(by)h(special)g(URLs)g(like)h
 (\223?toc\224)e(and)h(\223?index\224)f(or)i
-(\223?category_id=number\224)795 272 y(always)28 b(put)h(ther)o(e)e
+(\223?category_id=number\224)795 728 y(always)28 b(put)h(ther)o(e)e
 (page)h(content)h(\(which)g(is)g(internally)g(generated)e(by)i(nothing)
-h(else)795 363 y(than)22 b(a)g(module\))g(into)h(this)g(content)f(ar)o
+h(else)795 820 y(than)22 b(a)g(module\))g(into)h(this)g(content)f(ar)o
 (ea.)e(If)i(your)g(template)g(does)g(not)h(have)f(a)f(content)795
-454 y(ar)o(ea)g(called)h(\223center\224)g(these)h(special)f(URLs)h
+911 y(ar)o(ea)g(called)h(\223center\224)g(these)h(special)f(URLs)h
 (won't)h(work.)f(Content)h(ar)o(eas)d(can)i(display)795
-546 y(module)d(output,)h(as)f(edited)g(by)g(the)h(page's)f
+1002 y(module)d(output,)h(as)f(edited)g(by)g(the)h(page's)f
 (contributors.)g(W)-8 b(e)21 b(r)o(efer)e(to)h(each)g(output)h(of)795
-637 y(a)37 b(module)i(as)f(a)f(block.)h(Her)o(e)f(is)i(another)f
+1094 y(a)37 b(module)i(as)f(a)f(block.)h(Her)o(e)f(is)i(another)f
 (important)h(dif)o(fer)o(ence)c(to)k(how)f(sitemgr)795
-728 y(used)28 b(to)h(work:)g(Until)g(now)g(ther)o(e)f(was)h(a)f(sharp)g
-(distinction)i(between)e(page)g(content)795 820 y(which)d(r)o(eplaces)f
-(the)h(template)f(variable)f(page_content,)h(and)h(side)f(blocks)i
-(which)f(got)795 911 y(de\002ned)e(in)i(a)e(special)h(\002le)g(called)f
-(blockcon\002g)i(and)f(r)o(eplaced)d(the)k(template)e(varialbes)795
-1002 y(right_blocks)g(and)f(left_blocks.)g(Now)g(fr)o(om)g(the)h
-(perspective)e(of)i(the)f(page)g(generation)795 1094
-y(engine)42 b(ther)o(e)f(is)h(no)g(mor)o(e)g(any)g(dif)o(fer)o(ence)d
-(between)i(content)i(ar)o(eas,)d(all)h(display)795 1185
-y(blocks)25 b(of)g(content)g(generated)f(by)h(modules.)g(The)g(blocks)g
-(one)h(content)f(ar)o(ea)e(displays)795 1276 y(can)i(be)g(de\002ned)g
-(on)h(dif)o(fer)o(ent)d(levels)i(of)h(scope:)f(Ther)o(e)f(ar)o(e)g
-(site)i(wide)f(blocks)h(that)f(ar)o(e)795 1368 y(visible)32
-b(acr)o(oss)e(the)i(whole)g(site,)g(category)f(wide)g(blocks,)h(that)f
-(ar)o(e)g(visible)g(on)h(pages)795 1459 y(that)c(belong)h(to)g(the)f
-(category)g(or)g(any)h(of)f(its)h(childr)o(en,)e(and)h(\002nally)h(ar)o
-(e)e(page)g(blocks)795 1550 y(that)20 b(de\002ne)g(what)g
-(distinguishes)i(the)e(page)f(fr)o(om)h(other)g(pages,)g(and)g
-(normally)g(will)h(be)795 1642 y(that)f(what)h(you'd)g(call)g(the)g
-(page's)f(main)h(content.)p Black 712 1774 a(3.)p Black
-20 w(The)g(block)h(content)g(generated)e(by)h(a)g(module)h(can)f
-(contain)h(template)e(variables)h(of)g(the)795 1866 y(same)16
-b(type)h(as)g(those)h(that)e(can)h(be)g(har)o(dcoded.)e(This)i(is)g
-(mostly)i(useful)d(for)h(modules)h(like)795 1957 y(the)24
-b(html)i(module,)e(wher)o(e)g(the)h(contributor)g(speci\002ed)f(ar)o
-(gument)g(is)h(nearly)f(identical)795 2048 y(to)c(the)h(generated)e
-(content.)h(Thus)h(a)f(contributor)g(can)g(embed)g(module)g(calls)g
-(inside)h(the)795 2140 y(content)k(of)g(a)f(certain)h(block.)g(This)g
-(is)g(done)g(only)h(once)f(without)h(any)f(r)o(ecursion,)f(i.e.)g(if)
-795 2231 y(a)g(embedded)g(module)h(call)f(r)o(eturns)g(itself)h(a)f
-(template)h(variable)e(it)i(is)g(not)h(parsed)d(and)795
-2322 y(pr)o(ocessed)d(again.)596 2630 y Ff(T)-7 b(ransf)n(ormer)596
-2767 y Fi(The)17 b(ar)o(chitectur)o(e)f(for)h(sitemgr)h(modules)h(pr)o
-(ovides)e(for)g(the)h(distinction)h(between)f(some)g(form)596
-2859 y(of)25 b(raw)g(content)g(a)g(module)h(pr)o(oduces)e(and)h(the)g
-(way)g(it)h(should)g(get)f(displayed)g(on)h(the)f(web)596
-2950 y(site,)20 b(with)h(the)g(futur)o(e)e(possibility)j(to)f(plug)f
-(other)h(display)f(types)h(into)g(the)f(same)h(framework.)596
-3041 y(The)d(idea)f(is)i(that)f(the)h(raw)f(content)h(of)f(a)g(module)h
+1185 y(used)28 b(to)h(work:)g(Until)g(now)g(ther)o(e)f(was)h(a)f(sharp)
+g(distinction)i(between)e(page)g(content)795 1276 y(which)d(r)o
+(eplaces)f(the)h(template)f(variable)f(page_content,)h(and)h(side)f
+(blocks)i(which)f(got)795 1368 y(de\002ned)e(in)i(a)e(special)h(\002le)
+g(called)f(blockcon\002g)i(and)f(r)o(eplaced)d(the)k(template)e
+(varialbes)795 1459 y(right_blocks)g(and)f(left_blocks.)g(Now)g(fr)o
+(om)g(the)h(perspective)e(of)i(the)f(page)g(generation)795
+1550 y(engine)42 b(ther)o(e)f(is)h(no)g(mor)o(e)g(any)g(dif)o(fer)o
+(ence)d(between)i(content)i(ar)o(eas,)d(all)h(display)795
+1642 y(blocks)25 b(of)g(content)g(generated)f(by)h(modules.)g(The)g
+(blocks)g(one)h(content)f(ar)o(ea)e(displays)795 1733
+y(can)i(be)g(de\002ned)g(on)h(dif)o(fer)o(ent)d(levels)i(of)h(scope:)f
+(Ther)o(e)f(ar)o(e)g(site)i(wide)f(blocks)h(that)f(ar)o(e)795
+1824 y(visible)32 b(acr)o(oss)e(the)i(whole)g(site,)g(category)f(wide)g
+(blocks,)h(that)f(ar)o(e)g(visible)g(on)h(pages)795 1916
+y(that)c(belong)h(to)g(the)f(category)g(or)g(any)h(of)f(its)h(childr)o
+(en,)e(and)h(\002nally)h(ar)o(e)e(page)g(blocks)795 2007
+y(that)20 b(de\002ne)g(what)g(distinguishes)i(the)e(page)f(fr)o(om)h
+(other)g(pages,)g(and)g(normally)g(will)h(be)795 2098
+y(that)f(what)h(you'd)g(call)g(the)g(page's)f(main)h(content.)p
+Black 712 2231 a(3.)p Black 20 w(The)g(block)h(content)g(generated)e
+(by)h(a)g(module)h(can)f(contain)h(template)e(variables)h(of)g(the)795
+2322 y(same)16 b(type)h(as)g(those)h(that)e(can)h(be)g(har)o(dcoded.)e
+(This)i(is)g(mostly)i(useful)d(for)h(modules)h(like)795
+2414 y(the)24 b(html)i(module,)e(wher)o(e)g(the)h(contributor)g
+(speci\002ed)f(ar)o(gument)g(is)h(nearly)f(identical)795
+2505 y(to)c(the)h(generated)e(content.)h(Thus)h(a)f(contributor)g(can)g
+(embed)g(module)g(calls)g(inside)h(the)795 2596 y(content)k(of)g(a)f
+(certain)h(block.)g(This)g(is)g(done)g(only)h(once)f(without)h(any)f(r)
+o(ecursion,)f(i.e.)g(if)795 2688 y(a)g(embedded)g(module)h(call)f(r)o
+(eturns)g(itself)h(a)f(template)h(variable)e(it)i(is)g(not)h(parsed)d
+(and)795 2779 y(pr)o(ocessed)d(again.)596 3087 y Ff(T)-7
+b(ransf)n(ormer)596 3224 y Fi(The)17 b(ar)o(chitectur)o(e)f(for)h
+(sitemgr)h(modules)h(pr)o(ovides)e(for)g(the)h(distinction)h(between)f
+(some)g(form)596 3315 y(of)25 b(raw)g(content)g(a)g(module)h(pr)o
+(oduces)e(and)h(the)g(way)g(it)h(should)g(get)f(displayed)g(on)h(the)f
+(web)596 3407 y(site,)20 b(with)h(the)g(futur)o(e)e(possibility)j(to)f
+(plug)f(other)h(display)f(types)h(into)g(the)f(same)h(framework.)596
+3498 y(The)d(idea)f(is)i(that)f(the)h(raw)f(content)h(of)f(a)g(module)h
 (gets)f(passed)g(thr)o(ough)h(dif)o(fer)o(ent)d(transform-)596
-3133 y(ers,)24 b(possibly)i(even)f(several)g(transformers)g(in)g(a)g
+3589 y(ers,)24 b(possibly)i(even)f(several)g(transformers)g(in)g(a)g
 (sequence)g(at)g(the)g(time)h(of)f(content)h(genera-)596
-3224 y(tion.)21 b(Additionally)g(this)h(pr)o(ovides)f(for)g(a)f(use)h
+3681 y(tion.)21 b(Additionally)g(this)h(pr)o(ovides)f(for)g(a)f(use)h
 (of)g(modules)h(outside)g(of)f(sitemgr)-6 b(,)21 b(for)g(example)596
-3315 y(r)o(emote)f(r)o(etrieval)f(of)i(information)g(with)h(something)g
-(like)f(XML-RPC.)596 3448 y(At)27 b(the)h(moment,)h(a)e(module)h(does)g
+3772 y(r)o(emote)f(r)o(etrieval)f(of)i(information)g(with)h(something)g
+(like)f(XML-RPC.)596 3905 y(At)27 b(the)h(moment,)h(a)e(module)h(does)g
 (not)h(need)e(to)h(use)g(transformers)g(on)g(its)g(own,)h(it)f(can)f
-(di-)596 3539 y(r)o(ectly)19 b(generate)f(html)j(content,)f(but)g(if)f
+(di-)596 3996 y(r)o(ectly)19 b(generate)f(html)j(content,)f(but)g(if)f
 (it)h(does,)g(sitemgr)g(pr)o(ovides)f(for)g(an)h(easy)f(way)h(to)g
-(chain)596 3631 y(dif)o(fer)o(ent)25 b(transformers)i(together)-6
+(chain)596 4087 y(dif)o(fer)o(ent)25 b(transformers)i(together)-6
 b(.)28 b(Thus)g(a)f(module)h(can)f(be)g(constr)o(ucted)h(in)g(dif)o
-(fer)o(ent)d(lay-)596 3722 y(ers)f(of)h(functionality)-9
+(fer)o(ent)d(lay-)596 4179 y(ers)f(of)h(functionality)-9
 b(.)25 b(For)h(example)e(a)g(module's)i(get_content)f(function)h(could)
-f(r)o(eturn)f(data)596 3813 y(inXML,)i(and)h(it)g(de\002nes)h(a)e(XSL)
+f(r)o(eturn)f(data)596 4270 y(inXML,)i(and)h(it)g(de\002nes)h(a)e(XSL)
 -6 b(T)27 b(transformation)g(to)h(r)o(eor)o(ganize)d(this)j(data,)d
-(and)i(a)g(second)596 3905 y(transformer)20 b(for)g(cr)o(eating)g(a)g
-(user)h(interface)f(for)g(display)-9 b(.)596 4038 y(T)i(ransformers)32
+(and)i(a)g(second)596 4361 y(transformer)20 b(for)g(cr)o(eating)g(a)g
+(user)h(interface)f(for)g(display)-9 b(.)596 4494 y(T)i(ransformers)32
 b(ar)o(e)g(also)i(used)f(on)h(the)g(level)f(of)g(the)h(site)g
-(template,)e(insofar)i(as)f(each)g(con-)596 4129 y(tentar)o(ea)14
+(template,)e(insofar)i(as)f(each)g(con-)596 4586 y(tentar)o(ea)14
 b(can)i(have)g(an)g(associated)f(transformer)-6 b(,)16
 b(which)h(wraps)f(the)g(dif)o(fer)o(ent)e(content)j(blocks)596
-4220 y(into)26 b(a)g(common)h(display)f(format.)f(This)h(does)g(the)g
+4677 y(into)26 b(a)g(common)h(display)f(format.)f(This)h(does)g(the)g
 (same)g(thing)h(as)e(the)h(\002le)g(sideblock.tpl)g(in)596
-4312 y(former)20 b(versions)h(of)g(sitemgr)-6 b(.)596
-4620 y Ff(T)f(ranslations)596 4757 y Fi(Sitemgr)24 b(in)i(its)f(new)g
+4768 y(former)20 b(versions)h(of)g(sitemgr)-6 b(.)596
+5076 y Ff(T)f(ranslations)596 5213 y Fi(Sitemgr)24 b(in)i(its)f(new)g
 (modularized)f(ar)o(chitectur)o(e)f(continues)j(to)g(be)e(fully)i
-(multilingual.)g(It)f(is)596 4848 y(very)30 b(simple)h(to)g(have)g(a)f
+(multilingual.)g(It)f(is)596 5305 y(very)30 b(simple)h(to)g(have)g(a)f
 (new)h(module)g(use)g(this)h(featur)o(e.)d(All)h(that)h(is)g(needed)f
-(is)h(to)h(use)e(a)596 4939 y(special)h(\003ag)h(in)h(the)f
+(is)h(to)h(use)e(a)596 5396 y(special)h(\003ag)h(in)h(the)f
 (de\002nition)h(of)f(the)g(module's)h(ar)o(guments.)e(All)h(ar)o
-(guments)f(that)h(have)596 5031 y(this)21 b(\003ag)h(will)g(be)f(stor)o
-(ed)f(in)i(a)f(language)g(speci\002c)g(database)e(table,)i(and)f(can)h
-(be)g(translated)f(in)596 5122 y(the)g(translation)g(manager)-6
-b(,)19 b(very)h(similar)g(to)h(the)f(way)g(category)g(and)f(page)g
-(de\002nitions)j(could)596 5213 y(alr)o(eady)c(be)j(translated)f(to)h
-(several)f(languages.)p Black 3642 5585 a Fd(5)p Black
+(guments)f(that)h(have)p Black 3642 5585 a Fd(5)p Black
 eop
 %%Page: 6 6
 6 5 bop Black 0 TeXcolorgray Black 197 -132 a Fd(Intr)o(oduction)19
-b(to)h(sitemgr)h(modules)p Black 197 89 a Fg(User)27
-b(man)o(ual)596 231 y Fi(The)17 b(most)h(important)g(dif)o(fer)o(ence)d
-(for)i(site)h(contributors)g(between)f(the)h(modularized)e(sitemgr)596
-322 y(and)23 b(its)h(older)f(versions)h(is)g(that)f(in)h(the)g(page)f
+b(to)h(sitemgr)h(modules)p Black 596 89 a Fi(this)g(\003ag)h(will)g(be)
+f(stor)o(ed)f(in)i(a)f(language)g(speci\002c)g(database)e(table,)i(and)
+f(can)h(be)g(translated)f(in)596 180 y(the)g(translation)g(manager)-6
+b(,)19 b(very)h(similar)g(to)h(the)f(way)g(category)g(and)f(page)g
+(de\002nitions)j(could)596 272 y(alr)o(eady)c(be)j(translated)f(to)h
+(several)f(languages.)197 673 y Fg(User)27 b(man)o(ual)596
+814 y Fi(The)17 b(most)h(important)g(dif)o(fer)o(ence)d(for)i(site)h
+(contributors)g(between)f(the)h(modularized)e(sitemgr)596
+906 y(and)23 b(its)h(older)f(versions)h(is)g(that)f(in)h(the)g(page)f
 (manager)g(now)h(ther)o(e)f(ar)o(e)f(two)i(dif)o(fer)o(ent)e(inter)o(-)
-596 413 y(faces)d(for)i(each)f(page:)p Black 712 629
+596 997 y(faces)d(for)i(each)f(page:)p Black 712 1213
 a(1.)p Black 20 w(When)30 b(you)h(cr)o(eate)d(a)i(new)g(page)f(or)i
 (when)f(you)h(click)f(on)h(the)f(Edit)g(button)h(which)g(is)795
-720 y(associated)21 b(with)h(an)g(existing)g(page,)f(you)h(no)g(longer)
-g(edit)f(the)h(page)f(content,)h(but)g(only)795 812 y(some)i(basic)g
-(metainformation)g(about)g(the)g(page)f(as)g(its)i(name,)e(title,)h
-(subtitle)g(and)g(sort)795 903 y(or)o(der)-6 b(,)19 b(and)h(you)i(can)e
-(change)h(the)g(category)f(the)h(page)f(belongs)i(to.)p
-Black 712 1036 a(2.)p Black 20 w(Ther)o(e)15 b(is)h(a)g(new)g
-(interface)f(that)h(gets)h(displayed)e(when)i(you)f(click)h(on)f(a)g
-(page's)g(\223Manage)795 1127 y(content\224)21 b(button.)g(It)g(is)g
-(her)o(e)f(that)h(you)g(cr)o(eate)e(the)i(content)g(blocks)h(for)e
-(each)g(page.)596 1260 y(The)f(second)h(dif)o(fer)o(ence)d(is)j(that)g
-(now)h(a)e(contributor)i(can)e(also)h(de\002ne)f(content)i(blocks)f
-(for)g(the)596 1351 y(whole)26 b(category)g(he)g(has)g(write)g(access)f
-(for)-6 b(.)25 b(These)h(category)g(wide)g(blocks)g(will)h(be)e(seen)h
-(on)596 1443 y(each)e(page)h(that)g(belongs)h(to)f(the)h(category)e(or)
-i(to)f(any)g(of)h(its)f(subcategories.)g(Ther)o(e)f(ar)o(e)g(also)596
-1534 y(side)c(wide)h(content)g(blocks)h(that)e(only)i(the)f(site)g
-(administrator)g(can)f(cr)o(eate.)596 1667 y(The)25 b(interface)f(for)h
-(cr)o(eating)f(content)i(blocks)g(is)g(the)f(same)g(on)h(each)f(level)g
-(of)g(scope,)g(besides)596 1758 y(that)g(when)h(editing)g(blocks)g(on)g
-(a)f(lower)h(level)f(you)h(can)f(see)h(all)f(the)h(blocks)g(that)f
-(have)g(been)596 1850 y(de\002ned)30 b(on)h(a)f(higher)h(level,)f(and)g
-(will)i(be)e(displayed)g(on)h(the)g(website)g(together)f(with)i(the)596
-1941 y(blocks)21 b(you)g(ar)o(e)f(editing.)g(I)h(will)h(r)o(efer)d(to)i
+1304 y(associated)21 b(with)h(an)g(existing)g(page,)f(you)h(no)g
+(longer)g(edit)f(the)h(page)f(content,)h(but)g(only)795
+1396 y(some)i(basic)g(metainformation)g(about)g(the)g(page)f(as)g(its)i
+(name,)e(title,)h(subtitle)g(and)g(sort)795 1487 y(or)o(der)-6
+b(,)19 b(and)h(you)i(can)e(change)h(the)g(category)f(the)h(page)f
+(belongs)i(to.)p Black 712 1620 a(2.)p Black 20 w(Ther)o(e)15
+b(is)h(a)g(new)g(interface)f(that)h(gets)h(displayed)e(when)i(you)f
+(click)h(on)f(a)g(page's)g(\223Manage)795 1711 y(content\224)21
+b(button.)g(It)g(is)g(her)o(e)f(that)h(you)g(cr)o(eate)e(the)i(content)
+g(blocks)h(for)e(each)g(page.)596 1844 y(The)f(second)h(dif)o(fer)o
+(ence)d(is)j(that)g(now)h(a)e(contributor)i(can)e(also)h(de\002ne)f
+(content)i(blocks)f(for)g(the)596 1935 y(whole)26 b(category)g(he)g
+(has)g(write)g(access)f(for)-6 b(.)25 b(These)h(category)g(wide)g
+(blocks)g(will)h(be)e(seen)h(on)596 2026 y(each)e(page)h(that)g
+(belongs)h(to)f(the)h(category)e(or)i(to)f(any)g(of)h(its)f
+(subcategories.)g(Ther)o(e)f(ar)o(e)g(also)596 2118 y(side)c(wide)h
+(content)g(blocks)h(that)e(only)i(the)f(site)g(administrator)g(can)f
+(cr)o(eate.)596 2251 y(The)25 b(interface)f(for)h(cr)o(eating)f
+(content)i(blocks)g(is)g(the)f(same)g(on)h(each)f(level)g(of)g(scope,)g
+(besides)596 2342 y(that)g(when)h(editing)g(blocks)g(on)g(a)f(lower)h
+(level)f(you)h(can)f(see)h(all)f(the)h(blocks)g(that)f(have)g(been)596
+2433 y(de\002ned)30 b(on)h(a)f(higher)h(level,)f(and)g(will)i(be)e
+(displayed)g(on)h(the)g(website)g(together)f(with)i(the)596
+2525 y(blocks)21 b(you)g(ar)o(e)f(editing.)g(I)h(will)h(r)o(efer)d(to)i
 (this)g(interface)f(as)g(the)h(content)h(manager)-6 b(.)596
-2074 y(In)22 b(each)g(content)g(manager)-6 b(,)21 b(ther)o(e)h(is)g(a)g
+2657 y(In)22 b(each)g(content)g(manager)-6 b(,)21 b(ther)o(e)h(is)g(a)g
 (section)h(for)f(each)f(content)i(ar)o(ea,)d(wher)o(e)h(you)i(can)f
-(add)596 2165 y(blocks)k(selected)f(fr)o(om)g(a)g(menu)h(of)g(all)f
+(add)596 2749 y(blocks)k(selected)f(fr)o(om)g(a)g(menu)h(of)g(all)f
 (available)f(modules.)i(Once)g(you)g(have)f(added)f(a)i(new)596
-2256 y(block,)20 b(it)h(appears)f(amidst)h(all)f(other)h(blocks)h(of)e
+2840 y(block,)20 b(it)h(appears)f(amidst)h(all)f(other)h(blocks)h(of)e
 (the)h(content)h(ar)o(ea.)c(Those)k(de\002ned)e(on)h(higher)596
-2348 y(level)g(scopes)h(ar)o(e)e(only)j(displayed,)d(those)j
+2931 y(level)g(scopes)h(ar)o(e)e(only)j(displayed,)d(those)j
 (pertaining)e(to)h(the)g(scope)g(\(site-wide,)f(category)g(or)596
-2439 y(page\))e(you)h(ar)o(e)f(managing)i(ar)o(e)d(editable.)h(Ther)o
+3023 y(page\))e(you)h(ar)o(e)f(managing)i(ar)o(e)d(editable.)h(Ther)o
 (e)h(ar)o(e)e(four)i(standar)o(d)f(interface)g(elements)h(you)596
-2530 y(can)g(edit)g(for)h(each)f(block:)197 2746 y(T)-5
-b(itle)p Black Black 762 2879 a(Each)23 b(module)h(de\002nes)f(a)h
+3114 y(can)g(edit)g(for)h(each)f(block:)197 3330 y(T)-5
+b(itle)p Black Black 762 3463 a(Each)23 b(module)h(de\002nes)f(a)h
 (default)e(title)i(for)g(blocks)g(it)g(generates.)f(The)g(block)h
-(title)g(is)g(not)762 2970 y(necessarily)f(displayed)f(in)i(each)f
+(title)g(is)g(not)762 3554 y(necessarily)f(displayed)f(in)i(each)f
 (content)h(ar)o(ea.)d(It)j(depends)e(on)i(the)g(block)f(transformer)762
-3062 y(de\002ned)d(for)g(the)h(content)h(ar)o(ea)d(by)i(the)g(site)g
+3645 y(de\002ned)d(for)g(the)h(content)h(ar)o(ea)d(by)i(the)g(site)g
 (template)f(you)h(use.)g(Her)o(e)f(you)h(can)g(override)762
-3153 y(the)j(default)g(title)h(with)g(a)f(customized)h(title)g(that)f
+3737 y(the)j(default)g(title)h(with)g(a)f(customized)h(title)g(that)f
 (will)i(only)f(be)g(used)f(by)h(the)f(block)h(you)762
-3244 y(ar)o(e)19 b(editing.)197 3419 y(Actif)p Black
-Black 762 3552 a(When)i(you)i(cr)o(eate)c(a)i(new)h(block,)g(it)f(is)h
+3828 y(ar)o(e)19 b(editing.)197 4002 y(Actif)p Black
+Black 762 4135 a(When)i(you)i(cr)o(eate)c(a)i(new)h(block,)g(it)f(is)h
 (not)g(immediately)g(visible)g(on)g(the)g(web)f(site.)g(This)762
-3643 y(makes)27 b(sense)g(since)h(you)g(need)e(to)i(edit)f(its)h(ar)o
+4227 y(makes)27 b(sense)g(since)h(you)g(need)e(to)i(edit)f(its)h(ar)o
 (guments)f(\002rst.)g(When)h(you)f(ar)o(e)f(\002nished)762
-3734 y(de\002ning)e(a)f(blocks)h(ar)o(guments,)g(you)g(have)f(to)h
+4318 y(de\002ning)e(a)f(blocks)h(ar)o(guments,)g(you)g(have)f(to)h
 (check)g(the)g(actif)f(\003ag)g(to)i(make)e(it)h(visible.)762
-3825 y(This)c(can)g(also)g(be)g(practical)e(if)i(you)h(want)f(to)g
+4409 y(This)c(can)g(also)g(be)g(practical)e(if)i(you)h(want)f(to)g
 (hide)g(some)h(content)f(temporarily)g(fr)o(om)g(the)762
-3917 y(web)g(site)h(without)h(deleting)f(it)g(fr)o(om)f(the)h
-(database.)197 4091 y(Seenby)p Black Black 762 4224 a(Y)-8
+4501 y(web)g(site)h(without)h(deleting)f(it)g(fr)o(om)f(the)h
+(database.)197 4675 y(Seenby)p Black Black 762 4808 a(Y)-8
 b(ou)21 b(can)e(contr)o(ol)h(the)g(visibility)h(of)f(each)f(block)i
 (for)e(the)h(dif)o(fer)o(ent)e(user)i(r)o(oles)f(de\002ned)h(by)762
-4315 y(sitemgr:)26 b(site)h(administrators,)f(phpgr)o(oupwar)o(e)f
-(users)i(\(which)g(include)f(site)h(adminis-)762 4407
+4899 y(sitemgr:)26 b(site)h(administrators,)f(phpgr)o(oupwar)o(e)f
+(users)i(\(which)g(include)f(site)h(adminis-)762 4990
 y(trators\))21 b(and)h(the)g(anonymous)h(user)-6 b(.)22
 b(Evidently)g(you)g(can)g(also)g(make)g(the)g(block)h(visible)762
-4498 y(for)d(everyone)h(which)g(is)g(the)g(default.)197
-4672 y(Sortor)o(der)p Black Black 762 4805 a(Her)o(e)h(you)j(can)e
+5082 y(for)d(everyone)h(which)g(is)g(the)g(default.)197
+5256 y(Sortor)o(der)p Black Black 762 5389 a(Her)o(e)h(you)j(can)e
 (change)h(the)g(or)o(der)f(in)h(which)h(the)f(blocks)g(ar)o(e)f
-(displayed)g(by)h(de\002ning)g(a)762 4896 y(dif)o(fer)o(ent)18
-b(integer)j(for)g(each)f(block.)596 5029 y(After)27 b(these,)h(you)g
-(have)g(to)h(edit)e(the)i(module)f(speci\002c)g(ar)o(guments,)g(each)g
-(of)g(which)h(is)f(pr)o(e-)596 5121 y(ceded)21 b(by)h(an)g(explanatory)
-f(label.)h(The)g(input)h(elements)f(for)g(ar)o(guments)g(can)g(be)g(of)
-g(dif)o(fer)o(ent)596 5212 y(types:)e(checkboxes,)h(selectboxes,)g
-(textar)o(eas,)d(text\002elds.)j(In)g(the)g(case)g(of)g(text)f(input,)i
-(you)f(can)596 5303 y(use)26 b(the)h(same)g(template)f(variables)g(as)g
-(ar)o(e)f(used)i(in)g(the)g(site)g(template.)f(But)h(be)f(awar)o(e)f
-(that)p Black 197 5585 a Fd(6)p Black eop
+(displayed)g(by)h(de\002ning)g(a)762 5480 y(dif)o(fer)o(ent)18
+b(integer)j(for)g(each)f(block.)p Black 197 5585 a Fd(6)p
+Black eop
 %%Page: 7 7
 7 6 bop Black 0 TeXcolorgray Black 2602 -132 a Fd(Intr)o(oduction)19
-b(to)i(sitemgr)f(modules)p Black 596 89 a Fi(this)i(only)g(works)g(if)f
-(the)g(module)h(puts)f(the)h(same)f(variable)f(into)i(its)g(output,)f
-(which)h(need)f(not)596 180 y(necessarily)f(be)h(the)g(case.)197
-498 y Fg(Administrator)30 b(man)o(ual)596 750 y Ff(Installation)p
-Black 712 979 a Fi(1.)p Black 20 w(Once)k(you)g(have)f(the)h(sitemgr)g
-(dir)o(ectory)f(inside)h(your)h(phpgr)o(oupwar)o(e)d(install)i(you)795
-1070 y(can)24 b(setup)h(it)g(like)h(any)e(other)i(phpgr)o(oupwar)o(e)d
-(application)i(with)h(the)f(setup)g(pr)o(ogram)795 1161
+b(to)i(sitemgr)f(modules)p Black 596 89 a Fi(After)27
+b(these,)h(you)g(have)g(to)h(edit)e(the)i(module)f(speci\002c)g(ar)o
+(guments,)g(each)g(of)g(which)h(is)f(pr)o(e-)596 180
+y(ceded)21 b(by)h(an)g(explanatory)f(label.)h(The)g(input)h(elements)f
+(for)g(ar)o(guments)g(can)g(be)g(of)g(dif)o(fer)o(ent)596
+272 y(types:)e(checkboxes,)h(selectboxes,)g(textar)o(eas,)d
+(text\002elds.)j(In)g(the)g(case)g(of)g(text)f(input,)i(you)f(can)596
+363 y(use)26 b(the)h(same)g(template)f(variables)g(as)g(ar)o(e)f(used)i
+(in)g(the)g(site)g(template.)f(But)h(be)f(awar)o(e)f(that)596
+454 y(this)d(only)g(works)g(if)f(the)g(module)h(puts)f(the)h(same)f
+(variable)f(into)i(its)g(output,)f(which)h(need)f(not)596
+546 y(necessarily)f(be)h(the)g(case.)197 864 y Fg(Administrator)30
+b(man)o(ual)596 1116 y Ff(Installation)p Black 712 1344
+a Fi(1.)p Black 20 w(Once)k(you)g(have)f(the)h(sitemgr)g(dir)o(ectory)f
+(inside)h(your)h(phpgr)o(oupwar)o(e)d(install)i(you)795
+1435 y(can)24 b(setup)h(it)g(like)h(any)e(other)i(phpgr)o(oupwar)o(e)d
+(application)i(with)h(the)f(setup)g(pr)o(ogram)795 1527
 y(\(http://yourmachine/phpgw-path/setup/\).)73 b(Y)-8
-b(ou)73 b(should)f(also)g(install)h(the)795 1253 y(sitemgr)o(-link)24
+b(ou)73 b(should)f(also)g(install)h(the)795 1618 y(sitemgr)o(-link)24
 b(application,)f(which)i(is)f(is)g(inside)h(sitemgr)f(and)f(has)h(to)g
-(be)g(moved)g(up)f(in)795 1344 y(the)e(dir)o(ectory)f(hierar)o(chy)-9
-b(.)795 1468 y Fb(cd)44 b(sitemgr)795 1550 y(mv)g(sitemgr-link)f(..)795
-1683 y Fi(and)20 b(then)h(install)h(sitemgr)o(-link)f(with)g(setup)p
-Black 712 1948 a(2.)p Black 20 w(Log)27 b(in)g(to)g(phpGr)o(oupW)-8
+(be)g(moved)g(up)f(in)795 1709 y(the)e(dir)o(ectory)f(hierar)o(chy)-9
+b(.)795 1833 y Fb(cd)44 b(sitemgr)795 1915 y(mv)g(sitemgr-link)f(..)795
+2048 y Fi(and)20 b(then)h(install)h(sitemgr)o(-link)f(with)g(setup)p
+Black 712 2314 a(2.)p Black 20 w(Log)27 b(in)g(to)g(phpGr)o(oupW)-8
 b(ar)o(e)26 b(as)g(an)g(admin)h(and)f(cr)o(eate)f(an)i(anonymous)h
-(phpgw)f(user)795 2040 y(and)20 b(assign)g(it)h(a)e(passwor)o(d.)h(The)
+(phpgw)f(user)795 2405 y(and)20 b(assign)g(it)h(a)e(passwor)o(d.)h(The)
 g(only)h(app)f(\(I)f(assume\))h(that)g(they)h(should)g(have)f(access)
-795 2131 y(to)28 b(is)h(sitemgr)o(-link.)f(sitemgr)o(-link)g(is)g(a)g
+795 2496 y(to)28 b(is)h(sitemgr)o(-link.)f(sitemgr)o(-link)g(is)g(a)g
 (dummy)h(application)e(that)h(r)o(edir)o(ects)e(phpGW)795
-2222 y(users)21 b(to)g(the)g(generated)e(site.)p Black
-712 2355 a(3.)p Black 20 w(Users)27 b(who)i(you)f(wish)g(to)h(see)e
+2588 y(users)21 b(to)g(the)g(generated)e(site.)p Black
+712 2721 a(3.)p Black 20 w(Users)27 b(who)i(you)f(wish)g(to)h(see)e
 (sitemgr)h(\(aka)f(contributors\))h(must)g(be)g(given)g(acces)f(to)795
-2447 y(sitemgr)-6 b(,)21 b(users)h(who)g(you)h(want)e(to)h(be)g(able)e
+2812 y(sitemgr)-6 b(,)21 b(users)h(who)g(you)h(want)e(to)h(be)g(able)e
 (to)i(link)h(to)f(the)g(sitemgr)g(site)f(fr)o(om)g(phpGW)795
-2538 y(must)h(be)g(given)g(rights)g(to)g(sitemgr)o(-link.)g(The)g
+2903 y(must)h(be)g(given)g(rights)g(to)g(sitemgr)o(-link.)g(The)g
 (easiest)g(way)f(to)h(do)g(this)h(is)f(to)g(go)g(to)h(User)795
-2629 y(gr)o(oups)d(and)h(give)g(gr)o(oups)f(permissions)i(to)f(use)g
-(the)g(applications.)p Black 712 2762 a(4.)p Black 20
+2995 y(gr)o(oups)d(and)h(give)g(gr)o(oups)f(permissions)i(to)f(use)g
+(the)g(applications.)p Black 712 3127 a(4.)p Black 20
 w(The)j(sitemgr)o(-site)h(is)g(the)f(dir)o(ectory)g(that)h(serves)f
 (the)g(dynamic)h(web)f(site.)h(It)g(is)g(located)795
-2853 y(inside)35 b(sitemgr)g(and)g(works)h(without)g(moving)g(it)f
-(somewher)o(e)g(else.)g(But)f(it)i(can)e(be)795 2945
+3219 y(inside)35 b(sitemgr)g(and)g(works)h(without)g(moving)g(it)f
+(somewher)o(e)g(else.)g(But)f(it)i(can)e(be)795 3310
 y(located)i(anywher)o(e.)g(For)h(example,)e(you)i(could)g(put)g(it)g
-(in)g(/var/www/html.)h(Y)-8 b(ou)795 3036 y(could)31
+(in)g(/var/www/html.)h(Y)-8 b(ou)795 3401 y(could)31
 b(make)h(the)f(r)o(oot)h(location)g(of)g(your)g(web)f(server)g(point)h
-(to)g(it,)g(if)f(you)h(wish)h(\(ie,)795 3127 y(http://yourmachine/)k(r)
+(to)g(it,)g(if)f(you)h(wish)h(\(ie,)795 3493 y(http://yourmachine/)k(r)
 o(efers)e(to)h(/var/www/html/sitemgr)o(-site)i(if)e(you)h(moved)795
-3219 y(the)29 b(dir)o(ectory)-9 b(,)29 b(or)g(to)h(/path/to/phpgr)o
+3584 y(the)29 b(dir)o(ectory)-9 b(,)29 b(or)g(to)h(/path/to/phpgr)o
 (oupwar)o(e/sitemgr/sitemgr)o(-site)g(if)f(you)h(did)795
-3310 y(not\).)22 b(Make)e(a)i(mental)g(note)g(of)g(the)g(dir)o(ectory)e
+3675 y(not\).)22 b(Make)e(a)i(mental)g(note)g(of)g(the)g(dir)o(ectory)e
 (wher)o(e)i(you)g(put)g(it)g(and)f(the)h(url)g(that)g(it)g(is)795
-3401 y(accessed)d(by)-9 b(.)p Black 712 3534 a(5.)p Black
+3767 y(accessed)d(by)-9 b(.)p Black 712 3899 a(5.)p Black
 20 w(In)20 b(the)g(sitemgr)o(-site)f(dir)o(ectory)g(is)h(a)f(\002le)h
 (called)f(con\002g.inc.php.)h(Y)-8 b(ou)21 b(only)g(have)e(to)h(edit)
-795 3625 y(it)h(if)f(you)i(moved)e(the)h(dir)o(ectory)-9
-b(.)20 b(Change)g(the)h(value)g(of)f(the)h(line)795 3749
-y Fb('phpgw_path')491 b(=>)44 b('../../',)795 3882 y
+795 3991 y(it)h(if)f(you)i(moved)e(the)h(dir)o(ectory)-9
+b(.)20 b(Change)g(the)h(value)g(of)f(the)h(line)795 4114
+y Fb('phpgw_path')491 b(=>)44 b('../../',)795 4247 y
 Fi(so)189 b(that)g(the)h(value)e(of)h($sitemgr_info['phpgw_path'])g(is)
-795 3973 y('/path/to/phpgr)o(oupwar)o(e/')p Black 712
-4239 a(6.)p Black 20 w(Y)-8 b(ou'r)o(e)28 b(almost)h(set)f(to)g(go.)g
-(Log)h(in)f(to)h(phpGr)o(oupW)-8 b(ar)o(e)27 b(as)g(an)h(adminis)h
-(trator)-6 b(.)27 b(Make)795 4330 y(sur)o(e)h(you)i(gave)e(yourself)i
-(the)f(sitemgr)g(and)g(sitemgr)o(-link)h(applications)f(so)g(that)g
-(you)795 4422 y(see)d(them)g(on)h(your)g(navbar)-6 b(.)25
-b(Go)i(to)f(the)h(sitemgr)f(application)g(and)g(select)g("Con\002gur)o
-(e)795 4513 y(SiteMgr".)21 b(Fill)j(in)f(\223URL)f(to)i(sitemgr)o
-(-site\224)e(and)g(\223Filesystem)i(path)e(to)i(sitemgr)o(-site)e(di-)
-795 4604 y(r)o(ectory\224,)k(and)g(the)i(anonymous)h(user)6
+795 4339 y('/path/to/phpgr)o(oupwar)o(e/')p Black 712
+4604 a(6.)p Black 20 w(Y)-8 b(ou'r)o(e)30 b(almost)h(set)g(to)g(go.)f
+(Log)h(in)g(to)f(phpGr)o(oupW)-8 b(ar)o(e)30 b(as)g(an)g(administrator)
+-6 b(.)30 b(Make)795 4696 y(sur)o(e)e(you)i(gave)e(yourself)i(the)f
+(sitemgr)g(and)g(sitemgr)o(-link)h(applications)f(so)g(that)g(you)795
+4787 y(see)d(them)g(on)h(your)g(navbar)-6 b(.)25 b(Go)i(to)f(the)h
+(sitemgr)f(application)g(and)g(select)g("Con\002gur)o(e)795
+4878 y(SiteMgr".)21 b(Fill)j(in)f(\223URL)f(to)i(sitemgr)o(-site\224)e
+(and)g(\223Filesystem)i(path)e(to)i(sitemgr)o(-site)e(di-)795
+4970 y(r)o(ectory\224,)k(and)g(the)i(anonymous)h(user)6
 b('s)27 b(name)g(and)g(passwor)o(d.)g(Then)g(click)h(on)g(save,)795
-4696 y(and)20 b(you)h(should)h(know)g(select)e(the)h(template)g(for)f
-(your)h(site.)p Black 712 4828 a(7.)p Black 20 w(That's)j(it.)h(Go)g
+5061 y(and)20 b(you)h(should)h(now)g(select)e(the)h(template)f(for)h
+(your)g(site.)p Black 712 5194 a(7.)p Black 20 w(That's)j(it.)h(Go)g
 (to)g(the)g(Category)f(manager)-6 b(,)23 b(add)h(a)g(category)g(or)h
-(thr)o(ee)e(and)i(check)f(who)795 4920 y(can)j(view)g(and)g(edit)f
+(thr)o(ee)e(and)i(check)f(who)795 5285 y(can)j(view)g(and)g(edit)f
 (them,)i(then)f(go)h(to)g(the)f(page)f(manager)-6 b(,)27
-b(add)f(a)g(page)h(or)g(thr)o(ee)g(to)795 5011 y(each)16
+b(add)f(a)g(page)h(or)g(thr)o(ee)g(to)795 5376 y(each)16
 b(category)-9 b(,)17 b(set)g(up)g(your)h(site)g(header)-6
 b(,)15 b(site)j(footer)-6 b(,)17 b(etc.,)f(and)h(go)h(view)f(your)h(r)o
-(ecently)795 5102 y(cr)o(eated)h(site)h(by)h(clicking)h(on)f(the)g
+(ecently)795 5468 y(cr)o(eated)h(site)h(by)h(clicking)h(on)f(the)g
 (sitemgr)o(-link)g(application.)g(V)-9 b(oil\340!)p Black
 3642 5585 a Fd(7)p Black eop
 %%Page: 8 8
