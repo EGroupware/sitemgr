@@ -5,7 +5,8 @@
 	\***********************************************************/
 	$sitemgr_info = array(
 		// add trailing slash
-		'phpgw_path'           => '/var/www/html/phpgroupware/'
+		'phpgw_path'           => '/var/www/html/phpgroupware/',
+		'htaccess_404'         => 'disabled'
 	);
 
 	/***********************************************************\
@@ -31,7 +32,8 @@
 		$pref = CreateObject('sitemgr.sitePreference_SO');
 		$sitemgr_info = array(
 			'phpgw_path'           => $sitemgr_info['phpgw_path'],
-			'usethemes'            => (int) $pref->getPreference('usethemes'),
+			'htaccess_404'         => $sitemgr_info['htaccess_404'],
+			'usethemes'            => (int) $pref->getPreference('interface'),
 			'sitemgr-site_path'    => $pref->getPreference('sitemgr-site-dir'),
 			'sitemgr-site_url'     => $pref->getPreference('sitemgr-site-url'),
 			'domain'               => $pref->getPreference('login-domain'),
