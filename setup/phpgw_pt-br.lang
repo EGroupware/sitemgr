@@ -1,0 +1,403 @@
+%1 content manager	sitemgr	pt-br	%1 gerenciador de conteúdo
+%1 module manager	sitemgr	pt-br	%1 módulo gerenciador
+'%1' is no valid sitemgr-site directory !!!	sitemgr	pt-br	'%1' não é um diretório válido do sitemgr !!!
+(do not put spaces or punctuation in the name field.)	sitemgr	pt-br	(Não utilize espaços ou pontos no Nome do Campo.)
+<b>want more templates?</b><br />just download one from the template gallery at %1www.egroupware.org%2 or use a %3mambo open source%4 version 4.5 compatible template eg. from %5. unpack the downloaded template in your templates directory (%6).	sitemgr	pt-br	<b>Quer mais modelos? </b><br>Basta baixar da galeria de modelos em %1www.eGroupWare.org%2 ou usar qualquer modelo compatível com %3Mambo Open Source%4 Versão 4.5 %5. Descompacte o modelo noseu diretório de modelos (%6).
+a simple picture galery	sitemgr	pt-br	Uma galeria simples de figuras
+actif	sitemgr	pt-br	
+add a category	sitemgr	pt-br	Adicionar uma categoria
+add a new application	sitemgr	pt-br	Adicionar um novo aplicativo
+add block ...	sitemgr	pt-br	Adicionar bloco ...
+add block to content area %1	sitemgr	pt-br	Adicionar bloco a área de conteúdo %1
+add category	sitemgr	pt-br	Adicionar Categoria
+add new page to this category	sitemgr	pt-br	Adicionar uma nova página a essa categoria
+add page	sitemgr	pt-br	Adicionar página
+add page to category	sitemgr	pt-br	Adicionar página ao diretório
+add website	sitemgr	pt-br	Adicionar website
+administration	sitemgr	pt-br	Administração
+administrative menu	sitemgr	pt-br	Menu Administrativo
+administrators	sitemgr	pt-br	administradores
+all categories	sitemgr	pt-br	Todas as categorias
+all forums in category %1	sitemgr	pt-br	Todos os fóruns na categoria %1
+amazon	sitemgr	pt-br	
+amazon server (without www), eg. amazon.com	sitemgr	pt-br	Servidor da Amazon server (sem www), eg. amazon.com
+an application directory	sitemgr	pt-br	Diretório de um aplicativo
+anonymous	sitemgr	pt-br	anônimo
+anonymous user login domain	sitemgr	pt-br	Login de domínio de usuário anônimo
+anonymous user's password	sitemgr	pt-br	Senha do usuário anônimo
+anonymous user's username	sitemgr	pt-br	Nome de usuário do usuário anônimo
+apply permissions also to subcategories?	sitemgr	pt-br	Aplicar permissões também nas subcategorias
+archived	sitemgr	pt-br	arquivado
+archived content	sitemgr	pt-br	Conteúdo arquivado
+are you sure you want to delete site %1 and all its content? you cannot retrieve it if you continue.	sitemgr	pt-br	Tem certeza que deseja apagar o site %1 e todo seu conteúdo? Não será possível recuperar caso continue.
+are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	pt-br	Tem certeza que deseja apagar a categoria %1 e todas as suas páginas associadas? Você não poderá recuperar as páginas apagadas se você continuar.
+as	common	pt-br	como
+asin[=title] pairs (title is optional)	sitemgr	pt-br	
+attempt to access information outside current website	sitemgr	pt-br	Tentativa de acessar informações exteriores ao website atual
+attempt to edit non-editable block	sitemgr	pt-br	Tentativa de edição de bloco não-editável
+back to module manager	sitemgr	pt-br	Voltar ao módulo gerenciador
+basic settings	sitemgr	pt-br	Configuração Básica
+before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr	pt-br	Antes que um site público possa ser visto, você deve configurar as preferências e caminhos. Por favor dirija-se à página de configuração do sitemgr através desse link:
+block not found.	sitemgr	pt-br	Bloco não encontrado
+block returned no content.	sitemgr	pt-br	Bloco retornou sem conteúdo
+block saved	sitemgr	pt-br	Bloco salvo
+bookmarks	sitemgr	pt-br	Favoritos
+buy at %1	sitemgr	pt-br	Comprar em %1
+calendar	sitemgr	pt-br	Calendário
+cancel the delete	sitemgr	pt-br	Cancelar apagamento
+cannot move page until it has been saved.	sitemgr	pt-br	A página não pode ser movida antes de ser salva.
+category	sitemgr	pt-br	Categoria
+category description	sitemgr	pt-br	Descrição da Categoria
+category manager	sitemgr	pt-br	Gerenciador de Categorias
+category name	sitemgr	pt-br	Nome da Categoria
+category saved	sitemgr	pt-br	Categoria salva
+changes saved.	sitemgr	pt-br	Mudanças salvas.
+check here after every upgrade	sitemgr	pt-br	verificar após cada atualização
+check to hide from condensed site index.	sitemgr	pt-br	Verificar para ocultar índice comprimido do site.
+choose a category	sitemgr	pt-br	Escolha a categoria
+choose language	sitemgr	pt-br	Escolha língua
+choose template	sitemgr	pt-br	Escolha modelo
+choose the categories to display	sitemgr	pt-br	Escolha as categorias a serem exibidas
+choose your site's theme or template.  note that if you changed the above checkbox you need to save before choosing a theme or template.	sitemgr	pt-br	Escolha o tema do seu site ou modelo. Observer que se você houver modificado a caixa de seleção acima, será necessário salvar antes de escolher um tema ou modelo.
+collapse threads	sitemgr	pt-br	Recolher grupo
+commit changes	sitemgr	pt-br	Efetuar mudanças
+configure module properties	sitemgr	pt-br	Configurar as propriedades do módulo
+configure sitemgr	sitemgr	pt-br	Configurar o SiteMgr
+configure website	sitemgr	pt-br	Configurar Website
+contact the administrator.	sitemgr	pt-br	Contactar o administrador
+content areas	sitemgr	pt-br	Áreas de conteúdo
+content blocks	sitemgr	pt-br	Blocos de conteúdo
+content blocks for category	sitemgr	pt-br	Blocos de conteúdo para categoria
+content manager	sitemgr	pt-br	Gerenciador de conteúdo
+contentarea	sitemgr	pt-br	Área de conteúdo
+contributor menu	sitemgr	pt-br	Menu de contribuinte
+copyright	sitemgr	pt-br	
+create new version	sitemgr	pt-br	Criar nova versão
+current section	sitemgr	pt-br	Seção atual
+default	sitemgr	pt-br	Padrão
+default home page id number	sitemgr	pt-br	Número de ID da página inicial padrão
+define websites	common	pt-br	Definir websites
+delete block	sitemgr	pt-br	Apagar bloco
+delete category	sitemgr	pt-br	Apagar categoria
+delete page	sitemgr	pt-br	Apagar página
+delete this application	sitemgr	pt-br	Apagar este aplicativo
+delete this block	sitemgr	pt-br	Apagar este bloco
+delete version	sitemgr	pt-br	Apagar versão
+deleting all data for %1	sitemgr	pt-br	Apagando dados para %1
+discussions	sitemgr	pt-br	Discussão
+display link to autoregistration below login form?	sitemgr	pt-br	Exibir link para auto-registro abaixo do formulário de login?
+do you realy want to delete this block?	sitemgr	pt-br	Tem certeza que deseja apagar esse bloco?
+do you realy want to delete this page?	sitemgr	pt-br	Tem certeza que deseja apagar essa página?
+do you want to delete them?	sitemgr	pt-br	Tem certeza que deseja apagá-los?
+do you want to publish a rss feed for this news category	sitemgr	pt-br	Deseja publicar um RSS feed para essa categoria de notícias
+documentation	sitemgr	pt-br	Documentação
+domain-name (offical dns-name eg. www.egroupware.org) if you want to give the user a choice between searching this site or the whole web. leaving it empty allows to search the web only.	sitemgr	pt-br	Nome do domínio (nome oficial do domínio eg. www.eGroupWare.org) se quiser deixar o usuário escolher entre buscar nesse site ou toda a web. Deixando em branco permite busca apenas em toda a web.
+don't have an account?	sitemgr	pt-br	Não possui uma conta?
+done	sitemgr	pt-br	Feito
+download as zip-archiv	sitemgr	pt-br	baixar arquivo como ZIP
+downloaded	sitemgr	pt-br	baixado
+draft	sitemgr	pt-br	rascunho
+draft mode	sitemgr	pt-br	Modo rascunho
+edit categories and permissions	common	pt-br	Editar categorias e permissões
+edit category	sitemgr	pt-br	Editar categorias
+edit individual pages	common	pt-br	Editar páginas individuais
+edit mode	sitemgr	pt-br	Editar modo
+edit page	sitemgr	pt-br	Editar página
+edit properties of module %1 for %2 with scope %3	sitemgr	pt-br	Editar propriedades do módulo %1 para %2 com o escopo %3
+edit site	sitemgr	pt-br	Editar site
+edit site header and footer	common	pt-br	Editar Cabeçalho e Rodapé
+edit this block	sitemgr	pt-br	Editar esse bloco
+edit website	sitemgr	pt-br	Editar Website
+enter a name	sitemgr	pt-br	Entre com um nome
+enter the block content here	sitemgr	pt-br	Insira bloco de conteúdo aqui
+enter the page content here	sitemgr	pt-br	Insira página de conteúdo aqui
+error accessing page	common	pt-br	Erro acessando à página
+everybody	sitemgr	pt-br	todos
+file %1 is not readable by the webserver !!!	sitemgr	pt-br	Arquivo %1 não pode ser lido pelo servidor HTTP !!!
+file contents	sitemgr	pt-br	Conteúdo do arquivo
+file download	sitemgr	pt-br	Baixa de arquivo
+filesystem path of the directory where the images are found (no trailing slash)	sitemgr	pt-br	Caminho do diretório aonde as imagens serão encontradas (sem barra no final)
+filesystem path of the directory where xml files are stored	sitemgr	pt-br	Caminho para o diretório aonde os arquivos XML estão armazenados
+filesystem path to sitemgr-site directory	sitemgr	pt-br	Caminho para o diretório do SiteMgr
+fill in permissions from parent category? if you check this, below values will be ignored	sitemgr	pt-br	Herdar as permissões da categoria pai? Se você marcar isso, os valores abaixo serão ignorados
+footer editor	sitemgr	pt-br	Editor de Rodapé
+forum	sitemgr	pt-br	Forum
+full path of the xslt file that should be applied to the xml files	sitemgr	pt-br	Caimho completo para o arquivo XSLT que deverá ser aplicado aos arquivos XML
+galerie	sitemgr	pt-br	Galeria
+gallery plus chooser	sitemgr	pt-br	
+gallery plus chooser and download	sitemgr	pt-br	
+gallery plus download	sitemgr	pt-br	
+go back to page manager	sitemgr	pt-br	Voltar ao Gerenciador de páginas
+go back to the category manager.	sitemgr	pt-br	Voltar ao Gerenciador de categorias
+go to	sitemgr	pt-br	Ir para
+go to page manager	sitemgr	pt-br	Ir para o Gerenciador de páginas
+google	sitemgr	pt-br	
+google search	sitemgr	pt-br	Busca Google
+group access permissions	sitemgr	pt-br	Grupo de permissões de acesso
+group name	sitemgr	pt-br	Nome do Grupo
+header editor	sitemgr	pt-br	Editor de Cabeçalho
+headlines	sitemgr	pt-br	Manchetes
+hello	sitemgr	pt-br	Olá
+hello world	sitemgr	pt-br	Olá mundo
+html module	sitemgr	pt-br	Módulo HTML
+i'm sorry, you do not have write permissions for any site categories.	sitemgr	pt-br	Desculpe, mas você não possui permissão de escrita em nenhuma das categorias desse site.
+if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	pt-br	Caso não tenha feito isso ainda, crie um usuário que será utilizado para que o público visualise o site. Nome recomendado: anonimous.
+image type	sitemgr	pt-br	tipo de imagem
+implies read permission	sitemgr	pt-br	implica em permissão de leitura
+individual access permission	sitemgr	pt-br	Permissão de Acesso Individual
+individual access permissions	sitemgr	pt-br	Permissões de Acesso Individual
+interface to google website	sitemgr	pt-br	Interface com website do Goolge
+languages the site user can choose from	sitemgr	pt-br	Idiomas que o usuário do site pode escolher
+latest reply	sitemgr	pt-br	Última resposta
+list of permitted modules specific to content area %1	sitemgr	pt-br	Lista de módulos permitidos específicos para a área de conteúdo %1
+login	sitemgr	pt-br	
+login name	sitemgr	pt-br	Nome de login
+main content	sitemgr	pt-br	Conteúdo principal
+mains	sitemgr	pt-br	Principais
+manage archived content	sitemgr	pt-br	Gerenciar conteúdo arquivado
+manage categories	sitemgr	pt-br	Gerenciar Categorias
+manage categories and pages	sitemgr	pt-br	Gerenciar categorias e páginas
+manage category wide content	sitemgr	pt-br	Gerenciar categoria de conteúdo global
+manage category wide module properties	sitemgr	pt-br	Gerenciar propriedades de categoria de conteúdo global
+manage content	sitemgr	pt-br	Gerenciar conteúdo
+manage modules	sitemgr	pt-br	Gerenciar módulos
+manage page specific content	sitemgr	pt-br	Gernciar página de conteúdo específico
+manage pages	common	pt-br	Gerenciar páginas
+manage site content	sitemgr	pt-br	Gerenciar conteúdo do site
+manage site-wide content	sitemgr	pt-br	Gerenciar conteúdo global
+manage site-wide module properties	sitemgr	pt-br	Gerenciar propriedades de módulo global
+manage translations	sitemgr	pt-br	Gerenciar traduções
+master list of permitted modules	sitemgr	pt-br	Lista principal de módulos permitidos
+migrating data for %1 to %2	sitemgr	pt-br	Migrando dados de %1 para %2
+module %1 is not permitted in this context!	sitemgr	pt-br	Módulo %1 não é permitido nesse contexto!
+module manager	sitemgr	pt-br	Gerenciador de módulos
+module: %1, scope: %2, contentarea: %3	sitemgr	pt-br	Módulo: %1., Escopo: %2, àrea de conteúdo: %3
+more news	sitemgr	pt-br	Mais notícias
+move block down (increase sort order)	sitemgr	pt-br	Mover bloco para baixo (aumentar ordenação)
+move block up (decrease sort order)	sitemgr	pt-br	mover bloco para cima (diminuir ordenação)
+move to	sitemgr	pt-br	Mover para
+name	sitemgr	pt-br	Nome
+name has been translated to lower case	sitemgr	pt-br	Nome foi alterado para minúsculas
+new application	sitemgr	pt-br	Novo aplicativo
+new sitemgr site	sitemgr	pt-br	Novo site do sitemgr
+news module	sitemgr	pt-br	Módulo de notícias
+no anonymous user accounts installed.  notify the administrator.	sitemgr	pt-br	NENHUMA CONTA DE USUÁRIO ANÔNIMO INSTALADA. NOTIFIQUE SEU ADMINISTRADOR.
+no content areas found in selected template	sitemgr	pt-br	Nenhuma área de conteúdo encontrada no modelo selecionado
+no content found	sitemgr	pt-br	Nenhum conteúdo encontrado
+no groups defined.	sitemgr	pt-br	Nenhum grupo definido
+no link to full index	sitemgr	pt-br	Nenhum link para o índice completo
+no matching news item	sitemgr	pt-br	Nenhum novo item encontrado
+no modules permitted for this content area/category	sitemgr	pt-br	Nenhum módulo é permitido para conteúdo desta área/categoria
+no options available.	sitemgr	pt-br	Nenhuma opção disponível.
+no pages available	sitemgr	pt-br	Nenhum página disponível
+no sitelanguages configured	sitemgr	pt-br	Nenhum idioma configurado
+no template file found.	sitemgr	pt-br	Nenhum arquivo de modelo encontrado.
+no templates found.	sitemgr	pt-br	Nenhum modelo encontrado.
+no users defined.	sitemgr	pt-br	Nenhum usuário definido.
+no websites defined	sitemgr	pt-br	Nenhum web site definido
+no, chooser only (for side-areas)	sitemgr	pt-br	
+no, chooser with preview	sitemgr	pt-br	
+not yet translated	sitemgr	pt-br	Não traduzido ainda
+note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	pt-br	Note que você receberá essa mensagem se suas preferências estiverem incorretas. Por exemplo se config.inc.php não for encontrado no diretório especificado.
+number of news items to be displayed on page	sitemgr	pt-br	Número de novos itens mostrados na página
+only gallery	sitemgr	pt-br	Somente galeria
+other websites	sitemgr	pt-br	Outros websites
+overview of all available categories	sitemgr	pt-br	Visão geral de todas as categorias disponíveis
+overview of one specific category	sitemgr	pt-br	Visão geral de uma categoria em específico
+own amazon partner-id or empty to donate to the egroupware project	sitemgr	pt-br	Seu número de parceria com a Amazon ou vazio para doar para o projeto eGroupware
+page	sitemgr	pt-br	Página
+page content	sitemgr	pt-br	Conteúdo da página
+page manager	sitemgr	pt-br	Gerenciador de páginas
+page name	sitemgr	pt-br	Nome da página
+page saved	sitemgr	pt-br	Página salva
+page saved.	sitemgr	pt-br	Página salva.
+page subtitle	sitemgr	pt-br	Legenda da página
+page title	sitemgr	pt-br	Título da página
+pages	sitemgr	pt-br	Páginas
+pages:	sitemgr	pt-br	Páginas:
+parent	sitemgr	pt-br	Pai
+parent section:	sitemgr	pt-br	Seção pai:
+password	sitemgr	pt-br	Senha
+password that you assigned for the anonymous user account.	sitemgr	pt-br	Senha que você atribuiu para a conta anonymous
+path to zip binary if not in path of the webserver	sitemgr	pt-br	Caminho para o executável zip se não estiver no path do servidor HTTP
+phpgw users	sitemgr	pt-br	usuários phpgw
+please enter a name for that site !	sitemgr	pt-br	Por favor escolha um nome para esse site!
+post a message to this thread	sitemgr	pt-br	Postar uma mensagem para esse agrupamento
+prepublished	sitemgr	pt-br	pré-publicado
+preunpublished	sitemgr	pt-br	não pré-publicado
+previous	sitemgr	pt-br	Anterior
+production mode	sitemgr	pt-br	Modo de produção
+published	sitemgr	pt-br	publicado
+reactivate content	sitemgr	pt-br	Conteúdo reativado
+read permission	sitemgr	pt-br	Permissão de leitura
+redirection	sitemgr	pt-br	Redirecionamento
+refresh	sitemgr	pt-br	Atualizar
+register for one now.	sitemgr	pt-br	Registrar para um agora.
+register new modules	sitemgr	pt-br	Registrar novos módulos
+replies	sitemgr	pt-br	Respostas
+required fields	sitemgr	pt-br	Campos requeridos
+reset	sitemgr	pt-br	Limpar
+return to forums	sitemgr	pt-br	Retornar aos foruns
+return to main menu.	sitemgr	pt-br	Retornar ao menu principal
+return to message list	sitemgr	pt-br	Retornar a lista de mensagens
+root site index	sitemgr	pt-br	Índice raiz do site
+save	sitemgr	pt-br	Salvar
+save block	sitemgr	pt-br	Salvar bloco
+saved	sitemgr	pt-br	Salvo
+scope	sitemgr	pt-br	Escopo
+seen by	sitemgr	pt-br	Visto por
+select a category	sitemgr	pt-br	Selecionar categoria
+select a forum	sitemgr	pt-br	Selecionar um forum
+select allowed modules	sitemgr	pt-br	Selecionar módulos permitidos
+select persons and groups that are entitled to configure the website.	sitemgr	pt-br	Selecionar pessoas e grupos que podem configurar o website
+select the templates the user is allowed to see	sitemgr	pt-br	Selecione o(s) modelo(s) que o usuário pode ver
+selected template %1 does not exist.	sitemgr	pt-br	O modelo %1 selecionado não existe.
+selected theme %1 does not exist.	sitemgr	pt-br	O tema selecionado %1 não existe.
+should the file be viewed in the browser or downloaded	sitemgr	pt-br	O arquivo deve ser visualizado no navegador ou baixado
+show a template-gallery (thumbnail and informations)	sitemgr	pt-br	Mostrar a galeria de modelos (miniatura e informações)
+show only (in the next field) selected templates	sitemgr	pt-br	Exibir somente modelos selecionados (no próximo campo)
+show searchbox	sitemgr	pt-br	Exibir campo de busca
+show site index	sitemgr	pt-br	Exibir Índice do site
+show subcategories	sitemgr	pt-br	Exibir subcategorias
+site	sitemgr	pt-br	
+site %1 has been added, you need to %2configure the site%3 now	sitemgr	pt-br	Site %1 foi adicionado, você precisa de %2 configurar o site%3 agora
+site %1 has been updated	sitemgr	pt-br	Site %1 foi atualizado
+site administrators	sitemgr	pt-br	Administradores do site
+site description	sitemgr	pt-br	Descrição do site
+site format manager	sitemgr	pt-br	Gerenciador de formato do site
+site index	sitemgr	pt-br	Índice do site
+site name	sitemgr	pt-br	Nome do site
+site setup	common	pt-br	Configuração do site
+site tree menu	sitemgr	pt-br	Árvore de menus do site
+site wide	sitemgr	pt-br	Global
+sitemgr	common	pt-br	
+sitemgr manual	sitemgr	pt-br	Manual do SiteMgr
+sitemgr options	sitemgr	pt-br	Opções do SiteMgr
+sitemgr setup instructions	sitemgr	pt-br	Instruções de configuração do SiteMgr
+sitemgr setup page	sitemgr	pt-br	página de configuração do SiteMgr
+sitemgr web content manager	common	pt-br	Gerenciador de conteúdo web do SiteMgr
+sitemgr websites	sitemgr	pt-br	Websites do SiteMgr
+sort order	sitemgr	pt-br	Ordem
+state	sitemgr	pt-br	Estado
+strip html from block content?	sitemgr	pt-br	Arrancar HTML do bloco de conteúdo
+subcategories	sitemgr	pt-br	Subcategorias
+subsections:	sitemgr	pt-br	Subscções
+subtitle	sitemgr	pt-br	Subtitúlo
+summary of one forum	sitemgr	pt-br	Sumário de um forum
+table of contents	sitemgr	pt-br	ìndice
+template chooser and/or gallery	sitemgr	pt-br	Selecionador de modelos e/ou galeria
+template select	sitemgr	pt-br	Selecionar modelo
+textarea	sitemgr	pt-br	área de texto
+the category to display, 0 for complete table of contents	sitemgr	pt-br	
+the complete path to the file to be included	sitemgr	pt-br	
+the config.inc.php file needs to be edited to point to the phpgroupware directory. copy the config.inc.php.template file to config.inc.php and then edit it.	sitemgr	pt-br	
+the file to be downloaded	sitemgr	pt-br	
+the first directory to think about is sitemgr-link.  if you move this to the parent directory of sitemgr (your phpgroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  if you don't want this icon, there's no reason to ever bother with the directory.	sitemgr	pt-br	
+the images' common name	sitemgr	pt-br	
+the name field cannot contain punctuation or spaces (field modified).	sitemgr	pt-br	
+the page name must be unique.	sitemgr	pt-br	
+the page was successfully saved.	sitemgr	pt-br	
+the path to the file to be downloaded	sitemgr	pt-br	
+the person to say hello to	sitemgr	pt-br	
+the second directory is the sitemgr-site directory.  this can be moved <i>anywhere</i>.  it can also be named <i>anything</i>.  wherever it winds up, when you point a web browser to it, you will get the generated website.  assuming, of course, that you've accurately completed the setup fields below and also <b><i>edited the config.inc.php</i></b> file.	sitemgr	pt-br	
+the text for the link, if empty the module returns the raw url (without the html a element)	sitemgr	pt-br	
+the url can be relative or absolute.  name must end in a slash.	sitemgr	pt-br	
+the url must be absolute and end in a slash, for example http://mydomain.com/mysite/	sitemgr	pt-br	
+the url to redirect to	sitemgr	pt-br	
+the web	sitemgr	pt-br	
+the whole page	sitemgr	pt-br	
+the xml files' common name	sitemgr	pt-br	
+theme or template select	sitemgr	pt-br	
+there are no categories	sitemgr	pt-br	
+there are no forums in this category	sitemgr	pt-br	
+there are no pages in this section	sitemgr	pt-br	
+there are no properties defined for this module	sitemgr	pt-br	
+there are no sections available to you.	sitemgr	pt-br	
+there are two subdirectories off of your sitemgr directory that you should move before you do anything else.  you don't <i>have</i> to move either of these directories, although you will probably want to.	sitemgr	pt-br	
+there can only be one version in (pre(un))published state, with the one exeption that one prepublished version can coexist with one preunpublished version	sitemgr	pt-br	
+there is no website configured for url %1.  notify the administrator.	sitemgr	pt-br	
+there was an error accessing the requested page. either you do not have permission to view this page, or the page does not exist.	common	pt-br	
+there was an error writing to the database.	sitemgr	pt-br	
+this block displays a javascript based tree menu	sitemgr	pt-br	
+this block displays the current section's table of contents	sitemgr	pt-br	
+this category has no pages.	sitemgr	pt-br	
+this is a simple sample module	sitemgr	pt-br	
+this is only used as an internal name for the website.	sitemgr	pt-br	
+this is used chiefly for meta data and the title bar. if you change the site languages below you have to save before being able to set this preference for a new language.	sitemgr	pt-br	
+this is used chiefly for meta data. if you change the site languages below you have to save before being able to set this preference for a new language.	sitemgr	pt-br	
+this module create a link for downloading a file from the vfs	sitemgr	pt-br	
+this module demonstrates how handling data stored in xml and building an interacvite interface from it	sitemgr	pt-br	
+this module displays a login form	sitemgr	pt-br	
+this module displays bookmarks in a javascript based tree	sitemgr	pt-br	
+this module displays the current month	sitemgr	pt-br	
+this module displays the phpgw forums on the web site	sitemgr	pt-br	
+this module displays the root categories, its pages and evtl. subcategories. it is meant for side areas	sitemgr	pt-br	
+this module includes the contents of a file (readable by the webserver !)	sitemgr	pt-br	
+this module is a selectbox to change the mode (production, draft or edit) plus a link back to sitemgr and to log out. it is meant for registered users only	sitemgr	pt-br	
+this module is a simple html editor	sitemgr	pt-br	
+this module lets the users choose a template or shows a template gallery	sitemgr	pt-br	
+this module lets users choose language	sitemgr	pt-br	
+this module lets you define pages that redirect to another url, if you use it, there should be no other block defined for the page	sitemgr	pt-br	
+this module permits browsing through xml files stored in a directory, and transformed by xslt	sitemgr	pt-br	
+this module provides a complete table of contents, it is automatically used by the toc and category_id get parameters	sitemgr	pt-br	
+this module provides a condensed table of contents, meant for side areas	sitemgr	pt-br	
+this module provides the site index, it is automatically used by the index get parameter	sitemgr	pt-br	
+this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	sitemgr	pt-br	
+this must be an absolute directory location.  <b>no trailing slash</b>.	sitemgr	pt-br	
+this should be a comma-separated list of language-codes.	sitemgr	pt-br	
+this should be a page that is readable by everyone. if you leave this blank, the site index will be shown by default.	sitemgr	pt-br	
+this site	sitemgr	pt-br	
+title	sitemgr	pt-br	
+topic	sitemgr	pt-br	
+translate	sitemgr	pt-br	
+translate category	sitemgr	pt-br	
+translate page	sitemgr	pt-br	
+translate site-wide content blocks	sitemgr	pt-br	
+translation manager	sitemgr	pt-br	
+up to parent	sitemgr	pt-br	
+up to table of contents	sitemgr	pt-br	
+updating to new category system	sitemgr	pt-br	
+url pointing to the directory where the images are found (no trailing slash)	sitemgr	pt-br	
+url to sitemgr-site	sitemgr	pt-br	
+use phpnuke themes instead of templates	sitemgr	pt-br	
+use this module for displaying book ads for the amazon web site	sitemgr	pt-br	
+use this module for displaying wiki-pages	sitemgr	pt-br	
+user name	sitemgr	pt-br	
+view administrative menu	sitemgr	pt-br	
+view full index	sitemgr	pt-br	
+view generated site	sitemgr	pt-br	
+view template on this site	sitemgr	pt-br	
+view threads	sitemgr	pt-br	
+viewed	sitemgr	pt-br	
+web content manager	common	pt-br	
+web content manager administration	sitemgr	pt-br	
+web site manager	sitemgr	pt-br	
+website	sitemgr	pt-br	
+week	sitemgr	pt-br	
+what do you want to do with existing translations of categories and pages for this language?	sitemgr	pt-br	
+wiki	sitemgr	pt-br	
+wiki startpage	sitemgr	pt-br	
+with which view should the module be displayed in the beginning?	sitemgr	pt-br	
+write permission	sitemgr	pt-br	
+xml browser	sitemgr	pt-br	
+yes, please delete it	sitemgr	pt-br	
+you are not entitled to change the scope of block %1 to cat %2 and page %3	sitemgr	pt-br	
+you are not entitled to create module %1 on this scope	sitemgr	pt-br	
+you are not entitled to edit block %1	sitemgr	pt-br	
+you can choose the modules that can be used on the site. the first list is a sort of master list, that is consulted if you do not configure lists specific to contentareas or (sub)categories. then you can choose lists specific to each content area. in the category manager these lists can be overriden for each (sub)category.	sitemgr	pt-br	
+you can either migrate them to a new language or delete them	sitemgr	pt-br	
+you can override each content blocks default title. be aware that not in all content areas the block title will be visible.	sitemgr	pt-br	
+you did not choose a module.	sitemgr	pt-br	
+you do not have access to any content on this site.	sitemgr	pt-br	
+you do not have write permissions for any site categories.	sitemgr	pt-br	
+you don't have permission to write in the category	sitemgr	pt-br	
+you don't have permission to write to that category.	sitemgr	pt-br	
+you failed to fill in one or more required fields.	sitemgr	pt-br	
+you have no rights to view wiki content or the wiki is not installed at all !!!	sitemgr	pt-br	
+you must be an admin to edit categories.	sitemgr	pt-br	
+you must be an admin to edit the site header and footer.	sitemgr	pt-br	
+you must be an admin to manage module properties.	sitemgr	pt-br	
+you must be an administrator to setup the site manager.	sitemgr	pt-br	
+you removed one ore more languages from your site languages.	sitemgr	pt-br	
+your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr	pt-br	
+your calendar	sitemgr	pt-br	
