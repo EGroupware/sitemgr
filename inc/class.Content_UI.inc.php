@@ -160,7 +160,7 @@
 									'<select style="vertical-align:middle" size="10" name="module_id">' .
 									$this->inputmoduleselect($permittedmodules) .
 									'</select><input type="submit" name="btnAddBlock" value="' .
-									lang('Add block to content area') .
+									lang('Add block to content area %1',$contentarea) .
 									'" /></form>') :
 								lang('No modules permitted for this content area/category')
 							),
