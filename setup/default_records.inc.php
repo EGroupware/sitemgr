@@ -59,7 +59,7 @@
 	{
 		list($cat_id,$title,$subtitle) = $data;
 		$oProc->query("INSERT INTO phpgw_sitemgr_pages (cat_id,sort_order,hide_page,name,state) VALUES ($cat_id,0,0,'$name',2)");
-		$page_id = $pages[$name] = $oProc->m_odb->get_last_insert_id('phpgw_pages','page_id');
+		$page_id = $pages[$name] = $oProc->m_odb->get_last_insert_id('phpgw_sitemgr_pages','page_id');
 		$oProc->query("INSERT INTO phpgw_sitemgr_pages_lang (page_id,lang,title,subtitle) VALUES ($page_id,'en','$title','$subtitle')");
 		// please note: this pages have no own content so far, we add it in the following paragraph
 	}
