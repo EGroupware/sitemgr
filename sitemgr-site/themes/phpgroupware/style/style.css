@@ -8,6 +8,7 @@ H1 {
 	COLOR: #ffffff
 }
 TD {
+	COLOR: #ffffff;
 	FONT-FAMILY: Verdana,Helvetica,Geneva,Arial; 
 	FONT-SIZE: 12px
 }
@@ -63,6 +64,7 @@ SELECT {
 	BORDER-RIGHT-WIDTH: 1px
 }
 FORM {
+	COLOR: #ffffff;
 	FONT-FAMILY: Verdana,Helvetica,Geneva,Arial; 
 	FONT-SIZE: 10px
 }
@@ -122,7 +124,7 @@ A:hover         {
 }
 .content 	{
 	BACKGROUND: none; 
-	COLOR: #000000; 
+	COLOR: #ffffff; 
 	FONT-SIZE: 10px; 
 	FONT-FAMILY: Verdana, Helvetica,Geneva,Arial
 }
