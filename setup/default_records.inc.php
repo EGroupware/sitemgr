@@ -25,23 +25,24 @@
 	$GLOBALS['phpgw_setup']->add_acl('phpgwapi','anonymous',$anonymous);
 
 	// register all modules and allow them in the following contentareas
+	// note '__PAGE__' is used for contentareas with NO module specialy selected, eg. only 'center' in this example !!!
 	$areas = array(
 		'administration' => array('left','right'),
 		'amazon' => array('left','right'),
 		'calendar' => array('left','right'),
 		'currentsection' => array('left','right'),
-		'download' => array('center'),
-		'filecontents' => array('__PAGE__'),
+		'download' => array('__PAGE__'),
+		'filecontents' => array('left','right','header','footer','__PAGE__'),
 		'google' => array('left','right'),
-		'html' => array('__PAGE__'),
+		'html' => array('left','right','header','footer','__PAGE__'),
 		'index_block' => array('left','right'),
-		'index' => array('center'),
+		'index' => array('__PAGE__'),
 		'lang_block' => array('left','right'),
 		'login' => array('left','right'),
-		'redirect' => array('center'),
-		'sitetree' => array('left','center','right'),
+		'redirect' => array('__PAGE__'),
+		'sitetree' => array('left','right','__PAGE__'),
 		'toc_block' => array('left','right'),
-		'toc' => array('center'),
+		'toc' => array('__PAGE__'),
 	);
 	$dir = opendir(PHPGW_SERVER_ROOT.'/sitemgr/modules');
 	while($file = readdir($dir))
@@ -111,7 +112,7 @@
 		array($module_id['login'],'right',$site_id,0,$visibility['anon'],'Login'),
 		array($module_id['amazon'],'right',$site_id,0,$visibility['all'],False,'Amazon.com','a:1:{s:6:"search";s:1:"1";}'),
 		array($module_id['html'],'header',$site_id,0,$visibility['all'],'HTML Module','a:1:{s:11:"htmlcontent";s:21:"<h1>SiteMgr Demo</h1>";}'),
-		array($module_id['html'],'footer',$site_id,0,$visibility['all'],'HTML Module','a:1:{s:11:"htmlcontent";s:213:"Please visit our Homepage <a href="http://www.egroupware.org" target="_blank">www.eGroupWare.org</a> and our <a href="http://www.sourcefourge.net/projects/egroupware/" target="_blank">Sourceforge Project page</a>.";}'),
+		array($module_id['html'],'footer',$site_id,0,$visibility['all'],'HTML Module','a:1:{s:11:"htmlcontent";s:253:"Powered by eGroupWare\'s <b>SiteMgr</b>. Please visit our Homepage <a href="http://www.egroupware.org" target="_blank">www.eGroupWare.org</a> and our <a href="http://www.sourcefourge.net/projects/egroupware/" target="_blank">Sourceforge Project page</a>.";}'),
 		array($module_id['html'],'center',$cats['sample'],$pages['sample-page'],$visibility['all'],'HTML Module','a:1:{s:11:"htmlcontent";s:35:"some sample <b>HTML</b> content ...";}'),
 	);
 	foreach($blocks as $order => $block)
@@ -125,7 +126,7 @@
 		$version_id = $oProc->m_odb->get_last_insert_id('phpgw_sitemgr_content','version_id');
 		if ($content_en)
 		{
-			$oProc->query("INSERT INTO phpgw_sitemgr_content_lang (version_id,lang,arguments_lang) VALUES ($version_id,'en','$content_en')",__LINE__,__FILE__);
+			$oProc->query("INSERT INTO phpgw_sitemgr_content_lang (version_id,lang,arguments_lang) VALUES ($version_id,'en','".$GLOBALS['phpgw_setup']->db->db_addslashes($content_en)."')",__LINE__,__FILE__);
 		}
 	}
 	echo "SiteMgr demo site installed<br>";
