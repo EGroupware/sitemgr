@@ -36,7 +36,7 @@
 			$subcatname = $catname = '';
 			if (count($indexarray))
 			{
-				$content = '<ul id="index_block" style="padding-left: 1em;">';
+				$content = '<ul id="index_block" style="list-style-image: none; list-style-type: none; padding-left: 0.5em;">';
 			}
 			$last_catdepth = 1;
 			foreach($indexarray as $temppage)
@@ -47,8 +47,8 @@
 					{
 						$content .= "\n</ul>\n"; // finish listing the pages in last category
 					}
-					$content .= "<li>$temppage[catlink]</li>\n"; // display this category name
-					$content .= '<ul style="padding-left: 1em;">'; // begin to display page list of this category
+					$content .= '<li style="font-weight: bold; padding-left: 0em;">'.$temppage['catlink']."</li>\n"; // display this category name
+					$content .= '<ul style="padding-left: 1em; padding-bottom: 0.5em;">'; // begin to display page list of this category
 					$catname = $temppage['catname'];
 					$subcatname = '';
 				}

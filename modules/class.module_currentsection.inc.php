@@ -53,19 +53,19 @@ class module_currentsection extends Module
 		if ($parent && $parent != CURRENT_SITE_ID && !$arguments['suppress_parent'])	// do we have a parent?
 		{
 			$parentcat = $GLOBALS['objbo']->getcatwrapper($parent);
-			$content .= "\n<b>".lang('Parent Section:').'</b><br>&nbsp;&middot;&nbsp;<a href="'.
+			$content .= "\n<b>".lang('Parent Section:').'</b><ul style="padding-left: 2em;"><li><a href="'.
 				sitemgr_link2('/index.php','category_id='.$parent).'" title="'.$parentcat->description.'">'.$parentcat->name.
-				'</a><br><br>';
+				'</a></li></ul><br>';
 			unset($parentcat);
 		}
 		if (count($catlinks))
 		{
-			$content .= "\n<b>".lang('Subsections:').'</b><br>';
+			$content .= "\n<b>".lang('Subsections:').'</b><br><ul style="padding-left: 2em;">';
 			foreach ($catlinks as $catlink)
 			{
-				$content .= "\n".'&nbsp;&middot;&nbsp;'.$catlink['link'].'<br>';
+				$content .= "\n".'<li>'.$catlink['link'].'</li>';
 			}
-			$content .= '<br>';
+			$content .= '</ul><br>';
 		}
 		if (count($pagelinks)>1 || (count($pagelinks)>0 && $content))
 		{
@@ -75,21 +75,22 @@ class module_currentsection extends Module
 				$content .= ' (<a href="'.sitemgr_link2('/index.php','category_id='.$page->cat_id).
 					'"><i>'.lang('show all').'</i></a>)';
 			}
-			$content .= "<br>\n";
+			$content .= '<ul style="padding-left: 2em;">'."\n";
 			foreach($pagelinks as $pagelink_id => $pagelink)
 			{
 				if ($page->id && $page->id == $pagelink_id)
 				{
 					if (!$arguments['suppress_current_page'])
 					{
-						$content .= '&nbsp;<b>&gt;'.$pagelink['link'].'&lt;</b><br>';
+						$content .= '<li><b>&gt;'.$pagelink['link'].'&lt;</b></li>';
 					}
 				}
 				else
 				{
-					$content .= '&nbsp;&middot;&nbsp;'.$pagelink['link'].'<br>';
+					$content .= '<li>'.$pagelink['link']."</li>\n";
 				}
 			}
+			$content .= "</ul>\n";
 		}
 		return $content;
 	}
