@@ -116,6 +116,8 @@
 			define('_DATE_FORMAT_LC',str_replace(array('d','m','M','Y'),array('%d','%m','%b','%Y'),
 				$GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat']).
 				($GLOBALS['phpgw_info']['user']['preferences']['common']['timeformat']=='12'?' %I:%M %p' : ' %H:%M'));
+			define('_DATE_FORMAT',$GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat'].
+				($GLOBALS['phpgw_info']['user']['preferences']['common']['timeformat']=='12'?' h:i a' : ' H:i'));
 			define('_SEARCH_BOX',lang('Search').' ...');
 			define( '_ISO','charset='.$GLOBALS['phpgw']->translation->charset());
 			define( '_VALID_MOS',True );
