@@ -80,7 +80,7 @@
 			$cat_so = CreateObject('sitemgr.Categories_SO');
 
 			// Make sure the categories table exists
-			$this->db->query('SELECT cat_id FROM phpgw_sitemgr_categories WHERE 1',__LINE__,__FILE__);
+			$this->db->query('SELECT cat_id FROM phpgw_sitemgr_categories WHERE 1=1',__LINE__,__FILE__);
 			if ($this->db->num_rows==0)
 			{
 				// They have no categories entered... nothing to convert.
@@ -110,7 +110,7 @@
 			$update = array();
 
 			// Make a list of page_id's and corresponding new_id's
-			$sql = 'SELECT page_id, cat_id FROM phpgw_sitemgr_pages WHERE 1';
+			$sql = 'SELECT page_id, cat_id FROM phpgw_sitemgr_pages WHERE 1=1';
 			$this->db->query($sql,__LINE__,__FILE__);
 			if ($this->db->num_rows())
 			{

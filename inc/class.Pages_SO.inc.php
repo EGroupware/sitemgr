@@ -12,7 +12,7 @@
 		{
 			if (!$cat_id)
 			{
-				$sql = 'SELECT page_id FROM phpgw_sitemgr_pages WHERE 1 ORDER BY cat_id, sort_order ASC';
+				$sql = 'SELECT page_id FROM phpgw_sitemgr_pages WHERE 1=1 ORDER BY cat_id, sort_order ASC';
 			}
 			else
 			{
