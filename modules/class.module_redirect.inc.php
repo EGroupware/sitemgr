@@ -16,7 +16,13 @@ class module_redirect extends Module
 
 	function get_content(&$arguments,$properties) 
 	{
-		Header('Location: ' . $arguments['URL']);
-		exit;
+		if ($GLOBALS['sitemgr_info']['mode'] != 'Edit')
+		{
+			$GLOBALS['phpgw']->redirect($arguments['URL']);
+		}
+		else
+		{
+			return lang('The URL to redirect to').': <a href="'.$arguments['URL'].'">'.$arguments['URL'].'</a>';
+		}
 	}
 }
