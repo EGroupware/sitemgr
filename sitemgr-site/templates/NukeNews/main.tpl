@@ -16,6 +16,7 @@
 		<META NAME="GENERATOR" CONTENT="eGroupWare Web Site Manager">
 		{editmode_styles}
 		<LINK REL="StyleSheet" HREF="templates/NukeNews/style/style.css" TYPE="text/css">
+		{java_script}		
 	</head>
 <body bgcolor="#505050" text="#000000" link="#363636" vlink="#363636" alink="#d5ae83">
 <br>
@@ -76,4 +77,6 @@
 <td width="100%"></td>
 <td><IMG height="17" alt="" hspace="0" src="templates/NukeNews/images/corner-bottom-right.gif" width="17" align="right"></td>
 </tr></table>
+{need_footer}
 </body>
+</html>

@@ -11,3 +11,4 @@
 		<meta name="keywords" content="eGroupWare" />
 		<meta name="language" content="{lang}" />
 		{editmode_styles}
+		{java_script}

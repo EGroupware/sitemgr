@@ -25,6 +25,7 @@
 		<script src="templates/idots/js/pngfix.js" type=text/javascript>
 		</script>
 		<![endif]-->
+		{java_script}
 	</head>
 
 
@@ -79,5 +80,6 @@
 {contentarea:footer}
 </div>
 
+{need_footer}
 </body>
 </html>

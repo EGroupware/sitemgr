@@ -16,6 +16,7 @@
 		{editmode_styles}
 	<link rel="stylesheet" type="text/css" 
 	      href="templates/realss/realss.css"/>
+	{java_script}
 </head>
 <body>
 <!-------   for template structure information read the stylesheets ------>
@@ -70,5 +71,6 @@
 	</tr>
 </table>
 -->
+{need_footer}
 </body>
 </html>

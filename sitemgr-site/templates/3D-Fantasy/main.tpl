@@ -17,6 +17,7 @@
 		<meta name="language" content="{lang}" />
 		{editmode_styles}
 		<LINK REL="StyleSheet" HREF="templates/3D-Fantasy/style/style.css" TYPE="text/css">
+		{java_script}
 	</head>
 <body bgcolor="#ffffff" text="#000000" link="#363636" vlink="#363636" alink="#d5ae83">
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
@@ -78,5 +79,6 @@
 		<td width="15" height="15"><img src="templates/3D-Fantasy/images/down-right2.gif" alt="" border="0"></td>
 	</tr>
 </table>
+{need_footer}
 </body>
 </html>

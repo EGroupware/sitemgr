@@ -15,3 +15,6 @@
 	// This file echos the contentarea 'footer'
 	global $objui;
 	echo $objui->t->process_blocks('footer');
+	
+	// this is necessary to get wz_tooltips
+	echo $GLOBALS['phpgw_info']['flags']['need_footer'];

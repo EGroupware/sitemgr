@@ -213,7 +213,6 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 
 						if (($block->state == SITEMGR_STATE_PREPUBLISH) && is_object($this->draft_transformer))
 						{
-
 							$moduleobject->add_transformer($this->draft_transformer);
 						}
 						if (isset($transformer))
@@ -362,6 +361,10 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 				case 'editmode_styles':
 					return $GLOBALS['sitemgr_info']['mode'] == 'Edit' ?
 						'<link href="templates/default/style/editmode.css" type="text/css" rel="StyleSheet" />' : '';
+				case 'java_script':
+					return $GLOBALS['phpgw']->common->get_java_script();
+				case 'need_footer':
+					return $GLOBALS['phpgw_info']['flags']['need_footer'];
 				default:
 					return '{'.$var.'}';	// leave it unchanged, happens eg. with js-code
 			}
