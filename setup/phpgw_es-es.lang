@@ -45,6 +45,7 @@ block saved	sitemgr	es-es	Bloque guardado
 bookmarks	sitemgr	es-es	Marcadores
 buy at %1	sitemgr	es-es	Comprar en %1
 calendar	sitemgr	es-es	Calendario
+can't open an url or execute a script, because allow_url_fopen is not set in your php.ini !!!	sitemgr	es-es	No se puede abrir una URL o ejecutar un script, porque allow_url_fopen no está puesto en el php.ini
 cancel the delete	sitemgr	es-es	Cancelar el borrado
 cannot move page until it has been saved.	sitemgr	es-es	No se puede mover la página hasta que se haya guardado.
 category	sitemgr	es-es	Categoría
@@ -115,6 +116,7 @@ enter the page content here	sitemgr	es-es	Introduzca aquí el contenido de la pág
 error accessing page	common	es-es	Error al acceder a la página
 everybody	sitemgr	es-es	todo el mundo
 file %1 is not readable by the webserver !!!	sitemgr	es-es	¡¡ El servidor web no puede leer fichero %1!!
+file %1 is outside the docroot of the webserver !!!<br>this module does not allow - for security reasons - to open files outside the docroot.	sitemgr	es-es	¡¡El fichero %1 está fuera de la raíz del servidor!!<br>Este módulo NO permite, por motivos de seguridad, abrir ficheros fuera de la raíz del servidor.
 file contents	sitemgr	es-es	Contenido del fichero
 file download	sitemgr	es-es	Descarga del fichero
 file is not world readable	sitemgr	es-es	El fichero no está accesible para todo el mundo
@@ -294,6 +296,7 @@ template select	sitemgr	es-es	Selección de plantilla
 textarea	sitemgr	es-es	Area de texto
 the category to display, 0 for complete table of contents	sitemgr	es-es	La categoría a mostrar. 0 para toda la tabla de contenidos
 the complete path to the file to be included	sitemgr	es-es	La ruta completa al fichero que hay que incluir
+the complete url or path to a file to be included	sitemgr	es-es	La URL completa o ruta al fichero a incluir
 the config.inc.php file needs to be edited to point to the phpgroupware directory. copy the config.inc.php.template file to config.inc.php and then edit it.	sitemgr	es-es	El fichero config.inc.php necesita editarse para apuntar al fichero eGW. Copie el fichero de plantilla config.inc.php.template a config.inc.php y luego edítelo
 the file to be downloaded	sitemgr	es-es	El fichero a descargar
 the first directory to think about is sitemgr-link.  if you move this to the parent directory of sitemgr (your phpgroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  if you don't want this icon, there's no reason to ever bother with the directory.	sitemgr	es-es	El primer directorio en el que hay que pensar es <tt>sitemgr-link</tt>. Si lo mueve al directorio superior de <tt>sitemgr</tt> (el fichero raíz de la instalación) entonces puede usar <tt>setup</tt> para instalar la aplicación y todos los que tengan acceso a la aplicación tendrán un icono en su barra de navegación que está enlazada directamente al sitio web público. Si no quiere este icono, no hay razón para preocuparse de este directorio.
@@ -338,6 +341,7 @@ this module displays the phpgw forums on the web site	sitemgr	es-es	Este módulo 
 this module displays the root categories, its pages and evtl. subcategories. it is meant for side areas	sitemgr	es-es	Este módulo muestra las categorías raíz, sus páginas y, eventualmente, subcategorías. Para áreas laterales.
 this module includes the contents of a (world readable) file	sitemgr	es-es	Este módulo incluye los contenidos de un fichero al que todo el mundo tiene acceso
 this module includes the contents of a file (readable by the webserver !)	sitemgr	es-es	Este módulo incluye los contenidos de un fichero (que el servidor web pueda leer)
+this module includes the contents of an url or file (readable by the webserver and in its docroot !)	sitemgr	es-es	Este módulo incluye el contenido de una URL o fichero (siempre que lo pueda leer el servidor web y esté dentro de la raíz de los documentos)
 this module is a selectbox to change the mode (production, draft or edit) plus a link back to sitemgr and to log out. it is meant for registered users only	sitemgr	es-es	Este módulo es un cuadro de selección para cambiar el modo (producción, borrador o editar) más un enlace para volver al Administrador de Sitios web y cerrar la sesión. Sólo para usuarios registrados.
 this module is a simple html editor	sitemgr	es-es	Este módulo es un editor HTML sencillo
 this module lets the users choose a template or shows a template gallery	sitemgr	es-es	Este módulo permite a los usuarios elegir una plantilla o muestra una galería de plantillas
