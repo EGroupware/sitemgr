@@ -9,6 +9,7 @@ anonymous user login domain	sitemgr	de	Anonymous User login Domain
 anonymous user's password	sitemgr	de	Anonymous User Password
 anonymous user's username	sitemgr	de	Anonymous User Username
 are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	de	Sind sie sicher das Sie die Kategorie %1 und alle dazugehörigen Seiten löschen möchten?  Diese Seiten werden hiermit endgültüg gelöscht.
+as	common	de	als
 basic settings	sitemgr	de	Basis Einstellungen
 block not found	sitemgr-site	de	Block nicht gefunden
 block returned no content.	sitemgr-site	de	Dieser Block hat keinen Content.
@@ -120,6 +121,7 @@ use phpnuke themes instead of templates	sitemgr	de	Benutze phpNuke Themen anstel
 user name	sitemgr	de	Benutzer Name
 view administrative menu	sitemgr	de	Administrations Menü
 view generated site	sitemgr	de	Erstellte Seite ansehen
+view full index	sitemgr-site	de	Gesamtindex
 web content manager	common	de	SiteMgr Contentmanagement
 web content manager administration	sitemgr	de	Web Content Manager Administration
 what do you want to do with existing translations of categories and pages for this language?	sitemgr	de	Was möchten Sie mit den existierenden Übersetzungen für Kategorien und Seiten machen?

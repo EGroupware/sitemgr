@@ -9,6 +9,7 @@ anonymous user login domain	sitemgr	en	Anonymous user login domain
 anonymous user's password	sitemgr	en	Anonymous user's password
 anonymous user's username	sitemgr	en	Anonymous user's username
 are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	en	Are you sure you want to delete the category %1 and all of its associated pages?  You cannot retrieve the deleted pages if you continue.
+as	common	en	as
 basic settings	sitemgr	en	Basic Settings
 block not found	sitemgr-site	en	Block not found
 block returned no content.	sitemgr-site	en	Block returned no content.
@@ -120,6 +121,7 @@ use phpnuke themes instead of templates	sitemgr	en	Use phpNuke themes instead of
 user name	sitemgr	en	User Name
 view administrative menu	sitemgr	en	View Administrative Menu
 view generated site	sitemgr	en	View Generated Site
+view full index	sitemgr-site	en	View full index
 web content manager	common	en	SiteMgr Web Content Manager
 web content manager administration	sitemgr	en	Web Content Manager Administration
 what do you want to do with existing translations of categories and pages for this language?	sitemgr	en	What do you want to do with existing translations of categories and pages for this language?
@@ -135,3 +137,4 @@ you must be an admin to edit the site header and footer.	sitemgr	en	You must be 
 you must be an administrator to setup the site manager.	sitemgr	en	You must be an administrator to setup the Site Manager.
 you removed one ore more languages from your site languages.	sitemgr	en	You removed one ore more languages from your site languages.
 your calendar	sitemgr-site	en	Your Calendar
+view full index	sitemgr-site	en	

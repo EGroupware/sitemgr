@@ -9,6 +9,7 @@ anonymous user login domain	sitemgr	fr	Groupe auquel appartient l'usager anonyme
 anonymous user's password	sitemgr	fr	Mot de passe de l'usager anonyme
 anonymous user's username	sitemgr	fr	Nom de compte de l'usager anonyme
 are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	fr	Êtes vous sûr de vouloir effacert la catégorie %1 et toutes les pages qui y sont associées. Vous ne pourriez plus retrouver les pages effacées si vous continuez.
+as	common	fr	en tant que
 basic settings	sitemgr	fr	Réglages de base
 block not found	sitemgr-site	fr	Le bloc n'est pas trouvable
 block returned no content.	sitemgr-site	fr	Le bloc n'a pas retourné de contenu.
@@ -120,6 +121,7 @@ use phpnuke themes instead of templates	sitemgr	fr	Utilisez les thèmes phpnuke à
 user name	sitemgr	fr	Nom d'usager
 view administrative menu	sitemgr	fr	Visualisez le menu administratif
 view generated site	sitemgr	fr	Visualisez le site genéré
+view full index	sitemgr-site	fr	Index complet
 web content manager	common	fr	Gestionnaire de site web
 web content manager administration	sitemgr	fr	Administration du gestionnaire de site web
 what do you want to do with existing translations of categories and pages for this language?	sitemgr	fr	Qu'est-ce que vous voulez faire avec les traductions existantes des catégories et pages pour cette langue?
