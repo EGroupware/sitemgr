@@ -15,21 +15,29 @@
 		'nonavbar'   => True,
 		'noapi'      => False
 	);
-	include('../header.inc.php');
-
+	if (file_exists('../header.inc.php'))
+	{
+		include('../header.inc.php');
+	}
+	else
+	{
+		echo "You need to make sure the sitemgr-link app is in the phpgroupware directory.  If you made a symbolic link... it isn't working.";
+		die();
+	}
 	$pref_so = CreateObject('sitemgr.sitePreference_SO', True);
-	$location = $pref_so->getPreference('sitemgr-gen-url');
-	$dir = $pref_so->getPreference('sitemgr-gen-dir');
+	$location = $pref_so->getPreference('sitemgr-site-url');
+	$dir = $pref_so->getPreference('sitemgr-site-dir');
 	if ($location && file_exists($dir . '/config.inc.php'))
 	{
-		require_once ($dir . '/config.inc.php');
+		require_once($dir . '/config.inc.php');
 		Header('Location: ' . sitemgr_link2('/index.php'));
+		//echo sitemgr_link2('/index.php');
 		exit;
 	}
 	else
 	{
 		$GLOBALS['phpgw']->common->phpgw_header();
-		echo parse_navbar();
+		//echo parse_navbar();
 		$aclbo = CreateObject('sitemgr.ACL_BO', True);
 		echo '<table width="50%"><tr><td>';
 		if ($aclbo->is_admin())
