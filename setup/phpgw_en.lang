@@ -149,6 +149,7 @@ implies read permission	sitemgr	en	implies read permission
 individual access permission	sitemgr	en	Individual Access Permission
 individual access permissions	sitemgr	en	Individual Access Permissions
 interface to google website	sitemgr	en	Interface to google website
+invalid template directory '%1' !!!	sitemgr	en	Invalid template directory '%1' !!!
 languages the site user can choose from	sitemgr	en	Languages the site user can choose from
 latest reply	sitemgr	en	Latest Reply
 list of permitted modules specific to content area %1	sitemgr	en	List of permitted modules specific to content area %1
@@ -293,6 +294,7 @@ the category to display, 0 for complete table of contents	sitemgr	en	The categor
 the complete url or path to a file to be included	sitemgr	en	The complete URL or path to a file to be included
 the config.inc.php file needs to be edited to point to the phpgroupware directory. copy the config.inc.php.template file to config.inc.php and then edit it.	sitemgr	en	The config.inc.php file needs to be edited to point to the phpGroupWare directory. Copy the config.inc.php.template file to config.inc.php and then edit it.
 the file to be downloaded	sitemgr	en	The file to be downloaded
+the filesystem path to your sitemgr-site directory '%1' is probably wrong. go to sitemgr --> define websites and edit/fix the concerned site.	sitemgr	en	The filesystem path to your sitemgr-site directory '%1' is probably wrong. Go to SiteMgr --> Define Websites and edit/fix the concerned Site.
 the first directory to think about is sitemgr-link.  if you move this to the parent directory of sitemgr (your phpgroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  if you don't want this icon, there's no reason to ever bother with the directory.	sitemgr	en	The first directory to think about is sitemgr-link.  If you move this to the parent directory of sitemgr (your phpgroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  If you don't want this icon, there's no reason to ever bother with the directory.
 the images' common name	sitemgr	en	the images' common name
 the name field cannot contain punctuation or spaces (field modified).	sitemgr	en	The Name field cannot contain punctuation or spaces (field modified).
@@ -395,6 +397,7 @@ you don't have permission to write in the category	sitemgr	en	You don't have per
 you don't have permission to write to that category.	sitemgr	en	You don't have permission to write to that category.
 you failed to fill in one or more required fields.	sitemgr	en	You failed to fill in one or more required fields.
 you have no rights to view wiki content or the wiki is not installed at all !!!	sitemgr	en	You have no rights to view wiki content or the wiki is not installed at all !!!
+you may have deinstalled the used template '%1'. reinstall it or go to sitemgr --> configure website and select an other one.	sitemgr	en	You may have deinstalled the used template '%1'. Reinstall it or go to SiteMgr --> Configure Website and select an other one.
 you must be an admin to edit categories.	sitemgr	en	You must be an admin to edit categories.
 you must be an admin to edit the site header and footer.	sitemgr	en	You must be an admin to edit the site header and footer.
 you must be an admin to manage module properties.	sitemgr	en	You must be an admin to manage module properties.

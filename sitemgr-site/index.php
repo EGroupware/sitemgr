@@ -55,6 +55,19 @@
 	{
 		include_once './inc/class.mos_ui.inc.php';
 	}
+	if (!class_exists('ui'))
+	{
+		echo '<h3>'.lang("Invalid template directory '%1' !!!",$templateroot)."</h3>\n";
+		if (!is_dir($GLOBALS['sitemgr_info']['site_dir'] . SEP . 'templates') || !is_readable($GLOBALS['sitemgr_info']['site_dir'] . SEP . 'templates'))
+		{
+			echo lang("The filesystem path to your sitemgr-site directory '%1' is probably wrong. Go to SiteMgr --> Define Websites and edit/fix the concerned Site.",$GLOBALS['sitemgr_info']['site_dir']);
+		}
+		elseif (!is_dir($templateroot) || !is_readable($templateroot))
+		{
+			echo lang("You may have deinstalled the used template '%1'. Reinstall it or go to SiteMgr --> Configure Website and select an other one.",$GLOBALS['sitemgr_info']['themesel']);
+		}
+		$GLOBALS['phpgw']->common->phpgw_exit();
+	}
 	$objui = new ui;
 
 	$page = CreateObject('sitemgr.Page_SO');
