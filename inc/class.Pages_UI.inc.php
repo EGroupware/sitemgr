@@ -158,6 +158,7 @@
 				'lang_reset' => lang('Reset'),
 				'lang_save' => lang('Save'),
 				'lang_state' => lang('State'),
+				'lang_nameinfo' => lang('(Do not put spaces or punctuation in the Name field.)'),
 			));
 			
 			$this->t->pfp('out','EditPage');

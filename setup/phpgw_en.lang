@@ -1,5 +1,6 @@
 %1 content manager	sitemgr	en	%1 content manager
 %1 module manager	sitemgr	en	%1 module manager
+(do not put spaces or punctuation in the name field.)	sitemgr	en	(Do not put spaces or punctuation in the Name field.)
 a simple picture galery	sitemgr	en	A simple picture galery
 actif	sitemgr	en	Actif
 add a category	sitemgr	en	Add a category
@@ -59,6 +60,7 @@ configure website	sitemgr	en	Configure Website
 contact the administrator.	sitemgr	en	Contact the administrator.
 content areas	sitemgr	en	Content areas
 content blocks	sitemgr	en	Content blocks
+content blocks for category	sitemgr	en	Content blocks for category
 content manager	sitemgr	en	Content Manager
 contentarea	sitemgr	en	Contentarea
 contributor menu	sitemgr	en	Contributor Menu
@@ -193,7 +195,9 @@ page saved.	sitemgr	en	Page saved.
 page subtitle	sitemgr	en	Page Subtitle
 page title	sitemgr	en	Page Title
 pages	sitemgr	en	Pages
+pages:	sitemgr	en	Pages:
 parent	sitemgr	en	Parent
+parent section:	sitemgr	en	Parent Section:
 password	sitemgr	en	Password
 password that you assigned for the anonymous user account.	sitemgr	en	Password that you assigned for the anonymous user account.
 phpgw users	sitemgr	en	phpgw users
@@ -251,6 +255,7 @@ sort order	sitemgr	en	Sort Order
 state	sitemgr	en	State
 strip html from block content?	sitemgr	en	Strip HTML from block content?
 subcategories	sitemgr	en	Subcategories
+subsections:	sitemgr	en	Subsections:
 subtitle	sitemgr	en	Subtitle
 summary of one forum	sitemgr	en	Summary of one forum
 table of contents	sitemgr	en	Table of Contents

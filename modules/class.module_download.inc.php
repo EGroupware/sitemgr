@@ -43,7 +43,7 @@ class module_download extends Module
 			$linkdata['file'] = rawurlencode(base64_encode($arguments['file']));
 		}
 		return $arguments['text'] ? 
-			('<a href="' . phpgw_link('/phpwebhosting/index.php',$linkdata) . '">' . $arguments['text'] . '</a>') :
-			phpgw_link('/phpwebhosting/index.php',$linkdata);
+			('<a href="' . phpgw_link('/filemanager/index.php',$linkdata) . '">' . $arguments['text'] . '</a>') :
+			phpgw_link('/filemanager/index.php',$linkdata);
 	}
 }

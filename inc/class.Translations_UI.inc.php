@@ -185,6 +185,7 @@
 					'lang_catdesc' => lang('Category Description'),
 					'showcatdesc' => $showlangdata->description,
 					'savecatdesc' => $savelangdata->description,
+					'lang_contentblocks' => lang('Content blocks for category'),
 				));
 
 				//Content blocks
@@ -245,6 +246,7 @@
 					'lang_pagesubtitle' => lang('Page Subtitle'),
 					'showpagesubtitle' => $showlangdata->subtitle,
 					'savepagesubtitle' => $savelangdata->subtitle,
+					'lang_contentblocks' => lang('Content blocks for category'),
 				));
 
 				//Content blocks

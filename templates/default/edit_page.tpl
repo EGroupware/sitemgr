@@ -14,7 +14,7 @@
 	</tr>
 	<tr>
 		<td><br></td>
-		<td><i><b><font size='2' color='#ff0000'>(Do not put spaces or punctuation in the Name field.)</font></b></i></td>
+		<td><i><b><font size='2' color='#ff0000'>{lang_nameinfo}</font></b></i></td>
 	<tr>	
 		<td><b>{lang_title}: <font size='2' color='#ff0000'>*</font></b></td>
 		<td><input size="40" type="text" name="inputtitle" value="{title}"></td>

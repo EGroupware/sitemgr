@@ -21,5 +21,5 @@
 	</tr>
 </table>
 </form>
-<h4 style="text-align:center">Content blocks for page</h4>
+<h4 style="text-align:center">{lang_contentblocks}</h4>
 {blocks}
