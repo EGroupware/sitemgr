@@ -22,11 +22,14 @@ changes saved.	sitemgr	de	Änderungen gespeichert.
 check here after every upgrade	sitemgr	de	Nach jedem upgrade bitte nochmals hier überprüfen
 check to hide from condensed site index.	sitemgr	de	Hier auswählen um eine Seite im Inhaltsverzeichnis nicht anzuzeigen.
 choose a category	sitemgr-site	de	Wählen Sie eine Kategorie
+choose language	sitemgr-site	de	Sprachauswahl
 configure sitemgr	sitemgr	de	SiteMgr konfigurieren
 contact the administrator.	sitemgr-site	de	Kontaktieren Sie den Administrator
 content manager	sitemgr-site	de	Inhaltsmanager
 contributor menu	sitemgr	de	Autoren Menü
 default home page id number	sitemgr	de	Standard Home Page ID Nummer
+deleting all data for %1	sitemgr	de	Alle Daten für %1 werden gelöscht
+do you want to delete them?	sitemgr	de	Möchten Sie sie löschen?
 don't have an account?	sitemgr-site	de	Sie haben keinen Account?
 done	sitemgr	de	Fertig
 edit categories and permissions	common	de	Kategorien und Zugriffsrechte bearbeiten
@@ -54,6 +57,7 @@ main content	sitemgr	de	Hauptinhalt
 manage categories	sitemgr	de	Kategorien bearbeiten
 manage pages	common	de	Seiten verwalten
 manage translations	sitemgr	de	Übersetzungen verwalten
+migrating data for %1 to %2	sitemgr	de	Daten für %1 werden nach %2 übertragen
 move to	sitemgr	de	Verschieben nach
 name	sitemgr	de	Name
 no anonymous user accounts installed. notify the administrator.	sitemgr-site	de	DER USER ANONYMOUS IST NICHT INSTALLIERT. BENACHRICHTIGEN SIE DEN ADMINISTRATOR.
@@ -62,12 +66,18 @@ no groups defined.	sitemgr	de	Keine Gruppen definiert.
 no options available.	sitemgr	de	Keine Optionen verfügbar.
 no pages available	sitemgr-site	de	Keine Seiten verfügbar
 no users defined.	sitemgr	de	Keine Benutzer definiert.
+page	sitemgr	de	Seite
+page content	sitemgr	de	Seiteninhalt
 page manager	sitemgr	de	Seiten Manager
+page name	sitemgr	de	Seitenname
 page saved.	sitemgr	de	Seite gespeichert.
+page subtitle	sitemgr	de	Seitenuntertitel
+page title	sitemgr	de	Seitentitel
 pages	sitemgr-site	de	Seiten
 parent	sitemgr	de	Übergeordnet
 password	sitemgr-site	de	Passwort
 read permission	sitemgr	de	Leserechte
+refresh	sitemgr	de	Aktualisieren
 register for one now.	sitemgr-site	de	Hier können Sie sich Registrieren.
 required fields	sitemgr	de	Benötigte Felder
 reset	sitemgr	de	Zurück Setzen
@@ -99,6 +109,9 @@ there was an error accessing the requested page. either you do not have permissi
 there was an error writing to the database.	sitemgr	de	Beim schreiben in die Datenbank ist ein Fehler aufgetreten.
 this category has no pages.	sitemgr	de	Diese Kategorie hat keine Seiten.
 title	sitemgr	de	Titel
+translate	sitemgr	de	Übersetzen
+translate category	sitemgr	de	Übersetzen der Kategorie
+translate page	sitemgr	de	Übersetzen der Seite
 translation manager	sitemgr	de	Übersetzungen
 up to table of contents	sitemgr-site	de	Zum Inhaltsverzeichnis wechseln
 updating to new category system	sitemgr	de	Update zum neuen Kategorie System
@@ -109,8 +122,10 @@ view administrative menu	sitemgr	de	Administrations Menü
 view generated site	sitemgr	de	Erstellte Seite ansehen
 web content manager	common	de	SiteMgr Contentmanagement
 web content manager administration	sitemgr	de	Web Content Manager Administration
+what do you want to do with existing translations of categories and pages for this language?	sitemgr	de	Was möchten Sie mit den existierenden Übersetzungen für Kategorien und Seiten machen?
 write permission	sitemgr	de	Schreibrechte
 yes, please delete it	sitemgr	de	Ja, löschen
+you can either migrate them to a new language or delete them	sitemgr	de	Sie können sie entweder auf eine neue Sprache übertragen oder löschen
 you do not have access to any content on this site.	sitemgr-site	de	Sie haben keinen Zugriff zum Inhalte dieser Seite.
 you don't have permission to write in the category	sitemgr	de	Sie haben keine Rechte um in dieser Kategorie zu schreiben
 you don't have permission to write to that category.	sitemgr	de	Sie haben nicht die Rechte in diese Kategorie zu schreiben.
@@ -118,4 +133,5 @@ you failed to fill in one or more required fields.	sitemgr	de	Sie haben eines od
 you must be an admin to edit categories.	sitemgr	de	Sie benötigen Administrator Rechte zum Editieren der Kategorien.
 you must be an admin to edit the site header and footer.	sitemgr	de	Sie müssen Admin Rechte  haben zum editieren der Seiten Kopf oder Fusszeile
 you must be an administrator to setup the site manager.	sitemgr	de	Sie müssen administrative Rechte haben zum Konfigurieren des Site Managers.
+you removed one ore more languages from your site languages.	sitemgr	de	Sie haben eine oder mehrere Sprachen von der Site entfernt.
 your calendar	sitemgr-site	de	Ihr Kalendar
