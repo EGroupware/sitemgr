@@ -18,12 +18,18 @@ class module_login extends Module
 		$this->arguments = array();
 		if (file_exists(PHPGW_SERVER_ROOT . '/registration'))
 		{
-			$this->arguments = array(
-				'registration' => array(
-					'type' => 'checkbox',
-					'label' => lang('Display link to autoregistration below login form?')
-				)
+			$this->arguments['registration'] = array(
+				'type' => 'checkbox',
+				'label' => lang('Display link to autoregistration below login form?')
 			);
+			$config = CreateObject('phpgwapi.config','registration');
+			$config = $config->read_repository();
+			if ($config['enable_registration'] != 'True')
+			{
+				$this->arguments['registration']['label'] .= '<br><font color="red">'.
+					lang('<b>Autoregistration is not enabled / configured in the registration app !!!</b><br>You need to do so, to get the autoregistration link working.').
+					'</font>';
+			}
 		}
 		$this->properties = array();
 		$this->title = lang('Login');
