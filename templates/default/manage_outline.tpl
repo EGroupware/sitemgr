@@ -5,9 +5,10 @@
 </div>
 <!-- BEGIN CategoryBlock -->
 <div style="margin-left:{indent}mm; border-width:2px;border-style:solid; padding:5mm" width='85%'>
-	<p style="font-weight:bold;text-decoration:underline" valign='bottom'>{category}</p>	<p>{edit} {remove} {addpage}
+	<p style="font-weight:bold;text-decoration:underline" valign='bottom'>{category}</p>	
+	<p>{editcat} {deletecat} {addpage}
 	</p>
-	<p>{moduleconfig} {content}
+	<p>{moduleconfig} {catcontent}
 	</p>
 	<table width="100%">
 	<!-- BEGIN PageBlock -->
@@ -16,7 +17,7 @@
 			{page}
 		</td>
 		<td align="center">
-			{edit} {remove} {content}
+			{editpage} {deletepage} {pagecontent}
 		</td>
 	</tr>
 	<!-- END PageBlock -->
