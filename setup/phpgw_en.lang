@@ -56,6 +56,7 @@ check here after every upgrade	sitemgr	en	check here after every upgrade
 check to hide from condensed site index.	sitemgr	en	Check to hide from condensed site index.
 choose a category	sitemgr	en	Choose a category
 choose language	sitemgr	en	Choose language
+choose template	sitemgr	en	Choose template
 choose the categories to display	sitemgr	en	Choose the categories to display
 choose your site's theme or template.  note that if you changed the above checkbox you need to save before choosing a theme or template.	sitemgr	en	Choose your site's theme or template.  Note that if you changed the above checkbox you need to save before choosing a theme or template.
 collapse threads	sitemgr	en	Collapse Threads
@@ -89,9 +90,11 @@ do you realy want to delete this block?	sitemgr	en	Do you realy want to delete t
 do you realy want to delete this page?	sitemgr	en	Do you realy want to delete this page?
 do you want to delete them?	sitemgr	en	Do you want to delete them?
 do you want to publish a rss feed for this news category	sitemgr	en	Do you want to publish a RSS feed for this news category
+documentation	sitemgr	en	Documentation
 domain-name (offical dns-name eg. www.egroupware.org) if you want to give the user a choice between searching this site or the whole web. leaving it empty allows to search the web only.	sitemgr	en	Domain-name (offical DNS-name eg. www.eGroupWare.org) if you want to give the user a choice between searching this site or the whole web. Leaving it empty allows to search the web only.
 don't have an account?	sitemgr	en	Don't have an account?
 done	sitemgr	en	Done
+download as zip-archiv	sitemgr	en	download as ZIP-archiv
 downloaded	sitemgr	en	downloaded
 draft	sitemgr	en	draft
 draft mode	sitemgr	en	Draft mode
@@ -121,6 +124,9 @@ footer editor	sitemgr	en	Footer Editor
 forum	sitemgr	en	Forum
 full path of the xslt file that should be applied to the xml files	sitemgr	en	Full path of the XSLT file that should be applied to the XML files
 galerie	sitemgr	en	Galerie
+gallery plus chooser	sitemgr	en	Gallery plus chooser
+gallery plus chooser and download	sitemgr	en	Gallery plus chooser and download
+gallery plus download	sitemgr	en	Gallery plus download
 go back to page manager	sitemgr	en	Go back to Page Manager
 go back to the category manager.	sitemgr	en	Go back to the category manager.
 go to	sitemgr	en	Go to
@@ -189,9 +195,11 @@ no template file found.	sitemgr	en	No template file found.
 no templates found.	sitemgr	en	No templates found.
 no users defined.	sitemgr	en	No users defined.
 no websites defined	sitemgr	en	No websites defined
+no, chooser only (for side-areas)	sitemgr	en	No, chooser only (for side-areas)
 not yet translated	sitemgr	en	not yet translated
 note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	en	Note that you may get this message if your preferences are incorrect.  For example, if config.inc.php is not found in the directory that you specified.
 number of news items to be displayed on page	sitemgr	en	Number of news items to be displayed on page
+only gallery	sitemgr	en	Only gallery
 other websites	sitemgr	en	Other websites
 overview of all available categories	sitemgr	en	Overview of all available categories
 overview of one specific category	sitemgr	en	Overview of one specific category
@@ -210,6 +218,7 @@ parent	sitemgr	en	Parent
 parent section:	sitemgr	en	Parent Section:
 password	sitemgr	en	Password
 password that you assigned for the anonymous user account.	sitemgr	en	Password that you assigned for the anonymous user account.
+path to zip binary if not in path of the webserver	sitemgr	en	Path to zip binary if not in path of the webserver
 phpgw users	sitemgr	en	phpgw users
 please enter a name for that site !	sitemgr	en	Please enter a name for that site !
 post a message to this thread	sitemgr	en	Post A Message To This Thread
@@ -240,9 +249,11 @@ select a category	sitemgr	en	Select a category
 select a forum	sitemgr	en	Select a forum
 select allowed modules	sitemgr	en	Select allowed modules
 select persons and groups that are entitled to configure the website.	sitemgr	en	Select persons and groups that are entitled to configure the website.
+select the templates the user is allowed to see	sitemgr	en	Select the templates the user is allowed to see
 selected template %1 does not exist.	sitemgr	en	Selected template %1 does not exist.
 selected theme %1 does not exist.	sitemgr	en	Selected theme %1 does not exist.
 should the file be viewed in the browser or downloaded	sitemgr	en	Should the file be viewed in the browser or downloaded
+show a template-gallery (thumbnail and informations)	sitemgr	en	Show a template-gallery (thumbnail and informations)
 show searchbox	sitemgr	en	Show searchbox
 show site index	sitemgr	en	Show Site Index
 show subcategories	sitemgr	en	Show subcategories
@@ -258,6 +269,7 @@ site setup	common	en	Site Setup
 site tree menu	sitemgr	en	Site Tree Menu
 site wide	sitemgr	en	Site wide
 sitemgr	common	en	SiteMgr
+sitemgr manual	sitemgr	en	SiteMgr Manual
 sitemgr options	sitemgr	en	SiteMgr Options
 sitemgr setup instructions	sitemgr	en	SiteMgr Setup Instructions
 sitemgr setup page	sitemgr	en	sitemgr setup page
@@ -271,7 +283,7 @@ subsections:	sitemgr	en	Subsections:
 subtitle	sitemgr	en	Subtitle
 summary of one forum	sitemgr	en	Summary of one forum
 table of contents	sitemgr	en	Table of Contents
-template select	sitemgr	en	Template select
+template chooser and/or gallery	sitemgr	en	Template chooser and/or gallery
 textarea	sitemgr	en	textarea
 the category to display, 0 for complete table of contents	sitemgr	en	The category to display, 0 for complete table of contents
 the complete path to the file to be included	sitemgr	en	The complete path to the file to be included
@@ -350,6 +362,7 @@ user name	sitemgr	en	User Name
 view administrative menu	sitemgr	en	View Administrative Menu
 view full index	sitemgr	en	View full index
 view generated site	sitemgr	en	View Generated Site
+view template on this site	sitemgr	en	View template on this site
 view threads	sitemgr	en	View Threads
 viewed	sitemgr	en	viewed
 web content manager	common	en	SiteMgr Web Content Manager

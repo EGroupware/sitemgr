@@ -37,7 +37,7 @@
 				}
 				closedir($handle);
 
-				asort($result_array);
+				uksort($result_array,'strcasecmp');
 			}
 			//echo "<p>Theme_BO::getAvailableThemes('$templates_dir')=".print_r(array_keys($result_array),true)."</p>";
 			return $result_array ? $result_array : array(array('value'=>'','display'=>lang('No templates found.')));

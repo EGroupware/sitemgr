@@ -206,7 +206,16 @@
 					return False;
 				}
 			}
-			
+			// overwrite selected theme by user
+			if (isset($_GET['themesel']) && ($theme_info = $GLOBALS['Common_BO']->theme->getThemeInfos($_GET['themesel'])))
+			{
+				$GLOBALS['phpgw']->session->appsession('themesel','sitemgr-site',$theme_info['value']);
+				$this->current_site['themesel'] = $theme_info['value'];
+			}
+			elseif ($theme = $GLOBALS['phpgw']->session->appsession('themesel','sitemgr-site'))
+			{
+				$this->current_site['themesel'] = $theme;
+			}
 			define('CURRENT_SITE_ID',$this->current_site['site_id']);
 			$this->setmode($mode);
 			return True;

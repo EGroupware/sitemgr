@@ -311,11 +311,17 @@ class Module
 			case 'textfield':
 				return '<input type="text" ' . $inputdef . ' value ="' . $default . '" />';
 			case 'checkbox':
-				return '<input type="checkbox" ' . $inputdef . ($default ? 'checked="checked"' :'') . '" />';
+				return '<input type="checkbox" ' . $inputdef . ($default ? 'checked="1"' :'') . '" />';
 			case 'select':
-				$select = '<select ' .($input['multiple'] ? 'multiple="multiple"' : '') . $inputdef . '>';
+				$select = '<select ' .($input['multiple'] ? 'multiple="1"' : '') . $inputdef . '>';
 				foreach ($input['options'] as $value => $display)
 				{
+					$title = '';
+					if (is_array($display))
+					{
+						$title = @$display['title'] ? ' title="'.htmlspecialchars($display['titel']).'"' : '';
+						$display = $display['name'];
+					}
 					$selected='';
 					if
 					(
@@ -323,9 +329,9 @@ class Module
 						(!$input['multiple'] && ($default == $value))
 					)
 					{
-						$selected = 'selected="selected"';
+						$selected = ' selected="1"';
 					}
-					$select .= '<option value="'. $value . '" ' . $selected . '>' . $display . '</option>';
+					$select .= '<option value="'. $value . '"' . $selected . $title . '>' . $display . '</option>';
 				}
 				$select .= '</select>';
 				return $select;

@@ -2,7 +2,7 @@
 %1 module manager	sitemgr	de	%1 Modulmanager
 '%1' is no valid sitemgr-site directory !!!	sitemgr	de	'%1' ist kein gültiges sitemgr-site Verzeichnis !!!
 (do not put spaces or punctuation in the name field.)	sitemgr	de	(Im Namensfeld sind keine Leer- oder Satzzeichen erlaubt.)
-<b>want more templates?</b><br />just download a %1mambo open source%2 version 4.5 compatible template from %3 and unpack it in your templates directory (%4).	sitemgr	de	<b>Suchen sie weitere Vorlagen?</b><br />Laden Sie einfach ein %1Mambo Open Source%2 Version 4.5 kompatibles Template von %3 und entpacken Sie es in ihrem Vorlagenverzeichnis (%4).
+<b>want more templates?</b><br />just download a %1mambo open source%2 version 4.5 compatible template from %3 and unpack it in your templates directory (%4).	sitemgr	de	<b>Suchen sie weitere Designvorlagen?</b><br />Laden Sie einfach ein %1Mambo Open Source%2 Version 4.5 kompatibles Template von %3 und entpacken Sie es in ihrem Templateverzeichnis (%4).
 a simple picture galery	sitemgr	de	Eine einfache Bilder Gallerie
 actif	sitemgr	de	Aktiv
 add a category	sitemgr	de	Kategorie hinzufügen
@@ -57,8 +57,9 @@ check here after every upgrade	sitemgr	de	Nach jedem upgrade bitte nochmals hier
 check to hide from condensed site index.	sitemgr	de	Hier auswählen um eine Seite im Inhaltsverzeichnis nicht anzuzeigen.
 choose a category	sitemgr	de	Wählen Sie eine Kategorie
 choose language	sitemgr	de	Sprachauswahl
+choose template	sitemgr	de	Designvorlage auswählen
 choose the categories to display	sitemgr	de	Wählen Sie die anzuzeigende Kategorie aus
-choose your site's theme or template.  note that if you changed the above checkbox you need to save before choosing a theme or template.	sitemgr	de	Wählen Sie das Seiten Layout oder Template. Beachten Sie bitte: Wenn Sie eine Einstellung verändert haben, müssen Sie diese zuerst speichern, bevor Sie dieses benutzen oder nochmals verändern können.
+choose your site's theme or template.  note that if you changed the above checkbox you need to save before choosing a theme or template.	sitemgr	de	Wählen Sie eine Designvorlage. Beachten Sie bitte: Wenn Sie die Einstellung darüber verändert haben, müssen Sie diese zuerst speichern, bevor Sie eine Vorlage wählen können.
 collapse threads	sitemgr	de	Threads kolabieren
 commit changes	sitemgr	de	Änderungen übernehmen
 configure module properties	sitemgr	de	Modul Eigenschaften konfigurieren
@@ -90,9 +91,11 @@ do you realy want to delete this block?	sitemgr	de	Wollen Sie diesen Block wirkl
 do you realy want to delete this page?	sitemgr	de	Wollen Sie diese Seite wirklich löschen?
 do you want to delete them?	sitemgr	de	Möchten Sie sie löschen?
 do you want to publish a rss feed for this news category	sitemgr	de	Wollen sie einen RSS feed für diese News Kategorie veröffentlichen
+documentation	sitemgr	de	Dokumentation
 domain-name (offical dns-name eg. www.egroupware.org) if you want to give the user a choice between searching this site or the whole web. leaving it empty allows to search the web only.	sitemgr	de	Domainname (offizieller DNS-Name zB. www.eGroupWare.org), falls Sie dem Benutzer die Wahl geben wollen zwischen einer Suche auf dieser Website oder dem gesamten Web. Wenn sie das Feld leer lassen wird immer das gesamte Web durchsucht.
 don't have an account?	sitemgr	de	Sie haben keinen Benutzerkonto?
 done	sitemgr	de	Fertig
+download as zip-archiv	sitemgr	de	als ZIP-Archiv herunterladen
 downloaded	sitemgr	de	Download abgeschlossen
 draft	sitemgr	de	Entwurf
 draft mode	sitemgr	de	Entwurfsmodus
@@ -122,6 +125,9 @@ footer editor	sitemgr	de	Fusszeilen Editor
 forum	sitemgr	de	Forum
 full path of the xslt file that should be applied to the xml files	sitemgr	de	Der komplette Pfad zur XSLT Datei welche angewendet wird für die XML Dateien
 galerie	sitemgr	de	Galerie
+gallery plus chooser	sitemgr	de	Galerie plus Auswahl
+gallery plus chooser and download	sitemgr	de	Galerie plus Auswahl und Download
+gallery plus download	sitemgr	de	Galerie plus Download
 go back to page manager	sitemgr	de	Zurück zum Seiten Manager
 go back to the category manager.	sitemgr	de	Zurück zum Kategorie Manager gehen
 go to	sitemgr	de	Gehe zu
@@ -178,7 +184,7 @@ new sitemgr site	sitemgr	de	Neue Sitemanager Seite
 news module	sitemgr	de	Nachrichten Modul
 no anonymous user accounts installed.  notify the administrator.	sitemgr	de	KEINE ANONYME BENUTZERKENNUNG INSTALLIERT. BENACHRICHTIGEN SIE DEN ADMINISTRATOR.
 no anonymous user accounts installed. notify the administrator.	sitemgr-site	de	DER USER ANONYMOUS IST NICHT INSTALLIERT. BENACHRICHTIGEN SIE DEN ADMINISTRATOR.
-no content areas found in selected template	sitemgr	de	Keine Inhaltsbereich in der ausgewählten Vorlage gefunden.
+no content areas found in selected template	sitemgr	de	Keine Inhaltsbereich in der ausgewählten Designvorlage gefunden.
 no content found	sitemgr	de	Kein Inhalt gefunden
 no groups defined.	sitemgr	de	Keine Gruppen definiert.
 no link to full index	sitemgr	de	Kein Link auf den Gesamtindex
@@ -187,13 +193,15 @@ no modules permitted for this content area/category	sitemgr	de	Für diesen Inhalt
 no options available.	sitemgr	de	Keine Optionen verfügbar.
 no pages available	sitemgr	de	Keine Seiten verfügbar
 no sitelanguages configured	sitemgr	de	Keine Sprachen konfiguriert
-no template file found.	sitemgr	de	Keine Vorlagedatei gefunden
-no templates found.	sitemgr	de	Keine Vorlagen gefunden.
+no template file found.	sitemgr	de	Keine Designvorlagendatei gefunden
+no templates found.	sitemgr	de	Kein Designvorlagen gefunden.
 no users defined.	sitemgr	de	Keine Benutzer definiert.
 no websites defined	sitemgr	de	Keine Website definiert
+no, chooser only (for side-areas)	sitemgr	de	Nein nur Auswahl (für Seitenbereiche)
 not yet translated	sitemgr	de	noch nicht übersetzt
 note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	de	Sie können diese Nachricht auch erhalten, wenn ihre Einstellungen nicht richtig sind. Zum Beispiel wenn config.inc.php nicht im angegebenen Verzeichnis gefunden wurde.
 number of news items to be displayed on page	sitemgr	de	Anzahl Nachrichten die auf einer Seite angezeigt werden
+only gallery	sitemgr	de	Nur Galerie
 other websites	sitemgr	de	Andere Websites
 overview of all available categories	sitemgr	de	Überblick über alle verfügbaren Kategorien
 overview of one specific category	sitemgr	de	Überblick über eine spezielle Kategorie
@@ -212,6 +220,7 @@ parent	sitemgr	de	Übergeordnet
 parent section:	sitemgr	de	Übergeordnete Kategorie:
 password	sitemgr	de	Passwort
 password that you assigned for the anonymous user account.	sitemgr	de	Passwort des anonymen Benutzerkontos
+path to zip binary if not in path of the webserver	sitemgr	de	Pfad zu zip Programm, wenn nicht im Pfad des Webservers
 phpgw users	sitemgr	de	eGroupWare Benutzer
 please enter a name for that site !	sitemgr	de	Bitte geben sie einen Namen für die Website an !
 post a message to this thread	sitemgr	de	Eine Nachricht in diesem Thread posten.
@@ -242,9 +251,11 @@ select a category	sitemgr	de	Eine Kategorie auswählen
 select a forum	sitemgr	de	Ein Forum auswählen
 select allowed modules	sitemgr	de	Erlaubte Module auswählen
 select persons and groups that are entitled to configure the website.	sitemgr	de	Personen und Gruppen auswählen, die diese Website konfigurieren dürfen.
-selected template %1 does not exist.	sitemgr	de	Das ausgewählte Vorlage %1 ist nicht verfügbar.
+select the templates the user is allowed to see	sitemgr	de	Designvorlagen auswählen die der Benutzer sehen darf
+selected template %1 does not exist.	sitemgr	de	Das ausgewählte Design %1 ist nicht verfügbar.
 selected theme %1 does not exist.	sitemgr	de	Das ausgewählte Thema %1 ist nicht verfügbar.
 should the file be viewed in the browser or downloaded	sitemgr	de	Soll die Datei im Browser angezeigt werden oder lokal gespeichert werden
+show a template-gallery (thumbnail and informations)	sitemgr	de	Zeigt eine Galerie mit Designvorlagen (Bilder und Informationen)
 show searchbox	sitemgr	de	Suchfeld anzeigen
 show site index	sitemgr	de	Site Inhaltsverzeichnis anzeigen
 show subcategories	sitemgr	de	Unterkategorien anzeigen
@@ -260,6 +271,7 @@ site setup	common	de	Setup der Website
 site tree menu	sitemgr	de	Baumansicht der Seite
 site wide	sitemgr	de	websiteweit
 sitemgr	common	de	SiteMgr
+sitemgr manual	sitemgr	de	SiteMgr Handbuch
 sitemgr options	sitemgr	de	SiteMgr Optionen
 sitemgr setup instructions	sitemgr	de	SiteMgr Setup Informationen
 sitemgr setup page	sitemgr	de	SiteMgr Setup Seite
@@ -273,7 +285,7 @@ subsections:	sitemgr	de	Unterkategorien:
 subtitle	sitemgr	de	Untertitel
 summary of one forum	sitemgr	de	Zusammenfassung eines Forums
 table of contents	sitemgr	de	Themengebiete
-template select	sitemgr	de	Vorlage auswählen
+template chooser and/or gallery	sitemgr	de	Designvorlagenauswahl und/oder -galerie
 textarea	sitemgr	de	Textfeld
 the category to display, 0 for complete table of contents	sitemgr	de	Die Kategorie welche angezeigt werden soll. 0 für alle Themengebiete
 the complete path to the file to be included	sitemgr	de	Der komplette Pfad zu Datei welche eingebunden werden soll
@@ -294,7 +306,7 @@ the url to redirect to	sitemgr	de	Die URL auf die umgeleitet werden soll
 the web	sitemgr	de	das Web
 the whole page	sitemgr	de	die gesamten Seite
 the xml files' common name	sitemgr	de	Der allgemeine Name des XML files
-theme or template select	sitemgr	de	Thema oder Templateauswahl
+theme or template select	sitemgr	de	Thema oder Designauswahl
 there are no categories	sitemgr	de	Es gibt noch keine Kategorien
 there are no forums in this category	sitemgr	de	Es gibt keine Foren in dieser Kategorie
 there are no pages in this section	sitemgr	de	In diesem Bereich sind keine Seiten vorhanden
@@ -345,13 +357,14 @@ up to table of contents	sitemgr	de	Zum Inhaltsverzeichnis wechseln
 updating to new category system	sitemgr	de	Update zum neuen Kategorie System
 url pointing to the directory where the images are found (no trailing slash)	sitemgr	de	URL zum Ordner in welchem Bilder gespeichert sind (kein "/" am Ende)
 url to sitemgr-site	sitemgr	de	URL zur sitemgr-site
-use phpnuke themes instead of templates	sitemgr	de	Benutze phpNuke Themen anstelle von Templates
+use phpnuke themes instead of templates	sitemgr	de	Benutze phpNuke Themen anstelle von Designvorlagen
 use this module for displaying book ads for the amazon web site	sitemgr	de	Benutzen sie dieses Modul zum Anzeigen für Bücher der Amazon Website
 use this module for displaying wiki-pages	sitemgr	de	Benutzen Sie diese Modul zum Anzeigen von Seiten aus dem Wiki
 user name	sitemgr	de	Benutzer Name
 view administrative menu	sitemgr	de	Administrations Menü
 view full index	sitemgr	de	Gesamtindex
 view generated site	sitemgr	de	Erstellte Seite ansehen
+view template on this site	sitemgr	de	Designvorlage auf dieser Website ansehen
 view threads	sitemgr	de	Threads anzeigen
 viewed	sitemgr	de	angesehen
 web content manager	common	de	SiteMgr Contentmanagement

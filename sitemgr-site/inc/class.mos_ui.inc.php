@@ -108,10 +108,11 @@
 			$database = new mos_database;
 
 			// define global $mosConfig vars
-			global $mosConfig_sitename,$mosConfig_live_site,$modConfig_offset;
+			global $mosConfig_sitename,$mosConfig_live_site,$modConfig_offset,$cur_template;
 			$mosConfig_sitename = $this->t->get_meta('sitename').': '.$this->t->get_meta('title');
 			$mosConfig_live_site = $GLOBALS['sitemgr_info']['site_url'];
 			$mosConfig_offset = (int) $GLOBALS['phpgw_info']['user']['preferences']['common']['tz_offset'];
+			$cur_template = $GLOBALS['sitemgr_info']['themesel'];
 			define('_DATE_FORMAT_LC',str_replace(array('d','m','M','Y'),array('%d','%m','%b','%Y'),
 				$GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat']).
 				($GLOBALS['phpgw_info']['user']['preferences']['common']['timeformat']=='12'?' %I:%M %p' : ' %H:%M'));
@@ -119,7 +120,10 @@
 			define( '_ISO','charset='.$GLOBALS['phpgw']->translation->charset());
 			define( '_VALID_MOS',True );
 			ini_set('include_path',$this->mos_compat_dir.(strtoupper(substr(PHP_OS, 0, 3)) == 'WIN' ? ';' : ':').ini_get('include_path'));
+
+			ob_start();		// else some modules like the redirect wont work
 			include($this->templateroot.'/index.php');
+			ob_end_flush();
 		}
 	}
 ?>
