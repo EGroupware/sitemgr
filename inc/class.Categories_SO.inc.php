@@ -77,7 +77,7 @@
 				$cat_info->id			= $cat[0]['id'];
 				$cat_info->name			= $cat[0]['name'];
 				$cat_info->sort_order	= $cat[0]['data'];
-				$cat_info->description	= $cat[0]['descr'];
+				$cat_info->description	= $cat[0]['description'];
 				return $cat_info;
 			}
 			else
