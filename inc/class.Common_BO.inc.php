@@ -113,11 +113,13 @@
 				$link_data['cat_id'] = CURRENT_SITE_ID;
 				$link_data['menuaction'] = "sitemgr.Modules_UI.manage";
 				$file['Manage site-wide module properties'] = $GLOBALS['phpgw']->link('/index.php',$link_data);
+/* not longer show, as it can be done via Edit-mode now
 				$link_data['page_id'] = 0;
 				$link_data['menuaction'] = "sitemgr.Content_UI.manage";
 				$file['Manage site-wide content'] = $GLOBALS['phpgw']->link('/index.php',$link_data);
+*/
 			}
-			$file['Manage Categories and pages'] = $GLOBALS['phpgw']->link('/index.php', 'menuaction=sitemgr.Outline_UI.manage');
+//			$file['Manage Categories and pages'] = $GLOBALS['phpgw']->link('/index.php', 'menuaction=sitemgr.Outline_UI.manage');
 			$file['Manage Translations'] = $GLOBALS['phpgw']->link('/index.php', 'menuaction=sitemgr.Translations_UI.manage');
 			$file['Commit Changes'] = $GLOBALS['phpgw']->link('/index.php', 'menuaction=sitemgr.Content_UI.commit');
 			$file['Manage archived content'] = $GLOBALS['phpgw']->link('/index.php', 'menuaction=sitemgr.Content_UI.archive');
