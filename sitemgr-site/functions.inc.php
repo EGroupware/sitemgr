@@ -20,6 +20,31 @@
 			$kp3 = $GLOBALS['phpgw_info']['user']['kp3'];
 		}
 
+		// Change http://xyz/index.php?page_name=page1 to
+		// http://xyz/page1/ i the htaccess stuff is enabled
+		$page_name = '';
+		if (!is_array($extravars))
+		{
+			parse_str($extravars,$extravarsnew);
+			$extravars = $extravarsnew;
+		}
+		$page_name = $extravars['page_name'];
+
+		if (($url == '' || $url == '/' || $url == '/index.php') &&
+			!$page_name == '' &&
+			$GLOBALS['sitemgr_info']['htaccess_404']=='enabled')
+		{
+			$url = '/'.$page_name.'/';
+			$newextravars=array();
+			while (list($key,$value) = each($extravars))
+			{
+				if ($key != 'page_name')
+				{
+					$newextravars[$key]=$value;
+				}
+			}
+			$extravars = $newextravars;
+		}
 
 		$url = $GLOBALS['sitemgr_info']['sitemgr-site_url'] . $url;
 
