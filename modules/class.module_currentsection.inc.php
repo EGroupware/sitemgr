@@ -13,7 +13,7 @@ class module_currentsection extends Module
 	function get_content(&$arguments,$properties)
 	{
 		global $page;
-		if ($page->cat_id == CURRENT_SITE_ID)
+		if ($page->cat_id == CURRENT_SITE_ID || !$page->cat_id)
 		{
 			return '';
 		}
