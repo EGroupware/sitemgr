@@ -11,18 +11,17 @@
 	/* $Id$ */
 
 	{
-// Only Modify the $file and $title variables.....
+// Only Modify the $file variable.....
 
-		$title = 'Web Content Manager';
 		$file = Array
 		(
-			'Site Setup'     => $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Common_UI.DisplayPrefs'),
-			'Edit Categories and Permissions'    => $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Categories_UI._manageCategories'),
-			'Edit Site Header and Footer' => $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.SiteContent_UI._editHeaderAndFooter'),
-			'Edit Individual Pages' => $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Pages_UI._managePage')
+			'Site Setup'						=> $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Common_UI.DisplayPrefs'),
+			'Edit Categories and Permissions'	=> $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Categories_UI._manageCategories'),
+			'Edit Site Header and Footer'		=> $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.SiteContent_UI._editHeaderAndFooter'),
+			'Edit Individual Pages'				=> $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Pages_UI._managePage')
 		);
 
 //Do not modify below this line
-		display_section($appname,$title,$file);
+		$GLOBALS['phpgw']->common->display_mainscreen($appname,$file);
 	}
 ?>
