@@ -10,13 +10,13 @@
 	\*************************************************************************/
 	/* $Id$ */
 
-	class bo
+	class sitebo
 	{
 		var $pages_bo;
 		var $catbo;
 		var $acl;
 
-		function bo()
+		function sitebo()
 		{
 			$this->catbo = &$GLOBALS['Common_BO']->cats;
 			$this->pages_bo = &$GLOBALS['Common_BO']->pages;

@@ -37,12 +37,12 @@
 	$Common_BO = CreateObject('sitemgr.Common_BO',True);
 
 	include './inc/class.ui.inc.php';
-	include './inc/class.bo.inc.php';
+	include './inc/class.sitebo.inc.php';
 	include './inc/class.Template3.inc.php';
 
 	$objui = new ui;
 	//I move the creation of the bo here, so that in the template we have access to it without creating it a second time
-	$objbo = new bo;
+	$objbo = new sitebo;
 	$objbo->setsitemgrPreferredLanguage();
 
 	$page = CreateObject('sitemgr.Page_SO');

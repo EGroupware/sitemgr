@@ -14,19 +14,20 @@
  <xsl:template match="xbel">
   <script type='text/javascript'>
 // the whole thing only works in a DOM capable browser or IE 4*/
-
-function add(catid)
+// the functions have a bm postfix so that their names do not conflict 
+// with other modules that use the same tree menu
+function add_bm(catid)
 {
 	document.cookie = 'bookmarks[expanded][' + catid + ']=';
 }
 
-function remove(catid)
+function remove_bm(catid)
 {
 	var now = new Date();
 	document.cookie = 'bookmarks[expanded][' + catid + ']=; expires=' + now.toGMTString();
 }
 
-function toggle(image, catid)
+function toggle_bm(image, catid)
 {
 	if (document.getElementById)
 	{ //DOM capable
@@ -39,13 +40,13 @@ function toggle(image, catid)
 
 	if (styleObj.style.display == 'none')
 	{
-		add(catid);
+		add_bm(catid);
 		image.src = 'images/tree_collapse.gif';
 		styleObj.style.display = 'block';
 	}
 	else
 	{
-		remove(catid);
+		remove_bm(catid);
 		image.src = 'images/tree_expand.gif';
 		styleObj.style.display = 'none';
 	}
@@ -74,7 +75,7 @@ function toggle(image, catid)
 	  <xsl:text>.gif</xsl:text>
 	 </xsl:attribute>
 	 <xsl:attribute name="onclick">
-	  <xsl:text>toggle(this, '</xsl:text>
+	  <xsl:text>toggle_bm(this, '</xsl:text>
 	  <xsl:value-of select="@id"/>
 	  <xsl:text>')</xsl:text>
 	 </xsl:attribute>
