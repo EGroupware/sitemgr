@@ -42,9 +42,11 @@
 	foreach(array(
 		'other'  => 'one more',
 		'sample' => 'sample category',
+		'sub-sample' => 'just a sub for sample'
 	) as $name => $descr)
 	{
-		$oProc->query("INSERT INTO phpgw_categories (cat_main,cat_parent,cat_level,cat_owner,cat_access,cat_appname,cat_name,cat_description,cat_data,last_mod) VALUES ($site_id,$site_id,1,-1,'public','sitemgr','$name','$descr','0',".time().")");
+		$parent = substr($name,0,4) == 'sub-' ? $cats[substr($name,4)] : $site_id;
+		$oProc->query("INSERT INTO phpgw_categories (cat_main,cat_parent,cat_level,cat_owner,cat_access,cat_appname,cat_name,cat_description,cat_data,last_mod) VALUES ($site_id,$parent,1,-1,'public','sitemgr','$name','$descr','0',".time().")");
 		$cat_id = $cats[$name] = $oProc->m_odb->get_last_insert_id('phpgw_categories','cat_id');
 		$oProc->query("INSERT INTO phpgw_sitemgr_categories_lang (cat_id,lang,name,description) VALUES ($cat_id,'en','$name','$descr')");
 		$oProc->query("INSERT INTO phpgw_sitemgr_categories_state (cat_id,state) VALUES ($cat_id,2)");
@@ -67,24 +69,26 @@
 	// set up some site- and page-wide content
 	$visibility = array('all' => 0,'user' => 1,'admin' => 2,'anon' => 3);
 	$blocks = array(
+		array($module_id['currentsection'],'right',$site_id,0,$visibility['all'],'Current Section'),
 		array($module_id['administration'],'right',$site_id,0,$visibility['admin'],'Administration'),
 		array($module_id['lang_block'],'right',$site_id,0,$visibility['all'],'Select language'),
 		array($module_id['toc_block'],'right',$site_id,0,$visibility['all'],'Table of Contents'),
 		array($module_id['calendar'],'right',$site_id,0,$visibility['user'],'Calendar'),
 		array($module_id['goggle'],'right',$site_id,0,$visibility['all'],'Goggle'),
 		array($module_id['login'],'right',$site_id,0,$visibility['anon'],'Login'),
+		array($module_id['amazon'],'right',$site_id,0,$visibility['all'],False,'Amazon.com','a:1:{s:6:"search";s:1:"1";}'),
 		array($module_id['html'],'header',$site_id,0,$visibility['all'],'HTML Module','a:1:{s:11:"htmlcontent";s:21:"<h1>SiteMgr Demo</h1>";}'),
 		array($module_id['html'],'footer',$site_id,0,$visibility['all'],'HTML Module','a:1:{s:11:"htmlcontent";s:213:"Please visit our Homepage <a href="http://www.egroupware.org" target="_blank">www.eGroupWare.org</a> and our <a href="http://www.sourcefourge.net/projects/egroupware/" target="_blank">Sourceforge Project page</a>.";}'),
 		array($module_id['html'],'center',$cats['sample'],$pages['sample-page'],$visibility['all'],'HTML Module','a:1:{s:11:"htmlcontent";s:35:"some sample <b>HTML</b> content ...";}'),
 	);
 	foreach($blocks as $order => $block)
 	{
-		list($module,$area,$cat_id,$page_id,$visible,$title_en,$content_en) = $block;
+		list($module,$area,$cat_id,$page_id,$visible,$title_en,$content_en,$content) = $block;
 		if (!$module) continue;
 		$oProc->query("INSERT INTO phpgw_sitemgr_blocks (area,cat_id,page_id,module_id,sort_order,viewable) VALUES ('$area',$cat_id,$page_id,$module,$order,$visible)",__LINE__,__FILE__);
 		$block_id = $oProc->m_odb->get_last_insert_id('phpgw_sitemgr_blocks','block_id');
 		$oProc->query("INSERT INTO phpgw_sitemgr_blocks_lang (block_id,lang,title) VALUES ($block_id,'en','$title_en')",__LINE__,__FILE__);
-		$oProc->query("INSERT INTO phpgw_sitemgr_content (block_id,arguments,state) VALUES ($block_id,NULL,2)",__LINE__,__FILE__);
+		$oProc->query("INSERT INTO phpgw_sitemgr_content (block_id,arguments,state) VALUES ($block_id,".($content ? "'$content'" : 'NULL').",2)",__LINE__,__FILE__);
 		$version_id = $oProc->m_odb->get_last_insert_id('phpgw_sitemgr_content','version_id');
 		if ($content_en)
 		{
