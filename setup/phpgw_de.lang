@@ -2,7 +2,7 @@
 %1 module manager	sitemgr	de	%1 Modulmanager
 '%1' is no valid sitemgr-site directory !!!	sitemgr	de	'%1' ist kein gültiges sitemgr-site Verzeichnis !!!
 (do not put spaces or punctuation in the name field.)	sitemgr	de	(Im Namensfeld sind keine Leer- oder Satzzeichen erlaubt.)
-<b>want more templates?</b><br />just download one from the template gallery at %1www.egroupware.org%2 or use a %3mambo open source%4 version 4.5 compatible template eg. from %5. unpack the downloaded template in your templates directory (%6).	sitemgr	de	<b>Suchen sie weitere Designvorlagen?</b><br />Laden Sie einfach eine von der Galerie auf %1www.eGroupWare.org%2 oder verwenden Sie ein %3Mambo Open Source%4 Version 4.5 kompatibles Template zB. von %5. Entpacken Sie die heruntergeladene Designvorlage in ihrem Templateverzeichnis (%5).
+<b>want more templates?</b><br />just download one from the template gallery at %1www.egroupware.org%2 or use a %3mambo open source%4 version 4.5 compatible template eg. from %5. unpack the downloaded template in your templates directory (%6).	sitemgr	de	<b>Suchen sie weitere Designvorlagen?</b><br />Laden Sie einfach eine von der Galerie auf %1www.eGroupWare.org%2 oder verwenden Sie ein %3Mambo Open Source%4 Version 4.5 kompatibles Template zB. von %5. Entpacken Sie die heruntergeladene Designvorlage in Ihrem Templateverzeichnis (%5).
 a simple picture galery	sitemgr	de	Eine einfache Bilder Gallerie
 actif	sitemgr	de	Aktiv
 add a category	sitemgr	de	Kategorie hinzufügen
@@ -45,7 +45,7 @@ block saved	sitemgr	de	Block gespeichert
 bookmarks	sitemgr	de	Lesezeichen
 buy at %1	sitemgr	de	bei %1 kaufen
 calendar	sitemgr	de	Kalender
-can't open an url or execute a script, because allow_url_fopen is not set in your php.ini !!!	sitemgr	de	Kann URL nicht öffnen oder Skript nicht ausführen, da allow_url_fopen in ihrer php.ini nicht gesetzt ist !!!
+can't open an url or execute a script, because allow_url_fopen is not set in your php.ini !!!	sitemgr	de	Kann URL nicht öffnen oder Skript nicht ausführen, da allow_url_fopen in Ihrer php.ini nicht gesetzt ist !!!
 cancel the delete	sitemgr	de	Abbrechen, nicht löschen
 cannot move page until it has been saved.	sitemgr	de	Die Seite kann zuerst verschoben werden, wenn Sie gespeichert wurde.
 category	sitemgr	de	Kategorie
@@ -202,7 +202,7 @@ no websites defined	sitemgr	de	Keine Website definiert
 no, chooser only (for side-areas)	sitemgr	de	Nein nur Auswahl (für Seitenbereiche)
 no, chooser with preview	sitemgr	de	Nein nur Auswahl mit Vorschau
 not yet translated	sitemgr	de	noch nicht übersetzt
-note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	de	Sie können diese Nachricht auch erhalten, wenn ihre Einstellungen nicht richtig sind. Zum Beispiel wenn config.inc.php nicht im angegebenen Verzeichnis gefunden wurde.
+note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	de	Sie können diese Nachricht auch erhalten, wenn Ihre Einstellungen nicht richtig sind. Zum Beispiel wenn config.inc.php nicht im angegebenen Verzeichnis gefunden wurde.
 number of news items to be displayed on page	sitemgr	de	Anzahl Nachrichten die auf einer Seite angezeigt werden
 only gallery	sitemgr	de	Nur Galerie
 other websites	sitemgr	de	Andere Websites
@@ -295,7 +295,7 @@ the category to display, 0 for complete table of contents	sitemgr	de	Die Kategor
 the complete url or path to a file to be included	sitemgr	de	Die komplette URL (Webadresse) oder der Pfad der einzubindenden Datei
 the config.inc.php file needs to be edited to point to the phpgroupware directory. copy the config.inc.php.template file to config.inc.php and then edit it.	sitemgr	de	Die config.inc.php Datei muss bearbeitet werden damit die Pfade auf das phpGroupWare Verzeichnis verweisen. Kopieren Sie bitte die config.inc.php.template Datei nach config.inc.php und bearbeiten Sie anschliesend diese
 the file to be downloaded	sitemgr	de	Die Datei die heruntergeladen werden soll
-the first directory to think about is sitemgr-link.  if you move this to the parent directory of sitemgr (your phpgroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  if you don't want this icon, there's no reason to ever bother with the directory.	sitemgr	de	Das erste Verzeichnis über welches Sie sich Gedanken machen sollten ist sitemgr-link. Wenn Sie dieses Verzeichnis in das Root Verzeichnis ihrer eGroupWare installation verschieben, können Sie Setup benutzen um diese Applikation zu installieren. Durch Rechtezuweisung für sitemgr-link erscheint das sitemgr-link Icon in der Navigationsleiste des Beutzers. Dieser kann dann direkt auf die öffentlich zugängliche sitemgr installation zugreifen. Wenn Sie dieses Icon nicht in der Navigationsleite haben möchten, besteht kein Grund dieses in das Root Verzeichnis von eGroupWare zu verschieben.
+the first directory to think about is sitemgr-link.  if you move this to the parent directory of sitemgr (your phpgroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  if you don't want this icon, there's no reason to ever bother with the directory.	sitemgr	de	Das erste Verzeichnis über welches Sie sich Gedanken machen sollten ist sitemgr-link. Wenn Sie dieses Verzeichnis in das Root Verzeichnis Ihrer eGroupWare installation verschieben, können Sie Setup benutzen um diese Applikation zu installieren. Durch Rechtezuweisung für sitemgr-link erscheint das sitemgr-link Icon in der Navigationsleiste des Beutzers. Dieser kann dann direkt auf die öffentlich zugängliche sitemgr installation zugreifen. Wenn Sie dieses Icon nicht in der Navigationsleite haben möchten, besteht kein Grund dieses in das Root Verzeichnis von eGroupWare zu verschieben.
 the images' common name	sitemgr	de	der Name des Bildes
 the name field cannot contain punctuation or spaces (field modified).	sitemgr	de	Das Feld Name darf keine Punkte oder Leerzeichen enthalten (field modified).
 the page name must be unique.	sitemgr	de	Der Seiten Name muss einmalig sein.
@@ -334,7 +334,7 @@ this module displays a login form	sitemgr	de	Dieses Modul bietet ein Anmelde For
 this module displays bookmarks in a javascript based tree	sitemgr	de	Diese Modul zeigt Lesezeichen (Bookmarks) in einer javascript basierenden Baumansicht
 this module displays the current month	sitemgr	de	Dieses Modul zeigt den aktuellen Monat an
 this module displays the phpgw forums on the web site	sitemgr	de	Dieses Module stellt eGroupWare Foren auf der Website dar
-this module displays the root categories, its pages and evtl. subcategories. it is meant for side areas	sitemgr	de	Dises Module zeigt die Hauptkategorien, ihre Seiten und ggf. Unterkategorien. Es ist gedacht für die Seitenspalten
+this module displays the root categories, its pages and evtl. subcategories. it is meant for side areas	sitemgr	de	Dises Module zeigt die Hauptkategorien, Ihre Seiten und ggf. Unterkategorien. Es ist gedacht für die Seitenspalten
 this module includes the contents of an url or file (readable by the webserver and in its docroot !)	sitemgr	de	Dieses Modul bindet den Inhalt einer URL oder Datei (muß vom Webserver lesbar und in dessen Dokumentenwurzelverzeichnis sein!) ein
 this module is a selectbox to change the mode (production, draft or edit) plus a link back to sitemgr and to log out. it is meant for registered users only	sitemgr	de	Dieses Modul ist eine Auswahlbox um den Modus (Produktion, Entwurf, Bearbeiten) zu ändern plus Links zurück zum SiteMgr und zum auslogen. Es ist ausschließlich für registierte Benutzer gedacht.
 this module is a simple html editor	sitemgr	de	Dieses Modul ist ein HTML Editor (formatierter Text)
@@ -345,7 +345,7 @@ this module permits browsing through xml files stored in a directory, and transf
 this module provides a complete table of contents, it is automatically used by the toc and category_id get parameters	sitemgr	de	Dieses Modul bietet ein komplettes Inhaltsverzeichnis. Dieses wird automatisch erstellt durch den toc und den category_ID GET parameter
 this module provides a condensed table of contents, meant for side areas	sitemgr	de	Dieses Modul liefert ein verdichtetes Inhaltsverzeichnis, gedacht für die Seitenspalten
 this module provides the site index, it is automatically used by the index get parameter	sitemgr	de	Dieses Modul stellt einen Seiten Index zur Verfügung. Es wird automatisch durch den Index GET parameter erstellt.
-this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	sitemgr	de	Dieses Modul publiziert Inhalt der Nachrichten Anwendung auf ihrer Website. Bitte beachten sie die Restriktionen der ACL Nachrichten Anwendung.
+this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	sitemgr	de	Dieses Modul publiziert Inhalt der Nachrichten Anwendung auf Ihrer Website. Bitte beachten Sie die Restriktionen der ACL Nachrichten Anwendung.
 this must be an absolute directory location.  <b>no trailing slash</b>.	sitemgr	de	Hier muss der Adsolute Pfad zu Verzeichniss angegeben werden. Zum Beispiel: /var/www/html/Ihre_Firma/sitemgr_site. <b>Keinen "/" am Ende des Pfades angeben!</b>
 this should be a comma-separated list of language-codes.	sitemgr	de	Geben Sie hier eine durch Kommatas unterteilte Liste der Sprachen ein. Zum Beispiel: en, de, fr
 this should be a page that is readable by everyone. if you leave this blank, the site index will be shown by default.	sitemgr	de	Diese Seite sollte von einem Benutzer ohne spezielle Rechte gesehen werden können (z. B. Anonymous). Falls Sie hier nichts eintragen, wird der Seiten Index als Standard angezeigt.
