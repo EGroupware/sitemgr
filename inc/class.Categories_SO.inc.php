@@ -15,22 +15,22 @@
 				$parent = 0;
 			}
 
-			$cats = $this->cats->return_array('all','',False,'','cat_data','',False, $parent);
+			$cats = $this->cats->return_array('all','',False,'','','cat_data',False, $parent);
 
 			while (is_array($cats) && list(,$subs) = each($cats))
 			{
-				$subs_id_list[] = $subs['cat_id'];
+				$subs_id_list[] = $subs['id'];
 			}
 			return $subs_id_list;
 		}
 
 		function getFullCategoryIDList()
 		{
-			$cats = $this->cats->return_array('all','',False,'','cat_data','',False);
+			$cats = $this->cats->return_array('all','',False,'','','cat_data',False);
 
 			while (is_array($cats) && list(,$cat) = each($cats))
 			{
-				$cat_id_list[] = $cat['cat_id'];
+				$cat_id_list[] = $cat['id'];
 			}
 			return $cat_id_list;
 		}
