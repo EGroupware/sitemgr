@@ -45,16 +45,12 @@
 				$link_data['menuaction'] = "sitemgr.Content_UI.manage";
 				$this->menu[] = array(
 					'value' => $GLOBALS['phpgw']->link('/index.php',$link_data),
-					'display' => lang('Manage Site Content')
+					'display' => lang('Manage site-wide content')
 				);
 			}
 			$this->menu[] = array(
-				'value' => $GLOBALS['phpgw']->link('/index.php', 'menuaction=sitemgr.Categories_UI.manage'),
-				'display' => lang('Manage Categories')
-			);
-			$this->menu[] = array(
-				'value' => $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Pages_UI.manage'),
-				'display' => lang('Manage Pages')
+				'value' => $GLOBALS['phpgw']->link('/index.php', 'menuaction=sitemgr.Outline_UI.manage'),
+				'display' => lang('Manage Categories and pages')
 			);
 			$this->menu[] = array(
 				'value' => $GLOBALS['phpgw']->link('/index.php', 'menuaction=sitemgr.Translations_UI.manage'),

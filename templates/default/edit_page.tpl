@@ -1,7 +1,7 @@
 <!-- BEGIN form -->
-<form action="{actionurl}" method ="POST">
+<form method ="POST">
 <input type="hidden" name="inputpageid" value="{page_id}">
-<table align='center'>
+<table align='center' border ="0" width="80%" cellpadding="5" cellspacing="0">
 	<tr>
 		<td colspan='2' align='center'><font size='4'><b>{add_edit}</b></font></td>
 	</tr>
@@ -28,8 +28,8 @@
 		<td><input size="10" type="text" name="inputsort" value="{sort_order}"></td>
 	</tr>
 	<tr>
-		<td><b>{lang_move}: </b></td>
-		<td>{move_to}</td>
+		<td><b>{lang_category}: </b></td>
+		<td>{catselect}</td>
 	</tr>
 	<tr>
 		<td><b>{lang_state}: </b></td>
@@ -40,14 +40,14 @@
 		<td>{lang_hide}</td>
 	</tr>
 	<tr>
-		<td align='right'><input type="reset" name="btnReset" value="{lang_reset}"></td>
-		<td align='left'><input type="submit" name="btnSave" value="{lang_save}"> {savelang}</td>
+		<td colspan="2" align='center'>
+			<input type="reset" value="{lang_reset}">
+			<input type="submit" name="btnSave" value="{lang_save}"> {savelang}
+			<a href="{goback}">{lang_goback}</a>
+		</td>
 	</tr>
 	<tr>
 		<td align='center' colspan='2'><font size='2' color='#ff0000'><b>* {lang_required}</b></font></td>
-	</tr>
-	<tr>
-		<td align='right' colspan='2'><a href="{goback}">{lang_goback}</a></td>
 	</tr>
 </table>
 </form>

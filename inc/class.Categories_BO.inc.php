@@ -24,7 +24,7 @@
 			foreach($list as $cat_id)
 			{
 				$cat = $this->getCategory($cat_id);
-				$padding = str_pad('',12*$cat->depth,'&nbsp;');
+				$padding = str_pad('',12*($cat->depth-1),'&nbsp;');
 				$retval[] = array('value'=>$cat->id, 'display'=>$padding.$cat->name);
 			}
 			return $retval;

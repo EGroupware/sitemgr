@@ -20,7 +20,6 @@
 		
 		var $public_functions = array
 		(
-			'manage' => True,
 			'edit' => True,
 			'delete' => True
 		);
@@ -36,91 +35,11 @@
 			$this->sitelanguages = $GLOBALS['Common_BO']->sites->current_site['sitelanguages'];
 		}
 
-		function manage()
-		{
-			$this->common_ui->DisplayHeader();
-
-			$this->t->set_var(Array('category_manager' => lang('Category Manager'),
-				'lang_catname' => lang('Category Name'),
-				'lang_goto' => lang('Go to Page Manager')));			
-			$this->t->set_file('ManageCategories', 'manage_categories.tpl');
-			$this->t->set_block('ManageCategories', 'CategoryBlock', 'CBlock');
-
-			$cat_list = $this->cat_bo->getpermittedcatsWrite();
-			if($cat_list)
-			{
-				for($i = 0; $i < sizeof($cat_list); $i++)
-				{
-					$cat = $this->cat_bo->getCategory($cat_list[$i],$this->sitelanguages[0]);
-
-					if ($cat->depth>1)
-					{
-						$buffer = '-';
-					}
-					else
-					{
-						$buffer = '';
-					}
-					$buffer = str_pad('',$cat->depth*18,
-						'&nbsp;',STR_PAD_LEFT).$buffer;
-					$cat_id = $cat_list[$i];
-					$this->t->set_var('buffer', $buffer);
-					$this->t->set_var('category', sprintf('%s : %d',$cat->name,$cat_id));
-
-
-					$link_data['page_id'] = 0;
-					$link_data['cat_id'] = $cat_id;
-					if ($this->isadmin)
-					{
-						$link_data['menuaction'] = "sitemgr.Categories_UI.edit";
-						$this->t->set_var('edit','<form action="' . $GLOBALS['phpgw']->link('/index.php',$link_data) .
-							'" method="POST"><input type="submit" value="' . lang('Edit') .'"></form>');
-						$link_data['menuaction'] = "sitemgr.Categories_UI.delete";
-						$this->t->set_var('remove','<form action="' . $GLOBALS['phpgw']->link('/index.php',$link_data) .
-							'" method="POST"><input type="submit" value="' . lang('Delete') .'"></form>');
-						$link_data['menuaction'] = "sitemgr.Modules_UI.manage";
-						$this->t->set_var('moduleconfig','<form action="' . $GLOBALS['phpgw']->link('/index.php',$link_data).
-							'" method="POST"><input type="submit" value="' . lang('Manage Modules') .'"></form>');
-					}
-
-					$link_data['menuaction'] = "sitemgr.Content_UI.manage";
-					$this->t->set_var('content','<form action="' . $GLOBALS['phpgw']->link('/index.php',$link_data) .
-						'" method="POST"><input type="submit" value="' . lang('Manage Content') .'"></form>');
-
-					$this->t->parse('CBlock', 'CategoryBlock', True);
-				}
-			}
-			else
-			{
-				$this->t->set_var('category','No category is available');
-			}
-
-			if ($this->isadmin)
-			{
-				$this->t->set_var('add', 
-					'<form action="'.
-					$GLOBALS['phpgw']->link('/index.php',
-					'menuaction=sitemgr.Categories_UI.edit').
-					'" method="POST">
-					<input type=submit value = "' . lang('Add a category') .'">
-					</form>'
-				);
-			}
-
-			$this->t->set_var('managepageslink',$GLOBALS['phpgw']->link(
-				'/index.php',
-				'menuaction=sitemgr.Pages_UI.manage')
-			);
-			$this->t->pfp('out', 'ManageCategories');	
-
-			$this->common_ui->DisplayFooter();
-		}
-
 		function edit()
 		{
 			if (!$this->isadmin)
 			{
-				$this->manage();
+				$GLOBALS['phpgw']->redirect($GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Outline_UI.manage'));
 				return False;
 			}
 
@@ -137,26 +56,33 @@
 
 			if ($btnSave && $inputcatname && $inputcatdesc)
 			{
-				$cat_id =  $cat_id ? $cat_id : $this->cat_bo->addCategory('','');
-
-				$groupaccess = array_merge_recursive($inputgroupaccessread, $inputgroupaccesswrite);
-				$individualaccess = array_merge_recursive($inputindividualaccessread, $inputindividualaccesswrite);
-				$savelanguage = $savelanguage ? $savelanguage : $this->sitelanguages[0];
-				$this->cat_bo->saveCategoryInfo($cat_id, $inputcatname, $inputcatdesc, $savelanguage, $inputsortorder, $inputstate, $inputparent, $inputparentold);
-				if ($inputgetparentpermissions)
+				if ($inputcatname == '' || $inputcatdesc == '')
 				{
-					$this->cat_bo->saveCategoryPermsfromparent($cat_id);
+					$error = lang('You failed to fill in one or more required fields.');
+					$this->t->set_var('message',$error);
 				}
 				else
 				{
-					$this->cat_bo->saveCategoryPerms($cat_id, $groupaccess, $individualaccess);
+					$cat_id =  $cat_id ? $cat_id : $this->cat_bo->addCategory('','');
+
+					$groupaccess = array_merge_recursive($inputgroupaccessread, $inputgroupaccesswrite);
+					$individualaccess = array_merge_recursive($inputindividualaccessread, $inputindividualaccesswrite);
+					$savelanguage = $savelanguage ? $savelanguage : $this->sitelanguages[0];
+					$this->cat_bo->saveCategoryInfo($cat_id, $inputcatname, $inputcatdesc, $savelanguage, $inputsortorder, $inputstate, $inputparent, $inputparentold);
+					if ($inputgetparentpermissions)
+					{
+						$this->cat_bo->saveCategoryPermsfromparent($cat_id);
+					}
+					else
+					{
+						$this->cat_bo->saveCategoryPerms($cat_id, $groupaccess, $individualaccess);
+					}
+					if ($inputapplypermissionstosubs)
+					{
+						$this->cat_bo->applyCategoryPermstosubs($cat_id);
+					}
+					$this->t->set_var('message',lang('Category saved'));
 				}
-				if ($inputapplypermissionstosubs)
-				{
-					$this->cat_bo->applyCategoryPermstosubs($cat_id);
-				}
-				$this->manage();
-				return;
 			}
 
 			$this->common_ui->DisplayHeader();
@@ -164,14 +90,6 @@
 			if ($cat_id)
 			{
 				$cat = $this->cat_bo->getCategory($cat_id,$this->sitelanguages[0]); 
-			}
-
-			//if the user tried to save, but catname or catdesc were empty, we remember the modified values
-			if ($btnSave)
-			{
-				$this->t->set_var('error_msg',lang('You failed to fill in one or more required fields.'));
-				$cat->name = $inputcatname;
-				$cat->description = $inputcatdesc;
 			}
 
 			$this->t->set_file('EditCategory', 'edit_category.tpl');
@@ -212,8 +130,10 @@
 				'lang_reset' => lang('Reset'),
 				'lang_save' => lang('Save'),
 				'lang_state' => lang('State'),
+				'lang_goback' => lang('Done'),
 				'lang_getparentpermissions' => lang('Fill in permissions from parent category? If you check this, below values will be ignored'),
-				'lang_applypermissionstosubs' => lang('Apply permissions also to subcategories?')
+				'lang_applypermissionstosubs' => lang('Apply permissions also to subcategories?'),
+				'goback' => $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Outline_UI.manage'),
 			));
 		
 			$acct = CreateObject('phpgwapi.accounts');
@@ -346,7 +266,7 @@
 		{
 			if (!$this->isadmin)
 			{
-				$this->manage();
+				$GLOBALS['phpgw']->redirect($GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Outline_UI.manage'));
 				return;
 			}
 
@@ -357,12 +277,12 @@
 			if ($btnDelete)
 			{
 				$this->cat_bo->removeCategory($cat_id);
-				$this->manage();
+				$GLOBALS['phpgw']->redirect($GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Outline_UI.manage'));
 				return;
 			}
 			if ($btnCancel)
 			{
-				$this->manage();
+				$GLOBALS['phpgw']->redirect($GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Outline_UI.manage'));
 				return;
 			}
 
