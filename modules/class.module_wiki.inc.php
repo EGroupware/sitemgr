@@ -84,7 +84,7 @@
 				return lang('You have no rights to view wiki content or the wiki is not installed at all !!!');
 			}
 
-			$wikipage = empty($_GET[$this->wikipage_param]) ? (empty($arguments['wikipage']) ? $GLOBALS['HomePage'] : $arguments['wikipage']) : $_GET['wikipage'];
+			$wikipage = empty($_GET[$this->wikipage_param]) ? (empty($arguments['startpage']) ? $GLOBALS['HomePage'] : $arguments['startpage']) : $_GET['wikipage'];
 
 			$pg = $GLOBALS['pagestore']->page($wikipage);
 			$pg->read();

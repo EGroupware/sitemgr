@@ -22,26 +22,30 @@ class module_filecontents extends Module
 			)
 		);
 		$this->title = lang('File contents');
-		$this->description = lang('This module includes the contents of a (world readable) file');
+		$this->description = lang('This module includes the contents of a file (readable by the webserver !)');
 	}
 
 	function get_content(&$arguments,$properties)
 	{
+		if (empty($arguments['filepath']))
+		{
+			return '';
+		}
 		if ($this->validate($arguments))
 		{
 			return implode('', file($arguments['filepath']));
 		}
 		else
 		{
-			return lang('File is not world readable');
+			return $this->validation_error;
 		}
 	}
 
 	function validate(&$data)
 	{
-		if (!(fileperms($data['filepath']) & 00004))
+		if (!is_readable($data['filepath']))
 		{
-			$this->validation_error = lang('File is not world readable');
+			$this->validation_error = lang('File %1 is not readable by the webserver !!!',$data['filepath']);
 			return false;
 		}
 		else
