@@ -93,9 +93,9 @@ class Module
 		{
 			$extravars[$this->block->module_name.'['.$key.']'] = $value;
 		}
-		if ($GLOBALS['page']->id)
+		if ($GLOBALS['page']->name)
 		{
-			$extravars['page_id'] = $GLOBALS['page']->id;
+			$extravars['page_name'] = $GLOBALS['page']->name;
 		}
 		elseif ($GLOBALS['page']->cat_id)
 		{
