@@ -162,8 +162,8 @@
 					),__LINE__,__FILE__);
 					if ($this->db->next_record())
 					{
-						$cat_info->name = $this->db->f('name');
-						$cat_info->description = $this->db->f('description');
+						$cat_info->name = stripslashes($this->db->f('name'));
+						$cat_info->description = stripslashes($this->db->f('description'));
 					}
 				}
 				else	//if there is no lang argument we return the content in whatever languages turns up first
@@ -171,8 +171,8 @@
 					$this->db->select($this->lang_table,'*',array('cat_id' => $cat_id,),__LINE__,__FILE__);
 					if ($this->db->next_record())
 					{
-						$cat_info->name	= $this->db->f('name');
-						$cat_info->description = $this->db->f('description');
+						$cat_info->name	= stripslashes($this->db->f('name'));
+						$cat_info->description = stripslashes($this->db->f('description'));
 						$cat_info->lang = $this->db->f('lang');
 					}
 					else
