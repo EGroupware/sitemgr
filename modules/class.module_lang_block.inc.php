@@ -23,7 +23,7 @@
 					{
 						$selected = 'selected="selected" ';
 					}
-					$content .= '<option ' . $selected . 'value="' . $this->link(array('select'=>$lang)) . '">'. $GLOBALS['Common_BO']->getlangname($lang) . '</option>';
+					$content .= '<option ' . $selected . 'value="' . $this->link(array(),array('lang'=>$lang)) . '">'. $GLOBALS['Common_BO']->getlangname($lang) . '</option>';
 				}
 				$content .= '</select>';
 				$content .= '</form>';

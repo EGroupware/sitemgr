@@ -21,9 +21,13 @@
 			$this->catbo = &$GLOBALS['Common_BO']->cats;
 			$this->pages_bo = &$GLOBALS['Common_BO']->pages;
 			$this->acl = &$GLOBALS['Common_BO']->acl;
-			$this->isadmin = $this->acl->is_admin;
 			//$anonymous_user is globally set in config.inc.php
 			$this->isuser = ($GLOBALS['phpgw_info']['user']['account_lid'] != $GLOBALS['anonymous_user']);
+		}
+
+		function is_admin()
+		{
+			return $this->acl->is_admin();
 		}
 
 		function getcatwrapper($cat_id)
@@ -185,51 +189,57 @@
 			return $catlinks;
 		}
 
+		function check_load_translations($lang)
+		{
+			$GLOBALS['phpgw_info']['user']['preferences']['common']['lang'] = $GLOBALS['sitemgr_info']['userlang'] = $lang;
+
+			//since there are lang calls in the API, and the first lang call builds $GLOBAL['lang'], we have to re-initialise
+			if ($GLOBALS['phpgw']->translation->userlang != $lang)
+			{
+				$GLOBALS['phpgw']->translation->init();		// unset $GLOBALS[lang] and re-reads
+			}
+			$GLOBALS['phpgw']->translation->add_app('sitemgr');		// as we run as sitemgr-site
+		}
+
 		//like $GLOBALS['phpgw']->common->getPreferredLanguage,
-		//but compares languages accepted by the user 
+		//but compares languages accepted by the user
 		//to the languages the website is configured for
 		//instead of the languages installed in phpgroupware
 		function setsitemgrPreferredLanguage()
 		{
-			//since there are lang calls in the API, and the first lang call builds $GLOBAL['lang'], wet have to unset it, if
-			//the change of $GLOBALS['phpgw_info']['user']['preferences']['common']['lang'] should have any effect.
-			//is there a more efficient way to do the same thing?
-			unset($GLOBALS['lang']);
 			$supportedLanguages = $GLOBALS['sitemgr_info']['sitelanguages'] ? $GLOBALS['sitemgr_info']['sitelanguages'] : array('en');
-			$postlang = $_GET['lang_block']['select'];
+			$postlang = $_GET['lang'];
 			if ($postlang && in_array($postlang,$supportedLanguages))
 			{
-				$GLOBALS['phpgw_info']['user']['preferences']['common']['lang'] = $postlang;
-				$GLOBALS['sitemgr_info']['userlang'] = $postlang;
 				$GLOBALS['phpgw']->session->appsession('language','sitemgr-site',$postlang);
+				$this->check_load_translations($postlang);
 				return;
 			}
-		
+
 			$sessionlang = $GLOBALS['phpgw']->session->appsession('language','sitemgr-site');
 			if ($sessionlang)
 			{
-				$GLOBALS['phpgw_info']['user']['preferences']['common']['lang'] = $sessionlang;
-				$GLOBALS['sitemgr_info']['userlang'] = $sessionlang;
+				$this->check_load_translations($sessionlang);
 				return;
 			}
-			
+
 			if ($this->isuser)
 			{
 				$userlang = $GLOBALS['phpgw_info']['user']['preferences']['common']['lang'];
 				if (in_array($userlang,$supportedLanguages))
 				{
-				//we do not touch $GLOBALS['phpgw_info']['user']['preferences']['common']['lang'] if
-				//the user is registered and his lang preference is supported by the website,
-				//but save it to the appsession for quicker retrieval
-				$GLOBALS['phpgw']->session->appsession('language','sitemgr-site',$userlang);
-				$GLOBALS['sitemgr_info']['userlang'] = $userlang;
-			return;
+					//we do not touch $GLOBALS['phpgw_info']['user']['preferences']['common']['lang'] if
+					//the user is registered and his lang preference is supported by the website,
+					//but save it to the appsession for quicker retrieval
+					$GLOBALS['phpgw']->session->appsession('language','sitemgr-site',$userlang);
+					$this->check_load_translations($userlang);
+					return;
 				}
 			}
-				
+
 			// create a array of languages the user is accepting
-			$userLanguages = explode(',',$GLOBALS['HTTP_ACCEPT_LANGUAGE']);
-		
+			$userLanguages = explode(',',$_SERVER['HTTP_ACCEPT_LANGUAGE']);
+
 			// find usersupported language
 			while (list($key,$value) = each($userLanguages))
 			{
@@ -250,17 +260,16 @@
 			{
 				$browserlang = $supportedLanguages[0];
 			}
-		
-			$GLOBALS['phpgw_info']['user']['preferences']['common']['lang'] = $browserlang;
-			$GLOBALS['sitemgr_info']['userlang'] = $browserlang;
+
 			$GLOBALS['phpgw']->session->appsession('language','sitemgr-site',$browserlang);
+			$this->check_load_translations($browserlang);
 		}
 
 		function getmode()
 		{
 			if ($this->isuser)
 			{
-				$postmode = $_GET['administration']['mode'];
+				$postmode = $_GET['mode'];
 				if ($postmode)
 				{
 					$GLOBALS['phpgw']->session->appsession('mode','sitemgr-site',$postmode);

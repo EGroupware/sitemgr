@@ -82,9 +82,11 @@ don't have an account?	sitemgr	de	Sie haben keinen Benutzerkonto?
 done	sitemgr	de	Fertig
 downloaded	sitemgr	de	Download abgeschlossen
 draft	sitemgr	de	Entwurf
+draft mode	sitemgr	de	Entwurfsmodus
 edit categories and permissions	common	de	Kategorien und Zugriffsrechte bearbeiten
 edit category	sitemgr	de	Kategorie bearbeiten
 edit individual pages	common	de	Einzelne Seiten bearbeiten
+edit mode	sitemgr	de	Bearbeitungsmodus
 edit page	sitemgr	de	Seite bearbeiten
 edit properties of module %1 for %2 with scope %3	sitemgr	de	Bearbeiten der Eigenschaften des Moduls %1 für %2 im Bereich
 edit site header and footer	common	de	Seiten Kopf- und Fusszeile editieren
@@ -195,6 +197,7 @@ post a message to this thread	sitemgr	de	Eine Nachricht in diesem Thread posten.
 prepublished	sitemgr	de	Vor veröffentlicht
 preunpublished	sitemgr	de	Vor nicht mehr veröffentlicht
 previous	sitemgr	de	Vorhergehend
+production mode	sitemgr	de	Pruduktionsmodus
 published	sitemgr	de	Veröffentlicht
 reactivate content	sitemgr	de	Inhalt wieder aktivieren
 read permission	sitemgr	de	Leserechte
@@ -252,8 +255,8 @@ the category to display, 0 for complete table of contents	sitemgr	de	Die Kategor
 the complete path to the file to be included	sitemgr	de	Der komplette Pfad zu Datei welche eingebunden werden soll
 the config.inc.php file needs to be edited to point to the phpgroupware directory. copy the config.inc.php.template file to config.inc.php and then edit it.	sitemgr	de	Die config.inc.php Datei muss bearbeitet werden damit die Pfade auf das phpGroupWare Verzeichnis verweisen. Kopieren Sie bitte die config.inc.php.template Datei nach config.inc.php und bearbeiten Sie anschliesend diese
 the file to be downloaded	sitemgr	de	Die Datei die heruntergeladen werden soll
-the first directory to think about is sitemgr-link.  if you move this to the parent directory of sitemgr (your phpgroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  if you don't want this icon, there's no reason to ever bother with the directory.	sitemgr	de	Das erste Verzeichnis über welches Sie sich Gedanken machen sollten ist sitemgr-link. Wenn Sie dieses Verzeichnis in das Root Verzeichnis ihrer phpGroupWare installation verschieben, können Sie Setup benutzen um diese Applikation zu installieren. Durch Rechtezuweisung für sitemgr-link erscheint das sitemgr-link Icon in der Navigationsleiste des Beutzers. Dieser kann dann direkt auf die öffentlich zugängliche sitemgr installation zugreifen. Wenn Sie dieses Icon nicht in der Navigationsleite haben möchten, besteht kein Grund dieses in das Root Verzeichnis von phpGroupWare zu verschieben.
-the images' common name	sitemgr	de	der name des Bildes
+the first directory to think about is sitemgr-link.  if you move this to the parent directory of sitemgr (your phpgroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  if you don't want this icon, there's no reason to ever bother with the directory.	sitemgr	de	Das erste Verzeichnis über welches Sie sich Gedanken machen sollten ist sitemgr-link. Wenn Sie dieses Verzeichnis in das Root Verzeichnis ihrer phpGroupWare installation verschieben, können Sie Setup benutzen um diese Applikation zu installieren. Durch Rechtezuweisung für sitemgr-link erscheint das sitemgr-link Icon in der Navigationsleiste des Beutzers. Dieser kann dann direkt auf die öffentlich zugängliche sitemgr installation zugreifen. Wenn Sie dieses Icon nicht in der Navigationsleite haben möchten, besteht kein Grund dieses in das Root Verzeichnis von eGroupWare zu verschieben.
+the images' common name	sitemgr	de	der Name des Bildes
 the name field cannot contain punctuation or spaces (field modified).	sitemgr	de	Das Feld Name darf keine Punkte oder Leerzeichen enthalten (field modified).
 the page name must be unique.	sitemgr	de	Der Seiten Name muss einmalig sein.
 the page was successfully saved.	sitemgr	de	Die Seite wurde erfolgreich gespeichert.

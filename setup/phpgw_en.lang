@@ -79,9 +79,11 @@ don't have an account?	sitemgr	en	Don't have an account?
 done	sitemgr	en	Done
 downloaded	sitemgr	en	downloaded
 draft	sitemgr	en	draft
+draft mode	sitemgr	en	Draft mode
 edit categories and permissions	common	en	Edit Categories and Permissions
 edit category	sitemgr	en	Edit Category
 edit individual pages	common	en	Edit Individual Pages
+edit mode	sitemgr	en	Edit mode
 edit page	sitemgr	en	Edit Page
 edit properties of module %1 for %2 with scope %3	sitemgr	en	Edit properties of module %1 for %2 with scope %3
 edit site header and footer	common	en	Edit Site Header and Footer
@@ -191,6 +193,7 @@ post a message to this thread	sitemgr	en	Post A Message To This Thread
 prepublished	sitemgr	en	prepublished
 preunpublished	sitemgr	en	preunpublished
 previous	sitemgr	en	Previous
+production mode	sitemgr	en	Production mode
 published	sitemgr	en	published
 reactivate content	sitemgr	en	Reactivate content
 read permission	sitemgr	en	Read Permission

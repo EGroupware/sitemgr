@@ -102,8 +102,12 @@
 			$file['Manage Translations'] = $GLOBALS['phpgw']->link('/index.php', 'menuaction=sitemgr.Translations_UI.manage');
 			$file['Commit Changes'] = $GLOBALS['phpgw']->link('/index.php', 'menuaction=sitemgr.Content_UI.commit');
 			$file['Manage archived content'] = $GLOBALS['phpgw']->link('/index.php', 'menuaction=sitemgr.Content_UI.archive');
-			$file['_NewLine_'] ='';
-			$file['View Generated Site'] = $GLOBALS['phpgw']->link('/sitemgr-link/');
+
+			if ($GLOBALS['phpgw_info']['user']['apps']['sitemgr-link'])	// show it only if user has rights to it
+			{
+				$file[] = '_NewLine_';
+				$file['View Generated Site'] = $GLOBALS['phpgw']->link('/sitemgr-link/');
+			}
 			return $file;
 		}
 

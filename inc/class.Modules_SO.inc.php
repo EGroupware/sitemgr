@@ -31,7 +31,7 @@
 			}
 			else
 			{
-				"SELECT properties FROM phpgw_sitemgr_properties AS t1 LEFT JOIN phpgw_sitemgr_modules AS t2 ON t1.module_id=t2.module_id WHERE area='$contentarea' AND cat_id = $cat_id AND module_name = '$modulename'";
+				$sql = "SELECT properties FROM phpgw_sitemgr_properties AS t1 LEFT JOIN phpgw_sitemgr_modules AS t2 ON t1.module_id=t2.module_id WHERE area='$contentarea' AND cat_id = $cat_id AND module_name = '$modulename'";
 			}
 			$this->db->query($sql,__LINE__,__FILE__);
 

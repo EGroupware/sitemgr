@@ -162,7 +162,7 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 			}
 			$content = '';
 
-			$blocks = $this->bo->getvisibleblockdefsforarea($areaname,$page->cat_id,$page->id,$objbo->isadmin,$objbo->isuser);
+			$blocks = $this->bo->getvisibleblockdefsforarea($areaname,$page->cat_id,$page->id,$objbo->is_admin(),$objbo->isuser);
 			// if we are in the center area, we append special blocks
 			if ($areaname == "center" && $page->block)
 			{
@@ -306,6 +306,12 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 // 					return $GLOBALS['Common_BO']->headerfooter->getsiteheader($GLOBALS['phpgw_info']['user']['preferences']['common']['lang']);
 				case 'user':
 					return $GLOBALS['phpgw_info']['user']['account_lid'];
+				case 'charset':
+					return is_object($GLOBALS['phpgw']->translation) ? $GLOBALS['phpgw']->translation->charset() : 'iso-8859-1';
+				case 'lang':
+					return $GLOBALS['sitemgr_info']['userlang'];
+				case 'year':
+					return date('Y');	// nice to keep all copyrights up to date
 			}
 		}
 

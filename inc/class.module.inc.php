@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class Transformer
 {
@@ -41,7 +41,7 @@ class Module
 	}
 
 	//before calling the functions get_user_interface, get_output,
-	//the function set_block is used, so that we know in what scope we are, know the arguments, 
+	//the function set_block is used, so that we know in what scope we are, know the arguments,
 	//and can retrieve the properties
 	//this function can be overriden (but do not forget to call parent::set_block) in order to do some configuration
 	//that depends on the blocks arguments
@@ -89,7 +89,7 @@ class Module
 		$this->block =& $block;
 	}
 
-	function link($modulevars=array())
+	function link($modulevars=array(),$extravars=array())
 	{
 		while (list($key,$value) = @each($modulevars))
 		{
@@ -294,9 +294,9 @@ class Module
 				foreach ($input['options'] as $value => $display)
 				{
 					$selected='';
-					if 
+					if
 					(
-						($input['multiple'] && is_array($default) && in_array($value,$default)) || 
+						($input['multiple'] && is_array($default) && in_array($value,$default)) ||
 						(!$input['multiple'] && ($default == $value))
 					)
 					{

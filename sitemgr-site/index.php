@@ -36,13 +36,16 @@
 	include './inc/class.ui.inc.php';
 	include './inc/class.sitebo.inc.php';
 	include './inc/class.Template3.inc.php';
-	
+
 	$Common_BO = CreateObject('sitemgr.Common_BO');
 	$objbo = new sitebo;
 	$Common_BO->sites->set_currentsite($site_url,$objbo->getmode());
 	$sitemgr_info = array_merge($sitemgr_info,$Common_BO->sites->current_site);
 	$sitemgr_info['sitelanguages'] = explode(',',$sitemgr_info['site_languages']);
 	$objbo->setsitemgrPreferredLanguage();
+	$GLOBALS['phpgw']->translation->add_app('common');	// as we run as sitemgr-site
+	$GLOBALS['phpgw']->translation->add_app('sitemgr');	// as we run as sitemgr-site
+
 	$objui = new ui;
 
 	$page = CreateObject('sitemgr.Page_SO');

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class module_administration extends Module
 {
@@ -14,10 +14,13 @@ class module_administration extends Module
 	{
 		$content = '<form name="modeselect" method="post">' .
 			'<select onChange="location.href=this.value" name="mode">';
-		foreach(array('Production','Draft','Edit') as $mode)
+		foreach(array(
+			'Production' => lang('Production mode'),
+			'Draft'      => lang('Draft mode'),
+			'Edit'       => lang('Edit mode')) as $mode => $label)
 		{
 			$selected = ($GLOBALS['sitemgr_info']['mode'] == $mode) ? ' selected="selected"' : '';
-			$content .=	'<option value="' .$this->link(array('mode'=>$mode)) .'"' . $selected  . '>' . lang($mode . ' mode') . '</option>';
+			$content .=	'<option value="' .$this->link(array(),array('mode'=>$mode)) .'"' . $selected  . '>' . $label . '</option>';
 		}
 		$content .= '</select></form>' .
 			'&nbsp;&nbsp;<strong><big>&middot;</big></strong><a href="' . phpgw_link('/sitemgr/index.php') .
