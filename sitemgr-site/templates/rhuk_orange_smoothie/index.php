@@ -26,11 +26,13 @@ defined( '_VALID_MOS' ) or die( 'Direct Access to this location is not allowed.'
 				<td width="174" align="left"><img src="<?php echo $mosConfig_live_site;?>/templates/rhuk_orange_smoothie/images/spacer.gif" width="165" height="30" /></td>
 				<td width="391" align="left"><?php include "pathway.php"; ?></td>
 				<td width="178" align="right"><?php echo (strftime (_DATE_FORMAT_LC)); ?><img src="<?php echo $mosConfig_live_site;?>/templates/rhuk_orange_smoothie/images/spacer.gif" width="18" height="5" /></td>
+<?php /* til I find time to get a search working - RalfBecker 2004/05/05
 				<form action='<?php echo sefRelToAbs("index.php"); ?>' method='post'>
 				<td width="155" align="left">
                         <input class="searchbox" type="text" name="searchword" height="16" size="15" value="<?php echo _SEARCH_BOX; ?>"  onblur="if(this.value=='') this.value='<?php echo _SEARCH_BOX; ?>';" onfocus="if(this.value=='<?php echo _SEARCH_BOX; ?>') this.value='';" />
                         <input type="hidden" name="option" value="search" />
                     </td></form>
+*/ ?>
 			</tr>
 			</table>
 			<table width="898" cellpadding="0" cellspacing="0" border="0">
