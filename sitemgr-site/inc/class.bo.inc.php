@@ -191,6 +191,7 @@
 
 		function getCatLinks()
 		{
+			$catlinks = array();
 			$cat_list=$this->catbo->getPermittedCategoryIDReadList();
 			foreach($cat_list as $cat_id)
 			{

@@ -41,9 +41,9 @@
 	function replace_var($vars)
 	{
 		$var = $vars[1];
-		if (substr($var,0,5)=='?sitemgr:')
+		if (substr($var,0,9)=='?sitemgr:')
 		{
-			$params=explode(',',substr($var,0,5));
+			$params=explode(',',substr($var,9));
 			switch(count($params))
 			{
 				case 0:

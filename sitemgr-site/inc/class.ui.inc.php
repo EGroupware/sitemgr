@@ -53,7 +53,7 @@
 
 			$index = 1;
 			$themesel = $GLOBALS['sitemgr_info']['themesel'];
-			include $GLOBALS['sitemgr_info']['sitemgr_path'] . 'themes/' . $themesel . '/theme.php';
+			include $GLOBALS['sitemgr_info']['sitemgr-site_path'] . 'themes/' . $themesel . '/theme.php';
 			echo '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">';
 			echo "\n<html>\n<head>\n<title>" . $this->bo->get_siteName() . ': ' . 
 				$this->bo->get_title() . "</title>\n";
@@ -61,7 +61,7 @@
 			add_theme_var('user',$GLOBALS['phpgw_info']['user']['account_lid']);
 			add_theme_var('header', $this->bo->get_header());
 			add_theme_var('footer', $this->bo->get_footer());
-			include $GLOBALS['sitemgr_info']['sitemgr_path'] . 'inc/meta.ui.inc.php';
+			include $GLOBALS['sitemgr_info']['sitemgr-site_path'] . 'inc/meta.ui.inc.php';
 			echo '<LINK REL="StyleSheet" HREF="themes/' . $themesel . 
 				'/style/style.css" TYPE="text/css">' . "\n\n\n";
 			echo '</head>' . "\n";
