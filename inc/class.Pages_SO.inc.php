@@ -56,27 +56,17 @@
 			$this->db->query($sql, __LINE__,__FILE__);
 		}
 
-		function pageExists($page_name, $exclude_page_id='', $site_cats=0)
+		//this function should be a deprecated function - IMHO - skwashd
+		function pageExists($page_name, $exclude_page_id='')
 		{
-			$sql  = 'SELECT page_id FROM phpgw_sitemgr_pages ';
-			$sql .= "WHERE name='" . $this->db->db_addslashes($page_name) . "' ";
-			if ($exclude_page_id)
+			$page_id = $this->PagetoID($page_name);
+			if($page_id)
 			{
-				$sql .= "AND page_id!='". $this->db->db_addslashes($exclude_page_id) . "' ";
-			}
-			if($site_cats)
-			{
-				$sql .=  'AND cat_id IN(' . implode(',', $site_cats) . ') ';
-			}
-
-			$this->db->query($sql,__LINE__,__FILE__);
-			if ($this->db->next_record())
-			{
-				return $this->db->f('page_id');
+				return ($page_id != $exclude_page_id ? $page_id : False);
 			}
 			else
 			{
-				return false;
+				return False;
 			}
 		}
 
@@ -94,7 +84,24 @@
 
 		function PagetoID($page_name)
 		{
-			$sql = 'SELECT page_id FROM phpgw_sitemgr_pages WHERE name=\'' . $page_name . '\'';
+			$cats = CreateObject('phpgwapi.categories', -1, 'sitemgr');
+			$cat_list = $cats->return_sorted_array(0, False, '', '', '', False, CURRENT_SITE_ID);
+			
+			if($cat_list)
+			{
+				foreach($cat_list as $null => $val)
+				{
+					$site_cats[] = $val['id'];
+				}
+			}
+			
+			$sql  = 'SELECT page_id FROM phpgw_sitemgr_pages ';
+			$sql .= "WHERE name='" . $this->db->db_addslashes($page_name) . "' ";
+			if($site_cats)
+			{
+				$sql .= 'AND cat_id IN(' . implode(',', $site_cats) . ')';
+			}
+
 			$this->db->query($sql,__LINE__,__FILE__);
 			if ($this->db->next_record())
 			{
@@ -123,7 +130,8 @@
 
 		function getPage($page_id,$lang=False)
 		{
-			$sql = "SELECT * FROM phpgw_sitemgr_pages WHERE page_id= $page_id";
+			$sql  = 'SELECT * FROM phpgw_sitemgr_pages ';
+			$sql .= 'WHERE page_id=' . intval($page_id);
 			$this->db->query($sql,__LINE__,__FILE__);
 			if ($this->db->next_record())
 			{

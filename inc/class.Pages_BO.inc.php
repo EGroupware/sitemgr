@@ -110,17 +110,6 @@
 
 		function savePageInfo($page_Info,$lang)
 		{
-			$cats = CreateObject('phpgwapi.categories');
-			$cat_list = $cats->return_sorted_array(0, False, '', '', '', False, CURRENT_SITE_ID, -1, 'id');
-
-			if($cat_list)
-			{
-				foreach($cat_list as $null => $val)
-				{
-					$site_cats[] = $val['id'];
-				}
-			}
-
 			$oldpage = $this->getpage($page_Info->id);
 
 			if(!($GLOBALS['Common_BO']->acl->can_write_category($page_Info->cat_id) && 
@@ -139,7 +128,7 @@
 				return lang('The Name field cannot contain punctuation or spaces (field modified).');
 			}
 
-			if ($this->so->pageExists($page_Info->name,$page_Info->id, $site_cats))
+			if ($this->so->pageExists($page_Info->name,$page_Info->id))
 			{
 				$page_Info->name .= '--FIX-DUPLICATE-NAME';
 				$this->so->savePageInfo($page_Info);
