@@ -27,6 +27,7 @@ anonymous	sitemgr	es-es	anónimo
 anonymous user login domain	sitemgr	es-es	Dominio del usuario anónimo
 anonymous user's password	sitemgr	es-es	Contraeña del usuario anónimo
 anonymous user's username	sitemgr	es-es	Nombre de usuario del usurio anónimo
+application	sitemgr	es-es	Aplicación
 apply permissions also to subcategories?	sitemgr	es-es	¿Aplicar permisos también a las subcategorías?
 archived	sitemgr	es-es	archivado
 archived content	sitemgr	es-es	Contenido archivado
@@ -37,6 +38,7 @@ asin[=title] pairs (title is optional)	sitemgr	es-es	pares ASIN[=título] (el tít
 attempt to access information outside current website	sitemgr	es-es	Intento de acceder a la información fuera del sitio web actual
 attempt to edit non-editable block	sitemgr	es-es	Intento de editar un bloque no editable
 back to module manager	sitemgr	es-es	Volver al administrador de módulos
+back to the list of languages	sitemgr	es-es	Volver a la lista de idiomas
 basic settings	sitemgr	es-es	Configuracón básica
 before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr	es-es	Antes de poder ver el sitio público, debe configurar las distintas ubicaciones y preferencias. Por favor, vaya a la página de configuración del administrador de sitios web pulsando este enlace:
 block not found.	sitemgr	es-es	No se encontró el bloque
@@ -73,7 +75,6 @@ content blocks for category	sitemgr	es-es	Bloques de contenido para la categoría
 content manager	sitemgr	es-es	Administrador de contenido
 contentarea	sitemgr	es-es	Area de contenidos
 contributor menu	sitemgr	es-es	Menú del colaborador
-copyright	sitemgr	es-es	
 create new version	sitemgr	es-es	Crear una versión nueva
 current section	sitemgr	es-es	Sección actual
 default	sitemgr	es-es	Predeterminado
@@ -86,6 +87,7 @@ delete this application	sitemgr	es-es	Borrar esta aplicación
 delete this block	sitemgr	es-es	Borrar este bloque
 delete version	sitemgr	es-es	Borrar versión
 deleting all data for %1	sitemgr	es-es	Borrar todos los datos de %1
+details for language %1 (%2)	sitemgr	es-es	Detalles para el idioma %1 (%2)
 discussions	sitemgr	es-es	Discusiones
 display link to autoregistration below login form?	sitemgr	es-es	¿Mostrar el enlace para registrarse automáticamente debajo del formulario?
 do you realy want to delete this block?	sitemgr	es-es	¿Realmente desea borrar este bloque?
@@ -122,8 +124,10 @@ file download	sitemgr	es-es	Descarga del fichero
 file is not world readable	sitemgr	es-es	El fichero no está accesible para todo el mundo
 filesystem path of the directory where the images are found (no trailing slash)	sitemgr	es-es	Ruta del directorio a nivel de sistema donde están las imágenes (sin la barra "/" final)
 filesystem path of the directory where xml files are stored	sitemgr	es-es	Ruta del directorio donde se almacenan los ficheros SML
+filesystem path of the image-directory	sitemgr	es-es	Ruta enel sistema de archivos al directorio de imágenes
 filesystem path to sitemgr-site directory	sitemgr	es-es	Ruta en el sistema para el directorio del sitio del Administrador de sitios
 fill in permissions from parent category? if you check this, below values will be ignored	sitemgr	es-es	¿Rellenar permisos con los de la categoría superior? Si marca esto, se ignorarán los valores de debajo.
+following new modules registed: %1	sitemgr	es-es	Siguientes módulos nuevos registrados: %1
 footer editor	sitemgr	es-es	Editor de pies de página
 forum	sitemgr	es-es	Foros
 full path of the xslt file that should be applied to the xml files	sitemgr	es-es	Ruta completa del fichero XSLT que hay que aplicar a los ficheros XML
@@ -151,6 +155,7 @@ implies read permission	sitemgr	es-es	implica permiso de lectura
 individual access permission	sitemgr	es-es	Permiso de acceso individual
 individual access permissions	sitemgr	es-es	Permisos de acceso individuales
 interface to google website	sitemgr	es-es	interfaz a Google
+invalid template directory '%1' !!!	sitemgr	es-es	El directorio de plantillas '%1' no es válido
 languages the site user can choose from	sitemgr	es-es	Idiomas que puede elegir el usuario del sitio
 latest reply	sitemgr	es-es	Última respuesta
 list of permitted modules specific to content area %1	sitemgr	es-es	Lista de módulos permitidos específicos al área de contenidos %1
@@ -177,11 +182,12 @@ migrating data for %1 to %2	sitemgr	es-es	Migrar datos para %1 a %2
 module %1 is not permitted in this context!	sitemgr	es-es	El módulo %1 no está permitido en este contexto
 module manager	sitemgr	es-es	Administrador de módulos
 module: %1, scope: %2, contentarea: %3	sitemgr	es-es	Módulo: %1, ámbito: %2, área de contenido: %3
+module: %1, scope: %2, contentarea: %3, viewable: %4	sitemgr	es-es	Módulo: %1, ámbito: %2, área de contenido: %3, vidible: %4
 more news	sitemgr	es-es	Más noticias
 move block down (increase sort order)	sitemgr	es-es	Mover bloque hacia abajo (incrementar el orden)
 move block up (decrease sort order)	sitemgr	es-es	Mover bloque hacia arriba (decrementar el orden)
 move to	sitemgr	es-es	Mover a
-name	sitemgr	es-es	Nombra
+name	sitemgr	es-es	Nombre
 name has been translated to lower case	sitemgr	es-es	El nombre se ha traducido en minúsculas
 new application	sitemgr	es-es	Nueva aplicación
 new sitemgr site	sitemgr	es-es	Nuevo sitio web
@@ -193,6 +199,7 @@ no groups defined.	sitemgr	es-es	No hay grupos definidos.
 no link to full index	sitemgr	es-es	No hay enlace al índice completo
 no matching news item	sitemgr	es-es	No coincide ningún elemento de noticias
 no modules permitted for this content area/category	sitemgr	es-es	No se permiten módulos para este área o categoría
+no new modules found !!!	sitemgr	es-es	No se encontraron módulos nuevos
 no options available.	sitemgr	es-es	No hay opciones disponibles
 no pages available	sitemgr	es-es	No hay páginas disponibles
 no sitelanguages configured	sitemgr	es-es	No hay idiomas configurados
@@ -225,7 +232,9 @@ parent section:	sitemgr	es-es	Sección superior:
 password	sitemgr	es-es	Contraseña
 password that you assigned for the anonymous user account.	sitemgr	es-es	Contraseña asignada al usuario anónimo
 path to zip binary if not in path of the webserver	sitemgr	es-es	Ruta al binario zip si no está en la ruta del servidor web
+percentage	sitemgr	es-es	Porcentaje
 phpgw users	sitemgr	es-es	usuarios de eGW
+phrases in total	sitemgr	es-es	Frases en total
 please enter a name for that site !	sitemgr	es-es	Por favor, introduzca un nombre para ese sitio
 post a message to this thread	sitemgr	es-es	Publicar un mensaje en esta conversación
 prepublished	sitemgr	es-es	publicado previamente
@@ -260,6 +269,7 @@ selected template %1 does not exist.	sitemgr	es-es	La plantilla seleccionada %1 
 selected theme %1 does not exist.	sitemgr	es-es	El tema seleccionado %1 no existe.
 should the file be viewed in the browser or downloaded	sitemgr	es-es	¿Mostrar el fichero o descargarlo?
 show a template-gallery (thumbnail and informations)	sitemgr	es-es	Mostrar una galería de plantillas (diapositiva e información)
+show details for the applications	sitemgr	es-es	Mostrar detalles para las aplicaciones
 show only (in the next field) selected templates	sitemgr	es-es	Mostrar sólo (en el siguiente campo) las plantillas seleccionadas
 show searchbox	sitemgr	es-es	Mostrar recuadro de buscar
 show site index	sitemgr	es-es	Mostrar el índice del sitio
@@ -288,6 +298,7 @@ state	sitemgr	es-es	Estado
 strip html from block content?	sitemgr	es-es	¿Separar HTML del contenido por bloques?
 subcategories	sitemgr	es-es	Sucategorías
 subsections:	sitemgr	es-es	Subsecciones:
+subtext for image %1	sitemgr	es-es	Subtexto para la imagen %1
 subtitle	sitemgr	es-es	Subtítulo
 summary of one forum	sitemgr	es-es	Resumen de un foro
 table of contents	sitemgr	es-es	Tabla de contenidos
@@ -364,10 +375,12 @@ translate category	sitemgr	es-es	Traducir categoría
 translate page	sitemgr	es-es	Traducir página
 translate site-wide content blocks	sitemgr	es-es	Traducir bloques de contenido por todo el sitio web
 translation manager	sitemgr	es-es	Administrador de traducciones
+translation status	sitemgr	es-es	Estado de la traducción
 up to parent	sitemgr	es-es	Subir al directorio superior
 up to table of contents	sitemgr	es-es	Subir a la tabla de contenidos
 updating to new category system	sitemgr	es-es	Actualizando a sistema de nueva categoría
 url pointing to the directory where the images are found (no trailing slash)	sitemgr	es-es	URL que apunta al directorio donde se encuentran las imágenes (sin barra invertida al final)
+url pointing to the image-directory	sitemgr	es-es	URL que apunta al directorio de imágenes
 url to sitemgr-site	sitemgr	es-es	URL al directorio <tt>sitemgr-site</tt>
 use phpnuke themes instead of templates	sitemgr	es-es	Usar temas de phpNuke en vez de plantillas
 use this module for displaying book ads for the amazon web site	sitemgr	es-es	Usar este módulo para mostrar publicidad de libros de amazon
@@ -385,7 +398,7 @@ web site manager	sitemgr	es-es	Administrador del sitio web
 website	sitemgr	es-es	Sitio web
 week	sitemgr	es-es	semana
 what do you want to do with existing translations of categories and pages for this language?	sitemgr	es-es	¿Qué desea hacer con las traducciones existentes de las categorías y las páginas para este idioma?
-wiki	sitemgr	es-es	
+wiki	sitemgr	es-es	Wiki
 wiki startpage	sitemgr	es-es	Página principal del wiki
 with which view should the module be displayed in the beginning?	sitemgr	es-es	¿Con qué vista se debe mostrar el módulo al principio?
 write permission	sitemgr	es-es	Permiso de escritura
