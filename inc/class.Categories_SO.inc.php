@@ -16,11 +16,11 @@
 			}
 			else
 			{
-				$cats = $this->cats->return_array('mains','',False,'','','cat_data',False, $parent);
+				$cats = $this->cats->return_array('mains','',False,'','','cat_data',False, 0);
 			}
 			while (is_array($cats) && list(,$subs) = each($cats))
 			{
-				if ($cats['parent']==$parent)
+				if ($subs['parent']==$parent)
 				{
 					$subs_id_list[] = $subs['id'];
 				}
