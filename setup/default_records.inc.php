@@ -144,7 +144,7 @@
 			$oProc->query("INSERT INTO phpgw_sitemgr_content_lang (version_id,lang,arguments_lang) VALUES ($version_id,'en','".$GLOBALS['phpgw_setup']->db->db_addslashes($content_en)."')",__LINE__,__FILE__);
 		}
 	}
-	echo "SiteMgr demo site installed<br>";
+	//echo "SiteMgr demo site installed<br>";
 
 	// install sitemgr-link via symlink or copy (windows)
 	function cp_r($from,$to)
