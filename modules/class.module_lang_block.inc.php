@@ -41,9 +41,6 @@
 
 				return $content;
 			}
-			else
-			{
-				$content = lang('No sitelanguages configured');
-			}
+			return lang('No sitelanguages configured');
 		}
 	}
