@@ -309,11 +309,11 @@ this module displays bookmarks in a javascript based tree	sitemgr	en	This module
 this module displays the current month	sitemgr	en	This module displays the current month
 this module displays the phpgw forums on the web site	sitemgr	en	This module displays the phpgw forums on the web site
 this module includes the contents of a (world readable) file	sitemgr	en	This module includes the contents of a (world readable) file
+this module is a selectbox to change the mode (production, draft or edit) plus a link back to sitemgr and to log out. it is meant for registered users only	sitemgr	en	This module is a selectbox to change the mode (production, draft or edit) plus a link back to SiteMgr and to log out. It is meant for registered users only
 this module is a simple html editor	sitemgr	en	This module is a simple HTML editor
 this module lets users choose language	sitemgr	en	This module lets users choose language
 this module lets you define pages that redirect to another url, if you use it, there should be no other block defined for the page	sitemgr	en	This module lets you define pages that redirect to another URL, if you use it, there should be no other block defined for the page
 this module permits browsing through xml files stored in a directory, and transformed by xslt	sitemgr	en	This module permits browsing through XML files stored in a directory, and transformed by XSLT
-this module presents a link back to the sitemgr's administration menu. it is meant for registered users	sitemgr	en	This module presents a link back to the sitemgr's administration menu. It is meant for registered users
 this module provides a complete table of contents, it is automatically used by the toc and category_id get parameters	sitemgr	en	This module provides a complete table of contents, it is automatically used by the toc and category_id GET parameters
 this module provides a condensed table of contents, meant for side areas	sitemgr	en	This module provides a condensed table of contents, meant for side areas
 this module provides the site index, it is automatically used by the index get parameter	sitemgr	en	This module provides the site index, it is automatically used by the index GET parameter

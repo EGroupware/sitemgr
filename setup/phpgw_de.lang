@@ -312,12 +312,12 @@ this module displays a login form	sitemgr	de	Dieses Modul bietet ein Anmelde For
 this module displays bookmarks in a javascript based tree	sitemgr	de	Diese Modul zeigt Lesezeichen (Bookmarks) in einer javascript basierenden Baumansicht
 this module displays the current month	sitemgr	de	Dieses Modul zeigt den aktuellen Monat an
 this module displays the phpgw forums on the web site	sitemgr	de	Dieses Modul stellt die phpGroupWare Foren auf der Webseite dar
-this module includes the contents of a (world readable) file	sitemgr	de	Dieses Model kann den Inhalt einer Datei (Weltweit lesbar) einbinden
-this module is a simple html editor	sitemgr	de	Dieses Modul ist ein einfacher HTML Editor
+this module includes the contents of a (world readable) file	sitemgr	de	Dieses Modul bindet den Inhalt einer (weltlesbaren) Datei ein
+this module is a selectbox to change the mode (production, draft or edit) plus a link back to sitemgr and to log out. it is meant for registered users only	sitemgr	de	Dieses Modul ist eine Auswahlbox um den Modus (Produktion, Entwurf, Bearbeiten) zu ändern plus Links zurück zum SiteMgr und zum auslogen. Es ist ausschließlich für registierte Benutzer gedacht.
+this module is a simple html editor	sitemgr	de	Dieses Modul ist ein HTML Editor (formatierter Text)
 this module lets users choose language	sitemgr	de	Dieses Modul erlaubt es Benutzern eine Sprache auszuwählen
 this module lets you define pages that redirect to another url, if you use it, there should be no other block defined for the page	sitemgr	de	Dieses Modul erlaubt Seiten zu definieren die auf eine andere URL umleiten. Wenn sie es benutzen, sollten sie keine anderen Blöcke für diese Seite definieren.
 this module permits browsing through xml files stored in a directory, and transformed by xslt	sitemgr	de	Dieses Modul erlaubt das durchsuchen von Verzeichnisse mit XML Dateien und transformiert mit XSLT
-this module presents a link back to the sitemgr's administration menu. it is meant for registered users	sitemgr	de	Dieses Modul bietet einen Link zum sitemgr Administrations Menü. Es ist vorgesehen für registrierte Benutzer
 this module provides a complete table of contents, it is automatically used by the toc and category_id get parameters	sitemgr	de	Dieses Modul bietet ein komplettes Inhaltsverzeichnis. Dieses wird automatisch erstellt durch den toc und den category_ID GET parameter
 this module provides a condensed table of contents, meant for side areas	sitemgr	de	Dieses Modul liefert ein zusammengefasstes Inhaltsverzeichnis, gedacht für Bereiche der Website
 this module provides the site index, it is automatically used by the index get parameter	sitemgr	de	Dieses Modul stellt einen Seiten Index zur Verfügung. Es wird automatisch durch den Index GET parameter erstellt.
