@@ -76,11 +76,11 @@
 				$page = CreateObject('sitemgr.Page_SO', True);
 				$page->id = $this->db->f('page_id');
 				$page->cat_id = $this->db->f('cat_id');
-				$page->name = $this->db->f('name');
-				$page->title= $this->db->f('title');
-				$page->subtitle = $this->db->f('subtitle');
+				$page->name = stripslashes($this->db->f('name'));
+				$page->title= stripslashes($this->db->f('title'));
+				$page->subtitle = stripslashes($this->db->f('subtitle'));
 				$page->sort_order = (int) $this->db->f('sort_order');
-				$page->content = $this->db->f('content');
+				$page->content = stripslashes($this->db->f('content'));
 				$page->hidden = $this->db->f('hide_page');
 				return $page;
 			}
@@ -100,10 +100,10 @@
 				$page->id = $page_id;
 				$page->cat_id = $this->db->f('cat_id');
 				$page->sort_order = (int) $this->db->f('sort_order');
-				$page->name = $this->db->f('name');
-				$page->title= $this->db->f('title');
-				$page->subtitle = $this->db->f('subtitle');
-				$page->content = $this->db->f('content');
+				$page->name = stripslashes($this->db->f('name'));
+				$page->title= stripslashes($this->db->f('title'));
+				$page->subtitle = stripslashes($this->db->f('subtitle'));
+				$page->content = stripslashes($this->db->f('content'));
 				$page->hidden = $this->db->f('hide_page');
 				return $page;
 			}
@@ -117,11 +117,11 @@
 		{
 			$sql = 'UPDATE phpgw_sitemgr_pages SET ' . 
 				'cat_id=\'' . $pageInfo->cat_id . '\',' .
-				'name=\'' . $pageInfo->name . '\',' .
+				'name=\'' . addslashes($pageInfo->name) . '\',' .
 				'sort_order=\'' . (int) $pageInfo->sort_order . '\',' .
-				'title=\'' . $pageInfo->title . '\',' .
-				'subtitle=\'' . $pageInfo->subtitle . '\',' .
-				'content=\'' . $pageInfo->content . '\', ' .
+				'title=\'' . addslashes($pageInfo->title) . '\',' .
+				'subtitle=\'' . addslashes($pageInfo->subtitle) . '\',' .
+				'content=\'' . addslashes($pageInfo->content) . '\', ' .
 				'hide_page=\'' . $pageInfo->hidden . '\' ' .
 				'WHERE page_id=\'' . $pageInfo->id . '\'';
 			$this->db->query($sql, __LINE__,__FILE__);
