@@ -78,7 +78,7 @@ class module_forum extends Module
 			$arguments['level'] = $this->startlevel;
 		}
 		$this->template = CreateObject('phpgwapi.Template');
-		$this->template->set_root($GLOBALS['sitemgr_info']['sitemgr-site-dir']. SEP . 'templates/modules/sitemgr/forum/');
+		$this->template->set_root($GLOBALS['sitemgr_info']['sitemgr-site-dir']. SEP . 'templates/default/sitemgr/forum/');
 
 		if ($arguments['level'] == 1)
 		{

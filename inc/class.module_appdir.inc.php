@@ -112,7 +112,7 @@ class module_appdir extends Module
 		if ($produce)
 		{
 			require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.xslt_transform.inc.php');
-			$this->add_transformer(new xslt_transform($GLOBALS['sitemgr_info']['sitemgr-site-dir']. SEP . 'templates/modules/sitemgr/appdir/list.xsl'));
+			$this->add_transformer(new xslt_transform($GLOBALS['sitemgr_info']['sitemgr-site-dir']. SEP . 'templates/default/sitemgr/appdir/list.xsl'));
 		}
 	}
 
