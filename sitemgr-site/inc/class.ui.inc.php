@@ -45,6 +45,25 @@
 			$this->generatePage();
 		}
 
+		function get_news()
+		{
+			$bonews = CreateObject('news_admin.bonews');
+			$news = $bonews->get_NewsList(0, false);
+			unset($bonews);
+			//$themesel = $GLOBALS['sitemgr_info']['themesel'];
+			//require_once($GLOBALS['sitemgr_info']['sitemgr-site_path'] . 'themes/' . $themesel . '/theme.php');
+			foreach($news as $newsitem)
+			{   
+				$var = Array(
+					'subject'   => $newsitem['subject'],
+					'submittedby'    => 'Submitted by ' . $GLOBALS['phpgw']->accounts->id2name($newsitem['submittedby']) . ' on ' . $GLOBALS['phpgw']->common->show_date($newsitem['submissiondate']),
+					'content'   => nl2br($newsitem['content'])
+				);
+				return themearticle($aid, $informant, $var['submittedby'], $var['subject'], $var['content'], $topic, $topicname, $topicimage, $topictext);
+				
+			}
+		}
+
 		function generatePage()
 		{
 			/* Note: much of this func was taken from phpNuke -- it
@@ -52,8 +71,17 @@
 			global $header,$foot1,$user,$sitename,$index;
 
 			$index = 1;
+
 			$themesel = $GLOBALS['sitemgr_info']['themesel'];
-			include $GLOBALS['sitemgr_info']['sitemgr-site_path'] . 'themes/' . $themesel . '/theme.php';
+			if (file_exists($GLOBALS['sitemgr_info']['sitemgr-site_path'].'/themes/'.$themesel.'/theme.php'))
+			{
+				require_once($GLOBALS['sitemgr_info']['sitemgr-site_path'] . '/themes/' . $themesel . '/theme.php');
+			}
+			else
+			{
+				die("Selected theme '$themesel' does not exist.");
+			}
+
 			echo '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">';
 			echo "\n<html>\n<head>\n<title>" . $this->bo->get_siteName() . ': ' . 
 				$this->bo->get_title() . "</title>\n";
@@ -61,7 +89,7 @@
 			add_theme_var('user',$GLOBALS['phpgw_info']['user']['account_lid']);
 			add_theme_var('header', $this->bo->get_header());
 			add_theme_var('footer', $this->bo->get_footer());
-			include $GLOBALS['sitemgr_info']['sitemgr-site_path'] . 'inc/meta.ui.inc.php';
+			include $GLOBALS['sitemgr_info']['sitemgr-site_path'] . '/inc/meta.ui.inc.php';
 			echo '<LINK REL="StyleSheet" HREF="themes/' . $themesel . 
 				'/style/style.css" TYPE="text/css">' . "\n\n\n";
 			echo '</head>' . "\n";

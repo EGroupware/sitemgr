@@ -125,31 +125,14 @@ function themeindex ($aid, $informant, $time, $title, $counter, $topic, $thetext
 /************************************************************/
 
 function themearticle ($aid, $informant, $datetime, $title, $thetext, $topic, $topicname, $topicimage, $topictext) {
-    global $admin, $sid, $tipath;
-    $posted = ""._POSTEDON." $datetime "._BY." ";
-    $posted .= get_author($aid);
-    if ($notes != "") {
-	$notes = "<br><br><b>"._NOTE."</b> <i>$notes</i>\n";
-    } else {
-	$notes = "";
-    }
-    if ("$aid" == "$informant") {
-	$content = "$thetext$notes\n";
-    } else {
-	if($informant != "") {
-	    $content = "<a href=\"modules.php?name=Your_Account&amp;op=userinfo&amp;uname=$informant\">$informant</a> ";
-	} else {
-	    $content = "$anonymous ";
-	}
-	$content .= ""._WRITES." <i>\"$thetext\"</i>$notes\n";
-    }
-    $tmpl_file = "themes/phpgroupware/story_page.html";
+    $tmpl_file = "themes/phpgroupware/center_block.html";
     $thefile = implode("", file($tmpl_file));
     $thefile = addslashes($thefile);
     $thefile = "\$r_file=\"".$thefile."\";";
 	$thefile = parse_theme_vars($thefile);
+	$content = $thetext;
     eval($thefile);
-    print $r_file;
+    return $r_file;
 }
 
 /************************************************************/

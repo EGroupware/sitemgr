@@ -21,8 +21,18 @@
 		'noapi' => True,
 		'nonavbar'   => True
 	);
-	require_once('./config.inc.php');
-	include './blockconfig.inc.php';
+	require_once('./security.inc.php');
+
+	if (file_exists('./config.inc.php'))
+	{
+		require_once('./config.inc.php');
+	}
+	else
+	{
+		die ("You need to copy config.inc.php.template to config.inc.php and edit the file before continuing.");
+	}
+	require_once('./functions.inc.php');
+	require_once('./blockconfig.inc.php');
 
 	include './inc/class.ui.inc.php';
 	include './inc/class.bo.inc.php';
@@ -60,6 +70,7 @@
 	{
 		$objsp_so = CreateObject('sitemgr.sitePreference_SO');
 		$home_page = $objsp_so->getPreference('home-page-id');
+		unset($objsp_so);
 		if ($home_page)
 		{
 			$objui->displayPage($home_page);

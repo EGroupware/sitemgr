@@ -81,6 +81,12 @@
 		{
 			$val = sitemgr_link2('/index.php',substr($var,1));
 		}
+		elseif ($var == 'news')
+		{
+			$ui = new ui;
+			$val = $ui->get_news();
+			unset($ui);
+		}
 		else
 		{
 			/* Check for reserved vars first, otherwise
