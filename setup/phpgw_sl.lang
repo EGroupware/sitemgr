@@ -320,7 +320,7 @@ this module demonstrates how handling data stored in xml and building an interac
 this module displays a login form	sitemgr	sl	Ta modul prikaže obrazec za prijavo
 this module displays bookmarks in a javascript based tree	sitemgr	sl	Ta modul prikaže zaznamke v drevesu
 this module displays the current month	sitemgr	sl	Ta modul prikaže trenutni mesec
-this module displays the phpgw forums on the web site	sitemgr	sl	Ta modul prikaže phpgw forume na spletni strani
+this module displays the egw forums on the web site	sitemgr	sl	Ta modul prikaže egw forume na spletni strani
 this module includes the contents of an url or file (readable by the webserver and in its docroot !)	sitemgr	sl	Ta modul vsebuje vsebino URL ali datoteke (lahko jo bere spletni strežnik ali njegov docroot!)
 this module is a simple html editor	sitemgr	sl	Ta modul je enostaven HTML urejevalnik
 this module lets the users choose a template or shows a template gallery	sitemgr	sl	Ta modul omogoča uporabniku izbiranje predloge ali prikaže galerijo predlog
