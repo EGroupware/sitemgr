@@ -53,7 +53,7 @@ class Notifications_UI extends generic_list_ui
     $content['multilingual']=(count($langs)==1);  
 
     if ($template==$this->list_template) {
-      foreach ($content['entry'] as $key => $value) {
+      foreach ((array)$content['entry'] as $key => $value) {
         if (empty($content['entry'][$key]['cat_id'])) {
           $content['entry'][$key]['cat_title']=lang('all categories');
         }

@@ -46,6 +46,6 @@ class NtfMessages_BO extends generic_list_bo
   
   function get_new_message_langs()
   {
-    return array_diff($this->get_site_langs(),$this->so->list_languages());
+    return array_diff($this->get_site_langs(),(array)$this->so->list_languages());
   }
 }

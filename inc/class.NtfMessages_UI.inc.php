@@ -25,7 +25,7 @@ class NtfMessages_UI extends generic_list_ui
   function NtfMessages_UI()
   {
     $common_ui = CreateObject('sitemgr.Common_UI',True);
-    $this->bo=CreateObject("sitemgr.NtfMessages_BO");
+    $this->bo=CreateObject('sitemgr.NtfMessages_BO');
     $this->site=False;
     
     $this->generic_list_ui('sitemgr', 'NtfMessages_UI', 'sitemgr.notify_messages', 
@@ -82,7 +82,7 @@ class NtfMessages_UI extends generic_list_ui
   {
     if ($template==$this->list_template) {
       $langs=$this->bo->get_site_langs();
-      foreach ($content['entry'] as $key => $value) {
+      foreach ((array)$content['entry'] as $key => $value) {
         $content['entry'][$key]['language']=$langs[$content['entry'][$key]['language']];
         if (empty($content['entry'][$key]['cat_id'])) {
           if (strlen($content['entry'][$key]['message'])>MAX_STR_LENGTH) {
@@ -100,7 +100,7 @@ class NtfMessages_UI extends generic_list_ui
     }
     else if ($template==$this->delete_template) {
       $langs=$this->bo->get_site_langs();
-      $content[language]=$langs[$content[language]];
+      $content['language']=$langs[$content['language']];
     }
     
     
