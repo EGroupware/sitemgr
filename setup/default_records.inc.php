@@ -17,8 +17,8 @@
 
 	$oProc->query("select config_value FROM phpgw_config WHERE config_name='webserver_url'");
 	$oProc->next_record();
-	$siteurl = $oProc->f('config_value') . SEP . 'sitemgr' . SEP . 'sitemgr-site' . SEP;
-	$sitedir = PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'sitemgr-site';
+	$siteurl = $oProc->f('config_value') . '/sitemgr/sitemgr-site/';	// url always uses slashes, dont use SEP!!!
+	$sitedir = $GLOBALS['phpgw_setup']->db->db_addslashes(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'sitemgr-site');
 	$oProc->query("INSERT INTO phpgw_sitemgr_sites (site_id,site_name,site_url,site_dir,themesel,site_languages,home_page_id,anonymous_user,anonymous_passwd) VALUES ($site_id,'Default Website','$siteurl','$sitedir','idots','en,de',0,'anonymous','anonymous')");
 
 	// give Admins group rights vor sitemgr and for the created default-site
@@ -53,6 +53,7 @@
 		'login' => array('left','right'),
 		'redirect' => array('__PAGE__'),
 		'sitetree' => array('left','right','__PAGE__'),
+		'template' => array('left','right','__PAGE__'),
 		'toc_block' => array('left','right'),
 		'toc' => array('__PAGE__'),
 		'wiki' => array('__PAGE__'),
@@ -116,10 +117,11 @@
 	// set up some site- and page-wide content
 	$visibility = array('all' => 0,'user' => 1,'admin' => 2,'anon' => 3);
 	$blocks = array(
+		array($module_id['index_block'],'left',$site_id,0,$visibility['all'],'Root Site Index',NULL,'a:1:{s:8:"sub_cats";s:2:"on";}'),
+		array($module_id['template'],'left',$site_id,0,$visibility['all'],'Choose template',NULL,'a:2:{s:4:"show";s:1:"8";s:3:"zip";s:3:"zip";}'),
 		array($module_id['currentsection'],'right',$site_id,0,$visibility['all'],'Current Section'),
 		array($module_id['administration'],'right',$site_id,0,$visibility['admin'],'Administration'),
 		array($module_id['lang_block'],'right',$site_id,0,$visibility['all'],'Select language'),
-		array($module_id['toc_block'],'right',$site_id,0,$visibility['all'],'Table of Contents'),
 		array($module_id['calendar'],'right',$site_id,0,$visibility['user'],'Calendar'),
 		array($module_id['goggle'],'right',$site_id,0,$visibility['all'],'Goggle'),
 		array($module_id['login'],'right',$site_id,0,$visibility['anon'],'Login'),
