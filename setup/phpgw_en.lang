@@ -62,6 +62,7 @@ choose the categories to display	sitemgr	en	Choose the categories to display
 choose your site's theme or template.  note that if you changed the above checkbox you need to save before choosing a theme or template.	sitemgr	en	Choose your site's theme or template.  Note that if you changed the above checkbox you need to save before choosing a theme or template.
 collapse threads	sitemgr	en	Collapse Threads
 commit changes	sitemgr	en	Commit changes
+common prefix of the image-name (a number starting with 1 will be appended)	sitemgr	en	common prefix of the image-name (a number starting with 1 will be appended)
 configure module properties	sitemgr	en	Configure module properties
 configure sitemgr	sitemgr	en	Configure SiteMgr
 configure website	sitemgr	en	Configure Website
@@ -118,8 +119,8 @@ file %1 is not readable by the webserver !!!	sitemgr	en	File %1 is not readable 
 file %1 is outside the docroot of the webserver !!!<br>this module does not allow - for security reasons - to open files outside the docroot.	sitemgr	en	File %1 is outside the docroot of the webserver !!!<br>This module does NOT allow - for security reasons - to open files outside the docroot.
 file contents	sitemgr	en	File contents
 file download	sitemgr	en	File download
-filesystem path of the directory where the images are found (no trailing slash)	sitemgr	en	Filesystem path of the directory where the images are found (no trailing slash)
 filesystem path of the directory where xml files are stored	sitemgr	en	Filesystem path of the directory where XML files are stored
+filesystem path of the image-directory	sitemgr	en	Filesystem path of the image-directory
 filesystem path to sitemgr-site directory	sitemgr	en	Filesystem path to sitemgr-site directory
 fill in permissions from parent category? if you check this, below values will be ignored	sitemgr	en	Fill in permissions from parent category? If you check this, below values will be ignored
 footer editor	sitemgr	en	Footer Editor
@@ -174,7 +175,7 @@ master list of permitted modules	sitemgr	en	Master list of permitted modules
 migrating data for %1 to %2	sitemgr	en	Migrating data for %1 to %2
 module %1 is not permitted in this context!	sitemgr	en	Module %1 is not permitted in this context!
 module manager	sitemgr	en	Module manager
-module: %1, scope: %2, contentarea: %3	sitemgr	en	Module: %1, Scope: %2, Contentarea: %3
+module: %1, scope: %2, contentarea: %3, viewable: %4	sitemgr	en	Module: %1, Scope: %2, Contentarea: %3, Viewable: %4
 more news	sitemgr	en	More news
 move block down (increase sort order)	sitemgr	en	Move block down (increase sort order)
 move block up (decrease sort order)	sitemgr	en	Move block up (decrease sort order)
@@ -222,6 +223,7 @@ parent	sitemgr	en	Parent
 parent section:	sitemgr	en	Parent Section:
 password	sitemgr	en	Password
 password that you assigned for the anonymous user account.	sitemgr	en	Password that you assigned for the anonymous user account.
+path to image-directory '%1' is not valid or readable by the webserver !!!	sitemgr	en	Path to image-directory '%1' is not valid or readable by the webserver !!!
 path to zip binary if not in path of the webserver	sitemgr	en	Path to zip binary if not in path of the webserver
 phpgw users	sitemgr	en	phpgw users
 please enter a name for that site !	sitemgr	en	Please enter a name for that site !
@@ -285,6 +287,7 @@ state	sitemgr	en	State
 strip html from block content?	sitemgr	en	Strip HTML from block content?
 subcategories	sitemgr	en	Subcategories
 subsections:	sitemgr	en	Subsections:
+subtext for image %1	sitemgr	en	Subtext for image %1
 subtitle	sitemgr	en	Subtitle
 summary of one forum	sitemgr	en	Summary of one forum
 table of contents	sitemgr	en	Table of Contents
@@ -296,7 +299,6 @@ the config.inc.php file needs to be edited to point to the phpgroupware director
 the file to be downloaded	sitemgr	en	The file to be downloaded
 the filesystem path to your sitemgr-site directory '%1' is probably wrong. go to sitemgr --> define websites and edit/fix the concerned site.	sitemgr	en	The filesystem path to your sitemgr-site directory '%1' is probably wrong. Go to SiteMgr --> Define Websites and edit/fix the concerned Site.
 the first directory to think about is sitemgr-link.  if you move this to the parent directory of sitemgr (your phpgroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  if you don't want this icon, there's no reason to ever bother with the directory.	sitemgr	en	The first directory to think about is sitemgr-link.  If you move this to the parent directory of sitemgr (your phpgroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  If you don't want this icon, there's no reason to ever bother with the directory.
-the images' common name	sitemgr	en	the images' common name
 the name field cannot contain punctuation or spaces (field modified).	sitemgr	en	The Name field cannot contain punctuation or spaces (field modified).
 the page name must be unique.	sitemgr	en	The page name must be unique.
 the page was successfully saved.	sitemgr	en	The page was successfully saved.
@@ -360,7 +362,7 @@ translation manager	sitemgr	en	Translation Manager
 up to parent	sitemgr	en	Up to parent
 up to table of contents	sitemgr	en	Up to table of contents
 updating to new category system	sitemgr	en	Updating to new category system
-url pointing to the directory where the images are found (no trailing slash)	sitemgr	en	URL pointing to the directory where the images are found (no trailing slash)
+url pointing to the image-directory	sitemgr	en	URL pointing to the image-directory
 url to sitemgr-site	sitemgr	en	URL to sitemgr-site
 use phpnuke themes instead of templates	sitemgr	en	Use phpNuke themes instead of templates
 use this module for displaying book ads for the amazon web site	sitemgr	en	Use this module for displaying book ads for the amazon web site
