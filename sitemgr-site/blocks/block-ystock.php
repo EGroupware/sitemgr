@@ -1,5 +1,7 @@
 <?php
-
+/* blockconfig: <title>Stock Quotes</title> */
+/* blockconfig: <description>Display stock quotes from yahoo</description> */
+/* blockconfig: <view>0</view> (everybody) */
 /************************************************************************/
 /* PHP-NUKE: Web Portal System                                          */
 /* ===========================                                          */

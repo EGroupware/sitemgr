@@ -36,7 +36,8 @@
 							'lang_configure' => lang('Configure SiteMgr'),
 							'lang_check' => lang('check here after every upgrade'),
 							'lang_editheadfoot' => lang('Edit Site Header and Footer'),
-							'lang_managecat' => lang('Manage Categories')));
+							'lang_managecat' => lang('Manage Categories'),
+							'lang_manageblocks' => lang('Manage Blocks')));
 				$catbo = CreateObject('sitemgr.Categories_BO');
 				if ($catbo->needUpdateCategories())
 				{
@@ -73,6 +74,10 @@
 				$this->t->set_var('managecategory',
 					$GLOBALS['phpgw']->link('/index.php',
 					'menuaction=sitemgr.Admin_ManageCategories_UI._manageCategories')
+				);
+				$this->t->set_var('manageblocks',
+					$GLOBALS['phpgw']->link('/index.php',
+					'menuaction=sitemgr.ManageBlocks_UI._manageBlocks')
 				);
 				$this->t->set_var('headerandfooter',
 					$GLOBALS['phpgw']->link('/index.php',

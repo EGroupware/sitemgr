@@ -56,7 +56,10 @@
 				'side' => array('type' => 'int', 'precision' => 4),
 				'pos' => array('type' => 'int', 'precision' => 4),
 				'filename' => array('type' => 'varchar', 'precision' => 300),
-				'title' => array('type' => 'varchar', 'precision' => 256)
+				'title' => array('type' => 'varchar', 'precision' => 256),
+				'description' => array('type' => 'varchar', 'precision' => 256),
+				'view' => array('type' => 'int', 'precision' => 4),
+				'actif' => array('type' => 'int', 'precision' => 2)
 			),
 			'pk' => array('block_id'),
 			'fk' => array(),

@@ -1,5 +1,7 @@
 <?php
-
+/* blockconfig: <title>Sample block</title> */
+/* blockconfig: <description>This is just a sample</description> */
+/* blockconfig: <view>0</view> (everybody) */
 /************************************************************************/
 /* PHP-NUKE: Web Portal System                                          */
 /* ===========================                                          */

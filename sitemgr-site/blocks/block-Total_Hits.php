@@ -1,5 +1,7 @@
 <?php
-
+/* blockconfig: <title>total hits</title> */
+/* blockconfig: <description>???</description> */
+/* blockconfig: <view>0</view> (everybody) */
 ########################################################################
 # PHP-Nuke Block: Total Hits v0.1                                      #
 #                                                                      #

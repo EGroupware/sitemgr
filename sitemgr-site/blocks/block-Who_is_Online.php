@@ -1,5 +1,7 @@
 <?php
-
+/* blockconfig: <title>Who is online</title> */
+/* blockconfig: <description>???</description> */
+/* blockconfig: <view>1</view> (phpgw users) */
 ########################################################################
 # PHP-Nuke Block: Total Hits v0.1                                      #
 #                                                                      #

@@ -222,7 +222,7 @@
 		return $setup_info['sitemgr']['currentver'];	  
 	}	
 
-    $test[] = '0.9.14.004';
+	$test[] = '0.9.14.004';
 	function sitemgr_upgrade0_9_14_004()
 	{
 		global $setup_info,$phpgw_setup;
@@ -232,5 +232,20 @@
 		$phpgw_setup->oProc->RenameColumn('phpgw_sitemgr_blocks', 'position', 'pos');
 
 		return $setup_info['sitemgr']['currentver'];                             
-	}                                                                            
+	}
+
+	$test[] = '0.9.14.005';
+	function sitemgr_upgrade0_9_14_005()
+	{
+		global $setup_info,$phpgw_setup;
+		$setup_info['sitemgr']['currentver'] = '0.9.14.006';
+
+		$phpgw_setup->oProc->AddColumn('phpgw_sitemgr_blocks',
+			'description', array('type' => 'varchar', 'precision' => 256));
+		$phpgw_setup->oProc->AddColumn('phpgw_sitemgr_blocks',
+			'view', array('type' => 'int', 'precision' => 4));
+		$phpgw_setup->oProc->AddColumn('phpgw_sitemgr_blocks',
+			'actif', array('type' => 'int', 'precision' => 2));
+		return $setup_info['sitemgr']['currentver'];
+	}
 ?>

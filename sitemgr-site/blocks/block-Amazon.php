@@ -1,4 +1,7 @@
 <?php
+/* blockconfig: <title>Amazon</title> */
+/* blockconfig: <description>Use this block for shoping books</description> */
+/* blockconfig: <view>0</view> (everybody) */
 
 /************************************************************************/
 /* PHP-NUKE: Web Portal System                                          */

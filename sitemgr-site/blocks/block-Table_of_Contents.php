@@ -1,10 +1,12 @@
 <?php
+/* blockconfig: <title>Table of contents</title> */
+/* blockconfig: <description>This block displays the site's table of contents</description> */
+/* blockconfig: <view>0</view> (everybody) */
 if (eregi("block-Table_of_Contents.php",$PHP_SELF)) {
 	Header("Location: index.php");
 	die();
 }
 
-	$title = lang('Table of Contents');
 	$bo = new bo;
 	$indexarray = $bo->getCatLinks();
 	unset($bo);

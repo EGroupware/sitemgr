@@ -1,4 +1,7 @@
 <?php
+/* blockconfig: <title>Current Section</title> */
+/* blockconfig: <description>This block displays the current section</description> */
+/* blockconfig: <view>0</view> (everybody) */
 if (eregi("block-SiteIndex.php",$PHP_SELF)) {
 	Header("Location: index.php");
 	die();

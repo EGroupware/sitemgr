@@ -1,10 +1,12 @@
 <?php
+/* blockconfig: <title>Root Site Index</title> */
+/* blockconfig: <description>This block displays the root categories</description> */
+/* blockconfig: <view>0</view> (everybody) */
 if (eregi("block-SiteIndex.php",$PHP_SELF)) {
 	Header("Location: index.php");
 	die();
 }
 
-	$title = lang('Root Site Index');
 	$bo = new bo;
 	$indexarray = $bo->getIndex(false,true);
 	unset($bo);

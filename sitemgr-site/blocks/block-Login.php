@@ -1,5 +1,7 @@
 <?php
-
+/* blockconfig: <title>Login</title> */
+/* blockconfig: <description>This block displays a login form</description> */
+/* blockconfig: <view>3</view> (anonymous) */
 /************************************************************************/
 /* PHP-NUKE: Web Portal System                                          */
 /* ===========================                                          */
@@ -17,7 +19,6 @@ if (eregi("block-Login.php", $PHP_SELF)) {
     die();
 }
 
-$title = lang('Login');
 $boxstuff = '<form name="login" action="'.phpgw_link('/login.php').'" method="post">';
 $boxstuff .= '<input type="hidden" name="passwd_type" value="text">';
 $boxstuff .= '<input type="hidden" name="phpgw_forward" value="/sitemgr/">';

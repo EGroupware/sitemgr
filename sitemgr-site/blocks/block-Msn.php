@@ -1,4 +1,7 @@
 <?
+/* blockconfig: <title>Headlines</title> */
+/* blockconfig: <description>MSN</description> */
+/* blockconfig: <view>0</view> (everybody) */
  if (eregi("block-Msn.php",$PHP_SELF)) {
       Header("Location: index.php");
       die();

@@ -1,5 +1,7 @@
 <?php
-
+/* blockconfig: <title>Your Calendar</title> */
+/* blockconfig: <description>This block displays the current month</description> */
+/* blockconfig: <view>0</view> (everybody) */
 	global $sitemgr_info;
 
 	define(PHPGW_TEMPLATE_DIR,$sitemgr_info['phpgw_path'].'phpgwapi/templates/default');

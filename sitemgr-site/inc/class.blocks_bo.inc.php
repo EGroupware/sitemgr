@@ -17,10 +17,12 @@
 		
 		function blocks_bo()
 		{
-			global $blocks;
-			require_once($GLOBALS['sitemgr_info']['sitemgr-site_path'] . '/blockconfig.inc.php');
-			$this->b = $blocks;
+//			global $blocks;
+//			require_once($GLOBALS['sitemgr_info']['sitemgr-site_path'] . '/blockconfig.inc.php');
+//			$this->b = $blocks;
 			$this->bo = new bo;
+			$this->so = CreateObject('sitemgr.Blocks_SO');
+			$this->b = $this->so->getactiveblocks();
 		}
 
 		function block_allowed($block)
@@ -41,15 +43,15 @@
 
 		function get_blocktitle($block)
 		{
-			return $block['title'];
+			return lang($block['title']);
 		}
 
 		function get_blockcontent($block)
 		{
 			$content='';
-			if (file_exists('blocks/'.$block['blockfile']) && trim($block['blockfile']))
+			if (file_exists('blocks/'.$block['filename']) && trim($block['filename']))
 			{
-				include('blocks/'.$block['blockfile']);
+				include('blocks/'.$block['filename']);
 				if (!$content)
 				{
 					$content = lang('No content found');
@@ -73,7 +75,7 @@
 			//echo "</pre>";
 			foreach($this->b as $block)
 			{
-				if($block['position']==$side)
+				if($block['side']==$side)
 				{
 					if ($this->block_allowed($block))
 					{
@@ -91,7 +93,7 @@
 		{
 			foreach($this->b as $block)
 			{
-				if ($block['blockfile'] == 'block-'.$block_name.'.php')
+				if ($block['filename'] == 'block-'.$block_name.'.php')
 				{
 					return $block;
 				}

@@ -1,4 +1,7 @@
 <?php
+/* blockconfig: <title>Choose language</title> */
+/* blockconfig: <description>This block lets users of multilingual sites change language</description> */
+/* blockconfig: <view>0</view> (everybody) */
 
 if (eregi("block-Choose_lang.php", $PHP_SELF)) {
     Header("Location: index.php");
@@ -11,8 +14,6 @@ function getlangname($lang)
   $GLOBALS['phpgw']->db->next_record();
   return $GLOBALS['phpgw']->db->f('lang_name');
 }
-
-$title = lang('Choose langugage');
 
 if ($GLOBALS['sitemgr_info']['sitelanguages'])
 {

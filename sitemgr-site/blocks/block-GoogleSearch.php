@@ -1,5 +1,7 @@
 <?php
-
+/* blockconfig: <title>Google</title> */
+/* blockconfig: <description>Interface to Google website</description> */
+/* blockconfig: <view>0</view> (everybody) */
 /************************************************************************/
 /* PHP-NUKE: Web Portal System                                          */
 /* ===========================                                          */
@@ -17,7 +19,6 @@ if (eregi("block-GoogleSearch.php", $PHP_SELF)) {
     die();
 }
 
-$title = lang('Google Search');
 $content = '<form action="http://www.google.com/search" name=f>';
 $content .= '<img src="images/Google_25wht.gif" border="0" align="middle" hspace="0" vspace="0"><br>';
 $content .= '<center><input type=hidden name=hl value=en>';
