@@ -68,6 +68,7 @@ class module_sitetree extends Module
 
 	function get_content(&$arguments,$properties)
 	{
+print_r($this->block);
 		$title = '';
 		if ($arguments['menutree'])
 		{
@@ -84,13 +85,13 @@ class module_sitetree extends Module
 
 function add(catid)
 {
-	document.cookie = '".$this->block->app_name."[menutree][' + catid + ']=';
+	document.cookie = '".$this->block->module_name."[menutree][' + catid + ']=';
 }
 
 function remove(catid)
 {
 	var now = new Date();
-	document.cookie = '".$this->block->app_name."[menutree][' + catid + ']=; expires=' + now.toGMTString();
+	document.cookie = '".$this->block->module_name."[menutree][' + catid + ']=; expires=' + now.toGMTString();
 }
 
 function toggle(image, catid)

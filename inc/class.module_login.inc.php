@@ -4,10 +4,15 @@ class module_login extends Module
 {
 	function module_login()
 	{
-		$this->arguments = array();
+		$this->arguments = array(
+			'registration' => array(
+				'type' => 'checkbox',
+				'label' => 'Display link to autoregistration below login form?'
+			)
+		);
 		$this->properties = array();
 		$this->title = "Login";
-		$this->description = "This block displays a login form";
+		$this->description = "This module displays a login form";
 	}
 
 	function get_content(&$arguments,$properties)
@@ -21,10 +26,12 @@ class module_login extends Module
 		$content .= '<input name="passwd" size="8" type="password"><br>';
 		$content .= '<input type="submit" value="' . lang('Login') .'" name="submitit">';
 		$content .= '</font></center></form>';
-		$content .= '<center><font class="content">' . lang("Don't have an account?") .'  ';
-		$content .= '<a href="'.phpgw_link('/registration/index.php').'">';
-		$content .= lang('Register for one now.') . '</a></font></center>';
-
+		if ($arguments['registration'])
+		{
+			$content .= '<center><font class="content">' . lang("Don't have an account?") .'  ';
+			$content .= '<a href="'.phpgw_link('/registration/index.php').'">';
+			$content .= lang('Register for one now.') . '</a></font></center>';
+		}
 		return $content;
 	}
 }
