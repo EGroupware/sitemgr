@@ -109,6 +109,7 @@
 					$content .= '<table>'."\n";
 					foreach ($this->themes as $name => $info)
 					{
+//if ($name == 'realss' || $name == 'peeklime') echo "$name=<pre>".print_r($info,true)."</pre>\n";
 						if ($arguments['only_allowed'] && !in_array($name,$arguments['allowed']))
 						{
 							continue;
@@ -116,15 +117,14 @@
 						if ($further) $content .= '<tr><td colspan="2"><hr style="width: 30%" /></td></tr>'."\n";
 						$further = True;
 
-						if ($info['thumbnail'])
+						$info['thumbnail'] = $info['thumbnail'] ?  '<img src="'.$info['thumbnail'].'" border="0" hspace="5"/>' :
+							'<div style="text-align:center; font-weight:bold; border:2px ridge black; background-color:white; padding-top:60px; padding-bottom:60px; width:200px;">'.lang('No thumbnail availible').'</div>';
+						if ($show & 1)	// chooser
 						{
-							$info['thumbnail'] = '<img src="'.$info['thumbnail'].'" border="0" hspace="5"/>';
-							if ($show & 1)	// chooser
-							{
-								$info['thumbnail'] = '<a href="'.sitemgr_link(array('themesel'=>$name)+$_GET).'" title="'.
-									lang('View template on this site').'">'.$info['thumbnail'].'</a>';
-							}
+							$info['thumbnail'] = '<a href="'.sitemgr_link(array('themesel'=>$name)+$_GET).'" title="'.
+								lang('View template on this site').'">'.$info['thumbnail'].'</a>';
 						}
+
 						if ($show & 4)	// download
 						{
 							$info['copyright'] .= '<p style="font-size: 10pt;"><a href="'.
