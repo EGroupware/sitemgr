@@ -3,6 +3,7 @@
 '%1' is no valid sitemgr-site directory !!!	sitemgr	es-es	!!!'%1' no es un directorio válido para sitemgr-site!!!
 (do not put spaces or punctuation in the name field.)	sitemgr	es-es	(No ponga espacios ni signos de puntuación en el campo Nombre)
 <b>want more templates?</b><br />just download a %1mambo open source%2 version 4.5 compatible template from %3 and unpack it in your templates directory (%4).	sitemgr	es-es	<b>¿Quiere más plantillas?</b><br />Simplmente descargue una plantilla compatible con %1Mambo Open Source%2 4.5 de %3 y descomprímala en su directorio de plantillas (%4).
+<b>want more templates?</b><br />just download one from the template gallery at %1www.egroupware.org%2 or use a %3mambo open source%4 version 4.5 compatible template eg. from %5. unpack the downloaded template in your templates directory (%6).	sitemgr	es-es	<b>¿Quiere más plantillas?</b><br />Simplemente descargue una de la galería de plantillas de %1www.eGroupWare.org%2 o use una plantilla compatible con versión 4.5 de %3Mambo Open Source%4 de %5. Descomprima la plantilla en su directorio de plantillas (%6).
 a simple picture galery	sitemgr	es-es	Una galería simple de imágenes
 actif	sitemgr	es-es	Actif
 add a category	sitemgr	es-es	Añadir una categoría
