@@ -1,4 +1,16 @@
 <?php
+	/**************************************************************************\
+	* eGroupWare SiteMgr - Web Content Management                              *
+	* http://www.egroupware.org                                                *
+	* Copywrite (c) 2004 by RalfBecker@outdoor-training.de                     *
+	* --------------------------------------------                             *
+	*  This program is free software; you can redistribute it and/or modify it *
+	*  under the terms of the GNU General Public License as published by the   *
+	*  Free Software Foundation; either version 2 of the License, or (at your  *
+	*  option) any later version.                                              *
+	\**************************************************************************/
+
+	/* $Id$ */
 	$oProc->query("INSERT INTO phpgw_categories (cat_parent,cat_owner,cat_access,cat_appname,cat_name,cat_description,last_mod) VALUES (0,-1,'public','sitemgr','Default Website','This website has been added by setup',0)");
 	$site_id = $oProc->m_odb->get_last_insert_id('phpgw_categories','cat_id');
 	$oProc->query("UPDATE phpgw_categories SET cat_main = $site_id WHERE cat_id = $site_id",__LINE__,__FILE__);

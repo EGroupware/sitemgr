@@ -1,10 +1,22 @@
 <?php
-/*******************************************************\
-* This file is for global functions needed by the       *
-* sitemgr-site program.  This includes:                 *
-*    - phpgw_link($url, $extravars)                     *
-*    - sitemgr_link2($url, $extravars)                  *
-\*******************************************************/
+	/**************************************************************************\
+	* eGroupWare SiteMgr - Web Content Management                              *
+	* http://www.egroupware.org                                                *
+	* --------------------------------------------                             *
+	*  This program is free software; you can redistribute it and/or modify it *
+	*  under the terms of the GNU General Public License as published by the   *
+	*  Free Software Foundation; either version 2 of the License, or (at your  *
+	*  option) any later version.                                              *
+	\**************************************************************************/
+
+	/* $Id$ */
+
+	/*******************************************************\
+	* This file is for global functions needed by the       *
+	* sitemgr-site program.  This includes:                 *
+	*    - phpgw_link($url, $extravars)                     *
+	*    - sitemgr_link2($url, $extravars)                  *
+	\*******************************************************/
 
 	function phpgw_link($url, $extravars = '')
 	{

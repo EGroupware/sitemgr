@@ -1,13 +1,16 @@
 <?php
-	/*******************************************************************\
-	* phpGroupWare API - XML tools                                      *
+	/********************************************************************\
+	* eGroupWare SiteMgr - Web Content Management                       *
+	* http://www.egroupware.org                                         *
+	* --------------------------------------------                      *
+	* eGroupWare API - XML tools                                        *
 	* Written by Dan Kuykendall <seek3r@phpgroupware.org>               *
 	* and Bettina Gille [ceb@phpgroupware.org]                          *
 	* and Ralf Becker <ralfbecker@outdoortraining.de>                   *
 	* Michael Totschnig: changed function export_var, so that 
 	* Copyright (C) 2002 Dan Kuykendall, Bettina Gille, Ralf Becker     *
 	* ----------------------------------------------------------------- *
-	* This library is part of the phpGroupWare API                      *
+	* This library is part of the eGroupWare API                        *
 	* ----------------------------------------------------------------- *
 	* This library is free software; you can redistribute it and/or     *
 	* modify it under the terms of the GNU General Public License as    *
@@ -23,7 +26,8 @@
 	* along with this program; if not, write to the Free Software       *
 	* Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.         *
 	\*******************************************************************/
-  /* $Id$ */
+
+	/* $Id$ */
 
 	// Michael Totschnig: this is a variant of xmltool where export_var returns subelements
 	// in a subarray, even if there is only one of them

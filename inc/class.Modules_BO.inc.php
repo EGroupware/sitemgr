@@ -1,6 +1,17 @@
 <?php
+	/**************************************************************************\
+	* eGroupWare SiteMgr - Web Content Management                              *
+	* http://www.egroupware.org                                                *
+	* --------------------------------------------                             *
+	*  This program is free software; you can redistribute it and/or modify it *
+	*  under the terms of the GNU General Public License as published by the   *
+	*  Free Software Foundation; either version 2 of the License, or (at your  *
+	*  option) any later version.                                              *
+	\**************************************************************************/
 
-require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.module.inc.php');
+	/* $Id$ */
+
+	require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.module.inc.php');
 
 	class Modules_BO
 	{
