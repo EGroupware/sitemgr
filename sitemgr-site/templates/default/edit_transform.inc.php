@@ -65,7 +65,7 @@ class edit_transform
 
 		if ($permittedmodules)
 		{
-			$frame .= ' <select onchange="if (this.value > 0) window.open(\''.$GLOBALS['phpgw']->link('/index.php',$link_data).'&area='.$contentarea.'&add_block=\'+this.value,\'editwindow\',\'width=800,height=600,scrollbars=yes\')">' .
+			$frame .= ' <select onchange="if (this.value > 0) window.open(\''.$GLOBALS['phpgw']->link('/index.php',$link_data).'&area='.$contentarea.'&add_block=\'+this.value,\'editwindow\',\'width=800,height=600,scrollbars=yes,resizable=yes\')">' .
 				'<option value="0">'.lang('Add block ...').'</option>'.
 				$this->content_ui->inputmoduleselect($permittedmodules) .
 				'</select>';

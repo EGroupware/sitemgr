@@ -307,15 +307,15 @@
 				}
 				unset($data['adminonly']);
 			}
-			$confirm = '';
+			$onclick = $open = "if (this != '') { window.open(this,this.target,'width=800,height=600,scrollbars=yes,resizable=yes'); return false; } else { return true; }";
 			if ($data['confirm'])
 			{
-				$confirm = ' onclick="return confirm(\''.$data['confirm'].'\');"';
+				$onclick = "if (confirm('".addslashes($data['confirm'])."')) { $open } else { return false; }";
 				unset($data['confirm']);
 			}
 			$content .= $GLOBALS['phpgw']->html->a_href(
 				$GLOBALS['phpgw']->html->image('sitemgr',$name,$label,'border="0"'),
-				$link_data+$data,False,'target="editwindow"'.$confirm);
+				$link_data+$data,False,'target="editwindow" onclick="'.$onclick.'"');
 		}
 		return $content;
 	}
