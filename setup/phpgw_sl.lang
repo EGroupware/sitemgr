@@ -70,7 +70,9 @@ choose a guestbook	sitemgr	sl	Izberite knjigo gostov
 choose language	sitemgr	sl	Izberite jezik
 choose template	sitemgr	sl	Izberite predlogo
 choose the categories to display	sitemgr	sl	Izberite kategorijo za prikaz
+choose the valid html type (note: not all icons are available):	sitemgr	sl	Izberite HTML standard, ki se ga bo preverjalo:
 choose your site's theme or template.  note that if you changed the above checkbox you need to save before choosing a theme or template.	sitemgr	sl	Izberite predlogo ali stil vaše strani. Upoštevajte, da če spremenite zgornje potrditveno polje, je potrebno shraniti pred izbiro predloge ali stila.
+click here to login through a safe connection.	sitemgr	sl	Kliknite tu za prijavo preko varne povezave.
 collapse threads	sitemgr	sl	Skrij pogovorne niti
 commit changes	sitemgr	sl	Objavi spremembe
 common prefix of the image-name (a number starting with 1 will be appended)	sitemgr	sl	predpona imena za sliko (število, začenši z 1 bo dodano)
@@ -130,6 +132,7 @@ enter the page content here	sitemgr	sl	Vnesite vsebino strani tukaj
 enterprise knowledge articles repository	sitemgr	sl	Zbirka člankov skupnih znanj
 error accessing page	common	sl	Napaka pri dostopu do strani
 everybody	sitemgr	sl	vsi
+file	sitemgr	sl	Datoteka
 file %1 is not readable by the webserver !!!	sitemgr	sl	Datoteka %1 ni berljiva z internetnim strežnikom.
 file %1 is outside the docroot of the webserver !!!<br>this module does not allow - for security reasons - to open files outside the docroot.	sitemgr	sl	Datoteka %1 je izven korenske mape strežnika.<br>Ta modul zaradi varnostnih razlogov ne dopušča odpiranja datotek zunaj korenske mape.
 file contents	sitemgr	sl	Vsebina datoteke
@@ -138,6 +141,7 @@ filesystem path of the directory where xml files are stored	sitemgr	sl	Mapa dato
 filesystem path of the image-directory	sitemgr	sl	Pot do mape s slikami slik
 filesystem path to sitemgr-site directory	sitemgr	sl	Pot do mape z datotekami spletišča
 fill in permissions from parent category? if you check this, below values will be ignored	sitemgr	sl	Upoštevam pravice nadrejene kategorije? Če uporabite to možnost, bodo spodnje vrednosti ignorirane.
+first line	sitemgr	sl	Prva vrstica
 following new modules registed: %1	sitemgr	sl	Sledim novim registriranim modulom: %1
 footer editor	sitemgr	sl	Urejevalnik noge
 forum	sitemgr	sl	Forum
@@ -158,8 +162,10 @@ header editor	sitemgr	sl	Urejevalnik glave
 headlines	sitemgr	sl	Naslovi
 hello	sitemgr	sl	Živjo
 hello world	sitemgr	sl	Pozdrav, svet
+helps you respect html/xhtml standards.	sitemgr	sl	Pomaga pri spoštovanju HTML/XHTML standardov
 html module	sitemgr	sl	HTML modul
 i'm sorry, you do not have write permissions for any site categories.	sitemgr	sl	Na žalost nimate pravic za pisanje za katerokoli kategorijo strani.
+if nonsecure redirect to:	sitemgr	sl	Če povezava ni varna, preusmeri:
 if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	sl	Če še niste naredili, ustvarite uporabnika, ki bo uporabljan za javni pregled tega spletišča. Priporočeno ime: anonimno
 image type	sitemgr	sl	tip slike
 implies read permission	sitemgr	sl	vštej pravice za branje
@@ -171,6 +177,7 @@ invalid template directory '%1' !!!	sitemgr	sl	Nepravilna mapa s predlogami %1 !
 knowledge base	sitemgr	sl	Baza znanja
 languages the site user can choose from	sitemgr	sl	Jeziki, ki jih lahko izbira uporabnik strani
 last entries to the guestbook	sitemgr	sl	Zadnji vnosi v knjigo gostov
+last line	sitemgr	sl	Zadnja vrstica
 latest reply	sitemgr	sl	Zadnji odgovor
 list of permitted modules specific to content area %1	sitemgr	sl	Seznam dovoljenih modulov, značilnih za območje vsebin %1
 login	sitemgr	sl	Prijava
@@ -288,6 +295,7 @@ selected theme %1 does not exist.	sitemgr	sl	Izbrana tema %1 ne obstaja.
 should the file be viewed in the browser or downloaded	sitemgr	sl	Naj se datoteka pokaže v brskalniku ali prenese?
 show a template-gallery (thumbnail and informations)	sitemgr	sl	Prikaži galerijo predlog (predogled in informacije)
 show details for the applications	sitemgr	sl	Prikaži podrobnosti za programe
+show link to file	sitemgr	sl	Pokaži povezavo do datoteke
 show only (in the next field) selected templates	sitemgr	sl	Prikaži le (v naslednjem polju) izbrane predloge
 show searchbox	sitemgr	sl	Prikaži polje za iskanje
 show site index	sitemgr	sl	Prikaži kazalo strani
@@ -365,6 +373,7 @@ this is used chiefly for meta data. if you change the site languages below you h
 this module create a link for downloading a file from the vfs	sitemgr	sl	Ta modul ustvari povezavo za prenos datotek z VFS
 this module demonstrates how handling data stored in xml and building an interacvite interface from it	sitemgr	sl	Ta modul prikaže kako upravljati s podatki, shranjenimi v XML in kako ustvariti interaktivni vmesnik iz njega
 this module displays a login form	sitemgr	sl	Ta modul prikaže obrazec za prijavo
+this module displays a source code file as an tt-styled block with line numbers.	sitemgr	sl	Modul prikaže izvorno kodo kot blok TT-oblikovanega besedila s številkami vrstic.
 this module displays bookmarks in a javascript based tree	sitemgr	sl	Ta modul prikaže zaznamke v drevesu
 this module displays the current month	sitemgr	sl	Ta modul prikaže trenutni mesec
 this module displays the egw forums on the web site	sitemgr	sl	Ta modul na spletišču prikaže eGroupWare forume.
@@ -403,6 +412,7 @@ use phpnuke themes instead of templates	sitemgr	sl	Uporabi phpNuke teme namesto 
 use this module for displaying book ads for the amazon web site	sitemgr	sl	Uporabi ta modul za prikaz oglasov za amazon spletno stran
 use this module for displaying wiki-pages	sitemgr	sl	Uporabi ta modul za prikaz wiki-strani
 user name	sitemgr	sl	Uporabniško ime
+validator	sitemgr	sl	Preverjalnik
 view administrative menu	sitemgr	sl	Pokaži administrativni meni
 view full index	sitemgr	sl	Pokaži kazalo
 view generated site	sitemgr	sl	Poglej ustvarjeno stran
@@ -443,4 +453,5 @@ you removed one ore more languages from your site languages.	sitemgr	sl	Odstrani
 your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr	sl	Vaš administrator še ni namestil upravljalca spletnih vsebin za javni pogled. Pejte najedat administratorju, da naj prestavi svojo rit.
 your calendar	sitemgr	sl	Vaš koledar
 your comment	sitemgr	sl	Vaš komentar
+your connection is not safe.	sitemgr	sl	Vaša spletna povezava ni varna.
 your name	sitemgr	sl	Vaše ime
