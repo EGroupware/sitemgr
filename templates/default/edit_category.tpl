@@ -88,6 +88,7 @@
 		<td colspan="2" align="center">
 			<input type="submit" name="btnSave" value="{lang_save}" /> {savelang}
 			<input type="submit" name="btnApply" value="{lang_apply}" /> &nbsp;
+			<input type="submit" name="btnReload" value="{lang_reload}" /> &nbsp;
 			<input type="submit" name="btnDelete" value="{lang_delete}" onClick="return confirm('{lang_confirm}');" /> &nbsp;
 			<input type="reset" value="{lang_cancel}" onClick="self.close();" />
 		</td>

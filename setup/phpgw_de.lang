@@ -8,6 +8,7 @@ a simple picture galery	sitemgr	de	Eine einfache Bilder Gallerie
 actif	sitemgr	de	Aktiv
 add a category	sitemgr	de	Kategorie hinzufügen
 add a new application	sitemgr	de	Eine neue Applikation hinzufügen
+add a new guestbook	sitemgr	de	Ein neues Gästebuch hinzufügen
 add block ...	sitemgr	de	Block zufügen ...
 add block to content area %1	sitemgr	de	Block zu Inhaltsbereich %1 zufügen
 add category	sitemgr	de	Kategorie hinzufügen
@@ -30,9 +31,11 @@ anonymous user's password	sitemgr	de	Anonymer Benutzer Password
 anonymous user's username	sitemgr	de	Anonymer Benutzer Username
 application	sitemgr	de	Anwendung
 application '%1' is not installed !!!<br>please install it, to be able to use the block.	sitemgr	de	Anwendung '%1' ist nicht installiert !!!<br>Bitte instalieren, um diesen Block verwenden zu könnnen.
+application sitemgr_module_guestbook must be installed as a egroupware application for this module to run	sitemgr	de	Die Anwendung sitemgr_module_guestbook muss als eGroupWare Anwendung installiert werden, um dieses Module zu nutzen.
 apply permissions also to subcategories?	sitemgr	de	Zugriffsrechte auch auf Unterkategorien anwenden?
 archived	sitemgr	de	Archiviert
 archived content	sitemgr	de	Archivierter Inhalt
+are contributors allowed to define new guestbooks?	sitemgr	de	Dürfen Bearbeiter neue Gästebücher anlegen?
 are you sure you want to delete site %1 and all its content? you cannot retrieve it if you continue.	sitemgr	de	Sind Sie sicher das Sie Website %1 und den kompletten Inhalt löschen möchten? Ein Wiederherstellen ist nicht möglich, wenn Sie fortfahren.
 are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	de	Sind sie sicher das Sie die Kategorie %1 und alle dazugehörigen Seiten löschen möchten?  Diese Seiten werden hiermit endgültig gelöscht.
 as	common	de	als
@@ -46,6 +49,7 @@ basic settings	sitemgr	de	Basis Einstellungen
 before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr	de	Bevor die öffentliche Website angeschaut werden kann, sind verschiedenen Orte und Einstellungen vorzunehmen. Bitte gehen Sie zur SiteMgr Setup Seite über diesen Link:
 block not found	sitemgr-site	de	Block nicht gefunden
 block not found.	sitemgr	de	Block nicht gefunden.
+block reloaded	sitemgr	de	Block nachgeladen
 block returned no content.	sitemgr	de	Dieser Block hat keinen Inhalt.
 block saved	sitemgr	de	Block gespeichert
 bookmarks	sitemgr	de	Lesezeichen
@@ -63,6 +67,7 @@ changes saved.	sitemgr	de	Änderungen gespeichert.
 check here after every upgrade	sitemgr	de	Nach jedem upgrade bitte nochmals hier überprüfen
 check to hide from condensed site index.	sitemgr	de	Hier auswählen um eine Seite im Inhaltsverzeichnis nicht anzuzeigen.
 choose a category	sitemgr	de	Wählen Sie eine Kategorie
+choose a guestbook	sitemgr	de	Wählen Sie ein Gästebuch
 choose language	sitemgr	de	Sprachauswahl
 choose template	sitemgr	de	Designvorlage auswählen
 choose the categories to display	sitemgr	de	Wählen Sie die anzuzeigende Kategorie aus
@@ -91,6 +96,7 @@ delete category	sitemgr	de	Kategorie löschen
 delete page	sitemgr	de	Seite löschen
 delete this application	sitemgr	de	Diese Applikation löschen
 delete this block	sitemgr	de	Diesen Block löschen
+delete this guestbook	sitemgr	de	Diese Gästebuch löschen
 delete version	sitemgr	de	Version löschen
 deleting all data for %1	sitemgr	de	Alle Daten für %1 werden gelöscht
 details for language %1 (%2)	sitemgr	de	Details für die Sprache %1 (%2)
@@ -165,6 +171,7 @@ interface to google website	sitemgr	de	Schnittstelle zur Google Webseite
 invalid template directory '%1' !!!	sitemgr	de	Ungültiges Designvorlagen-Verzeichnis '%1' !!!
 knowledge base	sitemgr	de	Wissensdatenbank
 languages the site user can choose from	sitemgr	de	Sprachen, die der Benutzer auswählen kann
+last entries to the guestbook	sitemgr	de	Letzten Einträge im Gästebuch
 latest reply	sitemgr	de	Letzte Antwort
 list of permitted modules specific to content area %1	sitemgr	de	Liste der erlaubten Module speziell für den Inhaltsbereich %1
 login	sitemgr	de	Login
@@ -196,6 +203,7 @@ move to	sitemgr	de	Verschieben nach
 name	sitemgr	de	Name
 name has been translated to lower case	sitemgr	de	Der Name wurde in Kleinbuchstaben umgewandelt
 new application	sitemgr	de	Neue Applikation
+new guestbook	sitemgr	de	Neues Gästebuch
 new sitemgr site	sitemgr	de	Neue SiteMgr Website
 news module	sitemgr	de	Nachrichten Modul
 no anonymous user accounts installed.  notify the administrator.	sitemgr	de	KEINE ANONYME BENUTZERKENNUNG INSTALLIERT. BENACHRICHTIGEN SIE DEN ADMINISTRATOR.
@@ -220,6 +228,7 @@ not yet translated	sitemgr	de	noch nicht übersetzt
 note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	de	Sie können diese Nachricht auch erhalten, wenn Ihre Einstellungen nicht richtig sind. Zum Beispiel wenn config.inc.php nicht im angegebenen Verzeichnis gefunden wurde.
 number of news items to be displayed on page	sitemgr	de	Anzahl Nachrichten die auf einer Seite angezeigt werden
 only gallery	sitemgr	de	Nur Galerie
+or enter the title for a new guestbook	sitemgr	de	oder geben Sie einen Title für das neue Gästebuch ein
 other websites	sitemgr	de	Andere Websites
 overview of all available categories	sitemgr	de	Überblick über alle verfügbaren Kategorien
 overview of one specific category	sitemgr	de	Überblick über eine spezielle Kategorie
@@ -244,6 +253,7 @@ percentage	sitemgr	de	Prozente
 phpgw users	sitemgr	de	eGroupWare Benutzer
 phrases in total	sitemgr	de	Phrasen insgesammt
 please enter a name for that site !	sitemgr	de	Bitte geben sie einen Namen für die Website an !
+please sign the guestbook	sitemgr	de	Bitte tragen Sie sich im Gästebuch ein
 post a message to this thread	sitemgr	de	Eine Nachricht in diesem Thread posten.
 prepublished	sitemgr	de	zu veröffentlichen
 preunpublished	sitemgr	de	zu archivieren
@@ -256,6 +266,7 @@ redirection	sitemgr	de	Umlenkung
 refresh	sitemgr	de	Aktualisieren
 register for one now.	sitemgr	de	Hier können Sie sich registrieren.
 register new modules	sitemgr	de	Neue Module registrieren
+reload	sitemgr	de	Nachladen
 replies	sitemgr	de	Antworten
 required fields	sitemgr	de	Benötigte Felder
 reset	sitemgr	de	Zurücksetzen
@@ -430,3 +441,5 @@ you must be an administrator to setup the site manager.	sitemgr	de	Sie müssen ad
 you removed one ore more languages from your site languages.	sitemgr	de	Sie haben eine oder mehrere Sprachen von der Seite entfernt.
 your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr	de	Ihr Administrator hat das Kontentmanagementsystem noch nicht für die freie Betrachtung von aussen konfiguriert. Kontaktieren Sie bitte den Administrator.
 your calendar	sitemgr	de	Ihr Kalendar
+your comment	sitemgr	de	Ihr Kommentar
+your name	sitemgr	de	Ihr Name

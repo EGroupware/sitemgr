@@ -2,14 +2,7 @@
 <div id="divMain">
 <!-- BEGIN form -->
 <form method ="POST" action="{action_url}">
-<input type="hidden" name="inputpageid" value="{page_id}">
 <table align='center' border ="0" width="80%" cellpadding="5" cellspacing="0">
-	<tr>
-		<td colspan='2' align='center'><font size='4'><b>{add_edit}</b></font></td>
-	</tr>
-	<tr>
-		<td colspan='2' align='center'><font size='2' color='#ff0000'><b>{message}</b></font></td>
-	</tr>
 	<tr>
 		<td><b>{lang_name}: <font size='2' color='#ff0000'>*</font></b></td>
 		<td><input size="40" type="text" name="inputname" id="name" value="{name}"></td>
@@ -45,6 +38,7 @@
 		<td colspan="2" align="center">
 			<input type="submit" name="btnSave" value="{lang_save}" /> {savelang}
 			<input type="submit" name="btnApply" value="{lang_apply}" /> &nbsp;
+			<input type="submit" name="btnReload" value="{lang_reload}" /> &nbsp;
 			<input type="submit" name="btnDelete" value="{lang_delete}" onClick="return confirm('{lang_confirm}');" /> &nbsp;
 			<input type="reset" value="{lang_cancel}" onClick="self.close();" />
 		</td>

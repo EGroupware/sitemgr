@@ -23,6 +23,7 @@
 <input type="hidden" value="{blockid}" name="inputblockid" />
 <input type="submit" value="{lang_save}" name="btnSaveBlock" /> {savelang}
 {apply_button} &nbsp;
+<input type="submit" value="{lang_reload}" name="btnReloadBlock" /> 
 <input type="submit" value="{lang_delete}" name="btnDeleteBlock" onClick="return confirm('{lang_confirm}');" /> &nbsp;
 <input type="submit" value="{lang_createversion}" name="btnCreateVersion" /> &nbsp;
 {cancel_button}
