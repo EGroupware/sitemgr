@@ -51,7 +51,7 @@ class module_amazon extends Module
 		//echo "<p>module_amazon('$arguments[asins]') = ".print_r($asins,True)."</p>";
 
 		mt_srand((double)microtime()*1000000);
-		$asin = $asins[mt_rand(0, count($asins)-1)];
+		$asin = count($asins) > 1 ? $asins[mt_rand(0, count($asins)-1)] : $asins[0];
 		list($asin,$title) = explode('=',$asin);
 
 		$amazon_id = $arguments['amazon_id'] ? $arguments['amazon_id'] : "egroupware-21";
