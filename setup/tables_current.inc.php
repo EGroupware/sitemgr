@@ -17,6 +17,7 @@
 				'page_id' => array('type' => 'auto', 'nullable' => false),
 				'cat_id' => array('type' => 'int', 'precision' => 4),
 				'sort_order' => array('type' => 'int', 'precision' => 4),
+				'hide_page' => array('type' => 'int', 'precision' => 4),
 				'name' => array('type' => 'varchar', 'precision' => 100),
 				'title' => array('type' => 'varchar', 'precision' => 256),
 				'subtitle' => array('type' => 'varchar', 'precision' => 256),
@@ -31,6 +32,7 @@
 			'fd' => array(
 				'cat_id' => array('type' => 'auto', 'nullable' => false),
 				'sort_order' => array('type' => 'int', 'precision' => 4),
+				'parent' => array('type' => 'int', 'precision' => 4),
 				'name' => array('type' => 'varchar', 'precision' => 100),
 				'description' => array('type' => 'varchar', 'precision' => 256)
 			),

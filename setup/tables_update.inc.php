@@ -24,4 +24,17 @@
 
 		return $setup_info['sitemgr']['currentver'];
 	}
+	$test[] = '0.9.14.001';
+	function sitemgr_upgrade0_9_14_001()
+	{
+		global $setup_info,$phpgw_setup;
+		$setup_info['sitemgr']['currentver'] = '0.9.14.002';
+
+		$phpgw_setup->oProc->AddColumn('phpgw_sitemgr_pages',
+			'hide_page',array('type'=>int, 'precision'=>4));
+		$phpgw_setup->oProc->AddColumn('phpgw_sitemgr_categories',
+			'parent',array('type'=>int, 'precision'=>4));
+
+		return $setup_info['sitemgr']['currentver'];
+	}
 ?>
