@@ -382,4 +382,28 @@
 
 		return $setup_info['sitemgr']['currentver'];                             
 	}
+
+	$test[] = '0.9.15.002';
+	function sitemgr_upgrade0_9_15_002()
+	{
+		global $setup_info,$phpgw_setup;
+		$setup_info['sitemgr']['currentver'] = '0.9.15.003';
+
+		$newtbldef = array(
+			'fd' => array(
+				'module_id' => array('type' => 'auto', 'precision' => 4, 'nullable' => false),
+				'module_name' => array('type' => 'varchar', 'precision' => 25),
+				'description' => array('type' => 'varchar', 'precision' => 255)
+			),
+			'pk' => array('module_id'),
+			'fk' => array(),
+			'ix' => array(),
+			'uc' => array()
+		);
+
+		$phpgw_setup->oProc->DropColumn('phpgw_sitemgr_modules',$newtbldef,'app_name');
+
+		return $setup_info['sitemgr']['currentver'];                             
+	}
+
 ?>

@@ -89,9 +89,9 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 				array($this,'process_blocks'),
 				$this->template);
 			$this->permitted_modules = array_keys($this->modulebo->getcascadingmodulepermissions('__PAGE__',$page->cat_id));
-			//process module calls hardcoded into template of form {appname.modulename?arguments}
+			//process module calls hardcoded into template of form {modulename?arguments}
 			$str = preg_replace_callback(
-				"/\{([[:alnum:]_-]*)\.([[:alnum:]_-]*)(\?([^{ ]+))?\}/",
+				"/\{([[:alnum:]_-]*)\?([^{ ]+)?\}/",
 				array($this,'exec_module'),
 				$str);
 			//{?page_id=4} is a shortcut for calling the link functions
@@ -158,7 +158,7 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 							//have to create them anew. Since they are copied, before the transformer
 							//is added, we do not have to worry about transformers staying around 
 							//on the transformer chain
-							$moduleobject = $this->getmodule($block->app_name,$block->module_name);
+							$moduleobject = $this->getmodule($block->module_name);
 							$moduleobject->set_block($block,True);
 							if (isset($transformer))
 							{
@@ -166,7 +166,6 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 							}
 
 							$output = $moduleobject->get_output();
-
 							//process module calls embedded into output
 							$content .= preg_replace_callback(
 								"/\{([[:alnum:]_-]*)\.([[:alnum:]_-]*)(\?([^{ ]+))?\}/",
@@ -175,7 +174,7 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 						}
 						else
 						{
-							$content .= lang('Module %1 is not permitted in this context!',$block->app_name . '.' . $block->module_name);
+							$content .= lang('Module %1 is not permitted in this context!',$block->module_name);
 						}
 					}
 				}
@@ -186,11 +185,11 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 		function exec_module($vars)
 		{
 			global $page;
-			list(,$appname,$modulename,,$query)= $vars;
-			$moduleid = $this->modulebo->getmoduleid($appname,$modulename);
+			list(,$modulename,$query)= $vars;
+			$moduleid = $this->modulebo->getmoduleid($modulename);
 			if (in_array($moduleid,$this->permitted_modules))
 			{
-				$moduleobject = $this->getmodule($appname,$modulename);
+				$moduleobject = $this->getmodule($modulename);
 				if ($moduleobject)
 				{
 					parse_str($query,$arguments);
@@ -199,7 +198,6 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 					$block->module_id = 0;
 					$block->area = '__PAGE__';
 					$block->cat_id = $page->cat_id;
-					$block->app_name = $appname;
 					$block->module_name = $modulename;
 					$block->arguments = $arguments;
 					$moduleobject->set_block($block,True);
@@ -208,7 +206,7 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 			}
 			else
 			{
-				return lang('Module %1 is not permitted in this context!',$appname . '.' . $modulename);
+				return lang('Module %1 is not permitted in this context!',$modulename);
 			}
 		}
 
@@ -266,17 +264,16 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 			}
 		}
 
-		function getmodule($appname,$modulename)
+		function getmodule($modulename)
 		{
-			$module = $appname . '.' . $modulename;
-			if (!in_array($module,array_keys($this->modules)))
+			if (!in_array($modulename,array_keys($this->modules)))
 			{
-				$moduleobject = $this->modulebo->createmodule($appname,$modulename);
-				$this->modules[$module] = $moduleobject;
+				$moduleobject = $this->modulebo->createmodule($modulename);
+				$this->modules[$modulename] = $moduleobject;
 			}
 			else
 			{
-				$moduleobject = $this->modules[$module];
+				$moduleobject = $this->modules[$modulename];
 			}
 			return $moduleobject;
 		}

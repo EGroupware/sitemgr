@@ -40,7 +40,7 @@
 
 		function getblocksforscope($cat_id,$page_id)
 		{
-			$sql = "SELECT t1.block_id,t1.module_id,app_name,module_name,area FROM phpgw_sitemgr_content AS t1,phpgw_sitemgr_modules AS t2 WHERE t1.module_id = t2.module_id AND cat_id = $cat_id AND page_id = $page_id ORDER by sort_order";
+			$sql = "SELECT t1.block_id,t1.module_id,module_name,area FROM phpgw_sitemgr_content AS t1,phpgw_sitemgr_modules AS t2 WHERE t1.module_id = t2.module_id AND cat_id = $cat_id AND page_id = $page_id ORDER by sort_order";
 			$block = CreateObject('sitemgr.Block_SO',True);
 			$result = array();
 			$this->db->query($sql,__LINE__,__FILE__);
@@ -50,7 +50,6 @@
 				$id = $this->db->f('block_id');
 				$block->id = $id;
 				$block->module_id = $this->db->f('module_id');
-				$block->app_name = $this->db->f('app_name');
 				$block->module_name = $this->db->f('module_name');
 				$block->area = $this->db->f('area');
 				$result[$id] = $block;
@@ -60,7 +59,7 @@
 
 		function getallblocksforarea($area,$cat_list,$page_id,$lang)
 		{
-			$sql = "SELECT t1.block_id, area, cat_id, page_id, t1.module_id, app_name, module_name, arguments, arguments_lang, sort_order, title, viewable, actif"
+			$sql = "SELECT t1.block_id, area, cat_id, page_id, t1.module_id, module_name, arguments, arguments_lang, sort_order, title, viewable, actif"
 				. " FROM phpgw_sitemgr_content AS t1 LEFT JOIN "
 				. " phpgw_sitemgr_modules AS t2 on t1.module_id=t2.module_id LEFT JOIN "
 				. " phpgw_sitemgr_content_lang as t3 ON (t1.block_id=t3.block_id AND lang='$lang') "
@@ -87,7 +86,6 @@
 				$block->cat_id = $this->db->f('cat_id');
 				$block->page_id = $this->db->f('page_id');
 				$block->module_id = $this->db->f('module_id');
-				$block->app_name = $this->db->f('app_name');
 				$block->module_name = $this->db->f('module_name');
 				$block->arguments = array_merge(
 					unserialize(stripslashes($this->db->f('arguments'))),
@@ -104,7 +102,7 @@
 
 		function getvisibleblockdefsforarea($area,$cat_list,$page_id)
 		{
-			$sql = "SELECT t1.block_id,area,cat_id,page_id,t1.module_id,app_name,module_name,viewable FROM phpgw_sitemgr_content AS t1,phpgw_sitemgr_modules AS t2 WHERE t1.module_id = t2.module_id AND area = '$area' AND  ((page_id = 0 and cat_id = 0)";
+			$sql = "SELECT t1.block_id,area,cat_id,page_id,t1.module_id,module_name,viewable FROM phpgw_sitemgr_content AS t1,phpgw_sitemgr_modules AS t2 WHERE t1.module_id = t2.module_id AND area = '$area' AND  ((page_id = 0 and cat_id = 0)";
 			if ($cat_list)
 			{
 				$sql .= " OR (page_id = 0 AND cat_id IN (" . implode(',',$cat_list) . "))";
@@ -127,7 +125,6 @@
 				$block->cat_id = $this->db->f('cat_id');
 				$block->page_id = $this->db->f('page_id');
 				$block->module_id = $this->db->f('module_id');
-				$block->app_name = $this->db->f('app_name');
 				$block->module_name = $this->db->f('module_name');
 				$block->view = $this->db->f('viewable');
 				$result[$id] = $block;
@@ -168,7 +165,7 @@
 
 		function getblock($block_id,$lang)
 		{
-			$sql = "SELECT t1.block_id,cat_id,page_id,area,t1.module_id,app_name,module_name,arguments,arguments_lang,sort_order,title,viewable,actif FROM phpgw_sitemgr_modules AS t2, phpgw_sitemgr_content AS t1 LEFT JOIN phpgw_sitemgr_content_lang as t3 ON (t1.block_id=t3.block_id AND lang='$lang') WHERE t1.module_id = t2.module_id AND t1.block_id = $block_id";
+			$sql = "SELECT t1.block_id,cat_id,page_id,area,t1.module_id,module_name,arguments,arguments_lang,sort_order,title,viewable,actif FROM phpgw_sitemgr_modules AS t2, phpgw_sitemgr_content AS t1 LEFT JOIN phpgw_sitemgr_content_lang as t3 ON (t1.block_id=t3.block_id AND lang='$lang') WHERE t1.module_id = t2.module_id AND t1.block_id = $block_id";
 			$this->db->query($sql,__LINE__,__FILE__);
 			if ($this->db->next_record())
 			{
@@ -178,7 +175,6 @@
 				$block->page_id = $this->db->f('page_id');
 				$block->area = $this->db->f('area');
 				$block->module_id = $this->db->f('module_id');
-				$block->app_name = $this->db->f('app_name');
  				$block->module_name = $this->db->f('module_name');
  				$block->arguments = array_merge(
 					unserialize(stripslashes($this->db->f('arguments'))),
@@ -199,7 +195,7 @@
 		//this function only retrieves basic info for the block
 		function getblockdef($block_id)
 		{
-			$sql = "SELECT cat_id,page_id,area,t1.module_id,app_name,module_name FROM phpgw_sitemgr_content AS t1,phpgw_sitemgr_modules AS t2 WHERE t1.module_id = t2.module_id AND t1.block_id = $block_id";
+			$sql = "SELECT cat_id,page_id,area,t1.module_id,module_name FROM phpgw_sitemgr_content AS t1,phpgw_sitemgr_modules AS t2 WHERE t1.module_id = t2.module_id AND t1.block_id = $block_id";
 			$this->db->query($sql,__LINE__,__FILE__);
 			if ($this->db->next_record())
 			{
@@ -209,7 +205,6 @@
 				$block->page_id = $this->db->f('page_id');
 				$block->area = $this->db->f('area');
 				$block->module_id = $this->db->f('module_id');
-				$block->app_name = $this->db->f('app_name');
  				$block->module_name = $this->db->f('module_name');
 				return $block;
 			}

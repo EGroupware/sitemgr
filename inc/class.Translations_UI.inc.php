@@ -286,8 +286,8 @@
 
 			while (list($id,$block) = @each($blocks))
 			{
-				$moduleobject = $this->modulebo->createmodule($block->app_name,$block->module_name);
-				$this->t->set_var('moduleinfo',($block->app_name.'.'.$block->module_name));
+				$moduleobject = $this->modulebo->createmodule($block->module_name);
+				$this->t->set_var('moduleinfo',($block->module_name));
 
 				$savelangdata = $this->contentbo->getlangblockdata($id,$savelanguage);
 				$showlangdata = $this->contentbo->getlangblockdata($id,$showlanguage);

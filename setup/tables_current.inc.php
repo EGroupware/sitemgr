@@ -63,7 +63,6 @@
 		'phpgw_sitemgr_modules' => array(
 			'fd' => array(
 				'module_id' => array('type' => 'auto', 'precision' => 4, 'nullable' => false),
-				'app_name' => array('type' => 'varchar', 'precision' => 25),
 				'module_name' => array('type' => 'varchar', 'precision' => 25),
 				'description' => array('type' => 'varchar', 'precision' => 255)
 			),

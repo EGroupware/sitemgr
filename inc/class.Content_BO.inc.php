@@ -30,7 +30,7 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 
 			if ($GLOBALS['Common_BO']->acl->can_write_category($block->cat_id) &&
 				in_array($block->module_id,$permittedmoduleids) &&
-				$GLOBALS['Common_BO']->modules->createmodule($module['app_name'],$module['module_name']))
+				$GLOBALS['Common_BO']->modules->createmodule($module['module_name']))
 			{
 				return $this->so->addblock($block);
 			}
@@ -146,7 +146,7 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 		function getblockmodule($blockid)
 		{
 			$block = $this->so->getblockdef($blockid);
-			return $GLOBALS['Common_BO']->modules->createmodule($block->app_name,$block->module_name);
+			return $GLOBALS['Common_BO']->modules->createmodule($block->module_name);
 		}
 	}
 ?>

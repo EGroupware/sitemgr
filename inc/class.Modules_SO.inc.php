@@ -23,7 +23,7 @@
 			$this->db->query($sql,__LINE__,__FILE__);
 		}
 
-		function getmoduleproperties($module_id,$contentarea,$cat_id,$appname,$modulename)
+		function getmoduleproperties($module_id,$contentarea,$cat_id,$modulename)
 		{
 			if ($module_id)
 			{
@@ -31,7 +31,7 @@
 			}
 			else
 			{
-				"SELECT properties FROM phpgw_sitemgr_properties AS t1 LEFT JOIN phpgw_sitemgr_modules AS t2 ON t1.module_id=t2.module_id WHERE area='$contentarea' AND cat_id = $cat_id AND app_name = '$appname' and module_name = '$modulename'";
+				"SELECT properties FROM phpgw_sitemgr_properties AS t1 LEFT JOIN phpgw_sitemgr_modules AS t2 ON t1.module_id=t2.module_id WHERE area='$contentarea' AND cat_id = $cat_id AND module_name = '$modulename'";
 			}
 			$this->db->query($sql,__LINE__,__FILE__);
 
@@ -45,20 +45,20 @@
 			}
 		}
 
-		function registermodule($app_name,$modulename,$description)
+		function registermodule($modulename,$description)
 		{
 			$description = $this->db->db_addslashes($description);
-			$sql = "SELECT count(*) FROM phpgw_sitemgr_modules where app_name='$app_name' AND module_name='$modulename'";
+			$sql = "SELECT count(*) FROM phpgw_sitemgr_modules where module_name='$modulename'";
 			$this->db->query($sql,__LINE__,__FILE__);
 			$this->db->next_record();
 			if ($this->db->f(0) == 0)
 			{
-				$sql = "INSERT INTO phpgw_sitemgr_modules (app_name,module_name,description) VALUES ('$app_name','$modulename','$description')";
+				$sql = "INSERT INTO phpgw_sitemgr_modules (module_name,description) VALUES ('$modulename','$description')";
 				$this->db->query($sql,__LINE__,__FILE__);
 			}
 			else
 			{
-				$sql = "UPDATE phpgw_sitemgr_modules SET description = '$description' WHERE app_name='$app_name' AND module_name='$modulename'";
+				$sql = "UPDATE phpgw_sitemgr_modules SET description = '$description' WHERE module_name='$modulename'";
 				$this->db->query($sql,__LINE__,__FILE__);
 			}
 		}
@@ -69,9 +69,9 @@
 			return $this->constructmodulearray($sql);
 		}
 
-		function getmoduleid($appname,$modulename)
+		function getmoduleid($modulename)
 		{
-			$sql = "SELECT module_id FROM phpgw_sitemgr_modules WHERE app_name = '$appname' AND module_name = '$modulename'";
+			$sql = "SELECT module_id FROM phpgw_sitemgr_modules WHERE module_name = '$modulename'";
 			$this->db->query($sql,__LINE__,__FILE__);
 			if ($this->db->next_record())
 			{
@@ -87,7 +87,6 @@
 			{
 				$result['id'] = $this->db->f('module_id');
 				$result['module_name'] = $this->db->f('module_name');
-				$result['app_name'] = $this->db->f('app_name');
 				$result['description'] = stripslashes($this->db->f('description'));
 			}
 			return $result;
@@ -102,7 +101,6 @@
 			{
 				$id = $this->db->f('module_id');
 				$result[$id]['module_name'] = $this->db->f('module_name');
-				$result[$id]['app_name'] = $this->db->f('app_name');
 				$result[$id]['description'] = stripslashes($this->db->f('description'));
 			}
 			return $result;

@@ -142,7 +142,7 @@
 				$this->t->set_block('Editproperties','EditorElement','EBlock');
 
 				$module = $this->bo->getmodule($inputmodule_id);
-				$moduleobject = $this->bo->createmodule($module['app_name'],$module['module_name']);
+				$moduleobject = $this->bo->createmodule($module['module_name']);
 				$blockcontext = CreateObject('sitemgr.Block_SO',True);
 				$blockcontext->module_id = $inputmodule_id;
 				$blockcontext->area = $inputarea;
@@ -168,7 +168,7 @@
 				$this->t->set_var(Array(
 					'module_edit' => lang(
 						'Edit properties of module %1 for %2 with scope %3',
-						$module['app_name'].'.'.$module['module_name'],
+						$module['module_name'],
 						($inputarea == '__PAGE__' ? 'the whole page' : ('Contentarea ' . $inputarea)),
 						($cat_id ? ('category ' . $cat_name) : ' the whole site')
 					),
@@ -206,7 +206,7 @@
 			{ 
 				$selected = (in_array($id,$permitted)) ? $selected = 'selected="selected" ' : '';
 				$returnValue.='<option title="' . $module['description'] . '" ' . $selected . 'value="' .$id . '">' .
-					$module['app_name'].'.'.	$module['module_name'].'</option>'."\n";
+					$module['module_name'].'</option>'."\n";
 			}
 			return $returnValue;
 		}
@@ -217,7 +217,7 @@
 			while (list($id,$module) = @each($permitted))
 			{ 
 				$returnValue.='<option title="' . $module['description'] . '" value="'.$id.'">'.
-					$module['app_name'].'.'.	$module['module_name'].'</option>'."\n";
+					$module['module_name'].'</option>'."\n";
 			}
 			return $returnValue;
 		}

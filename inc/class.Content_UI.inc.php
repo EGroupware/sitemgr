@@ -196,9 +196,9 @@
 						{
 							//TODO: wrap a module storage around createmodule as in template3, 
 							//TODO: so that we do not create the same module object twice
-							$moduleobject = $this->modulebo->createmodule($block->app_name,$block->module_name);
+							$moduleobject = $this->modulebo->createmodule($block->module_name);
 							$this->t->set_var(array(
-								'moduleinfo' => ($block->app_name.'.'.$block->module_name),
+								'moduleinfo' => ($block->module_name),
 								'description' => $moduleobject->description,
 							));
 
@@ -321,7 +321,7 @@
 			while (list($id,$module) = each($modules))
 			{ 
 				$returnValue.='<option title="' . $module['description'] . '" value="'.$id.'">'.
-					$module['app_name'].'.'.	$module['module_name'].'</option>'."\n";
+					$module['module_name'].'</option>'."\n";
 			}
 			return $returnValue;
 		}

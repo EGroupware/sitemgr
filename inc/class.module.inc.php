@@ -114,7 +114,7 @@ class Module
 
 	function find_template_dir()
 	{
-		$templaterootformat = $GLOBALS['sitemgr_info']['sitemgr-site-dir']. SEP . 'templates' . SEP . '%s' . SEP . $this->block->app_name . SEP . $this->block->module_name;
+		$templaterootformat = $GLOBALS['sitemgr_info']['sitemgr-site-dir']. SEP . 'templates' . SEP . '%s' . SEP . 'modules' . SEP . $this->block->module_name;
 		$themetemplatedir = sprintf($templaterootformat,$GLOBALS['sitemgr_info']['themesel']);
 		if (is_dir($themetemplatedir))
 		{
@@ -134,7 +134,6 @@ class Module
 				$this->block->module_id,
 				$this->block->area,
 				$this->block->cat_id,
-				$this->block->app_name,
 				$this->block->module_name
 			);
 		}

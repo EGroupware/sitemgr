@@ -1,7 +1,7 @@
 <?php
 	foreach (array('html','index','toc') as $module)
 	{
-		$oProc->query("INSERT INTO phpgw_sitemgr_modules (app_name,module_name) VALUES ('sitemgr','$module')",__LINE__,__FILE__);
+		$oProc->query("INSERT INTO phpgw_sitemgr_modules (module_name) VALUES ('$module')",__LINE__,__FILE__);
 		$module_id = $oProc->m_odb->get_last_insert_id('phpgw_sitemgr_modules','module_id');
 		$oProc->query("INSERT INTO phpgw_sitemgr_active_modules (area,cat_id,module_id) VALUES ('__PAGE__',0,$module_id)",__LINE__,__FILE__);
 	}

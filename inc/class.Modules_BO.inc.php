@@ -12,9 +12,9 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 			$this->so = CreateObject('sitemgr.Modules_SO', true);
 		}
 
-		function getmoduleid($appname,$modulename)
+		function getmoduleid($modulename)
 		{
-			return $this->so->getmoduleid($appname,$modulename);
+			return $this->so->getmoduleid($modulename);
 		}
 
 		function getmodule($module_id)
@@ -32,40 +32,92 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 			$this->so->deletemoduleproperties($module_id,$contentarea,$cat_id);
 		}
 
-		function createmodule($appname,$modulename)
+
+		//this is identical to CreateObect in phpgwapi/functions.inc.php, but looks into sitemgr/modules instead of appname/inc
+		function createmodule($modulename)
 		{
-			$class = $appname . '.module_' . $modulename;
-			return CreateObject($class);
+
+		global $phpgw_info, $phpgw;
+
+		//if (is_object(@$GLOBALS['phpgw']->log) && $class != 'phpgwapi.error' && $class != 'phpgwapi.errorlog')
+		//{
+			//$GLOBALS['phpgw']->log->write(array('text'=>'D-Debug, dbg: %1','p1'=>'This class was run: '.$class,'file'=>__FILE__,'line'=>__LINE__));
+		//}
+
+		/* error_reporting(0); */
+		//list($appname,$classname) = explode(".", $class);
+		
+		$classname = 'module_' . $modulename;
+
+		if (!isset($GLOBALS['phpgw_info']['flags']['included_classes'][$classname]) ||
+			!$GLOBALS['phpgw_info']['flags']['included_classes'][$classname])
+		{
+			if(@file_exists(PHPGW_INCLUDE_ROOT.'/sitemgr/modules/class.'.$classname.'.inc.php'))
+			{
+				include(PHPGW_INCLUDE_ROOT.'/sitemgr/modules/class.'.$classname.'.inc.php');
+				$GLOBALS['phpgw_info']['flags']['included_classes'][$classname] = True;
+			}
+			else
+			{
+				$GLOBALS['phpgw_info']['flags']['included_classes'][$classname] = False;
+			}
 		}
+		if($GLOBALS['phpgw_info']['flags']['included_classes'][$classname])
+		{
+			if ($p1 == '_UNDEF_' && $p1 != 1)
+			{
+				eval('$obj = new ' . $classname . ';');
+			}
+			else
+			{
+				$input = array($p1,$p2,$p3,$p4,$p5,$p6,$p7,$p8,$p9,$p10,$p11,$p12,$p13,$p14,$p15,$p16);
+				$i = 1;
+				$code = '$obj = new ' . $classname . '(';
+				while (list($x,$test) = each($input))
+				{
+					if (($test == '_UNDEF_' && $test != 1 ) || $i == 17)
+					{
+						break;
+					}
+					else
+					{
+						$code .= '$p' . $i . ',';
+					}
+					$i++;
+				}
+				$code = substr($code,0,-1) . ');';
+				eval($code);
+			}
+			/* error_reporting(E_ERROR | E_WARNING | E_PARSE); */
+			return $obj;
+		}
+	}
+
 
 		function getallmodules()
 		{
 			return $this->so->getallmodules();
 		}
+
 		function findmodules()
 		{
-			$appbo = CreateObject('admin.boapplications');
-			$app_list = $appbo->get_list();
-			while(list($app_name,$app) = each($app_list))
+			$incdir = PHPGW_SERVER_ROOT . SEP . 'sitemgr' . SEP . 'modules';
+			if (is_dir($incdir))
 			{
-				$incdir = PHPGW_SERVER_ROOT . SEP . $app_name . SEP . 'inc';
-				if (is_dir($incdir))
+				$d = dir($incdir);
+				while ($entry = $d->read())
 				{
-					$d = dir(PHPGW_SERVER_ROOT . SEP . $app_name . SEP . 'inc');
-					while ($entry = $d->read())
+					if (preg_match ("/class\.module_(.*)\.inc\.php$/", $entry, $module)) 
 					{
-						if (preg_match ("/class\.module_(.*)\.inc\.php$/", $entry, $module)) 
+						$modulename = $module[1];
+						$moduleobject = $this->createmodule($modulename);
+						if ($moduleobject)
 						{
-							$modulename = $module[1];
-							$moduleobject = $this->createmodule($app_name,$modulename);
-							if ($moduleobject)
-							{
-								$this->so->registermodule($app_name,$modulename,$moduleobject->description);
-							}
+							$this->so->registermodule($modulename,$moduleobject->description);
 						}
 					}
-					$d->close();
 				}
+				$d->close();
 			}
 		}
 
@@ -81,10 +133,10 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 		}
 
 		//this function looks for a module's configured propertiese for the combination contentareara,cat_id
-		//if module_id is 0 the fourth and fith argument should provide appname and modulename
-		function getmoduleproperties($module_id,$contentarea,$cat_id,$appname=False,$modulename=False)
+		//if module_id is 0 the fourth argument should provide modulename
+		function getmoduleproperties($module_id,$contentarea,$cat_id,$modulename=False)
 		{
-			return $this->so->getmoduleproperties($module_id,$contentarea,$cat_id,$appname,$modulename);
+			return $this->so->getmoduleproperties($module_id,$contentarea,$cat_id,$modulename);
 		}
 
 		//this function calculates the permitted modules by asking first for a value contentarea/cat_id
@@ -118,7 +170,7 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 
 		//this function calculates the properties by climbing up the hierarchy tree in the same way as 
 		//getcascadingmodulepermissions does
-		function getcascadingmoduleproperties($module_id,$contentarea,$cat_id,$appname=False,$modulename=False)
+		function getcascadingmoduleproperties($module_id,$contentarea,$cat_id,$modulename=False)
 		{
 			$cat_ancestorlist = $GLOBALS['Common_BO']->cats->getCategoryancestorids($cat_id);
 			$cat_ancestorlist[] = 0;
@@ -131,7 +183,7 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 
 				while($cat_id !== NULL)
 				{
-					$properties = $this->so->getmoduleproperties($module_id,$contentarea,$cat_id,$appname,$modulename);
+					$properties = $this->so->getmoduleproperties($module_id,$contentarea,$cat_id,$modulename);
 					//we have to check for type identity since properties can be NULL in case of unchecked checkbox
 					if ($properties !== false)
 					{

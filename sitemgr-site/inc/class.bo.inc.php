@@ -78,9 +78,8 @@
 			$page->subtitle = '';
 			$page->index = True;
 			$page->block = CreateObject('sitemgr.Block_SO',True);
-			$page->block->app_name = 'sitemgr';
 			$page->block->module_name = 'index';
-			$page->block->module_id = $GLOBALS['Common_BO']->modules->getmoduleid('sitemgr','index');
+			$page->block->module_id = $GLOBALS['Common_BO']->modules->getmoduleid('index');
 			$page->block->view = 0;
 			return true;
 		}
@@ -152,10 +151,9 @@
 				$page->toc = True;
 			}
 			$page->block = CreateObject('sitemgr.Block_SO',True);
-			$page->block->app_name = 'sitemgr';
 			$page->block->module_name = 'toc';
 			$page->block->arguments = array('category_id' => $category_id);
-			$page->block->module_id = $GLOBALS['Common_BO']->modules->getmoduleid('sitemgr','toc');
+			$page->block->module_id = $GLOBALS['Common_BO']->modules->getmoduleid('toc');
 			$page->block->view = 0;
 			return true;
 		}
