@@ -98,13 +98,13 @@
 						'&kp3=' . @$GLOBALS['phpgw_info']['user']['kp3'] .
 						'&domain=' . @$GLOBALS['phpgw_info']['user']['domain'];
 				}
-				echo '<div style="width: 100%; height: 100%; min-width: 800px; min-height: 600px">';
-				echo '<iframe src="'.$site['site_url'].'" name="site" width="100%" height="100%" frameborder="0" marginwidth="0" marginheight="0"></iframe>';
-				echo '</div>';
+				echo "\n".'<div style="width: 100%; height: 100%; min-width: 800px; min-height: 600px">';
+				echo "\n\t".'<iframe src="'.$site['site_url'].'" name="site" width="100%" height="100%" frameborder="0" marginwidth="0" marginheight="0"><a href="'.$site['site_url'].'">'.$site['site_url'].'</a></iframe>';
+				echo "\n</div>\n";
 			}
 			else
 			{
-				$CommonUI->DisplayMenu();
+				$this->DisplayMenu();
 			}
 		}
 
