@@ -42,12 +42,12 @@ HREF="#AEN8"
 ></DT
 ><DT
 ><A
-HREF="#AEN100"
+HREF="#AEN102"
 >User manual</A
 ></DT
 ><DT
 ><A
-HREF="#AEN252"
+HREF="#AEN254"
 >Administrator manual<A
 NAME="ADMINISTRATOR-MANUAL"
 ></A
@@ -55,7 +55,7 @@ NAME="ADMINISTRATOR-MANUAL"
 ></DT
 ><DT
 ><A
-HREF="#AEN339"
+HREF="#AEN341"
 >Template designer manual<A
 NAME="TEMPLATE-DESIGNER-MANUAL"
 ></A
@@ -63,7 +63,7 @@ NAME="TEMPLATE-DESIGNER-MANUAL"
 ></DT
 ><DT
 ><A
-HREF="#AEN356"
+HREF="#AEN358"
 >Module developper manual<A
 NAME="MODULE-DEVELOPPER-MANUAL"
 ></A
@@ -90,7 +90,7 @@ CLASS="SECT2"
 ><A
 NAME="AEN12">Template</H3
 ><P
->Sitemgr builds web sites from templates. Those are stored in the directory sitemgr/sitemg-site/templates. Each of them has a directory of its own. The file main.tpl defines the template of the whole site, there can be other files that define code for separate areas of the page or for specific modules. Templates contain four kinds of variables. These are explained here since the types 2,3 and 4 can be used both in the template as in the page content a module generates.
+>Sitemgr builds web sites from templates. Those are stored in the directory sitemgr/sitemg-site/templates. Each of them has a directory of its own. The file main.tpl defines the template of the whole site, there can be other files that define code for separate areas of the page or for specific modules. Templates contain four kinds of variables. These are explained here since the types 2,3,4 and 5 can be used both in the template as in the page content a module generates.
    </P
 ><P
 ></P
@@ -161,6 +161,11 @@ TYPE="a"
 ></LI
 ></OL
 ></LI
+><LI
+><P
+>{lang_translatable_string} This lets you make the template internationalized. The translatable string is sent through phpgroupware's lang function. Thus you can add it to the lang files in the setup directory and install it through the setup programm.
+    </P
+></LI
 ></OL
 ></DIV
 ><DIV
@@ -168,7 +173,7 @@ CLASS="SECT2"
 ><HR><H3
 CLASS="SECT2"
 ><A
-NAME="AEN40">Module</H3
+NAME="AEN42">Module</H3
 ><P
 >The main function of a sitemgr module is to generate dynamic web site content. To make the development of new modules, and the use of modules easy and convenient, sitemgr defines an &#8220;abstract&#8221; class module which each module should extend. This parent of all modules, provides one essential service: It hooks the module into the content managment interface and permits the editing of the module's arguments that determine what content will be generated. Thus in order to create a new module, all you have to do, is to extend the abstract super module, define the modules arguments, and write a get_content function that returns the content that should be displayed on the website. More on this in the chapter about<A
 HREF="#MODULE-DEVELOPPER-MANUAL"
@@ -181,7 +186,7 @@ CLASS="SECT2"
 ><HR><H3
 CLASS="SECT2"
 ><A
-NAME="AEN44">Argument/Content</H3
+NAME="AEN46">Argument/Content</H3
 ><P
 >A module can be seen as a transformation of input arguments into generated content. It is important to understand that the input arguments can be of completely different kinds. On the one hand there can be arguments that are as close as possible to the generated content. For example the html module's only argument is named &#8220;htmlcontent&#8221; and in normal circumstances it is not transformed at all but handed over as is to the page generation engine. On the other hand arguments can play any conceivable role in the generation of content that is driven by data coming from other phpgroupware applications. They can be used to select between different categories of content, they can choose a certain format of presentation, they can function as search terms, etc.
    </P
@@ -191,7 +196,7 @@ CLASS="SECT2"
 ><HR><H3
 CLASS="SECT2"
 ><A
-NAME="AEN47">Properties</H3
+NAME="AEN49">Properties</H3
 ><P
 >A module can define properties. Properties are accessible to the modules get_content function in the same way as arguments, but they differ from them in two ways:
    </P
@@ -218,7 +223,7 @@ CLASS="SECT2"
 ><HR><H3
 CLASS="SECT2"
 ><A
-NAME="AEN56">Blocks, content areas and scope</H3
+NAME="AEN58">Blocks, content areas and scope</H3
 ><P
 >There are three ways a module can generate content that will be displayed on a web page:
    </P
@@ -250,7 +255,7 @@ CLASS="SECT2"
 ><HR><H3
 CLASS="SECT2"
 ><A
-NAME="AEN66">Versioning</H3
+NAME="AEN68">Versioning</H3
 ><P
 >Sitemgr handles block content in versions. This means that you can have different versions of one block at the same time, but only one of them is visible on the website. This allows for working on several changes to the website and viewing them in a draft mode, before commiting them all at once to the production site. Sitemgr distinguishes five states for versions:
    </P
@@ -308,7 +313,7 @@ CLASS="SECT2"
 ><HR><H3
 CLASS="SECT2"
 ><A
-NAME="AEN92">Transformer</H3
+NAME="AEN94">Transformer</H3
 ><P
 >The architecture for sitemgr modules provides for the distinction between some form of raw content a module produces and the way it should get displayed on the web site, with the future possibility to plug other display types into the same framework. The idea is that the raw content of a module gets passed through different transformers, possibly even several transformers in a sequence at the time of content generation. Additionally this provides for a use of modules outside of sitemgr, for example remote retrieval of information with something like XML-RPC. 
    </P
@@ -324,7 +329,7 @@ CLASS="SECT2"
 ><HR><H3
 CLASS="SECT2"
 ><A
-NAME="AEN97">Translations</H3
+NAME="AEN99">Translations</H3
 ><P
 >Sitemgr in its new modularized architecture continues to be fully multilingual. It is very simple to have a new module use this feature. All that is needed is to use a special flag in the definition of the module's arguments. All arguments that have this flag will be stored in a language specific database table, and can be translated in the translation manager, very similar to the way category and page definitions could already be translated to several languages.
    </P
@@ -335,19 +340,19 @@ CLASS="SECT1"
 ><HR><H2
 CLASS="SECT1"
 ><A
-NAME="AEN100">User manual</H2
+NAME="AEN102">User manual</H2
 ><DIV
 CLASS="SECT2"
 ><H3
 CLASS="SECT2"
 ><A
-NAME="AEN102">Manage categories and pages</H3
+NAME="AEN104">Manage categories and pages</H3
 ><DIV
 CLASS="SECT3"
 ><H4
 CLASS="SECT3"
 ><A
-NAME="AEN104">Create a new category</H4
+NAME="AEN106">Create a new category</H4
 ><P
 >to be completed
     </P
@@ -357,7 +362,7 @@ CLASS="SECT3"
 ><HR><H4
 CLASS="SECT3"
 ><A
-NAME="AEN107">Edit a category</H4
+NAME="AEN109">Edit a category</H4
 ><P
 >to be completed
     </P
@@ -367,7 +372,7 @@ CLASS="SECT3"
 ><HR><H4
 CLASS="SECT3"
 ><A
-NAME="AEN110">Delete a category</H4
+NAME="AEN112">Delete a category</H4
 ><P
 >to be completed
     </P
@@ -377,7 +382,7 @@ CLASS="SECT3"
 ><HR><H4
 CLASS="SECT3"
 ><A
-NAME="AEN113">Create a new page</H4
+NAME="AEN115">Create a new page</H4
 ><P
 >to be completed
     </P
@@ -387,7 +392,7 @@ CLASS="SECT3"
 ><HR><H4
 CLASS="SECT3"
 ><A
-NAME="AEN116">Edit a page</H4
+NAME="AEN118">Edit a page</H4
 ><P
 >to be completed
     </P
@@ -397,7 +402,7 @@ CLASS="SECT3"
 ><HR><H4
 CLASS="SECT3"
 ><A
-NAME="AEN119">Editing page content</H4
+NAME="AEN121">Editing page content</H4
 ><P
 >There are two interfaces for creating and editing content blocks. The first one is called &#8220;content manager&#8221; and works inside the phpgw interface, the second works in interaction with the generated web site and we call it &#8220;editing mode&#8221;.
     </P
@@ -406,7 +411,7 @@ CLASS="SECT4"
 ><HR><H5
 CLASS="SECT4"
 ><A
-NAME="AEN122">The content manager</H5
+NAME="AEN124">The content manager</H5
 ><P
 >The interface for creating content blocks is the same on each level of scope, besides that when editing blocks on a lower level you can see all the blocks that have been defined on a higher level, and will be displayed on the website together with the blocks you are editing. I will refer to this interface as the content manager.
      </P
@@ -419,7 +424,7 @@ CLASS="SECT4"
 ><HR><H5
 CLASS="SECT4"
 ><A
-NAME="AEN126">Editing mode</H5
+NAME="AEN128">Editing mode</H5
 ><P
 >In order to use editing mode, you must add a site-wide administration block to your website (viewable only by registered users). This block has a dropdown menu where you can switch between production mode (viewing the website in its public state), draft mode (viewing the website in the prepublished state, i.e. how it will look after you commit any pending changes) and edit mode. In edit mode, you will see the same content as in draft mode, but in front of each content block you will see a link &#8220;Edit block&#8221;. Activating this link will pop up a new window for editing it.
      </P
@@ -429,7 +434,7 @@ CLASS="SECT4"
 ><HR><H5
 CLASS="SECT4"
 ><A
-NAME="AEN129">Editing a block</H5
+NAME="AEN131">Editing a block</H5
 ><P
 >In both the content manager and the editing window that opens in editing mode, the interface for editing the block is the same. There are three standard interface elements you can edit for each block:
      </P
@@ -641,7 +646,7 @@ CLASS="SECT4"
 ><HR><H5
 CLASS="SECT4"
 ><A
-NAME="AEN240">Handling versions</H5
+NAME="AEN242">Handling versions</H5
 ><P
 >For each content block you can create a new version simply by clicking on the &#8220;Create new version link&#8221;. Once you have several versions of a block, you can change their status at any time. If you want to immediately publish a block, you choose &#8220;published&#8221;. If you want to register a version for being published at the next commit, you choose &#8220;prepublished&#8221;. A version that is &#8220;preunpublished&#8221; is visible on the website, but will be archived at the next commit. Thus if you want to replace some content at the next commit, you have to put the published version into &#8220;preunpublished&#8221; and create a new version that you put into &#8220;prepublished&#8221; state. Archived versions will be no longer visible in the content managment interface, but will not be deleted from your database. They can be reactivated in the &#8220;Manage archived content&#8221; interface.
      </P
@@ -653,7 +658,7 @@ CLASS="SECT2"
 ><HR><H3
 CLASS="SECT2"
 ><A
-NAME="AEN243">Manage translations</H3
+NAME="AEN245">Manage translations</H3
 ><P
 >to be completed
    </P
@@ -663,7 +668,7 @@ CLASS="SECT2"
 ><HR><H3
 CLASS="SECT2"
 ><A
-NAME="AEN246">Commit changes</H3
+NAME="AEN248">Commit changes</H3
 ><P
 >In this interface you see a list of all categories, pages and blocks that are in prepublished or preunpublished state. You can return to any of them for further editing or changing their status, and you can choose between them for commiting. Prepublished content will go public, preunpublished content will go to the archive.
    </P
@@ -673,7 +678,7 @@ CLASS="SECT2"
 ><HR><H3
 CLASS="SECT2"
 ><A
-NAME="AEN249">Manage archived content</H3
+NAME="AEN251">Manage archived content</H3
 ><P
 >to be completed
    </P
@@ -684,7 +689,7 @@ CLASS="SECT1"
 ><HR><H2
 CLASS="SECT1"
 ><A
-NAME="AEN252">Administrator manual<A
+NAME="AEN254">Administrator manual<A
 NAME="ADMINISTRATOR-MANUAL"
 ></A
 ></H2
@@ -693,7 +698,7 @@ CLASS="SECT2"
 ><H3
 CLASS="SECT2"
 ><A
-NAME="AEN255">Installation<A
+NAME="AEN257">Installation<A
 NAME="INSTALLATION"
 ></A
 ></H3
@@ -882,7 +887,7 @@ CLASS="SECT2"
 ><HR><H3
 CLASS="SECT2"
 ><A
-NAME="AEN329">Maintenance</H3
+NAME="AEN331">Maintenance</H3
 ><P
 >As a site administrator, you have three privileges/responsibilies:
    </P
@@ -916,7 +921,7 @@ CLASS="SECT1"
 ><HR><H2
 CLASS="SECT1"
 ><A
-NAME="AEN339">Template designer manual<A
+NAME="AEN341">Template designer manual<A
 NAME="TEMPLATE-DESIGNER-MANUAL"
 ></A
 ></H2
@@ -939,8 +944,8 @@ NAME="TEMPLATE-DESIGNER-MANUAL"
 ><LI
 ><P
 >A contentarea serves to display the content blocks, the site administrator and contributors define. Each contentarea can have its own way of wrapping html code around each content block. This at the moment defined in a class that implements the transformer interface, i.e. defines a function apply_transform($title,$content).This class' name is areaname_bt (for blocktransformer) and it is stored in file areaname_bt.inc.php inside the template directory. The function apply_transform just has to wrap the desired html around the content. It is free to ignore the title, for example the block title does not necessarily make sense in a page's central content area. A block transformer could apply other transformations to the content, but this would probably have counter-intuitive effects on your page's contributors<A
-NAME="AEN350"
-HREF="#FTN.AEN350"
+NAME="AEN352"
+HREF="#FTN.AEN352"
 >[1]</A
 >.
    </P
@@ -962,7 +967,7 @@ CLASS="SECT1"
 ><HR><H2
 CLASS="SECT1"
 ><A
-NAME="AEN356">Module developper manual<A
+NAME="AEN358">Module developper manual<A
 NAME="MODULE-DEVELOPPER-MANUAL"
 ></A
 ></H2
@@ -1002,8 +1007,8 @@ class module_hello extends Module
 ></TABLE
 ><P
 >Once your module is registered<A
-NAME="AEN362"
-HREF="#FTN.AEN362"
+NAME="AEN364"
+HREF="#FTN.AEN364"
 >[2]</A
 > and added to the list of permitted modules for some context, users can create blocks from this module: They will see in the content manager a textfield where they edit the argument name, and once the block is activated, it will generate the hello phrase on the website. Easy, isn't it?
   </P
@@ -1299,8 +1304,8 @@ ALIGN="LEFT"
 VALIGN="TOP"
 WIDTH="5%"
 ><A
-NAME="FTN.AEN350"
-HREF="#AEN350"
+NAME="FTN.AEN352"
+HREF="#AEN352"
 >[1]</A
 ></TD
 ><TD
@@ -1317,8 +1322,8 @@ ALIGN="LEFT"
 VALIGN="TOP"
 WIDTH="5%"
 ><A
-NAME="FTN.AEN362"
-HREF="#AEN362"
+NAME="FTN.AEN364"
+HREF="#AEN364"
 >[2]</A
 ></TD
 ><TD

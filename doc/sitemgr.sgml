@@ -30,7 +30,7 @@ This introductory section describes some concepts, you will need to understand i
 Template
    </title>
    <para>
-Sitemgr builds web sites from templates. Those are stored in the directory sitemgr/sitemg-site/templates. Each of them has a directory of its own. The file main.tpl defines the template of the whole site, there can be other files that define code for separate areas of the page or for specific modules. Templates contain four kinds of variables. These are explained here since the types 2,3 and 4 can be used both in the template as in the page content a module generates.
+Sitemgr builds web sites from templates. Those are stored in the directory sitemgr/sitemg-site/templates. Each of them has a directory of its own. The file main.tpl defines the template of the whole site, there can be other files that define code for separate areas of the page or for specific modules. Templates contain four kinds of variables. These are explained here since the types 2,3,4 and 5 can be used both in the template as in the page content a module generates.
    </para>
    <orderedlist>
     <listitem>
@@ -103,6 +103,12 @@ Links to phpgw start with '?phpgw:' . You have to name the application followed 
     </listitem>
 
     </orderedlist>
+
+   </listitem>
+    <listitem>
+    <para>
+&lcub;lang_translatable_string&rcub; This lets you make the template internationalized. The translatable string is sent through phpgroupware's lang function. Thus you can add it to the lang files in the setup directory and install it through the setup programm.
+    </para>
 
    </listitem>
 
@@ -696,8 +702,6 @@ Once you have the sitemgr directory inside your phpgroupware install you can set
 and then install sitemgr-link with setup
     </para>
 
-    </listitem>
-
 
    </listitem>
     <listitem>
@@ -729,8 +733,6 @@ In the sitemgr-site directory is a file called config.inc.php. You only have to 
     <para>
 so that the value of &dollar;sitemgr_info&lsqb;'phpgw_path'&rsqb; is '/path/to/phpgroupware/'
     </para>
-
-    </listitem>
 
 
    </listitem>
@@ -1107,8 +1109,6 @@ validate(&amp;&dollar;data)
    <para>
 This would make sure that the module argument name would always be lowercase.
    </para>
-
-   </listitem>
 
 
   </listitem>
