@@ -68,13 +68,13 @@
 
 		function generatePage()
 		{
-			if ($GLOBALS['sitemgr_info']['interface'] == 'templates')
+			if ($GLOBALS['sitemgr_info']['usethemes'])
 			{
-				$this->generatePageTemplate();
+				$this->generatePageTheme();
 			}
 			else
 			{
-				$this->generatePageTheme();
+				$this->generatePageTemplate();
 			}
 		}
 
