@@ -44,6 +44,7 @@ block saved	sitemgr	en	Block saved
 bookmarks	sitemgr	en	Bookmarks
 buy at %1	sitemgr	en	Buy at %1
 calendar	sitemgr	en	Calendar
+can't open an url or execute a script, because allow_url_fopen is not set in your php.ini !!!	sitemgr	en	Can't open an URL or execute a script, because allow_url_fopen is not set in your php.ini !!!
 cancel the delete	sitemgr	en	Cancel the delete
 cannot move page until it has been saved.	sitemgr	en	Cannot move page until it has been saved.
 category	sitemgr	en	Category
@@ -114,6 +115,7 @@ enter the page content here	sitemgr	en	Enter the page content here
 error accessing page	common	en	Error accessing page
 everybody	sitemgr	en	everybody
 file %1 is not readable by the webserver !!!	sitemgr	en	File %1 is not readable by the webserver !!!
+file %1 is outside the docroot of the webserver !!!<br>this module does not allow - for security reasons - to open files outside the docroot.	sitemgr	en	File %1 is outside the docroot of the webserver !!!<br>This module does NOT allow - for security reasons - to open files outside the docroot.
 file contents	sitemgr	en	File contents
 file download	sitemgr	en	File download
 filesystem path of the directory where the images are found (no trailing slash)	sitemgr	en	Filesystem path of the directory where the images are found (no trailing slash)
@@ -288,7 +290,7 @@ table of contents	sitemgr	en	Table of Contents
 template select	sitemgr	en	Template select
 textarea	sitemgr	en	textarea
 the category to display, 0 for complete table of contents	sitemgr	en	The category to display, 0 for complete table of contents
-the complete path to the file to be included	sitemgr	en	The complete path to the file to be included
+the complete url or path to a file to be included	sitemgr	en	The complete URL or path to a file to be included
 the config.inc.php file needs to be edited to point to the phpgroupware directory. copy the config.inc.php.template file to config.inc.php and then edit it.	sitemgr	en	The config.inc.php file needs to be edited to point to the phpGroupWare directory. Copy the config.inc.php.template file to config.inc.php and then edit it.
 the file to be downloaded	sitemgr	en	The file to be downloaded
 the first directory to think about is sitemgr-link.  if you move this to the parent directory of sitemgr (your phpgroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  if you don't want this icon, there's no reason to ever bother with the directory.	sitemgr	en	The first directory to think about is sitemgr-link.  If you move this to the parent directory of sitemgr (your phpgroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  If you don't want this icon, there's no reason to ever bother with the directory.
@@ -331,7 +333,7 @@ this module displays bookmarks in a javascript based tree	sitemgr	en	This module
 this module displays the current month	sitemgr	en	This module displays the current month
 this module displays the phpgw forums on the web site	sitemgr	en	This module displays the phpgw forums on the web site
 this module displays the root categories, its pages and evtl. subcategories. it is meant for side areas	sitemgr	en	This module displays the root categories, its pages and evtl. subcategories. It is meant for side areas
-this module includes the contents of a file (readable by the webserver !)	sitemgr	en	This module includes the contents of a file (readable by the webserver !)
+this module includes the contents of an url or file (readable by the webserver and in its docroot !)	sitemgr	en	This module includes the contents of an URL or file (readable by the webserver and in its docroot !)
 this module is a selectbox to change the mode (production, draft or edit) plus a link back to sitemgr and to log out. it is meant for registered users only	sitemgr	en	This module is a selectbox to change the mode (production, draft or edit) plus a link back to SiteMgr and to log out. It is meant for registered users only
 this module is a simple html editor	sitemgr	en	This module is a simple HTML editor
 this module lets the users choose a template or shows a template gallery	sitemgr	en	This module lets the users choose a template or shows a template gallery

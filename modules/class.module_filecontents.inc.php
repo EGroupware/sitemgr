@@ -18,39 +18,117 @@ class module_filecontents extends Module
 		$this->arguments = array(
 			'filepath' => array(
 				'type' => 'textfield', 
-				'label' => lang('The complete path to the file to be included')
+				'label' => lang('The complete URL or path to a file to be included'),
+				'params' => array('size' => 50),
 			)
 		);
 		$this->title = lang('File contents');
-		$this->description = lang('This module includes the contents of a file (readable by the webserver !)');
+		$this->description = lang('This module includes the contents of an URL or file (readable by the webserver and in its docroot !)');
 	}
 
 	function get_content(&$arguments,$properties)
 	{
-		if (empty($arguments['filepath']))
+		$url = parse_url($path = $arguments['filepath']);
+
+		if (empty($path))
 		{
 			return '';
 		}
-		if ($this->validate($arguments))
-		{
-			return implode('', file($arguments['filepath']));
-		}
-		else
+		if (!$this->validate($arguments))
 		{
 			return $this->validation_error;
 		}
+		$is_html = preg_match('/\.html?$/i',$path);
+
+		if ($this->is_script($path) || @$url['scheme'])
+		{
+			if (!@$url['scheme'])
+			{
+				$path = ($_SERVER['HTTPS'] ? 'https://' : 'http://') .
+					($url['hostname'] ? $url['hostname'] : $_SERVER['HTTP_HOST']) .
+					str_replace($_SERVER['DOCUMENT_ROOT'],'',$path);
+			}
+			if ($fp = fopen($path,'rb'))
+			{
+				$ret = fread($fp,2000000);
+				fclose ($fp);
+				$is_html = True;
+			}
+			else
+			{
+				$ret = lang('File %1 is not readable by the webserver !!!',$path);
+			}
+		}
+		else
+		{
+			$ret = implode('', file($path));
+		}
+		if ($is_html)
+		{
+			// only use what's between the body tags
+			if (preg_match('/<body[^>]*>(.*)<\/body>/i',str_replace("\n",'\\n',$ret),$parts))
+			{
+				$ret = str_replace('\\n',"\n",$parts[1]);
+			}
+		}
+		return $ret;
+	}
+
+	// test if $path lies within the webservers document-root
+	//
+	function in_docroot($path)
+	{
+		$docroots = array(PHPGW_SERVER_ROOT,$_SERVER['DOCUMENT_ROOT']);
+		$path = realpath($path);
+
+		foreach ($docroots as $docroot)
+		{
+			$len = strlen($docroot);
+
+			if ($docroot == substr($path,0,$len))
+			{
+				$rest = substr($path,$len);
+
+				if (!strlen($rest) || $rest[0] == DIRECTORY_SEPARATOR)
+				{
+					return True;
+				}
+			}
+		}
+		return False;
+	}
+
+	function is_script($url)
+	{
+		$url = parse_url($url);
+
+		return preg_match('/\.(php.?|pl|py)$/i',$url['path']);
 	}
 
 	function validate(&$data)
 	{
-		if (!is_readable($data['filepath']))
+		$url = parse_url($data['filepath']);
+		$allow_url_fopen = ini_get('allow_url_fopen');
+
+		if ($url['scheme'] || $this->is_script($data['filepath']) && !$allow_url_fopen)
+		{
+			if (!$allow_url_fopen)
+			{
+				$this->validation_error = lang("Can't open an URL or execute a script, because allow_url_fopen is not set in your php.ini !!!");
+				return false;
+			}
+			return True;
+		}
+		if (!is_readable($url['path']))
 		{
 			$this->validation_error = lang('File %1 is not readable by the webserver !!!',$data['filepath']);
 			return false;
 		}
-		else
+		if (!$this->in_docroot($data['filepath']))
 		{
-			return true;
+			$this->validation_error = lang('File %1 is outside the docroot of the webserver !!!<br>This module does NOT allow - for security reasons - to open files outside the docroot.',$data['filepath']);
+			return false;
 		}
+		return true;
 	}
 }
