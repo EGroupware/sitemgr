@@ -11,7 +11,7 @@
 
 	/* $Id$ */
 
-class module_download extends Module 
+class module_download extends Module
 {
 	function module_download()
 	{
@@ -42,19 +42,16 @@ class module_download extends Module
 
 	function get_content(&$arguments,$properties) 
 	{
+		$linkdata['menuaction'] = 'filemanager.uifilemanager.view';
 		$linkdata['path'] = rawurlencode(base64_encode($arguments['path']));
+		$linkdata['file'] = rawurlencode(base64_encode($arguments['file']));
+
 		if ($arguments['op'] == 2)
 		{
-			$linkdata['download'] = 1;
-			$linkdata['fileman[0]'] = rawurlencode(base64_encode($arguments['file']));
+				$linkdata['download'] = 1;
 		}
-		else
-		{
-			$linkdata['op'] = rawurlencode(base64_encode('view'));
-			$linkdata['file'] = rawurlencode(base64_encode($arguments['file']));
-		}
-		return $arguments['text'] ? 
-			('<a href="' . phpgw_link('/filemanager/index.php',$linkdata) . '">' . $arguments['text'] . '</a>') :
-			phpgw_link('/filemanager/index.php',$linkdata);
+		return $arguments['text'] ?
+			('<a href="' . phpgw_link('/index.php',$linkdata) . '">' . $arguments['text'] . '</a>') :
+			phpgw_link('/index.php',$linkdata);
 	}
 }
