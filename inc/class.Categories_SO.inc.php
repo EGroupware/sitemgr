@@ -104,9 +104,9 @@
 			{
 				$cat_info				= CreateObject('sitemgr.Category_SO', True);
 				$cat_info->id			= $cat[0]['id'];
-				$cat_info->name			= $cat[0]['name'];
+				$cat_info->name			= stripslashes($cat[0]['name']);
 				$cat_info->sort_order	= $cat[0]['data'];
-				$cat_info->description	= $cat[0]['description'];
+				$cat_info->description	= stripslashes($cat[0]['description']);
 				$cat_info->parent		= $cat[0]['parent'];
 				$cat_info->depth		= $cat[0]['level'];
 				$cat_info->root			= $cat[0]['main'];
