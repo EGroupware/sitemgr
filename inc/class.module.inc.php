@@ -283,7 +283,11 @@ class Module
 				foreach ($input['options'] as $value => $display)
 				{
 					$selected='';
-					if (($input['multiple'] && in_array($value,$default)) || (!$input['multiple'] && ($default == $value)))
+					if 
+					(
+						($input['multiple'] && is_array($default) && in_array($value,$default)) || 
+						(!$input['multiple'] && ($default == $value))
+					)
 					{
 						$selected = 'selected="selected"';
 					}
