@@ -13,6 +13,7 @@
 	{
 		var $t;
 		var $acl;
+		var $theme;
 		var $prefs_so;
 		var $public_functions = array
 		(
@@ -23,6 +24,7 @@
 		{
 			$this->t = $GLOBALS['phpgw']->template;
 			$this->acl = CreateObject('sitemgr.ACL_BO');
+			$this->theme = CreateObject('sitemgr.Theme_BO',True);
 			$this->prefs_so = CreateObject('sitemgr.sitePreference_SO', True);
 		}
 
@@ -47,7 +49,7 @@
 				$preferences['home-page-id'] = array(
 					'title'=>'Default home page ID number',
 					'note'=>'(This should be a page that is readable by everyone. If you leave this blank, the site index will be shown by default.)',
-					'size'=>10
+					'input_size'=>10
 				);
 				$preferences['login-domain'] = array(
 					'title'=>'Anonymous user login domain',
@@ -64,9 +66,16 @@
 					'note'=>'(Password that you assigned for the aonymous user account.)',
 					'default'=>'anonymous'
 				);
+				$preferences['interface'] = array(
+					'title'=>'Use phpNuke themes instead of templates',
+					'note'=>'(This is NOT recommended.)',
+					'input'=>'checkbox'
+				);
 				$preferences['themesel'] = array(
-					'title'=>'Theme select',
-					'note'=>'(Choose your site\'s them.  This corresponds to a subdirectory of sitemgr-site/themes.  If you\'re not sure, enter NukeNews.  Case matters.)',
+					'title'=>'Theme or template select',
+					'note'=>'(Choose your site\'s theme or template.  Note that if you changed the above checkbox you need to save before choosing a theme or template.)',
+					'input'=>'option',
+					'options'=>$this->theme->getAvailableThemes(),
 					'default'=>'NukeNews'
 				);
 				if ($GLOBALS['btnSave'])
@@ -78,7 +87,7 @@
 					}
 					echo '<p><b>Changes Saved.</b></p>';
 				}
-
+				
 				$this->t->set_file('sitemgr_prefs','sitemgr_preferences.tpl');
 				$this->t->set_var('formaction',$GLOBALS['phpgw']->link(
 					'/index.php','menuaction=sitemgr.Common_UI.DisplayPrefs'));
@@ -86,9 +95,25 @@
 				reset($preferences);
 				while (list($name,$details) = each($preferences))
 				{
-					$this->PrefBlock($details['title'],
-						$this->inputtext($name,$details['size'],$details['default']),
-						$details['note']);
+					$inputbox = '';
+					switch($details['input'])
+					{
+						case 'checkbox':
+							$inputbox = $this->inputCheck($name);
+							break;
+						case 'option':
+							$inputbox = $this->inputOption($name,
+								$details['options'],$details['default']);
+							break;
+						case 'inputbox':
+						default:
+							$inputbox = $this->inputText($name,
+								$details['input_size'],$details['default']);
+					}
+					if ($inputbox)
+					{
+						$this->PrefBlock($details['title'],$inputbox,$details['note']);
+					}
 				}
 				$this->t->pfp('out','sitemgr_prefs');
 			}
@@ -113,6 +138,53 @@
 
 			return '<input type="text" size="'.$size.
 				'" name="'.$name.'" value="'.$val.'">';
+		}
+
+		function inputCheck($name = '')
+		{
+			$val = $this->prefs_so->getPreference($name);
+			if ($val)
+			{
+				$checked_yes = ' CHECKED';
+				$checked_no = '';
+			}
+			else
+			{
+				$checked_yes = '';
+				$checked_no = ' CHECKED';
+			}
+			return '<INPUT TYPE="radio" NAME="'.$name.'" VALUE="1"'.
+				$checked_yes.'>Yes</INPUT>'."\n".
+				'<INPUT TYPE="radio" NAME="'.$name.'" VALUE="0"'.
+				$checked_no.'>No</INPUT>'."\n";
+				
+		}
+
+		function inputOption($name = '', $options='', $default = '')
+		{
+			if (!is_array($options) || count($options)==0)
+			{
+				return 'No options available.';
+			}
+			$val = $this->prefs_so->getPreference($name);
+			if(!$val)
+			{
+				$val = $default;
+			}
+			$returnValue = '<SELECT NAME="'.$name.'">'."\n";
+			
+			foreach($options as $option)
+			{
+				$selected='';
+				if ($val == $option['value'])
+				{
+					$selected = 'SELECTED ';
+				}
+				$returnValue.='<OPTION '.$selected.'VALUE="'.$option['value'].'">'.
+					$option['display'].'</OPTION>'."\n";
+			}
+			$returnValue .= '</SELECT>';
+			return $returnValue;
 		}
 
 		function PrefBlock($title,$input,$note)

@@ -13,20 +13,48 @@
 
 		function setTheme($theme)
 		{
-			if ($this->preferenceso->setPreference($theme))
-				echo "theme set.";
-			else
-				echo "Error, theme not set.";
+			$this->preferenceso->setPreference('themesel',$theme);
 		}
 		
-		function getTheme($theme)
+		function getTheme()
 		{
-			return $this->preferenceso->getPreference($theme);
+			return $this->preferenceso->getPreference('themesel');
 		}
 
-		function getAvailableTheme()
+		function getAvailableThemes()
 		{
-			// TBD
+			$pref = CreateObject('sitemgr.sitePreference_SO', True);
+			$sitemgr_dir = $pref->getPreference('sitemgr-site-dir');
+			$themes = $pref->getPreference('interface');
+			if ((int) $themes)
+			{
+				$interface = 'themes';
+			}
+			else
+			{
+				$interface = 'templates';
+			}
+			$dirname = $sitemgr_dir . '/' . $interface . '/';
+			$result_array=array();
+			@$handle=opendir($dirname);
+		
+			if ($handle)
+			{
+				while (($file = readdir($handle)) !== false)
+				{
+					if (substr($file,0,1)!='.' && strcmp($file,'index.html') != 0 
+						&& strcmp($file,'CVS') != 0)
+					{
+						$result_array[]=array('value'=>$file,'display'=>$file);
+					}	
+				}        
+			}
+			else
+			{
+				return array(array('value'=>'','display'=>'No '.$interface.' found.'));
+			}
+			closedir($handle);
+			return $result_array;                        
 		}
 		
 	}
