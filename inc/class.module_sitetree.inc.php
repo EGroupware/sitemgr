@@ -68,7 +68,6 @@ class module_sitetree extends Module
 
 	function get_content(&$arguments,$properties)
 	{
-print_r($this->block);
 		$title = '';
 		if ($arguments['menutree'])
 		{
