@@ -19,21 +19,24 @@ class module_galerie extends Module
 		$this->arguments = array(
 			'imagedirurl' => array(
 				'type' => 'textfield', 
-				'label' => lang('URL pointing to the directory where the images are found (no trailing slash)')
+				'label' => lang('URL pointing to the image-directory'),
+				'params' => array('size' => 50),
 			),
 			'imagedirpath' => array(
 				'type' => 'textfield', 
-				'label' => lang('Filesystem path of the directory where the images are found (no trailing slash)')
+				'label' => lang('Filesystem path of the image-directory'),
+				'params' => array('size' => 50),
 			),
 			'imagename' => array(
 				'type' => 'textfield', 
-				'label' => lang('the images\' common name')
+				'label' => lang('common prefix of the image-name (a number starting with 1 will be appended)')
 			),
 			'imagetype' => array(
 				'type' => 'select', 
 				'label' => lang('image type'), 
 				'options' => array(
 					'jpeg' => 'jpeg',
+					'jpg' => 'jpg',
 					'gif' => 'gif',
 					'png' => 'png'
 				)
@@ -74,15 +77,13 @@ class module_galerie extends Module
 			$i = 1;
 			$this->arguments['subtext'] = array(
 				'type' => "array",
-				'i18n' => True
 			);
 			while (file_exists($defaults['imagedirpath'] . SEP . $defaults['imagename'] . $i . '.' . $defaults['imagetype']))
 			{
 				$this->arguments['subtext'][$i-1] = array(
 					'type' => 'textfield',
-					'label' => 'Subtext for image ' . $i . '<br /><img src="' . 
+					'label' => lang('Subtext for image %1',$i) . '<br /><img src="' .
 						$defaults['imagedirurl'] . SEP . $defaults['imagename'] . $i . '.' . $defaults['imagetype'] . '" />',
-					'i18n' => True
 				);
 				$i++;
 			}
@@ -131,8 +132,24 @@ class module_galerie extends Module
 		}
 	}
 
+	function validate(&$data)
+	{
+		// remove trailing slash
+		foreach(array('imagedirpath','imagedirurl') as $name)
+		{
+			if (($last_char = substr($data[$name],-1) == '/') || $last_char == '\\')
+			{
+				$data[$name] = substr($data[$name],0,-1);
+			}
+		}
+		if (!@is_dir($data['imagedirpath']) || !@is_readable($data['imagedirpath']))
+		{
+			$this->validation_error = lang("Path to image-directory '%1' is not valid or readable by the webserver !!!",$data['imagedirpath']);
+			return False;
+		}
+		return True;
+	}
 
-	
 	function get_content(&$arguments,$properties)
 	{
 		$content .= '<div align="center"><img  hspace="20" align="absmiddle" src="'. $arguments['imagedirurl'] . SEP . $arguments['imagename'] . $arguments['filenumber'] . '.' . $arguments['imagetype'] . '" /></div>';
