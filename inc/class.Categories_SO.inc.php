@@ -47,6 +47,8 @@
 			$order_by = 'cat_data';
 			switch($this->db->Type)
 			{
+				case 'sapdb': case 'maxdb':
+					break;	// cant cast text/LONG to int
 				case 'mysql':
 					// cast is mysql 4 only and has differnt types, eg. CAST(cat_data AS signed)
 					$order_by = "round($order_by)";
