@@ -321,7 +321,10 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 					{
 						if ($page->id)
 						{
-							return $objbo->getEditIconsPage($page->id,$page->cat_id);
+							return $objbo->getEditIconsPage($page->id,$page->cat_id).
+								// if the page is an index-page for a cat, add the cat-icons too
+								($GLOBALS['category_id'] && is_object($GLOBALS['cat']) ?
+								' - '.lang('Category').' '.$GLOBALS['cat']->name.' '.$objbo->getEditIconsCat($page->cat_id) : '');
 						}
 						elseif ($page->cat_id && $page->cat_id != CURRENT_SITE_ID)
 						{
