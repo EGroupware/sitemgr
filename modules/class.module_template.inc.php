@@ -20,6 +20,10 @@
 			$this->title = lang('Template chooser and/or gallery');
 			$this->themes = $GLOBALS['Common_BO']->theme->getAvailableThemes();
 			$this->arguments = array(
+				'only_allowed' => array(
+					'type' => 'checkbox',
+					'label' => lang('Show only (in the next field) selected templates'),
+				),
 				'allowed' => array(
 					'type' => 'select',
 					'multiple' => True,
@@ -32,6 +36,7 @@
 					'label' => lang('Show a template-gallery (thumbnail and informations)'),
 					'options' => array(
 						1 => lang('No, chooser only (for side-areas)'),
+						8 => lang('No, chooser with preview'),
 						3 => lang('Gallery plus chooser'),
 						7 => lang('Gallery plus chooser and download'),
 						2 => lang('Only gallery'),
@@ -46,13 +51,14 @@
 			);
 			$this->description = lang('This module lets the users choose a template');
 		}
-	
+
 		function get_content(&$arguments,$properties)
 		{
 			$show = $arguments['show'] ? $arguments['show'] : 1;
 			$download = @$_GET['download'];
 
-			if (($show & 4) && $download && in_array($download,$arguments['allowed']))
+			if (($show & 4) && $download && ($arguments['only_allowed'] && in_array($download,$arguments['allowed'])) ||
+				(!$arguments['only_allowed'] && isset($this->themes[$download])))
 			{
 				$zip = @$arguments['zip'] ? $arguments['zip'] : 'zip';
 				ob_end_clean();	// discard all previous output
@@ -63,27 +69,37 @@
 			}
 			if (count($arguments['allowed']) > 1)
 			{
-				if ($show == 1)	// only chooser
+				if ($show == 1 || $show == 8)	// only chooser or chooser with preview
 				{
-					$content .= '<form name="themeselect" method="post">';
-					$content .= '<select onChange="location.href=this.value" name="themesel">';
+					$link = $this->link();
+					$link .= (strchr($link,'?') ? '&' : '?') . 'themesel=';
+					$content .= '<form name="themeselect" method="post">'."\n";
+					if ($show == 8)
+					{
+						$content .= '<img width="170" height="130" name="preview" src="'.$this->themes[$GLOBALS['sitemgr_info']['themesel']]['thumbnail'].'">'."\n";
+						$content .= '<select onChange="document.images.preview.src=\'templates/\'+this.value+\'/template_thumbnail.png\'" name="themesel">'."\n";
+					}
+					else
+					{
+						$content .= '<select onChange="location.href=\''.$link.'\'+this.value" name="themesel">'."\n";
+					}
 					foreach ($this->themes as $name => $info)
 					{
-						if (!in_array($name,$arguments['allowed']))
+						if ($arguments['only_allowed'] && !in_array($name,$arguments['allowed']))
 						{
 							continue;
 						}
-						$selected='';
-						if ($name == $GLOBALS['sitemgr_info']['themesel'])
-						{
-							$selected = 'selected="selected" ';
-						}
 						$title = $info['title'] ? ' title="'.$info['title'].'"' : '';
-						$content .= '<option ' . $selected . 'value="' . $this->link(array(),array('themesel'=>$name)) . '"'.
-							($info['title'] ? ' title="'.$info['title'].'"' : '').'>'. $info['value'] . '</option>';
+						$content .= '<option ' . ($name == $GLOBALS['sitemgr_info']['themesel'] ? 'selected="1" ' : '') .
+							'value="' . $name . '"'.
+							($info['title'] ? ' title="'.$info['title'].'"' : '').'>'. $info['name'] . '</option>'."\n";
 					}
-					$content .= '</select>';
-					$content .= '</form>';
+					$content .= '</select>'."\n";
+					if ($show == 8)
+					{
+						$content .= '<input type="submit" value="'.lang('Select').'" onclick="location.href=\''.$link.'\'+this.form.themesel.value; return false;">'."\n";
+					}
+					$content .= '</form>'."\n";
 				}
 				if ($show & 2)	// gallery
 				{
@@ -93,13 +109,13 @@
 					$content .= '<table>'."\n";
 					foreach ($this->themes as $name => $info)
 					{
-						if ($further) $content .= '<tr><td colspan="2"><hr style="width: 30%" /></td></tr>'."\n";
-						$further = True;
-
-						if (!in_array($name,$arguments['allowed']))
+						if ($arguments['only_allowed'] && !in_array($name,$arguments['allowed']))
 						{
 							continue;
 						}
+						if ($further) $content .= '<tr><td colspan="2"><hr style="width: 30%" /></td></tr>'."\n";
+						$further = True;
+
 						if ($info['thumbnail'])
 						{
 							$info['thumbnail'] = '<img src="'.$info['thumbnail'].'" border="0" hspace="5"/>';
