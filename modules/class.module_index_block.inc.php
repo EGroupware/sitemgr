@@ -33,7 +33,7 @@
 		{
 			global $objbo;
 			$indexarray = $objbo->getIndex(False,!@$arguments['sub_cats'],True);
-			$catname = '';
+			$subcatname = $catname = '';
 			foreach($indexarray as $temppage)
 			{
 				if ($catname != $temppage['catname'] && $temppage['catdepth'] == 1) //category name change
@@ -45,14 +45,16 @@
 					$content .= "\n".'<div style="position: relative; left: '.max($temppage['catdepth']*15-30,0).'px;">';
 					$catname = $temppage['catname'];
 					$content .= "\n\t<b>$temppage[catlink]</b><br />";
+					$subcatname = '';
 				}
 				if ($temppage['catdepth'] == 1)
 				{
 					$content .= "\n\t&nbsp;&middot;&nbsp;$temppage[pagelink]<br />";
 				}
-				else
+				elseif ($subcatname != $temppage['catname'])
 				{
 					$content .= "\n\t&nbsp;&middot;&nbsp;".str_replace('</a>',' ...</a>',$temppage[catlink]).'<br />';
+					$subcatname = $temppage['catname'];
 				}
 			}
 			if (count($indexarray))
