@@ -15,7 +15,12 @@ class module_login extends Module
 {
 	function module_login()
 	{
-		$this->arguments = array();
+		$this->arguments = array(
+			'security_redirect'=>array(
+				'type' => 'textfield',
+				'label' => lang('If nonsecure redirect to:')
+			)
+		);
 		if (file_exists(PHPGW_SERVER_ROOT . '/registration'))
 		{
 			$this->arguments['registration'] = array(
@@ -38,19 +43,27 @@ class module_login extends Module
 
 	function get_content(&$arguments,$properties)
 	{
-		$content = '<form name="login" action="'.phpgw_link('/login.php').'" method="post">';
-		$content .= '<input type="hidden" name="passwd_type" value="text">';
-		$content .= '<input type="hidden" name="logindomain" value="'. $GLOBALS['phpgw_info']['user']['domain'] .'">';
-		$content .= '<center><font class="content">' . lang('Login Name') .'<br>';
-		$content .= '<input type="text" name="login" size="8" value=""><br>';
-		$content .= lang('Password') . '<br>';
-		$content .= '<input name="passwd" size="8" type="password"><br>';
-		$content .= '<input type="submit" value="' . lang('Login') .'" name="submitit">';
-		$content .= '</font></center></form>';
+		if (empty($arguments['security_redirect'])||(stristr(phpgw_link('/login.php'),'https://'))){
+			$content = '<form name="login" action="'.phpgw_link('/login.php').'" method="post">';
+			$content .= '<input type="hidden" name="passwd_type" value="text">';
+			$content .= '<input type="hidden" name="logindomain" value="'. $GLOBALS['phpgw_info']['user']['domain'] .'">';
+			$content .= '<center><font class="content">' . lang('Login Name') .'<br>';
+			$content .= '<input type="text" name="login" size="8" value=""><br>';
+			$content .= lang('Password') . '<br>';
+			$content .= '<input name="passwd" size="8" type="password"><br>';
+			$content .= '<input type="submit" value="' . lang('Login') .'" name="submitit">';
+			$content .= '</font></center></form>';
+		}
+		else {
+	      $content .= '<center><font class="content">' . 
+	        lang("Your connection is not safe.") .'<br>  ';
+			$content .= '<a href="'.$arguments['security_redirect'].'">';
+			$content .= lang('Click here to login through a safe connection.') . '</a></font></center><br><br>';
+		}
 		if (file_exists(PHPGW_SERVER_ROOT . '/registration') && $arguments['registration'])
 		{
 			$content .= '<center><font class="content">' . lang("Don't have an account?") .'  ';
-			$content .= '<a href="'.phpgw_link('/registration/index.php').'">';
+			$content .= '<a href="'.phpgw_link('/registration/index.php').'"><br/>';
 			$content .= lang('Register for one now.') . '</a></font></center>';
 		}
 		return $content;
