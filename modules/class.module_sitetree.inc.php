@@ -57,7 +57,7 @@ class module_sitetree extends Module
 				}
 				if ($subcats)
 				{
-					$tree .= $this->showcat($GLOBALS['objbo']->getCatLinks($cat_id,False));
+					$tree .= $this->showcat($subcats);
 				}
 
 				$tree .= '</table></td></tr>';
