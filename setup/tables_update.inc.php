@@ -11,4 +11,17 @@
 
 	/* $Id$ */
 
+	$test[] = '0.9.13.001';
+	function sitemgr_upgrade0_9_13_001()
+	{
+		global $setup_info,$phpgw_setup;
+		$setup_info['sitemgr']['currentver'] = '0.9.14.001';
+
+		$phpgw_setup->oProc->AddColumn('phpgw_sitemgr_pages',
+			'sort_order',array('type'=>int, 'precision'=>4));
+		$phpgw_setup->oProc->AddColumn('phpgw_sitemgr_categories',
+			'sort_order',array('type'=>int, 'precision'=>4));
+
+		return $setup_info['sitemgr']['currentver'];
+	}
 ?>
