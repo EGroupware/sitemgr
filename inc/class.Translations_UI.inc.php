@@ -187,8 +187,7 @@
 					'lang_catdesc' => lang('Category Description'),
 					'showcatdesc' => $showlangdata->description,
 					'savecatdesc' => $savelangdata->description,
-					'lang_reset' => lang('Reset'),
-					'lang_save' => lang('Save')));
+				));
 
 				//Content blocks
 				$this->process_blocks($this->contentbo->getblocksforscope($category_id,0));
@@ -248,8 +247,7 @@
 					'lang_pagesubtitle' => lang('Page Subtitle'),
 					'showpagesubtitle' => $showlangdata->subtitle,
 					'savepagesubtitle' => $savelangdata->subtitle,
-					'lang_reset' => lang('Reset'),
-					'lang_save' => lang('Save')));
+				));
 
 				//Content blocks
 				$this->process_blocks($this->contentbo->getblocksforscope($this->page->cat_id,$page_id));
@@ -320,7 +318,6 @@
 				}
 				$this->t->set_var(Array(
 					'blockid' => $id,
-					'savebutton' => '<input type="submit" value="Save" name="btnSaveBlock" />'						
 				));
 				$this->t->parse('Tblock','Blocktranslator', true);
 			}
@@ -353,7 +350,11 @@
 			global $showlanguage,$savelanguage;
 			
 			$this->t->set_var(Array(
-				'lang_refresh' => '<input type="submit" value="' . lang('Refresh') .'" name="changelanguage">'));
+				'lang_refresh' => '<input type="submit" value="' . lang('Refresh') .'" name="changelanguage">',
+				'savebutton' => '<input type="submit" value="Save" name="btnSaveBlock" />',
+				'lang_reset' => lang('Reset'),
+				'lang_save' => lang('Save')
+			));
 			$select = '<select name="showlanguage">';
 			foreach ($this->sitelanguages as $lang)
 			{
