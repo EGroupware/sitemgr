@@ -78,7 +78,7 @@ class Module
 					{
 						//contrary to $this->get, cookie and session, the argument name is the key in $this->post,
 						//because this array also defines the form element
-						if ($where == 'post') $arguement = $key;
+						if ($where == 'post') $argument = $key;
 
 						if (isset($values[$argument]))
 						{
