@@ -96,7 +96,7 @@
 				$goto = lang('Page manager');
 				$scopename = lang('Page');
 			}
-			elseif ($cat_id != CURRENT_SITE_ID)
+			elseif ($cat_id && $cat_id != CURRENT_SITE_ID)
 			{
 				$cat = $GLOBALS['Common_BO']->cats->getCategory($cat_id);
 				if (!$GLOBALS['Common_BO']->acl->can_write_category($cat_id))
