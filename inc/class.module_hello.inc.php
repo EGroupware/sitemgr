@@ -4,7 +4,6 @@ class module_hello extends Module
 {
 	function module_hello()
 	{
-		$this->name = "hello";
 		$this->arguments = array(
 			'name' => array(
 				'type' => 'textfield', 

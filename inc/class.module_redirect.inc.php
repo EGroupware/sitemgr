@@ -4,7 +4,6 @@ class module_redirect extends Module
 {
 	function module_redirect()
 	{
-		$this->name = "redirect";
 		$this->arguments = array(
 			'URL' => array(
 				'type' => 'textfield', 

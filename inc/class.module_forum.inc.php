@@ -7,7 +7,6 @@ class module_forum extends Module
 
 	function module_forum()
 	{
-		$this->name = "forum";
 		$this->arguments = array(
 			'startlevel' => array(
 				'type' => 'select',

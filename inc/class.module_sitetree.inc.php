@@ -4,7 +4,6 @@ class module_sitetree extends Module
 {
 	function module_sitetree()
 	{
-		$this->name = "sitetree";
 		$this->arguments = array();
 		$this->properties = array();
 		$this->cookie = array('menutree');
@@ -85,13 +84,13 @@ class module_sitetree extends Module
 
 function add(catid)
 {
-	document.cookie = '".$this->name."[menutree][' + catid + ']=';
+	document.cookie = '".$this->block->app_name."[menutree][' + catid + ']=';
 }
 
 function remove(catid)
 {
 	var now = new Date();
-	document.cookie = '".$this->name."[menutree][' + catid + ']=; expires=' + now.toGMTString();
+	document.cookie = '".$this->block->app_name."[menutree][' + catid + ']=; expires=' + now.toGMTString();
 }
 
 function toggle(image, catid)

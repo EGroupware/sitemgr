@@ -4,7 +4,6 @@ class module_calendar extends Module
 {
     function module_calendar()  
     {
-		$this->name = 'calendar';
         $this->arguments = array();
 		$this->session = array('timestamp');
 		$this->post = array(

@@ -4,7 +4,6 @@ class module_galerie extends Module
 {
 	function module_galerie()
 	{
-		$this->name = 'galerie';
 		$this->arguments = array(
 			'imagedirurl' => array(
 				'type' => 'textfield', 
@@ -116,7 +115,7 @@ class module_galerie extends Module
 				$this->build_post_element('next') : 
 				'';
 			require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.browser_transform.inc.php');
-			$this->add_transformer(new browser_transform($prevlink,$nextlink,$this->name));
+			$this->add_transformer(new browser_transform($prevlink,$nextlink,$this->block->app_name));
 		}
 	}
 

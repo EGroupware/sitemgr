@@ -8,7 +8,6 @@ class module_appdir extends Module
 
 	function module_appdir()
 	{
-		$this->name = 'appdir';
 		$this->arguments = array();
 		$this->title = "An application directory";
 		$this->description = "This module demonstrates how handling data stored in XML and building an interacvite interface from it";

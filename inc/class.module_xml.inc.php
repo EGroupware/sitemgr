@@ -7,7 +7,6 @@ class module_xml extends Module
 
 	function module_xml()
 	{
-		$this->name = 'xml';
 		$this->arguments = array(
 			'dirpath' => array('type' => 'textfield', 'label' => 'Filesystem path of the directory where XML files are stored'),
 			'filename' => array('type' => 'textfield', 'label' => 'the XML files\' common name'),
@@ -70,7 +69,7 @@ class module_xml extends Module
 				$this->build_post_element('next') : 
 				'';
 			require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.browser_transform.inc.php');
-			$this->add_transformer(new browser_transform($prevlink,$nextlink,$this->name));
+			$this->add_transformer(new browser_transform($prevlink,$nextlink,$this->block->module_name));
 		}
 	}
 

@@ -51,7 +51,7 @@ class Module
 		{
 			if ($this->session)
 			{
-				$sessionarguments = $GLOBALS['phpgw']->session->appsession($this->name,'sitemgr-site');
+				$sessionarguments = $GLOBALS['phpgw']->session->appsession($block->module_name,'sitemgr-site');
 				while (list(,$argument) = @each($this->session))
 				{
 					if (isset($sessionarguments[$argument]))
@@ -62,25 +62,25 @@ class Module
 			}
 			while (list(,$argument) = @each($this->get))
 			{
-				if (isset($_GET[$this->name][$argument]))
+				if (isset($_GET[$block->module_name][$argument]))
 				{
-					$block->arguments[$argument] = $_GET[$this->name][$argument];
+					$block->arguments[$argument] = $_GET[$block->module_name][$argument];
 				}
 			}
 			//contrary to $this->get, cookie and session, the argument name is the key in $this->post because this array also
 			//defines the form element
 			while (list($argument,) = @each($this->post))
 			{
-				if (isset($_POST[$this->name][$argument]))
+				if (isset($_POST[$block->module_name][$argument]))
 				{
-					$block->arguments[$argument] = $_POST[$this->name][$argument];
+					$block->arguments[$argument] = $_POST[$block->module_name][$argument];
 				}
 			}
 			while (list(,$argument) = @each($this->cookie))
 			{
-				if (isset($_COOKIE[$this->name][$argument]))
+				if (isset($_COOKIE[$block->module_name][$argument]))
 				{
-					$block->arguments[$argument] = $_COOKIE[$this->name][$argument];
+					$block->arguments[$argument] = $_COOKIE[$block->module_name][$argument];
 				}
 			}
 		}
@@ -91,7 +91,7 @@ class Module
 	{
 		while (list($key,$value) = @each($modulevars))
 		{
-			$extravars[$this->name.'['.$key.']'] = $value;
+			$extravars[$this->block->module_name.'['.$key.']'] = $value;
 		}
 		$extravars['page_id'] = $this->block->page_id;
 		return sitemgr_link($extravars);
@@ -204,7 +204,6 @@ class Module
 
 	function get_admin_interface()
 	{
-		//we set the blockarguments to the properties so that the build_input_element function can retrieve the right defaults
 		$properties = $this->get_properties(False);
 		$elementname = 'element[' .$key . ']';
 		$interface = array();
@@ -222,7 +221,7 @@ class Module
 		return $this->build_input_element(
 			$this->post[$key],
 			($default !== False) ? $default : $this->block->arguments[$key],
-			($this->name . '[' . $key . ']')
+			($this->block->module_name . '[' . $key . ']')
 		);
 	}
 
@@ -309,7 +308,7 @@ class Module
 						$sessionarguments[$argument] = $this->block->arguments[$argument];
 					}
 				}
-				$GLOBALS['phpgw']->session->appsession($this->name,'sitemgr-site',$sessionarguments);
+				$GLOBALS['phpgw']->session->appsession($this->block->module_name,'sitemgr-site',$sessionarguments);
 			}
 			return $content;
 		}
