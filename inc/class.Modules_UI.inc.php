@@ -123,8 +123,6 @@
 					return;
 				}
 				$cat_id = $_GET['cat_id'];
-				$scopename = lang(($cat_id) ? 'Category' : 'Site');
-
 
 				if ($btnSaveProperties)
 				{
@@ -141,7 +139,7 @@
 
 				$this->common_ui->DisplayHeader();
 				
-				if ($cat_id)
+				if ($cat_id != CURRENT_SITE_ID)
 				{
 						$cat = $this->catbo->getCategory($cat_id);
 						$cat_name = $cat->name;
@@ -178,7 +176,7 @@
 					'module_edit' => lang('Edit properties of module %1 for %2 with scope %3',
 						$module['module_name'],
 						($inputarea == '__PAGE__' ? lang('the whole page') : (lang('Contentarea') . $inputarea)),
-						($cat_id ? ('category ' . $cat_name) : ' the whole site')
+						(($cat_id != CURRENT_SITE_ID) ? ('category ' . $cat_name) : ' the whole site')
 					),
 					'module_id' => $inputmodule_id,
 					'contentarea' => $inputarea,

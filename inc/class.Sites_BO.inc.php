@@ -20,7 +20,6 @@
 		var $debug = False;
 
 		var $so    = '';
-		var $acl;
 		var $start = 0;
 		var $query = '';
 		var $sort  = '';

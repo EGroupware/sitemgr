@@ -13,17 +13,13 @@ define('SITEMGR_ACL_IS_ADMIN',1);
 
 	class ACL_BO
 	{
-		var $acct;
 		var $acl;
 		var $acl_so;
-		var $pages_so;
 		var $logged_in_user;
 
 		function ACL_BO()
 		{
 			$this->logged_in_user = $GLOBALS['phpgw_info']['user']['account_id'];
-			$this->acct = CreateObject('phpgwapi.accounts',$this->logged_in_user);
-			$this->pages_so = CreateObject('sitemgr.Pages_SO');
 			$this->acl = CreateObject('phpgwapi.acl',$this->logged_in_user);
 			$this->acl_so = CreateObject('sitemgr.ACL_SO');
 		}
@@ -44,24 +40,6 @@ define('SITEMGR_ACL_IS_ADMIN',1);
 			{
 				$this->acl->add_repository('sitemgr','L'.$site_id,$account_id,SITEMGR_ACL_IS_ADMIN);
 			}
-		}
-
-		function get_adminlist($site_id)
-		{
-			$users = $this->acct->get_list($acct_type);
-
-			$adminlist = Array();
-
-			reset($users);
-			while(list($k,$v) = each($users))
-			{
-				$account_id = $v['account_id'];
-				if ($this->is_admin($site_id,$account_id))
-				{
-					$adminlist[] = $account_id;
-				}
-			}
-			return $adminlist;
 		}
 
 		function remove_location($category_id)
@@ -115,7 +93,7 @@ define('SITEMGR_ACL_IS_ADMIN',1);
 			   ones that look for things in the phpgwapi tables, the stupid get_rights
 			   and get_specific_rights and other lookup functions DON'T WORK.
 			*/
-			$users = $this->acct->get_list($acct_type);
+			$users = $GLOBALS['phpgw']->accounts->get_list($acct_type);
 
 			$permissions = Array();
 
