@@ -82,10 +82,11 @@
 				$this->t->set_var('add_edit','Add Page');
 			}
 		
+			$trans = array("{" => "&#123;", "}" => "&#125;");
 			$this->t->set_var(array(
 				'title' =>$this->page->title,
 				'subtitle' => $this->page->subtitle,
-				'main'=>$this->page->content,
+				'main'=>strtr($this->page->content,$trans),
 				'name'=>$this->page->name,
 				'pageid'=>$page_id,
 				'category_id' => $category_id
