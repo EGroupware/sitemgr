@@ -30,6 +30,7 @@
 	if ($location && file_exists($dir . '/config.inc.php'))
 	{
 		require_once($dir . '/config.inc.php');
+		require_once($dir . '/functions.inc.php');
 		Header('Location: ' . sitemgr_link2('/index.php'));
 		//echo sitemgr_link2('/index.php');
 		exit;
