@@ -272,7 +272,7 @@ a.textSidebox
 	border-right-color:#9c9c9c;
 	border-right-width:1px;
 	border-right-style:solid;
-	height: 90%;
+	min-height: 90%;
 }
 
 #divGenTime
