@@ -27,6 +27,7 @@ anonymous	sitemgr	de	Anonymer Benutzer
 anonymous user login domain	sitemgr	de	Anonymer Benutzer login Domain
 anonymous user's password	sitemgr	de	Anonymer Benutzer Password
 anonymous user's username	sitemgr	de	Anonymer Benutzer Username
+application	sitemgr	de	Anwendung
 apply permissions also to subcategories?	sitemgr	de	Zugriffsrechte auch auf Unterkategorien anwenden?
 archived	sitemgr	de	Archiviert
 archived content	sitemgr	de	Archivierter Inhalt
@@ -37,6 +38,7 @@ asin[=title] pairs (title is optional)	sitemgr	de	ASIN=[Titel] Paare (Titel ist 
 attempt to access information outside current website	sitemgr	de	Versuch auf Informationen ausserhalb der aktuellen  Website zuzugreifen
 attempt to edit non-editable block	sitemgr	de	Versuch einen nicht-bearbeitbaren Block zu bearbeiten
 back to module manager	sitemgr	de	Zurück zum Modulmanager
+back to the list of languages	sitemgr	de	Zurück zur Liste der Sprachen
 basic settings	sitemgr	de	Basis Einstellungen
 before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr	de	Bevor die öffentliche Website angeschaut werden kann, sind verschiedenen Orte und Einstellungen vorzunehmen. Bitte gehen Sie zur SiteMgr Setup Seite über diesen Link:
 block not found	sitemgr-site	de	Block nicht gefunden
@@ -88,6 +90,7 @@ delete this application	sitemgr	de	Diese Applikation löschen
 delete this block	sitemgr	de	Diesen Block löschen
 delete version	sitemgr	de	Version löschen
 deleting all data for %1	sitemgr	de	Alle Daten für %1 werden gelöscht
+details for language %1 (%2)	sitemgr	de	Details für die Sprache %1 (%2)
 discussions	sitemgr	de	Diskussionen
 display link to autoregistration below login form?	sitemgr	de	Link auf Autoregistrierung unterhalb des Login anzeigen?
 do you realy want to delete this block?	sitemgr	de	Wollen Sie diesen Block wirklich löschen?
@@ -125,6 +128,7 @@ filesystem path of the directory where xml files are stored	sitemgr	de	Der Pfad 
 filesystem path of the image-directory	sitemgr	de	Dateisystem Pfad zum Ordner der Bilder
 filesystem path to sitemgr-site directory	sitemgr	de	Dateisystem Pfad zum sitemgr-site Ordner
 fill in permissions from parent category? if you check this, below values will be ignored	sitemgr	de	Zugriffsrechte der Eltern-Kategorie übernehmen? Wenn das angekreutzt ist, werden die folgenden Werte ignoriert
+following new modules registed: %1	sitemgr	de	Folgende neue Module wurden registriert: %1
 footer editor	sitemgr	de	Fusszeilen Editor
 forum	sitemgr	de	Forum
 full path of the xslt file that should be applied to the xml files	sitemgr	de	Der komplette Pfad zur XSLT Datei welche angewendet wird für die XML Dateien
@@ -195,6 +199,7 @@ no groups defined.	sitemgr	de	Keine Gruppen definiert.
 no link to full index	sitemgr	de	Kein Link auf den Gesamtindex
 no matching news item	sitemgr	de	Keine zutreffenden Nachrichten
 no modules permitted for this content area/category	sitemgr	de	Für diesen Inhaltsbereich / Kategorie sind keine Module erlaubt
+no new modules found !!!	sitemgr	de	Keine neuen Module gefunden !!!
 no options available.	sitemgr	de	Keine Optionen verfügbar.
 no pages available	sitemgr	de	Keine Seiten verfügbar
 no sitelanguages configured	sitemgr	de	Keine Sprachen konfiguriert
@@ -228,7 +233,9 @@ password	sitemgr	de	Passwort
 password that you assigned for the anonymous user account.	sitemgr	de	Passwort des anonymen Benutzerkontos
 path to image-directory '%1' is not valid or readable by the webserver !!!	sitemgr	de	Der Pfad zum Ordner der Bilder '%1' ist ungültig oder nicht lesbar für den Webserver !!!
 path to zip binary if not in path of the webserver	sitemgr	de	Pfad zu zip Programm, wenn nicht im Pfad des Webservers
+percentage	sitemgr	de	Prozente
 phpgw users	sitemgr	de	eGroupWare Benutzer
+phrases in total	sitemgr	de	Phrasen insgesammt
 please enter a name for that site !	sitemgr	de	Bitte geben sie einen Namen für die Website an !
 post a message to this thread	sitemgr	de	Eine Nachricht in diesem Thread posten.
 prepublished	sitemgr	de	zu veröffentlichen
@@ -263,6 +270,7 @@ selected template %1 does not exist.	sitemgr	de	Das ausgewählte Design %1 ist ni
 selected theme %1 does not exist.	sitemgr	de	Das ausgewählte Thema %1 ist nicht verfügbar.
 should the file be viewed in the browser or downloaded	sitemgr	de	Soll die Datei im Browser angezeigt werden oder lokal gespeichert werden
 show a template-gallery (thumbnail and informations)	sitemgr	de	Galerie mit Designvorlagen (Bilder und Informationen) anzeigen
+show details for the applications	sitemgr	de	Zeite Details über die einzelnen Anwendungen
 show only (in the next field) selected templates	sitemgr	de	Zeige nur die (im nächsten Feld) ausgewählten Designvorlagen
 show searchbox	sitemgr	de	Suchfeld anzeigen
 show site index	sitemgr	de	Site Inhaltsverzeichnis anzeigen
@@ -351,6 +359,7 @@ this module provides a complete table of contents, it is automatically used by t
 this module provides a condensed table of contents, meant for side areas	sitemgr	de	Dieses Modul liefert ein verdichtetes Inhaltsverzeichnis, gedacht für die Seitenspalten
 this module provides the site index, it is automatically used by the index get parameter	sitemgr	de	Dieses Modul stellt einen Seiten Index zur Verfügung. Es wird automatisch durch den Index GET parameter erstellt.
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	sitemgr	de	Dieses Modul publiziert Inhalt der Nachrichten Anwendung auf Ihrer Website. Bitte beachten Sie die Restriktionen der ACL Nachrichten Anwendung.
+this module show the status / percentage of the translation of egw	sitemgr	de	Diese Module zeit den prozentualen Status der Übersetzungen von eGW
 this must be an absolute directory location.  <b>no trailing slash</b>.	sitemgr	de	Hier muss der Adsolute Pfad zu Verzeichniss angegeben werden. Zum Beispiel: /var/www/html/Ihre_Firma/sitemgr_site. <b>Keinen "/" am Ende des Pfades angeben!</b>
 this should be a comma-separated list of language-codes.	sitemgr	de	Geben Sie hier eine durch Kommatas unterteilte Liste der Sprachen ein. Zum Beispiel: en, de, fr
 this should be a page that is readable by everyone. if you leave this blank, the site index will be shown by default.	sitemgr	de	Diese Seite sollte von einem Benutzer ohne spezielle Rechte gesehen werden können (z. B. Anonymous). Falls Sie hier nichts eintragen, wird der Seiten Index als Standard angezeigt.
@@ -362,6 +371,7 @@ translate category	sitemgr	de	Übersetzen der Kategorie
 translate page	sitemgr	de	Übersetzen der Seite
 translate site-wide content blocks	sitemgr	de	site-weite Inhaltsblöcke übersetzen
 translation manager	sitemgr	de	Übersetzungen
+translation status	sitemgr	de	Status der Übersetzungen
 up to parent	sitemgr	de	Zur übergeordneten Ebene wechseln
 up to table of contents	sitemgr	de	Zum Inhaltsverzeichnis wechseln
 updating to new category system	sitemgr	de	Update zum neuen Kategorie System
