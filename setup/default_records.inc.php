@@ -44,7 +44,7 @@
 		'calendar' => array('left','right'),
 		'currentsection' => array('left','right'),
 		'download' => array('__PAGE__'),
-		'filecontents' => array('left','right','header','footer','__PAGE__'),
+		// disabled for securityreasons by default, it allows to show eg. /etc/passwd or our header 'filecontents' => array('left','right','header','footer','__PAGE__'),
 		'google' => array('left','right'),
 		'html' => array('left','right','header','footer','__PAGE__'),
 		'index_block' => array('left','right'),
