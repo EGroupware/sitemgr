@@ -1,4 +1,5 @@
 %1 content manager	sitemgr	de	%1 Inhaltsmanager
+%1 module manager	sitemgr	de	%1 Modulmanager
 a simple picture galery	sitemgr	de	Eine einfache Bilder Gallerie
 actif	sitemgr	de	Aktiv
 add a category	sitemgr	de	Kategorie hinzufügen
@@ -7,6 +8,7 @@ add block to content area %1	sitemgr	de	Block zu Inhaltsbereich %1 zufügen
 add category	sitemgr	de	Kategorie hinzufügen
 add new page to this category	sitemgr	de	Eine neue Seite zu dieser Kategorie hinzufügen
 add page	sitemgr	de	Seite hinzufügen
+add page to category	sitemgr	de	Eine Seite zu dieser Kategorie hinzufügen
 administration	sitemgr-site	de	Administration
 administrative menu	sitemgr	de	Administrations Menü
 administrators	sitemgr	de	Administratoren
@@ -21,13 +23,18 @@ anonymous user's username	sitemgr	de	Anonymer Benutzer Username
 anonymous user\'s password	sitemgr	de	Anonymer Benutzer Password
 anonymous user\'s username	sitemgr	de	Anonymer Benutzer Username
 apply permissions also to subcategories?	sitemgr	de	Zugriffsrechte auch auf Unterkategorien anwenden?
+archived	sitemgr	de	Archiviert
+archived content	sitemgr	de	Archivierter Content
+are you sure you want to delete site %1 and all its content? you cannot retrieve it if you continue.	sitemgr	de	Sind Sie sicher das Sie Seite %1 und den kompltten Inhalt löschen möchten? Ein Wiederherstellen ist nicht möglich, wenn Sie fortfahren.
 are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	de	Sind sie sicher das Sie die Kategorie %1 und alle dazugehörigen Seiten löschen möchten?  Diese Seiten werden hiermit endgültüg gelöscht.
 as	common	de	als
+attempt to access information outside current website	sitemgr	de	
+attempt to edit non-editable block	sitemgr	de	
 back to module manager	sitemgr	de	Zurück zum Modulmanager
 basic settings	sitemgr	de	Basis Einstellungen
 before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr	de	Bevor die öffentliche Website angeschaut werden kann, sind verschiedenen Orte und Einstellungen vorzunehmen. Bitte gehen Sie zur SiteMgr Setup Seite über diesen Link:
 block not found	sitemgr-site	de	Block nicht gefunden
-block not found.	sitemgr	de	Block nicht gefunden.
+block not found.	sitemgr-site	de	Block nicht gefunden.
 block returned no content.	sitemgr-site	de	Dieser Block hat keinen Inhalt.
 bookmarks	sitemgr	de	Lesezeichen
 calendar	sitemgr	de	Kalender
@@ -37,6 +44,7 @@ category	sitemgr-site	de	Kategorie
 category description	sitemgr	de	Kategorie Beschreibung
 category manager	sitemgr	de	Kategorie Manager
 category name	sitemgr	de	Kategorie Name
+category saved	sitemgr	de	Kategorie gespeichert
 changes saved.	sitemgr	de	Änderungen gespeichert.
 check here after every upgrade	sitemgr	de	Nach jedem upgrade bitte nochmals hier überprüfen
 check to hide from condensed site index.	sitemgr	de	Hier auswählen um eine Seite im Inhaltsverzeichnis nicht anzuzeigen.
@@ -45,29 +53,42 @@ choose language	sitemgr-site	de	Sprachauswahl
 choose the categories to display	sitemgr	de	Wählen Sie die anzuzeigende Kategorie aus
 choose your site's theme or template.  note that if you changed the above checkbox you need to save before choosing a theme or template.	sitemgr	de	Wählen Sie das Seiten Layout oder Template. Beachten Sie bitte: Wenn Sie eine Einstellung verändert haben, müssen Sie diese zuerst speichern, bevor Sie dieses benutzen oder nochmals verändern können.
 collapse threads	sitemgr	de	Threads kolabieren
+commit changes	sitemgr	de	
 configure module properties	sitemgr	de	Modul Eigenschaften konfigurieren
 configure sitemgr	sitemgr	de	SiteMgr konfigurieren
 contact the administrator.	sitemgr-site	de	Kontaktieren Sie den Administrator
+content blocks	sitemgr	de	
 content manager	sitemgr-site	de	Inhaltsmanager
 contentarea	sitemgr	de	Textblock
 contributor menu	sitemgr	de	Autoren Menü
+create new version	sitemgr	de	Neue Version erstellen
 current section	sitemgr	de	Gegenwärtiger Abschnitt
+default	sitemgr	de	Standard
 default home page id number	sitemgr	de	Standard Home Page ID Nummer
+delete block	sitemgr	de	
+delete category	sitemgr	de	Kategorie löschen
+delete page	sitemgr	de	Seite löschen
 delete this application	sitemgr	de	Diese Applikation löschen
+delete version	sitemgr	de	
 deleting all data for %1	sitemgr	de	Alle Daten für %1 werden gelöscht
 discussions	sitemgr	de	Diskussionen
 display link to autoregistration below login form?	sitemgr	de	
 do you want to delete them?	sitemgr	de	Möchten Sie sie löschen?
+do you want to publish a rss feed for this news category	sitemgr	de	
 don't have an account?	sitemgr-site	de	Sie haben keinen Benutzerkonto?
 done	sitemgr	de	Fertig
 downloaded	sitemgr	de	Download abgeschlossen
+draft	sitemgr	de	
 edit categories and permissions	common	de	Kategorien und Zugriffsrechte bearbeiten
 edit category	sitemgr	de	Kategorie bearbeiten
 edit individual pages	common	de	Einzelne Seiten bearbeiten
 edit page	sitemgr	de	Seite bearbeiten
 edit properties of module %1 for %2 with scope %3	sitemgr	de	Bearbeiten der Eigenschaften des Moduls %1 für %2 im Bereich
 edit site header and footer	common	de	Seiten Kopf- und Fusszeile editieren
+edit this block	sitemgr	de	
+edit website	sitemgr	de	
 enter a name	sitemgr	de	Namen eingeben
+enter the block content here	sitemgr	de	
 enter the page content here	sitemgr	de	Geben Sie den Seiten Content hier ein
 error accessing page	common	de	Fehler beim Aufruf der Seite
 everybody	sitemgr	de	Jedermann
@@ -75,7 +96,7 @@ file contents	sitemgr	de	Datei Inhalt
 file download	sitemgr	de	Datei download
 file is not world readable	sitemgr	de	Die Datei ist nicht lesbar
 filesystem path of the directory where the images are found (no trailing slash)	sitemgr	de	Pfad zum Ordner in welchem Bilder gespeichert werden (kein "/" am Ende)
-filesystem path of the directory where xml files are stored	sitemgr	de	Der Pfad im zum Ordner in welchem XML Dateien gespeichert werden 
+filesystem path of the directory where xml files are stored	sitemgr	de	Der Pfad im zum Ordner in welchem XML Dateien gespeichert werden
 filesystem path to sitemgr-site directory	sitemgr	de	Dateisystem Pfad zum sitemgr-site Ordner
 fill in permissions from parent category? if you check this, below values will be ignored	sitemgr	de	Zugriffsrechte der Eltern-Kategorie übernehmen? Wenn das angekreutzt ist, werden die folgenden Werte ignoriert
 footer editor	sitemgr	de	Fusszeilen Editor
@@ -98,7 +119,9 @@ html module	sitemgr	de	HTML Modul
 i'm sorry, you do not have write permissions for any site categories.	sitemgr	de	Sie haben keine Schreibrechte für die Seiten Kategorien.
 if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	de	Falls Sie es nicht schon erfolgt ist, legen Sie bitte im Administrationsmenü einen Benutzer an, welcher benutzt wird als Benutzer für den öffentlichen Teil der Seite. Empfohlener Benutzername: anonymous
 image type	sitemgr	de	Bild Typ
+implies read permission	sitemgr	de	
 individual access permission	sitemgr	de	Individuelle Zugriffs Rechte
+individual access permissions	sitemgr	de	
 interface to google website	sitemgr	de	Schnittstelle zur Google Webseite
 languages the site user can choose from	sitemgr	de	Sprachen die der Benutzer auswählen kann
 latest reply	sitemgr	de	Letzte Antwort
@@ -107,9 +130,14 @@ login	sitemgr-site	de	Login
 login name	sitemgr-site	de	Login Name
 main content	sitemgr	de	Hauptinhalt
 mains	sitemgr	de	
+maintainer	sitemgr	de	
 manage categories	sitemgr	de	Kategorien bearbeiten
+manage categories and pages	sitemgr	de	
+manage category wide content	sitemgr	de	
+manage category wide module properties	sitemgr	de	
 manage content	sitemgr	de	Inhalte verwalten
 manage modules	sitemgr	de	Module verwalten
+manage page specific content	sitemgr	de	
 manage pages	common	de	Seiten verwalten
 manage site content	sitemgr	de	Seiten Inhalt verwalten
 manage site-wide module properties	sitemgr	de	Moduleinstellungen für die ganze Website
@@ -118,31 +146,38 @@ master list of permitted modules	sitemgr	de	Masterliste für erlaubte Module
 migrating data for %1 to %2	sitemgr	de	Daten für %1 werden nach %2 übertragen
 module %1 is not permitted in this context!	sitemgr	de	Module %1 ist in diesem Kontext nicht erlaubt!
 module manager	sitemgr	de	Module verwalten
+more news	sitemgr	de	
 move to	sitemgr	de	Verschieben nach
 name	sitemgr	de	Name
 name has been translated to lower case	sitemgr	de	Der Name wurde in Kleinbuchstaben umgewandelt
 new application	sitemgr	de	Neue Applikation
 new sitemgr site	sitemgr	de	Neue Sitemanager Seite
 news module	sitemgr	de	Nachrichten Modul
-no anonymous user accounts installed.  notify the administrator.	sitemgr	de	KEINE ANONYME BENUTZERKENNUNG INSTALLIERT. BENACHRICHTIGEN SIE DEN ADMINISTRATOR.
+no anonymous user accounts installed.  notify the administrator.	sitemgr-site	de	KEINE ANONYME BENUTZERKENNUNG INSTALLIERT. BENACHRICHTIGEN SIE DEN ADMINISTRATOR.
 no anonymous user accounts installed. notify the administrator.	sitemgr-site	de	DER USER ANONYMOUS IST NICHT INSTALLIERT. BENACHRICHTIGEN SIE DEN ADMINISTRATOR.
 no content areas found in selected template	sitemgr	de	Keine Inhaltsbereich in der ausgewählten Vorlage gefunden.
 no content found	sitemgr	de	Kein Inhalt gefunden
 no groups defined.	sitemgr	de	Keine Gruppen definiert.
+no matching news item	sitemgr	de	
 no modules permitted for this content area/category	sitemgr	de	Für diesen Inhaltsbereich / Kategorie sind keine Module erlaubt
 no options available.	sitemgr	de	Keine Optionen verfügbar.
 no pages available	sitemgr-site	de	Keine Seiten verfügbar
 no sitelanguages configured	sitemgr	de	Keine Sprachen konfiguriert
+no template file found.	sitemgr	de	
 no templates found.	sitemgr	de	Keine Vorlagen gefunden.
 no users defined.	sitemgr	de	Keine Benutzer definiert.
+no websites defined	sitemgr	de	
 not yet translated	sitemgr	de	noch nicht übersetzt
 note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	de	Sie können diese Nachricht auch erhalten, wenn ihre Einstellungen nicht richtig sind. Zum Beispiel wenn config.inc.php nicht im angegebenen Verzeichnis gefunden wurde.
+number of news items to be displayed on page	sitemgr	de	
+other websites	sitemgr	de	
 overview of all available categories	sitemgr	de	Überblick über alle verfügbaren Kategorien
 overview of one specific category	sitemgr	de	Überblick über eine spezielle Kategorie
 page	sitemgr	de	Seite
 page content	sitemgr	de	Seiteninhalt
 page manager	sitemgr	de	Seiten Manager
 page name	sitemgr	de	Seitenname
+page saved	sitemgr	de	
 page saved.	sitemgr	de	Seite gespeichert.
 page subtitle	sitemgr	de	Seitenuntertitel
 page title	sitemgr	de	Seitentitel
@@ -151,8 +186,13 @@ parent	sitemgr	de	Übergeordnet
 password	sitemgr-site	de	Passwort
 password that you assigned for the anonymous user account.	sitemgr	de	Passwort des Annonymen Benutzer Kontos
 phpgw users	sitemgr	de	phpGroupWare Benutzer
+please enter a name for that site !	sitemgr	de	
 post a message to this thread	sitemgr	de	Eine Nachricht in diesem Thread posten.
+prepublished	sitemgr	de	
+preunpublished	sitemgr	de	
 previous	sitemgr	de	Vorhergehend
+published	sitemgr	de	
+reactivate content	sitemgr	de	
 read permission	sitemgr	de	Leserechte
 redirection	sitemgr	de	Umlenkung
 refresh	sitemgr	de	Aktualisieren
@@ -166,26 +206,34 @@ return to main menu.	sitemgr	de	Zurück zum Hauptmenü.
 return to message list	sitemgr	de	Zurück zur Meldungsliste
 root site index	sitemgr-site	de	Wurzelverzeichnis
 save	sitemgr	de	Speichern
+save block	sitemgr	de	
 saved	sitemgr	de	Gespeichert
 scope	sitemgr	de	Anwendungsbereich
 seen by	sitemgr	de	Sichtbar für
 select a category	sitemgr	de	Eine Kategorie auswählen
 select a forum	sitemgr	de	Ein Forum auswählen
 select allowed modules	sitemgr	de	Erlaubte Module auswählen
+select persons and groups that are entitled to configure the website.	sitemgr	de	
 selected template %1 does not exist.	sitemgr-site	de	Das ausgewählte Template %1 ist nicht verfügbar.
 selected theme %1 does not exist.	sitemgr-site	de	Das ausgewählte Thema %1 ist nicht verfügbar.
 should the file be viewed in the browser or downloaded	sitemgr	de	Soll die Datei im Browser angezeigt werden oder lokal gespeichert werden
 show site index	sitemgr	de	Site Inhaltsverzeichnis anzeigen
 site	sitemgr	de	Website
+site %1 has been added	sitemgr	de	
+site %1 has been updated	sitemgr	de	
+site administrators	sitemgr	de	
+site description	sitemgr	de	
 site format manager	sitemgr	de	Website Formatmanager
 site index	sitemgr-site	de	Website Inhaltsverzeichnis
 site name	sitemgr	de	Website Name
 site setup	common	de	Setup der Website
 site tree menu	sitemgr	de	Hauptansicht der Seite
+site wide	sitemgr	de	
 sitemgr options	sitemgr	de	SiteMgr Optionen
 sitemgr setup instructions	sitemgr	de	SiteMgr Setup Informationen
 sitemgr setup page	sitemgr	de	SiteMgr Setup Seite
 sitemgr web content manager	common	de	SiteMgr Contentmanagement
+sitemgr websites	sitemgr	de	
 sort order	sitemgr	de	Reihenfolge der Sortierung
 strip html from block content?	sitemgr	de	Entferne HTML aus dem Block Content
 subcategories	sitemgr-site	de	Unterkategorien
@@ -206,8 +254,9 @@ the page was successfully saved.	sitemgr	de	Die Seite wurde erfolgreich gespeich
 the path to the file to be downloaded	sitemgr	de	Der Pfad zu Datei welche lokal gespeichert werden soll
 the person to say hello to	sitemgr	de	Die Person welche hello gesagt wird
 the second directory is the sitemgr-site directory.  this can be moved <i>anywhere</i>.  it can also be named <i>anything</i>.  wherever it winds up, when you point a web browser to it, you will get the generated website.  assuming, of course, that you've accurately completed the setup fields below and also <b><i>edited the config.inc.php</i></b> file.	sitemgr	de	Das zweite Verzeichnis ist das sitemmgr-site Verzeichnis. Dieses können Sie an einen <i>beliebigen</i> Platz verschieben. Sie können diesem Verzeichnis auch einen <i>beliebigen</i> Namen geben. Unabhängig vom Namen und dem Ort an welchem es sich befindet wird die erzeugte Seite angezeigt. Bedingung hierfür ist jedoch das die Setup Informationen vollständig und richtig eingegeben wurden und die Datei <b>config.inc.php</b> bearbeitet wurde.
-the text for the link, if empty the module returns the raw URL (without the HTML A element)	sitemgr	de	Der Text für den Link, falls kein Eintrag vorhanden ist gibt das Modul die rohe URL aus (ohne das HTML Element A)
+the text for the link, if empty the module returns the raw url (without the html a element)	sitemgr	de	Der Text für den Link, falls kein Eintrag vorhanden ist gibt das Modul die rohe URL aus (ohne das HTML Element A)
 the url can be relative or absolute.  name must end in a slash.	sitemgr	de	Die URL kann absolute oder relativ angegeben werden. Der Pfad muss mit einem "/" enden.
+the url must be absolute and end in a slash, for example http://mydomain.com/mysite/	sitemgr	de	
 the url to redirect to	sitemgr	de	
 the whole page	sitemgr	de	die gesamten Seite
 the xml files' common name	sitemgr	de	Der allgemeine Name des XML files
@@ -218,13 +267,17 @@ there are no pages in this section	sitemgr-site	de	In diesem Bereich sind keine 
 there are no properties defined for this module	sitemgr	de	Es sind keine Einstellungen definiert für dieses Module
 there are no sections available to you.	sitemgr-site	de	Es sind keine Sektionen für sie verfügbar.
 there are two subdirectories off of your sitemgr directory that you should move before you do anything else.  you don't <i>have</i> to move either of these directories, although you will probably want to.	sitemgr	de	Das sitemgr Verzeichnis beinhaltet zwei Unter-Verzeichnisse welche Sie zuerst an den vorgesehenen Ort verschieben sollten, bevor Sie weitere konfigurationen vornehmen. Sie müssen diese Unterverzeichnisse <b>nicht</b> verschieben. Sie können auch mit der Standardkonfiguration arbeiten.
+there can only be one version in (pre(un))published state, with the one exeption that one prepublished version can coexist with one preunpublished version	sitemgr	de	
+there is no website configured for url %1.  notify the administrator.	sitemgr	de	
 there was an error accessing the requested page. either you do not have permission to view this page, or the page does not exist.	common	de	Ein Fehler ist aufgetreten beim Aufruf der angeforderten Seite. Entweder haben Sie nicht die Rechte diese Seite anzusehen, oder diese Seite existiert nicht.
 there was an error writing to the database.	sitemgr	de	Beim schreiben in die Datenbank ist ein Fehler aufgetreten.
 this block displays a javascript based tree menu	sitemgr	de	
 this block displays the current section's table of contents	sitemgr	de	
 this category has no pages.	sitemgr	de	Diese Kategorie hat keine Seiten.
 this is a simple sample module	sitemgr	de	Dies ist ein einfaches Beispiel Modul
+this is only used as an internal name for the website.	sitemgr	de	
 this is used chiefly for meta data and the title bar. if you change the site languages below you have to save before being able to set this preference for a new language.	sitemgr	de	Dieser Eintrag wird hauptsächlich für die META-Daten und den Seiten Titel benutzt. Wenn Sie weiter unten die Seitensprache ändern, müssen Sie zuerst speichern bevor Sie diese Einstellungen für eine andere Sprache eintragen können.
+this is used chiefly for meta data. if you change the site languages below you have to save before being able to set this preference for a new language.	sitemgr	de	
 this module create a link for downloading a file from the vfs	sitemgr	de	Dieses Modul stellt einen Link bereit zum lokalen speichern eine Datei aus dem VFS
 this module demonstrates how handling data stored in xml and building an interacvite interface from it	sitemgr	de	Dieses Modul zeigt wie interaktives Interface erzeugen kann mit Informationen, welche im XML Format gespeichert sind
 this module displays a login form	sitemgr	de	Dieses Modul bietet ein Anmelde Formular
@@ -235,7 +288,7 @@ this module includes the contents of a (world readable) file	sitemgr	de	Dieses M
 this module is a simple html editor	sitemgr	de	Dieses Modul ist ein einfacher HTML Editor
 this module lets users choose language	sitemgr	de	Dieses Modul erlaubt es Benutzern eine Sprache auszuwählen
 this module lets you define pages that redirect to another url, if you use it, there should be no other block defined for the page	sitemgr	de	
-this module permits browsing through xml files stored in a directory, and transformed by xslt	sitemgr	de	Dieses Modul erlaubt das durchsuchen von Verzeichnisse mit XML Dateien und transformiert mit XSLT  
+this module permits browsing through xml files stored in a directory, and transformed by xslt	sitemgr	de	Dieses Modul erlaubt das durchsuchen von Verzeichnisse mit XML Dateien und transformiert mit XSLT
 this module presents a link back to the sitemgr's administration menu. it is meant for registered users	sitemgr	de	Dieses Modul bietet einen Link zum sitemgr Administrations Menü. Es ist vorgesehen für registrierte Benutzer
 this module provides a complete table of contents, it is automatically used by the toc and category_id get parameters	sitemgr	de	Dieses Modul bietet ein komplettes Inhaltsverzeichnis. Dieses wird automatisch erstellt durch den toc und den category_ID GET parameter
 this module provides a condensed table of contents, meant for side areas	sitemgr	de	
@@ -266,6 +319,7 @@ viewed	sitemgr	de	angesehen
 web content manager	common	de	SiteMgr Contentmanagement
 web content manager administration	sitemgr	de	Web Content Manager Administration
 web site manager	sitemgr	de	Verwaltung der Website
+website	sitemgr	de	
 week	sitemgr	de	Woche
 what do you want to do with existing translations of categories and pages for this language?	sitemgr	de	Was möchten Sie mit den existierenden Übersetzungen für Kategorien und Seiten machen?
 with which view should the module be displayed in the beginning?	sitemgr	de	In welcher Ansicht soll das Modul angezeigt werden am Anfang
@@ -279,6 +333,7 @@ you can either migrate them to a new language or delete them	sitemgr	de	Sie könn
 you can override each content blocks default title. be aware that not in all content areas the block title will be visible.	sitemgr	de	Sie können den Vorgabe-Titel jedes Inhaltsblocks überschreiben. Bitte beachten: nicht in allen Inhaltsblöcken sind die Titel auch sichtbar.
 you did not choose a module.	sitemgr	de	Sie haben dieses Module nicht ausgewählt
 you do not have access to any content on this site.	sitemgr-site	de	Sie haben keinen Zugriff zum Inhalte dieser Seite.
+you do not have write permissions for any site categories.	sitemgr	de	
 you don't have permission to write in the category	sitemgr	de	Sie haben keine Rechte um in dieser Kategorie zu schreiben
 you don't have permission to write to that category.	sitemgr	de	Sie haben nicht die Rechte in diese Kategorie zu schreiben.
 you failed to fill in one or more required fields.	sitemgr	de	Sie haben eines oder mehrere benötigte Felder nicht ausgefüllt.
