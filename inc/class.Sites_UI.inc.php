@@ -172,11 +172,11 @@
 				}
 				if (!$site['name'])
 				{
-					$GLOBALS['phpgw']->template->set_var('message',lang('Please enter a name for that site !'));
+					$GLOBALS['phpgw']->template->set_var('message','<font color="red">'.lang('Please enter a name for that site !').'</font>');
 				}
 				elseif (!is_dir($site['dir']) || !is_readable($site['dir'].'/config.inc.php'))
 				{
-					$GLOBALS['phpgw']->template->set_var('message',lang("'%1' is no valid sitemgr-site directory !!!",$site['dir']));
+					$GLOBALS['phpgw']->template->set_var('message','<font color="red">'.lang("'%1' is no valid sitemgr-site directory !!!",$site['dir']).'</font>');
 				}
 				elseif ($site_id)
 				{
@@ -196,27 +196,28 @@
 					$GLOBALS['Common_BO']->modules->savemodulepermissions('__PAGE__',$site_id,array_keys($GLOBALS['Common_BO']->modules->getallmodules()));
 
 					$GLOBALS['phpgw']->template->set_var('message',lang('Site %1 has been added, you need to %2configure the site%3 now',
-						$site['_name'],'<a href="'.$GLOBALS['phpgw']->link('/index.php',array('menuaction'=>'sitemgr.Common_UI.DisplayPrefs')).'">','</a>'));
+						$site['_name'],'<a href="'.$GLOBALS['phpgw']->link('/index.php',array('menuaction'=>'sitemgr.Common_UI.DisplayPrefs','siteswitch'=>$site_id)).'">','</a>'));
 				}
 			}
 			else
 			{
 				$GLOBALS['phpgw']->template->set_var('message','');
 			}
-			if ($site_id)
+			if ($site_id && !isset($site))
 			{
 				$site = $this->bo->read($site_id);
 			}
 			else
 			{
 				$site = array(
-					'site_dir' => PHPGW_SERVER_ROOT . '/sitemgr/sitemgr-site',
-					'site_url' => $GLOBALS['phpgw_info']['server']['webserver_url'] . '/sitemgr/sitemgr-site/',
-					'anonymous_user' => 'anonymous',
-					'anonymous_passwd' => 'anonymous',
+					'site_name' => $site['name'] ? $site['name'] : '',
+					'site_dir' => $site['dir'] ? $site['dir'] : PHPGW_SERVER_ROOT . '/sitemgr/sitemgr-site',
+					'site_url' => $site['url'] ? $site['url'] : $GLOBALS['phpgw_info']['server']['webserver_url'] . '/sitemgr/sitemgr-site/',
+					'anonymous_user' => $site['anonuser'] ? $site['anonuser'] : 'anonymous',
+					'anonymous_passwd' => $site['anonpasswd'] ? $site['anonpasswd'] : 'anonymous',
+					'adminlist' => is_array($site['adminlist']) ? $site['adminlist'] : '',
 				);
 			}
-
 			$GLOBALS['phpgw']->template->set_var('title_sites',$site_id ? lang('Edit Website') : lang('Add Website'));
 			
 			$GLOBALS['phpgw']->template->set_var('actionurl',$GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Sites_UI.edit'));
@@ -250,7 +251,7 @@
 				'site_anonuser' => $site['anonymous_user'],
 				'site_anonpasswd' => $site['anonymous_passwd']
 			));
-			$GLOBALS['phpgw']->template->set_var('site_adminlist',$this->adminselectlist($site_id));
+			$GLOBALS['phpgw']->template->set_var('site_adminlist',$this->adminselectlist($site_id,$site['adminlist']));
 			$GLOBALS['phpgw']->template->set_var('site_id',$site_id);
 
 			$GLOBALS['phpgw']->template->set_var(array(
@@ -273,7 +274,7 @@
 
 		}
 
-		function adminselectlist($site_id)
+		function adminselectlist($site_id,$admins='')
 		{
 			$accounts = $GLOBALS['phpgw']->accounts->get_list();
 			$admin_list = $this->bo->get_adminlist($site_id);
@@ -281,8 +282,9 @@
 			foreach($accounts as $account)
 			{
 				$selectlist .= '<option value="' . $account['account_id'] . '"';
- 				if($admin_list[$account['account_id']] == SITEMGR_ACL_IS_ADMIN ||
-				   !$site_id && $account['account_lid'] == 'Admins')
+ 				if($admins && in_array($account['account_id'],$admins) ||
+ 				   !$admins && ($admin_list[$account['account_id']] == SITEMGR_ACL_IS_ADMIN ||
+				   !$site_id && $account['account_lid'] == 'Admins'))
 				{
 					$selectlist .= ' selected="1"';
 				}
