@@ -17,6 +17,7 @@
 		var $page_id;
 		var $page;
 		var $catbo;
+		var $acl;
 
 		function bo()
 		{
@@ -25,6 +26,7 @@
 			$this->pages_so = CreateObject('sitemgr.Pages_SO');
 			$this->headerfooter_bo = CreateObject('sitemgr.headerFooter_BO');
 			$this->page = CreateObject('sitemgr.Page_SO');
+			$this->acl = CreateObject('sitemgr.ACL_BO');
 		}
 
 		function loadPage($page_id)
@@ -247,6 +249,24 @@
 		function get_footer()
 		{
 			return $this->headerfooter_bo->getsitefooter();
+		}
+
+		function is_user()
+		{
+			global $sitemgr_info,$phpgw_info;
+			if ($phpgw_info['user']['account_lid'] != $sitemgr_info['login'])
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		function is_admin()
+		{
+			return $this->acl->is_admin();
 		}
 
 	}

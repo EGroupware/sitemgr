@@ -13,10 +13,12 @@
 	class ui
 	{
 		var $bo;
+		var $t;
 
 		function ui()
 		{
 			$this->bo = new bo;
+			$this->t = new Template2;
 		}
 
 		function displayPageByName($page_name)
@@ -66,10 +68,23 @@
 
 		function generatePage()
 		{
+			if ($GLOBALS['sitemgr_info']['interface'] == 'templates')
+			{
+				$this->generatePageTemplate();
+			}
+			else
+			{
+				$this->generatePageTheme();
+			}
+		}
+
+		function generatePageTheme()
+		{
 			/* Note: much of this func was taken from phpNuke -- it
-			   is there template system so don't blame me for the mess */
+			   is their template system so don't blame me for the mess */
 			global $header,$foot1,$user,$sitename,$index;
 
+			require_once('./inc/phpnuke.compat.inc.php');
 			$index = 1;
 
 			$themesel = $GLOBALS['sitemgr_info']['themesel'];
@@ -102,6 +117,108 @@
 			echo CloseTable();
 			themefooter();
 			echo "</body></html>";
+		}
+
+		function generatePageTemplate()
+		{
+			$themesel = $GLOBALS['sitemgr_info']['themesel'];
+			$templatedir = $GLOBALS['sitemgr_info']['sitemgr-site_path'].'/templates/';
+			if (!file_exists($templatedir.$themesel.'/main.tpl'))
+			{
+				die("Selected template '$themesel' does not exist.");
+			}
+			$this->t->set_root($templatedir);
+			$this->t->set_unknowns('keep');
+
+			$this->t->set_file('header','header.tpl');
+			$this->t->set_var('themesel',$themesel);
+			$this->t->set_var('site_name',$this->bo->get_siteName());
+			$this->t->pfp('out','header');
+			$this->t->set_file('body',$themesel.'/main.tpl');
+
+			$this->t->set_var('user', $GLOBALS['phpgw_info']['user']['account_lid']);
+			$this->t->set_var('site_header', $this->bo->get_header());
+			$this->t->set_var('site_footer', $this->bo->get_footer());
+			$this->t->set_var('page_title', $this->bo->get_title());
+			$this->t->set_var('page_subtitle', $this->bo->get_subtitle());
+			$this->t->set_var('page_content', $this->bo->get_content());
+
+			$this->t->set_file('sideblocks',$themesel.'/sideblock.tpl');
+			$this->t->set_block('sideblocks','SideBlock','SBlock');
+			$this->blocks('l');
+			$this->t->set_var('left_blocks',$this->t->get_var('SBlock'));
+			$this->t->set_var('SBlock','');
+			$this->blocks('r');
+			$this->t->set_var('right_blocks',$this->t->get_var('SBlock'));
+			$this->t->set_var('SBlock','');
+
+
+			$this->t->pfp('out','body');
+		}
+
+		function block_allowed($block)
+		{
+			switch($block['view'])
+			{
+				case 0:
+					return true;
+				case 1:
+					return $this->bo->is_user();
+				case 2:
+					return $this->bo->is_admin();
+				case 3:
+					return (! $this->bo->is_user());
+			}
+			return false;
+		}
+
+		function get_blocktitle($block)
+		{
+			return $block['title'];
+		}
+
+		function get_blockcontent($block)
+		{
+			$content='';
+			if (file_exists('blocks/'.$block['blockfile']) && trim($block['blockfile']))
+			{
+				include('blocks/'.$block['blockfile']);
+				if (!$content)
+				{
+					$content = 'No content found';
+				}
+			}
+			elseif ($block['content'])
+			{
+				$content = $block['content'];
+			}
+			else
+			{
+				$content = 'Block not found';
+			}
+			return $content;
+		}
+
+		function blocks($side)
+		{
+			global $blocks;
+			//echo "<pre>";
+			//print_r($blocks);
+			//echo "</pre>";
+			foreach($blocks as $block)
+			{
+				if($block['position']==$side)
+				{
+					if ($this->block_allowed($block))
+					{
+						$title = $this->get_blocktitle($block);
+						$content = $this->get_blockcontent($block);
+						$this->t->set_var('block_title',$title);
+						$this->t->set_var('block_content',$content);
+						$this->t->parse('SBlock','SideBlock',true);
+					}
+				}
+			}
 		}
 	}
 ?>

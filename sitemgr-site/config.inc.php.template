@@ -5,7 +5,8 @@
 	\***********************************************************/
 	$sitemgr_info = array(
 		// add trailing slash
-		'phpgw_path'           => '/var/www/html/phpgroupware/'
+		'phpgw_path'           => '/var/www/html/phpgroupware/',
+		'interface'			   => 'themes'
 	);
 
 

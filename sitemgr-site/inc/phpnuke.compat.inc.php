@@ -99,7 +99,18 @@
 				$title = 'Block not found';
 				$content = 'Contact the administrator.';
 			}
-			$val = themecenterbox($title, $content);
+
+			add_theme_var('block_title',$title);
+			add_theme_var('block_content',$content);
+
+			if(function_exists('themecenterbox'))
+			{
+				$val = themecenterbox($title, $content);
+			}
+			else
+			{
+				$val = parse_theme_vars(implode("",file('templates/'.$GLOBALS['sitemgr_info']['themesel'].'/centerblock.tpl')));
+			}
 		}
 		else
 		{

@@ -37,7 +37,9 @@
 	include './inc/class.ui.inc.php';
 	include './inc/class.bo.inc.php';
 	include './inc/class.so.inc.php';
-	include './inc/phpnuke.compat.inc.php';
+	//Line below moved to pageGenerateTheme
+	//include './inc/phpnuke.compat.inc.php';
+	include './inc/class.Template2.inc.php';
 
 	global $page_id;
 	global $page_name;
