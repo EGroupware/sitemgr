@@ -15,9 +15,9 @@ Actors
 
 	Viewer: Someone who is viewing the generated web site.  This person could be an anonymous user or a logged-in user.
 
-	Contributor: Someone who is logged in and has been granted "write" permissions to one or more site categories so that they can add, remove, and edit pages within those categories via the phpGroupWare SiteMgr program.
+	Contributor: Someone who is logged in and has been granted "write" permissions to one or more site categories so that they can add, remove, and edit pages within those categories via the eGroupWare SiteMgr program.
 
-	Administrator: Someone with full administrative permissions in phpGroupWare.  This is the person who creates and edits categories and determines who has what permissions.
+	Administrator: Someone with full administrative permissions in eGroupWare.  This is the person who creates and edits categories and determines who has what permissions.
 
 Viewer Requirements
 -------------------
@@ -35,7 +35,7 @@ Administrator Requirements
 
 phpGW App Developer Requirements
 --------------------------------
-	phpGroupWare application developers should be able to turn their applications, or subsets of their applications, into modules.  Making a module should be as easy as possible and should be done by way of the phpGroupWare "hooks" system.  One application can make as many hooks as desired.  Each hook translates into a module.  The developer creates an array of properties that will be shown on the properties page.  Each property will have a name, description, input type (option box, etc.), input list, and whether or not it can be constrained by an administrator.  Then there will be a function that is called for the hook.  It will be passed that preference array with the values selected by the contributor.  It will return a display class.
+	eGroupWare application developers should be able to turn their applications, or subsets of their applications, into modules.  Making a module should be as easy as possible and should be done by way of the eGroupWare "hooks" system.  One application can make as many hooks as desired.  Each hook translates into a module.  The developer creates an array of properties that will be shown on the properties page.  Each property will have a name, description, input type (option box, etc.), input list, and whether or not it can be constrained by an administrator.  Then there will be a function that is called for the hook.  It will be passed that preference array with the values selected by the contributor.  It will return a display class.
 
 	The display class will take a number of forms.  There will be a display type that specifies how the module will be formatted.  For example, there can be no formatting, news-block formatting, standard center block formatting, and so forth.  There will always be a content property filled out.  Depending on the format, there may be a title, subtitle, status, submitted-by, submitted-date, and other properties as well.
 

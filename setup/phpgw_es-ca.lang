@@ -294,7 +294,7 @@ this module demonstrates how handling data stored in xml and building an interac
 this module displays a login form	sitemgr	es-ca	Este módulo muestra un formulario para iniciar la sesión
 this module displays bookmarks in a javascript based tree	sitemgr	es-ca	Este módulo muestra los marcadores en forma de árbol mediante javascript
 this module displays the current month	sitemgr	es-ca	Este módulo muestra el mes actual.
-this module displays the phpgw forums on the web site	sitemgr	es-ca	Este módulo muestra los foros phpgw en el sitio web
+this module displays the egw forums on the web site	sitemgr	es-ca	Este módulo muestra los foros eGW en el sitio web
 this module includes the contents of a (world readable) file	sitemgr	es-ca	Este módulo incluye los contenidos de un fichero al que todo el mundo tiene acceso
 this module is a simple html editor	sitemgr	es-ca	Este módulo es un editor HTML sencillo
 this module lets users choose language	sitemgr	es-ca	Este módulo permite a los usuarios elegir idioma

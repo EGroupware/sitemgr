@@ -330,7 +330,7 @@ this module demonstrates how handling data stored in xml and building an interac
 this module displays a login form	sitemgr	nl	Deze module toont een aanmeld formulier
 this module displays bookmarks in a javascript based tree	sitemgr	nl	
 this module displays the current month	sitemgr	nl	Deze module toont de huidige maand
-this module displays the phpgw forums on the web site	sitemgr	nl	
+this module displays the egw forums on the web site	sitemgr	nl	
 this module displays the root categories, its pages and evtl. subcategories. it is meant for side areas	sitemgr	nl	
 this module includes the contents of a file (readable by the webserver !)	sitemgr	nl	
 this module is a selectbox to change the mode (production, draft or edit) plus a link back to sitemgr and to log out. it is meant for registered users only	sitemgr	nl	

@@ -363,7 +363,7 @@ this module demonstrates how handling data stored in xml and building an interac
 this module displays a login form	sitemgr	es-es	Este módulo muestra un formulario para iniciar la sesión
 this module displays bookmarks in a javascript based tree	sitemgr	es-es	Este módulo muestra los marcadores en forma de árbol mediante javascript
 this module displays the current month	sitemgr	es-es	Este módulo muestra el mes actual.
-this module displays the phpgw forums on the web site	sitemgr	es-es	Este módulo muestra los foros phpgw en el sitio web
+this module displays the egw forums on the web site	sitemgr	es-es	Este módulo muestra los foros eGW en el sitio web
 this module displays the root categories, its pages and evtl. subcategories. it is meant for side areas	sitemgr	es-es	Este módulo muestra las categorías raíz, sus páginas y, eventualmente, subcategorías. Para áreas laterales.
 this module includes the contents of a (world readable) file	sitemgr	es-es	Este módulo incluye los contenidos de un fichero al que todo el mundo tiene acceso
 this module includes the contents of a file (readable by the webserver !)	sitemgr	es-es	Este módulo incluye los contenidos de un fichero (que el servidor web pueda leer)

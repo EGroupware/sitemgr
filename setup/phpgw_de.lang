@@ -368,7 +368,7 @@ this module demonstrates how handling data stored in xml and building an interac
 this module displays a login form	sitemgr	de	Dieses Modul bietet ein Anmelde Formular
 this module displays bookmarks in a javascript based tree	sitemgr	de	Diese Modul zeigt Lesezeichen (Bookmarks) in einer javascript basierenden Baumansicht
 this module displays the current month	sitemgr	de	Dieses Modul zeigt den aktuellen Monat an
-this module displays the phpgw forums on the web site	sitemgr	de	Dieses Module stellt eGroupWare Foren auf der Website dar
+this module displays the egw forums on the web site	sitemgr	de	Dieses Module stellt eGroupWare Foren auf der Website dar
 this module displays the root categories, its pages and evtl. subcategories. it is meant for side areas	sitemgr	de	Dises Module zeigt die Hauptkategorien, Ihre Seiten und ggf. Unterkategorien. Es ist gedacht für die Seitenspalten
 this module includes the contents of an url or file (readable by the webserver and in its docroot !)	sitemgr	de	Dieses Modul bindet den Inhalt einer URL oder Datei (muß vom Webserver lesbar und in dessen Dokumentenwurzelverzeichnis sein!) ein
 this module is a selectbox to change the mode (production, draft or edit) plus a link back to sitemgr and to log out. it is meant for registered users only	sitemgr	de	Dieses Modul ist eine Auswahlbox um den Modus (Produktion, Entwurf, Bearbeiten) zu ändern plus Links zurück zum SiteMgr und zum auslogen. Es ist ausschließlich für registierte Benutzer gedacht.

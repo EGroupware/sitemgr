@@ -330,7 +330,7 @@ this module demonstrates how handling data stored in xml and building an interac
 this module displays a login form	sitemgr	da	Dette modul viser et login punkt
 this module displays bookmarks in a javascript based tree	sitemgr	da	Dette modul viser bogmærker i et javascript baseret træ
 this module displays the current month	sitemgr	da	Dette modul viser denne måned
-this module displays the phpgw forums on the web site	sitemgr	da	Dette modul viser phpgw forumer på websiden
+this module displays the egw forums on the web site	sitemgr	da	Dette modul viser eGW forumer på websiden
 this module displays the root categories, its pages and evtl. subcategories. it is meant for side areas	sitemgr	da	Dette modul viser rod kategorier, dens sider og evt. underkategorier. Den er beregnet til sideområder
 this module includes the contents of a file (readable by the webserver !)	sitemgr	da	Dette modul inkludere indholdet af en fil (skal være læsbar af webserveren!)
 this module is a selectbox to change the mode (production, draft or edit) plus a link back to sitemgr and to log out. it is meant for registered users only	sitemgr	da	Dette modul er til at ændre miljøet (produktions, klade eller rediger) plus et link tilbage til sitemgr og en logud funktion. Den er ment kun til registerede brugere

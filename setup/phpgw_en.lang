@@ -366,7 +366,7 @@ this module demonstrates how handling data stored in xml and building an interac
 this module displays a login form	sitemgr	en	This module displays a login form
 this module displays bookmarks in a javascript based tree	sitemgr	en	This module displays bookmarks in a javascript based tree
 this module displays the current month	sitemgr	en	This module displays the current month
-this module displays the phpgw forums on the web site	sitemgr	en	This module displays the phpgw forums on the web site
+this module displays the egw forums on the web site	sitemgr	en	This module displays the eGW forums on the web site
 this module displays the root categories, its pages and evtl. subcategories. it is meant for side areas	sitemgr	en	This module displays the root categories, its pages and evtl. subcategories. It is meant for side areas
 this module includes the contents of an url or file (readable by the webserver and in its docroot !)	sitemgr	en	This module includes the contents of an URL or file (readable by the webserver and in its docroot !)
 this module is a selectbox to change the mode (production, draft or edit) plus a link back to sitemgr and to log out. it is meant for registered users only	sitemgr	en	This module is a selectbox to change the mode (production, draft or edit) plus a link back to SiteMgr and to log out. It is meant for registered users only

@@ -42,7 +42,7 @@ class module_forum extends Module
 		$this->get = array('level','cat_id','forum_id','msg','pos','view');
 		$this->session = array('level','cat_id','forum_id','view');
 		$this->title = lang('Discussions');
-		$this->description = lang('This module displays the phpgw forums on the web site');
+		$this->description = lang('This module displays the eGW forums on the web site');
 		$this->bo = CreateObject('forum.boforum',1);
 	}
 

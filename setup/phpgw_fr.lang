@@ -281,7 +281,7 @@ this module demonstrates how handling data stored in xml and building an interac
 this module displays a login form	sitemgr	fr	Ce module affiche un formulaire de login
 this module displays bookmarks in a javascript based tree	sitemgr	fr	Ce module affiche les signets dans un arbre basé sur javascript
 this module displays the current month	sitemgr	fr	Ce module affiche le mois actuel
-this module displays the phpgw forums on the web site	sitemgr	fr	Ce module affiche les forums phpGroupWare sur le site Web
+this module displays the egw forums on the web site	sitemgr	fr	Ce module affiche les forums eGroupWare sur le site Web
 this module includes the contents of a (world readable) file	sitemgr	fr	Ce module inclut les contenus d'un fichier (lisible par tous)
 this module is a simple html editor	sitemgr	fr	Ce module est un éditeur HTML simple
 this module lets users choose language	sitemgr	fr	Ce module permet aux utilisateurs de sélectionner leur langue
