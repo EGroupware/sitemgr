@@ -18,15 +18,15 @@ anonymous	sitemgr	en	anonymous
 anonymous user login domain	sitemgr	en	Anonymous user login domain
 anonymous user's password	sitemgr	en	Anonymous user's password
 anonymous user's username	sitemgr	en	Anonymous user's username
-anonymous user\'s password	sitemgr	en	Anonymous user\'s password
-anonymous user\'s username	sitemgr	en	Anonymous user\'s username
+anonymous user\'s password	sitemgr	en	Anonymous user's password
+anonymous user\'s username	sitemgr	en	Anonymous user's username
 apply permissions also to subcategories?	sitemgr	en	Apply permissions also to subcategories?
 are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	en	Are you sure you want to delete the category %1 and all of its associated pages?  You cannot retrieve the deleted pages if you continue.
 as	common	en	as
 back to module manager	sitemgr	en	Back to module manager
 basic settings	sitemgr	en	Basic Settings
 before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr	en	Before the public web site can be viewed, you must configure the various locations and preferences.  Please go to the sitemgr setup page by following this link:
-block not found	sitemgr-site	en	Block not found
+block not found.	sitemgr-site	en	Block not found.
 block not found.	sitemgr	en	Block not found.
 block returned no content.	sitemgr-site	en	Block returned no content.
 bookmarks	sitemgr	en	Bookmarks
@@ -99,7 +99,7 @@ i'm sorry, you do not have write permissions for any site categories.	sitemgr	en
 if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	en	If you haven't done so already, create a user that will be used for public viewing of the site.  Recommended name: anonymous.
 image type	sitemgr	en	image type
 individual access permission	sitemgr	en	Individual Access Permission
-interface to google website	sitemgr	en	
+interface to google website	sitemgr	en	Interface to google website
 languages the site user can choose from	sitemgr	en	Languages the site user can choose from
 latest reply	sitemgr	en	Latest Reply
 list of permitted modules specific to content area %1	sitemgr	en	List of permitted modules specific to content area %1
@@ -107,6 +107,7 @@ login	sitemgr-site	en	Login
 login name	sitemgr-site	en	Login Name
 main content	sitemgr	en	Main content
 mains	sitemgr	en	Mains
+maintainer	sitemgr	en	Maintainer
 manage categories	sitemgr	en	Manage Categories
 manage content	sitemgr	en	Manage Content
 manage modules	sitemgr	en	Manage Modules
@@ -125,7 +126,7 @@ new application	sitemgr	en	New application
 new sitemgr site	sitemgr	en	New sitemgr site
 news module	sitemgr	en	News module
 no anonymous user accounts installed.  notify the administrator.	sitemgr	en	NO ANONYMOUS USER ACCOUNTS INSTALLED.  NOTIFY THE ADMINISTRATOR.
-no anonymous user accounts installed. notify the administrator.	sitemgr-site	en	NO ANONYMOUS USER ACCOUNTS INSTALLED. NOTIFY THE ADMINISTRATOR.
+no anonymous user accounts installed.  notify the administrator.	sitemgr-site	en	NO ANONYMOUS USER ACCOUNTS INSTALLED.  NOTIFY THE ADMINISTRATOR.
 no content areas found in selected template	sitemgr	en	No content areas found in selected template
 no content found	sitemgr	en	No content found
 no groups defined.	sitemgr	en	No groups defined.
@@ -206,7 +207,7 @@ the page was successfully saved.	sitemgr	en	The page was successfully saved.
 the path to the file to be downloaded	sitemgr	en	The path to the file to be downloaded
 the person to say hello to	sitemgr	en	The person to say hello to
 the second directory is the sitemgr-site directory.  this can be moved <i>anywhere</i>.  it can also be named <i>anything</i>.  wherever it winds up, when you point a web browser to it, you will get the generated website.  assuming, of course, that you've accurately completed the setup fields below and also <b><i>edited the config.inc.php</i></b> file.	sitemgr	en	The second directory is the sitemgr-site directory.  This can be moved <i>anywhere</i>.  It can also be named <i>anything</i>.  Wherever it winds up, when you point a web browser to it, you will get the generated website.  Assuming, of course, that you've accurately completed the setup fields below and also <b><i>edited the config.inc.php</i></b> file.
-the text for the link, if empty the filename is used	sitemgr	en	The text for the link, if empty the filename is used
+the text for the link, if empty the module returns the raw URL (without the HTML A element)	sitemgr	en	The text for the link, if empty the module returns the raw URL (without the HTML A element
 the url can be relative or absolute.  name must end in a slash.	sitemgr	en	The URL can be relative or absolute.  Name must end in a slash.
 the url to redirect to	sitemgr	en	The URL to redirect to
 the whole page	sitemgr	en	the whole page

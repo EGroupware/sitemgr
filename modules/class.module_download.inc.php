@@ -15,7 +15,7 @@ class module_download extends Module
 			),
 			'text' => array(
 				'type' => 'textfield',
-				'label' => lang('The text for the link, if empty the filename is used')
+				'label' => lang('The text for the link, if empty the module returns the raw URL (without the HTML A element)')
 			),
 			'op' => array(
 				'type' => 'select',
@@ -42,10 +42,8 @@ class module_download extends Module
 			$linkdata['op'] = rawurlencode(base64_encode('view'));
 			$linkdata['file'] = rawurlencode(base64_encode($arguments['file']));
 		}
-		return '<a href="' . 
-			phpgw_link('/phpwebhosting/index.php',$linkdata) . 
-			'">' .
-			($arguments['text'] ? $arguments['text'] : $arguments['file']) .
-			'</a>';
+		return $arguments['text'] ? 
+			('<a href="' . phpgw_link('/phpwebhosting/index.php',$linkdata) . '">' . $arguments['text'] . '</a>') :
+			phpgw_link('/phpwebhosting/index.php',$linkdata);
 	}
 }

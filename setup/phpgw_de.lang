@@ -206,7 +206,7 @@ the page was successfully saved.	sitemgr	de	Die Seite wurde erfolgreich gespeich
 the path to the file to be downloaded	sitemgr	de	Der Pfad zu Datei welche lokal gespeichert werden soll
 the person to say hello to	sitemgr	de	Die Person welche hello gesagt wird
 the second directory is the sitemgr-site directory.  this can be moved <i>anywhere</i>.  it can also be named <i>anything</i>.  wherever it winds up, when you point a web browser to it, you will get the generated website.  assuming, of course, that you've accurately completed the setup fields below and also <b><i>edited the config.inc.php</i></b> file.	sitemgr	de	Das zweite Verzeichnis ist das sitemmgr-site Verzeichnis. Dieses können Sie an einen <i>beliebigen</i> Platz verschieben. Sie können diesem Verzeichnis auch einen <i>beliebigen</i> Namen geben. Unabhängig vom Namen und dem Ort an welchem es sich befindet wird die erzeugte Seite angezeigt. Bedingung hierfür ist jedoch das die Setup Informationen vollständig und richtig eingegeben wurden und die Datei <b>config.inc.php</b> bearbeitet wurde.
-the text for the link, if empty the filename is used	sitemgr	de	Der Text für den Link, falls kein Eintrag vorhanden ist wird der Dateiname benutzt
+the text for the link, if empty the module returns the raw URL (without the HTML A element)	sitemgr	de	Der Text für den Link, falls kein Eintrag vorhanden ist gibt das Modul die rohe URL aus (ohne das HTML Element A)
 the url can be relative or absolute.  name must end in a slash.	sitemgr	de	Die URL kann absolute oder relativ angegeben werden. Der Pfad muss mit einem "/" enden.
 the url to redirect to	sitemgr	de	
 the whole page	sitemgr	de	die gesamten Seite
