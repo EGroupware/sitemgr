@@ -178,13 +178,25 @@
 			foreach($pages as $page_id)
 			{
 				$page=$this->pages_bo->getPage($page_id);
-				$pglinks[$page_id] = array(
-					'name'=>$page->name,
-					'link'=>'<a href="'.sitemgr_link2('/index.php','page_name='.
-						$page->name).'">'.$page->title.'</a>',
-					'title'=>$page->title,
-					'subtitle'=>$page->subtitle
-				);
+				if (strtolower($page->subtitle) == 'link')
+				{
+					$pglinks[$page_id] = array(
+						'name'=>$page->name,
+						'link'=>'<a href="'.$page->content.'">'.$page->title.'</a>',
+						'title'=>$page->title,
+						'subtitle'=>''
+					);
+				}
+				else
+				{
+					$pglinks[$page_id] = array(
+						'name'=>$page->name,
+						'link'=>'<a href="'.sitemgr_link2('/index.php','page_name='.
+							$page->name).'">'.$page->title.'</a>',
+						'title'=>$page->title,
+						'subtitle'=>$page->subtitle
+					);
+				}
 			}
 			return $pglinks;
 		}
