@@ -99,7 +99,7 @@
 			(
 				'name'		=> $cat_info->name,
 				'descr'		=> $cat_info->description,
-				'data'		=> (int) $cat_info->sort_order,
+				'data'		=> sprintf('%04d',$cat_info->sort_order),
 				'access'	=> 'public',
 				'id'		=> (int) $cat_info->id,
 				'parent'	=> (int) $cat_info->parent,
@@ -143,7 +143,7 @@
 			{
 				$cat_info				= CreateObject('sitemgr.Category_SO', True);
 				$cat_info->id			= $cat['id'];
-				$cat_info->sort_order	= $cat['data'];
+				$cat_info->sort_order	= (int) $cat['data'];
 				$cat_info->parent		= $cat['parent'];
 				$cat_info->depth		= $cat['level'];
 				$cat_info->root			= $cat['main'];
