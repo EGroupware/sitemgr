@@ -72,7 +72,7 @@ A:link {
 	BACKGROUND: none; 
 	COLOR: #eeeeee; 
 	FONT-SIZE: 12px; 
-	FONT-FAMILY: Verdana, Helvetica,Geneva,Arial; 
+	FONT-FAMILY: Verdana,Helvetica,Geneva,Arial; 
 	TEXT-DECORATION: underline
 }
 A:active        {
@@ -109,10 +109,36 @@ A:hover         {
 	FONT-FAMILY: Verdana, Arial,Helvetica,Geneva; 
 	FONT-WEIGHT: bold;
 }
+
+.minicalendar:visited {
+	FONT-SIZE: 8px;
+	FONT-FAMILY: Verdana,Helvetica,Geneva,Arial; 
+	TEXT-DECORATION: none;
+	FONT-WEIGHT: none;
+}
+.minicalendar:link {
+	FONT-SIZE: 8px;
+	FONT-FAMILY: Verdana,Helvetica,Geneva,Arial; 
+	TEXT-DECORATION: none;
+	FONT-WEIGHT: none;
+}
+.minicalendar:hover {
+	FONT-SIZE: 8px;
+	FONT-FAMILY: Verdana,Helvetica,Geneva,Arial; 
+	TEXT-DECORATION: none;
+	FONT-WEIGHT: none;
+}
 .minicalendar {
-	FONT-SIZE: 1px;
-	FONT-FAMILY: Verdana, Helvetica,Geneva,Arial; 
-	TEXT-DECORATION: none
+	FONT-SIZE: 8px;
+	FONT-FAMILY: Verdana,Helvetica,Geneva,Arial; 
+	TEXT-DECORATION: none;
+	FONT-WEIGHT: none;
+}
+.minicalendarheader {
+	FONT-SIZE: 10px;
+	FONT-FAMILY: Verdana,Helvetica,Geneva,Arial; 
+	TEXT-DECORATION: underline;
+	FONT-WEIGHT: bold
 }
 .title 		{
 	BACKGROUND: none; 
