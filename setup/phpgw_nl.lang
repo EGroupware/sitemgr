@@ -220,7 +220,7 @@ parent section:	sitemgr	nl	Bovenliggende sectie
 password	sitemgr	nl	Wachtwoord
 password that you assigned for the anonymous user account.	sitemgr	nl	Wachtwoord van de anonieme gebruiker.
 path to zip binary if not in path of the webserver	sitemgr	nl	Folder naar het zip-bestand indien niet opgenomen in zoekpath van de webserver
-phpgw users	sitemgr	nl	phphw gebruikers
+egw users	sitemgr	nl	ehw gebruikers
 please enter a name for that site !	sitemgr	nl	Geen een naam op voor de site!
 post a message to this thread	sitemgr	nl	Plaats een bericht in deze discussie
 prepublished	sitemgr	nl	voorgepubliceerd

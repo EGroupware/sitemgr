@@ -218,7 +218,7 @@ password	sitemgr	sl	Geslo
 password that you assigned for the anonymous user account.	sitemgr	sl	Geslo, ki je bilo določeno anonimnemu uporabniškemu računu.
 path to image-directory '%1' is not valid or readable by the webserver !!!	sitemgr	sl	Pot do mape s slikami '%1' ni pravilna ali berljiva s strani strežnika!
 percentage	sitemgr	sl	Odstotek
-phpgw users	sitemgr	sl	phpgw uporabniki
+egw users	sitemgr	sl	eGW uporabniki
 phrases in total	sitemgr	sl	Vse fraze
 please enter a name for that site !	sitemgr	sl	Prosimo vnesite ime za to stran
 previous	sitemgr	sl	Prejšnji

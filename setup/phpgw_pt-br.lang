@@ -232,7 +232,7 @@ password that you assigned for the anonymous user account.	sitemgr	pt-br	Senha q
 path to image-directory '%1' is not valid or readable by the webserver !!!	sitemgr	pt-br	Caminho para o diretório de imagens '%1' não está válido, ou não pode ser lido pelo servidor web!!!
 path to zip binary if not in path of the webserver	sitemgr	pt-br	Caminho para o aplicativo zip se ele não estiver no caminho do servidor web
 percentage	sitemgr	pt-br	Porcentagem
-phpgw users	sitemgr	pt-br	usuários phpgw
+egw users	sitemgr	pt-br	usuários eGW
 phrases in total	sitemgr	pt-br	Frases no total
 please enter a name for that site !	sitemgr	pt-br	Informe um nome para este site!
 post a message to this thread	sitemgr	pt-br	Enviar uma mensagem sobre esta sequência.

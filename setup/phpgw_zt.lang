@@ -233,7 +233,7 @@ parent section:	sitemgr	zt	上一層：
 password	sitemgr	zt	密碼
 path to zip binary if not in path of the webserver	sitemgr	zt	ZIP路徑
 percentage	sitemgr	zt	比例
-phpgw users	sitemgr	zt	使用者
+egw users	sitemgr	zt	使用者
 phrases in total	sitemgr	zt	所有片語
 please enter a name for that site !	sitemgr	zt	請輸入網站的名稱！
 please sign the guestbook	sitemgr	zt	請留言

@@ -193,7 +193,7 @@ pages	sitemgr	es-ca	Páginas
 parent	sitemgr	es-ca	Superior
 password	sitemgr	es-ca	Contraseña
 password that you assigned for the anonymous user account.	sitemgr	es-ca	Contraseña asignada al usuario anónimo
-phpgw users	sitemgr	es-ca	usuarios de eGW
+egw users	sitemgr	es-ca	usuarios de eGW
 please enter a name for that site !	sitemgr	es-ca	Por favor, introduzca un nombre para ese sitio
 post a message to this thread	sitemgr	es-ca	Publicar un mensaje en esta conversación
 prepublished	sitemgr	es-ca	publicado previamente

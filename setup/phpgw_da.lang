@@ -220,7 +220,7 @@ parent section:	sitemgr	da	Overstående sektion:
 password	sitemgr	da	Adgangskode
 password that you assigned for the anonymous user account.	sitemgr	da	Adgangskoden du tildeler den anonyme bruger konti.
 path to zip binary if not in path of the webserver	sitemgr	da	Stien til zip filen, hvis ikke i webserveren sti
-phpgw users	sitemgr	da	eGroupWare brugere
+egw users	sitemgr	da	eGroupWare brugere
 please enter a name for that site !	sitemgr	da	Indtast venligst et navn for sitet!
 post a message to this thread	sitemgr	da	
 prepublished	sitemgr	da	

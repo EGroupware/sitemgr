@@ -244,7 +244,7 @@ password that you assigned for the anonymous user account.	sitemgr	es-es	Contras
 path to image-directory '%1' is not valid or readable by the webserver !!!	sitemgr	es-es	La ruta al directorio de imágenes '%1' no es válida o no tiene permiso de lectura para el servidor web.
 path to zip binary if not in path of the webserver	sitemgr	es-es	Ruta al binario zip si no está en la ruta del servidor web
 percentage	sitemgr	es-es	Porcentaje
-phpgw users	sitemgr	es-es	usuarios de eGW
+egw users	sitemgr	es-es	usuarios de eGW
 phrases in total	sitemgr	es-es	Frases en total
 please enter a name for that site !	sitemgr	es-es	Por favor, introduzca un nombre para ese sitio
 post a message to this thread	sitemgr	es-es	Publicar un mensaje en esta conversación

@@ -251,7 +251,7 @@ password that you assigned for the anonymous user account.	sitemgr	de	Passwort d
 path to image-directory '%1' is not valid or readable by the webserver !!!	sitemgr	de	Der Pfad zum Ordner der Bilder '%1' ist ungültig oder nicht lesbar für den Webserver !!!
 path to zip binary if not in path of the webserver	sitemgr	de	Pfad zu zip Programm, wenn nicht im Pfad des Webservers
 percentage	sitemgr	de	Prozente
-phpgw users	sitemgr	de	eGroupWare Benutzer
+egw users	sitemgr	de	eGroupWare Benutzer
 phrases in total	sitemgr	de	Phrasen insgesammt
 please enter a name for that site !	sitemgr	de	Bitte geben sie einen Namen für die Website an !
 please sign the guestbook	sitemgr	de	Bitte tragen Sie sich im Gästebuch ein

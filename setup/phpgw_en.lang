@@ -249,7 +249,7 @@ password that you assigned for the anonymous user account.	sitemgr	en	Password t
 path to image-directory '%1' is not valid or readable by the webserver !!!	sitemgr	en	Path to image-directory '%1' is not valid or readable by the webserver !!!
 path to zip binary if not in path of the webserver	sitemgr	en	Path to zip binary if not in path of the webserver
 percentage	sitemgr	en	Percentage
-phpgw users	sitemgr	en	phpgw users
+egw users	sitemgr	en	egw users
 phrases in total	sitemgr	en	Phrases in total
 please enter a name for that site !	sitemgr	en	Please enter a name for that site !
 please sign the guestbook	sitemgr	en	Please sign the guestbook
