@@ -25,20 +25,20 @@
 		{
 			if ($GLOBALS['sitemgr_info']['sitelanguages'])
 			{
-				$content = '<form name="langselect" method="post">';
+				$content = '<form name="langselect" method="post" action="">';
 				$content .= '<select onChange="location.href=this.value" name="language">';
 				foreach ($GLOBALS['sitemgr_info']['sitelanguages'] as $lang)
 				{
 					$selected='';
 					if ($lang == $GLOBALS['sitemgr_info']['userlang'])
-					{
-						$selected = 'selected="selected" ';
-					}
-					$content .= '<option ' . $selected . 'value="' . $this->link(array(),array('lang'=>$lang)) . '">'. $GLOBALS['Common_BO']->getlangname($lang) . '</option>';
+					{                                                 
+						$selected = 'selected="1" ';
+					}                                          
+					$content .= '<option ' . $selected . 'value="' . str_replace('&','&amp;',$this->link(array(),array('lang'=>$lang))) . '">'.$GLOBALS['Common_BO']->getlangname($lang) . '</option>';
 				}
 				$content .= '</select>';
 				$content .= '</form>';
-
+				
 				return $content;
 			}
 			return lang('No sitelanguages configured');
