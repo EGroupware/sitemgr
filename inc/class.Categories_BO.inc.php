@@ -10,6 +10,23 @@
 			$this->acl = CreateObject('sitemgr.ACL_BO');
 		}
 
+		function needUpdateCategories()
+		{
+			$prefs = CreateObject('sitemgr.sitePreference_SO');
+			return !$prefs->getPreference('catsupdated');
+		}
+
+		function updateCategories()
+		{
+			$prefs = CreateObject('sitemgr.sitePreference_SO');
+			$db_so = CreateObject('sitemgr.Categories_db_SO');
+			$rv = $db_so->convert_to_phpgwapi();
+			$prefs->setPreference('catsupdated','True');
+			unset($db_so);
+			unset($prefs);
+			return $rv;
+		}
+			
 		function getCategoryOptionList()
 		{
 			$retval[] = array('value'=>0,'display'=>'[No Parent]');

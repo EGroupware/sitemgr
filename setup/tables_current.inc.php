@@ -28,19 +28,6 @@
 			'ix' => array('cat_id'),
 			'uc' => array()
 		),
-		'phpgw_sitemgr_categories' => array(
-			'fd' => array(
-				'cat_id' => array('type' => 'auto', 'nullable' => false),
-				'sort_order' => array('type' => 'int', 'precision' => 4),
-				'parent' => array('type' => 'int', 'precision' => 4),
-				'name' => array('type' => 'varchar', 'precision' => 100),
-				'description' => array('type' => 'varchar', 'precision' => 256)
-			),
-			'pk' => array('cat_id'),
-			'fk' => array(),
-			'ix' => array(),
-			'uc' => array()
-		),
 		'phpgw_sitemgr_blocks' => array(
 			'fd' => array(
 				'block_id' => array('type' => 'auto', 'nullable' => false),

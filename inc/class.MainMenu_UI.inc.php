@@ -33,6 +33,19 @@
 			if ($this->acl->is_admin())
 			{
 				$this->t->set_var('menutitle','Administrative Menu');
+				$catbo = CreateObject('sitemgr.Categories_BO');
+				if ($catbo->needUpdateCategories())
+				{
+					$updatemsg = $catbo->updateCategories();
+					$updatemsg = "\n".'<br><b>Updating to new category system:</b><br>'.
+						$updatemsg.'<br><b>Done.</b><br>';
+					$this->t->set_var('updatecats',$updatemsg);
+				}
+				else
+				{
+					$this->t->set_var('updatecats','');
+				}
+				unset($catbo);
 			}
 			else
 			{
@@ -66,5 +79,6 @@
 			$this->t->pfp('out','MainMenu');
 			$common_ui->DisplayFooter();
 		}
+
 	}	
 ?>

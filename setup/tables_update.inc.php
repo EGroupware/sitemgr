@@ -37,4 +37,32 @@
 
 		return $setup_info['sitemgr']['currentver'];
 	}
+	$test[] = '0.9.14.002';
+	function sitemgr_upgrade0_9_14_002()
+	{
+		/******************************************************\
+		* Purpose of this upgrade is to switch to phpgw        *
+		* categories from the db categories.  So the           *
+		* sql data will be moved to the cat stuff and the sql  *
+		* categories table will be deleted.                    *
+		*                                                      *
+		* It would be nice if we could just run an UPDATE sql  *
+		* query, but then you run the risk of this scenario:   *
+		* old_cat_id = 5, new_cat_id = 2 --> update all pages  *
+		* old_cat_id = 2, new_cat_id = 3 --> update all pages  *
+		*  now all old_cat_id 5 pages are cat_id 3....         *
+		\******************************************************/
+		global $setup_info,$phpgw_setup;
+		$setup_info['sitemgr']['currentver'] = '0.9.14.003';
+
+		//$cat_db_so = CreateObject('sitemgr.Categories_db_SO');
+
+		//$cat_db_so->convert_to_phpgwapi();
+
+		// Finally, delete the categories table
+		//$phpgw_setup->oProc->DropTable('phpgw_sitemgr_categories');
+
+		return $setup_info['sitemgr']['currentver'];
+	}
+		
 ?>

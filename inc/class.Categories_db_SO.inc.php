@@ -87,15 +87,16 @@
 			foreach($old_cats as $old_cat_id)
 			{
 				$new_cat_id = $cat_so->addCategory('','',0);
+				$rv='';
 				if (!$new_cat_id)
 				{
-					die("ERROR!  Can't upgrade tables until you get the latest phpgwapi/inc/class.categories.inc.php from the 0.9.14 branch of CVS!  Please get this now.");
+					return("ERROR!  I need to update your tables, but I can't upgrade tables until you get the latest phpgwapi/inc/class.categories.inc.php from the 0.9.14 branch of CVS!  Please get this now.");
 				}
 				$old_cat = $this->getCategory($old_cat_id);
 				$old_cat->id = $new_cat_id;
 				$cat_so->saveCategory($old_cat);
 				$cat_conv[$old_cat_id] = $new_cat_id;
-				echo "\n<br>&nbsp;&nbsp;Old category id $old_cat_id is becoming $new_cat_id";
+				$rv .= "\n<br>&nbsp;&nbsp;Old category id $old_cat_id is becoming $new_cat_id";
 			}
 
 			$update = array();
@@ -117,8 +118,9 @@
 				$sql = 'UPDATE phpgw_sitemgr_pages SET cat_id="'.$new_cat_id.
 					'" WHERE page_id="'.$page_id.'"';
 				$this->db->query($sql,__LINE__,__FILE__);
-				echo "\n<br>&nbsp;&nbsp;&nbsp;&nbsp;Updating page ".$page_id;
+				$rv .= "\n<br>&nbsp;&nbsp;&nbsp;&nbsp;Updating page ".$page_id;
 			}
+			return $rv;
 		}
 	}
 ?>

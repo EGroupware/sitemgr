@@ -12,10 +12,10 @@
 	/* $Id$ */
 
 	$setup_info['sitemgr']['name']      = 'sitemgr';
-	$setup_info['sitemgr']['title']     = 'Web Content Manager';
+	$setup_info['sitemgr']['title']     = 'SiteMgr Web Content Manager';
 	$setup_info['sitemgr']['version']   = '0.9.14.002';
 	$setup_info['sitemgr']['app_order'] = 8;
-	$setup_info['sitemgr']['tables']    = array('phpgw_sitemgr_pages','phpgw_sitemgr_categories','phpgw_sitemgr_blocks','phpgw_sitemgr_preferences');
+	$setup_info['sitemgr']['tables']    = array('phpgw_sitemgr_pages','phpgw_sitemgr_blocks','phpgw_sitemgr_preferences');
 	$setup_info['sitemgr']['enable']    = 1;
 
 	/* The hooks this app includes, needed for hooks registration */
