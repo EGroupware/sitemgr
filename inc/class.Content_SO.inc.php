@@ -162,12 +162,10 @@
 		//selects all blocks from a given cat_list + site-wide blocks that are in given states
 		function getallblocks($cat_list,$states)
 		{
-			$sql = "SELECT COUNT(*) AS cnt,t1.block_id,area,cat_id,page_id,viewable,state FROM phpgw_sitemgr_blocks AS t1,phpgw_sitemgr_content as t2 WHERE t1.block_id=t2.block_id AND ((cat_id = " . CURRENT_SITE_ID  . ")";
-			if ($cat_list)
-			{
-				$sql .= " OR (cat_id IN (" . implode(',',$cat_list) . "))";
-			}
-			$sql .= ") AND state IN (" . implode(',',$states) .") GROUP BY t1.block_id";
+			$cat_list[] = CURRENT_SITE_ID;
+			$sql = "SELECT COUNT(state) AS cnt,t1.block_id,area,cat_id,page_id,viewable,state FROM phpgw_sitemgr_blocks AS t1,phpgw_sitemgr_content as t2 WHERE t1.block_id=t2.block_id AND cat_id IN (" . implode(',',$cat_list) . ")";
+			$sql .= " AND state IN (" . implode(',',$states) .") GROUP BY t1.block_id,area,cat_id,page_id,viewable";
+
 			$block = CreateObject('sitemgr.Block_SO',True);
 			$result = array();
 
