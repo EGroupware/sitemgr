@@ -315,7 +315,7 @@
 			}
 			$content .= $GLOBALS['phpgw']->html->a_href(
 				$GLOBALS['phpgw']->html->image('sitemgr',$name,$label,'border="0"'),
-				$link_data+$data,False,'target="editwindow" onclick="'.$onclick.'"');
+				array_merge($link_data,$data),False,'target="editwindow" onclick="'.$onclick.'"');
 		}
 		return $content;
 	}
@@ -329,7 +329,7 @@
 
 			return $this->get_icons(array(
 				'new_page' => array(lang('Add page to category'),'menuaction'=>'sitemgr.Pages_UI.edit'),
-				'new' => array(lang('Add a category'),'adminonly'=>True,'addsub'=>$cat_id,'menuaction'=>'sitemgr.Categories_UI.edit'),
+				'new' => array(lang('Add a category'),'adminonly'=>True,'cat_id'=>0,'addsub'=>$cat_id,'menuaction'=>'sitemgr.Categories_UI.edit'),
 				'edit' => array(lang('Edit category'),'adminonly'=>True,'menuaction'=>'sitemgr.Categories_UI.edit'),
 				'delete' => array(lang('Delete category'),'adminonly'=>True,'confirm'=>lang('Are you sure you want to delete the category %1 and all of its associated pages?  You cannot retrieve the deleted pages if you continue.',$cat->name),'menuaction'=>'sitemgr.Categories_UI.delete','standalone'=>1),
 			),array(
