@@ -18,6 +18,7 @@
 		<meta name="language" content="{lang}" />
 		<link rel="icon" href="templates/idots/images/favicon.ico" type="image/x-ico" />
 		<link rel="shortcut icon" href="templates/idots/images/favicon.ico" />
+		{editmode_styles}
 		<link href="templates/idots/style/style.css" type="text/css" rel="StyleSheet" />
 		<!-- This solves the Internet Explorer PNG-transparency bug, but only for IE 5.5 and higher -->
 		<!--[if gte IE 5.5000]>

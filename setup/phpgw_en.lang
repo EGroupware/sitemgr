@@ -39,6 +39,7 @@ basic settings	sitemgr	en	Basic Settings
 before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr	en	Before the public web site can be viewed, you must configure the various locations and preferences.  Please go to the sitemgr setup page by following this link:
 block not found.	sitemgr	en	Block not found.
 block returned no content.	sitemgr	en	Block returned no content.
+block saved	sitemgr	en	Block saved
 bookmarks	sitemgr	en	Bookmarks
 buy at %1	sitemgr	en	Buy at %1
 calendar	sitemgr	en	Calendar

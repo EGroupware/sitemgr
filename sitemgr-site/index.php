@@ -34,11 +34,8 @@
 
 	include('./functions.inc.php');
 
-	include './inc/class.ui.inc.php';
-	include './inc/class.sitebo.inc.php';
-	include './inc/class.Template3.inc.php';
-
 	$Common_BO = CreateObject('sitemgr.Common_BO');
+	require_once './inc/class.sitebo.inc.php';
 	$objbo = new sitebo;
 	$Common_BO->sites->set_currentsite($site_url,$objbo->getmode());
 	$sitemgr_info = array_merge($sitemgr_info,$Common_BO->sites->current_site);
@@ -47,6 +44,17 @@
 	$GLOBALS['phpgw']->translation->add_app('common');	// as we run as sitemgr-site
 	$GLOBALS['phpgw']->translation->add_app('sitemgr');	// as we run as sitemgr-site
 
+	$templateroot = $GLOBALS['sitemgr_info']['site_dir'] . SEP . 'templates' . SEP . $GLOBALS['sitemgr_info']['themesel'];
+
+	include_once './inc/class.Template3.inc.php';
+	if (file_exists($templateroot.'/main.tpl'))			// native sitemgr template
+	{
+		include_once './inc/class.ui.inc.php';
+	}
+	elseif (file_exists($templateroot.'/index.php'))	// mambo open source template
+	{
+		include_once './inc/class.mos_ui.inc.php';
+	}
 	$objui = new ui;
 
 	$page = CreateObject('sitemgr.Page_SO');

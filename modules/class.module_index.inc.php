@@ -54,6 +54,10 @@
 			{
 				$content=lang('You do not have access to any content on this site.');
 			}
+			else
+			{
+				$content .= '</div>';
+			}
 			return $content;
 	}
 }

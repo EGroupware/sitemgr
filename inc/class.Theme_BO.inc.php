@@ -30,10 +30,17 @@
 			{
 				while (($file = readdir($handle)) !== false)
 				{
-					if (is_dir($dirname . $file) && file_exists($dirname . $file . SEP . 'main.tpl'))
+					if (is_dir($dirname . $file) && $file != '..' && $file != '.')
 					{
-						$result_array[]=array('value'=>$file,'display'=>$file);
-					}	
+						if (file_exists($dirname . $file . SEP . 'main.tpl'))
+						{
+							$result_array[]=array('value'=>$file,'display'=>$file);
+						}
+						elseif (file_exists($dirname . $file . SEP . 'index.php'))
+						{
+							$result_array[]=array('value'=>$file,'display'=>'mambo: '.$file);
+						}
+					}
 				}
 				closedir($handle);
 			}

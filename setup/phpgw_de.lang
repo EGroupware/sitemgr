@@ -40,6 +40,7 @@ before the public web site can be viewed, you must configure the various locatio
 block not found	sitemgr-site	de	Block nicht gefunden
 block not found.	sitemgr	de	Block nicht gefunden.
 block returned no content.	sitemgr	de	Dieser Block hat keinen Inhalt.
+block saved	sitemgr	de	Block gespeichert
 bookmarks	sitemgr	de	Lesezeichen
 buy at %1	sitemgr	de	bei %1 kaufen
 calendar	sitemgr	de	Kalender

@@ -3,8 +3,6 @@
 <html>
 	<head>
 		<title>{sitename}: {title}</title>
-		<LINK REL="StyleSheet" HREF="templates/NukeNews/style/style.css" TYPE="text/css">
-
 		<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset={charset}">
 		<META HTTP-EQUIV="EXPIRES" CONTENT="0">
 		<META NAME="RESOURCE-TYPE" CONTENT="DOCUMENT">
@@ -16,6 +14,8 @@
 		<META NAME="REVISIT-AFTER" CONTENT="1 DAYS">
 		<META NAME="RATING" CONTENT="GENERAL">
 		<META NAME="GENERATOR" CONTENT="eGroupWare Web Site Manager">
+		{editmode_styles}
+		<LINK REL="StyleSheet" HREF="templates/NukeNews/style/style.css" TYPE="text/css">
 	</head>
 <body bgcolor="#505050" text="#000000" link="#363636" vlink="#363636" alink="#d5ae83">
 <br>

@@ -28,8 +28,8 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 		function Template3($root)
 		{
 			$this->set_root($root);
-			$this->file = $this->root . SEP . 'main.tpl';
-			$this->loadfile();
+			$file = $this->root . SEP . 'main.tpl';
+			if (file_exists($file)) $this->loadfile($file);
 			$this->bo = &$GLOBALS['Common_BO']->content;
 			$this->modulebo = &$GLOBALS['Common_BO']->modules;
 			$this->modules = array();
@@ -45,12 +45,13 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 				$this->halt("set_root: $root is not a directory.");
 				return false;
 			}
-			$this->root = $root;
+			$this->transformer_root = $this->root = $root;
 			return true;
 		}
 
-		function loadfile()
+		function loadfile($file)
 		{
+			$this->file = $file;
 			$str = implode('', @file($this->file));
 			if (empty($str))
 			{
@@ -104,7 +105,7 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 				}
 				if (file_exists($transformerfile))
 				{
-					include($transformerfile);
+					include_once($transformerfile);
 					if (class_exists('draft_transform'))
 					{
 						$this->draft_transformer = new draft_transform();
@@ -120,7 +121,7 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 				}
 				if (file_exists($transformerfile))
 				{
-					include($transformerfile);
+					include_once($transformerfile);
 					if (class_exists('edit_transform'))
 					{
 						$this->edit_transformer = new edit_transform();
@@ -159,15 +160,15 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 			global $page;
 			global $objbo;
 
-			$areaname = $vars[1];
+			$areaname = is_array($vars) ? $vars[1] : $vars;
 			$this->permitted_modules = array_keys($this->modulebo->getcascadingmodulepermissions($areaname,$page->cat_id));
 
 			$transformername = $areaname . '_bt';
 
-			$transformerfile = $this->root . SEP . $transformername . '.inc.php';
+			$transformerfile = $this->transformer_root . SEP . $transformername . '.inc.php';
 			if (file_exists($transformerfile))
 			{
-				include($transformerfile);
+				include_once($transformerfile);
 				if (class_exists($transformername))
 				{
 					$transformer = new $transformername;
@@ -309,7 +310,7 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 		{
 			global $page,$objbo;
 
-			switch ($vars[1])
+			switch (is_array($vars) ? $vars[1] : $vars)
 			{
 				case 'title':
 				case 'page_title':
@@ -355,6 +356,9 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 					return $GLOBALS['sitemgr_info']['userlang'];
 				case 'year':
 					return date('Y');	// nice to keep all copyrights up to date
+				case 'editmode_styles':
+					return $GLOBALS['sitemgr_info']['mode'] == 'Edit' ?
+						'<link href="templates/default/style/editmode.css" type="text/css" rel="StyleSheet" />' : '';
 			}
 		}
 
