@@ -28,7 +28,7 @@ anonymous user\'s password	sitemgr	de	Anonymer Benutzer Password
 anonymous user\'s username	sitemgr	de	Anonymer Benutzer Username
 apply permissions also to subcategories?	sitemgr	de	Zugriffsrechte auch auf Unterkategorien anwenden?
 archived	sitemgr	de	Archiviert
-archived content	sitemgr	de	Archivierter Content
+archived content	sitemgr	de	Archivierter Inhalt
 are you sure you want to delete site %1 and all its content? you cannot retrieve it if you continue.	sitemgr	de	Sind Sie sicher das Sie Seite %1 und den kompltten Inhalt löschen möchten? Ein Wiederherstellen ist nicht möglich, wenn Sie fortfahren.
 are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	de	Sind sie sicher das Sie die Kategorie %1 und alle dazugehörigen Seiten löschen möchten?  Diese Seiten werden hiermit endgültüg gelöscht.
 as	common	de	als
@@ -45,7 +45,7 @@ bookmarks	sitemgr	de	Lesezeichen
 buy at %1	sitemgr	de	bei %1 kaufen
 calendar	sitemgr	de	Kalender
 cancel the delete	sitemgr	de	Abbrechen, nicht löschen
-cannot move page until it has been saved.	sitemgr	de	Die Seite kann zuerst verschoben werden wenn Sie gespeichert wurde.
+cannot move page until it has been saved.	sitemgr	de	Die Seite kann zuerst verschoben werden, wenn Sie gespeichert wurde.
 category	sitemgr	de	Kategorie
 category description	sitemgr	de	Kategorie Beschreibung
 category manager	sitemgr	de	Kategorie Manager
@@ -126,7 +126,7 @@ go to page manager	sitemgr	de	Gehe zur Seiten Bearbeitung
 google	sitemgr	de	Google
 google search	sitemgr	de	Google Suche
 group access permissions	sitemgr	de	Gruppen Zugriffsrechte
-group name	sitemgr	de	Gruppen Name
+group name	sitemgr	de	Gruppenname
 header editor	sitemgr	de	Kopfzeilen Editor
 headlines	sitemgr	de	Kopfzeilen
 hello	sitemgr	de	Hallo
@@ -139,7 +139,7 @@ implies read permission	sitemgr	de	impliziert Leserechte
 individual access permission	sitemgr	de	Individuelles Zugriffrecht
 individual access permissions	sitemgr	de	Individuelle Zugriffsrechte
 interface to google website	sitemgr	de	Schnittstelle zur Google Webseite
-languages the site user can choose from	sitemgr	de	Sprachen die der Benutzer auswählen kann
+languages the site user can choose from	sitemgr	de	Sprachen, die der Benutzer auswählen kann
 latest reply	sitemgr	de	Letzte Antwort
 list of permitted modules specific to content area %1	sitemgr	de	Liste der erlaubten Module speziell für den Inhaltsbereich %1
 login	sitemgr	de	Login
@@ -208,20 +208,20 @@ pages:	sitemgr	de	Seiten:
 parent	sitemgr	de	Übergeordnet
 parent section:	sitemgr	de	Übergeordnete Kategorie:
 password	sitemgr	de	Passwort
-password that you assigned for the anonymous user account.	sitemgr	de	Passwort des Annonymen Benutzer Kontos
+password that you assigned for the anonymous user account.	sitemgr	de	Passwort des anonymen Benutzerkontos
 phpgw users	sitemgr	de	eGroupWare Benutzer
 please enter a name for that site !	sitemgr	de	Bitte geben sie einen Namen für die Website an !
 post a message to this thread	sitemgr	de	Eine Nachricht in diesem Thread posten.
-prepublished	sitemgr	de	Vor veröffentlicht
-preunpublished	sitemgr	de	Vor nicht mehr veröffentlicht
+prepublished	sitemgr	de	vorveröffentlicht
+preunpublished	sitemgr	de	nicht mehr vorveröffentlicht
 previous	sitemgr	de	Vorhergehend
-production mode	sitemgr	de	Pruduktionsmodus
+production mode	sitemgr	de	Produktionsmodus
 published	sitemgr	de	Veröffentlicht
 reactivate content	sitemgr	de	Inhalt wieder aktivieren
 read permission	sitemgr	de	Leserechte
 redirection	sitemgr	de	Umlenkung
 refresh	sitemgr	de	Aktualisieren
-register for one now.	sitemgr	de	Hier können Sie sich Registrieren.
+register for one now.	sitemgr	de	Hier können Sie sich registrieren.
 register new modules	sitemgr	de	Neue Module registrieren
 replies	sitemgr	de	Antworten
 required fields	sitemgr	de	Benötigte Felder
@@ -246,7 +246,7 @@ show searchbox	sitemgr	de	Suchfeld anzeigen
 show site index	sitemgr	de	Site Inhaltsverzeichnis anzeigen
 show subcategories	sitemgr	de	Unterkategorien anzeigen
 site	sitemgr	de	Website
-site %1 has been added	sitemgr	de	Website %1 wurde zugefügt
+site %1 has been added	sitemgr	de	Website %1 wurde hinzugefügt
 site %1 has been updated	sitemgr	de	Website %1 wurde aktualisiert
 site administrators	sitemgr	de	Website Administratoren
 site description	sitemgr	de	Beschreibung der Website
@@ -255,7 +255,7 @@ site index	sitemgr	de	Website Inhaltsverzeichnis
 site name	sitemgr	de	Website Name
 site setup	common	de	Setup der Website
 site tree menu	sitemgr	de	Baumansicht der Seite
-site wide	sitemgr	de	Website weit
+site wide	sitemgr	de	websiteweit
 sitemgr	common	de	SiteMgr
 sitemgr options	sitemgr	de	SiteMgr Optionen
 sitemgr setup instructions	sitemgr	de	SiteMgr Setup Informationen
@@ -357,7 +357,7 @@ week	sitemgr	de	Woche
 what do you want to do with existing translations of categories and pages for this language?	sitemgr	de	Was möchten Sie mit den existierenden Übersetzungen für Kategorien und Seiten machen?
 wiki	sitemgr	de	Wiki
 wiki startpage	sitemgr	de	Wiki Startseite
-with which view should the module be displayed in the beginning?	sitemgr	de	In welcher Ansicht soll das Modul angezeigt werden am Anfang
+with which view should the module be displayed in the beginning?	sitemgr	de	In welcher Ansicht soll das Modul beim Start angezeigt werden
 write permission	sitemgr	de	Schreibrechte
 xml browser	sitemgr	de	XML Browser
 yes, please delete it	sitemgr	de	Ja, löschen
