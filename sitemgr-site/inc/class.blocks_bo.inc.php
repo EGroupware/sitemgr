@@ -7,7 +7,7 @@
 	* under the terms of the GNU General Public License as published by the    *
 	* Free Software Foundation; either version 2 of the License, or (at your   *
 	* option) any later version.                                               *
-    \**************************************************************************/
+        \**************************************************************************/
 	/* $Id$ */
 
 	class blocks_bo
@@ -43,7 +43,7 @@
 
 		function get_blocktitle($block)
 		{
-			return lang($block['title']);
+			return $block['title'] ? lang($block['title']) : "";
 		}
 
 		function get_blockcontent($block)
