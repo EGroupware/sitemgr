@@ -117,6 +117,7 @@
 
 		function findmodules()
 		{
+			$new_modules = array();
 			$incdir = PHPGW_SERVER_ROOT . SEP . 'sitemgr' . SEP . 'modules';
 			if (is_dir($incdir))
 			{
@@ -127,24 +128,20 @@
 					{
 						$modulename = $module[1];
 
-						if (ereg('\$this->description = lang\(\'([^'."\n".']*)\'\);',implode("\n",file(PHPGW_SERVER_ROOT.'/sitemgr/modules/'.$file)),$parts))
-						{
-							$description = $parts[1];
-						}
-						else
-						{
-							$description = '';
-						}
-
 						$moduleobject = $this->createmodule($modulename);
 						if ($moduleobject)
 						{
-							$this->so->registermodule($modulename,$description ? $description : $moduleobject->description);
+							if ($this->so->registermodule($modulename,$moduleobject->description))
+							{
+								$new_modules[$modulename] = $modulename.': '.$moduleobject->description;
+							}
 						}
+						//echo "<p>Modules_BO::findmodules() found $modulename: $moduleobject->description</p>\n";
 					}
 				}
 				$d->close();
 			}
+			return $new_modules;
 		}
 
 		function savemodulepermissions($contentarea,$cat_id,$modules)

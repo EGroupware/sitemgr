@@ -36,7 +36,7 @@
 			$this->catbo = &$GLOBALS['Common_BO']->cats;
 		}
 
-		function manage()
+		function manage($msg = '')
 		{
 			if ($this->acl->is_admin())
 			{
@@ -105,6 +105,11 @@
 				}
 				$this->common_ui->DisplayHeader(lang('%1 module manager', $scopename).($cat_name ? (' - ' . $cat_name) : ''));
 
+				if (!empty($msg))
+				{
+					echo '<p style="color: red; text-align: center;">'.$msg."</p>\n";
+				}
+
 				$this->t->pfp('out', 'Managemodules');
 			}
 			else
@@ -118,8 +123,9 @@
 
 		function findmodules()
 		{
-			$this->bo->findmodules();
-			$this->manage();
+			$new_modules = $this->bo->findmodules();
+			$this->manage(count($new_modules) ? lang('Following new modules registed: %1',implode('<br>',$new_modules)) :
+				lang('No new modules found !!!'));
 		}
 
 		function configure()

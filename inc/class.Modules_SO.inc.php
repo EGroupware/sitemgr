@@ -62,7 +62,7 @@
 			$sql = "SELECT count(*) FROM phpgw_sitemgr_modules where module_name='$modulename'";
 			$this->db->query($sql,__LINE__,__FILE__);
 			$this->db->next_record();
-			if ($this->db->f(0) == 0)
+			if ($new = $this->db->f(0) == 0)
 			{
 				$sql = "INSERT INTO phpgw_sitemgr_modules (module_name,description) VALUES ('$modulename','$description')";
 				$this->db->query($sql,__LINE__,__FILE__);
@@ -72,6 +72,7 @@
 				$sql = "UPDATE phpgw_sitemgr_modules SET description = '$description' WHERE module_name='$modulename'";
 				$this->db->query($sql,__LINE__,__FILE__);
 			}
+			return $new;
 		}
 
 		function getallmodules()
