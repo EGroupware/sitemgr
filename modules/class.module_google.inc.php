@@ -15,7 +15,14 @@ class module_google extends Module
 {
 	function module_google()
 	{
-		$this->arguments = array();
+		$this->arguments = array(
+			'sitesearch' => array(
+				'type' => 'textfield',
+				'params' => array('size' => 40),
+				'default' => str_replace(array('localhost','127.0.0.1'),'',$_SERVER['HTTP_HOST']),
+				'label' => lang('Domain-name (offical DNS-name eg. www.eGroupWare.org) if you want to give the user a choice between searching this site or the whole web. Leaving it empty allows to search the web only.')
+			),
+		);
 		$this->properties = array();
 		$this->title = lang('Google');
 		$this->description = lang('Interface to Google website');
@@ -23,13 +30,23 @@ class module_google extends Module
 
 	function get_content(&$arguments,$properties)
 	{
-		$content = '<form action="http://www.google.com/search" name=f>';
-		$content .= '<img src="images/Google_25wht.gif" border="0" align="middle" hspace="0" vspace="0"><br>';
-		$content .= '<center><input type=hidden name=hl value=en>';
-		$content .= '<input type=hidden name=ie value="ISO-8859-1">';
-		$content .= '<input maxLength=256 size=15 name=q value=""><br>';
-		$content .= '<input type=submit value="' . lang('Google Search') . '" name=btnG></center>';
-		$content .= '</form>';
+		$content = '<form action="http://www.google.com/search" name="f" target="_blank">'."\n";
+		$content .= '<img src="images/Google_25wht.gif" border="0" align="middle" hspace="0" vspace="0"><br />'."\n";
+		$content .= '<input type="hidden" name="hl" value="'.$GLOBALS['sitemgr_info']['userlang'].'">'."\n";
+		$content .= '<input type="hidden" name="ie" value="'.$GLOBALS['phpgw']->translation->charset().'">'."\n";
+		$content .= '<input maxLength="256" size="15" name="q" value="">'."\n";
+		$content .= '<input type="submit" value="' . lang('Search') . '" name="btnG" title="'.lang('Google Search').'">'."\n";
+		if ($arguments['sitesearch'])
+		{
+			$content .= '<div style="margin-top: 5px;">'."\n";
+			$content .= '<input id="this_site" type="radio" checked="1" name="sitesearch" value="www.egroupware.org" />'."\n";
+			$content .= '<label for="this_site">'.lang('this site')."</label>\n";
+			$content .= '<input id="the_web" type="radio" name="sitesearch" value="" />'."\n";
+			$content .= '<label for="the_web">'.lang('the web')."</label>\n";
+			$content .= "</div>\n";
+		}
+		$content .= "</form>\n";
+
 		return $content;
 	}
 }

@@ -86,6 +86,7 @@ do you realy want to delete this block?	sitemgr	en	Do you realy want to delete t
 do you realy want to delete this page?	sitemgr	en	Do you realy want to delete this page?
 do you want to delete them?	sitemgr	en	Do you want to delete them?
 do you want to publish a rss feed for this news category	sitemgr	en	Do you want to publish a RSS feed for this news category
+domain-name (offical dns-name eg. www.egroupware.org) if you want to give the user a choice between searching this site or the whole web. leaving it empty allows to search the web only.	sitemgr	en	Domain-name (offical DNS-name eg. www.eGroupWare.org) if you want to give the user a choice between searching this site or the whole web. Leaving it empty allows to search the web only.
 don't have an account?	sitemgr	en	Don't have an account?
 done	sitemgr	en	Done
 downloaded	sitemgr	en	downloaded
@@ -285,6 +286,7 @@ the text for the link, if empty the module returns the raw url (without the html
 the url can be relative or absolute.  name must end in a slash.	sitemgr	en	The URL can be relative or absolute.  Name must end in a slash.
 the url must be absolute and end in a slash, for example http://mydomain.com/mysite/	sitemgr	en	The URL must be absolute and end in a slash, for example http://mydomain.com/mysite/
 the url to redirect to	sitemgr	en	The URL to redirect to
+the web	sitemgr	en	the web
 the whole page	sitemgr	en	the whole page
 the xml files' common name	sitemgr	en	the XML files' common name
 theme or template select	sitemgr	en	Theme or template select
@@ -325,6 +327,7 @@ this module publishes news from the news_admin application on your website. be a
 this must be an absolute directory location.  <b>no trailing slash</b>.	sitemgr	en	This must be an absolute directory location.  <b>No trailing slash</b>.
 this should be a comma-separated list of language-codes.	sitemgr	en	This should be a comma-separated list of language-codes.
 this should be a page that is readable by everyone. if you leave this blank, the site index will be shown by default.	sitemgr	en	This should be a page that is readable by everyone. If you leave this blank, the site index will be shown by default.
+this site	sitemgr	en	this site
 title	sitemgr	en	Title
 topic	sitemgr	en	Topic
 translate	sitemgr	en	Translate

@@ -87,6 +87,7 @@ do you realy want to delete this block?	sitemgr	de	Wollen Sie diesen Block wirkl
 do you realy want to delete this page?	sitemgr	de	Wollen Sie diese Seite wirklich löschen?
 do you want to delete them?	sitemgr	de	Möchten Sie sie löschen?
 do you want to publish a rss feed for this news category	sitemgr	de	Wollen sie einen RSS feed für diese News Kategorie veröffentlichen
+domain-name (offical dns-name eg. www.egroupware.org) if you want to give the user a choice between searching this site or the whole web. leaving it empty allows to search the web only.	sitemgr	de	Domainname (offizieller DNS-Name zB. www.eGroupWare.org), falls Sie dem Benutzer die Wahl geben wollen zwischen einer Suche auf dieser Website oder dem gesamten Web. Wenn sie das Feld leer lassen wird immer das gesamte Web durchsucht.
 don't have an account?	sitemgr	de	Sie haben keinen Benutzerkonto?
 done	sitemgr	de	Fertig
 downloaded	sitemgr	de	Download abgeschlossen
@@ -287,6 +288,7 @@ the text for the link, if empty the module returns the raw url (without the html
 the url can be relative or absolute.  name must end in a slash.	sitemgr	de	Die URL kann absolute oder relativ angegeben werden. Der Pfad muss mit einem Slash "/" enden.
 the url must be absolute and end in a slash, for example http://mydomain.com/mysite/	sitemgr	de	Die URL muss absolut sein und mit einem Slash "/" enden, zB. http://mydomain.com/mysite/
 the url to redirect to	sitemgr	de	Die URL auf die umgeleitet werden soll
+the web	sitemgr	de	das Web
 the whole page	sitemgr	de	die gesamten Seite
 the xml files' common name	sitemgr	de	Der allgemeine Name des XML files
 theme or template select	sitemgr	de	Thema oder Templateauswahl
@@ -327,6 +329,7 @@ this module publishes news from the news_admin application on your website. be a
 this must be an absolute directory location.  <b>no trailing slash</b>.	sitemgr	de	Hier muss der Adsolute Pfad zu Verzeichniss angegeben werden. Zum Beispiel: /var/www/html/Ihre_Firma/sitemgr_site. <b>Keinen "/" am Ende des Pfades angeben!</b>
 this should be a comma-separated list of language-codes.	sitemgr	de	Geben Sie hier eine durch Kommatas unterteilte Liste der Sprachen ein. Zum Beispiel: en, de, fr
 this should be a page that is readable by everyone. if you leave this blank, the site index will be shown by default.	sitemgr	de	Diese Seite sollte von einem Benutzer ohne spezielle Rechte gesehen werden können (z. B. Anonymous). Falls Sie hier nichts eintragen, wird der Seiten Index als Standard angezeigt.
+this site	sitemgr	de	diese Site
 title	sitemgr	de	Titel
 topic	sitemgr	de	Thema
 translate	sitemgr	de	Übersetzen

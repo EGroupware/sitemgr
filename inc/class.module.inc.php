@@ -283,6 +283,11 @@ class Module
 
 	function build_input_element($input,$default,$elementname)
 	{
+		//echo "<p>module::build_input_element(".print_r($input,True).",'$default','$elementname')</p>";
+		if (empty($default) && isset($input['default']))
+		{
+			$default = $input['default'];
+		}
 		if ($default && $input['type'] != 'htmlarea')	// htmlarea does its own escape !!!
 		{
 			$this->escape_default($default);
