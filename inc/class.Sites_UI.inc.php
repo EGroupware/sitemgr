@@ -86,7 +86,7 @@
 			$GLOBALS['phpgw']->template->set_var('title_sites',lang('Sitemgr Websites'));
 			$GLOBALS['phpgw']->template->set_var('lang_search',lang('Search'));
 			$GLOBALS['phpgw']->template->set_var('actionurl',$GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Sites_UI.list_sites'));
-			$GLOBALS['phpgw']->template->set_var('lang_done',lang('Cancel'));
+			$GLOBALS['phpgw']->template->set_var('lang_done',lang('Done'));
 			$GLOBALS['phpgw']->template->set_var('doneurl',$GLOBALS['phpgw']->link('/admin/index.php'));
 
 			if(!$this->start)

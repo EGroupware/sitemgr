@@ -15,6 +15,7 @@
 		function setcurrentcats()
 		{
 			$this->currentcats = $this->getpermittedcats(CURRENT_SITE_ID,'active',True);
+			$this->readablecats = $this->getpermittedcatsRead();
 		}
 
 		function getCategoryOptionList()
@@ -209,7 +210,7 @@
 		//$force is for bypassing ACL when we called from Sites_UI for building up the info for the currentsite
 		function getCategory($cat_id,$lang=False,$force=False)
 		{
-			if ($force || ($this->check($cat_id) && $GLOBALS['Common_BO']->acl->can_read_category($cat_id)))
+			if ($force || ($this->check($cat_id) && in_array($cat_id,$this->readablecats)))
 			{
 				return $this->so->getCategory($cat_id,$lang);
 			}
@@ -232,7 +233,7 @@
 			$result = array();
 			while ($cat_id != CURRENT_SITE_ID)
 			{
-				if (!$permittedonly || $GLOBALS['Common_BO']->acl->can_read_category($cat_id))
+				if (!$permittedonly || in_array($cat_id,$this->readablecats))
 				{
 					$result[] = $cat_id;
 				}

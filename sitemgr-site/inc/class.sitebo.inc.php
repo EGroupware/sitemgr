@@ -21,6 +21,9 @@
 			$this->catbo = &$GLOBALS['Common_BO']->cats;
 			$this->pages_bo = &$GLOBALS['Common_BO']->pages;
 			$this->acl = &$GLOBALS['Common_BO']->acl;
+			$this->isadmin = $this->acl->is_admin;
+			//$anonymous_user is globally set in config.inc.php
+			$this->isuser = ($phpgw_info['user']['account_lid'] != $anonymous_user);
 		}
 
 		function getcatwrapper($cat_id)
@@ -133,27 +136,10 @@
 		{
 			global $page;
 
-			if ($category_id)
-			{
-				if($this->acl->can_read_category($category_id))
-				{
-					$cat = $this->getcatwrapper($category_id);
-					if ($cat)
-					{
-						$page->cat_id = $category_id;
-						$page->title = lang('Category').' '.$cat->name;
-						$page->subtitle = '<i>'.$cat->description.'</i>';
-					}
-				}
-			}
-			else
-			{
-				$page->title = lang('Table of Contents');
-				$page->subtitle = '';
-				$page->toc = True;
-				$page->cat_id = $GLOBALS['Common_BO']->current_site['site_id'];
-
-			}
+			$page->title = lang('Table of Contents');
+			$page->subtitle = '';
+			$page->toc = True;
+			$page->cat_id = $category_id ? $category_id : CURRENT_SITE_ID;
 			$page->block = CreateObject('sitemgr.Block_SO',True);
 			$page->block->module_name = 'toc';
 			$page->block->arguments = array('category_id' => $category_id);
@@ -162,7 +148,7 @@
 			$page->block->state = SITEMGR_STATE_PUBLISH;
 			return true;
 		}
-		
+
 		function getPageLinks($category_id, $showhidden=true)
 		{
 			$pages=$this->pages_bo->getPageIDList($category_id);
@@ -199,25 +185,6 @@
 			return $catlinks;
 		}
 
-
-		function is_user()
-		{
-			global $sitemgr_info,$phpgw_info;
-			if ($phpgw_info['user']['account_lid'] != $sitemgr_info['anonymous_user'])
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
-
-		function is_admin()
-		{
-			return $this->acl->is_admin();
-		}
-
 		//like $GLOBALS['phpgw']->common->getPreferredLanguage,
 		//but compares languages accepted by the user 
 		//to the languages the website is configured for
@@ -246,7 +213,7 @@
 				return;
 			}
 			
-			if ($this->is_user())
+			if ($this->isuser)
 			{
 				$userlang = $GLOBALS['phpgw_info']['user']['preferences']['common']['lang'];
 				if (in_array($userlang,$supportedLanguages))
@@ -291,7 +258,7 @@
 
 		function getmode()
 		{
-			if ($this->is_user())
+			if ($this->isuser)
 			{
 				$postmode = $_GET['administration']['mode'];
 				if ($postmode)

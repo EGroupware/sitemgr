@@ -162,7 +162,7 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 			}
 			$content = '';
 
-			$blocks = $this->bo->getvisibleblockdefsforarea($areaname,$page->cat_id,$page->id,$objbo->is_admin(),$objbo->is_user());
+			$blocks = $this->bo->getvisibleblockdefsforarea($areaname,$page->cat_id,$page->id,$objbo->isadmin,$objbo->isuser);
 			// if we are in the center area, we append special blocks
 			if ($areaname == "center" && $page->block)
 			{
@@ -317,24 +317,6 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 				$moduleobject = $this->modules[$modulename];
 			}
 			return $moduleobject;
-		}
-
-		function block_allowed($view)
-		{
-			global $objbo;
-
-			switch($view)
-			{
-				case 0:
-					return true;
-				case 1:
-					return $objbo->is_user();
-				case 2:
-					return $objbo->is_admin();
-				case 3:
-					return (! $objbo->is_user());
-			}
-			return false;
 		}
 
 		function getblocktitlewrapper($block_id)

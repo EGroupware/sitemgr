@@ -123,7 +123,7 @@
 				'lang_readperm' => lang('Read Permission'),
 				'lang_writeperm' => lang('Write Permission'),
 				'lang_implies' => lang('implies read permission'),
-				'lang_useraccess' => lang('Individual Access Permission'),
+				'lang_useraccess' => lang('Individual Access Permissions'),
 				'lang_username' => lang('User Name'),
 				'lang_reset' => lang('Reset'),
 				'lang_save' => lang('Save'),

@@ -62,7 +62,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td colspan="2"><b><u>{lang_useraccess}:</u></b></td>
+		<td colspan="2"><b><u>{lang_useraccess}</u></b></td>
 	</tr>
 		<td colspan="2">
 			<table align="center" border="0" width="80%" cellpadding="2" cellspacing="2">

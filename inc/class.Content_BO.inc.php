@@ -129,7 +129,7 @@ define('SITEMGR_VIEWABLE_ANONYMOUS',3);
 			$cat_ancestorlist = $cat_id ? 
 				implode(',',$GLOBALS['Common_BO']->cats->getCategoryancestorids($cat_id,True)) : 
 				False;
-			if ($page_id && !$GLOBALS['Common_BO']->acl->can_read_category($cat_id))
+			if ($page_id && !in_array($cat_id,$GLOBALS['Common_BO']->acl->readablecats))
 			{
 			   $page_id = False;
 			}
@@ -139,7 +139,7 @@ define('SITEMGR_VIEWABLE_ANONYMOUS',3);
 		function getallblocksforarea($area,$cat_id,$page_id,$lang)
 		{
 			$cat_ancestorlist = ($cat_id != CURRENT_SITE_ID) ? $GLOBALS['Common_BO']->cats->getCategoryancestorids($cat_id,True) : False;
-			if ($page_id && !$GLOBALS['Common_BO']->acl->can_read_category($cat_id))
+			if ($page_id && !in_array($cat_id,$GLOBALS['Common_BO']->acl->readablecats))
 			{
 			   $page_id = False;
 			}
