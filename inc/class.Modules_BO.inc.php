@@ -110,15 +110,25 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 			if (is_dir($incdir))
 			{
 				$d = dir($incdir);
-				while ($entry = $d->read())
+				while ($file = $d->read())
 				{
-					if (preg_match ("/class\.module_(.*)\.inc\.php$/", $entry, $module)) 
+					if (preg_match ("/class\.module_(.*)\.inc\.php$/", $file, $module))
 					{
 						$modulename = $module[1];
+
+						if (ereg('\$this->description = lang\(\'([^'."\n".']*)\'\);',implode("\n",file(PHPGW_SERVER_ROOT.'/sitemgr/modules/'.$file)),$parts))
+						{
+							$description = $parts[1];
+						}
+						else
+						{
+							$description = '';
+						}
+
 						$moduleobject = $this->createmodule($modulename);
 						if ($moduleobject)
 						{
-							$this->so->registermodule($modulename,$moduleobject->description);
+							$this->so->registermodule($modulename,$description ? $description : $moduleobject->description);
 						}
 					}
 				}

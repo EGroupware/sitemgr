@@ -213,7 +213,7 @@
 			while (list($id,$module) = @each($this->modules))
 			{ 
 				$selected = (in_array($id,$permitted)) ? $selected = 'selected="selected" ' : '';
-				$returnValue.='<option title="' . $module['description'] . '" ' . $selected . 'value="' .$id . '">' .
+				$returnValue.='<option title="' . lang($module['description']) . '" ' . $selected . 'value="' .$id . '">' .
 					$module['module_name'].'</option>'."\n";
 			}
 			return $returnValue;
@@ -224,7 +224,7 @@
 			$returnValue = '';
 			while (list($id,$module) = @each($permitted))
 			{ 
-				$returnValue.='<option title="' . $module['description'] . '" value="'.$id.'">'.
+				$returnValue.='<option title="' . lang($module['description']) . '" value="'.$id.'">'.
 					$module['module_name'].'</option>'."\n";
 			}
 			return $returnValue;

@@ -487,7 +487,7 @@
 			$returnValue = '';
 			while (list($id,$module) = each($modules))
 			{ 
-				$returnValue.='<option title="' . $module['description'] . '" value="'.$id.'">'.
+				$returnValue.='<option title="' . lang($module['description']) . '" value="'.$id.'">'.
 					$module['module_name'].'</option>'."\n";
 			}
 			return $returnValue;

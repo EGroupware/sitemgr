@@ -24,7 +24,25 @@
 	$GLOBALS['phpgw_setup']->add_acl('sitemgr-link','run',$anonymous);
 	$GLOBALS['phpgw_setup']->add_acl('phpgwapi','anonymous',$anonymous);
 
-	// register all modules and allow the everywhere on the page
+	// register all modules and allow them in the following contentareas
+	$areas = array(
+		'administration' => array('left','right'),
+		'amazon' => array('left','right'),
+		'calendar' => array('left','right'),
+		'currentsection' => array('left','right'),
+		'download' => array('center'),
+		'filecontents' => array('__PAGE__'),
+		'google' => array('left','right'),
+		'html' => array('__PAGE__'),
+		'index_block' => array('left','right'),
+		'index' => array('center'),
+		'lang_block' => array('left','right'),
+		'login' => array('left','right'),
+		'redirect' => array('center'),
+		'sitetree' => array('left','center','right'),
+		'toc_block' => array('left','right'),
+		'toc' => array('center'),
+	);
 	$dir = opendir(PHPGW_SERVER_ROOT.'/sitemgr/modules');
 	while($file = readdir($dir))
 	{
@@ -33,9 +51,23 @@
 			continue;
 		}
 		$module = $parts[1];
-		$oProc->query("INSERT INTO phpgw_sitemgr_modules (module_name) VALUES ('$module')",__LINE__,__FILE__);
+		if (ereg('\$this->description = lang\(\'([^'."\n".']*)\'\);',implode("\n",file(PHPGW_SERVER_ROOT.'/sitemgr/modules/'.$file)),$parts))
+		{
+			$description = $parts[1];
+		}
+		else
+		{
+			$description = '';
+		}
+		$oProc->query("INSERT INTO phpgw_sitemgr_modules (module_name,description) VALUES ('$module','$description')",__LINE__,__FILE__);
 		$id = $module_id[$module] = $oProc->m_odb->get_last_insert_id('phpgw_sitemgr_modules','module_id');
-		$oProc->query("INSERT INTO phpgw_sitemgr_active_modules (area,cat_id,module_id) VALUES ('__PAGE__',$site_id,$id)",__LINE__,__FILE__);
+		if (isset($areas[$module]))
+		{
+			foreach($areas[$module] as $area)
+			{
+				$oProc->query("INSERT INTO phpgw_sitemgr_active_modules (area,cat_id,module_id) VALUES ('$area',$site_id,$id)",__LINE__,__FILE__);
+			}
+		}
 	}
 
 	// create some sample categories for the site
