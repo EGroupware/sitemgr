@@ -50,6 +50,7 @@
 			global $subtitle;
 			global $main;
 			global $sort_order;
+			global $hidden;
 			global $btnEditPage;
 		
 			$this->t->set_file('EditPage', 'page_editor.tpl');
@@ -83,8 +84,16 @@
 				$this->page->sort_order = $sort_order;
 				$this->t->set_var('add_edit','Add Page');
 			}
-		
+			
 			$trans = array("{" => "&#123;", "}" => "&#125;");
+	                if($this->page->hidden)
+                        {
+                                $this->t->set_var('hidden', 'CHECKED');
+                        }
+                        else
+                        {   
+                                $this->t->set_var('hidden', '');
+                        }
 			$this->t->set_var(array(
 				'title' =>$this->page->title,
 				'subtitle' => $this->page->subtitle,
@@ -105,6 +114,7 @@
 		
 		function _managePage()
 		{
+			global $hidden;
 			global $btnAddPage;
 			global $btnDelete;
 			global $btnEditPage;
@@ -146,6 +156,7 @@
 						$save_msg = "You don't have permission to write in the category";
 					}
 				}
+
 				if (!$save_msg)
 				{
 					$this->page->title = $title;
@@ -154,6 +165,15 @@
 					$this->page->content = $main;
 					$this->page->cat_id = $category_id;
 					$this->page->sort_order = $sort_order;
+
+					if($hidden)
+					{
+						$this->page->hidden = 1;
+					}
+					else
+					{
+						$this->page->hidden = 0;
+					}
 					$save_msg = $this->pagebo->savePageInfo($category_id, $this->page);
 				}
 				if (!is_string($save_msg))
