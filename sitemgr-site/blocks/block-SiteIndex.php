@@ -4,9 +4,9 @@ if (eregi("block-SiteIndex.php",$PHP_SELF)) {
 	die();
 }
 
-	$title = 'Site Index';
+	$title = 'Root Site Index';
 	$bo = new bo;
-	$indexarray = $bo->getIndex();
+	$indexarray = $bo->getIndex(false,true);
 	unset($bo);
 	$content = "\n".'<table border="0" cellspacing="0" cellpadding="0" width="100%">';
 	$catname = '';
@@ -24,12 +24,16 @@ if (eregi("block-SiteIndex.php",$PHP_SELF)) {
 			}
 			$catname = $page['catname'];
 			$content.="\n".'<tr><td width="15%" colspan="2">'.$break.'&nbsp;<b>'.
-				$catname.'</b></td></tr>'."\n";
+				$page['catlink'].'</b></td></tr>'."\n";
 		}
-		$content .= "\n".'<tr><td align="right" valign="top" width="15%">'.
-			'&middot;&nbsp;</td><td>'.$page['pagelink'].'</td></tr>';
+		if (!$page['hidden'])
+		{
+			$content .= "\n".'<tr><td align="right" valign="top" width="15%">'.
+				'&middot;&nbsp;</td><td>'.$page['pagelink'].'</td></tr>';
+		}
 	}
 	$content .= "\n</table>";
+	$content .= '<br>&nbsp;&nbsp;<i><a href="'.sitemgr_link2('/index.php','index=1').'"><font size="1">(View full index)</font></a></i>';
 	if (count($indexarray)==0)
 	{
 		$content='You do not have access to any content on this site.';

@@ -63,9 +63,9 @@
 			$this->page->content = $content;
 		}
 
-		function getIndex()
+		function getIndex($showhidden=true, $rootonly=false)
 		{
-			$cats = $this->getCatLinks();
+			$cats = $this->getCatLinks(0,!$rootonly);
 			$index = array();
 
 			if (count($cats)>0)
@@ -74,13 +74,14 @@
 				$content = "\n".'<ul>';
 				while(list($cat_id,$cat) = each($cats))
 				{
-					$pages = $this->getPageLinks($cat_id);
+					$pages = $this->getPageLinks($cat_id,$showhidden);
 					if (count($pages)>0)
 					{
 						foreach($pages as $link)
 						{
 							$index[] = array(
 								'catname'=>$cat['name'],
+								'catlink'=>$cat['link'],
 								'catdescrip'=>$cat['description'],
 								'pagename'=>$link['name'],
 								'pagelink'=>$link['link'],
@@ -94,6 +95,7 @@
 						$index[] = array(
 							'catname'=>$cat['name'],
 							'catdescrip'=>$cat['description'],
+							'catlink'=>$cat['link'],
 							'pagelink'=>'No pages in this section.'
 						);
 					}
@@ -174,47 +176,58 @@
 			return true;
 		}
 		
-		function getPageLinks($category_id)
+		function getPageLinks($category_id, $showhidden=true)
 		{
 			$pages=$this->pages_bo->getPageIDList($category_id);
 			foreach($pages as $page_id)
 			{
 				$page=$this->pages_bo->getPage($page_id);
-				if (strtolower($page->subtitle) == 'link')
+				if ($showhidden || !$page->hidden)
 				{
-					$pglinks[$page_id] = array(
-						'name'=>$page->name,
-						'link'=>'<a href="'.$page->content.'">'.$page->title.'</a>',
-						'title'=>$page->title,
-						'subtitle'=>''
-					);
-				}
-				else
-				{
-					$pglinks[$page_id] = array(
-						'name'=>$page->name,
-						'link'=>'<a href="'.sitemgr_link2('/index.php','page_name='.
-							$page->name).'">'.$page->title.'</a>',
-						'title'=>$page->title,
-						'subtitle'=>$page->subtitle
-					);
+					if (strtolower($page->subtitle) == 'link')
+					{
+						$pglinks[$page_id] = array(
+							'name'=>$page->name,
+							'link'=>'<a href="'.$page->content.'">'.$page->title.'</a>',
+							'title'=>$page->title,
+							'subtitle'=>''
+						);
+					}
+					else
+					{
+						$pglinks[$page_id] = array(
+							'name'=>$page->name,
+							'link'=>'<a href="'.sitemgr_link2('/index.php','page_name='.
+								$page->name).'">'.$page->title.'</a>',
+							'title'=>$page->title,
+							'subtitle'=>$page->subtitle
+						);
+					}
 				}
 			}
 			return $pglinks;
 		}
 
-		function getCatLinks()
+		function getCatLinks($cat_id=0,$recurse=true)
 		{
 			$catlinks = array();
-			$cat_list=$this->catbo->getPermittedCategoryIDReadList();
+			if ($recurse)
+			{
+				$cat_list=$this->catbo->getPermittedCatReadNested($cat_id);
+			}
+			else
+			{
+				$cat_list=$this->catbo->getPermittedCategoryIDReadList($cat_id);
+			}
 			foreach($cat_list as $cat_id)
 			{
 				$category = $this->catbo->getCategory($cat_id);
 				$catlinks[$cat_id] = array(
 					'name'=>$category->name,
-					'link'=>'<a href="'.sitemgr_link2('/index.php','category_id='.$cat_id).'">'.
-						$category->name.'</a>',
-					'description'=>$category->description
+					'link'=>'<a href="'.sitemgr_link2('/index.php',
+						'category_id='.$cat_id).'">'.$category->name.'</a>',
+					'description'=>$category->description,
+					'depth'=>$category->depth
 				);
 			}
 			return $catlinks;

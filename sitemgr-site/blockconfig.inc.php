@@ -16,7 +16,7 @@
 	);
 	*/
 	$blocks[]=array(
-		'title' => 'Site Index',
+		'title' => 'Root Site Index',
 		'position' => 'l',
 		'blockfile' => 'block-SiteIndex.php',
 		'view' => 0
