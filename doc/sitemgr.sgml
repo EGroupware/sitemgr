@@ -1023,8 +1023,8 @@ apply_transform(&dollar;title,&dollar;content)
   </varlistentry>
    <varlistentry>
    <term>
-set_block(&dollar;block,&dollar;produce=False)
-</term><listitem><para>This function is called by the content manager (with &dollar;produce=False) and by the page generation (with &dollar;produce=True) for each content block, so that the module knows everything about the block it has to edit or generate (above all its context and its arguments). If your module overrides this function, it should always call the parent class' set_block function first with parent::set_block(&dollar;block). If you want to configure your module with respect to the block, you can do this here. This is also the place where your module should add the transformers it needs for generating output. For example:
+set_block(&amp;&dollar;block,&dollar;produce=False)
+</term><listitem><para>This function is called by the content manager (with &dollar;produce=False) and by the page generation (with &dollar;produce=True) for each content block, so that the module knows everything about the block it has to edit or generate (above all its context and its arguments). If your module overrides this function, it should always call the parent class' set_block function first with parent::set_block(&dollar;block,&dollar;produce). If you want to configure your module with respect to the block, you can do this here. This is also the place where your module should add the transformers it needs for generating output. For example:
    </para>
 
   </listitem>
@@ -1033,9 +1033,9 @@ set_block(&dollar;block,&dollar;produce=False)
 
   </variablelist>
   <programlisting>
-<![CDATA[function set_block($block) 
+<![CDATA[function set_block(&$block,$produce=False)
 ]]><![CDATA[{ 
-]]><![CDATA[    parent::set_block($block);
+]]><![CDATA[    parent::set_block($block,$produce)
 ]]><![CDATA[    if ($produce)
 ]]><![CDATA[    {
 ]]><![CDATA[        $this->add_transformer(new my_transform());

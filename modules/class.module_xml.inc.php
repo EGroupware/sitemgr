@@ -27,7 +27,7 @@ class module_xml extends Module
 		$this->description = lang('This module permits browsing through XML files stored in a directory, and transformed by XSLT');
 	}
 
-	function set_block($block,$produce=False)
+	function set_block(&$block,$produce=False)
 	{
 		parent::set_block($block,$produce);
 

@@ -104,7 +104,7 @@ class module_appdir extends Module
 		return true;
 	}
 
-	function set_block($block,$produce=False)
+	function set_block(&$block,$produce=False)
 	{
 		parent::set_block($block,$produce);
 

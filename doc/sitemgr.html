@@ -1042,10 +1042,10 @@ CLASS="VARIABLELIST"
 ></DIV
 ></DD
 ><DT
->set_block($block,$produce=False)</DT
+>set_block(&#38;$block,$produce=False)</DT
 ><DD
 ><P
->This function is called by the content manager (with $produce=False) and by the page generation (with $produce=True) for each content block, so that the module knows everything about the block it has to edit or generate (above all its context and its arguments). If your module overrides this function, it should always call the parent class' set_block function first with parent::set_block($block). If you want to configure your module with respect to the block, you can do this here. This is also the place where your module should add the transformers it needs for generating output. For example:
+>This function is called by the content manager (with $produce=False) and by the page generation (with $produce=True) for each content block, so that the module knows everything about the block it has to edit or generate (above all its context and its arguments). If your module overrides this function, it should always call the parent class' set_block function first with parent::set_block($block,$produce). If you want to configure your module with respect to the block, you can do this here. This is also the place where your module should add the transformers it needs for generating output. For example:
    </P
 ></DD
 ></DL
@@ -1058,9 +1058,9 @@ WIDTH="100%"
 ><TD
 ><PRE
 CLASS="PROGRAMLISTING"
->function set_block($block) 
+>function set_block(&#38;$block,$produce=False)
 { 
-    parent::set_block($block);
+    parent::set_block($block,$produce)
     if ($produce)
     {
         $this-&#62;add_transformer(new my_transform());

@@ -27,13 +27,13 @@ class module_bookmarks extends Module
 		$cat_ids = array();
 		while (list(,$category) = @each($cats))
 		{
-			$cat_ids[$category['id']] = $category['name'];
+			$cat_ids[$category['id']] = $GLOBALS['phpgw']->strip_html($category['name']);
 		}
 		$this->arguments['category']['options'] = $cat_ids;
 		return parent::get_user_interface();
 	}
 
-	function set_block($block,$produce=False)
+	function set_block(&$block,$produce=False)
 	{
 		parent::set_block($block,$produce);
 

@@ -1302,12 +1302,12 @@ apply_transform($title,$content) A transformer that is not a block transformer
 \end_deeper 
 \layout Description
 
-set_block($block,$produce=False) This function is called by the content
+set_block(&$block,$produce=False) This function is called by the content
  manager (with $produce=False) and by the page generation (with $produce=True)
  for each content block, so that the module knows everything about the block
  it has to edit or generate (above all its context and its arguments).
  If your module overrides this function, it should always call the parent
- class' set_block function first with parent::set_block($block).
+ class' set_block function first with parent::set_block($block,$produce).
  If you want to configure your module with respect to the block, you can
  do this here.
  This is also the place where your module should add the transformers it
@@ -1315,13 +1315,13 @@ set_block($block,$produce=False) This function is called by the content
  For example:
 \layout Code
 
-function set_block($block) 
+function set_block(&$block,$produce=False)
 \layout Code
 
 { 
 \layout Code
 
-    parent::set_block($block);
+    parent::set_block($block,$produce)
 \layout Code
 
     if ($produce)

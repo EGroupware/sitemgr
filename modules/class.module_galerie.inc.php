@@ -77,7 +77,7 @@ class module_galerie extends Module
 		}
 	}
 
-	function set_block($block,$produce=False)
+	function set_block(&$block,$produce=False)
 	{
 		parent::set_block($block,$produce);
 
