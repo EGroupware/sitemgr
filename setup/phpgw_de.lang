@@ -4,6 +4,7 @@ a simple picture galery	sitemgr	de	Eine einfache Bilder Gallerie
 actif	sitemgr	de	Aktiv
 add a category	sitemgr	de	Kategorie hinzufügen
 add a new application	sitemgr	de	Eine neue Applikation hinzufügen
+add block ...	sitemgr	de	Block zufügen ...
 add block to content area %1	sitemgr	de	Block zu Inhaltsbereich %1 zufügen
 add category	sitemgr	de	Kategorie hinzufügen
 add new page to this category	sitemgr	de	Eine neue Seite zu dieser Kategorie hinzufügen
@@ -62,7 +63,7 @@ contact the administrator.	sitemgr	de	Kontaktieren Sie den Administrator
 content areas	sitemgr	de	Inhaltsbereiche
 content blocks	sitemgr	de	Inhaltsblock
 content manager	sitemgr	de	Inhaltsmanager
-contentarea	sitemgr	de	Textblock
+contentarea	sitemgr	de	Inhaltsbereich
 contributor menu	sitemgr	de	Autoren Menü
 create new version	sitemgr	de	Neue Version erstellen
 current section	sitemgr	de	Gegenwärtiger Abschnitt

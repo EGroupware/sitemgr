@@ -43,11 +43,13 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 			$str = implode('', @file($this->file));
 			if (empty($str))
 			{
-				$this->halt("loadfile: While loading $handle, $filename does not exist or is empty.");
+				$this->halt("loadfile: $this->file does not exist or is empty.");
 				return false;
 			}
-			else 
-			$this->template = $str;
+			else
+			{
+				$this->template = $str;
+			}
 		}
 
 
@@ -85,6 +87,10 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 			if ($GLOBALS['sitemgr_info']['mode'] == 'Draft')
 			{
 				$transformerfile = $this->root . SEP . 'draft_transform.inc.php';
+				if (!file_exists($transformerfile))
+				{
+					$transformerfile = $this->root . '/../default/draft_transform.inc.php';
+				}
 				if (file_exists($transformerfile))
 				{
 					include($transformerfile);
@@ -97,6 +103,10 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 			elseif ($GLOBALS['sitemgr_info']['mode'] == 'Edit')
 			{
 				$transformerfile = $this->root . SEP . 'edit_transform.inc.php';
+				if (!file_exists($transformerfile))
+				{
+					$transformerfile = $this->root . '/../default/edit_transform.inc.php';
+				}
 				if (file_exists($transformerfile))
 				{
 					include($transformerfile);
@@ -198,8 +208,7 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 						{
 							$moduleobject->add_transformer($transformer);
 						}
-						if (
-							($GLOBALS['sitemgr_info']['mode'] == 'Edit') && 
+						if ($GLOBALS['sitemgr_info']['mode'] == 'Edit' &&
 							$block->id &&
 							$GLOBALS['Common_BO']->acl->can_write_category($block->cat_id) &&
 							is_object($this->edit_transformer))
@@ -219,6 +228,12 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 						$content .= lang('Module %1 is not permitted in this context!',$block->module_name);
 					}
 				}
+			}
+			if ($GLOBALS['sitemgr_info']['mode'] == 'Edit' &&
+				is_object($this->edit_transformer) &&
+				method_exists($this->edit_transformer,'area_transform'))
+			{
+				return $this->edit_transformer->area_transform($areaname,$content,$page);
 			}
 			return $content;
 		}

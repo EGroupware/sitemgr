@@ -88,8 +88,7 @@
 				$page = $GLOBALS['Common_BO']->pages->getPage($page_id);
 				if (!$GLOBALS['Common_BO']->acl->can_write_category($page->cat_id))
 				{
-					$GLOBALS['phpgw']->redirect($GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Outline_UI.manage'));
-					return;
+					$GLOBALS['phpgw']->redirect_link('/index.php','menuaction=sitemgr.Outline_UI.manage');
 				}
 				$page_or_cat_name = $page->name;
 				$cat_id = $page->cat_id;
@@ -101,8 +100,7 @@
 				$cat = $GLOBALS['Common_BO']->cats->getCategory($cat_id);
 				if (!$GLOBALS['Common_BO']->acl->can_write_category($cat_id))
 				{
-					$GLOBALS['phpgw']->redirect($GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Outline_UI.manage'));
-					return;
+					$GLOBALS['phpgw']->redirect_link('/index.php','menuaction=sitemgr.Outline_UI.manage');
 				}
 				$page_or_cat_name = $cat->name;
 				$page_id = 0;
@@ -115,8 +113,13 @@
 				$scopename = lang('Site');
 			}
 
-			if ($btnAddBlock)
+			if ($btnAddBlock || $_GET['add_block'])
 			{
+				if ($_GET['add_block'])
+				{
+					$inputmoduleid = $_GET['add_block'];
+					$inputarea = $_GET['area'];
+				}
 				if ($inputmoduleid)
 				{
 					$block = CreateObject('sitemgr.Block_SO',True);
@@ -129,6 +132,13 @@
 					if ($newblock)
 					{
 						$this->bo->createversion($newblock);
+						if ($_GET['add_block'])
+						{
+							$GLOBALS['phpgw']->redirect_link('/index.php',array(
+								'menuaction' => 'sitemgr.Content_UI.manage',
+								'block_id'   => $newblock
+							));
+						}
 					}
 					else
 					{
@@ -157,7 +167,7 @@
 					$block->sort_order = $inputblocksort;
 					$block->view = $inputblockview;
 				}
-				$result = $this->bo->saveblockdata($block,$element,$inputstate,$this->worklanguage);
+				$result = $this->bo->saveblockdata($block,$element,$inputstate,$this->worklanguage,$_POST['scope']);
 				if ($result !== True)
 				{
 					//result should be an array of validationerrors
@@ -196,6 +206,7 @@
 			if ($block_id)
 			{
 				$block = $this->bo->getblock($block_id,$this->worklanguage);
+
 				if (!($block && $GLOBALS['Common_BO']->acl->can_write_category($block->cat_id)))
 				{
 					echo '<p><center><b>'.lang('Attempt to edit non-editable block').'</b></center>';
@@ -218,7 +229,7 @@
 					'standalone' => '<div id="divMain">',
 					'donebutton' => '<input type="reset" onclick="opener.location.reload();self.close()" value="' . lang('Done') . '"  />'
 				));
-				$this->showblock($block,True,True);
+				$this->showblock($block,True,True,True);
 				$GLOBALS['phpgw']->common->phpgw_header();
 				$this->t->pfp('out','Block');
 				$GLOBALS['phpgw']->common->phpgw_exit();
@@ -493,8 +504,40 @@
 			return $returnValue;
 		}
 
-		function blockscope($cat_id,$page_id)
+		function blockscope($cat_id,$page_id,$editable=False)
 		{
+			if ($editable)
+			{
+				$scope = "$cat_id,$page_id";
+				$scopes = array();
+				if ($GLOBALS['Common_BO']->acl->can_write_category(CURRENT_SITE_ID))
+				{
+					$scopes[CURRENT_SITE_ID.',0'] = $this->blockscope(CURRENT_SITE_ID,0);
+				}
+				if ($cat_id != CURRENT_SITE_ID)
+				{
+					if ($GLOBALS['Common_BO']->acl->can_write_category($cat_id))
+					{
+						$scopes["$cat_id,0"] = $this->blockscope($cat_id,0);
+					}
+					if ($page_id)
+					{
+						$scopes[$scope] = $this->blockscope($cat_id,$page_id);
+					}
+				}
+				if (count($scopes) > 1)
+				{
+					if (!is_object($GLOBALS['phpgw']->html))
+					{
+						$GLOBALS['phpgw']->html = CreateObject('phpgwapi.html');
+					}
+					return $GLOBALS['phpgw']->html->select('scope',$scope,$scopes,True);
+				}
+				else
+				{
+					return $scopes[$scope];
+				}
+			}
 			if ($cat_id == CURRENT_SITE_ID)
 			{
 				$scope = lang('Site wide');
@@ -512,11 +555,11 @@
 			return $scope;
 		}
 
-		//if the block is shown on its own ($standalone), we add information about its,scope 
+		//if the block is shown on its own ($standalone), we add information about its,scope
 		function showblock($block,$editable,$standalone=False)
 		{
 			global $page_id,$cat_id, $inputblockid;
-			//TODO: wrap a module storage around createmodule as in template3, 
+			//TODO: wrap a module storage around createmodule as in template3,
 			//TODO: so that we do not create the same module object twice
 			$moduleobject = $this->modulebo->createmodule($block->module_name);
 			$this->t->set_var(array(
@@ -530,7 +573,7 @@
 			{
 				$editorstandardelements = array(
 					array('label' => lang('Title'),
-						  'form' => ('<input type="text" name="inputblocktitle" value="' . 
+						  'form' => ('<input type="text" name="inputblocktitle" value="' .
 							($block->title ? $block->title : $moduleobject->title) . '" />')
 					),
 					array('label' => lang('Seen by'),
@@ -546,7 +589,7 @@
 				{
 					$editorstandardelements[] = array(
 						'label' => lang('Scope'),
-						'form' => $this->blockscope($block->cat_id,$block->page_id)
+						'form' => $this->blockscope($block->cat_id,$block->page_id,True)
 					);
 				}
 

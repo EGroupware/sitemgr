@@ -17,12 +17,22 @@
 			}
 			if (!$block->page_id)
 			{
-				$block->page__id = 0;
+				$block->page_id = 0;
 			}
 			$sql = "INSERT INTO phpgw_sitemgr_blocks (area,module_id,page_id,cat_id,sort_order,viewable) VALUES ('" .
 				$block->area . "'," . $block->module_id . "," . $block->page_id . "," . $block->cat_id . ",0,0)";
 			$this->db->query($sql,__LINE__,__FILE__);
 			return $this->db->get_last_insert_id('phpgw_sitemgr_blocks','block_id');
+		}
+
+		function updatescope($blockid,$cat_id,$page_id)
+		{
+			if (!$cat_id) $cat_id = 0;
+			if (!$page_id) $page_id = 0;
+
+			$sql = "UPDATE phpgw_sitemgr_blocks SET cat_id=$cat_id,page_id=$page_id WHERE block_id=$blockid";
+			$this->db->query($sql,__LINE__,__FILE__);
+			return $this->db->affected_rows();
 		}
 
 		function createversion($blockid)

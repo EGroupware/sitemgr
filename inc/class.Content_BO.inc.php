@@ -196,15 +196,30 @@ define('SITEMGR_VIEWABLE_ANONYMOUS',3);
 			return $this->so->getversion($version_id,$lang);
 		}
 
-		function saveblockdata($block,$data,$state,$lang)
+		function saveblockdata($block,$data,$state,$lang,$scope=False)
 		{
 			$oldblock = $this->so->getblockdef($block->id);
 			if (!($oldblock && $GLOBALS['Common_BO']->acl->can_write_category($oldblock->cat_id)))
 			{
-				return lang("You are not entitled to edit block %1",$block->id);
+				return array(lang("You are not entitled to edit block %1",$block->id));
 			}
 			$this->so->saveblockdata($block);
 			$this->so->saveblockdatalang($block->id,$block->title,$lang);
+			if ($scope)
+			{
+				list($cat_id,$page_id) = explode(',',$scope);
+				if ($oldblock->cat_id != $cat_id || $oldblock->page_id != $page_id)
+				{
+					if ($GLOBALS['Common_BO']->acl->can_write_category($cat_id))
+					{
+						$this->so->updatescope($block->id,$cat_id,$page_id);
+					}
+					else
+					{
+						$validationerrors[] = lang("You are not entitled to change the scope of block %1 to Cat %2 and Page %3",$block->id,$cat_id,$page_id);
+					}
+				}
+			}
 			if (is_array($state) && !$this->saveversionstate($block->id,$state))
 			{
 				$validationerrors[] = lang('There can only be one version in (pre(un))published state, with the one exeption that one prepublished version can coexist with one preunpublished version');

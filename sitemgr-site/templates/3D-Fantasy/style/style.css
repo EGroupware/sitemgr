@@ -56,3 +56,13 @@ A:hover         {BACKGROUND: none; COLOR: #000000; FONT-SIZE: 12px; FONT-FAMILY:
 	text-align: right;
 	border-style: none;
 }
+
+.editIconText
+{
+	vertical-align: top;
+	border: 2px ridge black;
+	background-color: white;
+	padding-bottom: 1px;
+	padding-left: 2px;
+	padding-right: 2px;
+}
