@@ -69,10 +69,15 @@ class module_filecontents extends Module
 		}
 		if ($is_html)
 		{
+			$one_line = str_replace("\n",'\\n',$ret);
 			// only use what's between the body tags
-			if (preg_match('/<body[^>]*>(.*)<\/body>/i',str_replace("\n",'\\n',$ret),$parts))
+			if (preg_match('/<body[^>]*>(.*)<\/body>/i',$one_line,$parts))
 			{
 				$ret = str_replace('\\n',"\n",$parts[1]);
+			}
+			if (preg_match('/<meta http-equiv="content-type" content="text\/html; ?charset=([^"]+)"/i',$one_line,$parts))
+			{
+				$ret = $GLOBALS['phpgw']->translation->convert($ret,$parts[1]);
 			}
 		}
 		return $ret;
