@@ -24,7 +24,7 @@
 <td width="15%" nowrap><font class="content" color="#363636">
 		<b>Logged in as: {user}</b></font></td>
 <td align="center" height="20" width="70%"><font class="content"><B>
-			<a href="{?sitemgr:/index.php,home=1}">Home</a>
+			<a href="{?sitemgr:}">Home</a>
 			&nbsp;&nbsp;|&nbsp;&nbsp;
 			<a href="{?toc=1}">Site Contents</a>
 			&nbsp;&nbsp;|&nbsp;&nbsp;
