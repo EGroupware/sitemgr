@@ -19,13 +19,13 @@
 		);
 
 //Do not modify below this line
-		if ((int)substr($GLOBALS['phpgw_info']['server']['versions']['phpgwapi'],4)>14)
+		if (method_exists($GLOBALS['phpgw']->common,'display_mainscreen'))
 		{
-		$GLOBALS['phpgw']->common->display_mainscreen($appname,$file);
+			$GLOBALS['phpgw']->common->display_mainscreen($appname,$file);
 		}
 		else
 		{
-		display_section($appname,$title,$file);
+			display_section($appname,$title,$file);
 		}
 	}
 ?>
