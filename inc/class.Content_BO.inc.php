@@ -35,15 +35,44 @@ define('SITEMGR_VIEWABLE_ANONYMOUS',3);
 
 		function getContentAreas()
 		{
-			$templatefile =  $GLOBALS['Common_BO']->sites->current_site['site_dir'] .  SEP . 'templates' . 
-				SEP . $GLOBALS['Common_BO']->sites->current_site['themesel'] . SEP . 'main.tpl';
+			$templatedir =  $GLOBALS['Common_BO']->sites->current_site['site_dir'] .  SEP . 'templates' .
+				SEP . $GLOBALS['Common_BO']->sites->current_site['themesel'] . SEP;
 
-			if (file_exists($templatefile))
+			if (file_exists($templatefile = $templatedir . 'main.tpl'))
 			{
 				$str = implode('', @file($templatefile));
 				if (preg_match_all("/\{contentarea:([^{ ]+)\}/",$str,$matches))
 				{
 					return $matches[1];
+				}
+				else
+				{
+					return lang('No content areas found in selected template');
+				}
+			}
+			elseif (file_exists($templatefile = $templatedir . 'index.php'))	// mambo open source template
+			{
+				$str = implode('', @file($templatefile));
+				if (preg_match_all("/(mosLoadModules|include|include_once|require|require_once)[ (\"']+([^\"']+)/",$str,$matches))
+				{
+					$matches = $matches[2];
+					$conversation = array('includes/footer.php' => 'footer','mainbody.php'=>'center');
+					foreach($matches as $n => $name)
+					{
+						if (substr($name,-4) == '.php')
+						{
+							if (!isset($conversation[$name]))
+							{
+								unset($matches[$n]);
+							}
+							else
+							{
+								$matches[$n] = $conversation[$name];
+							}
+						}
+					}
+					//echo "<p>getContentAreas($templatefile)=".implode(',',$matches)."</p>";
+					return $matches;
 				}
 				else
 				{
