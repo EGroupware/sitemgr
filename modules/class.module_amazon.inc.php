@@ -70,6 +70,7 @@ class module_amazon extends Module
 		{
 			$content .= '<br>';
 		}
+		$content .= '</div>';
 		return $content;
 	}
 }

@@ -7,7 +7,7 @@
 	$oProc->next_record();
 	$siteurl = $oProc->f('config_value') . SEP . 'sitemgr' . SEP . 'sitemgr-site' . SEP;
 	$sitedir = PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'sitemgr-site';
-	$oProc->query("INSERT INTO phpgw_sitemgr_sites (site_id,site_name,site_url,site_dir,themesel,site_languages,home_page_id,anonymous_user,anonymous_passwd) VALUES ($site_id,'Default Website','$siteurl','$sitedir','3D-Fantasy','en,de',0,'anonymous','anonymous')");
+	$oProc->query("INSERT INTO phpgw_sitemgr_sites (site_id,site_name,site_url,site_dir,themesel,site_languages,home_page_id,anonymous_user,anonymous_passwd) VALUES ($site_id,'Default Website','$siteurl','$sitedir','idots','en,de',0,'anonymous','anonymous')");
 
 	// give Admins group rights vor sitemgr and for the created default-site
 	$admingroup = $GLOBALS['phpgw_setup']->add_account('Admins','Admin','Group',False,False);
@@ -46,7 +46,8 @@
 	) as $name => $descr)
 	{
 		$parent = substr($name,0,4) == 'sub-' ? $cats[substr($name,4)] : $site_id;
-		$oProc->query("INSERT INTO phpgw_categories (cat_main,cat_parent,cat_level,cat_owner,cat_access,cat_appname,cat_name,cat_description,cat_data,last_mod) VALUES ($site_id,$parent,1,-1,'public','sitemgr','$name','$descr','0',".time().")");
+		$level  = substr($name,0,4) == 'sub-' ? 2 : 1;
+		$oProc->query("INSERT INTO phpgw_categories (cat_main,cat_parent,cat_level,cat_owner,cat_access,cat_appname,cat_name,cat_description,cat_data,last_mod) VALUES ($site_id,$parent,$level,-1,'public','sitemgr','$name','$descr','0',".time().")");
 		$cat_id = $cats[$name] = $oProc->m_odb->get_last_insert_id('phpgw_categories','cat_id');
 		$oProc->query("INSERT INTO phpgw_sitemgr_categories_lang (cat_id,lang,name,description) VALUES ($cat_id,'en','$name','$descr')");
 		$oProc->query("INSERT INTO phpgw_sitemgr_categories_state (cat_id,state) VALUES ($cat_id,2)");

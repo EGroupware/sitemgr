@@ -12,16 +12,19 @@ class module_toc_block extends Module
 	function get_content(&$arguments,$properties)
 	{
 		global $objbo;
-		$indexarray = $objbo->getCatLinks();
+		$indexarray = $objbo->getCatLinks(0,True,True);
 		$content = "\n".'<table border="0" cellspacing="0" cellpadding="0" width="100%">'.
 			'<tr><td>';
 		foreach($indexarray as $cat)
 		{
-			$space = str_pad('',$cat['depth']*18,'&nbsp;');
+			$space = str_pad('',($cat['depth']-1)*18,'&nbsp;');
+/*
 			$content .= "\n".'<table border="0" cellspacing="0" cellpadding="0" '.
 				'width="100%"><tr><td align="right" valign="top" width="5">'.
 				$space.'&middot;&nbsp;</td><td width="100%"><b>'.
 				$cat['link'].'</b></td></tr></table>';
+*/
+			$content .= "\n".$space.'&middot;&nbsp;<b>'.$cat['link'].'</b><br />';
 		}
 		$content .= "\n</td></tr></table>";
 		if (count($indexarray)==0)

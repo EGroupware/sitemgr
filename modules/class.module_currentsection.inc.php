@@ -18,8 +18,8 @@ class module_currentsection extends Module
 			return '';
 		}
 
-		$catlinks = $GLOBALS['objbo']->getCatLinks((int)$page->cat_id,false);
-		$pagelinks = $GLOBALS['objbo']->getPageLinks($page->cat_id,false);
+		$catlinks = $GLOBALS['objbo']->getCatLinks((int)$page->cat_id,False,True);
+		$pagelinks = $GLOBALS['objbo']->getPageLinks($page->cat_id,False,True);
 		$category = $GLOBALS['objbo']->getcatwrapper($page->cat_id);
 		$this->block->title = $category->name;
 		$parent = $category->parent;
@@ -30,7 +30,7 @@ class module_currentsection extends Module
 		{
 			$parentcat = $GLOBALS['objbo']->getcatwrapper($parent);
 			$content .= "\n<b>".lang('Parent Section:').'</b><br>&nbsp;&middot;&nbsp;<a href="'.
-				sitemgr_link2('/index.php','category_id='.$parent).'">'.$parentcat->name.
+				sitemgr_link2('/index.php','category_id='.$parent).'" title="'.$parentcat->description.'">'.$parentcat->name.
 				'</a><br><br>';
 			unset($parentcat);
 		}

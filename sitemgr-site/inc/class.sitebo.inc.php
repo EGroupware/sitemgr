@@ -93,7 +93,7 @@
 			return true;
 		}
 
-		function getIndex($showhidden=true, $rootonly=false)
+		function getIndex($showhidden=true,$rootonly=false,$subtitles=False)
 		{
 			$cats = $this->getCatLinks(0,!$rootonly);
 			$index = array();
@@ -104,7 +104,7 @@
 				$content = "\n".'<ul>';
 				while(list($cat_id,$cat) = each($cats))
 				{
-					$pages = $this->getPageLinks($cat_id,$showhidden);
+					$pages = $this->getPageLinks($cat_id,$showhidden,$subtitles);
 					if (count($pages)>0)
 					{
 						foreach($pages as $page_id => $link)
@@ -156,7 +156,7 @@
 			return true;
 		}
 
-		function getPageLinks($category_id, $showhidden=true)
+		function getPageLinks($category_id, $showhidden=true,$subtitle=False)
 		{
 			$pages=$this->pages_bo->getPageIDList($category_id);
 			foreach($pages as $page_id)
@@ -166,7 +166,8 @@
 				{
 					$pglinks[$page_id] = array(
 						'name'=>$page->name,
-						'link'=>'<a href="'.sitemgr_link('page_name='.$page->name).'">'.$page->title.'</a>',
+						'link'=>'<a href="'.sitemgr_link('page_name='.$page->name).
+							($subtitle ? '" title="'.$page->subtitle : '').'">'.$page->title.'</a>',
 						'title'=>$page->title,
 						'subtitle'=>$page->subtitle
 					);
@@ -175,7 +176,7 @@
 			return $pglinks;
 		}
 
-		function getCatLinks($cat_id=0,$recurse=true)
+		function getCatLinks($cat_id=0,$recurse=true,$description=False)
 		{
 			$catlinks = array();
 			$cat_list = $this->catbo->getpermittedcatsRead($cat_id,$recurse);
@@ -184,7 +185,8 @@
 				$category = $this->getcatwrapper($cat_id);
 				$catlinks[$cat_id] = array(
 					'name'=>$category->name,
-					'link'=>'<a href="'.sitemgr_link('category_id='.$cat_id).'">'.$category->name.'</a>',
+					'link'=>'<a href="'.sitemgr_link('category_id='.$cat_id).
+						($description ? '" title="'.$category->description : '').'">'.$category->name.'</a>',
 					'description'=>$category->description,
 					'depth'=>$category->depth
 				);

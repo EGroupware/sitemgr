@@ -12,7 +12,7 @@ class module_index_block extends Module
 	function get_content(&$arguments,$properties)
 	{
 		global $objbo;
-		$indexarray = $objbo->getIndex(false,true);
+		$indexarray = $objbo->getIndex(false,true,True);
 		$content = "\n".'<table border="0" cellspacing="0" cellpadding="0" width="100%">';
 		$catname = '';
 		foreach($indexarray as $page)
