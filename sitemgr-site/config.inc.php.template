@@ -5,10 +5,8 @@
 	\***********************************************************/
 	$sitemgr_info = array(
 		// add trailing slash
-		'phpgw_path'           => '/var/www/html/phpgroupware/',
-		'interface'			   => 'themes'
+		'phpgw_path'           => '/var/www/html/phpgroupware/'
 	);
-
 
 	/***********************************************************\
 	* Leave the rest of this file alone.                        *
@@ -33,6 +31,7 @@
 		$pref = CreateObject('sitemgr.sitePreference_SO');
 		$sitemgr_info = array(
 			'phpgw_path'           => $sitemgr_info['phpgw_path'],
+			'usethemes'            => (int) $pref->getPreference('usethemes'),
 			'sitemgr-site_path'    => $pref->getPreference('sitemgr-site-dir'),
 			'sitemgr-site_url'     => $pref->getPreference('sitemgr-site-url'),
 			'domain'               => $pref->getPreference('login-domain'),
@@ -57,6 +56,7 @@
 		$pref = CreateObject('sitemgr.sitePreference_SO');
 		$sitemgr_info = array(
 			'phpgw_path'           => $sitemgr_info['phpgw_path'],
+			'interface'            => $sitemgr_info['interface'],
 			'sitemgr-site_path'    => $pref->getPreference('sitemgr-site-dir'),
 			'sitemgr-site_url'     => $pref->getPreference('sitemgr-site-url'),
 			'domain'               => $pref->getPreference('login-domain'),
