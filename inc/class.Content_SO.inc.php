@@ -167,7 +167,7 @@
 			{
 				$sql .= " OR (cat_id IN (" . implode(',',$cat_list) . "))";
 			}
-			$sql .= ") AND state IN (" . implode(',',$states) .") GROUP BY block_id";
+			$sql .= ") AND state IN (" . implode(',',$states) .") GROUP BY t1.block_id";
 			$block = CreateObject('sitemgr.Block_SO',True);
 			$result = array();
 
