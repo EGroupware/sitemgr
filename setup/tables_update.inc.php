@@ -230,7 +230,6 @@
 		global $setup_info,$phpgw_setup;
 		$setup_info['sitemgr']['currentver'] = '0.9.14.005';
 
-		echo 'Fixing column names.';
 		$phpgw_setup->oProc->RenameColumn('phpgw_sitemgr_blocks', 'position', 'pos');
 
 		return $setup_info['sitemgr']['currentver'];                             
