@@ -91,7 +91,7 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 			$this->permitted_modules = array_keys($this->modulebo->getcascadingmodulepermissions('__PAGE__',$page->cat_id));
 			//process module calls hardcoded into template of form {modulename?arguments}
 			$str = preg_replace_callback(
-				"/\{([[:alnum:]_-]*)\?([^{ ]+)?\}/",
+				"/\{([[:alnum:]_-]+)\?([^{ ]+)?\}/",
 				array($this,'exec_module'),
 				$str);
 			//{?page_id=4} is a shortcut for calling the link functions
