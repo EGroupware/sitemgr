@@ -62,7 +62,7 @@ choose language	sitemgr	sl	Izberite jezik
 choose template	sitemgr	sl	Izberite predlogo
 choose the categories to display	sitemgr	sl	Izberite kategorijo za prikaz
 choose your site's theme or template.  note that if you changed the above checkbox you need to save before choosing a theme or template.	sitemgr	sl	Izberite predlogo ali stil vaše strani. Upoštevajte, da če spremenite zgornje potrditveno polje, je potrebno shraniti pred izbiro predloge ali stila.
-commit changes	sitemgr	sl	Izroči spremembe
+commit changes	sitemgr	sl	Objavi spremembe
 common prefix of the image-name (a number starting with 1 will be appended)	sitemgr	sl	predpona imena za sliko (število, začenši z 1 bo dodano)
 configure module properties	sitemgr	sl	Nastavi module
 configure sitemgr	sitemgr	sl	Nastavi SiteManager
@@ -229,9 +229,10 @@ read permission	sitemgr	sl	Pravica branja
 redirection	sitemgr	sl	Preusmeritev
 refresh	sitemgr	sl	Osveži
 register new modules	sitemgr	sl	Registriraj nove module
+reload	sitemgr	sl	Obnovi
 replies	sitemgr	sl	Odgovori
 required fields	sitemgr	sl	Zahtevana polja
-reset	sitemgr	sl	Ponastavi
+reset	sitemgr	sl	Povrni
 return to forums	sitemgr	sl	Nazaj na forum
 return to main menu.	sitemgr	sl	Nazaj na glavni meni
 return to message list	sitemgr	sl	Nazaj na seznam sporočil
@@ -385,3 +386,5 @@ you must be an administrator to setup the site manager.	sitemgr	sl	Za namestitev
 you removed one ore more languages from your site languages.	sitemgr	sl	Odstranili ste enega ali več jezikov.
 your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr	sl	Vaš administrator še ni namestil upravljalca spletnih vsebin za javni pogled. Pejte najedat administratorju, da naj prestavi svojo rit.
 your calendar	sitemgr	sl	Vaš koledar
+your comment	sitemgr	sl	Vaš komentar
+your name	sitemgr	sl	Vaše ime
