@@ -19,7 +19,7 @@
 			continue;
 		}
 		$oProc->query("INSERT INTO phpgw_sitemgr_modules (module_name) VALUES ('$module[1]')",__LINE__,__FILE__);
-		if (in_array($module[0],$default_active))
+		if (in_array($module[1],$default_active))
 		{
 			$module_id = $oProc->m_odb->get_last_insert_id('phpgw_sitemgr_modules','module_id');
 			$oProc->query("INSERT INTO phpgw_sitemgr_active_modules (area,cat_id,module_id) VALUES ('__PAGE__',$site_id,$module_id)",__LINE__,__FILE__);
