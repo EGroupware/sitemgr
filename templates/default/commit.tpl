@@ -5,7 +5,7 @@
 <!-- BEGIN Category -->
 	<tr>
 		<td width="10%"><input type="checkbox" name="cat[{catid}]" /></td>
-		<td width="70%"><a href="{edit}">{category}</a></td>
+		<td width="70%"><a href="{edit}" target="editwindow" onclick="if (this != '') { window.open(this,this.target,'width=800,height=600,scrollbars=yes,resizable=yes'); return false; } else { return true; }">{category}</a></td>
 		<td>{addedorremoved}</td>
 	</tr>
 <!-- END Category -->
@@ -15,7 +15,7 @@
 <!-- BEGIN Page -->
 	<tr>
 		<td width="10%"><input type="checkbox" name="page[{pageid}]" /></td>
-		<td width="70%"><a href="{edit}">{page}</a></td>
+		<td width="70%"><a href="{edit}" target="editwindow" onclick="if (this != '') { window.open(this,this.target,'width=800,height=600,scrollbars=yes,resizable=yes'); return false; } else { return true; }">{page}</a></td>
 		<td>{addedorremoved}</td>
 	</tr>
 <!-- END Page -->
@@ -25,7 +25,7 @@
 <!-- BEGIN Block -->
 	<tr>
 		<td width="10%"><input type="checkbox" name="block[{blockid}]" /></td>
-		<td width="35%"><a target="editwindow" href="{edit}">{block}</a></td>
+		<td width="35%"><a href="{edit}" target="editwindow" onclick="if (this != '') { window.open(this,this.target,'width=800,height=600,scrollbars=yes,resizable=yes'); return false; } else { return true; }">{block}</a></td>
 		<td width="35%">{scope}</td>
 		<td>{addedorremovedorreplaced}</td>
 	</tr>
