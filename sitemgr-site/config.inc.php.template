@@ -1,0 +1,184 @@
+<?php
+	/***********************************************************\
+	* Edit the values in the following array to configure       *
+	* the site generator.                                       *
+	\***********************************************************/
+	$sitemgr_info = array(
+		'phpgw_path'      => '/var/www/html/phpgroupware/',
+		'sitemgr_path'    => '/var/www/html/sitemgr-site/',
+		'sitemgr_url'     => '/sitemgr-site',
+		'domain'          => 'default',
+		'login' 		  => 'anonymous',
+		'passwd'		  => 'anonymous',
+		'themesel'		  => 'NukeNews'
+	);
+	
+
+	/***********************************************************\
+	* Leave the rest of this file alone.                        *
+	\***********************************************************/
+	if (
+		($GLOBALS['phpgw_info']['flags']['currentapp'] != 'sitemgr-site') 
+		&& 
+		($GLOBALS['phpgw_info']['flags']['currentapp'] != 'sitemgr')
+	   )
+	{
+		require_once($sitemgr_info['sitemgr_path'] . 'security.inc.php');
+		include($sitemgr_info['phpgw_path'] . 'header.inc.php');
+		$GLOBALS['phpgw_info']['flags']['currentapp'] = 'login';
+		include(PHPGW_SERVER_ROOT . '/phpgwapi/inc/functions.inc.php');
+		$GLOBALS['phpgw_info']['flags']['currentapp'] = 'sitemgr-site';
+
+		if (! $GLOBALS['phpgw']->session->verify())
+		{
+			$GLOBALS['sessionid'] = $GLOBALS['phpgw']->session->create($sitemgr_info['login'],$sitemgr_info['passwd'], 'text');
+			if (!$GLOBALS['sessionid'])
+			{
+				echo 'NO ANONYMOUS USER ACCOUNTS INSTALLED.  NOTIFY THE ADMINISTRATOR.';
+				exit;
+			}
+			//$GLOBALS['phpgw']->redirect($GLOBALS['phpgw']->link($sitemgr_url . 'index.php'));
+		}
+		else
+		{
+		//	echo "session verified";
+		}
+	}
+	else
+	{
+	//	echo "hi";
+	}
+
+	function phpgw_link($url, $extravars = '')
+	{
+		return $GLOBALS['phpgw']->session->link($url, $extravars);
+	} 
+
+	function sitemgr_link2($url, $extravars = '')
+	{
+		$kp3 = $GLOBALS['HTTP_GET_VARS']['kp3'] ? $GLOBALS['HTTP_GET_VARS']['kp3'] : $GLOBALS['HTTP_COOKIE_VARS']['kp3'];
+
+		if (! $kp3)
+		{
+			$kp3 = $GLOBALS['phpgw_info']['user']['kp3'];
+		}
+
+
+		$url = $GLOBALS['sitemgr_info']['sitemgr_url'] . $url;
+
+		// build the extravars string from a array
+			
+		if (is_array($extravars))
+		{
+			while(list($key,$value) = each($extravars))
+			{
+				if (!empty($new_extravars))
+				{
+					$new_extravars .= '&';
+				}
+				$new_extravars .= "$key=$value";
+			}
+			// This needs to be explictly reset to a string variable type for PHP3
+			settype($extravars,'string');
+			$extravars = $new_extravars;
+		}
+		if (isset($GLOBALS['phpgw_info']['server']['usecookies']) && $GLOBALS['phpgw_info']['server']['usecookies'])
+		{
+			if ($extravars)
+			{
+				$url .= '?' . $extravars;
+			}
+		}
+		else
+		{
+			$sessionID  = 'sessionid=' . @$GLOBALS['phpgw_info']['user']['sessionid'];
+			$sessionID .= '&kp3=' . $kp3;
+			$sessionID .= '&domain=' . @$GLOBALS['phpgw_info']['user']['domain'];
+			// This doesn't belong in the API.
+			// Its up to the app to pass this value. (jengo)
+			// Putting it into the app requires a massive number of updates in email app. 
+			// Until that happens this needs to stay here (seek3r)
+			if (isset($GLOBALS['phpgw_info']['flags']['newsmode']) && 
+				$GLOBALS['phpgw_info']['flags']['newsmode'])
+			{
+				$url .= '&newsmode=on';
+			}
+			if ($extravars)
+			{
+				$url .= '?' . $extravars . '&' . $sessionID;
+			}
+			else
+			{
+				$url .= '?' . $sessionID;
+			}
+		}
+		return $url;
+	}
+	
+
+	function sitemgr_link_x($url, $extravars = '')
+	{
+		$kp3 = $GLOBALS['HTTP_GET_VARS']['kp3'] ? $GLOBALS['HTTP_GET_VARS']['kp3'] : $GLOBALS['HTTP_COOKIE_VARS']['kp3'];
+
+		if (! $kp3)
+		{
+			$kp3 = $GLOBALS['phpgw_info']['user']['kp3'];
+		}
+
+		if (! $url)
+		{
+			$url_root = split ('/', $GLOBALS['sitemgr_info']['sitemgr_url']);
+			$patched_php_self = $GLOBALS['PHP_SELF'];
+			$url = (strlen($url_root[0])? $url_root[0].'//':'') . $url_root[2] . $patched_php_self;
+		}
+
+		// build the extravars string from an array
+		if (is_array($extravars))
+		{
+			while(list($key,$value) = each($extravars))
+			{
+				if (!empty($new_extravars))
+				{
+					$new_extravars .= '&';
+				}
+				$new_extravars .= "$key=$value";
+			}
+
+			// This needs to be explicitly reset to a string var for php3
+			settype($extravars,'string');
+			$extravars = $new_extravars;
+		}
+
+		if (isset($GLOBALS['phpgw_info']['server']['usecookies']) && $GLOBALS['phpgw_info']['server']['usecookies'])
+		{
+			if ($extravars)
+			{
+				$url .= '?' . $extravars;
+			}
+		}
+		else
+		{
+			$sessionID = 'sessionid=' . @$GLOBALS['phpgw_info']['user']['sessionid'];
+			$sessionID .= '&kp3=' . $kp3;
+			$sessionID .= '&domain=' . @$GLOBALS['phpgw_info']['user']['domain'];
+		}
+
+		$url = str_replace('/?', '/index.php?', $url);
+		$webserver_url_count = strlen($GLOBALS['sitemgr_info']['sitemgr_url']);
+		$slash_check = strtolower(substr($url,0,1));
+		if (substr($url,0,$webserver_url_count) != $GLOBALS['sitemgr_info']['sitemgr_url'])
+		{
+			$app = $GLOBALS['phpgw_info']['flags']['currentapp'];
+			if ($slash_check == '/')
+			{
+				$url = $GLOBALS['sitemgr_info']['sitemgr_url'] . $url;
+			}
+			else
+			{
+				$url = $GLOBALS['sitemgr_info']['sitemgr_url'] . '/' . $app . '/' . $url;
+			}
+		}
+		return $url;
+	}
+
+?>
