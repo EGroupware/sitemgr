@@ -2,6 +2,7 @@
 	/**************************************************************************\
 	* eGroupWare SiteMgr - Web Content Management                              *
 	* http://www.egroupware.org                                                *
+	* Rewritten with the new db-functions by RalfBecker-AT-outdoor-training.de *
 	* --------------------------------------------                             *
 	*  This program is free software; you can redistribute it and/or modify it *
 	*  under the terms of the GNU General Public License as published by the   *
@@ -11,27 +12,22 @@
 
 	/* $Id$ */
 
-	// Note: all data to this class is run through addslashes or intval -- RalfBecker 2004/03/09
 	class Sites_SO
 	{
 		var $db;
+		var $sites_table = 'phpgw_sitemgr_sites';	// only reference to the db-prefix
 		
 		function Sites_SO()
 		{
 			$this->db = $GLOBALS['phpgw']->db;
-			if (!is_array($GLOBALS['Common_BO']->table_definitions))
-			{
-				$GLOBALS['Common_BO']->table_definitons = $this->db->get_table_definitions('sitemgr');
-			}
-			$this->table = 'phpgw_sitemgr_sites';
-			$this->db->set_column_definitions($GLOBALS['Common_BO']->table_definitions[$this->table]['fd']);
+			$this->db->set_app('sitemgr');
 		}
 
 		function list_siteids()
 		{
+			$this->db->select($this->sites_table,'site_id',False,__LINE__,__FILE__);
+
 			$result = array();
-			$sql = "SELECT site_id FROM $this->table";
-			$this->db->query($sql,__LINE__,__FILE__);
 			while ($this->db->next_record())
 			{
 				$result[] = $this->db->f('site_id');
@@ -43,34 +39,27 @@
 		{
 			if ($limit)
 			{
-				if (!$sort)
-				{
-					$sort = 'DESC';
-				}
 				if ($query)
 				{
-					$query = $this->db->db_addslashes($query);
-					$whereclause = "WHERE site_name LIKE '%$query%'"
-						. "OR site_url LIKE '%$query%'"
-						. "OR site_dir LIKE '%$query%'";
+					$query = $this->db->quote('%'.$query.'%');
+					$whereclause = "site_name LIKE $query OR site_url LIKE $query OR site_dir LIKE $query";
 				}
-				if ($order)
+				if (preg_match('/^[a-z_0-9]+$/i',$order) && preg_match('/^(asc|desc)*$/i',$sort))
 				{
-					$orderclause = 'ORDER BY ' . $order . ' ' . $sort;
+					$orderclause = "ORDER BY $order " . ($sort ? $sort : 'DESC');
 				}
 				else
 				{
 					$orderclause = 'ORDER BY site_name ASC';
 				}
-				$sql = "SELECT site_id,site_name,site_url from $this->table $whereclause $orderclause";
-				$this->db->query($sql,__LINE__,__FILE__);
-				$total = $this->db->num_rows();
-				$this->db->limit_query($sql,$start,__LINE__,__FILE__);
+				$this->db->select($this->sites_table,'COUNT(*)',$whereclause,__LINE__,__FILE__);
+				$total = $this->db->next_record() ? $this->db->f(0) : 0;
+
+				$this->db->select($this->sites_table,'site_id,site_name,site_url',$whereclause,__LINE__,__FILE__,$start,$orderclause);
 			}
 			else
 			{
-				$sql = "SELECT site_id,site_name,site_url from $this->table";
-				$this->db->query($sql,__LINE__,__FILE__);
+				$this->db->select($this->sites_table,'site_id,site_name,site_url',False,__LINE__,__FILE__);
 			}
 			while ($this->db->next_record())
 			{
@@ -85,25 +74,26 @@
 
 		function getnumberofsites()
 		{
-			$sql = "SELECT COUNT(*) FROM $this->table";
-			$this->db->query($sql,__LINE__,__FILE__);
-			$this->db->next_record();
-			return $this->db->f(0);
+			$this->db->select($this->sites_table,'COUNT(*)',False,__LINE__,__FILE__);
+
+			return $this->db->next_record() ? $this->db->f(0) : 0;
 		}
 
 		function urltoid($url)
 		{
-			$sql  = "SELECT site_id FROM $this->table ";
-			$sql .= "WHERE site_url ='" . $this->db->db_addslashes($url) . "'";
-			$this->db->query($sql,__LINE__,__FILE__);
+			$this->db->select($this->sites_table,'site_id',array(
+					'site_url' => $url,
+				),__LINE__,__FILE__);
+
 			return $this->db->next_record() ? $this->db->f('site_id') : False;
 		}
 
-		function read($id)
+		function read($site_id)
 		{
-			$sql =  "SELECT * FROM $this->table ";
-			$sql .= 'WHERE site_id = ' . (int)$id;
-			$this->db->query($sql,__LINE__,__FILE__);
+			$this->db->select($this->sites_table,'*',array(
+					'site_id' => $site_id,
+				),__LINE__,__FILE__);
+
 			if ($this->db->next_record())
 			{
 				foreach(
@@ -117,17 +107,15 @@
 				}
 				return $site;
 			}
-			else
-			{
-				return false;
-			}
+			return false;
 		}
 
-		function read2($id)
+		function read2($site_id)
 		{
-			$sql  = "SELECT site_url,site_dir FROM $this->table ";
-			$sql .= 'WHERE site_id = ' . (int)$id;
-			$this->db->query($sql,__LINE__,__FILE__);
+			$this->db->select($this->sites_table,'site_url,site_dir',array(
+					'site_id' => $site_id,
+				),__LINE__,__FILE__);
+
 			if ($this->db->next_record())
 			{
 				foreach(
@@ -140,10 +128,7 @@
 				}
 				return $site;
 			}
-			else
-			{
-				return false;
-			}
+			return false;
 		}
 
 		function add($site)
@@ -156,45 +141,46 @@
 				'parent'	=> 0,
 				'old_parent' => 0
 			));
-			$data = array(
-				'site_id'   => $site_id,
-				'site_name' => $site['name'],
-				'site_url'  => $site['url'],
-				'site_dir'  => $site['dir'],
-				'anonymous_user' => $site['anonuser'],
-				'anonymous_passwd' => $site['anonpasswd'],
-			);
-			$this->db->query($sql="INSERT INTO $this->table (".implode(',',array_keys($data)).") VALUES (".
-				$this->db->column_data_implode(',',$data,False).')',__LINE__,__FILE__);
-
-			return $site_id;
-		}
-
-		function update($id,$site)
-		{
-			$this->db->query($sql="UPDATE $this->table SET ".
-				$this->db->column_data_implode(',',array(
+			$this->db->insert($this->sites_table,array(
+					'site_id'   => $site_id,
 					'site_name' => $site['name'],
 					'site_url'  => $site['url'],
 					'site_dir'  => $site['dir'],
 					'anonymous_user' => $site['anonuser'],
 					'anonymous_passwd' => $site['anonpasswd'],
-				))." WHERE site_id=".(int)$id,__LINE__,__FILE__);
+				),False,__LINE__,__FILE__);
+
+			return $site_id;
 		}
 
-		function delete($id)
+		function update($site_id,$site)
 		{
-			$sql = "DELETE FROM $this->table WHERE site_id=".(int)$id;
-			$this->db->query($sql,__LINE__,__FILE__);
+			return $this->db->update($this->sites_table,array(
+					'site_name' => $site['name'],
+					'site_url'  => $site['url'],
+					'site_dir'  => $site['dir'],
+					'anonymous_user' => $site['anonuser'],
+					'anonymous_passwd' => $site['anonpasswd'],
+				),array(
+					'site_id' => $site_id
+				),__LINE__,__FILE__);
+		}
+
+		function delete($site_id)
+		{
+			return $this->db->delete($this->sites_table,array(
+					'site_id' => $site_id
+				),__LINE__,__FILE__);
 		}
 
 		function saveprefs($prefs,$site_id=CURRENT_SITE_ID)
 		{
-			$this->db->query($sql="UPDATE $this->table SET ".
-				$this->db->column_data_implode(',',array(
+			return $this->db->update($this->sites_table,array(
 					'themesel' => $prefs['themesel'],
 					'site_languages' => $prefs['site_languages'],
 					'home_page_id' => $prefs['home_page_id'],
-				))." WHERE site_id=".(int)$site_id,__LINE__,__FILE__);
+				),array(
+					'site_id' => $site_id
+				),__LINE__,__FILE__);
 		}
 	}

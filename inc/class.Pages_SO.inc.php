@@ -2,6 +2,7 @@
 	/**************************************************************************\
 	* eGroupWare SiteMgr - Web Content Management                              *
 	* http://www.egroupware.org                                                *
+	* Rewritten with the new db-functions by RalfBecker-AT-outdoor-training.de *
 	* --------------------------------------------                             *
 	*  This program is free software; you can redistribute it and/or modify it *
 	*  under the terms of the GNU General Public License as published by the   *
@@ -14,10 +15,18 @@
 	class Pages_SO
 	{
 		var $db;
+		var $pages_table,$pages_lang_table;
 
 		function Pages_SO()
 		{
 			$this->db = $GLOBALS['phpgw']->db;
+			$this->db->set_app('sitemgr');
+
+			foreach(array('pages','pages_lang') as $name)
+			{
+				$var = $name.'_table';
+				$this->$var = 'phpgw_sitemgr_'.$name;	// only reference to the db-prefix
+			}
 		}
 
 		//if $cats is an array, pages from this list are retrieved,
@@ -29,21 +38,22 @@
 			{
 				$states = $GLOBALS['Common_BO']->visiblestates;
 			}
+			if (!$cats)
+			{
+				$cats = $GLOBALS['Common_BO']->cats->currentcats;
+			}
 
 			$page_id_list = array();
-			$cat_list = is_array($cats) ? implode(',',$cats) :
-				($cats ? $cats : 
-					($GLOBALS['Common_BO']->cats->currentcats ? implode(',',$GLOBALS['Common_BO']->cats->currentcats) : false)
-				);
-			if ($cat_list)
+			if ($cats)
 			{
-				$sql = "SELECT page_id FROM phpgw_sitemgr_pages WHERE cat_id IN ($cat_list) ";
+				$where = array('cat_id' => $cats);
 				if ($states)
 				{
-					$sql .= 'AND state in ('. implode(',',$states)  . ')';
+					$where['state'] = $states;
 				}
-				$sql .=' ORDER BY cat_id, sort_order ASC'; 
-				$this->db->query($sql,__LINE__,__FILE__);
+				$this->db->select($this->pages_table,'page_id',$where,__LINE__,__FILE__,False,
+					'ORDER BY cat_id, sort_order ASC'); 
+
 				while ($this->db->next_record())
 				{
 					$page_id_list[] = $this->db->f('page_id');
@@ -54,17 +64,15 @@
 
 		function addPage($cat_id)
 		{
-			$sql = 'INSERT INTO phpgw_sitemgr_pages (cat_id) VALUES (\'' . $cat_id . '\')';
-			$this->db->query($sql, __LINE__,__FILE__);
-			return $this->db->get_last_insert_id('phpgw_sitemgr_pages','page_id');
+			$this->db->insert($this->pages_table,array('cat_id'=>$cat_id),False, __LINE__,__FILE__);
+
+			return $this->db->get_last_insert_id($this->pages_table,'page_id');
 		}
 
 		function removePage($page_id)
 		{
-			$sql = 'DELETE FROM phpgw_sitemgr_pages WHERE page_id=\'' . $page_id . '\'';
-			$this->db->query($sql, __LINE__,__FILE__);
-			$sql = 'DELETE FROM phpgw_sitemgr_pages_lang WHERE page_id=\'' . $page_id . '\'';
-			$this->db->query($sql, __LINE__,__FILE__);
+			$this->db->delete($this->pages_table,array('page_id' => $page_id), __LINE__,__FILE__);
+			$this->db->delete($this->pages_lang_table,array('page_id' => $page_id), __LINE__,__FILE__);
 		}
 
 		//this function should be a deprecated function - IMHO - skwashd
@@ -83,8 +91,9 @@
 
 		function getlangarrayforpage($page_id)
 		{
+			$this->db->select($this->pages_lang_table,'lang',array('page_id' => $page_id),__LINE__,__FILE__);
+			
 			$retval = array();
-			$this->db->query("SELECT lang FROM phpgw_sitemgr_pages_lang WHERE page_id='$page_id'");
 			while ($this->db->next_record())
 			{
 				$retval[] = $this->db->f('lang');
@@ -99,50 +108,41 @@
 			
 			if($cat_list)
 			{
-				foreach($cat_list as $null => $val)
+				foreach($cat_list as $val)
 				{
 					$site_cats[] = $val['id'];
 				}
 			}
-			
-			$sql  = 'SELECT page_id FROM phpgw_sitemgr_pages ';
-			$sql .= "WHERE name='" . $this->db->db_addslashes($page_name) . "' ";
+			$where = array('name' => $page_name);
 			if($site_cats)
 			{
-				$sql .= 'AND cat_id IN(' . implode(',', $site_cats) . ')';
+				$where['cat_id'] = $site_cats;
 			}
+			$this->db->select($this->pages_table,'page_id',$where,__LINE__,__FILE__);
 
-			$this->db->query($sql,__LINE__,__FILE__);
 			if ($this->db->next_record())
 			{
 				return $this->db->f('page_id');
 			}
-			else
-			{
-				return false;
-			}
+			return false;
 		}
 
 		function getcatidforpage($page_id)
 		{
-			$sql  = 'SELECT cat_id FROM phpgw_sitemgr_pages ';
-			$sql .= 'WHERE page_id = ' . intval($page_id);
-			$this->db->query($sql,__LINE__,__FILE__);
+			$this->db->select($this->pages_table,'cat_id',array('page_id'=>$page_id),__LINE__,__FILE__);
+
 			if ($this->db->next_record())
  			{
 				return $this->db->f('cat_id');
 			}
-			else
-			{
-				return false;
-			}
+			return false;
 		}
 
 		function getPage($page_id,$lang=False)
 		{
-			$sql  = 'SELECT * FROM phpgw_sitemgr_pages ';
-			$sql .= 'WHERE page_id=' . intval($page_id);
-			$this->db->query($sql,__LINE__,__FILE__);
+			$where = array('page_id'=>$page_id);
+			$this->db->select($this->pages_table,'*',$where,__LINE__,__FILE__);
+
 			if ($this->db->next_record())
 			{
 				$page = CreateObject('sitemgr.Page_SO', True);
@@ -155,106 +155,88 @@
 				
 				if ($lang)
 				{
-					$sql = "SELECT * FROM phpgw_sitemgr_pages_lang WHERE page_id=$page_id AND lang='$lang'";
-					$this->db->query($sql,__LINE__,__FILE__);
-				
-					if ($this->db->next_record())
-					{
-						$page->title= stripslashes($this->db->f('title'));
-						$page->subtitle = stripslashes($this->db->f('subtitle'));
-						$page->lang = $lang;
-					}
-					else
-					{
-						$page->title = lang("not yet translated");
-					}
+					$where['lang'] = $lang;
 				}
+				$this->db->select($this->pages_lang_table,'*',$where,__LINE__,__FILE__);
 				
-				//if there is no lang argument we return the content in whatever languages turns up first 
+				if ($this->db->next_record())
+				{
+					$page->title= stripslashes($this->db->f('title'));
+					$page->subtitle = stripslashes($this->db->f('subtitle'));
+					$page->lang = $lang;
+				}
 				else
 				{
-					$sql = "SELECT * FROM phpgw_sitemgr_pages_lang WHERE page_id='" . $page->id . "'";
-					$this->db->query($sql,__LINE__,__FILE__);
-				
-					if ($this->db->next_record())
-					{
-						$page->title= stripslashes($this->db->f('title'));
-						$page->subtitle = stripslashes($this->db->f('subtitle'));
-						$page->lang = $this->db->f('lang');
-					}
-					else
-					{
-						$page->title = "This page has no data in any langugage: this should not happen";
-					}
+					$page->title = $lang ? lang("not yet translated") :
+						"This page has no data in any langugage: this should not happen";
 				}
-
 				return $page;
 			}
-			else
-			{
-				return false;
-			}
+			return false;
 		}
 
 		function savePageInfo($pageInfo)
 		{
-			$sql = 'UPDATE phpgw_sitemgr_pages SET ' . 
-				'cat_id=\'' . $pageInfo->cat_id . '\',' .
-				'name=\'' . $this->db->db_addslashes($pageInfo->name) . '\',' .
-				'sort_order=\'' . (int) $pageInfo->sort_order . '\',' .
-				'hide_page=\'' . $pageInfo->hidden . '\',' .
-				'state=\'' . $pageInfo->state . '\' ' .
-				'WHERE page_id=\'' . $pageInfo->id . '\'';
-			$this->db->query($sql, __LINE__,__FILE__);
-			return true;
+			return $this->db->update($this->pages_table,array(
+					'cat_id'	=> $pageInfo->cat_id,
+					'name'		=> $pageInfo->name,
+					'sort_order'=> $pageInfo->sort_order,
+					'hide_page'	=> $pageInfo->hidden,
+					'state'		=> $pageInfo->state,
+				),array(
+					'page_id' 	=> $pageInfo->id			
+				), __LINE__,__FILE__);
 		}
 		
 		function savePageLang($pageInfo,$lang)
 		{
-			$page_id = $pageInfo->id;
-			$this->db->query("SELECT * FROM phpgw_sitemgr_pages_lang WHERE page_id='$page_id' and lang='$lang'", __LINE__,__FILE__);
-			if ($this->db->next_record())
-			{
-				$sql = "UPDATE phpgw_sitemgr_pages_lang SET " . 
-					"title='" . $this->db->db_addslashes($pageInfo->title) . "'," .
-					"subtitle='" . $this->db->db_addslashes($pageInfo->subtitle) . "' WHERE page_id='$page_id' and lang='$lang'";
-				$this->db->query($sql, __LINE__,__FILE__);
-				return true;
-			}
-			else
-			{
-				$sql = "INSERT INTO phpgw_sitemgr_pages_lang (page_id,lang,title,subtitle) VALUES ('$page_id','$lang','" .
-					$this->db->db_addslashes($pageInfo->title) . "','" .
-					$this->db->db_addslashes($pageInfo->subtitle) . "')";
-				$this->db->query($sql, __LINE__,__FILE__);
-				return true;
-			}
+			return $this->db->insert($this->pages_lang_table,array(
+					'title'		=> $pageInfo->title,
+					'subtitle'	=> $pageInfo->subtitle,
+				),array(
+					'page_id' 	=> $pageInfo->id,
+					'lang'		=> $lang,			
+				), __LINE__,__FILE__);
 		}
 
 		function removealllang($lang)
 		{
-			$sql = "DELETE FROM phpgw_sitemgr_pages_lang WHERE lang='$lang'";
-			$this->db->query($sql, __LINE__,__FILE__);
+			$this->db->delete($this->pages_lang_table,array('lang'=>$lang), __LINE__,__FILE__);
 		}
 
 		function migratealllang($oldlang,$newlang)
 		{
-			$sql = "UPDATE phpgw_sitemgr_pages_lang SET lang='$newlang' WHERE lang='$oldlang'";
-			$this->db->query($sql, __LINE__,__FILE__);
+			$this->db->update($this->pages_lang_table,array(
+					'lang' => $newlang
+				),array(
+					'lang' => $oldlang
+				), __LINE__,__FILE__);
 		}
 
 		function commit($page_id)
 		{
-			$sql = "UPDATE phpgw_sitemgr_pages SET state = " . SITEMGR_STATE_PUBLISH . " WHERE state = " . SITEMGR_STATE_PREPUBLISH . " AND page_id = $page_id";
-			$this->db->query($sql, __LINE__,__FILE__);
-			$sql = "UPDATE phpgw_sitemgr_pages SET state = " . SITEMGR_STATE_ARCHIVE . " WHERE state = " . SITEMGR_STATE_PREUNPUBLISH . " AND page_id = $page_id";;
-			$this->db->query($sql, __LINE__,__FILE__);
+			foreach(array(
+				SITEMGR_STATE_PREPUBLISH => SITEMGR_STATE_PUBLISH,
+				SITEMGR_STATE_PREUNPUBLISH => SITEMGR_STATE_ARCHIVE
+			) as $from => $to)
+			{
+				$this->db->update($this->pages_table,array(
+						'state' 	=> $to
+					),array(
+						'state' 	=> $from,
+						'page_id' 	=> $page_id,
+					),__LINE__,__FILE__);
+			}
 		}
 
 		function reactivate($page_id)
 		{
-			$sql = "UPDATE phpgw_sitemgr_pages SET state = " . SITEMGR_STATE_DRAFT . " WHERE state = " . SITEMGR_STATE_ARCHIVE . " AND page_id = $page_id";
-			$this->db->query($sql, __LINE__,__FILE__);
+			$this->db->update($this->pages_table,array(
+					'state' 	=> SITEMGR_STATE_DRAFT
+				),array(
+					'state'		=> SITEMGR_STATE_ARCHIVE,
+					'page_id' 	=> $page_id,
+				),__LINE__,__FILE__);
 		}
 	}
 ?>
