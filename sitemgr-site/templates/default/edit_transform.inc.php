@@ -26,9 +26,12 @@ class edit_transform
 
 	function apply_transform($title,$content,$block)
 	{
-		$frame = '<div class="edit"><div class="editIcons">';
+		$class = $block->view == SITEMGR_VIEWABLE_ANONYMOUS ? 'editAnonymous' : 'edit';
+		$frame = '<div class="'.$class.'"><div class="editIcons">';
 		$frame .= '<span class="editIconText" title="'.
-			lang('Module: %1, Scope: %2, Contentarea: %3',$block->module_name,$block->page_id ? lang('Page') : lang('Site wide'),$block->area).
+			lang('Module: %1, Scope: %2, Contentarea: %3, Viewable: %4',$block->module_name,
+			$block->page_id ? lang('Page') : lang('Site wide'),$block->area,
+			$GLOBALS['Common_BO']->viewable[$block->view]).
 			'">'.$block->module_name."</span>\n";
 
 		$frame .= $GLOBALS['objbo']->get_icons(array(
@@ -46,7 +49,7 @@ class edit_transform
 
 	function area_transform($contentarea,$content,$page)
 	{
-		$frame = '<div class="edit"><div class="editIcons">';
+		$frame = '<div class="editContentarea"><div class="editIcons">';
 		//$frame .= $GLOBALS['phpgw']->html->image('sitemgr','question.button',
 		//	lang('Contentarea').': '.$contentarea);
 		$frame .= '<span class="editIconText" title="'.lang('Contentarea').': '.$contentarea.'">'.$contentarea."</span>\n";

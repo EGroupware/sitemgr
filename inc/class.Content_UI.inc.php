@@ -39,12 +39,7 @@
 			$this->bo = &$GLOBALS['Common_BO']->content;
 			$this->acl = &$GLOBALS['Common_BO']->acl;
 			$this->modulebo = &$GLOBALS['Common_BO']->modules;
-			$this->viewable = array(
-				SITEMGR_VIEWABLE_EVERBODY => lang('everybody'),
-				SITEMGR_VIEWABLE_USER => lang('phpgw users'),
-				SITEMGR_VIEWABLE_ADMIN => lang('administrators'),
-				SITEMGR_VIEWABLE_ANONYMOUS => lang('anonymous')
-			);
+			$this->viewable = &$GLOBALS['Common_BO']->viewable;
 
 			$this->sitelanguages = $GLOBALS['Common_BO']->sites->current_site['sitelanguages'];
 			$savelanguage = $_POST['savelanguage'];

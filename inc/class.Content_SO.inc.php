@@ -218,7 +218,13 @@
 			$viewable .= $isuser ? SITEMGR_VIEWABLE_USER : SITEMGR_VIEWABLE_ANONYMOUS;
 			$viewable .= $isadmin ? (',' . SITEMGR_VIEWABLE_ADMIN) : '';
 
-			$sql = "SELECT t1.block_id,area,cat_id,page_id,t1.module_id,module_name,state,version_id,sort_order " . 
+			// show anonymous blocks in edit-mode too, else one could not edit them
+			if ($GLOBALS['sitemgr_info']['mode'] == 'Edit')
+			{
+				$viewable .= ','.SITEMGR_VIEWABLE_ANONYMOUS;
+			}
+
+			$sql = "SELECT t1.block_id,area,cat_id,page_id,t1.module_id,module_name,state,version_id,sort_order,viewable " . 
 				"FROM phpgw_sitemgr_blocks AS t1,phpgw_sitemgr_modules AS t2,phpgw_sitemgr_content AS t3 " . 
 				"WHERE t1.module_id = t2.module_id AND t1.block_id=t3.block_id AND area = '$area' " . 
 				"AND  ((page_id = 0 and cat_id = ". CURRENT_SITE_ID  . ")";

@@ -32,6 +32,12 @@
 				SITEMGR_STATE_PREUNPUBLISH => lang('preunpublished'),
 				SITEMGR_STATE_ARCHIVE => lang('archived'),
 			);
+			$this->viewable = array(
+				SITEMGR_VIEWABLE_EVERBODY => lang('everybody'),
+				SITEMGR_VIEWABLE_USER => lang('phpgw users'),
+				SITEMGR_VIEWABLE_ADMIN => lang('administrators'),
+				SITEMGR_VIEWABLE_ANONYMOUS => lang('anonymous')
+			);
 		}
 
 		function setvisiblestates($mode)
