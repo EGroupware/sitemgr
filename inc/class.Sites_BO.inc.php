@@ -125,22 +125,21 @@
 			$GLOBALS['Common_BO']->acl->set_adminlist($site_id,$site['adminlist']);
 		}
 
-		function saveprefs($prefs)
+		function saveprefs($prefs,$site_id=CURRENT_SITE_ID)
 		{
-			$this->so->saveprefs($prefs);
-			$sitelanguages = $this->current_site['site_languages'] ? 
-				explode(',',$this->current_site['site_languages']) :
-				array('en');
+			$this->so->saveprefs($prefs,$site_id);
+			$sitelanguages = $prefs['site_languages'] ? $prefs['site_languages'] : $this->current_site['site_languages'];
+			$sitelanguages = $site_languages ? explode(',',$site_languages) : array('en');
 			foreach ($sitelanguages as $lang)
 			{
 				$GLOBALS['Common_BO']->cats->saveCategoryLang(
-					CURRENT_SITE_ID,
+					$site_id,
 					$prefs['site_name_' . $lang],
 					$prefs['site_desc_' . $lang],
 					$lang
 				);
 			}
-			$this->current_site = $this->read(CURRENT_SITE_ID);
+			$this->current_site = $this->read($site_id);
 		}
 
 		function delete($id)
@@ -156,7 +155,15 @@
 
 		function urltoid($url)
 		{
-			return $this->so->urltoid($url);
+			$site_id = $this->so->urltoid($url);
+
+			if ($site_id === False)	// nothing found, try only the path
+			{
+				$parts = parse_url($url);
+
+				$site_id = $this->so->urltoid($parts['path']);
+			}
+			return $site_id;
 		}
 
 

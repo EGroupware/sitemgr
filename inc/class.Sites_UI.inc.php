@@ -182,6 +182,14 @@
 				else
 				{
 					$site_id = $this->bo->add($site);
+					// save some default prefs, so that the site works instantly
+					$this->bo->saveprefs(array(
+						'home_page_id' => 0,	// Index
+						'themesel' => '3D-Fantasy',
+						'site_languages' => 'en'
+					),$site_id);
+					// allow all modules for the whole page
+					$GLOBALS['Common_BO']->modules->savemodulepermissions('__PAGE__',$site_id,array_keys($GLOBALS['Common_BO']->modules->getallmodules()));
 					$GLOBALS['phpgw']->template->set_var('message',lang('Site %1 has been added',$site['_name']));
 				}
 			}

@@ -77,8 +77,7 @@
 			$sql  = 'SELECT site_id FROM phpgw_sitemgr_sites ';
 			$sql .= "WHERE site_url ='" . $this->db->db_addslashes($url) . "'";
 			$this->db->query($sql,__LINE__,__FILE__);
-			$this->db->next_record();
-			return $this->db->f('site_id');
+			return $this->db->next_record() ? $this->db->f('site_id') : False;
 		}
 
 		function read($id)
@@ -161,10 +160,10 @@
 			$this->db->query($sql,__LINE__,__FILE__);
 		}
 
-		function saveprefs($prefs)
+		function saveprefs($prefs,$site_id=CURRENT_SITE_ID)
 		{
 			$sql = "UPDATE phpgw_sitemgr_sites SET themesel = '" . $prefs['themesel'] . "', site_languages = '" . $prefs['site_languages'] .
-				"', home_page_id = " . $prefs['home_page_id'] . " WHERE site_id = " . CURRENT_SITE_ID;
+				"', home_page_id = " . $prefs['home_page_id'] . " WHERE site_id = " . $site_id;
 			$this->db->query($sql,__LINE__,__FILE__);
 		}
 	}
