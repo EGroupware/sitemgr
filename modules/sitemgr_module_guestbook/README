@@ -20,11 +20,11 @@ contributors have or the way a module behaves. It works, but it seems
 to restrictive, since you have to play tricks if you want to use it
 for simple tasks like defining guestbooks.
 
-- Sitemgr and maybe phpgroupware in general lack a simple model for
-security and ACL. Sure phpgroupware has its ACL class, but it is not
+- Sitemgr and maybe egroupware in general lack a simple model for
+security and ACL. Sure egroupware has its ACL class, but it is not
 easy to use it in a simple way, so that you can apply it to different
 objects in a coherent manner. Or it might be my failure to grasp how I
-should phpgroupware's ACL better. Sitemgr has its ACL for categories,
+should egroupware's ACL better. Sitemgr has its ACL for categories,
 but I did not find a simple way how to extend this to the objects that
 may appear on the website.
 

@@ -209,7 +209,7 @@
 		//like $GLOBALS['phpgw']->common->getPreferredLanguage,
 		//but compares languages accepted by the user
 		//to the languages the website is configured for
-		//instead of the languages installed in phpgroupware
+		//instead of the languages installed in egroupware
 		function setsitemgrPreferredLanguage()
 		{
 			$supportedLanguages = $GLOBALS['sitemgr_info']['sitelanguages'] ? $GLOBALS['sitemgr_info']['sitelanguages'] : array('en');

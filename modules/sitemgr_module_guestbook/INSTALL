@@ -1,5 +1,5 @@
-Move this directory to the root directory of your phpgroupware
-installation and go into setup and install it like a phpgroupware
+Move this directory to the root directory of your egroupware
+installation and go into setup and install it like a egroupware
 application.
 Inside sitemgr, you have to go to 'Manage site-wide module properties'
 and check if the module guestbook appears in the list of selectable

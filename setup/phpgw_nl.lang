@@ -290,7 +290,7 @@ template select	sitemgr	nl	Kies sjabloon
 textarea	sitemgr	nl	tekstkader
 the category to display, 0 for complete table of contents	sitemgr	nl	Welke catoregorie moet getoond worden (0 voor de volledige inhoudsopgave)
 the complete path to the file to be included	sitemgr	nl	De complete folder van het bestand moet worden opgegeven
-the config.inc.php file needs to be edited to point to the phpgroupware directory. copy the config.inc.php.template file to config.inc.php and then edit it.	sitemgr	nl	
+the config.inc.php file needs to be edited to point to the egroupware directory. copy the config.inc.php.template file to config.inc.php and then edit it.	sitemgr	nl	
 the file to be downloaded	sitemgr	nl	Het bestand dat moet worden gedownload
 the first directory to think about is sitemgr-link.  if you move this to the parent directory of sitemgr (your egroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  if you don't want this icon, there's no reason to ever bother with the directory.	sitemgr	nl	
 the images' common name	sitemgr	nl	de normale naam voor plaatjes
