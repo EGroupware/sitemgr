@@ -161,19 +161,28 @@
 
 			if ($_POST['save'])
 			{
-				if (!$_POST['site']['name'])
+				$site = $_POST['site'];
+				if (substr($site['dir'],-1) == '/' || substr($site['dir'],-1) == '\\')
+				{
+					$site['dir'] = substr($site['dir'],0,-1);
+				}
+				if (substr($site['url'],-1) != '/')
+				{
+					$site['url'] .= '/';
+				}
+				if (!$site['name'])
 				{
 					$GLOBALS['phpgw']->template->set_var('message',lang('Please enter a name for that site !'));
 				}
 				elseif ($site_id)
 				{
-					$this->bo->update($site_id,$_POST['site']);
-					$GLOBALS['phpgw']->template->set_var('message',lang('Site %1 has been updated',$_POST['site']['_name']));
+					$this->bo->update($site_id,$site);
+					$GLOBALS['phpgw']->template->set_var('message',lang('Site %1 has been updated',$site['_name']));
 				}
 				else
 				{
-					$site_id = $this->bo->add($_POST['site']);
-					$GLOBALS['phpgw']->template->set_var('message',lang('Site %1 has been added',$_POST['site']['_name']));
+					$site_id = $this->bo->add($site);
+					$GLOBALS['phpgw']->template->set_var('message',lang('Site %1 has been added',$site['_name']));
 				}
 			}
 			else
