@@ -29,9 +29,11 @@ contributor menu	sitemgr	de	Autoren Menü
 default home page id number	sitemgr	de	Standard Home Page ID Nummer
 don't have an account?	sitemgr	de	Sie haben keinen Account?
 done	sitemgr	de	Fertig
+edit categories and permissions	common	de	Kategorien und Zugriffsrechte bearbeiten
 edit category	sitemgr	de	Kategorie bearbeiten
+edit individual pages	common	de	Einzelne Seiten bearbeiten
 edit page	sitemgr	de	Seite bearbeiten
-edit site header and footer	sitemgr	de	Seiten Kopf- und Fusszeile editieren
+edit site header and footer	common	de	Seiten Kopf- und Fusszeile editieren
 error accessing page	common	de	Fehler beim Aufruf der Seite
 filesystem path to sitemgr-site directory	sitemgr	de	Dateisystem Pfad zum sitemgr-site Ordner
 footer editor	sitemgr	de	Fusszeilen Editor
@@ -50,7 +52,7 @@ login	sitemgr	de	Login
 login name	sitemgr	de	Login Name
 main content	sitemgr	de	Hauptinhalt
 manage categories	sitemgr	de	Kategorien bearbeiten
-manage pages	sitemgr	de	Seiten verwalten
+manage pages	common	de	Seiten verwalten
 manage translations	sitemgr	de	Übersetzungen verwalten
 move to	sitemgr	de	Verschieben nach
 name	sitemgr	de	Name
@@ -79,8 +81,10 @@ show site index	sitemgr	de	Site Inhaltsverzeichnis anzeigen
 site format manager	sitemgr	de	Site Formatmanager
 site index	sitemgr	de	Site Inhaltsverzeichnis
 site name	sitemgr	de	Site Name
+site setup	common	de	Setup der Website
 sitemgr options	sitemgr	de	SiteMgr Optionen
 sitemgr setup instructions	sitemgr	de	SiteMgr Setup Informationen
+sitemgr web content manager	common	de	SiteMgr Contentmanagement
 sort order	sitemgr	de	Reihenfolge der Sortierung
 subcategories	sitemgr	de	Unterkategorien
 subtitle	sitemgr	de	Untertitel
@@ -103,6 +107,7 @@ use phpnuke themes instead of templates	sitemgr	de	Benutze phpNuke Themen anstel
 user name	sitemgr	de	Benutzer Name
 view administrative menu	sitemgr	de	Administrations Menü
 view generated site	sitemgr	de	Erstellte Seite ansehen
+web content manager	common	de	SiteMgr Contentmanagement
 web content manager administration	sitemgr	de	Web Content Manager Administration
 write permission	sitemgr	de	Schreibrechte
 yes, please delete it	sitemgr	de	Ja, löschen

@@ -29,9 +29,11 @@ contributor menu	sitemgr	en	Contributor Menu
 default home page id number	sitemgr	en	Default home page ID number
 don't have an account?	sitemgr	en	Don't have an account?
 done	sitemgr	en	Done
+edit categories and permissions	common	en	Edit Categories and Permissions
 edit category	sitemgr	en	Edit Category
+edit individual pages	common	en	Edit Individual Pages
 edit page	sitemgr	en	Edit Page
-edit site header and footer	sitemgr	en	Edit Site Header and Footer
+edit site header and footer	common	en	Edit Site Header and Footer
 error accessing page	common	en	Error accessing page
 filesystem path to sitemgr-site directory	sitemgr	en	Filesystem path to sitemgr-site directory
 footer editor	sitemgr	en	Footer Editor
@@ -50,7 +52,8 @@ login	sitemgr	en	Login
 login name	sitemgr	en	Login Name
 main content	sitemgr	en	Main content
 manage categories	sitemgr	en	Manage Categories
-manage pages	sitemgr	en	Manage Pages
+manage pages	common	en	Manage Pages
+manage translations	sitemgr	en	Manage Translations
 move to	sitemgr	en	Move to
 name	sitemgr	en	Name
 no anonymous user accounts installed. notify the administrator.	sitemgr	en	NO ANONYMOUS USER ACCOUNTS INSTALLED. NOTIFY THE ADMINISTRATOR.
@@ -78,8 +81,10 @@ show site index	sitemgr	en	Show Site Index
 site format manager	sitemgr	en	Site Format Manager
 site index	sitemgr	en	Site Index
 site name	sitemgr	en	Site name
+site setup	common	en	Site Setup
 sitemgr options	sitemgr	en	SiteMgr Options
 sitemgr setup instructions	sitemgr	en	SiteMgr Setup Instructions
+sitemgr web content manager	common	en	SiteMgr Web Content Manager
 sort order	sitemgr	en	Sort Order
 subcategories	sitemgr	en	Subcategories
 subtitle	sitemgr	en	Subtitle
@@ -94,6 +99,7 @@ there was an error accessing the requested page. either you do not have permissi
 there was an error writing to the database.	sitemgr	en	There was an error writing to the database.
 this category has no pages.	sitemgr	en	This category has no pages.
 title	sitemgr	en	Title
+translation manager	sitemgr	en	Translation Manager
 up to table of contents	sitemgr	en	Up to table of contents
 updating to new category system	sitemgr	en	Updating to new category system
 url to sitemgr-site	sitemgr	en	URL to sitemgr-site
@@ -101,6 +107,7 @@ use phpnuke themes instead of templates	sitemgr	en	Use phpNuke themes instead of
 user name	sitemgr	en	User Name
 view administrative menu	sitemgr	en	View Administrative Menu
 view generated site	sitemgr	en	View Generated Site
+web content manager	common	en	SiteMgr Web Content Manager
 web content manager administration	sitemgr	en	Web Content Manager Administration
 write permission	sitemgr	en	Write Permission
 yes, please delete it	sitemgr	en	Yes, please delete it
