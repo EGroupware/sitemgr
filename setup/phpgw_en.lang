@@ -76,6 +76,8 @@ delete version	sitemgr	en	Delete Version
 deleting all data for %1	sitemgr	en	Deleting all data for %1
 discussions	sitemgr	en	Discussions
 display link to autoregistration below login form?	sitemgr	en	Display link to autoregistration below login form?
+do you realy want to delete this block?	sitemgr	en	Do you realy want to delete this block?
+do you realy want to delete this page?	sitemgr	en	Do you realy want to delete this page?
 do you want to delete them?	sitemgr	en	Do you want to delete them?
 do you want to publish a rss feed for this news category	sitemgr	en	Do you want to publish a RSS feed for this news category
 don't have an account?	sitemgr	en	Don't have an account?
@@ -338,6 +340,7 @@ with which view should the module be displayed in the beginning?	sitemgr	en	With
 write permission	sitemgr	en	Write Permission
 xml browser	sitemgr	en	XML browser
 yes, please delete it	sitemgr	en	Yes, please delete it
+you are not entitled to change the scope of block %1 to cat %2 and page %3	sitemgr	en	You are not entitled to change the scope of block %1 to Cat %2 and Page %3
 you are not entitled to create module %1 on this scope	sitemgr	en	You are not entitled to create module %1 on this scope
 you are not entitled to edit block %1	sitemgr	en	You are not entitled to edit block %1
 you can choose the modules that can be used on the site. the first list is a sort of master list, that is consulted if you do not configure lists specific to contentareas or (sub)categories. then you can choose lists specific to each content area. in the category manager these lists can be overriden for each (sub)category.	sitemgr	en	You can choose the modules that can be used on the site. The first list is a sort of master list, that is consulted if you do not configure lists specific to contentareas or (sub)categories. Then you can choose lists specific to each content area. In the category manager these lists can be overriden for each (sub)category.

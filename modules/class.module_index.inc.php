@@ -35,10 +35,15 @@
 					{
 						$content .= '&middot;&nbsp;';
 					}
-					$content .= '<b>'.$catname.'</b> &ndash; <i>'.
+					$content .= '<b>'.$catname.'</b> '.$objbo->getEditIconsCat($temppage['cat_id']).' &ndash; <i>'.
 						$temppage['catdescrip'].'</i>'."\n";
 				}
 				$content .= "\n".'<br>&nbsp;&nbsp;&nbsp;&nbsp;&middot;&nbsp;'.$temppage['pagelink'];
+
+				if ($temppage['page_id'])
+				{
+					$content .= ' '.$objbo->getEditIconsPage($temppage['page_id'],$temppage['cat_id']);
+				}
 			}
 			$content .= "\n".'</td></tr></table></td></tr></table>';
 			if (count($indexarray)==0)

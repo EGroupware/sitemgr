@@ -51,7 +51,7 @@
 		</td>
 		<td valign="top"><img src="images/pix.gif" width="10" height="1" border="0" alt=""></td>
 		<td width="100%" valign="top">
-			<h1>{title}</h1>
+			<h1>{title} {editicons}</h1>
 			<h3>{subtitle}</h3>
 			{contentarea:center}
 		</td>

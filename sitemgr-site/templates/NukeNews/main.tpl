@@ -49,7 +49,7 @@
 <td bgcolor="#ffffff" width="150" valign="top">
 {contentarea:left}
 </td><td><img src="templates/NukeNews/images/pixel.gif" width="15" height="1" border="0" alt=""></td><td valign="top" width="100%">
-<h1>{title}</h1>
+<h1>{title} {editicons}</h1>
 <h3>{subtitle}</h3>
 {contentarea:center}
 </td><td><img src="templates/NukeNews/images/pixel.gif" width="15" height="1" border="0" alt=""></td><td valign="top" width="150">

@@ -348,8 +348,6 @@
 			}
 			else
 			{
-print_r($this->currentcats);
-var_dump(debug_backtrace());
 				echo '<p><center><b>'.lang('Attempt to access information outside current website').'</b></center>';
 				$GLOBALS['phpgw']->common->phpgw_exit(True);
 			}

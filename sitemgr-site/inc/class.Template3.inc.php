@@ -296,13 +296,31 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 
 		function get_meta($vars)
 		{
-			global $page;
+			global $page,$objbo;
 
 			switch ($vars[1])
 			{
 				case 'title':
 				case 'page_title':
 					return $page->title;
+				case 'editicons':
+					// add icons to edit the page/cat, if we are in edit-mode
+					if ($GLOBALS['sitemgr_info']['mode'] == 'Edit')
+					{
+						if ($page->id)
+						{
+							return $objbo->getEditIconsPage($page->id,$page->cat_id);
+						}
+						elseif ($page->cat_id && $page->cat_id != CURRENT_SITE_ID)
+						{
+							return $objbo->getEditIconsCat($page->cat_id);
+						}
+						else
+						{
+							return $objbo->getEditIconsTop();
+						}
+					}
+					return '';
 				case 'subtitle':
 				case 'page_subtitle':
 					return $page->subtitle;

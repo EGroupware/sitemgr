@@ -107,13 +107,15 @@
 					$pages = $this->getPageLinks($cat_id,$showhidden);
 					if (count($pages)>0)
 					{
-						foreach($pages as $link)
+						foreach($pages as $page_id => $link)
 						{
 							$index[] = array(
+								'cat_id'=>$cat_id,
 								'catname'=>$cat['name'],
 								'catdepth'=>$cat['depth'],
 								'catlink'=>$cat['link'],
 								'catdescrip'=>$cat['description'],
+								'page_id' => $page_id,
 								'pagename'=>$link['name'],
 								'pagelink'=>$link['link'],
 								'pagetitle'=>$link['title'],
@@ -124,6 +126,7 @@
 					else
 					{
 						$index[] = array(
+							'cat_id'=>$cat_id,
 							'catname'=>$cat['name'],
 							'catdepth'=>$cat['depth'],
 							'catdescrip'=>$cat['description'],
@@ -283,5 +286,80 @@
 			}
 			return 'Production';
 		}
+
+
+	function get_icons($icon_data,$link_data=array())
+	{
+		$content = '';
+
+		foreach($icon_data as $name => $data)
+		{
+			$label = array_shift($data);
+			if ($data['adminonly'])
+			{
+				if (!$this->acl->is_admin())
+				{
+					continue;	// only admin is allowed to eg. add/delete cats
+				}
+				unset($data['adminonly']);
+			}
+			$confirm = '';
+			if ($data['confirm'])
+			{
+				$confirm = ' onclick="return confirm(\''.$data['confirm'].'\');"';
+				unset($data['confirm']);
+			}
+			$content .= $GLOBALS['phpgw']->html->a_href(
+				$GLOBALS['phpgw']->html->image('sitemgr',$name,$label,'border="0"'),
+				$link_data+$data,False,'target="editwindow"'.$confirm);
+		}
+		return $content;
 	}
+
+	// get the icons with links to be added to a cat in edit-mode
+	function getEditIconsCat($cat_id)
+	{
+		if ($GLOBALS['sitemgr_info']['mode'] == 'Edit' && $GLOBALS['Common_BO']->acl->can_write_category($cat_id))
+		{
+			$cat = $GLOBALS['Common_BO']->cats->getCategory($cat_id,$GLOBALS['Common_BO']->sites->current_site['sitelanguages'][0]);
+
+			return $this->get_icons(array(
+				'new' => array(lang('Add page to category'),'menuaction'=>'sitemgr.Pages_UI.edit'),
+				'edit' => array(lang('Edit category'),'adminonly'=>True,'menuaction'=>'sitemgr.Categories_UI.edit'),
+				'delete' => array(lang('Delete category'),'adminonly'=>True,'confirm'=>lang('Are you sure you want to delete the category %1 and all of its associated pages?  You cannot retrieve the deleted pages if you continue.',$cat->name),'menuaction'=>'sitemgr.Categories_UI.delete','standalone'=>1),
+			),array(
+				'page_id' => 0,
+				'cat_id'  => $cat_id
+			));
+		}
+		return '';
+	}
+
+	// get the icons with links to be added to a page in edit-mode
+	function getEditIconsPage($page_id,$cat_id)
+	{
+		if ($GLOBALS['sitemgr_info']['mode'] == 'Edit' && $GLOBALS['Common_BO']->acl->can_write_category($cat_id))
+		{
+			return $this->get_icons(array(
+				'edit' => array(lang('Edit page'),'menuaction'=>'sitemgr.Pages_UI.edit'),
+				'delete' => array(lang('Delete page'),'confirm'=>lang('Do you realy want to delete this page?'),'menuaction'=>'sitemgr.Pages_UI.delete'),
+			),array(
+				'page_id' => $page_id,
+				'cat_id'  => $cat_id
+			));
+		}
+		return '';
+	}
+
+	function getEditIconsTop()
+	{
+		if ($GLOBALS['sitemgr_info']['mode'] == 'Edit' && $GLOBALS['Common_BO']->acl->can_write_category(CURRENT_SITE_ID))
+		{
+			return $this->get_icons(array(
+				'new' => array(lang('Add a category'),'adminonly'=>True,'menuaction'=>'sitemgr.Categories_UI.edit')
+			));
+		}
+		return '';
+	}
+}
 ?>

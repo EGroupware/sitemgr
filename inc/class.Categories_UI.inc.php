@@ -158,7 +158,7 @@
 					$this->t->set_var('groupname', $account_name);
 					if ($permission_id & PHPGW_ACL_READ)  
 					{
-						$this->t->set_var('checkedgroupread','CHECKED');
+						$this->t->set_var('checkedgroupread','CHECKED="1"');
 					}
 					else
 					{
@@ -166,7 +166,7 @@
 					}
 					if ($permission_id & PHPGW_ACL_ADD)
 					{
-						$this->t->set_var('checkedgroupwrite','CHECKED');
+						$this->t->set_var('checkedgroupwrite','CHECKED="1"');
 					}
 					else
 					{
@@ -204,7 +204,7 @@
 					$this->t->set_var('username', $user_name);
 					if ($user_permission_id & PHPGW_ACL_READ )
 					{
-						$this->t->set_var('checkeduserread','CHECKED');
+						$this->t->set_var('checkeduserread','CHECKED="1"');
 					}
 					else
 					{
@@ -212,7 +212,7 @@
 					}
 					if ($user_permission_id & PHPGW_ACL_ADD )
 					{
-						$this->t->set_var('checkeduserwrite','CHECKED');
+						$this->t->set_var('checkeduserwrite','CHECKED="1"');
 					}
 					else
 					{
@@ -236,7 +236,7 @@
 			$option_list=$this->cat_bo->getCategoryOptionList();
 			if (!$selected_id)
 			{
-				$selected=' SELECTED';
+				$selected=' SELECTED="1"';
 			}
 			if (!$skip_id)
 			{
@@ -250,7 +250,7 @@
 					$selected='';
 					if ($option['value']==$selected_id)
 					{
-						$selected=' SELECTED';
+						$selected=' SELECTED="1"';
 					}
 					$retval.='<OPTION VALUE="'.$option['value'].'"'.$selected.'>'.
 						$option['display'].'</OPTION>'."\n";
@@ -268,20 +268,21 @@
 				return;
 			}
 
-			$GLOBALS['Common_BO']->globalize(array('btnDelete','btnCancel'));
-			global $btnDelete,$btnCancel;
 			$cat_id = $_GET['cat_id'];
 
-			if ($btnDelete)
+			if ($_POST['btnDelete'] || $_POST['btnCancel'] || $_GET['standalone'])
 			{
-				$this->cat_bo->removeCategory($cat_id);
-				$GLOBALS['phpgw']->redirect($GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Outline_UI.manage'));
-				return;
-			}
-			if ($btnCancel)
-			{
-				$GLOBALS['phpgw']->redirect($GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Outline_UI.manage'));
-				return;
+				if ($_POST['btnDelete'] || $_GET['standalone'])
+				{
+					$this->cat_bo->removeCategory($cat_id);
+					$reload = 'opener.location.reload();';
+				}
+				if ($_GET['standalone'])
+				{
+					echo '<html><head></head><body onload="'.$reload.'self.close()"></body></html>';
+					return;
+				}
+				$GLOBALS['phpgw']->redirect_link('/index.php','menuaction=sitemgr.Outline_UI.manage');
 			}
 
 			$this->common_ui->DisplayHeader();
@@ -292,6 +293,7 @@
 			$this->t->set_var('cat_id',$cat_id);
 			$this->t->set_var('lang_yes',lang('Yes, please delete it'));
 			$this->t->set_var('lang_no',lang('Cancel the delete'));
+			$this->t->set_var('standalone',$_GET['standalone']);
 			$this->t->pfp('out','ConfirmDelete');
 		}
 	}

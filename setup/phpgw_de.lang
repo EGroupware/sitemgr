@@ -79,6 +79,8 @@ delete version	sitemgr	de	Version löschen
 deleting all data for %1	sitemgr	de	Alle Daten für %1 werden gelöscht
 discussions	sitemgr	de	Diskussionen
 display link to autoregistration below login form?	sitemgr	de	Link auf Autoregistrierung unterhalb des Login anzeigen?
+do you realy want to delete this block?	sitemgr	de	Wollen Sie diesen Block wirklich löschen?
+do you realy want to delete this page?	sitemgr	de	Wollen Sie diese Seite wirklich löschen?
 do you want to delete them?	sitemgr	de	Möchten Sie sie löschen?
 do you want to publish a rss feed for this news category	sitemgr	de	Wollen sie einen RSS feed für diese News Kategorie veröffentlichen
 don't have an account?	sitemgr	de	Sie haben keinen Benutzerkonto?
@@ -342,7 +344,8 @@ with which view should the module be displayed in the beginning?	sitemgr	de	In w
 write permission	sitemgr	de	Schreibrechte
 xml browser	sitemgr	de	XML Browser
 yes, please delete it	sitemgr	de	Ja, löschen
-you are not entitled to create module %1 on this scope	sitemgr	de	Sie sind nicht befugt das Module %1 in diesem Zusammenhang zu erstellen.
+you are not entitled to change the scope of block %1 to cat %2 and page %3	sitemgr	de	Sie sind nicht berechtigt den Anwendungsbereich vom Block %1 auf Kategorie %2 und Seite %3 zu ändern
+you are not entitled to create module %1 on this scope	sitemgr	de	Sie sind nicht berechtigt das Module %1 in diesem Zusammenhang zu benutzen
 you are not entitled to edit block %1	sitemgr	de	Sie sind nicht befugt den Block %1 zu bearbeiten
 you can choose the modules that can be used on the site. the first list is a sort of master list, that is consulted if you do not configure lists specific to contentareas or (sub)categories. then you can choose lists specific to each content area. in the category manager these lists can be overriden for each (sub)category.	sitemgr	de	Sie können die Module welche auf dieser Seite benutzt werden sollen festlegen. Die erste Liste ist eine "Masterliste". Diese wird verwendet wenn Sie für Contentbereiche oder (Unter)Kategorie keine Module festlegen. Weiterhin können Sie für jeden Contentbereich Einstellungen vornehmen. Im Kategorie Manager können diese Einstellungen überschrieben werden für jede (Unter)Kategorie.
 you can either migrate them to a new language or delete them	sitemgr	de	Sie können sie entweder auf eine neue Sprache übertragen oder löschen

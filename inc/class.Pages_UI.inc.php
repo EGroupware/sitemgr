@@ -37,8 +37,11 @@
 		{
 			$page_id = $_GET['page_id'];
 			$this->pagebo->removePage($page_id);
-			$GLOBALS['phpgw']->redirect($GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Outline_UI.manage'));
-			return;
+			if ($_GET['menuaction'] == 'sitemgr.Outline_UI.manage')
+			{
+				$GLOBALS['phpgw']->redirect_link('/index.php','menuaction=sitemgr.Outline_UI.manage');
+			}
+			echo '<html><head></head><body onload="opener.location.reload();self.close()"></body></html>';
 		}
 
 		function edit()
