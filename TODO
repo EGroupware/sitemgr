@@ -1,8 +1,0 @@
-2)  Addition of a Everybody group that overrides other permissions to make a category globally readable.
-7)  _editCategory uses two arrays, grouplist (userlist) and permissionlist and assumes the accounts are in the same order in both arrays.  fix this to use account_id's as the key and thus insure syncronization.
-8) directory urls
-9) {xxx} entered in page content get removed when page is loaded again for editing
-10) redirection after login
-11) category ordering scheme for site index, etc.
-12) who is online block
-13) counter block
