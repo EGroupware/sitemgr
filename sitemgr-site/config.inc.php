@@ -26,8 +26,9 @@
 		$GLOBALS['phpgw_info']['flags']['currentapp'] = 'sitemgr-site';
 
 		$site_url2 = $GLOBALS['phpgw']->db->db_addslashes(preg_replace('/\/[^\/]*$/','',$_SERVER['PHP_SELF'])) . '/';
+		$site_url3 = ($_SERVER['HTTPS'] ? 'https://' : 'http://') . $_SERVER['SERVER_ADDR'] . $site_url2;
 		$site_url  = ($_SERVER['HTTPS'] ? 'https://' : 'http://') . $_SERVER['SERVER_NAME'] . $site_url2;
-		$GLOBALS['phpgw']->db->query("SELECT anonymous_user,anonymous_passwd FROM phpgw_sitemgr_sites WHERE site_url='$site_url' OR site_url='$site_url2'");
+		$GLOBALS['phpgw']->db->query("SELECT anonymous_user,anonymous_passwd FROM phpgw_sitemgr_sites WHERE site_url='$site_url' OR site_url='$site_url2' OR site_url='$site_url3'");
 		if ($GLOBALS['phpgw']->db->next_record())
 		{
 			$anonymous_user = $GLOBALS['phpgw']->db->f('anonymous_user');
