@@ -81,7 +81,7 @@
 			$cat_id = $_GET['cat_id'];
 			$block_id = $_GET['block_id'];
 
-			if ($block_id)
+			if ($block_id || $_GET['add_block'])
 			{}
 			elseif ($page_id)
 			{
@@ -126,7 +126,7 @@
 					$block->module_id = $inputmoduleid;
 					$block->area = $inputarea;
 					$block->page_id = $page_id;
-					$block->cat_id = $cat_id;
+					$block->cat_id = $cat_id ? $cat_id : CURRENT_SITE_ID;
 
 					$newblock = $this->bo->addblock($block);
 					if ($newblock)
