@@ -69,7 +69,7 @@
 	$blocks = array(
 		array($module_id['administration'],'right',$site_id,0,$visibility['admin'],'Administration'),
 		array($module_id['lang_block'],'right',$site_id,0,$visibility['all'],'Select language'),
-		array($module_id['toc'],'right',$site_id,0,$visibility['all'],'Content areas'),
+		array($module_id['toc_block'],'right',$site_id,0,$visibility['all'],'Table of Contents'),
 		array($module_id['calendar'],'right',$site_id,0,$visibility['user'],'Calendar'),
 		array($module_id['goggle'],'right',$site_id,0,$visibility['all'],'Goggle'),
 		array($module_id['login'],'right',$site_id,0,$visibility['anon'],'Login'),
