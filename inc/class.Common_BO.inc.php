@@ -45,8 +45,6 @@
 			{
 				case 'Administration' :
 					return array(SITEMGR_STATE_DRAFT,SITEMGR_STATE_PREPUBLISH,SITEMGR_STATE_PUBLISH,SITEMGR_STATE_PREUNPUBLISH);
-				case 'Production' :
-					return array(SITEMGR_STATE_PUBLISH,SITEMGR_STATE_PREUNPUBLISH);
 				case 'Draft' :
 					return array(SITEMGR_STATE_PREPUBLISH,SITEMGR_STATE_PUBLISH);
 				case 'Edit' :
@@ -55,6 +53,9 @@
 					return array(SITEMGR_STATE_PREPUBLISH,SITEMGR_STATE_PREUNPUBLISH);
 				case 'Archive' :
 					return array(SITEMGR_STATE_ARCHIVE);
+				case 'Production' :
+				default:
+					return array(SITEMGR_STATE_PUBLISH,SITEMGR_STATE_PREUNPUBLISH);
 			}
 		}
 

@@ -273,16 +273,17 @@
 
 		function getmode()
 		{
+			static $allowed_modes = array('Production'=>True,'Draft'=>True,'Edit'=>True);
 			if ($this->isuser)
 			{
 				$postmode = $_GET['mode'];
-				if ($postmode)
+				if (isset($allowed_modes[$postmode]))
 				{
 					$GLOBALS['phpgw']->session->appsession('mode','sitemgr-site',$postmode);
 					return $postmode;
 				}
 				$sessionmode = $GLOBALS['phpgw']->session->appsession('mode','sitemgr-site');
-				if($sessionmode)
+				if(isset($allowed_modes[$sessionmode]))
 				{
 					return $sessionmode;
 				}
