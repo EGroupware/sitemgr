@@ -37,7 +37,7 @@
 	else
 	{
 		$GLOBALS['phpgw']->common->phpgw_header();
-		//echo parse_navbar();
+		echo parse_navbar();
 		$aclbo = CreateObject('sitemgr.ACL_BO', True);
 		echo '<table width="50%"><tr><td>';
 		if ($aclbo->is_admin())
