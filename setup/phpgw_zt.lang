@@ -8,6 +8,7 @@ a simple picture galery	sitemgr	zt	一個簡單的圖庫
 actif	sitemgr	zt	如果符合
 add a category	sitemgr	zt	新增類別
 add a new application	sitemgr	zt	新增應用程式
+add a new guestbook	sitemgr	zt	新增留言板
 add block ...	sitemgr	zt	新增區塊...
 add block to content area %1	sitemgr	zt	新增區塊到內容區 %1
 add category	sitemgr	zt	新增類別
@@ -37,6 +38,7 @@ are you sure you want to delete site %1 and all its content? you cannot retrieve
 are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	zt	您確定要刪除類別%1與它的所有頁面？這將無法還原
 as	common	zt	當
 asin[=title] pairs (title is optional)	sitemgr	zt	ASIN[=標題] 巴黎 (標題是選填的)
+attempt to access information outside current website	sitemgr	zt	嘗試去存取目前網站以外的資訊
 attempt to edit non-editable block	sitemgr	zt	試著編輯無法編輯的區塊
 automatic index	sitemgr	zt	自動索引
 back to module manager	sitemgr	zt	回到模組管理
@@ -44,11 +46,13 @@ back to the list of languages	sitemgr	zt	回到語言清單
 basic settings	sitemgr	zt	基本設定
 before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr	zt	?Ӻ
 block not found.	sitemgr	zt	找不到區塊
+block reloaded	sitemgr	zt	區塊重新讀取
 block returned no content.	sitemgr	zt	區塊沒有內容
 block saved	sitemgr	zt	區塊已經儲存
 bookmarks	sitemgr	zt	書籤
 buy at %1	sitemgr	zt	在 %1 購買
 calendar	sitemgr	zt	行事曆
+can't open an url or execute a script, because allow_url_fopen is not set in your php.ini !!!	sitemgr	zt	無法開啟一個網址或是執行一個城市，因為在系統的php.ini中沒有設定allow_url_fopen！
 cancel the delete	sitemgr	zt	取消刪除
 cannot move page until it has been saved.	sitemgr	zt	還沒儲存的頁面無法移動
 category	sitemgr	zt	類別
@@ -59,7 +63,8 @@ category saved	sitemgr	zt	儲存
 changes saved.	sitemgr	zt	已經更新
 check here after every upgrade	sitemgr	zt	在每次更新後勾選這裡
 check to hide from condensed site index.	sitemgr	zt	隱藏簡易的網站索引
-choose a category	sitemgr	zt	類別
+choose a category	sitemgr	zt	選擇一個類別
+choose a guestbook	sitemgr	zt	選擇一個留言板
 choose language	sitemgr	zt	選擇語言
 choose template	sitemgr	zt	選擇樣板
 choose the categories to display	sitemgr	zt	顯示的類別
@@ -86,6 +91,7 @@ delete category	sitemgr	zt	刪除類別
 delete page	sitemgr	zt	刪除頁面
 delete this application	sitemgr	zt	刪除這個應用程式
 delete this block	sitemgr	zt	刪除這個區塊
+delete this guestbook	sitemgr	zt	刪除這個留言板
 delete version	sitemgr	zt	刪除版本
 deleting all data for %1	sitemgr	zt	刪除 %1 的所有資料
 details for language %1 (%2)	sitemgr	zt	語言的細節 %1 (%2)
@@ -94,7 +100,7 @@ display link to autoregistration below login form?	sitemgr	zt	顯示註冊連結
 do you realy want to delete this block?	sitemgr	zt	您確定要刪除這個區塊？
 do you realy want to delete this page?	sitemgr	zt	您確定要刪除這個頁面？
 do you want to delete them?	sitemgr	zt	您確定要刪除他們？
-do you want to publish a rss feed for this news category	sitemgr	zt	?Ӻ
+do you want to publish a rss feed for this news category	sitemgr	zt	您是否要公開這個新聞類別的RSS資訊
 documentation	sitemgr	zt	文件
 don't have an account?	sitemgr	zt	還沒註冊？
 done	sitemgr	zt	完成
@@ -115,6 +121,7 @@ edit website	sitemgr	zt	編輯網站
 enter a name	sitemgr	zt	輸入名稱
 enter the block content here	sitemgr	zt	輸入區塊內容
 enter the page content here	sitemgr	zt	輸入頁面內容
+enterprise knowledge articles repository	sitemgr	zt	企業知識文章資料庫
 error accessing page	common	zt	錯誤訊息頁面
 everybody	sitemgr	zt	所有人
 file %1 is not readable by the webserver !!!	sitemgr	zt	檔案 %1 沒有權限讀取！
@@ -123,11 +130,11 @@ file download	sitemgr	zt	檔案下載
 filesystem path of the directory where xml files are stored	sitemgr	zt	XML
 filesystem path of the image-directory	sitemgr	zt	圖片檔案存放的路徑
 filesystem path to sitemgr-site directory	sitemgr	zt	網站管理員檔案存放的路徑
-fill in permissions from parent category? if you check this, below values will be ignored	sitemgr	zt	?ӱ
+fill in permissions from parent category? if you check this, below values will be ignored	sitemgr	zt	使用上層類別的權限？如果您選擇了這個，下面的設定將會被忽略。
 following new modules registed: %1	sitemgr	zt	新模組登錄： %1
 footer editor	sitemgr	zt	頁尾編輯器
 forum	sitemgr	zt	討論區
-full path of the xslt file that should be applied to the xml files	sitemgr	zt	XSLT
+full path of the xslt file that should be applied to the xml files	sitemgr	zt	XML檔案使用的XSLT檔案完整路徑
 galerie	sitemgr	zt	圖庫
 gallery plus chooser	sitemgr	zt	圖庫加選擇器
 gallery plus chooser and download	sitemgr	zt	圖庫加選擇器與下載
@@ -145,6 +152,7 @@ headlines	sitemgr	zt	頭條新聞
 hello	sitemgr	zt	哈囉
 hello world	sitemgr	zt	哈囉，大家好
 html module	sitemgr	zt	HTML模組
+i'm sorry, you do not have write permissions for any site categories.	sitemgr	zt	抱歉，您沒有任何網站類別的寫入權限
 image type	sitemgr	zt	圖片格式
 implies read permission	sitemgr	zt	表示讀取權限
 index	sitemgr	zt	索引
@@ -154,6 +162,7 @@ interface to google website	sitemgr	zt	GOOGLE網站的介面
 invalid template directory '%1' !!!	sitemgr	zt	錯誤的樣版資料夾 '%1' ！
 knowledge base	sitemgr	zt	知識庫
 languages the site user can choose from	sitemgr	zt	網站訪客能夠選擇的語言
+last entries to the guestbook	sitemgr	zt	留言板的最新資料
 latest reply	sitemgr	zt	最後回應
 login	sitemgr	zt	登入
 login name	sitemgr	zt	登入名稱
@@ -183,6 +192,7 @@ move to	sitemgr	zt	移到
 name	sitemgr	zt	名稱
 name has been translated to lower case	sitemgr	zt	名稱被轉換為小寫
 new application	sitemgr	zt	新的應用程式
+new guestbook	sitemgr	zt	新的留言板
 new sitemgr site	sitemgr	zt	新網站
 news module	sitemgr	zt	新聞模組
 no content areas found in selected template	sitemgr	zt	在選擇的樣版中沒有發現內容區域
@@ -196,6 +206,7 @@ no pages available	sitemgr	zt	沒有頁面
 no sitelanguages configured	sitemgr	zt	未設定網站語言
 no template file found.	sitemgr	zt	找不到樣板檔案
 no templates found.	sitemgr	zt	找不到樣板
+no thumbnail availible	sitemgr	zt	沒有可以使用的縮圖
 no users defined.	sitemgr	zt	未定義使用者
 no websites defined	sitemgr	zt	未定義網站
 no, chooser only (for side-areas)	sitemgr	zt	不，只做選擇
@@ -206,7 +217,7 @@ only gallery	sitemgr	zt	只有圖庫
 other websites	sitemgr	zt	其他網站
 overview of all available categories	sitemgr	zt	所有可用的類別概要
 overview of one specific category	sitemgr	zt	指定類別概要
-own amazon partner-id or empty to donate to the egroupware project	sitemgr	zt	?Ӻ
+own amazon partner-id or empty to donate to the egroupware project	sitemgr	zt	您的Amazon夥伴編號，保留空白將會用來贊助eGroupWare專案
 page	sitemgr	zt	頁
 page content	sitemgr	zt	網頁內容
 page manager	sitemgr	zt	網頁管理
@@ -225,6 +236,7 @@ percentage	sitemgr	zt	比例
 phpgw users	sitemgr	zt	使用者
 phrases in total	sitemgr	zt	所有片語
 please enter a name for that site !	sitemgr	zt	請輸入網站的名稱！
+please sign the guestbook	sitemgr	zt	請留言
 post a message to this thread	sitemgr	zt	回覆
 prepublished	sitemgr	zt	預定發布
 preunpublished	sitemgr	zt	預定到期
@@ -237,6 +249,7 @@ redirection	sitemgr	zt	轉向
 refresh	sitemgr	zt	重新整理
 register for one now.	sitemgr	zt	現在註冊一個新的
 register new modules	sitemgr	zt	註冊新模組
+reload	sitemgr	zt	重新讀取
 replies	sitemgr	zt	回應
 required fields	sitemgr	zt	必填欄位
 reset	sitemgr	zt	重設
@@ -329,3 +342,5 @@ you must be an admin to manage module properties.	sitemgr	zt	成為管理者才�
 you must be an administrator to setup the site manager.	sitemgr	zt	成為管理者才能夠安裝網站管理員
 you removed one ore more languages from your site languages.	sitemgr	zt	您已經從網站語言移除了一或多個語言
 your calendar	sitemgr	zt	您的行事曆
+your comment	sitemgr	zt	您的意見
+your name	sitemgr	zt	您的名稱
