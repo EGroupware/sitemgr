@@ -20,6 +20,7 @@ administrative menu	sitemgr	en	Administrative Menu
 administrators	sitemgr	en	administrators
 all categories	sitemgr	en	All categories
 all forums in category %1	sitemgr	en	All forums in category %1
+allow posting of questions	sitemgr	en	Allow posting of questions
 amazon	sitemgr	en	Amazon
 amazon server (without www), eg. amazon.com	sitemgr	en	Amazon server (without www), eg. amazon.com
 an application directory	sitemgr	en	An application directory
@@ -28,6 +29,7 @@ anonymous user login domain	sitemgr	en	Anonymous user login domain
 anonymous user's password	sitemgr	en	Anonymous user's password
 anonymous user's username	sitemgr	en	Anonymous user's username
 application	sitemgr	en	Application
+application '%1' is not installed !!!<br>please install it, to be able to use the block.	sitemgr	en	Application '%1' is not installed !!!<br>Please install it, to be able to use the block.
 apply permissions also to subcategories?	sitemgr	en	Apply permissions also to subcategories?
 archived	sitemgr	en	archived
 archived content	sitemgr	en	Archived content
@@ -93,6 +95,7 @@ deleting all data for %1	sitemgr	en	Deleting all data for %1
 details for language %1 (%2)	sitemgr	en	Details for language %1 (%2)
 discussions	sitemgr	en	Discussions
 display link to autoregistration below login form?	sitemgr	en	Display link to autoregistration below login form?
+do you realy want to delete the selected categories (including all pages), pages and blocks?	sitemgr	en	Do you realy want to delete the selected Categories (including all pages), Pages and Blocks?
 do you realy want to delete this block?	sitemgr	en	Do you realy want to delete this block?
 do you realy want to delete this page?	sitemgr	en	Do you realy want to delete this page?
 do you want to delete them?	sitemgr	en	Do you want to delete them?
@@ -118,6 +121,7 @@ edit website	sitemgr	en	Edit Website
 enter a name	sitemgr	en	Enter a name
 enter the block content here	sitemgr	en	Enter the block content here
 enter the page content here	sitemgr	en	Enter the page content here
+enterprise knowledge articles repository	sitemgr	en	Enterprise Knowledge articles repository
 error accessing page	common	en	Error accessing page
 everybody	sitemgr	en	everybody
 file %1 is not readable by the webserver !!!	sitemgr	en	File %1 is not readable by the webserver !!!
@@ -158,6 +162,7 @@ individual access permission	sitemgr	en	Individual Access Permission
 individual access permissions	sitemgr	en	Individual Access Permissions
 interface to google website	sitemgr	en	Interface to google website
 invalid template directory '%1' !!!	sitemgr	en	Invalid template directory '%1' !!!
+knowledge base	sitemgr	en	Knowledge Base
 languages the site user can choose from	sitemgr	en	Languages the site user can choose from
 latest reply	sitemgr	en	Latest Reply
 list of permitted modules specific to content area %1	sitemgr	en	List of permitted modules specific to content area %1

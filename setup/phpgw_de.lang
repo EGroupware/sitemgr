@@ -20,6 +20,7 @@ administrative menu	sitemgr	de	Administrations Menü
 administrators	sitemgr	de	Administratoren
 all categories	sitemgr	de	Alle Kategorien
 all forums in category %1	sitemgr	de	Alle Foren in der Kategorie %1
+allow posting of questions	sitemgr	de	Das Eingeben von Fragen erlauben
 amazon	sitemgr	de	Amazon
 amazon server (without www), eg. amazon.com	sitemgr	de	Amazon Server (ohne www), zB. amazon.de
 an application directory	sitemgr	de	Ein Applikations Ordner
@@ -28,6 +29,7 @@ anonymous user login domain	sitemgr	de	Anonymer Benutzer login Domain
 anonymous user's password	sitemgr	de	Anonymer Benutzer Password
 anonymous user's username	sitemgr	de	Anonymer Benutzer Username
 application	sitemgr	de	Anwendung
+application '%1' is not installed !!!<br>please install it, to be able to use the block.	sitemgr	de	Anwendung '%1' ist nicht installiert !!!<br>Bitte instalieren, um diesen Block verwenden zu könnnen.
 apply permissions also to subcategories?	sitemgr	de	Zugriffsrechte auch auf Unterkategorien anwenden?
 archived	sitemgr	de	Archiviert
 archived content	sitemgr	de	Archivierter Inhalt
@@ -94,6 +96,7 @@ deleting all data for %1	sitemgr	de	Alle Daten für %1 werden gelöscht
 details for language %1 (%2)	sitemgr	de	Details für die Sprache %1 (%2)
 discussions	sitemgr	de	Diskussionen
 display link to autoregistration below login form?	sitemgr	de	Link auf Autoregistrierung unterhalb des Login anzeigen?
+do you realy want to delete the selected categories (including all pages), pages and blocks?	sitemgr	de	Wollen Sie die ausgewählten Kategorien (einschließlich aller Seiten), Seiten und Blöcke wirklich löschen?
 do you realy want to delete this block?	sitemgr	de	Wollen Sie diesen Block wirklich löschen?
 do you realy want to delete this page?	sitemgr	de	Wollen Sie diese Seite wirklich löschen?
 do you want to delete them?	sitemgr	de	Möchten Sie sie löschen?
@@ -119,6 +122,7 @@ edit website	sitemgr	de	Website bearbeiten
 enter a name	sitemgr	de	Namen eingeben
 enter the block content here	sitemgr	de	Geben Sie den Inhalt des Blocks hier ein
 enter the page content here	sitemgr	de	Geben Sie den Inhalt der Seite hier ein
+enterprise knowledge articles repository	sitemgr	de	Wissensdatenbank Artikel Verzeichnis
 error accessing page	common	de	Fehler beim Aufruf der Seite
 everybody	sitemgr	de	Jedermann
 file %1 is not readable by the webserver !!!	sitemgr	de	Die Datei %1 ist vom Webserver nicht lesbar !!!
@@ -159,6 +163,7 @@ individual access permission	sitemgr	de	Individuelles Zugriffrecht
 individual access permissions	sitemgr	de	Individuelle Zugriffsrechte
 interface to google website	sitemgr	de	Schnittstelle zur Google Webseite
 invalid template directory '%1' !!!	sitemgr	de	Ungültiges Designvorlagen-Verzeichnis '%1' !!!
+knowledge base	sitemgr	de	Wissensdatenbank
 languages the site user can choose from	sitemgr	de	Sprachen, die der Benutzer auswählen kann
 latest reply	sitemgr	de	Letzte Antwort
 list of permitted modules specific to content area %1	sitemgr	de	Liste der erlaubten Module speziell für den Inhaltsbereich %1
