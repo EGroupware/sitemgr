@@ -31,9 +31,8 @@
 	if ($location && file_exists($dir . '/functions.inc.php'))
 	{
 		require_once($dir . '/functions.inc.php');
-
-		Header('Location: ' . sitemgr_link2('/index.php',array("PHPSESSID" => session_id())));
-		//echo sitemgr_link2('/index.php');
+		
+		$GLOBALS['phpgw']->redirect(sitemgr_link(array("PHPSESSID" => session_id())));
 		exit;
 	}
 	else
