@@ -87,13 +87,28 @@ class Module
 		$this->block = $block;
 	}
 
-	function link($modulevars)
+	function link($modulevars=array())
 	{
 		while (list($key,$value) = @each($modulevars))
 		{
 			$extravars[$this->block->module_name.'['.$key.']'] = $value;
 		}
-		$extravars['page_id'] = $this->block->page_id;
+		if ($GLOBALS['page']->id)
+		{
+			$extravars['page_id'] = $GLOBALS['page']->id;
+		}
+		elseif ($GLOBALS['page']->cat_id)
+		{
+			$extravars['category_id'] = $GLOBALS['page']->cat_id;
+		}
+		elseif ($GLOBALS['page']->toc)
+		{
+			$extravars['toc'] = 1;
+		}
+		elseif ($GLOBALS['page']->index)
+		{
+			$extravars['index'] = 1;
+		}
 		return sitemgr_link($extravars);
 	}
 

@@ -76,6 +76,7 @@
 			global $page;
 			$page->title = lang('Site Index');
 			$page->subtitle = '';
+			$page->index = True;
 			$page->block = CreateObject('sitemgr.Block_SO',True);
 			$page->block->app_name = 'sitemgr';
 			$page->block->module_name = 'index';
@@ -148,6 +149,7 @@
 			{
 				$page->title = lang('Table of Contents');
 				$page->subtitle = '';
+				$page->toc = True;
 			}
 			$page->block = CreateObject('sitemgr.Block_SO',True);
 			$page->block->app_name = 'sitemgr';
