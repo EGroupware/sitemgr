@@ -210,13 +210,14 @@
 					'input'=>'option',
 					'options'=>$this->pages_bo->getPageOptionList()
 				);
-				$theme = $GLOBALS['Common_BO']->sites->current_site['themesel'];
+				$theme = $GLOBALS['Common_BO']->sites->current_site['default_theme'];
 				$theme_info = $GLOBALS['phpgw']->link('/sitemgr/theme_info.php');
 				$theme_info .= (strstr($theme_info,'?') ? '&' : '?').'theme=';
-				$preferences['themesel'] = array(
+				$preferences['default_theme'] = array(
 					'title'=>lang('Template select'),
 					'note'=>lang('Choose your site\'s theme or template.  Note that if you changed the above checkbox you need to save before choosing a theme or template.').'<br /><br />'.
-						lang('<b>Want more templates?</b><br />Just download a %1Mambo Open Source%2 Version 4.5 compatible template from %3 and unpack it in your templates directory (%4).',
+						lang('<b>Want more templates?</b><br />Just download one from the template gallery at %1www.eGroupWare.org%2 or use a %3Mambo Open Source%4 Version 4.5 compatible template eg. from %5. Unpack the downloaded template in your templates directory (%6).',
+							'<a href="http://www.eGroupWare.org/sitemgr" target="_blank">','</a>',
 							'<a href="http://www.mamboserver.com" target="_blank">','</a>',
 							'<a href="http://www.mambofiles.com/index.php?option=com_remository&Itemid=26&func=selectfolder&filecatid=9">www.mamboportal.com</a>',
 							$GLOBALS['Common_BO']->sites->current_site['site_dir'] . SEP . 'templates'),

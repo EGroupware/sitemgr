@@ -97,6 +97,7 @@
 					$result['site_name_' . $lang] = $langinfo->name;
 					$result['site_desc_' . $lang] = $langinfo->description;
 				}
+				$result['default_theme'] = $result['themesel'];	// set the new name
 				return $result;
 			}
 			else
@@ -127,6 +128,7 @@
 
 		function saveprefs($prefs,$site_id=CURRENT_SITE_ID)
 		{
+			$prefs['themesel'] = $prefs['default_theme'];	// use the new name
 			$this->so->saveprefs($prefs,$site_id);
 			$site_languages = $prefs['site_languages'] ? $prefs['site_languages'] : $this->current_site['site_languages'];
 			$site_languages = $site_languages ? explode(',',$site_languages) : array('en');
