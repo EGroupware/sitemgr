@@ -14,7 +14,6 @@
 		var $t;
 		var $cat_bo;
 		var $acl;
-		var $preferenceso;
 		var $sitelanguages;
 		var $common_ui;
 		var $pagebo;
@@ -35,8 +34,7 @@
 			$this->t = $GLOBALS['phpgw']->template;
 			$this->cat_bo = &$GLOBALS['Common_BO']->cats;
 			$this->acl = &$GLOBALS['Common_BO']->acl;
-			$this->preferenceso = CreateObject('sitemgr.sitePreference_SO', true);
-			$this->sitelanguages = explode(',',$this->preferenceso->getPreference('sitelanguages'));
+			$this->sitelanguages = explode(',',$GLOBALS['Common_BO']->sites->current_site['site_languages']);
 			$this->pagebo = &$GLOBALS['Common_BO']->pages;
 			$this->contentbo = &$GLOBALS['Common_BO']->content;
 			$this->modulebo = &$GLOBALS['Common_BO']->modules;
@@ -276,7 +274,7 @@
 
 			$this->templatehelper();
 
-			$this->process_blocks($this->contentbo->getblocksforscope(0,0));
+			$this->process_blocks($this->contentbo->getblocksforscope(CURRENT_SITE_ID,0));
 			$this->t->pfp('out','TranslateSitecontent');
 		}
 

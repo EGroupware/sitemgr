@@ -9,6 +9,8 @@
 	* option) any later version.                                                *
 	\***************************************************************************/
 
+define('SITEMGR_ACL_IS_ADMIN',1);
+
 	class ACL_BO
 	{
 		var $acct;
@@ -21,8 +23,8 @@
 		{
 			$this->logged_in_user = $GLOBALS['phpgw_info']['user']['account_id'];
 			$this->acct = CreateObject('phpgwapi.accounts',$this->logged_in_user);
-			$this->acl = CreateObject('phpgwapi.acl',$this->logged_in_user);
 			$this->pages_so = CreateObject('sitemgr.Pages_SO');
+			$this->acl = CreateObject('phpgwapi.acl',$this->logged_in_user);
 			$this->acl_so = CreateObject('sitemgr.ACL_SO');
 		}
 
@@ -41,7 +43,7 @@
 				$category_id = $page->cat_id;
 				//$this->acl = CreateObject('phpgwapi.acl',$this->logged_in_user);
 				//return ($this->acl->get_rights('L'.$category_id,'sitemgr') & PHPGW_ACL_READ);
-				return ($this->acl_so->get_permission('L'.$category_id) & PHPGW_ACL_READ);
+	 			return ($this->acl_so->get_permission('L'.$category_id) & PHPGW_ACL_READ);
 			}
 			else
 			{
@@ -49,13 +51,17 @@
 			}
 		}
 
-		function is_admin()
+		function is_admin($site_id=False,$account_id=False)
 		{
-			if($GLOBALS['phpgw']->acl->check('run',1,'admin'))
+			if (!$site_id)
 			{
-				define('HAS_ADMIN_RIGHTS',1);
+				$site_id = CURRENT_SITE_ID;
 			}
-			if(HAS_ADMIN_RIGHTS == 1)
+			if (!$account_id)
+			{
+				$account_id = $this->logged_in_user;
+			}
+			if ($this->acl_so->get_rights($account_id,'L'.$site_id) & SITEMGR_ACL_IS_ADMIN)
 			{
 				return True;
 			}
@@ -63,6 +69,33 @@
 			{
 				return False;
 			}
+		}
+
+		function set_adminlist($site_id,$account_list)
+		{
+			$this->remove_location($site_id);
+			while (list($null,$account_id) = @each($account_list))
+			{
+				$this->acl->add_repository('sitemgr','L'.$site_id,$account_id,SITEMGR_ACL_IS_ADMIN);
+			}
+		}
+
+		function get_adminlist($site_id)
+		{
+			$users = $this->acct->get_list($acct_type);
+
+			$adminlist = Array();
+
+			reset($users);
+			while(list($k,$v) = each($users))
+			{
+				$account_id = $v['account_id'];
+				if ($this->is_admin($site_id,$account_id))
+				{
+					$adminlist[] = $account_id;
+				}
+			}
+			return $adminlist;
 		}
 
 		function remove_location($category_id)
@@ -89,7 +122,6 @@
 				$rights = ($rights | PHPGW_ACL_ADD);
 			}
 
-			$this->acl = CreateObject('phpgwapi.acl',$user);
 			if ($rights == 0)
 			{
 				return $this->acl->delete_repository('sitemgr','L'.$category_id,$user);
@@ -134,9 +166,11 @@
 			return $permissions;
 		}
 
+		//at there are only implicit permissions for the toplevel site_category, is this a problem?
+		//everybody can read it, only admins can write it. 
 		function can_read_category($category_id)
 		{
-			if ($this->is_admin())
+			if ($this->is_admin() || ($category_id == CURRENT_SITE_ID))
 			{
 				return true;
 			}
@@ -154,14 +188,16 @@
 			{
 				return true;
 			}
-			else
+			elseif ($category_id != CURRENT_SITE_ID)
 			{
 				//$this->acl = CreateObject('phpgwapi.acl',$this->logged_in_user);
 				//return ($this->acl->get_rights($account_id,'L'.$category_id) & PHPGW_ACL_ADD);
 				// if category_id = 0, we are in site-wide scope, and only admin can add content
-				return $category_id ? 
-					($this->acl_so->get_permission('L'.$category_id) & PHPGW_ACL_ADD) :
-					$this->is_admin();
+				return $this->acl_so->get_permission('L'.$category_id) & PHPGW_ACL_ADD;
+			}
+			else
+			{
+				return False;
 			}
 		}
 

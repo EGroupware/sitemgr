@@ -9,17 +9,29 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 		function Content_BO()
 		{
 			$this->so = CreateObject('sitemgr.Content_SO', true);
-			$prefs_so = CreateObject('sitemgr.sitePreference_SO', True);
-			$sitemgr_dir = $prefs_so->getPreference('sitemgr-site-dir');
-			$themesel = $prefs_so->getPreference('themesel');
-			$this->templatefile = $sitemgr_dir . SEP . 'templates' . SEP . $themesel . SEP . 'main.tpl';
 		}
 
 		function getContentAreas()
 		{
-			$str = implode('', @file($this->templatefile));
-			preg_match_all("/\{contentarea:([^{ ]+)\}/",$str,$matches);
-			return $matches[1];
+			$templatefile =  $GLOBALS['Common_BO']->sites->current_site['site_dir'] .  SEP . 'templates' . 
+				SEP . $GLOBALS['Common_BO']->sites->current_site['themesel'] . SEP . 'main.tpl';
+
+			if (file_exists($templatefile))
+			{
+				$str = implode('', @file($templatefile));
+				if (preg_match_all("/\{contentarea:([^{ ]+)\}/",$str,$matches))
+				{
+					return $matches[1];
+				}
+				else
+				{
+					return lang('No content areas found in selected template');
+				}
+			}
+			else
+			{
+				return lang('No template file found.');
+			}
 		}
 
 
@@ -40,19 +52,20 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 			}
 		}
 
-		function removeBlocksInPageOrCat($cat_id,$page_id)
+		function removeBlocksInPageOrCat($cat_id,$page_id,$force=False)
 		{
 			$blocks = $this->so->getblocksforscope($cat_id,$page_id);
 			while(list($blockid,) = each($blocks))
 			{
-				$this->removeblock($blockid);
+				$this->removeblock($blockid,$force);
 			}
 		}
 
-		function removeblock($blockid)
+		function removeblock($blockid,$force=False)
 		{
 			$block = $this->so->getblockdef($blockid);
-			if ($GLOBALS['Common_BO']->acl->can_write_category($block->cat_id))
+
+			if ($GLOBALS['Common_BO']->acl->can_write_category($block->cat_id) || $force)
 			{
 				return $this->so->removeblock($blockid);
 			}
@@ -62,8 +75,8 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 			}
 		}
 
-		//the next two functions retrieves all blocks for a certain area, if cat_id and page_id are 0, only site-wide blocks are retrieved.
-		//if cat_id is non zero and page_id is 0, site-wide blocks and all blocks for the category and all its ancestor categories are retrieved.
+		//the next two functions retrieves all blocks for a certain area, if (cat_id = $site_id and page_id = 0), only site-wide blocks are retrieved.
+		//if (cat_id != $site_id and page_id is 0), site-wide blocks and all blocks for the category and all its ancestor categories are retrieved.
 		//if page_id is non zero, cat_id should be the page's category. Page blocks + category blocks + site blocks are retrieved.
 		function getvisibleblockdefsforarea($area,$cat_id,$page_id)
 		{

@@ -24,10 +24,11 @@
 		echo "You need to make sure the sitemgr-link app is in the phpgroupware directory.  If you made a symbolic link... it isn't working.";
 		die();
 	}
-	$pref_so = CreateObject('sitemgr.sitePreference_SO', True);
-	$location = $pref_so->getPreference('sitemgr-site-url');
-	$dir = $pref_so->getPreference('sitemgr-site-dir');
-	$sitemgr_info['sitemgr-site-url'] = $pref_so->getPreference('sitemgr-site-url');
+	$sites_bo = createobject('sitemgr.Sites_BO');
+	$siteinfo = $sites_bo->get_currentsiteinfo();
+	$location = $siteinfo['site_url'];
+	$dir = $siteinfo['site_dir'];
+	$sitemgr_info['site_url'] = $location;
 	if ($location && file_exists($dir . '/functions.inc.php'))
 	{
 		require_once($dir . '/functions.inc.php');

@@ -13,12 +13,12 @@ class module_currentsection extends Module
 	function get_content(&$arguments,$properties)
 	{
 		global $page;
-		$catlinks = $GLOBALS['objbo']->getCatLinks((int)$page->cat_id,false);
-		if (!$page->cat_id)
+		if ($page->cat_id == $GLOBALS['Common_BO']->current_site['site_id'])
 		{
 			return '';
 		}
 
+		$catlinks = $GLOBALS['objbo']->getCatLinks((int)$page->cat_id,false);
 		$pagelinks = $GLOBALS['objbo']->getPageLinks($page->cat_id,false);
 		$category = $GLOBALS['objbo']->getcatwrapper($page->cat_id);
 		$this->block->title = $category->name;

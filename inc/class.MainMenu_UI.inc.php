@@ -50,10 +50,10 @@
 					'lang_editheadfoot' => lang('Edit Site Header and Footer'),
 					'lang_managesitemodules' => lang('Manage site-wide module properties'),
 					'lang_managesitecontent' => lang('Manage Site Content'),
-					'headerandfooter' => $GLOBALS['phpgw']->link('/index.php', 'menuaction=sitemgr.SiteContent_UI._editHeaderAndFooter'),
+//					'headerandfooter' => $GLOBALS['phpgw']->link('/index.php', 'menuaction=sitemgr.SiteContent_UI._editHeaderAndFooter'),
 					'setup'	=> $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Common_UI.DisplayPrefs')
 				));
-				$link_data['cat_id'] = 0;
+				$link_data['cat_id'] = CURRENT_SITE_ID;
 				$link_data['menuaction'] = "sitemgr.Modules_UI._manageModules";
 				$this->t->set_var('managesitemodules',$GLOBALS['phpgw']->link('/index.php',$link_data));
 				$link_data['page_id'] = 0;

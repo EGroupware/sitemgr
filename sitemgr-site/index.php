@@ -34,7 +34,11 @@
 
 	require_once('./functions.inc.php');
 
-	$Common_BO = CreateObject('sitemgr.Common_BO',True);
+
+	$Common_BO = CreateObject('sitemgr.Common_BO');
+	$Common_BO->sites->set_currentsite($site_url);
+	$sitemgr_info = array_merge($sitemgr_info,$Common_BO->sites->current_site);
+	$sitemgr_info['sitelanguages'] = explode(',',$sitemgr_info['site_languages']);
 
 	include './inc/class.ui.inc.php';
 	include './inc/class.sitebo.inc.php';
@@ -75,12 +79,9 @@
 	}
 	else
 	{
-		$objsp_so = CreateObject('sitemgr.sitePreference_SO');
-		$home_page = $objsp_so->getPreference('home-page-id');
-		unset($objsp_so);
-		if ($home_page)
+		if ($sitemgr_info['home_page_id'])
 		{
-			$objui->displayPage($home_page);
+			$objui->displayPage($sitemgr_info['home_page_id']);
 		}
 		else
 		{

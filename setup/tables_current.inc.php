@@ -49,17 +49,18 @@
 			'ix' => array(),
 			'uc' => array()
 		),
-		'phpgw_sitemgr_preferences' => array(
-			'fd' => array(
-				'pref_id' => array('type' => 'auto', 'nullable' => false),
-				'name' => array('type' => 'varchar', 'precision' => 255),
-				'value' => array('type' => 'text')
-			),
-			'pk' => array('pref_id'),
-			'fk' => array(),
-			'ix' => array(),
-			'uc' => array()
-		),
+// 		'phpgw_sitemgr_preferences' => array(
+// 			'fd' => array(
+// 				'pref_id' => array('type' => 'auto', 'nullable' => false),
+// 				'name' => array('type' => 'varchar', 'precision' => 255),
+// 				'value' => array('type' => 'text'),
+// 				'site_id' => array('type' => 'int', 'precision' => 4, 'nullable' => false),
+// 			),
+// 			'pk' => array('pref_id'),
+// 			'fk' => array(),
+// 			'ix' => array(),
+// 			'uc' => array()
+// 		),
 		'phpgw_sitemgr_modules' => array(
 			'fd' => array(
 				'module_id' => array('type' => 'auto', 'precision' => 4, 'nullable' => false),
@@ -124,6 +125,23 @@
 				'properties' => array('type' => 'text')
 			),
 			'pk' => array('area','cat_id','module_id'),
+			'fk' => array(),
+			'ix' => array(),
+			'uc' => array()
+		),
+		'phpgw_sitemgr_sites' => array(
+			'fd' => array(
+				'site_id' => array('type' => 'int', 'precision' => 4, 'nullable' => false),
+				'site_name' => array('type' => 'varchar', 'precision' => 255),
+				'site_url' => array('type' => 'varchar', 'precision' => 255),
+				'site_dir' => array('type' => 'varchar', 'precision' => 255),
+				'themesel' => array('type' => 'varchar', 'precision' => 50),
+				'site_languages' => array('type' => 'varchar', 'precision' => 50),
+				'home_page_id' => array('type' => 'int', 'precision' => 4),
+				'anonymous_user' => array('type' => 'varchar', 'precision' => 50),
+				'anonymous_passwd' => array('type' => 'varchar', 'precision' => 50),
+			),
+			'pk' => array('site_id'),
 			'fk' => array(),
 			'ix' => array(),
 			'uc' => array()

@@ -19,7 +19,7 @@
 		function ui()
 		{
 			$themesel = $GLOBALS['sitemgr_info']['themesel'];
-			$templateroot = $GLOBALS['sitemgr_info']['sitemgr-site-dir'] . SEP . 'templates' . SEP . $themesel;
+			$templateroot = $GLOBALS['sitemgr_info']['site_dir'] . SEP . 'templates' . SEP . $themesel;
 			$this->t = new Template3($templateroot);
 		}
 

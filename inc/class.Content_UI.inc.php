@@ -30,8 +30,7 @@
 				'2' => lang('administrators'),
 				'3' => lang('anonymous')
 			);
-			$preferenceso = CreateObject('sitemgr.sitePreference_SO', true);
-			$this->sitelanguages = explode(',',$preferenceso->getPreference('sitelanguages'));
+			$this->sitelanguages = explode(',',$GLOBALS['Common_BO']->sites->current_site['site_languages']);
 			$sessionlang = $GLOBALS['phpgw']->session->appsession('worklanguage','sitemgr');
 			$this->worklanguage = $sessionlang ? $sessionlang : $this->sitelanguages[0];
 			$this->errormsg = array();
@@ -45,7 +44,6 @@
 			global $blockid, $blocktitle, $blocksort,$blockview,$blockactif,$btnSaveBlock,$btnDeleteBlock, $module_id, $area, $btnAddBlock, $element, $savelanguage;
 			$page_id = $_GET['page_id'];
 			$cat_id = $_GET['cat_id'];
-			$scopename = $page_id ? lang('Page') : ($cat_id ? lang('Category') : lang('Site'));
 
 			if ($page_id)
 			{
@@ -56,7 +54,7 @@
 				$goto = lang('Page manager');
 				$scopename = lang('Page');
 			}
-			elseif ($cat_id)
+			elseif ($cat_id != CURRENT_SITE_ID)
 			{
 				$cat = $GLOBALS['Common_BO']->cats->getCategory($cat_id);
 				$page_or_cat_name = $cat->name;
@@ -67,8 +65,8 @@
 			}
 			else
 			{
-				$cat_id = 0;
 				$page_id = 0;
+				$scopename = lang('Site');
 			}
 
 			$this->t->set_file('Managecontent', 'manage_content.tpl');
@@ -144,7 +142,7 @@
 			}
 
 			$contentareas = $this->bo->getContentAreas();
-			if ($contentareas)
+			if (is_array($contentareas))
 			{
 				$this->t->set_var('help', lang('You can override each content blocks default title. Be aware that not in all content areas the block title will be visible.'));
 
@@ -310,7 +308,7 @@
 			}
 			else
 			{
-				$this->t->set_var('CBlock',lang('No content areas found in selected template'));
+				$this->t->set_var('CBlock',$contentareas);
 			}
 			$this->t->pfp('out', 'Managecontent');
 			$this->common_ui->DisplayFooter();	

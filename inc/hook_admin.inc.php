@@ -15,13 +15,17 @@
 
 		$file = Array
 		(
-			'Site Setup'						=> $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Common_UI.DisplayPrefs'),
-			'Edit Categories and Permissions'	=> $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Categories_UI._manageCategories'),
-			'Edit Site Header and Footer'		=> $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.SiteContent_UI._editHeaderAndFooter'),
-			'Edit Individual Pages'				=> $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Pages_UI._managePage')
+			'Define Websites' => $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Sites_UI.list_sites'),
 		);
 
 //Do not modify below this line
+		if ((int)substr($GLOBALS['phpgw_info']['server']['versions']['phpgwapi'],4)>14)
+		{
 		$GLOBALS['phpgw']->common->display_mainscreen($appname,$file);
+		}
+		else
+		{
+		display_section($appname,$title,$file);
+		}
 	}
 ?>

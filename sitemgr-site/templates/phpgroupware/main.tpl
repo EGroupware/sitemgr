@@ -63,7 +63,7 @@
 						  <p><b><font face="Verdana, Arial, Helvetica, sans-serif"><img src="templates/phpgroupware/images/spacer.gif" width="39" height="1"></font></b><br>
 						   <font color="#ffffff">
 								<a href="{?phpgw:/index.php,}">Logged in as:</a> {user}<br>
-							  {header}
+							  {contentarea:header}
 						  </font>
 						 </p>
 						 <h1>{title}</h1>
@@ -93,7 +93,7 @@
         <tr> 
           <td>
 			<p style="background:#FFFFFF;color:#537991;text-align:center" height="5">
-            {footer}&nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;<a style="color:#537991;" href="{?page_name=privacy}">privacy  policy</a>&nbsp;&nbsp;&nbsp;:: 
+            {contentarea:footer}&nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;<a style="color:#537991;" href="{?page_name=privacy}">privacy  policy</a>&nbsp;&nbsp;&nbsp;:: 
                 &nbsp;&nbsp;&nbsp;Copyright &copy; 2000 - 
                 2002 phpGroupWare&nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;
 				<a style="color:#537991;" href="http://www.ov-media.com/">site design by ov media</a><br>

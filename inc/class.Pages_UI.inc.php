@@ -34,8 +34,7 @@
 			$this->t = $GLOBALS['phpgw']->template;
 			$this->pagebo = &$GLOBALS['Common_BO']->pages;
 			$this->categorybo = &$GLOBALS['Common_BO']->cats;
-			$preferenceso = CreateObject('sitemgr.sitePreference_SO', true);
-			$this->sitelanguages = explode(',',$preferenceso->getPreference('sitelanguages'));
+			$this->sitelanguages = explode(',',$GLOBALS['Common_BO']->sites->current_site['site_languages']);
 		}
 		
 		function _addPage($category_id)

@@ -3,10 +3,11 @@
 	* Edit the values in the following array to configure       *
 	* the site generator.                                       *
 	\***********************************************************/
+
 	$sitemgr_info = array(
 		// add trailing slash
 		'phpgw_path'           => '../../',
-		'htaccess_rewrite'         => False
+		'htaccess_rewrite'         => False,
 	);
 
 	/***********************************************************\
@@ -24,10 +25,12 @@
 		include(PHPGW_SERVER_ROOT . '/phpgwapi/inc/functions.inc.php');
 		$GLOBALS['phpgw_info']['flags']['currentapp'] = 'sitemgr-site';
 
-		$pref = CreateObject('sitemgr.sitePreference_SO');
-		$sitemgr_info = array_merge($sitemgr_info,$pref->getallprefs());
-		unset($pref);
-		$sitemgr_info['sitelanguages'] = explode(',',$sitemgr_info['sitelanguages']);
+		$site_url = 'http://' . preg_replace('/\/[^\/]*$/','',$_SERVER['SERVER_NAME'] . $_SERVER['PHP_SELF']) . '/';
+
+		$GLOBALS['phpgw']->db->query("SELECT anonymous_user,anonymous_passwd FROM phpgw_sitemgr_sites WHERE site_url = '$site_url'");
+		$GLOBALS['phpgw']->db->next_record();
+		$anonymous_user = $GLOBALS['phpgw']->db->f('anonymous_user');
+		$anonymous_passwd = $GLOBALS['phpgw']->db->f('anonymous_passwd');
 
 		//this is useful when you changed the API session class to not overgeneralize the session cookies
 		if ($GLOBALS['HTTP_GET_VARS']['PHPSESSID'])
@@ -38,7 +41,7 @@
 
 		if (! $GLOBALS['phpgw']->session->verify())
 		{
-			$GLOBALS['sessionid'] = $GLOBALS['phpgw']->session->create($sitemgr_info['anonymous-user'],$sitemgr_info['anonymous-passwd'], 'text');
+			$GLOBALS['sessionid'] = $GLOBALS['phpgw']->session->create($anonymous_user,$anonymous_passwd, 'text');
 			if (!$GLOBALS['sessionid'])
 			{
 				die(lang('NO ANONYMOUS USER ACCOUNTS INSTALLED.  NOTIFY THE ADMINISTRATOR.'));

@@ -35,8 +35,7 @@
 			$this->cat = CreateObject('sitemgr.Category_SO', True);
 			$this->acl = $GLOBALS['Common_BO']->acl;
 			$this->isadmin = $this->acl->is_admin();
-			$preferenceso = CreateObject('sitemgr.sitePreference_SO', true);
-			$this->sitelanguages = explode(',',$preferenceso->getPreference('sitelanguages'));
+			$this->sitelanguages = explode(',',$GLOBALS['Common_BO']->sites->current_site['site_languages']);
 		}
 
 		function _manageCategories()

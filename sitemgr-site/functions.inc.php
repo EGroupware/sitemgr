@@ -56,7 +56,7 @@
 		// a url may look like this: 'http://xyz//hi.php' or
 		// like this: '//index.php?blahblahblah' -- so the code below will remove
 		// the inappropriate double slashes and leave appropriate ones
-		$url = $GLOBALS['sitemgr_info']['sitemgr-site-url'] . $url;
+		$url = $GLOBALS['sitemgr_info']['site_url'] . $url;
 		$url = substr(ereg_replace('([^:])//','\1/','s'.$url),1);
 
 		// build the extravars string from a array

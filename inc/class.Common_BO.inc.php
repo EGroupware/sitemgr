@@ -6,13 +6,14 @@
 
 		function Common_BO()
 		{
+			$this->sites = CreateObject('sitemgr.Sites_BO',True);
 			$this->acl = CreateObject('sitemgr.ACL_BO',True);
 			$this->theme = CreateObject('sitemgr.Theme_BO',True);
 			$this->pages = CreateObject('sitemgr.Pages_BO',True);
 			$this->cats = CreateObject('sitemgr.Categories_BO',True);
 			$this->content = CreateObject('sitemgr.Content_BO',True);
 			$this->modules = CreateObject('sitemgr.Modules_BO',True);
-			$this->headerfooter = CreateObject('sitemgr.headerFooter_BO', True);
+//			$this->headerfooter = CreateObject('sitemgr.headerFooter_BO', True);
 		}
 
 		function globalize($varname)

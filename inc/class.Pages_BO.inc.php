@@ -11,7 +11,7 @@
 		function getPageOptionList()
 		{
 			$pagelist = $this->pageso->getPageIDList();
-			$retval[]=array('value'=>'','display'=>'[' .lang('Show Site Index') . ']');
+			$retval[]=array('value'=>0,'display'=>'[' .lang('Show Site Index') . ']');
 			foreach($pagelist as $page_id)
 			{
 				$page = $this->pageso->getPage($page_id);
@@ -44,18 +44,18 @@
 			}
 		}
 
-		function removePagesInCat($cat_id)
+		function removePagesInCat($cat_id,$force=False)
 		{
 			$pages = $this->pageso->getPageIDList($cat_id);
 			while(list(,$page_id) = each($pages))
 			{
-				$this->removePage($cat_id,$page_id);
+				$this->removePage($cat_id,$page_id,$force);
 			}
 		}
 
-		function removePage($cat_id, $page_id)
+		function removePage($cat_id, $page_id,$force=False)
 		{
-			if ($GLOBALS['Common_BO']->acl->can_write_category($cat_id))
+			if ($GLOBALS['Common_BO']->acl->can_write_category($cat_id) || $force)
 			{
 				$this->pageso->removePage($page_id);
 				$GLOBALS['Common_BO']->content->removeBlocksInPageOrCat($cat_id,$page_id);

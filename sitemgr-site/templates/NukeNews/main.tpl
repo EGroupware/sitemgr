@@ -26,7 +26,7 @@
 <td bgcolor="#999999"><IMG src="templates/NukeNews/images/pixel.gif" width="1" height="1" alt="" border="0" hspace="0"></td>
 <td bgcolor="#cfcfbb" align="center">
 <center>
-	{header}
+	{contentarea:header}
 </center></td>
 <td bgcolor="#cfcfbb" align="center">
 <center>
@@ -94,7 +94,7 @@ document.write(monthNames[now.getMonth()] + " " + now.getDate() + ", " + thisYea
 <td><IMG height="17" alt="" hspace="0" src="templates/NukeNews/images/corner-top-right.gif" width="17" align="right"></td>
 </tr><tr align="center">
 <td width="100%" colspan="3">
-{footer}
+{contentarea:footer}
 </td>
 </tr><tr>
 <td><IMG height="17" alt="" hspace="0" src="templates/NukeNews/images/corner-bottom-left.gif" width="17" align="left"></td>

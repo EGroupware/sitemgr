@@ -28,7 +28,7 @@
 <table width="100%" border="0" align="center" bgcolor="#ffffff"><tr><td>
 			<a href="index.php"><img src="templates/3D-Fantasy/images/logo.gif" border="0" alt="Welcome to {site_name}" align="left"></a>
 			</td><td>
-{header}
+{contentarea:header}
 </td></tr></table>
 </td>
 <td background="templates/3D-Fantasy/images/right2.gif">&nbsp;</td></tr>
@@ -56,7 +56,7 @@
 <td><img src="templates/3D-Fantasy/images/up-right2.gif" width="15" height="15" alt="" border="0"></td></tr>
 <tr>
 <td background="templates/3D-Fantasy/images/left2.gif" width="15">&nbsp;</td>
-<td bgcolor="ffffff" width="100%" align="center"><font class="tiny">{footer}</font></td>
+<td bgcolor="ffffff" width="100%" align="center"><font class="tiny">{contentarea:footer}</font></td>
 <td background="templates/3D-Fantasy/images/right2.gif">&nbsp;</td></tr>
 <tr>
 <td width="15" height="15"><img src="templates/3D-Fantasy/images/down-left2.gif" alt="" border="0"></td>

@@ -22,24 +22,26 @@
 			return $retval;
 		}
 
-		function getPermittedCatReadNested($cat_id=0)
+		function getPermittedCatReadNested($cat_id=False)
 		{
+			if (!$cat_id)
+			{
+				$cat_id = CURRENT_SITE_ID;
+			}
 			return $this->getPermittedCatNested($cat_id,'read');
 		}
-		function getPermittedCatWriteNested($cat_id=0)
+		function getPermittedCatWriteNested($cat_id=False)
 		{
+			if (!$cat_id)
+			{
+				$cat_id = CURRENT_SITE_ID;
+			}
 			return $this->getPermittedCatNested($cat_id,'write');
 		}
 
 		// Don't call this function directly.  Use above funcs.
-		function getPermittedCatNested($cat_id=0,$check='')
+		function getPermittedCatNested($cat_id,$check)
 		{
-			if (!$check)
-			{
-				// You should use the getPermittedCatReadNested and WriteNested funcs
-				die("Whatcha doin callin this function, Willis?");
-			}
-
 			$root_list = $this->so->getChildrenIDList($cat_id);
 			$permitted_list=array();
 			if (is_array($root_list))
@@ -56,7 +58,7 @@
 					}
 					else
 					{
-						die("What'd I tell you about calling this function?");
+						die("Illegal call of function getPermittedCatNested");
 					}
 
 					if ($permitted)
@@ -77,8 +79,13 @@
 		}
 
 		//the next two functions do not recurse!
-		function getPermittedCategoryIDWriteList($cat_id=0)
+		function getPermittedCategoryIDWriteList($cat_id=False)
 		{
+			if (!$cat_id)
+			{
+				$cat_id = CURRENT_SITE_ID;
+			}
+
 			$full_list = $this->so->getChildrenIDList($cat_id);
 
 			$permitted_list=array();
@@ -95,8 +102,12 @@
 			return $permitted_list;
 		}
 
-		function getPermittedCategoryIDReadList($cat_id=0)
+		function getPermittedCategoryIDReadList($cat_id=False)
 		{
+			if (!$cat_id)
+			{
+				$cat_id = CURRENT_SITE_ID;
+			}
 			$full_list = $this->so->getChildrenIDList($cat_id);
 			
 			$permitted_list=array();
@@ -114,8 +125,13 @@
 			return $permitted_list;
 		}
 
-		function addCategory($name, $description, $parent=0)		
+		function addCategory($name, $description, $parent=False)		
 		{
+			if (!$parent)
+			{
+				$parent = CURRENT_SITE_ID;
+			}
+
 			if ($GLOBALS['Common_BO']->acl->is_admin())
 			{
 				return $this->so->addCategory($name, $description, $parent);
@@ -126,10 +142,20 @@
 			}
 		}
 
-		function removeCategory($cat_id)
+		//$force for use by Sites_BO, since when we are editing the files list, the concept of admin of a current site does not apply
+		//$frecurse also removes subcats
+		function removeCategory($cat_id,$force=False,$recurse=False)
 		{
-			if ($GLOBALS['Common_BO']->acl->is_admin())
+			if ($GLOBALS['Common_BO']->acl->is_admin() || $force)
 			{
+				if ($recurse)
+				{
+					$children = $this->so->getChildrenIDList($cat_id);
+					while (list($null,$subcat) = @each($children))
+					{
+						$this->removeCategory($subcat,$force,$recurse);
+					}
+				}
 				/********************************************\
 				* We have to remove the category, all the    *
 				* associated pages, and all the associated   *
@@ -137,28 +163,25 @@
 				\********************************************/
 				$this->so->removeCategory($cat_id);
 				$GLOBALS['Common_BO']->acl->remove_location($cat_id);
-				$GLOBALS['Common_BO']->pages->removePagesInCat($cat_id);
-				$GLOBALS['Common_BO']->content->removeBlocksInPageOrCat($cat_id,0);
+				$GLOBALS['Common_BO']->pages->removePagesInCat($cat_id,$force);
+				$GLOBALS['Common_BO']->content->removeBlocksInPageOrCat($cat_id,0,$force);
 				return True;
 			}
 		}
 
-		function saveCategoryInfo($cat_id, $cat_name, $cat_description, $lang, $sort_order=0, $parent=0, $old_parent=0)
+		function saveCategoryInfo($cat_id, $cat_name, $cat_description, $lang, $sort_order=0, $parent=False, $old_parent=False)
 		{
+			if (!$parent)
+			{
+				$parent = CURRENT_SITE_ID;
+			}
 			$cat_info = CreateObject('sitemgr.Category_SO', True);
 			$cat_info->id = $cat_id;
 			$cat_info->name = $cat_name;
 			$cat_info->description = $cat_description;
 			$cat_info->sort_order = $sort_order;
 			$cat_info->parent = $parent;
-			if ($old_parent!='')
-			{
-				$cat_info->old_parent = $old_parent;
-			}
-			else
-			{
-				$cat_info->old_parent = $parent;
-			}
+			$cat_info->old_parent = $old_parent ? $old_parent : $parent;
 
 			if ($GLOBALS['Common_BO']->acl->can_write_category($cat_id))
 			{	
@@ -201,8 +224,9 @@
 
 		function getCategoryancestorids($cat_id,$permittedonly=False)
 		{
+			$cat_id = $cat_id ? $cat_id : CURRENT_SITE_ID;
 			$result = array();
-			while ($cat_id != 0)
+			while ($cat_id != CURRENT_SITE_ID)
 			{
 				if (!$permittedonly || $GLOBALS['Common_BO']->acl->can_read_category($cat_id))
 				{

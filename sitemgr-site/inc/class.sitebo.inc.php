@@ -81,6 +81,7 @@
 			$page->block->module_name = 'index';
 			$page->block->module_id = $GLOBALS['Common_BO']->modules->getmoduleid('index');
 			$page->block->view = 0;
+			$page->cat_id = $GLOBALS['Common_BO']->current_site['site_id'];
 			return true;
 		}
 
@@ -149,6 +150,8 @@
 				$page->title = lang('Table of Contents');
 				$page->subtitle = '';
 				$page->toc = True;
+				$page->cat_id = $GLOBALS['Common_BO']->current_site['site_id'];
+
 			}
 			$page->block = CreateObject('sitemgr.Block_SO',True);
 			$page->block->module_name = 'toc';
@@ -205,7 +208,7 @@
 		function is_user()
 		{
 			global $sitemgr_info,$phpgw_info;
-			if ($phpgw_info['user']['account_lid'] != $sitemgr_info['anonymous-user'])
+			if ($phpgw_info['user']['account_lid'] != $sitemgr_info['anonymous_user'])
 			{
 				return true;
 			}
@@ -226,6 +229,10 @@
 		//instead of the languages installed in phpgroupware
 		function setsitemgrPreferredLanguage()
 		{
+			//since there are lang calls in the API, and the first lang call builds $GLOBAL['lang'], wet have to unset it, if
+			//the change of $GLOBALS['phpgw_info']['user']['preferences']['common']['lang'] should have any effect.
+			//is there a more efficient way to do the same thing?
+			unset($GLOBALS['lang']);
 			$supportedLanguages = $GLOBALS['sitemgr_info']['sitelanguages'] ? $GLOBALS['sitemgr_info']['sitelanguages'] : array('en');
 			$postlang = $_POST['language'];
 			if ($postlang && in_array($postlang,$supportedLanguages))
@@ -244,7 +251,7 @@
 				return;
 			}
 			
-		if ($this->is_user())
+			if ($this->is_user())
 			{
 				$userlang = $GLOBALS['phpgw_info']['user']['preferences']['common']['lang'];
 				if (in_array($userlang,$supportedLanguages))

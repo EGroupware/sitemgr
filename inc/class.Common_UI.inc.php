@@ -11,7 +11,7 @@
 	
 	class Common_UI
 	{
-		var $t, $acl, $theme, $prefs_so;
+		var $t, $acl, $theme, $do_sites_exist;
 		var $public_functions = array
 		(
 			'DisplayPrefs' => True
@@ -20,11 +20,11 @@
 		function Common_UI()
 		{
 			global $Common_BO;
-			$Common_BO = CreateObject('sitemgr.Common_BO',True);
+			$Common_BO = CreateObject('sitemgr.Common_BO');
+			$this->do_sites_exist = $Common_BO->sites->set_currentsite(False);
 			$this->t = $GLOBALS['phpgw']->template;
 			$this->acl = &$Common_BO->acl;
 			$this->theme = &$Common_BO->theme;
-			$this->prefs_so = CreateObject('sitemgr.sitePreference_SO', True);
 			$this->pages_bo = &$Common_BO->pages;
 			$this->cat_bo = &$Common_BO->cats;
 		}
@@ -50,7 +50,7 @@
 							echo '<b>' . lang('Migrating data for %1 to %2',
 									$GLOBALS['Common_BO']->getlangname($oldlang),
 									$GLOBALS['Common_BO']->getlangname($newlang)) . 
-							  '</b><br>';
+							'</b><br>';
 							$this->pages_bo->migratealllang($oldlang,$newlang);
 							$this->cat_bo->migratealllang($oldlang,$newlang);
 						}
@@ -61,20 +61,19 @@
 				if ($_POST['btnSave'])
 				{
 					$preferences = array(
-						'sitemgr-site-url','sitemgr-site-dir','home-page-id',
-						'anonymous-user','anonymous-passwd','themesel','sitelanguages');
+						'home_page_id','themesel','site_languages');
 
-					$oldsitelanguages = $this->prefs_so->getPreference('sitelanguages');
-					if ($oldsitelanguages && ($oldsitelanguages != $_POST['sitelanguages']))
+					$oldsitelanguages = $GLOBALS['Common_BO']->sites->current_site['site_languages'];
+					if ($oldsitelanguages && ($oldsitelanguages != $_POST['pref']['site_languages']))
 					{
 						$oldsitelanguages = explode(',',$oldsitelanguages);
-						$newsitelanguages = explode(',',$_POST['sitelanguages']);
+						$newsitelanguages = explode(',',$_POST['pref']['site_languages']);
 						$replacedlang = array_diff($oldsitelanguages,$newsitelanguages);
 						$addedlang = array_diff($newsitelanguages,$oldsitelanguages);
 						if ($replacedlang)
 						{
 							echo lang('You removed one ore more languages from your site languages.') . '<br>' .
-							  lang('What do you want to do with existing translations of categories and pages for this language?') . '<br>';
+							lang('What do you want to do with existing translations of categories and pages for this language?') . '<br>';
 							if ($addedlang)
 							{
 								echo lang('You can either migrate them to a new language or delete them') . '<br>';
@@ -84,8 +83,8 @@
 								echo lang('Do you want to delete them?'). '<br>';
 							}
 							echo '<form action="' . 
-							  $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Common_UI.DisplayPrefs') .
-							  '" method="post"><table>';
+							$GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Common_UI.DisplayPrefs') .
+							'" method="post"><table>';
 							foreach ($replacedlang as $oldlang)
 							{
 								$oldlangname = $GLOBALS['Common_BO']->getlangname($oldlang);
@@ -95,14 +94,14 @@
 									foreach ($addedlang as $newlang)
 									{
 										echo '<td><input type="radio" name="change[' . $oldlang . 
-										  ']" value="' . $newlang . '"> Migrate to ' . 
-										  $GLOBALS['Common_BO']->getlangname($newlang) . "</td>";
+										']" value="' . $newlang . '"> Migrate to ' . 
+										$GLOBALS['Common_BO']->getlangname($newlang) . "</td>";
 									}
 								}
 								echo '<td><input type="radio" name="change[' . $oldlang . ']" value="delete"> delete</td></tr>';
 							}
 							echo '<tr><td><input type="submit" name="btnlangchange" value="' . 
-							  lang('Submit') . '"></td></tr></table></form>';
+							lang('Submit') . '"></td></tr></table></form>';
 						}
 					}
 
@@ -112,55 +111,34 @@
 						array_push($preferences,'sitemgr-site-name-' . $lang);
 					}
 
-					foreach ($preferences as $name)
-					{
-						$this->prefs_so->setPreference($name,$_POST[$name]);
-					}
+					$GLOBALS['Common_BO']->sites->saveprefs($_POST['pref']);
+
 					echo '<p><b>' . lang('Changes Saved.') . '</b></p>';
 					unset($preferences);
 				}
 				
-				$sitelanguages = explode(',',$this->prefs_so->getPreference('sitelanguages'));
+				$sitelanguages = explode(',',$GLOBALS['Common_BO']->sites->current_site['site_languages']);
 				$sitelanguages = $sitelanguages ? $sitelanguages : array("en");
 				
 				foreach ($sitelanguages as $lang)
-				  {
-				    $preferences['sitemgr-site-name-' . $lang] = array(
-					'title'=>lang('Site name'). ' ' . $GLOBALS['Common_BO']->getlangname($lang),
-					'note'=>lang('This is used chiefly for meta data and the title bar. If you change the site languages below you have to save before being able to set this preference for a new language.'),
-					'default'=>lang('New sitemgr site')
-				    );
-				  }
+				{
+					$langname = $GLOBALS['Common_BO']->getlangname($lang);
+					$preferences['site_name_' . $lang] = array(
+						'title'=>lang('Site name'). ' ' . $langname,
+						'note'=>lang('This is used chiefly for meta data and the title bar. If you change the site languages below you have to save before being able to set this preference for a new language.'),
+						'default'=>lang('New sitemgr site')
+					);
+					 $preferences['site_desc_' . $lang] = array(
+						'title'=>lang('Site descriptioin'). ' ' . $langname,
+						'note'=>lang('This is used chiefly for meta data. If you change the site languages below you have to save before being able to set this preference for a new language.'),
+					);
+				}
 
-				$preferences['sitemgr-site-url']=array(
-					'title'=>lang('URL to sitemgr-site'),
-					'note'=>lang('The URL can be relative or absolute.  Name must end in a slash.')
-				);
-				$preferences['sitemgr-site-dir']=array(
-					'title'=>lang('Filesystem path to sitemgr-site directory'),
-					'note'=>lang('This must be an absolute directory location.  <b>No trailing slash</b>.')
-				);
-				$preferences['home-page-id'] = array(
+				$preferences['home_page_id'] = array(
 					'title'=>lang('Default home page ID number'),
 					'note'=>lang('This should be a page that is readable by everyone. If you leave this blank, the site index will be shown by default.'),
 					'input'=>'option',
 					'options'=>$this->pages_bo->getPageOptionList()
-				);
-// this does not seem to be used anywhere
-// 				$preferences['login-domain'] = array(
-// 					'title'=>lang('Anonymous user login domain'),
-// 					'note'=>'If you\'re not sure, enter Default.',
-// 					'default'=>'Default'
-// 				);
-				$preferences['anonymous-user'] = array(
-					'title'=>lang('Anonymous user\'s username'),
-					'note'=>lang('If you haven\'t done so already, create a user that will be used for public viewing of the site.  Recommended name: anonymous.'),
-					'default'=>'anonymous'
-				);
-				$preferences['anonymous-passwd'] = array(
-					'title'=>lang('Anonymous user\'s password'),
-					'note'=>lang('Password that you assigned for the aonymous user account.'),
-					'default'=>'anonymous'
 				);
 				$preferences['themesel'] = array(
 					'title'=>lang('Template select'),
@@ -169,7 +147,7 @@
 					'options'=>$this->theme->getAvailableThemes(),
 					'default'=>'NukeNews'
 				);
-				$preferences['sitelanguages'] = array(
+				$preferences['site_languages'] = array(
 					'title'=>lang('Languages the site user can choose from'),
 					'note'=>lang('This should be a comma-separated list of language-codes.'),
 					'default'=>'en'
@@ -186,7 +164,7 @@
 							'lang_second_directory' => lang('The second directory is the sitemgr-site directory.  This can be moved <i>anywhere</i>.  It can also be named <i>anything</i>.  Wherever it winds up, when you point a web browser to it, you will get the generated website.  Assuming, of course, that you\'ve accurately completed the setup fields below and also <b><i>edited the config.inc.php</i></b> file.'),
 							'lang_edit_config_inc}' => lang('The config.inc.php file needs to be edited to point to the phpGroupWare directory. Copy the config.inc.php.template file to config.inc.php and then edit it.')
 				));
-						       
+
 				$this->t->set_block('sitemgr_prefs','PrefBlock','PBlock');
 				reset($preferences);
 				while (list($name,$details) = each($preferences))
@@ -226,19 +204,19 @@
 			{
 				$size=40;
 			}
-			$val = $this->prefs_so->getPreference($name);
+			$val = $GLOBALS['Common_BO']->sites->current_site[$name];
 			if (!$val)
 			{
 				$val = $default;
 			}
 
 			return '<input type="text" size="'.$size.
-				'" name="'.$name.'" value="'.$val.'">';
+				'" name="pref['.$name.']" value="'.$val.'">';
 		}
 
 		function inputCheck($name = '')
 		{
-			$val = $this->prefs_so->getPreference($name);
+			$val = $GLOBALS['Common_BO']->sites->current_site[$name];
 			if ($val)
 			{
 				$checked_yes = ' CHECKED';
@@ -249,7 +227,7 @@
 				$checked_yes = '';
 				$checked_no = ' CHECKED';
 			}
-			return '<INPUT TYPE="radio" NAME="'.$name.'" VALUE="1"'.
+			return '<INPUT TYPE="radio" NAME="pref['.$name.']" VALUE="1"'.
 				$checked_yes.'>Yes</INPUT>'."\n".
 				'<INPUT TYPE="radio" NAME="'.$name.'" VALUE="0"'.
 				$checked_no.'>No</INPUT>'."\n";
@@ -262,12 +240,12 @@
 			{
 				return lang('No options available.');
 			}
-			$val = $this->prefs_so->getPreference($name);
+			$val = $GLOBALS['Common_BO']->sites->current_site[$name];
 			if(!$val)
 			{
 				$val = $default;
 			}
-			$returnValue = '<SELECT NAME="'.$name.'">'."\n";
+			$returnValue = '<SELECT NAME="pref['.$name.']">'."\n";
 			
 			foreach($options as $option)
 			{
@@ -297,22 +275,52 @@
 			$GLOBALS['phpgw']->common->phpgw_header();
 			echo parse_navbar();
 			$this->t->set_file('sitemgr_header','sitemgr_header.tpl');
-			$this->t->set_var('mainmenu',
-				$GLOBALS['phpgw']->link('/index.php',
-				'menuaction=sitemgr.MainMenu_UI.DisplayMenu')
-			);
-			$this->t->set_var('sitemgr-site', $GLOBALS['phpgw']->link('/sitemgr-link/'));
-			$this->t->set_var(Array('sitemgr_administration' => lang('Web Content Manager Administration'),
-						'view_menu' => lang('View Administrative Menu'),
-						'view_site' => lang('View Generated Site')
-			));
-			$this->t->pfp('out','sitemgr_header');
+			$this->t->set_block('sitemgr_header','switch','switchhandle');
+			if ($this->do_sites_exist)
+			{
+				$this->t->set_var(Array(
+					'mainmenu' => $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.MainMenu_UI.DisplayMenu'),
+					'sitemgr-site' => $GLOBALS['phpgw']->link('/sitemgr-link/'),
+					'sitemgr_administration' => lang('Web Content Manager Administration'),
+					'lang_sitename' => lang('Website name'),
+					'sitename' => $GLOBALS['Common_BO']->sites->current_site['site_name'],
+					'view_menu' => lang('View Administrative Menu'),
+					'view_site' => lang('View Generated Site')
+				));
+				if ($GLOBALS['Common_BO']->sites->getnumberofsites() > 1)
+				{
+					$this->t->set_var('sitelist',$this->siteselectlist());
+					$this->t->parse('switchhandle','switch');
+				}
+				else
+				{
+					$this->t->set_var('switchhandle','');
+				}
+				$this->t->pparse('out','sitemgr_header');
+			}
+			else
+			{
+				echo lang('No websites defined');
+				$GLOBALS['phpgw']->common->phpgw_exit(True);
+			}
 		}
 
 		function DisplayFooter()
 		{
+echo (int)substr($GLOBALS['phpgw_info']['server']['versions']['phpgwapi'],4);
 			$this->t->set_file('sitemgr_footer','sitemgr_footer.tpl');
 			$this->t->pfp('out','sitemgr_footer');
+		}
+
+		function siteselectlist()
+		{
+			$sites = $GLOBALS['Common_BO']->sites->list_sites(False);
+			$selectlist= '<option>' . lang('Switch website') . '</option>';
+			while(list($site_id,$site) = @each($sites))
+			{
+				$selectlist .= '<option value="' . $site_id . '">' . $site['site_name'] . '</option>' . "\n";
+			}
+			return $selectlist;
 		}
 	}	
 ?>

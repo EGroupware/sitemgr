@@ -114,6 +114,7 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 		{
 			global $page;
 			$areaname = $vars[1];
+
 			$this->permitted_modules = array_keys($this->modulebo->getcascadingmodulepermissions($areaname,$page->cat_id));
 			$transformername = $areaname . '_bt';
 			$transformerfile = $this->root . SEP . $transformername . '.inc.php';
@@ -252,13 +253,13 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 					return $page->subtitle;
 				case 'sitename':
 				case 'site_name':
-					return $GLOBALS['sitemgr_info']['sitemgr-site-name-' . $GLOBALS['phpgw_info']['user']['preferences']['common']['lang']];
-				case 'footer':
-				case 'site_footer':
-					return $GLOBALS['Common_BO']->headerfooter->getsitefooter($GLOBALS['phpgw_info']['user']['preferences']['common']['lang']);
-				case 'header':
-				case 'site_header':
-					return $GLOBALS['Common_BO']->headerfooter->getsiteheader($GLOBALS['phpgw_info']['user']['preferences']['common']['lang']);
+					return $GLOBALS['sitemgr_info']['site_name_' . $GLOBALS['phpgw_info']['user']['preferences']['common']['lang']];
+// 				case 'footer':
+// 				case 'site_footer':
+// 					return $GLOBALS['Common_BO']->headerfooter->getsitefooter($GLOBALS['phpgw_info']['user']['preferences']['common']['lang']);
+// 				case 'header':
+// 				case 'site_header':
+// 					return $GLOBALS['Common_BO']->headerfooter->getsiteheader($GLOBALS['phpgw_info']['user']['preferences']['common']['lang']);
 				case 'user':
 					return $GLOBALS['phpgw_info']['user']['account_lid'];
 			}

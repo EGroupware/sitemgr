@@ -63,7 +63,7 @@
 				. " FROM phpgw_sitemgr_content AS t1 LEFT JOIN "
 				. " phpgw_sitemgr_modules AS t2 on t1.module_id=t2.module_id LEFT JOIN "
 				. " phpgw_sitemgr_content_lang as t3 ON (t1.block_id=t3.block_id AND lang='$lang') "
-				. " WHERE area = '$area' AND ((page_id = 0 and cat_id = 0)";
+				. " WHERE area = '$area' AND ((page_id = 0 and cat_id = ". CURRENT_SITE_ID  . ")";
 			if ($cat_list)
 			{
 				$sql .= " OR (page_id = 0 AND cat_id IN (" . implode(',',$cat_list) . "))";
@@ -102,7 +102,7 @@
 
 		function getvisibleblockdefsforarea($area,$cat_list,$page_id)
 		{
-			$sql = "SELECT t1.block_id,area,cat_id,page_id,t1.module_id,module_name,viewable FROM phpgw_sitemgr_content AS t1,phpgw_sitemgr_modules AS t2 WHERE t1.module_id = t2.module_id AND area = '$area' AND  ((page_id = 0 and cat_id = 0)";
+			$sql = "SELECT t1.block_id,area,cat_id,page_id,t1.module_id,module_name,viewable FROM phpgw_sitemgr_content AS t1,phpgw_sitemgr_modules AS t2 WHERE t1.module_id = t2.module_id AND area = '$area' AND  ((page_id = 0 and cat_id = ". CURRENT_SITE_ID  . ")";
 			if ($cat_list)
 			{
 				$sql .= " OR (page_id = 0 AND cat_id IN (" . implode(',',$cat_list) . "))";

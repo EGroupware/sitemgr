@@ -5,22 +5,11 @@
 
 		function Theme_BO()
 		{
-			$this->preferenceso = CreateObject('sitemgr.sitePreference_SO', True);
-		}
-
-		function setTheme($theme)
-		{
-			$this->preferenceso->setPreference('themesel',$theme);
-		}
-		
-		function getTheme()
-		{
-			return $this->preferenceso->getPreference('themesel');
 		}
 
 		function getAvailableThemes()
 		{
-			$sitemgr_dir = $this->preferenceso->getPreference('sitemgr-site-dir');
+			$sitemgr_dir = $GLOBALS['Common_BO']->sites->current_site['site_dir'];
 			$dirname = $sitemgr_dir . SEP . 'templates' . SEP;
 			$result_array=array();
 			@$handle=opendir($dirname);

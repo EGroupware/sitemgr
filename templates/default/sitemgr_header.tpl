@@ -2,6 +2,9 @@
 	<!-- <center> -->
 	<b><u>{sitemgr_administration}</u></b>
 		<br>
+		<table border="0">
+		<tr><td>{lang_sitename}</td><td>{sitename}</td></tr>
+		</table>
 		<!-- &nbsp;&nbsp;&nbsp; -->
 		[
 		<i>
@@ -9,7 +12,10 @@
 		</i>&nbsp;|&nbsp;<i>
 		<a href='{sitemgr-site}' target='_blank'>{view_site}</a>
 		</i>
-		]
+<!-- BEGIN switch -->
+&nbsp;|&nbsp;<form name="siteselect" method="POST" style="display:inline" action="{mainmenu}"><select name="siteswitch" onChange="this.form.submit()">{sitelist}</select></form>&nbsp;
+<!-- END switch -->
+]
 	<hr>
 	<br>
 	<!-- </center> -->
