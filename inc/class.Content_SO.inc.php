@@ -185,7 +185,7 @@
 		{
 			$cat_list[] = CURRENT_SITE_ID;
 			$sql = "SELECT COUNT(state) AS cnt,t1.block_id,area,cat_id,page_id,viewable,state FROM phpgw_sitemgr_blocks AS t1,phpgw_sitemgr_content as t2 WHERE t1.block_id=t2.block_id AND cat_id IN (" . implode(',',$cat_list) . ")";
-			$sql .= " AND state IN (" . implode(',',$states) .") GROUP BY t1.block_id,area,cat_id,page_id,viewable";
+			$sql .= " AND state IN (" . implode(',',$states) .") GROUP BY t1.block_id,area,cat_id,page_id,viewable,state";
 
 			$block = CreateObject('sitemgr.Block_SO',True);
 			$result = array();
