@@ -58,7 +58,7 @@
 				ob_end_clean();	// discard all previous output
 				$browser = CreateObject('phpgwapi.browser');
 				$browser->content_header($download.'.zip','application/zip');
-				passthru('cd '.$GLOBALS['sitemgr_info']['site_path'].'templates; '.$zip.' -qr - '.$download);
+				passthru('cd '.$GLOBALS['sitemgr_info']['site_dir'].'/templates; '.$zip.' -qr - '.$download);
 				exit;
 			}
 			if (count($arguments['allowed']) > 1)
