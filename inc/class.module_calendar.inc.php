@@ -70,7 +70,7 @@ class module_calendar extends Module
 			'month'				=>	$month,
 			'bgcolor2'			=>	$calui->theme['cal_dayview'],
 			'holiday_color'	=> $calui->holiday_color,
-			'navig' => '<form action="' . $_SERVER['REQUEST_URI'] . '" method="post">' .
+			'navig' => '<form method="post">' .
 				$this->build_post_element('prevmonth') . '&nbsp;&nbsp;' .
 				$this->build_post_element('nextmonth') . '</form>'
 		);

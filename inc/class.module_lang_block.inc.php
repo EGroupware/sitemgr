@@ -14,7 +14,7 @@
 		{
 			if ($GLOBALS['sitemgr_info']['sitelanguages'])
 			{
-				$content = '<form name="langselect" action="'.$_SERVER['REQUEST_URI'].'" method="post">';
+				$content = '<form name="langselect" method="post">';
 				$content .= '<select onChange="this.form.submit()" name="language">';
 				foreach ($GLOBALS['sitemgr_info']['sitelanguages'] as $lang)
 				{

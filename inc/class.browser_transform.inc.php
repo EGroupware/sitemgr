@@ -10,7 +10,7 @@ class browser_transform
 
 	function apply_transform($title,$content)
 	{
-		$result = '<form action="' . $_SERVER['REQUEST_URI'] . '" method="post">';
+		$result = '<form method="post">';
 		$result .= $content;
 		$result .= '<div align="center">';
 		$result .= $this->prevlink;

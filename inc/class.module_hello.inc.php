@@ -19,8 +19,7 @@ class module_hello extends Module
 	function get_content(&$arguments,$properties) 
 	{
 		$this->validate($arguments);
-		return lang('Hello') . ' ' . $arguments['name'] . '<br><form action="' . 
-			$_SERVER['REQUEST_URI'] . '" method="post">' . 
+		return lang('Hello') . ' ' . $arguments['name'] . '<br><form method="post">' . 
 			$this->build_post_element('name',lang('Enter a name')) .
 			'</form>';
 	}
