@@ -93,6 +93,16 @@ A:hover         {
 	FONT-FAMILY: Verdana, Helvetica,Geneva,Arial; 
 	TEXT-DECORATION: underline
 }
+.release {
+	COLOR: #000000;
+	FONT-SIZE: 8px;
+	FONT-WEIGHT: bold;
+}
+.minicalendar {
+	FONT-SIZE: 1px;
+	FONT-FAMILY: Verdana, Helvetica,Geneva,Arial; 
+	TEXT-DECORATION: none
+}
 .title 		{
 	BACKGROUND: none; 
 	COLOR: #000000; 

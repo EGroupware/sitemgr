@@ -14,5 +14,6 @@
 
 	unset($calui);
 
+	$content = ereg_replace('cellspacing="7"','cellspacing="3"',$content);
 	$title = 'Mini Calendar';
 ?>

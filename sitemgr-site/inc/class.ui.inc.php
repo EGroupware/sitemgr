@@ -70,7 +70,7 @@
 			echo OpenTable();
 			echo "<h1>" . $this->bo->get_title() . "</h1>";
 			echo "<h3>" . $this->bo->get_subtitle() . "</h3>";
-			echo parse_theme_vars($this->bo->get_content());
+			echo "<p>".parse_theme_vars($this->bo->get_content())."</p>";
 			echo CloseTable();
 			themefooter();
 			echo "</body></html>";
