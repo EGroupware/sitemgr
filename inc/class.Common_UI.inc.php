@@ -273,7 +273,7 @@
 					{
 						if (isset($details['below']))
 						{
-							$inputbox .= "<br /".$details['below'];
+							$inputbox .= "<br />".$details['below'];
 						}
 						$this->PrefBlock($details['title'],$inputbox,$details['note']);
 					}
