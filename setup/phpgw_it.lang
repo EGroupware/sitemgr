@@ -1,0 +1,30 @@
+%1 content manager		it	Gestione contenuti %1
+%1 module manager		it	Gestione moduli %1
+'%1' is no valid sitemgr-site directory !!!		it	'%1' non è una directory  di sito valida per sitemgr !!!
+(do not put spaces or punctuation in the name field.)		it	(Non mettere spazi o punteggiatura nel campo Nome.)
+<b>autoregistration is not enabled / configured in the registration app !!!</b><br>you need to do so, to get the autoregistration link working.		it	<b>L'autoregistrazione non è abilitata / configurata nell'applicazione Registrazione !!!</b><br>Devi farlo, perché il link autoregistrazione funzioni.
+<b>want more templates?</b><br />just download one from the template gallery at %1www.egroupware.org%2 or use a %3mambo open source%4 version 4.5 compatible template eg. from %5. unpack the downloaded template in your templates directory (%6).		it	<b>Vuoi altri template?</b><br />Basta scaricarli dalla galleria dei template a %1www.eGroupWare.org%2 o utilizza un template compatibile con %3Mambo Open Source%4 Version 4.5 es. da %5. Scompatta il template scaricato nella tua directory dei template (%6).
+a simple picture galery		it	Una semplice galleria di immagini
+actif		it	Attivo
+add a category		it	Aggiungi una categoria
+add a new application		it	Aggiungi una nuova applicazione
+add a new guestbook		it	Aggiungi un nuovo libro degli ospiti
+add block ...		it	Aggiungi blocco ....
+add block to content area %1		it	Aggiungi blocco all'area contenuti %1
+add category		it	Aggiungi Categoria
+add new page to this category		it	Aggiungi una nuova pagina a questa categoria
+add page		it	Aggiungi Pagina
+add page to category		it	Aggiungi pagina a categoria
+add website		it	Aggiungi Sito Web
+administration		it	Amministrazione
+administrative menu		it	Menù Amministrazione
+administrators		it	amministratori
+all categories		it	Tutte le categorie
+all forums in category %1		it	Tutti i forum nella categoria %1
+all languages		it	tutte le lingue
+allow posting of questions		it	Consenti di porre domande
+amazon		it	Amazon
+amazon server (without www), eg. amazon.com		it	Server Amazon (senza www), es. amazon.com
+an application directory		it	Una directory di applicazione
+anonymous		it	anonimo
+application		it	Applicazione
