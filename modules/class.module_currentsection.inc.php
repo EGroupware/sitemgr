@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class module_currentsection extends Module
 {
@@ -13,7 +13,7 @@ class module_currentsection extends Module
 	function get_content(&$arguments,$properties)
 	{
 		global $page;
-		if ($page->cat_id == $GLOBALS['Common_BO']->current_site['site_id'])
+		if ($page->cat_id == CURRENT_SITE_ID)
 		{
 			return '';
 		}
@@ -26,17 +26,17 @@ class module_currentsection extends Module
 		unset($category);
 
 		$content = '';
-		if ($parent)
+		if ($parent && $parent != CURRENT_SITE_ID)	// do we have a parent?
 		{
 			$parentcat = $GLOBALS['objbo']->getcatwrapper($parent);
-			$content .= "\n".'<b>Parent Section:</b><br>&nbsp;&middot;&nbsp;<a href="'.
+			$content .= "\n<b>".lang('Parent Section:').'</b><br>&nbsp;&middot;&nbsp;<a href="'.
 				sitemgr_link2('/index.php','category_id='.$parent).'">'.$parentcat->name.
 				'</a><br><br>';
 			unset($parentcat);
 		}
 		if (count($catlinks))
 		{
-			$content .= "\n".'<b>Subsections:</b><br>';
+			$content .= "\n<b>".lang('Subsections:').'</b><br>';
 			foreach ($catlinks as $catlink)
 			{
 				$content .= "\n".'&nbsp;&middot;&nbsp;'.$catlink['link'].'<br>';
@@ -45,11 +45,10 @@ class module_currentsection extends Module
 		}
 		if (count($pagelinks)>1 || (count($pagelinks)>0 && $content))
 		{
-			$content .= "\n".'<b>Pages:</b>';
+			$content .= "\n<b>".lang('Pages:').'</b>';
 			$content .= ' (<a href="'.sitemgr_link2('/index.php','category_id='.$page->cat_id).
-				'"><i>show all</i></a>)<br>';
-			reset($pagelinks);
-			while(list($pagelink_id,$pagelink) = each($pagelinks))
+				'"><i>'.lang('show all').'</i></a>)<br>';
+			foreach($pagelinks as $pagelink_id => $pagelink)
 			{
 				if ($page->page_id && $page->page_id == $pagelink_id)
 				{

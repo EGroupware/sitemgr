@@ -15,6 +15,7 @@
 		function setcurrentcats()
 		{
 			$this->currentcats = $this->getpermittedcats(CURRENT_SITE_ID,'active',True);
+//			echo "<p>Categories_BO::setcurrentcats() site_id=".CURRENT_SITE_ID.", currentcats=".print_r($this->currentcats,True)."</p>\n";
 			$this->readablecats = $this->getpermittedcatsRead();
 		}
 
@@ -342,13 +343,14 @@
 		//make sure cat_id belongs to current site
 		function check($cat_id)
 		{
-			if (in_array($cat_id,$this->currentcats))
+			if ($cat_id == CURRENT_SITE_ID || in_array($cat_id,$this->currentcats))
 			{
 				return True;
 			}
 			else
 			{
-				echo '<p><center><b>'.lang('Attempt to access information outside current website').'</b></center>';
+				echo '<p><center><b>'.lang('Attempt to access information outside current website').": cat_id=$cat_id".'</b></center>';
+				//echo "Backtrace:<pre>".print_r(debug_backtrace(),True)."</pre>\n";
 				$GLOBALS['phpgw']->common->phpgw_exit(True);
 			}
 		}
