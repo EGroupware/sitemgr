@@ -188,6 +188,7 @@
         if ($_GET['sort_order'] || $block_id && $btnSaveBlock && $result === True)
         {
           echo '<html><head></head><body onload="opener.location.reload();self.close()"></body></html>';
+          $GLOBALS['phpgw']->common->phpgw_exit();
         }
       }
       elseif ($btnReloadBlock && $block_id)
