@@ -49,9 +49,14 @@
 				}
 				if ($temppage['catdepth'] == 1)
 				{
-					$content .= "\n\t&nbsp;&middot;&nbsp;$temppage[pagelink]<br />";
+					// dont show no pages availible in Production mode, just ignore it
+					if ($GLOBALS['sitemgr_info']['mode'] == 'Edit' ||
+						$temppage['page_id'] && $temppage['pagelink'] != lang('No pages available'))
+					{
+						$content .= "\n\t&nbsp;&middot;&nbsp;$temppage[pagelink]<br />";
+					}
 				}
-				elseif ($subcatname != $temppage['catname'])
+				elseif ($subcatname != $temppage['catname'] && $temppage['catdepth'] == 2)
 				{
 					$content .= "\n\t&nbsp;&middot;&nbsp;".str_replace('</a>',' ...</a>',$temppage[catlink]).'<br />';
 					$subcatname = $temppage['catname'];
