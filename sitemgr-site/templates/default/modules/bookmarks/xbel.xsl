@@ -9,25 +9,26 @@
                 xmlns="http://www.w3.org/TR/xhtml1/strict">
 
  <xsl:output method="html" indent="yes" encoding="us-ascii"/>
+ <xsl:param name="blockid" />
 
  <!-- XBEL ========================================================-->
  <xsl:template match="xbel">
   <script type='text/javascript'>
 // the whole thing only works in a DOM capable browser or IE 4*/
-// the functions have a bm postfix so that their names do not conflict 
+// the functions are postfixed  by the blockid so that their names do not conflict 
 // with other modules that use the same tree menu
-function add_bm(catid)
+function add<xsl:value-of select="$blockid"/>(catid)
 {
-	document.cookie = 'bookmarks[expanded][' + catid + ']=';
+	document.cookie = 'block[<xsl:value-of select="$blockid"/>][expanded][' + catid + ']=';
 }
 
-function remove_bm(catid)
+function remove<xsl:value-of select="$blockid"/>(catid)
 {
 	var now = new Date();
-	document.cookie = 'bookmarks[expanded][' + catid + ']=; expires=' + now.toGMTString();
+	document.cookie = 'block[<xsl:value-of select="$blockid"/>][expanded][' + catid + ']=; expires=' + now.toGMTString();
 }
 
-function toggle_bm(image, catid)
+function toggle<xsl:value-of select="$blockid"/>(image, catid)
 {
 	if (document.getElementById)
 	{ //DOM capable
@@ -40,13 +41,13 @@ function toggle_bm(image, catid)
 
 	if (styleObj.style.display == 'none')
 	{
-		add_bm(catid);
+		add<xsl:value-of select="$blockid"/>(catid);
 		image.src = 'images/tree_collapse.gif';
 		styleObj.style.display = 'block';
 	}
 	else
 	{
-		remove_bm(catid);
+		remove<xsl:value-of select="$blockid"/>(catid);
 		image.src = 'images/tree_expand.gif';
 		styleObj.style.display = 'none';
 	}
@@ -75,7 +76,7 @@ function toggle_bm(image, catid)
 	  <xsl:text>.gif</xsl:text>
 	 </xsl:attribute>
 	 <xsl:attribute name="onclick">
-	  <xsl:text>toggle_bm(this, '</xsl:text>
+	  <xsl:text>toggle</xsl:text><xsl:value-of select="$blockid"/><xsl:text>(this, '</xsl:text>
 	  <xsl:value-of select="@id"/>
 	  <xsl:text>')</xsl:text>
 	 </xsl:attribute>

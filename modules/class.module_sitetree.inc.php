@@ -84,13 +84,13 @@ class module_sitetree extends Module
 
 function add(catid)
 {
-	document.cookie = '".$this->block->module_name."[menutree][' + catid + ']=';
+	document.cookie = 'block[" . $this->block->id . "][menutree][' + catid + ']=';
 }
 
 function remove(catid)
 {
 	var now = new Date();
-	document.cookie = '".$this->block->module_name."[menutree][' + catid + ']=; expires=' + now.toGMTString();
+	document.cookie = 'block[" . $this->block->id . "][menutree][' + catid + ']=; expires=' + now.toGMTString();
 }
 
 function toggle(image, catid)

@@ -4,6 +4,7 @@ class module_galerie extends Module
 {
 	function module_galerie()
 	{
+		$this->i18n = True;
 		$this->arguments = array(
 			'imagedirurl' => array(
 				'type' => 'textfield', 

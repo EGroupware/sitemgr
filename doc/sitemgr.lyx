@@ -1621,7 +1621,17 @@ arguments: the module's arguments a contributor can edit in order to create
  Parameters for these input elements (like size for textfields, cols and
  rows for textareas can be defined).
  Translatable arguments can be specially flagged with a i18n entry in the
- arguments definition array.
+ arguments definition array
+\begin_inset Foot
+collapsed false
+
+\layout Standard
+
+If a module wants to make use of sitemgr's translation feature, it must
+ additionally set the module member variable i18n to true.
+\end_inset 
+
+
 \layout Enumerate
 
 properties: the module's properties the site administrator can edit in order

@@ -190,7 +190,7 @@ define('SITEMGR_VIEWABLE_ANONYMOUS',3);
 			}
 		}
 
-		function getversion($version_id,$lang)
+		function getversion($version_id,$lang=False)
 		{
 			//TODO: add ACL ?
 			return $this->so->getversion($version_id,$lang);
@@ -280,6 +280,14 @@ define('SITEMGR_VIEWABLE_ANONYMOUS',3);
 			return ($this->so->getblockidforversion($version_id) == $block_id) ?
 				$this->so->saveversiondatalang($version_id,$data,$lang) :
 				false;
+		}
+
+		//this function can be called from a block's get_content function. It stores modification to the 
+		//blocks arguments in the database
+		function savepublicdata(&$block)
+		{
+			//TODO: check if argument is public, disentangle session data from arguments
+			$this->so->saveversiondata($block->id,$block->version,$block->arguments);
 		}
 
 		function getblockmodule($blockid)

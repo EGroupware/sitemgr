@@ -18,6 +18,7 @@ class Transformer
 
 class Module 
 {
+	var $i18n; //flag a module must use if it wants its content to be translatable
 	var $validation_error;
 	var $transformer_chain;
 	var $arguments;
@@ -51,7 +52,7 @@ class Module
 		{
 			if ($this->session)
 			{
-				$sessionarguments = $GLOBALS['phpgw']->session->appsession($block->module_name,'sitemgr-site');
+				$sessionarguments = $GLOBALS['phpgw']->session->appsession('block[' . $block->id . ']', 'sitemgr-site');
 				while (list(,$argument) = @each($this->session))
 				{
 					if (isset($sessionarguments[$argument]))
@@ -62,25 +63,25 @@ class Module
 			}
 			while (list(,$argument) = @each($this->get))
 			{
-				if (isset($_GET[$block->module_name][$argument]))
+				if (isset($_GET['block'][$block->id][$argument]))
 				{
-					$block->arguments[$argument] = $_GET[$block->module_name][$argument];
+					$block->arguments[$argument] = $_GET['block'][$block->id][$argument];
 				}
 			}
 			//contrary to $this->get, cookie and session, the argument name is the key in $this->post because this array also
 			//defines the form element
 			while (list($argument,) = @each($this->post))
 			{
-				if (isset($_POST[$block->module_name][$argument]))
+				if (isset($_POST['block'][$block->id][$argument]))
 				{
-					$block->arguments[$argument] = $_POST[$block->module_name][$argument];
+					$block->arguments[$argument] = $_POST['block'][$block->id][$argument];
 				}
 			}
 			while (list(,$argument) = @each($this->cookie))
 			{
-				if (isset($_COOKIE[$block->module_name][$argument]))
+				if (isset($_COOKIE['block'][$block->id][$argument]))
 				{
-					$block->arguments[$argument] = $_COOKIE[$block->module_name][$argument];
+					$block->arguments[$argument] = $_COOKIE['block'][$block->id][$argument];
 				}
 			}
 		}
@@ -92,7 +93,7 @@ class Module
 		while (list($key,$value) = @each($modulevars))
 		{
 			//%5B and %5D are urlencoded [ and ]
-			$extravars[$this->block->module_name.'%5B'.$key.'%5D'] = $value;
+			$extravars['block' . '%5B'. $this->block->id  .'%5D%5B' . $key . '%5D'] = $value;
 		}
 		if ($GLOBALS['page']->name)
 		{
@@ -228,10 +229,10 @@ class Module
 	function get_admin_interface()
 	{
 		$properties = $this->get_properties(False);
-		$elementname = 'element[' .$key . ']';
 		$interface = array();
 		while (list($key,$input) = @each($this->properties))
 		{
+			$elementname = 'element[' .$key . ']';
 			$element['label'] = $input['label'];
 			$element['form'] = $this->build_input_element($input,$properties[$key],$elementname);
 			$interface[$key] = $element;
@@ -244,7 +245,7 @@ class Module
 		return $this->build_input_element(
 			$this->post[$key],
 			($default !== False) ? $default : $this->block->arguments[$key],
-			($this->block->module_name . '[' . $key . ']')
+			('block[' . $this->block->id  . '][' . $key . ']')
 		);
 	}
 
@@ -316,6 +317,11 @@ class Module
 		return true;
 	}
 
+	function validate_properties(&$data)
+	{
+		return true;
+	}
+
 	//never call get_content directly, get_output takes care of passing it the right arguments
 	function get_content(&$arguments,$properties)
 	{
@@ -350,7 +356,7 @@ class Module
 						$sessionarguments[$argument] = $this->block->arguments[$argument];
 					}
 				}
-				$GLOBALS['phpgw']->session->appsession($this->block->module_name,'sitemgr-site',$sessionarguments);
+				$GLOBALS['phpgw']->session->appsession('block[' . $block->id . ']','sitemgr-site',$sessionarguments);
 			}
 			return $content;
 		}

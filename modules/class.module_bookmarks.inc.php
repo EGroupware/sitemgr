@@ -12,7 +12,7 @@ class module_bookmarks extends Module
 		$this->cookie = array('expanded');
 		$this->arguments = array(
 			'category' => array(
-				'type' => select, 
+				'type' => 'select', 
 				'label' => lang('Choose the categories to display'), 
 				'options' => array(),
 				'multiple' => True
@@ -40,7 +40,10 @@ class module_bookmarks extends Module
 		if ($produce)
 		{
 			require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.xslt_transform.inc.php');
-			$this->add_transformer(new xslt_transform($this->find_template_dir() . SEP . 'xbel.xsl'));
+			$this->add_transformer(new xslt_transform(
+				$this->find_template_dir() . SEP . 'xbel.xsl',
+				array('blockid' => $this->block->id)
+			));
 		}
 	}
 

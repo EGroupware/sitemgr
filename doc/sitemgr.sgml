@@ -1221,7 +1221,10 @@ Its constructor should define the following member variables:
    <orderedlist>
     <listitem>
     <para>
-arguments: the module's arguments a contributor can edit in order to create content blocks from the module. Each argument needs to define a label and the type of input element used to edit it in the content manager. Parameters for these input elements (like size for textfields, cols and rows for textareas can be defined). Translatable arguments can be specially flagged with a i18n entry in the arguments definition array.
+arguments: the module's arguments a contributor can edit in order to create content blocks from the module. Each argument needs to define a label and the type of input element used to edit it in the content manager. Parameters for these input elements (like size for textfields, cols and rows for textareas can be defined). Translatable arguments can be specially flagged with a i18n entry in the arguments definition array<footnote><para>
+If a module wants to make use of sitemgr's translation feature, it must additionally set the module member variable i18n to true.
+</para>
+</footnote>
     </para>
 
    </listitem>

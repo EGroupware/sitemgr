@@ -174,19 +174,19 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 				{
 					if (in_array($block->module_id,$this->permitted_modules))
 					{
-						if ($block->id)
-						{
-							$block->title = $this->getblocktitlewrapper($block->id);
-							$blockdata = $this->getversionwrapper($block->version);
-							$block->arguments = $blockdata->arguments;
-							$block->state = $blockdata->state;
-						}
-
 						//we maintain an array of modules we have already used, so we do not 
 						//have to create them anew. Since they are copied, before the transformer
 						//is added, we do not have to worry about transformers staying around 
 						//on the transformer chain
 						$moduleobject = $this->getmodule($block->module_name);
+
+						if ($block->id)
+						{
+							$block->title = $this->getblocktitlewrapper($block->id);
+							$block->arguments = $moduleobject->i18n ? 
+								$this->getversionwrapper($block->version) : $this->bo->getversion($block->version);
+						}
+						
 						$moduleobject->set_block($block,True);
 
 						if (($block->state == SITEMGR_STATE_PREPUBLISH) && is_object($this->draft_transformer))

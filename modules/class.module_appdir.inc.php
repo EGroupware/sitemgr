@@ -33,7 +33,7 @@ class module_appdir extends Module
 			$interface[] = $element;
 			foreach(array('name','maintainer','url','description') as $key)
 			{
-				$elementname = 'element[' .$key . '][' . $i .']';
+				$elementname = 'element[' . $this->block->version . '][' .$key . '][' . $i .']';
 				$element['label'] = ucfirst($key);
 				$element['form'] = $this->build_input_element(
 					array(
@@ -48,7 +48,7 @@ class module_appdir extends Module
 			$element['form'] = $this->build_input_element(
 				array('type' => 'checkbox'),
 				False,
-				'element[delete][' . $i . ']'
+				'element[' . $this->block->version . '][delete][' . $i . ']'
 			);
 			$interface[] = $element;
 			$i++;
@@ -60,7 +60,7 @@ class module_appdir extends Module
 		$element['form'] = $this->build_input_element(
 			array('type' => 'checkbox'),
 			False,
-			'element[addnew]'
+			'element[' . $this->block->version . '][addnew]'
 		);
 		$interface[] = $element;
 		return $interface;

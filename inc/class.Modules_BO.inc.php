@@ -24,7 +24,12 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 
 		function savemoduleproperties($module_id,$element,$contentarea,$cat_id)
 		{
-			$this->so->savemoduleproperties($module_id,$element,$contentarea,$cat_id);
+			$module = $this->getmodule($module_id);
+			$moduleobject = $this->createmodule($module['module_name']);
+			if ($moduleobject->validate_properties($element))
+			{
+				$this->so->savemoduleproperties($module_id,$element,$contentarea,$cat_id);
+			}
 		}
 
 		function deletemoduleproperties($module_id,$contentarea,$cat_id)

@@ -4,6 +4,7 @@
 	{
 		function module_html()
 		{
+			$this->i18n = true;
 			$this->arguments = array(
 				'htmlcontent' => array(
 					'type' => 'textarea', 

@@ -255,19 +255,22 @@
 			return $retval;
 		}
 
-		function getversion($version_id,$lang)
+		//returns the versions arguments array
+		function getversion($version_id,$lang=false)
 		{
-			$sql = "SELECT arguments, arguments_lang FROM phpgw_sitemgr_content AS t1 LEFT JOIN phpgw_sitemgr_content_lang AS t2 ON (t1.version_id = t2.version_id AND lang='$lang') WHERE t1.version_id = $version_id";
+			$fields = "arguments" . ($lang ? ', arguments_lang' : '');
+			$lang_join = $lang ? "LEFT JOIN phpgw_sitemgr_content_lang AS t2 ON (t1.version_id = t2.version_id AND lang='$lang')" : '';
+			$sql = "SELECT $fields FROM phpgw_sitemgr_content AS t1 $lang_join WHERE t1.version_id = $version_id";
 
 			$this->db->query($sql,__LINE__,__FILE__);
 			if ($this->db->next_record())
 			{
-				$block = CreateObject('sitemgr.Block_SO',True);
-				$block->arguments = array_merge(
-					unserialize(stripslashes($this->db->f('arguments'))),
-					unserialize(stripslashes($this->db->f('arguments_lang')))
-				);
-				return $block;
+				 return $lang ? 
+					array_merge(
+						unserialize(stripslashes($this->db->f('arguments'))),
+						unserialize(stripslashes($this->db->f('arguments_lang'))) 
+					) : 
+					unserialize(stripslashes($this->db->f('arguments')));
 			}
 			else
 			{
