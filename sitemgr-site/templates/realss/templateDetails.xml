@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<mosinstall type="template">
+	<name>realss</name>
+	<creationDate>2004.06.25</creationDate>
+	<author>Zhang Weiwu</author>
+	<copyright></copyright>
+	<authorEmail></authorEmail>
+	<authorUrl>http://aliweekly.nease.net</authorUrl>
+	<version>1.0</version>
+	<description>nothing.</description>
+</mosinstall>
