@@ -1,5 +1,11 @@
-Web Content Manager
--------------------
+SiteMgr - Web Content Management
+--------------------------------
+
+PLEASE NOTE
+===========
+SiteMgr is being reworked at the moment, for easier use and installation.
+Therefor most steps descript in the install section of the "Administration
+manual" are now done automaticaly.
 
 Quick Install
 -------------
@@ -10,7 +16,7 @@ section "Administrator manual" for installation instructions
 Overview
 --------
 This program will generate a dynamic web site with discrete sections
-that various phpGroupWare users may edit, if the administrator gives
+that various eGroupWare users may edit, if the administrator gives
 them permission to do so.  In effect, the generated website can have
 sections which independent departments are in charge of maintaining.
 The site administrator can choose a theme and create headers, footers,
@@ -47,6 +53,7 @@ Arijit Ghosh (arijitg -AT- uci.edu)
 
 Subsequent maintanence:
 
+Ralf Becker (RalfBecker -AT- outdoor-training.de)
 Michael Totschnig (totschnig.michael -AT- uqam.ca) -- wrote
 	multilingual facets of sitemgr, and conceived the modularized
 	architecture
