@@ -42,7 +42,7 @@
 			{
 				while (($file = readdir($handle)) !== false)
 				{
-					if (substr($file,0,1)!='.' && strcmp($file,'index.html') != 0 
+					if (is_dir($dirname.$file) && substr($file,0,1)!='.' && strcmp($file,'index.html') != 0 
 						&& strcmp($file,'CVS') != 0)
 					{
 						$result_array[]=array('value'=>$file,'display'=>$file);
