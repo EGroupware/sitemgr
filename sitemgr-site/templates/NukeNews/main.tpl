@@ -20,9 +20,8 @@
 <br>
 <table cellpadding="0" cellspacing="0" width="100%" border="0" align="center" bgcolor="#ffffff">
 <tr>
-<td bgcolor="#cfcfbb">
-<img height="16" alt="" hspace="0" src="templates/NukeNews/images/corner-top-left.gif" width="17" align="left">
-<a href="index.php"><img src="templates/NukeNews/images/logo.gif" align="left" alt="" border="0" hspace="10"></a></td>
+<td bgcolor="#cfcfbb" valign="top"><img height="16" alt="" hspace="0" src="templates/NukeNews/images/corner-top-left.gif" width="17" align="left">
+<br><a href="index.php" valign="center"><img src="templates/NukeNews/images/logo.gif" align="left" alt="" border="0" hspace="10"></a></td>
 <td bgcolor="#999999"><IMG src="templates/NukeNews/images/pixel.gif" width="1" height="1" alt="" border="0" hspace="0"></td>
 <td bgcolor="#cfcfbb" align="center">
 <center>
@@ -37,31 +36,6 @@
 <table cellpadding="0" cellspacing="0" width="100%" border="0" align="center" bgcolor="#fefefe">
 <tr>
 <td bgcolor="#000000" colspan="4"><IMG src="templates/NukeNews/images/pixel.gif" width="1" height=1 alt="" border="0" hspace="0"></td>
-</tr>
-<tr valign="middle" bgcolor="#dedebb">
-<td width="15%" nowrap><font class="content" color="#363636">
-		<b>Logged in as: {user}</b></font></td>
-<td align="center" height="20" width="70%"><font class="content"><B>
-			<a href="{?home=1}">Home</a>
-			&nbsp;&nbsp;|&nbsp;&nbsp;
-			<a href="{?toc=1}">Site Contents</a>
-			&nbsp;&nbsp;|&nbsp;&nbsp;
-			<a href="{?index=1}">Site Index</a>
-			&nbsp;&nbsp;|&nbsp;&nbsp;
-			<a href="{?phpgw:/index.php,}">phpGroupWare</a>
-	</B></font>
-</td>
-<td align="right" width="15%"><font class="content"><b>
-<script type="text/javascript">
-<!--   // Array ofmonth Names
-var monthNames = new Array( "January","February","March","April","May","June","July","August","September","October","November","December");
-var now = new Date();
-thisYear = now.getYear();
-if(thisYear < 1900) {thisYear += 1900}; // corrections if Y2K display problem
-document.write(monthNames[now.getMonth()] + " " + now.getDate() + ", " + thisYear);
-// -->
-</script></b></font></td>
-<td>&nbsp;</td>
 </tr>
 <tr>
 <td bgcolor="#000000" colspan="4"><IMG src="templates/NukeNews/images/pixel.gif" width="1" height="1" alt="" border="0" hspace="0"></td>
