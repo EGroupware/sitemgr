@@ -56,14 +56,14 @@
 			{
 				$info = array(
 					'value' => $theme,
-					'display' => $theme.' (sitemgr)'
+					'type'  => 'SiteMgr',
 				);
 			}
 			elseif (file_exists($dir . SEP . 'index.php'))
 			{
 				$info = array(
 					'value'=> $theme,
-					'display'=> $theme.' (mambo)'
+					'type'  => 'Mambo',
 				);
 			}
 			if ($info)
@@ -88,6 +88,13 @@
 				{
 					$info['thumbnail'] = $GLOBALS['Common_BO']->sites->current_site['site_url']."templates/$theme/template_thumbnail.png";
 				}
+				if (!isset($info['name']) || !$info['name'])
+				{
+					$info['name'] = $info['value'];
+				}
+				// "create" some nicer names
+				$info['name'] = ucwords(str_replace('_',' ',$info['name']));
+				$info['display'] = $info['name'] . " ($info[type])";
 			}
 			return $info;
 		}

@@ -8,7 +8,7 @@
 	<tr>
 		<td>{thumbnail}</td>
 		<td valign="top">
-			<p style="font-size: 10pt;"><b>{value}</b>: Version {version} ({creationDate})<br />
+			<p style="font-size: 10pt;"><b>{name}</b>: Version {version} ({creationDate})<br />
 			{title}<br />
 			<br />
 			<b>{lang_author}</b>: {author}, <a href="{authorUrl}" target="_blank">{authorUrl}</a><br />
