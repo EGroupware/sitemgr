@@ -65,7 +65,7 @@
 	$toc = $_GET['toc'];
 	$index = $_GET['index'];
 
-	if ($page_name)
+	if ($page_name && $page_name != 'index.php')
 	{
 		$objui->displayPageByName($page_name);
 	}
