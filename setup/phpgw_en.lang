@@ -1,17 +1,28 @@
+%1 content manager	sitemgr	en	%1 content manager
+actif	sitemgr	en	Actif
 add a category	sitemgr	en	Add a category
+add block to content area %1	sitemgr	en	Add block to content area %1
 add category	sitemgr	en	Add Category
 add new page to this category	sitemgr	en	Add new page to this category
 add page	sitemgr	en	Add Page
 administration	sitemgr-site	en	Administration
 administrative menu	sitemgr	en	Administrative Menu
+all categories	sitemgr	en	All categories
+all forums in category %1	sitemgr	en	All forums in category %1
 amazon	sitemgr-site	en	Amazon
 anonymous user login domain	sitemgr	en	Anonymous user login domain
 anonymous user's password	sitemgr	en	Anonymous user's password
 anonymous user's username	sitemgr	en	Anonymous user's username
+anonymous user\'s password	sitemgr	en	Anonymous user\'s password
+anonymous user\'s username	sitemgr	en	Anonymous user\'s username
+apply permissions also to subcategories?	sitemgr	en	Apply permissions also to subcategories?
 are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	en	Are you sure you want to delete the category %1 and all of its associated pages?  You cannot retrieve the deleted pages if you continue.
 as	common	en	as
+back to module manager	sitemgr	en	Back to module manager
 basic settings	sitemgr	en	Basic Settings
+before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr	en	Before the public web site can be viewed, you must configure the various locations and preferences.  Please go to the sitemgr setup page by following this link:
 block not found	sitemgr-site	en	Block not found
+block not found.	sitemgr	en	Block not found.
 block returned no content.	sitemgr-site	en	Block returned no content.
 cancel the delete	sitemgr	en	Cancel the delete
 cannot move page until it has been saved.	sitemgr	en	Cannot move page until it has been saved.
@@ -24,6 +35,7 @@ check here after every upgrade	sitemgr	en	check here after every upgrade
 check to hide from condensed site index.	sitemgr	en	Check to hide from condensed site index.
 choose a category	sitemgr-site	en	Choose a category
 choose language	sitemgr-site	en	Choose language
+collapse threads	sitemgr	en	Collapse Threads
 configure sitemgr	sitemgr	en	Configure SiteMgr
 contact the administrator.	sitemgr-site	en	Contact the administrator.
 content manager	sitemgr-site	en	Content Manager
@@ -38,35 +50,56 @@ edit category	sitemgr	en	Edit Category
 edit individual pages	common	en	Edit Individual Pages
 edit page	sitemgr	en	Edit Page
 edit site header and footer	common	en	Edit Site Header and Footer
+enter a name	sitemgr	en	Enter a name
 error accessing page	common	en	Error accessing page
 filesystem path to sitemgr-site directory	sitemgr	en	Filesystem path to sitemgr-site directory
+fill in permissions from parent category? if you check this, below values will be ignored	sitemgr	en	Fill in permissions from parent category? If you check this, below values will be ignored
 footer editor	sitemgr	en	Footer Editor
+forum	sitemgr	en	Forum
 go back to page manager	sitemgr	en	Go back to Page Manager
 go back to the category manager.	sitemgr	en	Go back to the category manager.
+go to	sitemgr	en	Go to
 go to page manager	sitemgr	en	Go to Page Manager
 google search	sitemgr-site	en	Google Search
 group access permissions	sitemgr	en	Group Access Permissions
 group name	sitemgr	en	Group Name
 header editor	sitemgr	en	Header Editor
 headlines	sitemgr	en	Headlines
+hello	sitemgr	en	Hello
 i'm sorry, you do not have write permissions for any site categories.	sitemgr	en	I'm sorry, you do not have write permissions for any site categories.
 individual access permission	sitemgr	en	Individual Access Permission
 languages the site user can choose from	sitemgr	en	Languages the site user can choose from
+latest reply	sitemgr	en	Latest Reply
+list of permitted modules specific to content area %1	sitemgr	en	List of permitted modules specific to content area %1
 login	sitemgr-site	en	Login
 login name	sitemgr-site	en	Login Name
 main content	sitemgr	en	Main content
 manage categories	sitemgr	en	Manage Categories
+manage content	sitemgr	en	Manage Content
+manage modules	sitemgr	en	Manage Modules
 manage pages	common	en	Manage Pages
+manage site content	sitemgr	en	Manage Site Content
+manage site-wide module properties	sitemgr	en	Manage site-wide module properties
 manage translations	sitemgr	en	Manage Translations
+master list of permitted modules	sitemgr	en	Master list of permitted modules
 migrating data for %1 to %2	sitemgr	en	Migrating data for %1 to %2
+module %1 is not permitted in this context!	sitemgr	en	Module %1 is not permitted in this context!
+module manager	sitemgr	en	Module manager
 move to	sitemgr	en	Move to
 name	sitemgr	en	Name
+no anonymous user accounts installed.  notify the administrator.	sitemgr	en	NO ANONYMOUS USER ACCOUNTS INSTALLED.  NOTIFY THE ADMINISTRATOR.
 no anonymous user accounts installed. notify the administrator.	sitemgr-site	en	NO ANONYMOUS USER ACCOUNTS INSTALLED. NOTIFY THE ADMINISTRATOR.
+no content areas found in selected template	sitemgr	en	No content areas found in selected template
 no content found	sitemgr	en	No content found
 no groups defined.	sitemgr	en	No groups defined.
+no modules permitted for this content area/category	sitemgr	en	No modules permitted for this content area/category
 no options available.	sitemgr	en	No options available.
 no pages available	sitemgr-site	en	No pages available
+no sitelanguages configured	sitemgr	en	No sitelanguages configured
+no templates found.	sitemgr	en	No templates found.
 no users defined.	sitemgr	en	No users defined.
+not yet translated	sitemgr	en	not yet translated
+note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	en	Note that you may get this message if your preferences are incorrect.  For example, if config.inc.php is not found in the directory that you specified.
 page	sitemgr	en	Page
 page content	sitemgr	en	Page Content
 page manager	sitemgr	en	Page Manager
@@ -77,42 +110,58 @@ page title	sitemgr	en	Page Title
 pages	sitemgr-site	en	Pages
 parent	sitemgr	en	Parent
 password	sitemgr-site	en	Password
+post a message to this thread	sitemgr	en	Post A Message To This Thread
+previous	sitemgr	en	Previous
 read permission	sitemgr	en	Read Permission
 refresh	sitemgr	en	Refresh
 register for one now.	sitemgr-site	en	Register for one now.
+register new modules	sitemgr	en	Register new modules
+replies	sitemgr	en	Replies
 required fields	sitemgr	en	Required Fields
 reset	sitemgr	en	Reset
+return to forums	sitemgr	en	Return to forums
 return to main menu.	sitemgr	en	Return to main menu.
+return to message list	sitemgr	en	Return to message list
 root site index	sitemgr-site	en	Root Site Index
 save	sitemgr	en	Save
 saved	sitemgr	en	Saved
+scope	sitemgr	en	Scope
+seen by	sitemgr	en	Seen by
 selected template %1 does not exist.	sitemgr-site	en	Selected template %1 does not exist.
 selected theme %1 does not exist.	sitemgr-site	en	Selected theme %1 does not exist.
 show site index	sitemgr	en	Show Site Index
+site	sitemgr	en	Site
 site format manager	sitemgr	en	Site Format Manager
 site index	sitemgr-site	en	Site Index
 site name	sitemgr	en	Site name
 site setup	common	en	Site Setup
 sitemgr options	sitemgr	en	SiteMgr Options
 sitemgr setup instructions	sitemgr	en	SiteMgr Setup Instructions
+sitemgr setup page	sitemgr	en	sitemgr setup page
 sitemgr web content manager	common	en	SiteMgr Web Content Manager
 sort order	sitemgr	en	Sort Order
 subcategories	sitemgr-site	en	Subcategories
 subtitle	sitemgr	en	Subtitle
 table of contents	sitemgr-site	en	Table of Contents
+template select	sitemgr	en	Template select
 the name field cannot contain punctuation or spaces (field modified).	sitemgr	en	The Name field cannot contain punctuation or spaces (field modified).
 the page name must be unique.	sitemgr	en	The page name must be unique.
 the page was successfully saved.	sitemgr	en	The page was successfully saved.
 theme or template select	sitemgr	en	Theme or template select
+there are no categories	sitemgr	en	There are no categories
+there are no forums in this category	sitemgr	en	There are no forums in this category
 there are no pages in this section	sitemgr-site	en	There are no pages in this section
+there are no properties defined for this module	sitemgr	en	There are no properties defined for this module
 there are no sections available to you.	sitemgr-site	en	There are no sections available to you.
 there was an error accessing the requested page. either you do not have permission to view this page, or the page does not exist.	common	en	There was an error accessing the requested page. Either you do not have permission to view this page, or the page does not exist.
 there was an error writing to the database.	sitemgr	en	There was an error writing to the database.
 this category has no pages.	sitemgr	en	This category has no pages.
 title	sitemgr	en	Title
+topic	sitemgr	en	Topic
 translate	sitemgr	en	Translate
 translate category	sitemgr	en	Translate Category
 translate page	sitemgr	en	Translate Page
+translate site-wide content blocks	sitemgr	en	Translate site-wide content blocks
 translation manager	sitemgr	en	Translation Manager
 up to parent	sitemgr-site	en	Up to parent
 up to table of contents	sitemgr-site	en	Up to table of contents
@@ -121,20 +170,29 @@ url to sitemgr-site	sitemgr	en	URL to sitemgr-site
 use phpnuke themes instead of templates	sitemgr	en	Use phpNuke themes instead of templates
 user name	sitemgr	en	User Name
 view administrative menu	sitemgr	en	View Administrative Menu
-view generated site	sitemgr	en	View Generated Site
 view full index	sitemgr-site	en	View full index
+view generated site	sitemgr	en	View Generated Site
+view threads	sitemgr	en	View Threads
 web content manager	common	en	SiteMgr Web Content Manager
 web content manager administration	sitemgr	en	Web Content Manager Administration
+web site manager	sitemgr	en	Web Site Manager
+week	sitemgr	en	week
 what do you want to do with existing translations of categories and pages for this language?	sitemgr	en	What do you want to do with existing translations of categories and pages for this language?
 write permission	sitemgr	en	Write Permission
 yes, please delete it	sitemgr	en	Yes, please delete it
+you are not entitled to create module %1 on this scope	sitemgr	en	You are not entitled to create module %1 on this scope
+you are not entitled to edit block %1	sitemgr	en	You are not entitled to edit block %1
 you can either migrate them to a new language or delete them	sitemgr	en	You can either migrate them to a new language or delete them
+you can override each content blocks default title. be aware that not in all content areas the block title will be visible.	sitemgr	en	You can override each content blocks default title. Be aware that not in all content areas the block title will be visible.
+you did not choose a module.	sitemgr	en	You did not choose a module.
 you do not have access to any content on this site.	sitemgr-site	en	You do not have access to any content on this site.
 you don't have permission to write in the category	sitemgr	en	You don't have permission to write in the category
 you don't have permission to write to that category.	sitemgr	en	You don't have permission to write to that category.
 you failed to fill in one or more required fields.	sitemgr	en	You failed to fill in one or more required fields.
 you must be an admin to edit categories.	sitemgr	en	You must be an admin to edit categories.
 you must be an admin to edit the site header and footer.	sitemgr	en	You must be an admin to edit the site header and footer.
+you must be an admin to manage module properties.	sitemgr	en	You must be an admin to manage module properties.
 you must be an administrator to setup the site manager.	sitemgr	en	You must be an administrator to setup the Site Manager.
 you removed one ore more languages from your site languages.	sitemgr	en	You removed one ore more languages from your site languages.
+your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr	en	Your administrator has not yet setup the web content manager for public viewing.  Go bug your administrator to get their butt in gear.
 your calendar	sitemgr-site	en	Your Calendar
