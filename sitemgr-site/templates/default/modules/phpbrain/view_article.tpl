@@ -59,11 +59,6 @@
 <div align="center">
 	<script type="text/javascript">
 		var tab = new Tabs(3,'activetab','inactivetab','tab','tabcontent','','','tabpage');
-		function initAll()
-		{
-			tab.init();
-			setActiveTabs();
-		}
 	</script>
 		<table  width="100%" border="0" cellspacing="0" cellpadding="3" style='border:1px solid black'>
 			<tr class="th">
@@ -343,7 +338,7 @@
 			</table>
 		</div>
 </div>
-<script>initAll();</script>
+<script>tab.init();</script>
 
 <!-- BEGIN img_delete_block -->
 <input type="image" src="{img_src_del}" name="delete_{name_del}" value="{val_del}" alt="{lang_delete}" title="{lang_delete}">
