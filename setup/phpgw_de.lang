@@ -108,9 +108,9 @@ enter the block content here	sitemgr	de	Geben Sie den Inhalt des Blocks hier ein
 enter the page content here	sitemgr	de	Geben Sie den Inhalt der Seite hier ein
 error accessing page	common	de	Fehler beim Aufruf der Seite
 everybody	sitemgr	de	Jedermann
+file %1 is not readable by the webserver !!!	sitemgr	de	Die Datei %1 ist nicht vom Webserver lesbar !!!
 file contents	sitemgr	de	Datei Inhalt
 file download	sitemgr	de	Datei download
-file is not world readable	sitemgr	de	Die Datei ist nicht lesbar
 filesystem path of the directory where the images are found (no trailing slash)	sitemgr	de	Pfad zum Ordner in welchem Bilder gespeichert werden (kein "/" am Ende)
 filesystem path of the directory where xml files are stored	sitemgr	de	Der Pfad im zum Ordner in welchem XML Dateien gespeichert werden
 filesystem path to sitemgr-site directory	sitemgr	de	Dateisystem Pfad zum sitemgr-site Ordner
@@ -312,7 +312,7 @@ this module displays a login form	sitemgr	de	Dieses Modul bietet ein Anmelde For
 this module displays bookmarks in a javascript based tree	sitemgr	de	Diese Modul zeigt Lesezeichen (Bookmarks) in einer javascript basierenden Baumansicht
 this module displays the current month	sitemgr	de	Dieses Modul zeigt den aktuellen Monat an
 this module displays the phpgw forums on the web site	sitemgr	de	Dieses Modul stellt die phpGroupWare Foren auf der Webseite dar
-this module includes the contents of a (world readable) file	sitemgr	de	Dieses Modul bindet den Inhalt einer (weltlesbaren) Datei ein
+this module includes the contents of a file (readable by the webserver !)	sitemgr	de	Dieses Modul bindet den Inhalt einer (vom Webserver lesbaren !) Datei ein
 this module is a selectbox to change the mode (production, draft or edit) plus a link back to sitemgr and to log out. it is meant for registered users only	sitemgr	de	Dieses Modul ist eine Auswahlbox um den Modus (Produktion, Entwurf, Bearbeiten) zu ändern plus Links zurück zum SiteMgr und zum auslogen. Es ist ausschließlich für registierte Benutzer gedacht.
 this module is a simple html editor	sitemgr	de	Dieses Modul ist ein HTML Editor (formatierter Text)
 this module lets users choose language	sitemgr	de	Dieses Modul erlaubt es Benutzern eine Sprache auszuwählen
@@ -339,6 +339,7 @@ url pointing to the directory where the images are found (no trailing slash)	sit
 url to sitemgr-site	sitemgr	de	URL zur sitemgr-site
 use phpnuke themes instead of templates	sitemgr	de	Benutze phpNuke Themen anstelle von Templates
 use this module for displaying book ads for the amazon web site	sitemgr	de	Benutzen sie dieses Modul zum Anzeigen für Bücher der Amazon Website
+use this module for displaying wiki-pages	sitemgr	de	Benutzen Sie diese Modul zum Anzeigen von Seiten aus dem Wiki
 user name	sitemgr	de	Benutzer Name
 view administrative menu	sitemgr	de	Administrations Menü
 view full index	sitemgr	de	Gesamtindex
@@ -351,6 +352,8 @@ web site manager	sitemgr	de	Verwaltung der Website
 website	sitemgr	de	Website
 week	sitemgr	de	Woche
 what do you want to do with existing translations of categories and pages for this language?	sitemgr	de	Was möchten Sie mit den existierenden Übersetzungen für Kategorien und Seiten machen?
+wiki	sitemgr	de	Wiki
+wiki startpage	sitemgr	de	Wiki Startseite
 with which view should the module be displayed in the beginning?	sitemgr	de	In welcher Ansicht soll das Modul angezeigt werden am Anfang
 write permission	sitemgr	de	Schreibrechte
 xml browser	sitemgr	de	XML Browser
@@ -367,6 +370,7 @@ you do not have write permissions for any site categories.	sitemgr	de	Sie haben 
 you don't have permission to write in the category	sitemgr	de	Sie haben keine Rechte um in dieser Kategorie zu schreiben
 you don't have permission to write to that category.	sitemgr	de	Sie haben nicht die Rechte in diese Kategorie zu schreiben.
 you failed to fill in one or more required fields.	sitemgr	de	Sie haben eines oder mehrere benötigte Felder nicht ausgefüllt.
+you have no rights to view wiki content or the wiki is not installed at all !!!	sitemgr	de	Sie haben keine Berechtigung Wiki Inhalte zu betrachten oder das Wiki ist überhaupt nicht installiert !!!
 you must be an admin to edit categories.	sitemgr	de	Sie benötigen Administrator Rechte zum Editieren der Kategorien.
 you must be an admin to edit the site header and footer.	sitemgr	de	Sie müssen Admin Rechte  haben zum editieren der Seiten Kopf oder Fusszeile
 you must be an admin to manage module properties.	sitemgr	de	Sie müssen Admin sein, um Einstellungen an Modulen vornehmen zu dürfen.

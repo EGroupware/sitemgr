@@ -105,9 +105,9 @@ enter the block content here	sitemgr	en	Enter the block content here
 enter the page content here	sitemgr	en	Enter the page content here
 error accessing page	common	en	Error accessing page
 everybody	sitemgr	en	everybody
+file %1 is not readable by the webserver !!!	sitemgr	en	File %1 is not readable by the webserver !!!
 file contents	sitemgr	en	File contents
 file download	sitemgr	en	File download
-file is not world readable	sitemgr	en	File is not world readable
 filesystem path of the directory where the images are found (no trailing slash)	sitemgr	en	Filesystem path of the directory where the images are found (no trailing slash)
 filesystem path of the directory where xml files are stored	sitemgr	en	Filesystem path of the directory where XML files are stored
 filesystem path to sitemgr-site directory	sitemgr	en	Filesystem path to sitemgr-site directory
@@ -308,7 +308,7 @@ this module displays a login form	sitemgr	en	This module displays a login form
 this module displays bookmarks in a javascript based tree	sitemgr	en	This module displays bookmarks in a javascript based tree
 this module displays the current month	sitemgr	en	This module displays the current month
 this module displays the phpgw forums on the web site	sitemgr	en	This module displays the phpgw forums on the web site
-this module includes the contents of a (world readable) file	sitemgr	en	This module includes the contents of a (world readable) file
+this module includes the contents of a file (readable by the webserver !)	sitemgr	en	This module includes the contents of a file (readable by the webserver !)
 this module is a selectbox to change the mode (production, draft or edit) plus a link back to sitemgr and to log out. it is meant for registered users only	sitemgr	en	This module is a selectbox to change the mode (production, draft or edit) plus a link back to SiteMgr and to log out. It is meant for registered users only
 this module is a simple html editor	sitemgr	en	This module is a simple HTML editor
 this module lets users choose language	sitemgr	en	This module lets users choose language
@@ -335,6 +335,7 @@ url pointing to the directory where the images are found (no trailing slash)	sit
 url to sitemgr-site	sitemgr	en	URL to sitemgr-site
 use phpnuke themes instead of templates	sitemgr	en	Use phpNuke themes instead of templates
 use this module for displaying book ads for the amazon web site	sitemgr	en	Use this module for displaying book ads for the amazon web site
+use this module for displaying wiki-pages	sitemgr	en	Use this module for displaying wiki-pages
 user name	sitemgr	en	User Name
 view administrative menu	sitemgr	en	View Administrative Menu
 view full index	sitemgr	en	View full index
@@ -347,6 +348,8 @@ web site manager	sitemgr	en	Web Site Manager
 website	sitemgr	en	Website
 week	sitemgr	en	week
 what do you want to do with existing translations of categories and pages for this language?	sitemgr	en	What do you want to do with existing translations of categories and pages for this language?
+wiki	sitemgr	en	Wiki
+wiki startpage	sitemgr	en	Wiki startpage
 with which view should the module be displayed in the beginning?	sitemgr	en	With which view should the module be displayed in the beginning?
 write permission	sitemgr	en	Write Permission
 xml browser	sitemgr	en	XML browser
@@ -363,6 +366,7 @@ you do not have write permissions for any site categories.	sitemgr	en	You do not
 you don't have permission to write in the category	sitemgr	en	You don't have permission to write in the category
 you don't have permission to write to that category.	sitemgr	en	You don't have permission to write to that category.
 you failed to fill in one or more required fields.	sitemgr	en	You failed to fill in one or more required fields.
+you have no rights to view wiki content or the wiki is not installed at all !!!	sitemgr	en	You have no rights to view wiki content or the wiki is not installed at all !!!
 you must be an admin to edit categories.	sitemgr	en	You must be an admin to edit categories.
 you must be an admin to edit the site header and footer.	sitemgr	en	You must be an admin to edit the site header and footer.
 you must be an admin to manage module properties.	sitemgr	en	You must be an admin to manage module properties.
