@@ -307,7 +307,6 @@
 
 		function DisplayFooter()
 		{
-echo (int)substr($GLOBALS['phpgw_info']['server']['versions']['phpgwapi'],4);
 			$this->t->set_file('sitemgr_footer','sitemgr_footer.tpl');
 			$this->t->pfp('out','sitemgr_footer');
 		}

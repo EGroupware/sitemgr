@@ -145,7 +145,6 @@
 
 		function delete($id)
 		{
-			//TODO: add ACL!!!!!
  			$this->so->delete($id);
  			$GLOBALS['Common_BO']->cats->removeCategory($id,True,True);
 			return True;

@@ -17,7 +17,6 @@
 		var $public_functions = array(
 			'list_sites' => True,
 			'edit'         => True,
-			'add'          => True,
 			'delete'       => True
 		);
 
@@ -73,6 +72,11 @@
 		{
 			$GLOBALS['phpgw']->common->phpgw_header();
 			echo parse_navbar();
+
+			if (!$GLOBALS['phpgw']->acl->check('run',1,'admin'))
+			{
+				$this->deny();
+			}
 
 			$GLOBALS['phpgw']->template->set_file(array('site_list_t' => 'listsites.tpl'));
 			$GLOBALS['phpgw']->template->set_block('site_list_t','site_list','list');
@@ -134,6 +138,15 @@
 		/* This function handles add or edit */
 		function edit()
 		{
+
+			$GLOBALS['phpgw']->common->phpgw_header();
+			echo parse_navbar();
+
+			if (!$GLOBALS['phpgw']->acl->check('run',1,'admin'))
+			{
+				$this->deny();
+			}
+
 			if ($_POST['done'])
 			{
 				return $this->list_sites();
@@ -174,9 +187,6 @@
 			{
 				$site = $this->bo->read($site_id);
 			}
-
-			$GLOBALS['phpgw']->common->phpgw_header();
-			echo parse_navbar();
 
 			$GLOBALS['phpgw']->template->set_var('title_sites',$site_id ? lang('Edit Website') : lang('Add Website'));
 			
@@ -251,6 +261,13 @@
 
 		function delete()
 		{
+			if (!$GLOBALS['phpgw']->acl->check('run',1,'admin'))
+			{
+				$GLOBALS['phpgw']->common->phpgw_header();
+				echo parse_navbar();
+				$this->deny();
+			}
+
 			$site_id = get_var('site_id',array('POST','GET'));
 			if ($_POST['yes'] || $_POST['no'])
 			{
@@ -276,6 +293,12 @@
 				));
 				$GLOBALS['phpgw']->template->pparse('phpgw_body','site_delete');
 			}
+		}
+
+		function deny()
+		{
+			echo '<p><center><b>'.lang('Access not permitted').'</b></center>';
+			$GLOBALS['phpgw']->common->phpgw_exit(True);
 		}
 	}
 ?>
