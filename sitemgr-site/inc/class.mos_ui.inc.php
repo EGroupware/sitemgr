@@ -37,6 +37,19 @@
 		echo $url;
 	}
 
+	// this is just to make some templates work, it does nothing actually atm.
+	class mos_database
+	{
+		function setQuery($query)
+		{
+		}
+
+		function loadObjectList()
+		{
+			return array();
+		}
+	}
+
 	class ui
 	{
 		var $t;
@@ -80,6 +93,9 @@
 
 		function generatePage()
 		{
+			global $database;
+			$database = new mos_database;
+
 			// define global $mosConfig vars
 			global $mosConfig_sitename,$mosConfig_live_site,$modConfig_offset;
 			$mosConfig_sitename = $this->t->get_meta('sitename').': '.$this->t->get_meta('title');
