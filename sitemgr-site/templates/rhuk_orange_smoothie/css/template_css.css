@@ -480,8 +480,8 @@ ul {
 	}
 
 li {
-	list-style: inside url(../images/arrow.gif) 3px;
-	list-style-image: url(../images/arrow.gif);
+	list-style: inside url(../../../images/M_images/arrow.png) 3px;
+	list-style-image: url(../../../images/M_images/arrow.png);
 	}
 
 .fase4rdf {
