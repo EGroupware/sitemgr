@@ -1,5 +1,5 @@
 <?php
-	foreach (array('html','meta','index','toc') as $module)
+	foreach (array('html','index','toc') as $module)
 	{
 		$oProc->query("INSERT INTO phpgw_sitemgr_modules (app_name,module_name) VALUES ('sitemgr','$module')",__LINE__,__FILE__);
 		$module_id = $oProc->m_odb->get_last_insert_id('phpgw_sitemgr_modules','module_id');
