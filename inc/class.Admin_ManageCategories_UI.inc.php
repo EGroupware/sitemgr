@@ -296,9 +296,13 @@
 		function getParentOptions($selected_id=0,$skip_id=0)
 		{
 			$option_list=$this->cat_bo->getCategoryOptionList();
-			if (!(int) $selected_id)
+			if (!$selected_id)
 			{
 				$selected=' SELECTED';
+			}
+			if (!$skip_id)
+			{
+				$skip_id = -1;
 			}
 			$retval="\n".'<SELECT NAME="parent">'."\n";
 			foreach($option_list as $option)

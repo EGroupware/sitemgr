@@ -75,7 +75,7 @@
 					$this->page->content=$cmain;
 				}
 				$this->t->set_var('add_edit','Edit Page');
-				$this->t->set_var('move_to',$this->getParentOptions($page->cat_id));
+				$this->t->set_var('move_to',$this->getParentOptions($this->page->cat_id));
 			}
 			else
 			{
@@ -124,13 +124,10 @@
 		function _managePage()
 		{
 			global $hidden;
-			global $btnAddPage;
-			global $btnDelete;
-			global $btnEditPage;
+			global $btnAddPage, $btnDelete, $btnEditPage;
 			global $btnPrev;
 			global $pageid;
 			global $btnSave;
-			global $btnReset;
 			global $pageid;
 			global $category_id;
 			global $sort_order;
@@ -143,7 +140,6 @@
 
 			$common_ui = CreateObject('sitemgr.Common_UI',True);
 			$common_ui->DisplayHeader();
-			//echo PHPGW_TEMPLATE_DIR;
 			
 			if($btnSave && !$error)
 			{
@@ -249,6 +245,8 @@
 									<input type="submit" name="btnEditPage" value = "Edit">
 									<input type="hidden" name="category_id" value="'.
 										$this->cat_id.'">
+									<input type="hidden" name="parent" value="'.
+										$this->cat_id.'">
 									<input type="hidden" name="pageid" value="'. 
 										$this->page_id .'">
 									</form>');
@@ -260,6 +258,8 @@
 									<input type="submit" name="btnDelete" value="Delete">
 									<input type="hidden" name="pageid" value="'.$this->page_id.'">
 									<input type="hidden" name="category_id" value="'.
+										$this->cat_id.'">
+									<input type="hidden" name="parent" value="'.
 										$this->cat_id.'">
 									</form>');
 								$this->t->parse('PBlock', 'PageBlock', true);
@@ -295,7 +295,7 @@
 		function getParentOptions($selected_id=0)
 		{
 			$option_list=$this->categorybo->getCategoryOptionList();
-			if (!(int) $selected_id)
+			if (!$selected_id)
 			{
 				$selected=' SELECTED'; 
 			}       
