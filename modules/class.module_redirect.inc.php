@@ -17,7 +17,8 @@ class module_redirect extends Module
 	{
 		$this->arguments = array(
 			'URL' => array(
-				'type' => 'textfield', 
+				'type' => 'textfield',
+				'params' => array('size' => 100),
 				'label' => lang('The URL to redirect to')
 			)
 		);
