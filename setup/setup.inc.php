@@ -32,19 +32,29 @@
 		design documents followed by the actual coding of the project.  The course is ten weeks
 		long, but coding doesn\'t start until part-way through week 6, so version 1.0 of sitemgr
 		was programmed in an intensive 3 weeks.';
-	$setup_info['sitemgr']['author'] =
-		'<u>ICS 125 Team 10</u>:<br>
-		Tina Alinaghian (tina -AT- checkyour6.net)<br>
-		Austin Lee (anhjah -AT- hotmail.com)<br>
-		Siu Leung (rurouni_master -AT- hotmail.com)<br>
-		Fang Ming Lo (flo -AT- uci.edu)<br>
-		Patrick Walsh (mr_e -AT- phpgroupware.org)<br>
-		<u>Professor</u>:<br>
-		Hadar Ziv (profziv -AT- aol.com)<br>
-		<u>TA</u>:<br>
-		Arijit Ghosh (arijitg -AT- uci.edu)';
-	$setup_info['sitemgr']['maintainer'] = 'Patrick Walsh';
-	$setup_info['sitemgr']['maintainer_email'] = 'mr_e@phpgroupware.org';
+	
+	$setup_info['sitemgr']['author'] = array(
+		array (
+			'name'  => 'Tina Alinaghian',
+			'email' => 'tina@checkyour6.net'
+		), array(
+			'name'  => 'Austin Lee',
+			'email' => 'anhjah@hotmail.com'
+		), array(
+			'name'  => 'Siu Leung',
+			'email' => 'rurouni_master@hotmail.com'
+		), array(
+			'name'  => 'Fang Ming Lo',
+			'email' => 'flo@uci.edu'
+		), array(
+			'name'  => 'Patrick Walsh',
+			'email' => 'mr_e@phpgroupware.org'
+		));
+	
+	$setup_info['sitemgr']['maintainer'] = array(
+		'name'  => 'Patrick Walsh',
+		'email' => 'mr_e@phpgroupware.org'
+	);
 
 	/* The hooks this app includes, needed for hooks registration */
 	$setup_info['sitemgr']['hooks'][] = 'preferences';
