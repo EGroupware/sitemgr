@@ -6,8 +6,9 @@
 
 	$sitemgr_info = array(
 		// add trailing slash
-		'phpgw_path'           => '../../',
-		'htaccess_rewrite'         => False,
+		'phpgw_path'		=> '/var/www/phpgw16/',
+		'htaccess_rewrite'	=> True,
+		'phpgw_domain'		=> 'default', //which phpgw install to use
 	);
 
 	/***********************************************************\
@@ -20,6 +21,9 @@
 		}
 
 		include($sitemgr_info['phpgw_path'] . 'header.inc.php');
+
+		//hack to support sitemgr on non default domain
+		$_GET['domain'] = $sitemgr_info['phpgw_domain'];
 
 		$GLOBALS['phpgw_info']['flags']['currentapp'] = 'login';
 		include(PHPGW_SERVER_ROOT . '/phpgwapi/inc/functions.inc.php');
