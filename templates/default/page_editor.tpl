@@ -35,9 +35,13 @@
 		<td colspan='2'><textarea ROWS="13" COLS="50" type="text" name="main">{main}</textarea>	</td>
 	</tr>
 	<tr>
+		<td align = 'right'><input type='checkbox' {hidden} name ="hidden" value="checked"></td>
+		<td>Check to hide from anonymouse viewer.</td>
+	</tr>
+	<tr>
 		<td align='right'><input type="reset" name="btnReset" value="Reset"></td>
 		<td align='left'><input type="submit" name="btnSave" value="Save"></td>
-	<tr>
+	</tr>
 	<tr>
 		<td align='center' colspan='2'><font size='2' color='#ff0000'><b>* Required Fields</b></font></td>
 	</tr>
