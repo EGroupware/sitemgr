@@ -83,3 +83,4 @@ document.write(monthNames[now.getMonth()] + " " + now.getDate() + ", " + thisYea
 <td width="100%">&nbsp;</td>
 <td><IMG height="17" alt="" hspace="0" src="themes/NukeNews/images/corner-bottom-right.gif" width="17" align="right"></td>
 </tr></table>
+</body>
