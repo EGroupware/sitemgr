@@ -15,8 +15,8 @@ class ACL_SO
 	function get_permission($location)
 	{
 		$memberships = $this->acct->membership($this->acl->logged_in_user);
-		$sql = 'SELECT acl_rights FROM phpgw_acl WHERE acl_location="'.$location.
-			'" and acl_account in ('.$GLOBALS['phpgw_info']['user']['account_id'];
+		$sql = 'SELECT acl_rights FROM phpgw_acl WHERE acl_location=\''.$location.
+			'\' and acl_account in ('.$GLOBALS['phpgw_info']['user']['account_id'];
 		if (is_array($memberships))
 		{
 			foreach($memberships as $group)
@@ -36,7 +36,7 @@ class ACL_SO
 
 	function get_rights($account_id, $location)
 	{
-		$sql = 'select acl_rights from phpgw_acl where acl_appname="sitemgr" and acl_location="'.$location.'" and acl_account="'.$account_id.'"';
+		$sql = 'select acl_rights from phpgw_acl where acl_appname=\'sitemgr\' and acl_location=\''.$location.'\' and acl_account=\''.$account_id.'\'';
 		$this->db->query($sql,__LINE__,__FILE__);
 		if ($this->db->next_record())
 		{
@@ -50,8 +50,8 @@ class ACL_SO
 
 	function remove_location($location)
 	{
-		$sql = 'delete from phpgw_acl where acl_appname="sitemgr" and acl_location="'.
-			$location.'"';
+		$sql = 'delete from phpgw_acl where acl_appname=\'sitemgr\' and acl_location=\''.
+			$location.'\'';
 		$this->db->query($sql,__LINE__,__FILE__);
 	}
 }

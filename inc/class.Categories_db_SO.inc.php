@@ -22,31 +22,31 @@
 		function addCategory($name, $description)
 		{
 			//Create a section for categoriy and return the newly added category id.
-			$sql = 'INSERT INTO phpgw_sitemgr_categories (name, description) VALUES ("'
-				. $name . '","' . $description . '")';
+			$sql = 'INSERT INTO phpgw_sitemgr_categories (name, description) VALUES (\''
+				. $name . '\',\'' . $description . '\')';
 			$this->db->query($sql, __LINE__, __FILE__);
 			return $this->db->get_last_insert_id('phpgw_sitemgr_categories','cat_id');
 		}
 
 		function removeCategory($cat_id)
 		{
-			$sql = 'DELETE FROM phpgw_sitemgr_categories WHERE cat_id="' . $cat_id . '"';
+			$sql = 'DELETE FROM phpgw_sitemgr_categories WHERE cat_id=\'' . $cat_id . '\'';
 			$this->db->query($sql, __LINE__, __FILE__);
 			return true;
 		}
 
 		function saveCategory($cat_info)
 		{
-			$sql = 'UPDATE phpgw_sitemgr_categories SET name="' .
-				$cat_info->name . '", description="' . $cat_info->description .
-				'", sort_order="'. (int) $cat_info->sort_order .
-				'" WHERE cat_id="' . $cat_info->id . '"';
+			$sql = 'UPDATE phpgw_sitemgr_categories SET name=\'' .
+				$cat_info->name . '\', description=\'' . $cat_info->description .
+				'\', sort_order=\''. (int) $cat_info->sort_order .
+				'\' WHERE cat_id=\'' . $cat_info->id . '\'';
 			$this->db->query($sql, __LINE__, __FILE__);
 		}
 
 		function getCategory($cat_id)
 		{
-			$sql = 'SELECT * FROM phpgw_sitemgr_categories WHERE cat_id="' . $cat_id . '"';
+			$sql = 'SELECT * FROM phpgw_sitemgr_categories WHERE cat_id=\'' . $cat_id . '\'';
 			$this->db->query($sql, __LINE__, __FILE__);
 			if ($this->db->next_record())
 			{
@@ -98,7 +98,7 @@
 				$rv='';
 				if (!$new_cat_id)
 				{
-					return("ERROR!  I need to update your tables, but I can't upgrade tables until you get the latest phpgwapi/inc/class.categories.inc.php from the 0.9.14 branch of CVS!  Please get this now.");
+					return('ERROR!  I need to update your tables, but I can\'t upgrade tables until you get the latest phpgwapi/inc/class.categories.inc.php from the 0.9.14 branch of CVS!  Please get this now.');
 				}
 				$old_cat = $this->getCategory($old_cat_id);
 				$old_cat->id = $new_cat_id;
@@ -123,8 +123,8 @@
 			// Update those page categories
 			while (list($page_id,$new_cat_id) = each($update))
 			{
-				$sql = 'UPDATE phpgw_sitemgr_pages SET cat_id="'.$new_cat_id.
-					'" WHERE page_id="'.$page_id.'"';
+				$sql = 'UPDATE phpgw_sitemgr_pages SET cat_id=\''.$new_cat_id.
+					'\' WHERE page_id=\''.$page_id.'\'';
 				$this->db->query($sql,__LINE__,__FILE__);
 				$rv .= "\n<br>&nbsp;&nbsp;&nbsp;&nbsp;Updating page ".$page_id;
 			}

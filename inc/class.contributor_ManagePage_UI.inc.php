@@ -1,12 +1,12 @@
 <?php
-	/***************************************************************************\
-	* http://www.phpgroupware.org                                               *
-	* -------------------------------------------------                         *
-	* This program is free software; you can redistribute it and/or modify it   *
-	* under the terms of the GNU General Public License as published by the     *
-	* Free Software Foundation; either version 2 of the License, or (at your    *
-	* option) any later version.                                                *
-	\***************************************************************************/
+	/*************************************************************************\
+	* http://www.phpgroupware.org                                             *
+	* -------------------------------------------------                       *
+	* This program is free software; you can redistribute it and/or modify it *
+	* under the terms of the GNU General Public License as published by the   *
+	* Free Software Foundation; either version 2 of the License, or (at your  *
+	* option) any later version.                                              *
+	\*************************************************************************/
 	/* $Id$ */
 	
 	class Contributor_ManagePage_UI
@@ -28,7 +28,7 @@
 		
 		function Contributor_ManagePage_UI()			
 		{
-			$this->t = $GLOBALS["phpgw"]->template;
+			$this->t = $GLOBALS['phpgw']->template;
 			$this->pagebo = CreateObject('sitemgr.Pages_BO', True);
 			$this->categorybo = CreateObject('sitemgr.Categories_BO',True);
 		}
@@ -92,7 +92,7 @@
 				$this->t->set_var('move_to',$move_msg);
 			}
 			
-			$trans = array("{" => "&#123;", "}" => "&#125;");
+			$trans = array('{' => '&#123;', '}' => '&#125;');
 	                if($this->page->hidden)
                         {
                                 $this->t->set_var('hidden', 'CHECKED');
@@ -159,7 +159,7 @@
 					$pageid = $this->page->id;
 					if(!$this->page->id)
 					{
-						$save_msg = "You don't have permission to write in the category";
+						$save_msg = 'You don\'t have permission to write in the category';
 					}
 				}
 
@@ -197,7 +197,7 @@
 			}
 			if($btnPrev)
 			{
-				echo "Go back to the category manager";
+				echo 'Go back to the category manager';
 				$btnEditPage = False;
 				$btnPrev = False;
 			}
@@ -286,7 +286,7 @@
 				}
 				else
 				{
-					echo "I'm sorry, you do not have write permissions for any site categories.<br><br>";
+					echo 'I\'m sorry, you do not have write permissions for any site categories.<br><br>';
 				}
 			}
 			$common_ui->DisplayFooter();

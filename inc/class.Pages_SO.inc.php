@@ -16,7 +16,7 @@
 			}
 			else
 			{
-				$sql = 'SELECT page_id FROM phpgw_sitemgr_pages WHERE cat_id="' . $cat_id . '" ORDER BY sort_order';
+				$sql = 'SELECT page_id FROM phpgw_sitemgr_pages WHERE cat_id=\'' . $cat_id . '\' ORDER BY sort_order';
 			}
 			$this->db->query($sql,__LINE__,__FILE__);
 			while ($this->db->next_record())
@@ -32,29 +32,29 @@
 
 		function addPage($cat_id)
 		{
-			$sql = 'INSERT INTO phpgw_sitemgr_pages (cat_id) VALUES ("' . $cat_id . '")';
+			$sql = 'INSERT INTO phpgw_sitemgr_pages (cat_id) VALUES (\'' . $cat_id . '\')';
 			$this->db->query($sql, __LINE__,__FILE__);
 			return $this->db->get_last_insert_id('phpgw_sitemgr_pages','page_id');
 		}
 
 		function removePagesInCat($cat_id)
 		{
-			$sql = 'DELETE FROM phpgw_sitemgr_pages WHERE cat_id="'.$cat_id.'"';
+			$sql = 'DELETE FROM phpgw_sitemgr_pages WHERE cat_id=\''.$cat_id.'\'';
 			$this->db->query($sql,__LINE__,__FILE__);
 		}
 
 		function removePage($page_id)
 		{
-			$sql = 'DELETE FROM phpgw_sitemgr_pages WHERE page_id="' . $page_id . '"';
+			$sql = 'DELETE FROM phpgw_sitemgr_pages WHERE page_id=\'' . $page_id . '\'';
 			$this->db->query($sql, __LINE__,__FILE__);
 		}
 
 		function pageExists($page_name,$exclude_page_id)
 		{
-			$sql = 'SELECT page_id FROM phpgw_sitemgr_pages WHERE name="' . $page_name . '"';
+			$sql = 'SELECT page_id FROM phpgw_sitemgr_pages WHERE name=\'' . $page_name . '\'';
 			if ($exclude_page_id)
 			{
-				$sql .= ' and page_id!="'. $exclude_page_id . '"';
+				$sql .= ' and page_id!=\''. $exclude_page_id . '\'';
 			}
 			$this->db->query($sql,__LINE__,__FILE__);
 			if ($this->db->next_record())
@@ -69,7 +69,7 @@
 
 		function getPageByName($page_name)
 		{
-			$sql = 'SELECT * FROM phpgw_sitemgr_pages WHERE name="' . $page_name . '"';
+			$sql = 'SELECT * FROM phpgw_sitemgr_pages WHERE name=\'' . $page_name . '\'';
 			$this->db->query($sql,__LINE__,__FILE__);
 			if ($this->db->next_record())
 			{
@@ -92,7 +92,7 @@
 
 		function getPage($page_id)
 		{
-			$sql = 'SELECT * FROM phpgw_sitemgr_pages WHERE page_id="' . $page_id . '"';
+			$sql = 'SELECT * FROM phpgw_sitemgr_pages WHERE page_id=\'' . $page_id . '\'';
 			$this->db->query($sql,__LINE__,__FILE__);
 			if ($this->db->next_record())
 			{
@@ -116,14 +116,14 @@
 		function savePageInfo($pageInfo)
 		{
 			$sql = 'UPDATE phpgw_sitemgr_pages SET ' . 
-				'cat_id="' . $pageInfo->cat_id . '",' .
-				'name="' . $pageInfo->name . '",' .
-				'sort_order="' . (int) $pageInfo->sort_order . '",' .
-				'title="' . $pageInfo->title . '",' .
-				'subtitle="' . $pageInfo->subtitle . '",' .
-				'content="' . $pageInfo->content . '", ' .
-				'hide_page="' . $pageInfo->hidden . '" ' .
-				'WHERE page_id="' . $pageInfo->id . '"';
+				'cat_id=\'' . $pageInfo->cat_id . '\',' .
+				'name=\'' . $pageInfo->name . '\',' .
+				'sort_order=\'' . (int) $pageInfo->sort_order . '\',' .
+				'title=\'' . $pageInfo->title . '\',' .
+				'subtitle=\'' . $pageInfo->subtitle . '\',' .
+				'content=\'' . $pageInfo->content . '\', ' .
+				'hide_page=\'' . $pageInfo->hidden . '\' ' .
+				'WHERE page_id=\'' . $pageInfo->id . '\'';
 			$this->db->query($sql, __LINE__,__FILE__);
 			return true;
 		}
