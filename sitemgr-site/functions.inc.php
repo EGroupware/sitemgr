@@ -20,7 +20,7 @@
 
 	function sitemgr_link($extravars = '')
 	{
-		$kp3 = $GLOBALS['HTTP_GET_VARS']['kp3'] ? $GLOBALS['HTTP_GET_VARS']['kp3'] : $GLOBALS['HTTP_COOKIE_VARS']['kp3'];
+		$kp3 = $_GET['kp3'] ? $_GET['kp3'] : $_COOKIE['kp3'];
 
 		if (! $kp3)
 		{
