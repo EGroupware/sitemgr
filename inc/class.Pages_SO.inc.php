@@ -114,7 +114,7 @@
 				'sort_order="' . (int) $pageInfo->sort_order . '",' .
 				'title="' . $pageInfo->title . '",' .
 				'subtitle="' . $pageInfo->subtitle . '",' .
-				'content="' . $pageInfo->content . '" ' .
+				'content="' . $pageInfo->content . '", ' .
 				'hide_page="' . $pageInfo->hidden . '" ' .
 				'WHERE page_id="' . $pageInfo->id . '"';
 			$this->db->query($sql, __LINE__,__FILE__);
