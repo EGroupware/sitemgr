@@ -1,0 +1,17 @@
+# If you want your URLs to look like this:
+#   http://mymachine.com/page1/
+# instead of like this:
+#   http://mymachine.com/index.php?page_name=page1
+# and you're running Apache, then customize and add
+# the below line to your .htaccess file, or
+# copy this file to .htaccess.  Note that your
+# Apache web server needs to be setup to read
+# .htaccess files and allow use of the ErrorDocument
+# directive.  If it doesn't work for you, don't
+# start asking me questions about it....
+# 
+# The other thing you need to do is to edit the
+# relocate.php file's top two lines.  
+#
+# mr_e
+ErrorDocument 404 /path/to/sitemgr-site/relocate.php
