@@ -35,7 +35,7 @@
 			$this->cat = CreateObject('sitemgr.Category_SO', True);
 			$this->acl = $GLOBALS['Common_BO']->acl;
 			$this->isadmin = $this->acl->is_admin();
-			$this->sitelanguages = explode(',',$GLOBALS['Common_BO']->sites->current_site['site_languages']);
+			$this->sitelanguages = $GLOBALS['Common_BO']->sites->current_site['sitelanguages'];
 		}
 
 		function _manageCategories()

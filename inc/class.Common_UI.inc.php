@@ -60,10 +60,8 @@
 
 				if ($_POST['btnSave'])
 				{
-					$preferences = array(
-						'home_page_id','themesel','site_languages');
-
 					$oldsitelanguages = $GLOBALS['Common_BO']->sites->current_site['site_languages'];
+
 					if ($oldsitelanguages && ($oldsitelanguages != $_POST['pref']['site_languages']))
 					{
 						$oldsitelanguages = explode(',',$oldsitelanguages);
@@ -106,21 +104,13 @@
 					}
 
 					$oldsitelanguages = $oldsitelanguages ? explode(',',$oldsitelanguages) : array("en");
-					foreach ($oldsitelanguages as $lang)
-					{
-						array_push($preferences,'sitemgr-site-name-' . $lang);
-					}
 
 					$GLOBALS['Common_BO']->sites->saveprefs($_POST['pref']);
 
 					echo '<p><b>' . lang('Changes Saved.') . '</b></p>';
-					unset($preferences);
 				}
-				
-				$sitelanguages = explode(',',$GLOBALS['Common_BO']->sites->current_site['site_languages']);
-				$sitelanguages = $sitelanguages ? $sitelanguages : array("en");
-				
-				foreach ($sitelanguages as $lang)
+
+				foreach ($GLOBALS['Common_BO']->sites->current_site['sitelanguages'] as $lang)
 				{
 					$langname = $GLOBALS['Common_BO']->getlangname($lang);
 					$preferences['site_name_' . $lang] = array(
@@ -131,6 +121,7 @@
 					 $preferences['site_desc_' . $lang] = array(
 						'title'=>lang('Site descriptioin'). ' ' . $langname,
 						'note'=>lang('This is used chiefly for meta data. If you change the site languages below you have to save before being able to set this preference for a new language.'),
+						'input'=>'textarea'
 					);
 				}
 
@@ -172,6 +163,9 @@
 					$inputbox = '';
 					switch($details['input'])
 					{
+						case 'textarea':
+							$inputbox = $this->inputtextarea($name);
+							break;
 						case 'checkbox':
 							$inputbox = $this->inputCheck($name);
 							break;
@@ -212,6 +206,18 @@
 
 			return '<input type="text" size="'.$size.
 				'" name="pref['.$name.']" value="'.$val.'">';
+		}
+
+		function inputtextarea($name='',$cols=40,$rows=5,$default='')
+		{
+			$val = $GLOBALS['Common_BO']->sites->current_site[$name];
+			if (!$val)
+			{
+				$val = $default;
+			}
+
+			return '<textarea cols="' . $cols . '" rows="' . $rows . 
+				'" name="pref['.$name.']">'. $GLOBALS['phpgw']->strip_html($val).'</textarea>';
 		}
 
 		function inputCheck($name = '')

@@ -34,7 +34,7 @@
 			$this->t = $GLOBALS['phpgw']->template;
 			$this->cat_bo = &$GLOBALS['Common_BO']->cats;
 			$this->acl = &$GLOBALS['Common_BO']->acl;
-			$this->sitelanguages = explode(',',$GLOBALS['Common_BO']->sites->current_site['site_languages']);
+			$this->sitelanguages = $GLOBALS['Common_BO']->sites->current_site['sitelanguages'];
 			$this->pagebo = &$GLOBALS['Common_BO']->pages;
 			$this->contentbo = &$GLOBALS['Common_BO']->content;
 			$this->modulebo = &$GLOBALS['Common_BO']->modules;

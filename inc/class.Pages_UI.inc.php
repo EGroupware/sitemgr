@@ -34,7 +34,7 @@
 			$this->t = $GLOBALS['phpgw']->template;
 			$this->pagebo = &$GLOBALS['Common_BO']->pages;
 			$this->categorybo = &$GLOBALS['Common_BO']->cats;
-			$this->sitelanguages = explode(',',$GLOBALS['Common_BO']->sites->current_site['site_languages']);
+			$this->sitelanguages = $GLOBALS['Common_BO']->sites->current_site['sitelanguages'];
 		}
 		
 		function _addPage($category_id)

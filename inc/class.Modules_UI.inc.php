@@ -63,6 +63,10 @@
 				$link_data['menuaction'] = "sitemgr.Modules_UI._configureModule";
 				$this->t->set_var('configureurl', $GLOBALS['phpgw']->link('/index.php',$link_data));
 				$contentareas = $GLOBALS['Common_BO']->content->getContentAreas();
+				if (!is_array($contentareas))
+				{
+					$contentareas = array();
+				}
 				array_unshift($contentareas,'__PAGE__');
 
 				if ($btnselect)

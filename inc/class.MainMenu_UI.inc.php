@@ -47,10 +47,8 @@
 					'menutitle'	=> lang('Administrative Menu'),
 					'lang_configure' => lang('Configure SiteMgr'),
 					'lang_check' => lang('check here after every upgrade'),
-					'lang_editheadfoot' => lang('Edit Site Header and Footer'),
 					'lang_managesitemodules' => lang('Manage site-wide module properties'),
 					'lang_managesitecontent' => lang('Manage Site Content'),
-//					'headerandfooter' => $GLOBALS['phpgw']->link('/index.php', 'menuaction=sitemgr.SiteContent_UI._editHeaderAndFooter'),
 					'setup'	=> $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Common_UI.DisplayPrefs')
 				));
 				$link_data['cat_id'] = CURRENT_SITE_ID;

@@ -91,8 +91,8 @@
 			$result = $this->so->read($id);
 			if ($result)
 			{
-				$sitelanguages = explode(',',$result['site_languages']);
-				foreach($sitelanguages as $lang)
+				$result['sitelanguages'] = $result['site_languages'] ? explode(',',$result['site_languages']) : array('en');;
+				foreach($result['sitelanguages'] as $lang)
 				{
 					$langinfo = $GLOBALS['Common_BO']->cats->getCategory($id,$lang);
 					$result['site_name_' . $lang] = $langinfo->name;
@@ -130,7 +130,9 @@
 		function saveprefs($prefs)
 		{
 			$this->so->saveprefs($prefs);
-			$sitelanguages = explode(',',$this->current_site['site_languages']);
+			$sitelanguages = $this->current_site['site_languages'] ? 
+				explode(',',$this->current_site['site_languages']) :
+				array('en');
 			foreach ($sitelanguages as $lang)
 			{
 				$GLOBALS['Common_BO']->cats->saveCategoryLang(

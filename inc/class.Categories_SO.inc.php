@@ -122,11 +122,11 @@
 						$cat_info->name = $this->db->f('name');
 						$cat_info->description = $this->db->f('description');
 					}
-					else
-					{
-						//return False;
-						$cat_info->name	= lang("not yet translated");
-					}
+// 					else
+// 					{
+// 						//return False;
+// 						$cat_info->name	= lang("not yet translated");
+// 					}
 				}
 
 				//if there is no lang argument we return the content in whatever languages turns up first
