@@ -86,7 +86,7 @@
 				}
 				if (file_exists($dir . SEP . 'template_thumbnail.png'))
 				{
-					$info['thumbnail'] = $GLOBALS['Common_BO']->sites->current_site['site_url']."/templates/$theme/template_thumbnail.png";
+					$info['thumbnail'] = $GLOBALS['Common_BO']->sites->current_site['site_url']."templates/$theme/template_thumbnail.png";
 				}
 			}
 			return $info;

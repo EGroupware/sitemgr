@@ -110,7 +110,7 @@
 			// define global $mosConfig vars
 			global $mosConfig_sitename,$mosConfig_live_site,$modConfig_offset,$cur_template;
 			$mosConfig_sitename = $this->t->get_meta('sitename').': '.$this->t->get_meta('title');
-			$mosConfig_live_site = $GLOBALS['sitemgr_info']['site_url'];
+			$mosConfig_live_site = substr($GLOBALS['sitemgr_info']['site_url'],0,-1);
 			$mosConfig_offset = (int) $GLOBALS['phpgw_info']['user']['preferences']['common']['tz_offset'];
 			$cur_template = $GLOBALS['sitemgr_info']['themesel'];
 			define('_DATE_FORMAT_LC',str_replace(array('d','m','M','Y'),array('%d','%m','%b','%Y'),
