@@ -266,8 +266,13 @@ define('SITEMGR_VIEWABLE_ANONYMOUS',3);
 				$validationerrors[] = lang('There can only be one version in (pre(un))published state, with the one exeption that one prepublished version can coexist with one preunpublished version');
 			}
 			$moduleobject = $this->getblockmodule($block->id);
-			while (list($versionid,$versiondata) = @each($data))
+
+			// we need to loop over the stats (and not the data) as empty checkboxes dont return any data !!!
+			// so the empty state would not get saved, if there are only empty checkboxes.
+			foreach($state as $versionid => $s)
 			{
+				$versiondata = isset($data[$versionid]) ? $data[$versionid] : array();
+
 				if ($moduleobject->validate($versiondata))
 				{
 					if ($this->saveversiondatalang($block->id,$versionid,$versiondata['i18n'],$lang))
