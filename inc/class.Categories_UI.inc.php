@@ -85,8 +85,6 @@
 				}
 			}
 
-			$this->common_ui->DisplayHeader();
-
 			if ($cat_id)
 			{
 				$cat = $this->cat_bo->getCategory($cat_id,$this->sitelanguages[0]); 
@@ -130,10 +128,9 @@
 				'lang_reset' => lang('Reset'),
 				'lang_save' => lang('Save'),
 				'lang_state' => lang('State'),
-				'lang_goback' => lang('Done'),
+				'lang_done' => lang('Done'),
 				'lang_getparentpermissions' => lang('Fill in permissions from parent category? If you check this, below values will be ignored'),
 				'lang_applypermissionstosubs' => lang('Apply permissions also to subcategories?'),
-				'goback' => $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Outline_UI.manage'),
 			));
 		
 			$acct = CreateObject('phpgwapi.accounts');
@@ -295,8 +292,6 @@
 			$this->t->set_var('lang_yes',lang('Yes, please delete it'));
 			$this->t->set_var('lang_no',lang('Cancel the delete'));
 			$this->t->pfp('out','ConfirmDelete');
-
-			$this->common_ui->DisplayFooter();
 		}
 	}
 ?>

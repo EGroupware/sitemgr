@@ -63,14 +63,17 @@
 					$error = lang('You failed to fill in one or more required fields.');
 					$this->t->set_var('message',$error);
 				}
-				elseif(!$page_id)
-				{		
-					$page_id = $this->pagebo->addPage($inputcategoryid);
+				else
+				{
 					if(!$page_id)
-					{
-//						echo lang("You don't have permission to write in the category");
-						$GLOBALS['phpgw']->redirect($GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Outline_UI.manage'));
-						return;
+					{		
+						$page_id = $this->pagebo->addPage($inputcategoryid);
+						if(!$page_id)
+						{
+	//						echo lang("You don't have permission to write in the category");
+							$GLOBALS['phpgw']->redirect($GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Outline_UI.manage'));
+							return;
+						}
 					}
 					$page->id = $page_id;
 					$page->title = $inputtitle;
@@ -92,8 +95,6 @@
 					}
 				}
 			}
-
-			$this->common_ui->DisplayHeader();
 
 			if($page_id)
 			{
@@ -145,15 +146,13 @@
 				'lang_category' => lang('Category'),
 				'lang_hide' => lang('Check to hide from condensed site index.'),
 				'lang_required' => lang('Required Fields'),
-				'lang_goback' => lang('Done'),
+				'lang_done' => lang('Done'),
 				'lang_reset' => lang('Reset'),
 				'lang_save' => lang('Save'),
 				'lang_state' => lang('State'),
-				'goback' => $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Outline_UI.manage'),
 			));
 			
 			$this->t->pfp('out','EditPage');
-			$this->common_ui->DisplayFooter();
 		}
 
 		function getParentOptions($selected_id=0)

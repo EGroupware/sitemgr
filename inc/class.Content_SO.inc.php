@@ -21,13 +21,14 @@
 			}
 			$sql = "INSERT INTO phpgw_sitemgr_blocks (area,module_id,page_id,cat_id,sort_order,viewable) VALUES ('" .
 				$block->area . "'," . $block->module_id . "," . $block->page_id . "," . $block->cat_id . ",0,0)";
-			return $this->db->query($sql,__LINE__,__FILE__);
+			$this->db->query($sql,__LINE__,__FILE__);
+			return $this->db->get_last_insert_id('phpgw_sitemgr_blocks','block_id');
 		}
 
 		function createversion($blockid)
 		{
 			$sql = "INSERT INTO phpgw_sitemgr_content (block_id,state) VALUES ($blockid," . SITEMGR_STATE_DRAFT  . ")";
-				return $this->db->query($sql,__LINE__,__FILE__);
+			return $this->db->query($sql,__LINE__,__FILE__);
 		}
 
 		function deleteversion($id)

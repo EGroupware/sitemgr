@@ -43,7 +43,7 @@
 		<td colspan="2" align='center'>
 			<input type="reset" value="{lang_reset}">
 			<input type="submit" name="btnSave" value="{lang_save}"> {savelang}
-			<a href="{goback}">{lang_goback}</a>
+			<input type="reset" onclick="opener.location.reload();self.close()" value="{lang_done}"  />
 		</td>
 	</tr>
 	<tr>

@@ -45,7 +45,8 @@
 
 			if ($this->isadmin)
 			{
-				$this->t->set_var('addcategory','<a href="' . $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Categories_UI.edit').
+				$this->t->set_var('addcategory','<a target="editwindow" href="' . 
+					$GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Categories_UI.edit').
 					'">' . lang('Add a category') .'</a>'
 				);
 			}
@@ -77,7 +78,7 @@
 					$this->t->set_var('page', $page_description);
 					$link_data['page_id'] = $page_id;
 					$link_data['menuaction'] = "sitemgr.Pages_UI.edit";
-					$this->t->set_var('edit','<a href="' . $GLOBALS['phpgw']->link('/index.php',$link_data) .
+					$this->t->set_var('edit','<a target="editwindow" href="' . $GLOBALS['phpgw']->link('/index.php',$link_data) .
 						'">' . lang('Edit page') . '</a>'
 					);
 					$link_data['menuaction'] = "sitemgr.Content_UI.manage";
@@ -99,7 +100,7 @@
 				if ($this->isadmin)
 				{
 					$link_data['menuaction'] = "sitemgr.Categories_UI.edit";
-					$this->t->set_var('edit','<a href="' . $GLOBALS['phpgw']->link('/index.php',$link_data) .
+					$this->t->set_var('edit','<a target="editwindow" href="' . $GLOBALS['phpgw']->link('/index.php',$link_data) .
 						'">' . lang('Edit category') . '</a>');
 					$link_data['menuaction'] = "sitemgr.Categories_UI.delete";
 					$this->t->set_var('remove','<a href="' . $GLOBALS['phpgw']->link('/index.php',$link_data) .
@@ -110,7 +111,7 @@
 				}
 
 				$link_data['menuaction'] = "sitemgr.Pages_UI.edit";
-				$this->t->set_var('addpage','<a href="' . $GLOBALS['phpgw']->link('/index.php',$link_data) .
+				$this->t->set_var('addpage','<a target="editwindow" href="' . $GLOBALS['phpgw']->link('/index.php',$link_data) .
 					'">' . lang('Add page to category') . '</a>');
 				$link_data['menuaction'] = "sitemgr.Content_UI.manage";
 				$this->t->set_var('content','<a href="' . $GLOBALS['phpgw']->link('/index.php',$link_data) .

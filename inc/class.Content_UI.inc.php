@@ -117,7 +117,12 @@
 					$block->page_id = $page_id;
 					$block->cat_id = $cat_id;
 
-					if (!$this->bo->addblock($block))
+					$newblock = $this->bo->addblock($block);
+					if ($newblock)
+					{
+						$this->bo->createversion($newblock);
+					}
+					else
 					{
 						$this->errormsg[] = lang("You are not entitled to create module %1 on this scope",$inputmoduleid);
 					}
@@ -163,7 +168,8 @@
 				$this->bo->deleteversion($version_id[0]);
 			}
 
-			//if we are called with a block_id GET parameter, it is from sitemgr-site edit mode
+			//if we are called with a block_id GET parameter, it is from sitemgr-site edit mode or from archiv/commit
+			//we are shown in a separate edit window, without navbar. 
 			if ($block_id)
 			{
 				$block = $this->bo->getblock($block_id,$this->worklanguage);
@@ -186,7 +192,7 @@
 					'contentarea' => lang('Contentarea'),
 					'createbutton' => lang('Create new version'),
 					'standalone' => "<html><head></head><body>",
-					'donebutton' => '<input type="submit" onclick="opener.location.reload();self.close()" value="' . lang('Done') . '"  />'
+					'donebutton' => '<input type="reset" onclick="opener.location.reload();self.close()" value="' . lang('Done') . '"  />'
 				));
 				$this->showblock($block,True,True);
 				$this->t->pfp('out','Block');
