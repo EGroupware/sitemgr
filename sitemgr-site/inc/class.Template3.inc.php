@@ -198,7 +198,11 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 						{
 							$moduleobject->add_transformer($transformer);
 						}
-						if (($GLOBALS['sitemgr_info']['mode'] == 'Edit') && $block->id && is_object($this->edit_transformer))
+						if (
+							($GLOBALS['sitemgr_info']['mode'] == 'Edit') && 
+							$block->id &&
+							$GLOBALS['Common_BO']->acl->can_write_category($block->cat_id) &&
+							is_object($this->edit_transformer))
 						{
 							$this->edit_transformer->block_id = $block->id;
 							$moduleobject->add_transformer($this->edit_transformer);

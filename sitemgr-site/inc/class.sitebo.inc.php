@@ -23,7 +23,7 @@
 			$this->acl = &$GLOBALS['Common_BO']->acl;
 			$this->isadmin = $this->acl->is_admin;
 			//$anonymous_user is globally set in config.inc.php
-			$this->isuser = ($phpgw_info['user']['account_lid'] != $anonymous_user);
+			$this->isuser = ($GLOBALS['phpgw_info']['user']['account_lid'] != $GLOBALS['anonymous_user']);
 		}
 
 		function getcatwrapper($cat_id)

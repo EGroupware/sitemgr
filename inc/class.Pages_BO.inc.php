@@ -34,14 +34,7 @@
 
 		function getPageIDList($cat_id=0,$states=false)
 		{
-			if (!$cat_id || $GLOBALS['Common_BO']->acl->can_read_category($cat_id))
-			{
-				return $this->so->getPageIDList($cat_id,$states);	
-			}
-			else
-			{
-				return false;
-			}
+			return $this->so->getPageIDList($cat_id,$states);	
 		}
 
 		function addPage($cat_id)
@@ -87,11 +80,7 @@
 		function getPage($page_id,$lang=False)
 		{
 			$page = $this->so->getPage($page_id,$lang);
-			if(
-				$page && 
-				in_array($page->cat_id,$GLOBALS['Common_BO']->cats->currentcats) &&
-				$GLOBALS['Common_BO']->acl->can_read_category($page->cat_id)
-			)
+			if ($page && in_array($page->cat_id,$GLOBALS['Common_BO']->cats->readablecats))
 			{
 				//if the page is not in published status we maintain its name so that switching from edit to prodcution mode works
 				if (!in_array($page->state,$GLOBALS['Common_BO']->visiblestates))
