@@ -39,8 +39,8 @@ main.tpl defines the template of the whole site, there
 can be other files that define code for separate areas 
 of the page or for specific modules. Templates contain 
 four kinds of variables. These are explained here since 
-the types 2,3 and 4 and 5 can be used both in the 
-template as in the page content a module generates.
+the types 2,3 and 4 can be used both in the template as 
+in the page content a module generates.
 
 1. {contentarea: areaname} These define where 
   administrator and contributor provided content go. 
@@ -75,13 +75,7 @@ template as in the page content a module generates.
     interpret. For example 
     {?phpgw:/addressbook,order=n_given&sort=ASC}.
 
-4. {lang_translatable_string} This lets you make the 
-  template internationalized. The translatable string 
-  is sent through phpgroupware's lang function. Thus 
-  you can add it to the lang files in the setup 
-  directory and install it through the setup programm.
-
-5. {variable} Finally there are some simple variables 
+4. {variable} Finally there are some simple variables 
   you can use to retrieve metainformation about the 
   page or about the user's context:
 
@@ -290,6 +284,16 @@ be seen on each page that belongs to the category or to
 any of its subcategories. There are also side wide 
 content blocks that only the site administrator can create.
 
+2.1 Creating a new page
+
+to be completed
+
+2.2 Editing page metadata
+
+to be completed
+
+2.3 Editing page content
+
 The interface for creating content blocks is the same 
 on each level of scope, besides that when editing 
 blocks on a lower level you can see all the blocks that 
@@ -345,6 +349,95 @@ same template variables as are used in the site
 template. But be aware that this only works if the 
 module puts the same variable into its output, which 
 need not necessarily be the case.
+
+Even if not all blocks may make sense for each content 
+area, the content manager does not impose on itselft 
+any constraints on which modules you use for which area 
+(Administrators can restrict the available modules for 
+categories and content areas). For example you can use 
+modules that are optimized for side block areas in the 
+central area and you could use a simple html content 
+block on side areas. The following modules are shiped 
+with sitemgr:
+
+  administration simply creates a link to sitemgr's 
+  administration interface. Thus you probably would not 
+  want to make it visible for anonymous user's but only 
+  for phpgw users or adminstrators.
+
+  amazon shows ads for books on the Amazon website. 
+  There is a comment in the modules source file about 
+  how it works.
+
+  appdir a demonstration of how sitemgr's architecture 
+  can be used to realize a simple application for 
+  creating a directory of information. It should be 
+  adaptable to other needs. At the moment, you need 
+  PHP's XSLT extension to use this module.
+
+  calendar produces a calendar where each days links to 
+  phpgroupware's calendar application
+
+  currentsection produces an index of the pages in the 
+  current section.
+
+  forum another demonstration of what sitemg's modules 
+  are intended for: This module displays the 
+  discussions of phpgroupware's forum application on 
+  the web site. It does not permit to post, since to 
+  implement this, in my humble opinion, the forum 
+  application has to be redesigned slightly.
+
+  galerie creates a picture galery. You have to name 
+  both the filesytem path and the URL to a directory, 
+  where images that have a common filename, and are 
+  numbered beginning with one, are stored. Once the 
+  directory has been found, you can edit a subtext for 
+  each image.
+
+  google displays a form for querying the google website.
+
+  hello a simple "Hello world" module used below in this manual.
+
+  html probably the most important module, since it 
+  plays the role, formerly the simple page content area 
+  had, ie. you add html content to the page.
+
+  index_block a index of the whole site, formatted for 
+  peripheric areas of your web site.
+
+  index is automatically used with the index GET 
+  parameter. You probably would not have to use this 
+  block otherwise.
+
+  lang_block displays a select box for changing the 
+  user's site language.
+
+  login displays a login block
+
+  news publishes news you edit with phpgroupware's 
+  news_admin application. You can choose a category to display.
+
+  redirect makes the page redirect to another URL. This 
+  is useful, if you want an entry in your menus that 
+  links to a page outside your sitemgr site. If you use 
+  this module you shouldn't put any other blocks on the 
+  same page.
+
+  sitetree displays a tree like menu to the website.
+
+  toc_block the site's table of contents, formatted for 
+  peripheric areas of your web site.
+
+  toc is automatically used with the toc GET parameter. 
+  You probably would not have to use this block otherwise.
+
+  xml is only a demonstration of how a module could 
+  serve XML content stored on your webserver. It does 
+  not do anything useful besides creating a browser 
+  from one file to the other. Files have to be named 
+  like images in the galerie module. You need PHP's 
+  xslt extension to use this module. 
 
 3 Administrator manual<Administrator-manual>
 
@@ -406,9 +499,19 @@ need not necessarily be the case.
   and select "Configure SiteMgr". Fill in "URL to sitemgr-site"
    and "Filesystem path to sitemgr-site directory", and 
   the anonymous user's name and password. Then click on 
-  save, and you should now select the template for your site.
+  save, and you should know select the template for 
+  your site.
 
-7. That's it. Go to the Category manager, add a 
+7. After installation sitemgr does not immediately know 
+  about all available modules since those can be 
+  defined by other applications. The setup routine only 
+  installs the modules html,index and toc that every 
+  site will need. In order to register all availabe 
+  modules select "Manage site-wide module properties" 
+  from the administrative menu, and then follow the "
+  Register new modules" link.
+
+8. That's it. Go to the Category manager, add a 
   category or three and check who can view and edit 
   them, then go to the page manager, add a page or 
   three to each category, set up your site header, site 
@@ -518,7 +621,15 @@ slightly modified:
   content area. A block transformer could apply other 
   transformations to the content, but this would 
   probably have counter-intuitive effects on your 
-  page's contributors.
+  page's contributorsFor compatibility with how sitemgr used to work, the 
+file sideblock.tpl which uses the two variables 
+block_title and block_content is still recognized as a 
+template for a transformation of the two contentareas 
+left and right. The transformer is automatically 
+created by the template class. Thus you could use one 
+file sideblock.tpl instead of the two files 
+right_bt.inc.php and left_bt.inc.php.
+  .
 
 * Other than that a template directory can contain 
   template files that are specific to a certain module. 
@@ -591,12 +702,15 @@ module";
 
 }
 
-Once your module is registered and added to the list of 
-permitted modules for some context, users can create 
-blocks from this module: They will see in the content 
-manager a textfield where they edit the argument name, 
-and once the block is activated, it will generate the 
-hello phrase on the website. Easy, isn't it?
+Once your module is registeredModules should be stored in an application's inc 
+directory, and be named class.module_modulename.inc.php 
+in order that sitemgr can find them.
+ and added to the list of permitted modules for some 
+context, users can create blocks from this module: They 
+will see in the content manager a textfield where they 
+edit the argument name, and once the block is 
+activated, it will generate the hello phrase on the 
+website. Easy, isn't it?
 
 Now let's examine more in detail how the standard 
 module is constructed. This will help you understand in 
@@ -737,7 +851,7 @@ function set_block($block)
   variables and stored for you in the $arguments array. 
   The entries of $this->session additionnaly will be 
   stored after get_content returns to get_output. This 
-  can be very useful if you want your module do remain 
+  can be very useful if you want your module to remain 
   in a stable state while the user interacts with other 
   modules on the same page.
 
@@ -758,12 +872,12 @@ function set_block($block)
   Your module does not need to use this service, it 
   could directly read HTTP variables. The advantage of 
   using it is that it provides a namespace for each 
-  module, so that if you use different modules on the 
-  same page, that use the same variable names, you 
-  would not run into problems. If you use this service 
-  you can construct URLS automatically with the modules 
-  link function (see below), and if you construct the 
-  user interface, you have to provide the correct form 
+  module, so that if different modules that use the 
+  same variable names are used on the same page, no 
+  problems occur. If you use this service you can 
+  construct URLS automatically with the modules link 
+  function (see below), and if you construct the user 
+  interface, you have to provide the correct form 
   element names for this service to work. The 
   build_post_element function can help you do this. For 
   example lets extend our hello module, so that the 
@@ -781,8 +895,6 @@ function set_block($block)
       function module_hello()
 
       {
-
-          $this->name = "hello";
 
           $this->arguments = array(
 
@@ -858,6 +970,13 @@ function set_block($block)
   parameters that use the service described above. 
   modulevars is an array of variable values keyed on 
   variable names.
+
+  find_template_dir() if a module uses a different 
+  template (of whatever kind) for different site 
+  themes, this function can help finding the template 
+  directory inside the theme's directory, if it follows 
+  the namespace described above, or if it cannot be 
+  found name the default directory.
 
   get_output($type='html') This is the function that is 
   actually called by the page generation engine, since 

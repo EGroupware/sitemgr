@@ -94,7 +94,21 @@ class Module
 			$extravars[$this->name.'['.$key.']'] = $value;
 		}
 		$extravars['page_id'] = $this->block->page_id;
-		return sitemgr_link2('/index.php',$extravars);
+		return sitemgr_link($extravars);
+	}
+
+	function find_template_dir()
+	{
+		$templaterootformat = $GLOBALS['sitemgr_info']['sitemgr-site-dir']. SEP . 'templates' . SEP . '%s' . SEP . $this->block->app_name . SEP . $this->block->module_name;
+		$themetemplatedir = sprintf($templaterootformat,$GLOBALS['sitemgr_info']['themesel']);
+		if (is_dir($themetemplatedir))
+		{
+			return $themetemplatedir;
+		}
+		else
+		{
+			return sprintf($templaterootformat,'default');
+		}
 	}
 
 	function get_properties($cascading=True)

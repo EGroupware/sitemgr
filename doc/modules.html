@@ -65,12 +65,12 @@ HREF="#AEN10"
 ></DT
 ><DT
 ><A
-HREF="#AEN79"
+HREF="#AEN77"
 >User manual</A
 ></DT
 ><DT
 ><A
-HREF="#AEN108"
+HREF="#AEN196"
 >Administrator manual<A
 NAME="ADMINISTRATOR-MANUAL"
 ></A
@@ -78,7 +78,7 @@ NAME="ADMINISTRATOR-MANUAL"
 ></DT
 ><DT
 ><A
-HREF="#AEN142"
+HREF="#AEN232"
 >Template designer manual<A
 NAME="TEMPLATE-DESIGNER-MANUAL"
 ></A
@@ -86,7 +86,7 @@ NAME="TEMPLATE-DESIGNER-MANUAL"
 ></DT
 ><DT
 ><A
-HREF="#AEN157"
+HREF="#AEN249"
 >Application developper manual<A
 NAME="APPLICATION-DEVELOPPER-MANUAL"
 ></A
@@ -109,7 +109,7 @@ CLASS="SECT2"
 ><A
 NAME="AEN13">Template</H3
 ><P
->Sitemgr builds web sites from templates. Those are stored in the directory sitemgr/sitemg-site/templates. Each of them has a directory of its own. The file main.tpl defines the template of the whole site, there can be other files that define code for separate areas of the page or for specific modules. Templates contain four kinds of variables. These are explained here since the types 2,3 and 4 and 5 can be used both in the template as in the page content a module generates.</P
+>Sitemgr builds web sites from templates. Those are stored in the directory sitemgr/sitemg-site/templates. Each of them has a directory of its own. The file main.tpl defines the template of the whole site, there can be other files that define code for separate areas of the page or for specific modules. Templates contain four kinds of variables. These are explained here since the types 2,3 and 4 can be used both in the template as in the page content a module generates.</P
 ><P
 ></P
 ><OL
@@ -138,10 +138,6 @@ TYPE="a"
 >Links to phpgw start with '?phpgw:' . You have to name the application followed by a comma, and optionnally arguments the application can interpret. For example {?phpgw:/addressbook,order=n_given&#38;sort=ASC}.</P
 ></LI
 ></OL
-></LI
-><LI
-><P
->{lang_translatable_string} This lets you make the template internationalized. The translatable string is sent through phpgroupware's lang function. Thus you can add it to the lang files in the setup directory and install it through the setup programm.</P
 ></LI
 ><LI
 ><P
@@ -183,7 +179,7 @@ CLASS="SECT2"
 ><HR><H3
 CLASS="SECT2"
 ><A
-NAME="AEN45">Module</H3
+NAME="AEN43">Module</H3
 ><P
 >The main function of a sitemgr module is to generate dynamic web site content. To make the development of new modules, and the use of modules easy and convenient, sitemgr defines an &#8220;abstract&#8221; class module which each module should extend. This parent of all modules, provides one essential service: It hooks the module into the content managment interface and permits the editing of the module's arguments that determine what content will be generated. Thus in order to create a new module, all you have to do, is to extend the abstract super module, define the modules arguments, and write a get_content function that returns the content that should be displayed on the website. More on this in chapter<A
 HREF="#APPLICATION-DEVELOPPER-MANUAL"
@@ -195,7 +191,7 @@ CLASS="SECT2"
 ><HR><H3
 CLASS="SECT2"
 ><A
-NAME="AEN49">Argument/Content</H3
+NAME="AEN47">Argument/Content</H3
 ><P
 >A module can be seen as a transformation of input arguments into generated content. It is important to understand that the input arguments can be of completely different kinds. On the one hand there can be arguments that are as close as possible to the generated content. For example the html module's only argument is named &#8220;htmlcontent&#8221; and in normal circumstances it is not transformed at all but handed over as is to the page generation engine. On the other hand arguments can play any conceivable role in the generation of content that is driven by data coming from other phpgroupware applications. They can be used to select between different categories of content, they can choose a certain format of presentation, they can function as search terms, etc.</P
 ></DIV
@@ -204,7 +200,7 @@ CLASS="SECT2"
 ><HR><H3
 CLASS="SECT2"
 ><A
-NAME="AEN52">Properties</H3
+NAME="AEN50">Properties</H3
 ><P
 >A module can define properties. Properties are accessible to the modules get_content function in the same way as arguments, but they differ from them in two ways:</P
 ><P
@@ -228,7 +224,7 @@ CLASS="SECT2"
 ><HR><H3
 CLASS="SECT2"
 ><A
-NAME="AEN61">Blocks, content areas and scope</H3
+NAME="AEN59">Blocks, content areas and scope</H3
 ><P
 >There are three ways a module can generate content that will be displayed on a web page:</P
 ><P
@@ -256,7 +252,7 @@ CLASS="SECT2"
 ><HR><H3
 CLASS="SECT2"
 ><A
-NAME="AEN71">Transformer</H3
+NAME="AEN69">Transformer</H3
 ><P
 >The architecture for sitemgr modules provides for the distinction between some form of raw content a module produces and the way it should get displayed on the web site, with the future possibility to plug other display types into the same framework. The idea is that the raw content of a module gets passed through different transformers, possibly even several transformers in a sequence at the time of content generation. Additionally this provides for a use of modules outside of sitemgr, for example remote retrieval of information with something like XML-RPC. </P
 ><P
@@ -269,7 +265,7 @@ CLASS="SECT2"
 ><HR><H3
 CLASS="SECT2"
 ><A
-NAME="AEN76">Translations</H3
+NAME="AEN74">Translations</H3
 ><P
 >Sitemgr in its new modularized architecture continues to be fully multilingual. It is very simple to have a new module use this feature. All that is needed is to use a special flag in the definition of the module's arguments. All arguments that have this flag will be stored in a language specific database table, and can be translated in the translation manager, very similar to the way category and page definitions could already be translated to several languages.</P
 ></DIV
@@ -279,7 +275,7 @@ CLASS="SECT1"
 ><HR><H2
 CLASS="SECT1"
 ><A
-NAME="AEN79">User manual</H2
+NAME="AEN77">User manual</H2
 ><P
 >The most important difference for site contributors between the modularized sitemgr and its older versions is that in the page manager now there are two different interfaces for each page:</P
 ><P
@@ -297,6 +293,30 @@ TYPE="1"
 ></OL
 ><P
 >The second difference is that now a contributor can also define content blocks for the whole category he has write access for. These category wide blocks will be seen on each page that belongs to the category or to any of its subcategories. There are also side wide content blocks that only the site administrator can create.</P
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN86">Creating a new page</H3
+><P
+>to be completed</P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN89">Editing page metadata</H3
+><P
+>to be completed</P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN92">Editing page content</H3
 ><P
 >The interface for creating content blocks is the same on each level of scope, besides that when editing blocks on a lower level you can see all the blocks that have been defined on a higher level, and will be displayed on the website together with the blocks you are editing. I will refer to this interface as the content manager.</P
 ><P
@@ -334,13 +354,143 @@ CLASS="VARIABLELIST"
 ></DIV
 ><P
 >After these, you have to edit the module specific arguments, each of which is preceded by an explanatory label. The input elements for arguments can be of different types: checkboxes, selectboxes, textareas, textfields. In the case of text input, you can use the same template variables as are used in the site template. But be aware that this only works if the module puts the same variable into its output, which need not necessarily be the case.</P
+><P
+>Even if not all blocks may make sense for each content area, the content manager does not impose on itselft any constraints on which modules you use for which area (Administrators can restrict the available modules for categories and content areas). For example you can use modules that are optimized for side block areas in the central area and you could use a simple html content block on side areas. The following modules are shiped with sitemgr:</P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>administration</DT
+><DD
+><P
+>simply creates a link to sitemgr's administration interface. Thus you probably would not want to make it visible for anonymous user's but only for phpgw users or adminstrators.</P
+></DD
+><DT
+>amazon</DT
+><DD
+><P
+>shows ads for books on the Amazon website. There is a comment in the modules source file about how it works.</P
+></DD
+><DT
+>appdir</DT
+><DD
+><P
+>a demonstration of how sitemgr's architecture can be used to realize a simple application for creating a directory of information. It should be adaptable to other needs. At the moment, you need PHP's XSLT extension to use this module.</P
+></DD
+><DT
+>calendar</DT
+><DD
+><P
+>produces a calendar where each days links to phpgroupware's calendar application</P
+></DD
+><DT
+>currentsection</DT
+><DD
+><P
+>produces an index of the pages in the current section.</P
+></DD
+><DT
+>forum</DT
+><DD
+><P
+>another demonstration of what sitemg's modules are intended for: This module displays the discussions of phpgroupware's forum application on the web site. It does not permit to post, since to implement this, in my humble opinion, the forum application has to be redesigned slightly.</P
+></DD
+><DT
+>galerie</DT
+><DD
+><P
+>creates a picture galery. You have to name both the filesytem path and the URL to a directory, where images that have a common filename, and are numbered beginning with one, are stored. Once the directory has been found, you can edit a subtext for each image.</P
+></DD
+><DT
+>google</DT
+><DD
+><P
+>displays a form for querying the google website.</P
+></DD
+><DT
+>hello</DT
+><DD
+><P
+>a simple &#8220;Hello world&#8221; module used below in this manual.</P
+></DD
+><DT
+>html</DT
+><DD
+><P
+>probably the most important module, since it plays the role, formerly the simple page content area had, ie. you add html content to the page.</P
+></DD
+><DT
+>index_block</DT
+><DD
+><P
+>a index of the whole site, formatted for peripheric areas of your web site.</P
+></DD
+><DT
+>index</DT
+><DD
+><P
+>is automatically used with the index GET parameter. You probably would not have to use this block otherwise.</P
+></DD
+><DT
+>lang_block</DT
+><DD
+><P
+>displays a select box for changing the user's site language.</P
+></DD
+><DT
+>login</DT
+><DD
+><P
+>displays a login block</P
+></DD
+><DT
+>news</DT
+><DD
+><P
+>publishes news you edit with phpgroupware's news_admin application. You can choose a category to display.</P
+></DD
+><DT
+>redirect</DT
+><DD
+><P
+>makes the page redirect to another URL. This is useful, if you want an entry in your menus that links to a page outside your sitemgr site. If you use this module you shouldn't put any other blocks on the same page.</P
+></DD
+><DT
+>sitetree</DT
+><DD
+><P
+>displays a tree like menu to the website.</P
+></DD
+><DT
+>toc_block</DT
+><DD
+><P
+>the site's table of contents, formatted for peripheric areas of your web site.</P
+></DD
+><DT
+>toc</DT
+><DD
+><P
+>is automatically used with the toc GET parameter. You probably would not have to use this block otherwise.</P
+></DD
+><DT
+>xml</DT
+><DD
+><P
+>is only a demonstration of how a module could serve XML content stored on your webserver. It does not do anything useful besides creating a browser from one file to the other. Files have to be named like images in the galerie module. You need PHP's xslt extension to use this module. </P
+></DD
+></DL
+></DIV
+></DIV
 ></DIV
 ><DIV
 CLASS="SECT1"
 ><HR><H2
 CLASS="SECT1"
 ><A
-NAME="AEN108">Administrator manual<A
+NAME="AEN196">Administrator manual<A
 NAME="ADMINISTRATOR-MANUAL"
 ></A
 ></H2
@@ -349,7 +499,7 @@ CLASS="SECT2"
 ><H3
 CLASS="SECT2"
 ><A
-NAME="AEN111">Installation</H3
+NAME="AEN199">Installation</H3
 ><P
 ></P
 ><OL
@@ -405,7 +555,11 @@ CLASS="PROGRAMLISTING"
 ></LI
 ><LI
 ><P
->You're almost set to go. Log in to phpGroupWare as an administrator. Make sure you gave yourself the sitemgr and sitemgr-link applications so that you see them on your navbar. Go to the sitemgr application and select "Configure SiteMgr". Fill in &#8220;URL to sitemgr-site&#8221; and &#8220;Filesystem path to sitemgr-site directory&#8221;, and the anonymous user's name and password. Then click on save, and you should now select the template for your site.</P
+>You're almost set to go. Log in to phpGroupWare as an administrator. Make sure you gave yourself the sitemgr and sitemgr-link applications so that you see them on your navbar. Go to the sitemgr application and select "Configure SiteMgr". Fill in &#8220;URL to sitemgr-site&#8221; and &#8220;Filesystem path to sitemgr-site directory&#8221;, and the anonymous user's name and password. Then click on save, and you should know select the template for your site.</P
+></LI
+><LI
+><P
+>After installation sitemgr does not immediately know about all available modules since those can be defined by other applications. The setup routine only installs the modules html,index and toc that every site will need. In order to register all availabe modules select &#8220;Manage site-wide module properties&#8221; from the administrative menu, and then follow the &#8220;Register new modules&#8221; link.</P
 ></LI
 ><LI
 ><P
@@ -418,7 +572,7 @@ CLASS="SECT2"
 ><HR><H3
 CLASS="SECT2"
 ><A
-NAME="AEN132">Maintenance</H3
+NAME="AEN222">Maintenance</H3
 ><P
 >As a site administrator, you have three privileges/responsibilies:</P
 ><P
@@ -448,7 +602,7 @@ CLASS="SECT1"
 ><HR><H2
 CLASS="SECT1"
 ><A
-NAME="AEN142">Template designer manual<A
+NAME="AEN232">Template designer manual<A
 NAME="TEMPLATE-DESIGNER-MANUAL"
 ></A
 ></H2
@@ -467,7 +621,11 @@ NAME="TEMPLATE-DESIGNER-MANUAL"
 ></LI
 ><LI
 ><P
->A contentarea serves to display the content blocks, the site administrator and contributors define. Each contentarea can have its own way of wrapping html code around each content block. This at the moment defined in a class that implements the transformer interface, i.e. defines a function apply_transform($title,$content).This class' name is areaname_bt (for blocktransformer) and it is stored in file areaname_bt.inc.php inside the template directory. The function apply_transform just has to wrap the desired html around the content. It is free to ignore the title, for example the block title does not necessarily make sense in a page's central content area. A block transformer could apply other transformations to the content, but this would probably have counter-intuitive effects on your page's contributors.</P
+>A contentarea serves to display the content blocks, the site administrator and contributors define. Each contentarea can have its own way of wrapping html code around each content block. This at the moment defined in a class that implements the transformer interface, i.e. defines a function apply_transform($title,$content).This class' name is areaname_bt (for blocktransformer) and it is stored in file areaname_bt.inc.php inside the template directory. The function apply_transform just has to wrap the desired html around the content. It is free to ignore the title, for example the block title does not necessarily make sense in a page's central content area. A block transformer could apply other transformations to the content, but this would probably have counter-intuitive effects on your page's contributors<A
+NAME="AEN243"
+HREF="#FTN.AEN243"
+>[1]</A
+>.</P
 ></LI
 ><LI
 ><P
@@ -484,7 +642,7 @@ CLASS="SECT1"
 ><HR><H2
 CLASS="SECT1"
 ><A
-NAME="AEN157">Application developper manual<A
+NAME="AEN249">Application developper manual<A
 NAME="APPLICATION-DEVELOPPER-MANUAL"
 ></A
 ></H2
@@ -521,7 +679,11 @@ class module_hello extends Module
 ></TR
 ></TABLE
 ><P
->Once your module is registered and added to the list of permitted modules for some context, users can create blocks from this module: They will see in the content manager a textfield where they edit the argument name, and once the block is activated, it will generate the hello phrase on the website. Easy, isn't it?</P
+>Once your module is registered<A
+NAME="AEN255"
+HREF="#FTN.AEN255"
+>[2]</A
+> and added to the list of permitted modules for some context, users can create blocks from this module: They will see in the content manager a textfield where they edit the argument name, and once the block is activated, it will generate the hello phrase on the website. Easy, isn't it?</P
 ><P
 >Now let's examine more in detail how the standard module is constructed. This will help you understand in what way you can extend it to create more powerful modules. It defines the following functions:</P
 ><P
@@ -642,11 +804,11 @@ CLASS="PROGRAMLISTING"
 >get_content(&#38;$arguments,$properties)</DT
 ><DD
 ><P
->This is the function every module needs. It produces the module's content. It is passed two arrays, one with the arguments for the block the module is generating, and the other with the properties that apply for the block's context. At the moment there is no constraint on what type of date the get_content function returns. It can be html, xml, an array, etc. But if it does not return html, you have to provide a transformer capable to produce html from the data get_content produces. The arguments are passed as a reference, because the get_content function can change them, and they can get stored automatically as session variable. This is because the parent module provides one other service: Your module can rely on an automatic handling of HTTP GET, POST and COOKIE variables, and of session variables. All you'd have to do is to define the arrays $this-&#62;get, $this-&#62;post, $this-&#62;cookie and $this-&#62;session. All members of these variables will be fetched from the GET, POST or COOKIE parameters, or from session variables and stored for you in the $arguments array. The entries of $this-&#62;session additionnaly will be stored after get_content returns to get_output. This can be very useful if you want your module do remain in a stable state while the user interacts with other modules on the same page.</P
+>This is the function every module needs. It produces the module's content. It is passed two arrays, one with the arguments for the block the module is generating, and the other with the properties that apply for the block's context. At the moment there is no constraint on what type of date the get_content function returns. It can be html, xml, an array, etc. But if it does not return html, you have to provide a transformer capable to produce html from the data get_content produces. The arguments are passed as a reference, because the get_content function can change them, and they can get stored automatically as session variable. This is because the parent module provides one other service: Your module can rely on an automatic handling of HTTP GET, POST and COOKIE variables, and of session variables. All you'd have to do is to define the arrays $this-&#62;get, $this-&#62;post, $this-&#62;cookie and $this-&#62;session. All members of these variables will be fetched from the GET, POST or COOKIE parameters, or from session variables and stored for you in the $arguments array. The entries of $this-&#62;session additionnaly will be stored after get_content returns to get_output. This can be very useful if you want your module to remain in a stable state while the user interacts with other modules on the same page.</P
 ><P
 >The variables you define in these arrays can be identical to those in $this-&#62;arguments. In this case, if they are defined in the HTTP session context, they will override the values the page contributor has defined for the page. But they can be different variables that do not need an initial value provided by the page contributor. Whereas $this-&#62;get,$this-&#62;cookie and $this-&#62;session are simple arrays enumerating the variable names, $this-&#62;post is special because it can contain the element definition in the same way as $this-&#62;arguments, which can be used to programatically construct the form elements.</P
 ><P
->Your module does not need to use this service, it could directly read HTTP variables. The advantage of using it is that it provides a namespace for each module, so that if you use different modules on the same page, that use the same variable names, you would not run into problems. If you use this service you can construct URLS automatically with the modules link function (see below), and if you construct the user interface, you have to provide the correct form element names for this service to work. The build_post_element function can help you do this. For example lets extend our hello module, so that the site user can choose his own name. Since we can no longer rely on the validation that is automatically done on contributor provided input. we call validate from the get_content function.</P
+>Your module does not need to use this service, it could directly read HTTP variables. The advantage of using it is that it provides a namespace for each module, so that if different modules that use the same variable names are used on the same page, no problems occur. If you use this service you can construct URLS automatically with the modules link function (see below), and if you construct the user interface, you have to provide the correct form element names for this service to work. The build_post_element function can help you do this. For example lets extend our hello module, so that the site user can choose his own name. Since we can no longer rely on the validation that is automatically done on contributor provided input. we call validate from the get_content function.</P
 ><TABLE
 BORDER="0"
 BGCOLOR="#E0E0E0"
@@ -659,7 +821,6 @@ CLASS="PROGRAMLISTING"
 class module_hello extends Module  {
     function module_hello()
     {
-        $this-&#62;name = "hello";
         $this-&#62;arguments = array(
             'name' =&#62; array(
                 'type' =&#62; 'textfield',
@@ -703,6 +864,12 @@ class module_hello extends Module  {
 ><DD
 ><P
 >helps you construct URLS with GET parameters that use the service described above. modulevars is an array of variable values keyed on variable names.</P
+></DD
+><DT
+>find_template_dir()</DT
+><DD
+><P
+>if a module uses a different template (of whatever kind) for different site themes, this function can help finding the template directory inside the theme's directory, if it follows the namespace described above, or if it cannot be found name the default directory.</P
 ></DD
 ><DT
 >get_output($type='html')</DT
@@ -764,6 +931,50 @@ TYPE="a"
 >These are the building blocks which should allow for some flexibility in constructing modules that make phpgroupware managed data visible on a sitemgr web site.</P
 ></DIV
 ></DIV
+><H3
+CLASS="FOOTNOTES"
+>Notes</H3
+><TABLE
+BORDER="0"
+CLASS="FOOTNOTES"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5%"
+><A
+NAME="FTN.AEN243"
+HREF="#AEN243"
+>[1]</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="95%"
+><P
+>For compatibility with how sitemgr used to work, the file sideblock.tpl which uses the two variables block_title and block_content is still recognized as a template for a transformation of the two contentareas left and right. The transformer is automatically created by the template class. Thus you could use one file sideblock.tpl instead of the two files right_bt.inc.php and left_bt.inc.php.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5%"
+><A
+NAME="FTN.AEN255"
+HREF="#AEN255"
+>[2]</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="95%"
+><P
+>Modules should be stored in an application's inc directory, and be named class.module_modulename.inc.php in order that sitemgr can find them.</P
+></TD
+></TR
+></TABLE
 ></BODY
 ></HTML
 >

@@ -77,8 +77,8 @@ Sitemgr builds web sites from templates.
  The file main.tpl defines the template of the whole site, there can be other
  files that define code for separate areas of the page or for specific modules.
  Templates contain four kinds of variables.
- These are explained here since the types 2,3 and 4 and 5 can be used both
- in the template as in the page content a module generates.
+ These are explained here since the types 2,3 and 4 can be used both in
+ the template as in the page content a module generates.
 \layout Enumerate
 
 {
@@ -122,12 +122,6 @@ Links to phpgw start with '?phpgw:' .
  the application can interpret.
  For example {?phpgw:/addressbook,order=n_given&sort=ASC}.
 \end_deeper 
-\layout Enumerate
-
-{lang_translatable_string} This lets you make the template internationalized.
- The translatable string is sent through phpgroupware's lang function.
- Thus you can add it to the lang files in the setup directory and install
- it through the setup programm.
 \layout Enumerate
 
 {variable} Finally there are some simple variables you can use to retrieve
@@ -426,6 +420,21 @@ The second difference is that now a contributor can also define content
  category or to any of its subcategories.
  There are also side wide content blocks that only the site administrator
  can create.
+\layout Subsection
+
+Creating a new page
+\layout Standard
+
+to be completed
+\layout Subsection
+
+Editing page metadata
+\layout Standard
+
+to be completed
+\layout Subsection
+
+Editing page content
 \layout Standard
 
 The interface for creating content blocks is the same on each level of scope,
@@ -481,6 +490,115 @@ After these, you have to edit the module specific arguments, each of which
  used in the site template.
  But be aware that this only works if the module puts the same variable
  into its output, which need not necessarily be the case.
+\layout Standard
+
+Even if not all blocks may make sense for each content area, the content
+ manager does not impose on itselft any constraints on which modules you
+ use for which area (Administrators can restrict the available modules for
+ categories and content areas).
+ For example you can use modules that are optimized for side block areas
+ in the central area and you could use a simple html content block on side
+ areas.
+ The following modules are shiped with sitemgr:
+\layout Description
+
+administration simply creates a link to sitemgr's administration interface.
+ Thus you probably would not want to make it visible for anonymous user's
+ but only for phpgw users or adminstrators.
+\layout Description
+
+amazon shows ads for books on the Amazon website.
+ There is a comment in the modules source file about how it works.
+\layout Description
+
+appdir a demonstration of how sitemgr's architecture can be used to realize
+ a simple application for creating a directory of information.
+ It should be adaptable to other needs.
+ At the moment, you need PHP's XSLT extension to use this module.
+\layout Description
+
+calendar produces a calendar where each days links to phpgroupware's calendar
+ application
+\layout Description
+
+currentsection produces an index of the pages in the current section.
+\layout Description
+
+forum another demonstration of what sitemg's modules are intended for: This
+ module displays the discussions of phpgroupware's forum application on
+ the web site.
+ It does not permit to post, since to implement this, in my humble opinion,
+ the forum application has to be redesigned slightly.
+\layout Description
+
+galerie creates a picture galery.
+ You have to name both the filesytem path and the URL to a directory, where
+ images that have a common filename, and are numbered beginning with one,
+ are stored.
+ Once the directory has been found, you can edit a subtext for each image.
+\layout Description
+
+google displays a form for querying the google website.
+\layout Description
+
+hello a simple 
+\begin_inset Quotes eld
+\end_inset 
+
+Hello world
+\begin_inset Quotes erd
+\end_inset 
+
+ module used below in this manual.
+\layout Description
+
+html probably the most important module, since it plays the role, formerly
+ the simple page content area had, ie.
+ you add html content to the page.
+\layout Description
+
+index_block a index of the whole site, formatted for peripheric areas of
+ your web site.
+\layout Description
+
+index is automatically used with the index GET parameter.
+ You probably would not have to use this block otherwise.
+\layout Description
+
+lang_block displays a select box for changing the user's site language.
+\layout Description
+
+login displays a login block
+\layout Description
+
+news publishes news you edit with phpgroupware's news_admin application.
+ You can choose a category to display.
+\layout Description
+
+redirect makes the page redirect to another URL.
+ This is useful, if you want an entry in your menus that links to a page
+ outside your sitemgr site.
+ If you use this module you shouldn't put any other blocks on the same page.
+\layout Description
+
+sitetree displays a tree like menu to the website.
+\layout Description
+
+toc_block the site's table of contents, formatted for peripheric areas of
+ your web site.
+\layout Description
+
+toc is automatically used with the toc GET parameter.
+ You probably would not have to use this block otherwise.
+\layout Description
+
+xml is only a demonstration of how a module could serve XML content stored
+ on your webserver.
+ It does not do anything useful besides creating a browser from one file
+ to the other.
+ Files have to be named like images in the galerie module.
+ You need PHP's xslt extension to use this module.
+ 
 \layout Section
 
 Administrator manual
@@ -574,7 +692,30 @@ Filesystem path to sitemgr-site directory
 \end_inset 
 
 , and the anonymous user's name and password.
- Then click on save, and you should now select the template for your site.
+ Then click on save, and you should know select the template for your site.
+\layout Enumerate
+
+After installation sitemgr does not immediately know about all available
+ modules since those can be defined by other applications.
+ The setup routine only installs the modules html,index and toc that every
+ site will need.
+ In order to register all availabe modules select 
+\begin_inset Quotes eld
+\end_inset 
+
+Manage site-wide module properties
+\begin_inset Quotes erd
+\end_inset 
+
+ from the administrative menu, and then follow the 
+\begin_inset Quotes eld
+\end_inset 
+
+Register new modules
+\begin_inset Quotes erd
+\end_inset 
+
+ link.
 \layout Enumerate
 
 That's it.
@@ -721,7 +862,21 @@ A contentarea serves to display the content blocks, the site administrator
  It is free to ignore the title, for example the block title does not necessaril
 y make sense in a page's central content area.
  A block transformer could apply other transformations to the content, but
- this would probably have counter-intuitive effects on your page's contributors.
+ this would probably have counter-intuitive effects on your page's contributors
+\begin_inset Foot
+collapsed false
+
+\layout Standard
+
+For compatibility with how sitemgr used to work, the file sideblock.tpl which
+ uses the two variables block_title and block_content is still recognized
+ as a template for a transformation of the two contentareas left and right.
+ The transformer is automatically created by the template class.
+ Thus you could use one file sideblock.tpl instead of the two files right_bt.inc.ph
+p and left_bt.inc.php.
+\end_inset 
+
+.
 \layout Itemize
 
 Other than that a template directory can contain template files that are
@@ -831,10 +986,20 @@ class module_hello extends Module
 }
 \layout Standard
 
-Once your module is registered and added to the list of permitted modules
- for some context, users can create blocks from this module: They will see
- in the content manager a textfield where they edit the argument name, and
- once the block is activated, it will generate the hello phrase on the website.
+Once your module is registered
+\begin_inset Foot
+collapsed false
+
+\layout Standard
+
+Modules should be stored in an application's inc directory, and be named
+ class.module_modulename.inc.php in order that sitemgr can find them.
+\end_inset 
+
+ and added to the list of permitted modules for some context, users can
+ create blocks from this module: They will see in the content manager a
+ textfield where they edit the argument name, and once the block is activated,
+ it will generate the hello phrase on the website.
  Easy, isn't it?
 \layout Standard
 
@@ -993,7 +1158,7 @@ okie and $this->session.
  array.
  The entries of $this->session additionnaly will be stored after get_content
  returns to get_output.
- This can be very useful if you want your module do remain in a stable state
+ This can be very useful if you want your module to remain in a stable state
  while the user interacts with other modules on the same page.
 \begin_deeper 
 \layout Standard
@@ -1013,8 +1178,8 @@ ng the variable names, $this->post is special because it can contain the
 Your module does not need to use this service, it could directly read HTTP
  variables.
  The advantage of using it is that it provides a namespace for each module,
- so that if you use different modules on the same page, that use the same
- variable names, you would not run into problems.
+ so that if different modules that use the same variable names are used
+ on the same page, no problems occur.
  If you use this service you can construct URLS automatically with the modules
  link function (see below), and if you construct the user interface, you
  have to provide the correct form element names for this service to work.
@@ -1038,9 +1203,6 @@ class module_hello extends Module  {
 \layout Code
 
     {
-\layout Code
-
-        $this->name = "hello";
 \layout Code
 
         $this->arguments = array(
@@ -1145,6 +1307,12 @@ build_post_element($key,$default=False) You can use this function from your
 link($modulevars) helps you construct URLS with GET parameters that use
  the service described above.
  modulevars is an array of variable values keyed on variable names.
+\layout Description
+
+find_template_dir() if a module uses a different template (of whatever kind)
+ for different site themes, this function can help finding the template
+ directory inside the theme's directory, if it follows the namespace described
+ above, or if it cannot be found name the default directory.
 \layout Description
 
 get_output($type='html') This is the function that is actually called by

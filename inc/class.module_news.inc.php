@@ -2,30 +2,23 @@
 
 	class news_transform
 	{
+		function news_transform(&$template)
+		{
+			$this->template = $template;
+		}
+
 		function apply_transform($title,$content)
 		{
-			$t = Createobject('phpgwapi.Template');
-			$templaterootformat = $GLOBALS['sitemgr_info']['sitemgr-site-dir']. SEP . 'templates' . SEP . '%s' . SEP . 'sitemgr' . SEP . 'news';
-			$themetemplatedir = sprintf($templaterootformat,$GLOBALS['sitemgr_info']['themesel']);
-			if (is_dir($themetemplatedir))
-			{
-				$t->set_root($themetemplatedir);
-			}
-			else
-			{
-				$t->set_root(sprintf($templaterootformat,'default'));
-			}
-			$t->set_file('news','newsblock.tpl');
 			$result ='';
 			while (list(,$newsitem) = @each($content))
 			{
-				$t->set_var(array(
+				$this->template->set_var(array(
 					'news_title' => $newsitem['subject'],
 					'news_submitter' => $GLOBALS['phpgw']->accounts->id2name($newsitem['submittedby']),
 					'news_date' => $GLOBALS['phpgw']->common->show_date($newsitem['submissiondate']),
 					'news_content' => nl2br($newsitem['content'])
 				));
-				$result .= $t->parse('out','news');
+				$result .= $this->template->parse('out','news');
 			}
 			return $result;
 		}
@@ -62,7 +55,10 @@
 			parent::set_block($block,$produce);
 			if ($produce)
 			{
-				$this->add_transformer(new news_transform());
+				$t = Createobject('phpgwapi.Template');
+				$t->set_root($this->find_template_dir());
+				$t->set_file('news','newsblock.tpl');
+				$this->add_transformer(new news_transform($t));
 			}
 		}
 

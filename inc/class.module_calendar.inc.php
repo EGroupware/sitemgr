@@ -25,7 +25,7 @@ class module_calendar extends Module
     function get_content(&$arguments,$properties)
     {
 		$t = Createobject('phpgwapi.Template');
-		$t->set_root($GLOBALS['sitemgr_info']['sitemgr-site-dir']. SEP . 'templates/modules/sitemgr/calendar/');
+		$t->set_root($this->find_template_dir());
 		$t->set_file('mini_calendar','mini_cal.tpl');
 
 		if (!$arguments['timestamp'])

@@ -120,12 +120,19 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 			if (file_exists($transformerfile))
 			{
 				include($transformerfile);
+				if (class_exists($transformername))
+				{
+					$transformer = new $transformername;
+				}
 			}
-			if (class_exists($transformername))
+			//compatibility with former sideblocks template
+			elseif (($areaname == "left" || $areaname == "right") && file_exists($this->root . SEP . 'sideblock.tpl'))
 			{
-				$transformer = new $transformername;
+				$t = Createobject('phpgwapi.Template');
+				$t->set_root($this->root);
+				$t->set_file('SideBlock','sideblock.tpl');
+				$transformer = new sideblock_transform($t);
 			}
-
 			$content = '';
 			$blocks = $this->bo->getvisibleblockdefsforarea($areaname,$page->cat_id,$page->id);
 
@@ -240,14 +247,19 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 			switch ($vars[1])
 			{
 				case 'title':
+				case 'page_title':
 					return $page->title;
 				case 'subtitle':
+				case 'page_subtitle':
 					return $page->subtitle;
 				case 'sitename':
+				case 'site_name':
 					return $GLOBALS['sitemgr_info']['sitemgr-site-name-' . $GLOBALS['phpgw_info']['user']['preferences']['common']['lang']];
 				case 'footer':
+				case 'site_footer':
 					return $GLOBALS['Common_BO']->headerfooter->getsitefooter($GLOBALS['phpgw_info']['user']['preferences']['common']['lang']);
 				case 'header':
+				case 'site_header':
 					return $GLOBALS['Common_BO']->headerfooter->getsiteheader($GLOBALS['phpgw_info']['user']['preferences']['common']['lang']);
 				case 'user':
 					return $GLOBALS['phpgw_info']['user']['account_lid'];
@@ -306,4 +318,22 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 			}
 		}
 
+	}
+
+	class sideblock_transform
+	{
+		function sideblock_transform(&$template)
+		{
+			$this->template = $template;
+		}
+
+
+		function apply_transform($title,$content)
+		{
+			$this->template->set_var(array(
+				'block_title' => $title,
+				'block_content' => $content
+			));
+			return $this->template->parse('out','SideBlock');
+		}
 	}
