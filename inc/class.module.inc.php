@@ -61,39 +61,30 @@ class Module
 	{
 		if ($produce)
 		{
-			if ($this->session)
+			if (is_array($this->session) && count($this->session))
 			{
-				$sessionarguments = $GLOBALS['phpgw']->session->appsession('block[' . $block->id . ']', 'sitemgr-site');
-				while (list(,$argument) = @each($this->session))
+				$sessionvars = $GLOBALS['phpgw']->session->appsession('block[' . $block->id . ']', 'sitemgr-site');
+			}
+			foreach(array(
+				'session' => $sessionvars,
+				'get'     => $_GET['block'][$block->id],
+				'post'    => $_POST['block'][$block->id],
+				'cookie'  => $_COOKIE['block'][$block->id]
+				) as $where => $values)
+			{
+				if (is_array($this->$where))
 				{
-					if (isset($sessionarguments[$argument]))
+					foreach($this->$where as $key => $argument)
 					{
-						$block->arguments[$argument] = $sessionarguments[$argument];
-					}
-				}
-			}
-			while (list(,$argument) = @each($this->get))
-			{
-				if (isset($_GET['block'][$block->id][$argument]))
-				{
-					$block->arguments[$argument] = $_GET['block'][$block->id][$argument];
-				}
-			}
-			//contrary to $this->get, cookie and session, the argument name is the key in $this->post because this array also
-			//defines the form element
+						//contrary to $this->get, cookie and session, the argument name is the key in $this->post,
+						//because this array also defines the form element
+						if ($where == 'post') $arguement = $key;
 
-			while (list($argument,) = @each($this->post))
-			{
-				if (isset($_POST['block'][$block->id][$argument]))
-				{
-					$block->arguments[$argument] = $_POST['block'][$block->id][$argument];
-				}
-			}
-			while (list(,$argument) = @each($this->cookie))
-			{
-				if (isset($_COOKIE['block'][$block->id][$argument]))
-				{
-					$block->arguments[$argument] = $_COOKIE['block'][$block->id][$argument];
+						if (isset($values[$argument]))
+						{
+							$block->arguments[$argument] = $values[$argument];
+						}
+					}
 				}
 			}
 		}
@@ -102,10 +93,12 @@ class Module
 
 	function link($modulevars=array(),$extravars=array())
 	{
-		while (list($key,$value) = @each($modulevars))
+		if (is_array($modulevars))
 		{
-			//%5B and %5D are urlencoded [ and ]
-			$extravars['block' . '%5B'. $this->block->id  .'%5D%5B' . $key . '%5D'] = $value;
+			foreach($modulevars as $key => $value)
+			{
+				$extravars['block['. $this->block->id  .'][' . $key . ']'] = $value;
+			}
 		}
 		if ($GLOBALS['page']->name)
 		{
