@@ -19,7 +19,7 @@
 			{
 				$block->page__id = 0;
 			}
-			$sql = "INSERT INTO phpgw_sitemgr_content (area,module_id,page_id,cat_id,sort_order,view,actif) VALUES ('" .
+			$sql = "INSERT INTO phpgw_sitemgr_content (area,module_id,page_id,cat_id,sort_order,viewable,actif) VALUES ('" .
 				$block->area . "'," . $block->module_id . "," . $block->page_id . "," . $block->cat_id . ",0,0,0)";
 			return $this->db->query($sql,__LINE__,__FILE__);
 		}
@@ -60,7 +60,7 @@
 
 		function getallblocksforarea($area,$cat_list,$page_id,$lang)
 		{
-			$sql = "SELECT t1.block_id,area,cat_id,page_id,t1.module_id,app_name,module_name,arguments,arguments_lang,sort_order,title,view,actif FROM phpgw_sitemgr_content AS t1,phpgw_sitemgr_modules AS t2 LEFT JOIN phpgw_sitemgr_content_lang as t3 ON (t1.block_id=t3.block_id AND lang='$lang') WHERE t1.module_id = t2.module_id AND area = '$area' AND ((page_id = 0 and cat_id = 0)";
+			$sql = "SELECT t1.block_id,area,cat_id,page_id,t1.module_id,app_name,module_name,arguments,arguments_lang,sort_order,title,viewable,actif FROM phpgw_sitemgr_content AS t1,phpgw_sitemgr_modules AS t2 LEFT JOIN phpgw_sitemgr_content_lang as t3 ON (t1.block_id=t3.block_id AND lang='$lang') WHERE t1.module_id = t2.module_id AND area = '$area' AND ((page_id = 0 and cat_id = 0)";
 			if ($cat_list)
 			{
 				$sql .= " OR (page_id = 0 AND cat_id IN (" . implode(',',$cat_list) . "))";
@@ -91,7 +91,7 @@
 				);
 				$block->sort_order = $this->db->f('sort_order');
 				$block->title = stripslashes($this->db->f('title'));
-				$block->view = $this->db->f('view');
+				$block->view = $this->db->f('viewable');
 				$block->actif = $this->db->f('actif');
 				$result[$id] = $block;
 			}
@@ -100,7 +100,7 @@
 
 		function getvisibleblockdefsforarea($area,$cat_list,$page_id)
 		{
-			$sql = "SELECT t1.block_id,area,cat_id,page_id,t1.module_id,app_name,module_name,view FROM phpgw_sitemgr_content AS t1,phpgw_sitemgr_modules AS t2 WHERE t1.module_id = t2.module_id AND area = '$area' AND  ((page_id = 0 and cat_id = 0)";
+			$sql = "SELECT t1.block_id,area,cat_id,page_id,t1.module_id,app_name,module_name,viewable FROM phpgw_sitemgr_content AS t1,phpgw_sitemgr_modules AS t2 WHERE t1.module_id = t2.module_id AND area = '$area' AND  ((page_id = 0 and cat_id = 0)";
 			if ($cat_list)
 			{
 				$sql .= " OR (page_id = 0 AND cat_id IN (" . implode(',',$cat_list) . "))";
@@ -125,7 +125,7 @@
 				$block->module_id = $this->db->f('module_id');
 				$block->app_name = $this->db->f('app_name');
 				$block->module_name = $this->db->f('module_name');
-				$block->view = $this->db->f('view');
+				$block->view = $this->db->f('viewable');
 				$result[$id] = $block;
 			}
 			return $result;
@@ -164,7 +164,7 @@
 
 		function getblock($block_id,$lang)
 		{
-			$sql = "SELECT t1.block_id,cat_id,page_id,area,t1.module_id,app_name,module_name,arguments,arguments_lang,sort_order,title,view,actif FROM phpgw_sitemgr_content AS t1,phpgw_sitemgr_modules AS t2 LEFT JOIN phpgw_sitemgr_content_lang as t3 ON (t1.block_id=t3.block_id AND lang='$lang') WHERE t1.module_id = t2.module_id AND t1.block_id = $block_id";
+			$sql = "SELECT t1.block_id,cat_id,page_id,area,t1.module_id,app_name,module_name,arguments,arguments_lang,sort_order,title,viewable,actif FROM phpgw_sitemgr_content AS t1,phpgw_sitemgr_modules AS t2 LEFT JOIN phpgw_sitemgr_content_lang as t3 ON (t1.block_id=t3.block_id AND lang='$lang') WHERE t1.module_id = t2.module_id AND t1.block_id = $block_id";
 			$this->db->query($sql,__LINE__,__FILE__);
 			if ($this->db->next_record())
 			{
@@ -182,7 +182,7 @@
 				);
  				$block->sort_order = $this->db->f('sort_order');
  				$block->title = stripslashes($this->db->f('title'));
- 				$block->view = $this->db->f('view');
+ 				$block->view = $this->db->f('viewable');
  				$block->actif = $this->db->f('actif');
 				return $block;
 			}
@@ -219,9 +219,9 @@
 		{
 			//this is necessary because double slashed data breaks while serialized
 			$this->remove_magic_quotes($data);
-			$s = addslashes(serialize($data));
+			$s = $this->db->db_addslashes(serialize($data));
 			$sql = "UPDATE phpgw_sitemgr_content SET arguments = '$s', sort_order = " . (int)$block->sort_order . 
-				", view = " . $block->view . ", actif = " . $block->actif . " WHERE block_id = " . $block->id;
+				", viewable = " . $block->view . ", actif = " . $block->actif . " WHERE block_id = " . $block->id;
 			return $this->db->query($sql,__LINE__,__FILE__);
 		}
 
@@ -229,8 +229,8 @@
 		{
 			//this is necessary because double slashed data breaks while serialized
 			$this->remove_magic_quotes($data);
-			$s = addslashes(serialize($data));
-			$title = addslashes($block->title);
+			$s = $this->db->db_addslashes(serialize($data));
+			$title = $this->db->db_addslashes($block->title);
 			$blockid = $block->id;
 			$sql = "DELETE FROM phpgw_sitemgr_content_lang WHERE block_id = $blockid AND lang = '$lang'";
 			$this->db->query($sql,__LINE__,__FILE__);

@@ -149,7 +149,7 @@
 		{
 			$sql = 'UPDATE phpgw_sitemgr_pages SET ' . 
 				'cat_id=\'' . $pageInfo->cat_id . '\',' .
-				'name=\'' . addslashes($pageInfo->name) . '\',' .
+				'name=\'' . $this->db->db_addslashes($pageInfo->name) . '\',' .
 				'sort_order=\'' . (int) $pageInfo->sort_order . '\',' .
 				'hide_page=\'' . $pageInfo->hidden . '\' ' .
 				'WHERE page_id=\'' . $pageInfo->id . '\'';
@@ -164,16 +164,16 @@
 			if ($this->db->next_record())
 			{
 				$sql = "UPDATE phpgw_sitemgr_pages_lang SET " . 
-					"title='" . addslashes($pageInfo->title) . "'," .
-					"subtitle='" . addslashes($pageInfo->subtitle) . "' WHERE page_id='$page_id' and lang='$lang'";
+					"title='" . $this->db->db_addslashes($pageInfo->title) . "'," .
+					"subtitle='" . $this->db->db_addslashes($pageInfo->subtitle) . "' WHERE page_id='$page_id' and lang='$lang'";
 				$this->db->query($sql, __LINE__,__FILE__);
 				return true;
 			}
 			else
 			{
 				$sql = "INSERT INTO phpgw_sitemgr_pages_lang (page_id,lang,title,subtitle) VALUES ('$page_id','$lang','" .
-					addslashes($pageInfo->title) . "','" .
-					addslashes($pageInfo->subtitle) . "')";
+					$this->db->db_addslashes($pageInfo->title) . "','" .
+					$this->db->db_addslashes($pageInfo->subtitle) . "')";
 				$this->db->query($sql, __LINE__,__FILE__);
 				return true;
 			}

@@ -12,7 +12,7 @@
 		function savemoduleproperties($module_id,$data,$contentarea,$cat_id)
 		{
 			$this->deletemoduleproperties($module_id,$contentarea,$cat_id);
-			$s = addslashes(serialize($data));
+			$s = $this->db->db_addslashes(serialize($data));
 			$sql = "INSERT INTO phpgw_sitemgr_properties (area,cat_id,module_id,properties) VALUES ('$contentarea',$cat_id,'$module_id','$s')";
 			$this->db->query($sql,__LINE__,__FILE__);
 		}
@@ -47,7 +47,7 @@
 
 		function registermodule($app_name,$modulename,$description)
 		{
-			$description = addslashes($description);
+			$description = $this->db->db_addslashes($description);
 			$sql = "SELECT count(*) FROM phpgw_sitemgr_modules where app_name='$app_name' AND module_name='$modulename'";
 			$this->db->query($sql,__LINE__,__FILE__);
 			$this->db->next_record();

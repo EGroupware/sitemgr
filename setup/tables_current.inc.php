@@ -82,7 +82,7 @@
 				'module_id' => array('type' => 'int', 'precision' => 4, 'nullable' => false),
 				'arguments' => array('type' => 'text'),
 				'sort_order' => array('type' => 'int', 'precision' => 4),
-				'view' => array('type' => 'int', 'precision' => 4),
+				'viewable' => array('type' => 'int', 'precision' => 4),
 				'actif' => array('type' => 'int', 'precision' => 2)
 			),
 			'pk' => array('block_id'),
@@ -92,7 +92,7 @@
 		),
 		'phpgw_sitemgr_content_lang' => array(
 			'fd' => array(
-				'block_id' => array('type' => 'auto', 'nullable' => false),
+				'block_id' => array('type' => 'int', 'precision' => 4, 'nullable' => false),
 				'lang' => array('type' => 'varchar', 'precision' => 2, 'nullable' => false),
 				'arguments_lang' => array('type' => 'text'),
 				'title' => array('type' => 'varchar', 'precision' => 255),

@@ -13,7 +13,7 @@
 
 	$setup_info['sitemgr']['name']      = 'sitemgr';
 	$setup_info['sitemgr']['title']     = 'SiteMgr Web Content Manager';
-	$setup_info['sitemgr']['version']   = '0.9.15.001';
+	$setup_info['sitemgr']['version']   = '0.9.15.002';
 	$setup_info['sitemgr']['app_order'] = 8;
 	$setup_info['sitemgr']['tables']    = array('phpgw_sitemgr_pages','phpgw_sitemgr_pages_lang','phpgw_sitemgr_categories_lang','phpgw_sitemgr_preferences','phpgw_sitemgr_modules','phpgw_sitemgr_content','phpgw_sitemgr_content_lang','phpgw_sitemgr_active_modules','phpgw_sitemgr_properties');
 	$setup_info['sitemgr']['enable']    = 1;

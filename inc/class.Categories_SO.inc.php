@@ -14,11 +14,11 @@
 		{
 			if ($parent)
 			{
-				$cats = $this->cats->return_array('all','',False,'','','cat_data',False,$parent);
+				$cats = $this->cats->return_array('all','',False,'','','',False,$parent);
 			}
 			else
 			{
-				$cats = $this->cats->return_array('mains','',False,'','','cat_data',False, 0);
+				$cats = $this->cats->return_array('mains','',False,'','','',False, 0);
 			}
 			while (list(,$subs) = @each($cats))
 			{
@@ -32,7 +32,7 @@
 
 		function getFullCategoryIDList()
 		{
-			$cats = $this->cats->return_array('all','',False,'','','cat_data',False);
+			$cats = $this->cats->return_array('all','',False,'','','',False);
 
 			while (list(,$cat) = @each($cats))
 			{
