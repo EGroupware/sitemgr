@@ -15,7 +15,20 @@ class module_currentsection extends Module
 {
 	function module_currentsection()
 	{
-		$this->arguments = array();
+		$this->arguments = array(
+			'suppress_current_page' => array(
+				'type' => 'checkbox',
+				'label' => lang('Suppress the current page')
+			),
+			'suppress_parent' => array(
+				'type' => 'checkbox',
+				'label' => lang('Suppress link to parent category')
+			),
+			'suppress_show_all' => array(
+				'type' => 'checkbox',
+				'label' => lang('Suppress link to index (show all)')
+			),
+		);
 		$this->properties = array();
 		$this->title = lang('Current Section');
 		$this->description = lang('This block displays the current section\'s table of contents');
@@ -37,7 +50,7 @@ class module_currentsection extends Module
 		unset($category);
 
 		$content = '';
-		if ($parent && $parent != CURRENT_SITE_ID)	// do we have a parent?
+		if ($parent && $parent != CURRENT_SITE_ID && !$arguments['suppress_parent'])	// do we have a parent?
 		{
 			$parentcat = $GLOBALS['objbo']->getcatwrapper($parent);
 			$content .= "\n<b>".lang('Parent Section:').'</b><br>&nbsp;&middot;&nbsp;<a href="'.
@@ -57,13 +70,20 @@ class module_currentsection extends Module
 		if (count($pagelinks)>1 || (count($pagelinks)>0 && $content))
 		{
 			$content .= "\n<b>".lang('Pages:').'</b>';
-			$content .= ' (<a href="'.sitemgr_link2('/index.php','category_id='.$page->cat_id).
-				'"><i>'.lang('show all').'</i></a>)<br>';
+			if (!$arguments['suppress_show_all'])
+			{
+				$content .= ' (<a href="'.sitemgr_link2('/index.php','category_id='.$page->cat_id).
+					'"><i>'.lang('show all').'</i></a>)';
+			}
+			$content .= "<br>\n";
 			foreach($pagelinks as $pagelink_id => $pagelink)
 			{
-				if ($page->page_id && $page->page_id == $pagelink_id)
+				if ($page->id && $page->id == $pagelink_id)
 				{
-					$content .= '&nbsp;&gt;'.$pagelink['link'].'&lt;<br>';
+					if (!$arguments['suppress_current_page'])
+					{
+						$content .= '&nbsp;<b>&gt;'.$pagelink['link'].'&lt;</b><br>';
+					}
 				}
 				else
 				{

@@ -301,6 +301,9 @@ subsections:	sitemgr	en	Subsections:
 subtext for image %1	sitemgr	en	Subtext for image %1
 subtitle	sitemgr	en	Subtitle
 summary of one forum	sitemgr	en	Summary of one forum
+suppress link to index (show all)	sitemgr	en	Suppress link to index (show all)
+suppress link to parent category	sitemgr	en	Suppress link to parent category
+suppress the current page	sitemgr	en	Suppress the current page
 table of contents	sitemgr	en	Table of Contents
 template select	sitemgr	en	Template select
 textarea	sitemgr	en	textarea

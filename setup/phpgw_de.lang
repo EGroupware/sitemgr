@@ -303,6 +303,9 @@ subsections:	sitemgr	de	Unterkategorien:
 subtext for image %1	sitemgr	de	Untertitel für Bild %1
 subtitle	sitemgr	de	Untertitel
 summary of one forum	sitemgr	de	Zusammenfassung eines Forums
+suppress link to index (show all)	sitemgr	de	Verweis auf gesamtes Inhaltsverzeichnis (alle anzeigen) unterdrücken
+suppress link to parent category	sitemgr	de	Verweis auf die Eltern-Kategorie unterdrücken
+suppress the current page	sitemgr	de	Aktuelle Seite unterdrücken
 table of contents	sitemgr	de	Themengebiete
 template select	sitemgr	de	Designvorlage auswählen
 textarea	sitemgr	de	Textfeld
@@ -337,7 +340,7 @@ there is no website configured for url %1.  notify the administrator.	sitemgr	de
 there was an error accessing the requested page. either you do not have permission to view this page, or the page does not exist.	common	de	Ein Fehler ist aufgetreten beim Aufruf der angeforderten Seite. Entweder haben Sie nicht die Rechte diese Seite anzusehen, oder diese Seite existiert nicht.
 there was an error writing to the database.	sitemgr	de	Beim schreiben in die Datenbank ist ein Fehler aufgetreten.
 this block displays a javascript based tree menu	sitemgr	de	Diese Block zeigt eine Javascript basierende Baumansicht
-this block displays the current section's table of contents	sitemgr	de	Dieser Block zeigt das Inhaltsverzeichnis der aktuellen Sektion an
+this block displays the current section's table of contents	sitemgr	de	Dieser Block zeigt das Inhaltsverzeichnis der aktuellen Kategorie an
 this category has no pages.	sitemgr	de	Diese Kategorie hat keine Seiten.
 this is a simple sample module	sitemgr	de	Dies ist ein einfaches Beispiel Modul
 this is only used as an internal name for the website.	sitemgr	de	Dies wird nur als interner Name der Website verwendet.
