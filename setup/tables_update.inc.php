@@ -328,14 +328,17 @@
     ));
 
     //we register some standard modules so that the default site template works
-    $db2 = $phpgw_setup->db;
-    foreach (array('index','toc','html') as $module)
+    // but only if we running a real update
+    if (!$phpgw_setup->oProc->m_bDeltaOnly)
     {
-      $db2->query("INSERT INTO phpgw_sitemgr_modules (app_name,module_name) VALUES ('sitemgr','$module')",__LINE__,__FILE__);
-      $module_id = $db2->get_last_insert_id('phpgw_sitemgr_modules','module_id');
-      $db2->query("INSERT INTO phpgw_sitemgr_active_modules (area,cat_id,module_id) VALUES ('__PAGE__',0,$module_id)",__LINE__,__FILE__);
+		$db2 = $phpgw_setup->db;
+	    foreach (array('index','toc','html') as $module)
+	    {
+	      $db2->query("INSERT INTO phpgw_sitemgr_modules (app_name,module_name) VALUES ('sitemgr','$module')",__LINE__,__FILE__);
+	      $module_id = $db2->get_last_insert_id('phpgw_sitemgr_modules','module_id');
+	      $db2->query("INSERT INTO phpgw_sitemgr_active_modules (area,cat_id,module_id) VALUES ('__PAGE__',0,$module_id)",__LINE__,__FILE__);
+	    }
     }
-
     //now to the difficult part: we try to put the old content field of phpgw_sitemgr_pages into the new phpgw_sitemgr_content table
     $db3 = $phpgw_setup->db;
     $GLOBALS['phpgw_setup']->oProc->query("select * from phpgw_sitemgr_pages",__LINE__,__FILE__);
