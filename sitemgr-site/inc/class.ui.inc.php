@@ -133,10 +133,12 @@
 			$this->t->set_file('header','header.tpl');
 			$this->t->set_var('themesel',$themesel);
 			$this->t->set_var('site_name',$this->bo->get_siteName());
+			$this->t->set_var('page_title',$this->bo->get_title());
 			$this->t->pfp('out','header');
 			$this->t->set_file('body',$themesel.'/main.tpl');
 
 			$this->t->set_var('user', $GLOBALS['phpgw_info']['user']['account_lid']);
+			$this->t->set_var('site_name',$this->bo->get_siteName());
 			$this->t->set_var('site_header', $this->bo->get_header());
 			$this->t->set_var('site_footer', $this->bo->get_footer());
 			$this->t->set_var('page_title', $this->bo->get_title());
