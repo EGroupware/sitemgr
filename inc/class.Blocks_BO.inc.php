@@ -37,11 +37,14 @@
 			}
 			//delete vanished blocks from database
 			$blocks_database = $this->so->getblocknames();
-			foreach ($blocks_database as $blockname)
+			if ($blocks_database)
 			{
-				if (!in_array($blockname,$blocks_filesystem))
+				foreach ($blocks_database as $blockname)
 				{
-					$this->so->deleteblock($blockname);
+					if (!in_array($blockname,$blocks_filesystem))
+					{
+						$this->so->deleteblock($blockname);
+					}
 				}
 			}
 			
