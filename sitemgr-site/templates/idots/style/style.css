@@ -32,6 +32,10 @@ img
 */
 }
 
+ul {
+	list-style: url("../images/orange-ball.png");
+}
+
 a:link,a:visited
 {
 	cursor:pointer;

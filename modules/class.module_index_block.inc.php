@@ -34,17 +34,22 @@
 			global $objbo;
 			$indexarray = $objbo->getIndex(False,!@$arguments['sub_cats'],True);
 			$subcatname = $catname = '';
+			if (count($indexarray))
+			{
+				$content = '<ul id="index_block" style="padding-left: 1em;">';
+			}
+			$last_catdepth = 1;
 			foreach($indexarray as $temppage)
 			{
 				if ($catname != $temppage['catname'] && $temppage['catdepth'] == 1) //category name change
 				{
-					if ($catname != '') //not the first name change
+					if ($catname != '') // not the first name change
 					{
-						$content .= "\n</div>\n<br />";
+						$content .= "\n</ul>\n"; // finish listing the pages in last category
 					}
-					$content .= "\n".'<div style="position: relative; left: '.max($temppage['catdepth']*15-30,0).'px;">';
+					$content .= "<li>$temppage[catlink]</li>\n"; // display this category name
+					$content .= '<ul style="padding-left: 1em;">'; // begin to display page list of this category
 					$catname = $temppage['catname'];
-					$content .= "\n\t<b>$temppage[catlink]</b><br />";
 					$subcatname = '';
 				}
 				if ($temppage['catdepth'] == 1)
@@ -53,18 +58,19 @@
 					if ($GLOBALS['sitemgr_info']['mode'] == 'Edit' ||
 						$temppage['page_id'] && $temppage['pagelink'] != lang('No pages available'))
 					{
-						$content .= "\n\t&nbsp;&middot;&nbsp;$temppage[pagelink]<br />";
+						$content .= "<li> $temppage[pagelink] </li>";
 					}
 				}
 				elseif ($subcatname != $temppage['catname'] && $temppage['catdepth'] == 2)
 				{
-					$content .= "\n\t&nbsp;&middot;&nbsp;".str_replace('</a>',' ...</a>',$temppage[catlink]).'<br />';
+					$content .= '<li>'.str_replace('</a>',' ...</a>',$temppage[catlink]).'</li>';
 					$subcatname = $temppage['catname'];
 				}
 			}
 			if (count($indexarray))
 			{
-				$content .= "\n</div>";
+				$content .= "\n</ul>\n</ul>";
+
 				if (!$arguments['no_full_index'])
 				{
 					$content .= "\n".'<br /><i><a href="'.sitemgr_link2('/index.php','index=1').'"><font size="1">(' . lang('View full index') . ')</font></a></i>';
@@ -74,7 +80,7 @@
 			{
 				$content=lang('You do not have access to any content on this site.');
 			}
-			return $content;
+			return $content ;
 		}
 	}
 ?>
