@@ -378,7 +378,6 @@
 		global $setup_info,$phpgw_setup;
 		$setup_info['sitemgr']['currentver'] = '0.9.15.002';
 
-		echo 'Fixing column names.';
 		$phpgw_setup->oProc->RenameColumn('phpgw_sitemgr_content', 'view', 'viewable');
 
 		return $setup_info['sitemgr']['currentver'];                             
