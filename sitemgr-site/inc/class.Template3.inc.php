@@ -204,7 +204,6 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 							$GLOBALS['Common_BO']->acl->can_write_category($block->cat_id) &&
 							is_object($this->edit_transformer))
 						{
-							$this->edit_transformer->block_id = $block->id;
 							$moduleobject->add_transformer($this->edit_transformer);
 						}
 
@@ -338,6 +337,16 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 			}
 			else
 			{
+				// try useing the availible translation, if we have an english title
+				if (in_array('en',$availablelangsforblocktitle))
+				{
+					$en_title = $this->bo->getlangblocktitle($block_id,'en');
+					$title = lang($en_title);
+					if ($title != $en_title.'*')
+					{
+						return $title;
+					}
+				}
 				foreach ($GLOBALS['sitemgr_info']['sitelanguages'] as $lang)
 				{
 					if (in_array($lang,$availablelangsforblocktitle))

@@ -59,6 +59,7 @@ configure module properties	sitemgr	de	Modul Eigenschaften konfigurieren
 configure sitemgr	sitemgr	de	SiteMgr konfigurieren
 configure website	sitemgr	de	Website konfigurieren
 contact the administrator.	sitemgr	de	Kontaktieren Sie den Administrator
+content areas	sitemgr	de	Inhaltsbereiche
 content blocks	sitemgr	de	Inhaltsblock
 content manager	sitemgr	de	Inhaltsmanager
 contentarea	sitemgr	de	Textblock
@@ -72,6 +73,7 @@ delete block	sitemgr	de	Block löschen
 delete category	sitemgr	de	Kategorie löschen
 delete page	sitemgr	de	Seite löschen
 delete this application	sitemgr	de	Diese Applikation löschen
+delete this block	sitemgr	de	Diesen Block löschen
 delete version	sitemgr	de	Version löschen
 deleting all data for %1	sitemgr	de	Alle Daten für %1 werden gelöscht
 discussions	sitemgr	de	Diskussionen
@@ -145,14 +147,17 @@ manage modules	sitemgr	de	Module verwalten
 manage page specific content	sitemgr	de	Seitenspezifischen Inhalt verwalten
 manage pages	common	de	Seiten verwalten
 manage site content	sitemgr	de	Seiten Inhalt verwalten
-manage site-wide content	sitemgr	de	Website weite Inhalte verwalten
+manage site-wide content	sitemgr	de	Website weiten Inhale verwalten
 manage site-wide module properties	sitemgr	de	Moduleinstellungen für die ganze Website
 manage translations	sitemgr	de	Übersetzungen verwalten
 master list of permitted modules	sitemgr	de	Masterliste für erlaubte Module
 migrating data for %1 to %2	sitemgr	de	Daten für %1 werden nach %2 übertragen
 module %1 is not permitted in this context!	sitemgr	de	Module %1 ist in diesem Kontext nicht erlaubt!
 module manager	sitemgr	de	Module verwalten
+module: %1, scope: %2, contentarea: %3	sitemgr	de	Modul: %1, Anwendungsbereich: %2, Inhaltsbereich: %3
 more news	sitemgr	de	Mehr Nachrichten
+move block down (increase sort order)	sitemgr	de	Block nach unten verschieben (Sortierreihenfolge erhöhen)
+move block up (decrease sort order)	sitemgr	de	Block nach oben verschieben (Sortierreihenfolge verringern)
 move to	sitemgr	de	Verschieben nach
 name	sitemgr	de	Name
 name has been translated to lower case	sitemgr	de	Der Name wurde in Kleinbuchstaben umgewandelt
@@ -242,7 +247,7 @@ sitemgr setup instructions	sitemgr	de	SiteMgr Setup Informationen
 sitemgr setup page	sitemgr	de	SiteMgr Setup Seite
 sitemgr web content manager	common	de	SiteMgr Contentmanagement
 sitemgr websites	sitemgr	de	SiteMgr Websites
-sort order	sitemgr	de	Reihenfolge der Sortierung
+sort order	sitemgr	de	Sortierreihenfolge
 state	sitemgr	de	Zustand
 strip html from block content?	sitemgr	de	Entferne HTML aus dem Block Content
 subcategories	sitemgr	de	Unterkategorien

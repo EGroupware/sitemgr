@@ -182,6 +182,7 @@ class Module
 			else
 			{
 				$element['label'] = $input['label'];
+				$element['large'] = $input['large'];	// show label above instead beside content
 				$element['form'] = $this->build_input_element($input,$this->block->arguments[$key],$elementname);
 				$interface[] = $element;
 			}
@@ -271,7 +272,7 @@ class Module
 
 	function build_input_element($input,$default,$elementname)
 	{
-		if ($default)
+		if ($default && $input['type'] != 'htmlarea')	// htmlarea does its own escape !!!
 		{
 			$this->escape_default($default);
 		}
@@ -283,6 +284,12 @@ class Module
 		$inputdef = $paramstring . ' name="' . $elementname . ($input['multiple'] ? '[]' : '') . '"';
 		switch($input['type'])
 		{
+			case 'htmlarea':
+				if (!is_object($GLOBALS['phpgw']->html))
+				{
+					$GLOBALS['phpgw']->html = CreateObject('phpgwapi.html');
+				}
+				return $GLOBALS['phpgw']->html->htmlarea($elementname,$default,$input['params']['style']);
 			case 'textarea':
 				return '<textarea ' . $inputdef . '>' . $default . '</textarea>';
 			case 'textfield':
@@ -344,7 +351,7 @@ class Module
 		{
 			for ( $i = 0; $i < count( $this->transformer_chain ); ++$i )
 			{
-				$content = $this->transformer_chain[$i]->apply_transform($this->block->title,$content);
+				$content = $this->transformer_chain[$i]->apply_transform($this->block->title,$content,$this->block);
 			}
 			//store session variables
 			if ($this->session)

@@ -1,4 +1,3 @@
-<div style="margin-bottom:1cm;font-weight:bold;text-align:center;text-decoration:underline">{translate} {pagename}</div>
 <div style="text-align:center; color:#FF0000; font-weight:bold;"><b>{error_msg}</b></div>
 <form name="translatepage" method="POST">
 <input type="hidden" name="page_id" value="{pageid}">

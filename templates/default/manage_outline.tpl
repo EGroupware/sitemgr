@@ -1,4 +1,3 @@
-<div style="margin-bottom:1cm;font-weight:bold;text-align:center;text-decoration:underline">{outline_manager}</div>
 <div><b><font color='#FF0000' size='2'>{message}</font></b></div>
 <div>
 {addcategory}

@@ -205,7 +205,7 @@ define('SITEMGR_VIEWABLE_ANONYMOUS',3);
 			}
 			$this->so->saveblockdata($block);
 			$this->so->saveblockdatalang($block->id,$block->title,$lang);
-			if (!$this->saveversionstate($block->id,$state))
+			if (is_array($state) && !$this->saveversionstate($block->id,$state))
 			{
 				$validationerrors[] = lang('There can only be one version in (pre(un))published state, with the one exeption that one prepublished version can coexist with one preunpublished version');
 			}

@@ -1,4 +1,3 @@
-<div style="margin-bottom:1cm;font-weight:bold;text-align:center;text-decoration:underline">{translation_manager}</div>
 <table style="border-width:2px;border-style:solid;" border='1' align='center' rules="all" width='70%' cellpadding='0'>
 	<tr>
 		<td colspan={colspan} align='center'><a href="{translate_site_content}">{lang_site_content}</a></td>

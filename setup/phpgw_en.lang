@@ -56,6 +56,7 @@ configure module properties	sitemgr	en	Configure module properties
 configure sitemgr	sitemgr	en	Configure SiteMgr
 configure website	sitemgr	en	Configure Website
 contact the administrator.	sitemgr	en	Contact the administrator.
+content areas	sitemgr	en	Content areas
 content blocks	sitemgr	en	Content blocks
 content manager	sitemgr	en	Content Manager
 contentarea	sitemgr	en	Contentarea
@@ -69,6 +70,7 @@ delete block	sitemgr	en	Delete block
 delete category	sitemgr	en	Delete category
 delete page	sitemgr	en	Delete page
 delete this application	sitemgr	en	Delete this application
+delete this block	sitemgr	en	Delete this block
 delete version	sitemgr	en	Delete Version
 deleting all data for %1	sitemgr	en	Deleting all data for %1
 discussions	sitemgr	en	Discussions
@@ -149,7 +151,10 @@ master list of permitted modules	sitemgr	en	Master list of permitted modules
 migrating data for %1 to %2	sitemgr	en	Migrating data for %1 to %2
 module %1 is not permitted in this context!	sitemgr	en	Module %1 is not permitted in this context!
 module manager	sitemgr	en	Module manager
+module: %1, scope: %2, contentarea: %3	sitemgr	en	Module: %1, Scope: %2, Contentarea: %3
 more news	sitemgr	en	More news
+move block down (increase sort order)	sitemgr	en	Move block down (increase sort order)
+move block up (decrease sort order)	sitemgr	en	Move block up (decrease sort order)
 move to	sitemgr	en	Move to
 name	sitemgr	en	Name
 name has been translated to lower case	sitemgr	en	Name has been translated to lower case

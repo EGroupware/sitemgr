@@ -140,22 +140,37 @@
 					$this->errormsg[] = lang("You did not choose a module.");
 				}
 			}
-			elseif ($btnSaveBlock)
+			elseif ($btnSaveBlock || $_GET['sort_order'] && $block_id)
 			{
-				$block = CreateObject('sitemgr.Block_SO',True);
-				$block->id = $inputblockid;
-				$block->title = $inputblocktitle;
-				$block->sort_order = $inputblocksort;
-				$block->view = $inputblockview;
+				if ($_GET['sort_order'])
+				{
+					$block = $this->bo->getblock($block_id,$this->worklanguage);
+					$block->sort_order += intval($_GET['sort_order']);
+					$element = array();
+					$inputstate = False;
+				}
+				else
+				{
+					$block = CreateObject('sitemgr.Block_SO',True);
+					$block->id = $inputblockid;
+					$block->title = $inputblocktitle;
+					$block->sort_order = $inputblocksort;
+					$block->view = $inputblockview;
+				}
 				$result = $this->bo->saveblockdata($block,$element,$inputstate,$this->worklanguage);
 				if ($result !== True)
 				{
 					//result should be an array of validationerrors
 					$this->errormsg = $result;
 				}
+				if ($_GET['sort_order'])
+				{
+					echo '<html><head></head><body onload="opener.location.reload();self.close()"></body></html>';
+				}
 			}
-			elseif ($btnDeleteBlock)
+			elseif ($btnDeleteBlock || $_GET['deleteBlock'] && $block_id)
 			{
+				if ($_GET['deleteBlock']) $inputblockid = $block_id;
 				if (!$this->bo->removeblock($inputblockid))
 				{
 					$this->errormsg[] =  lang("You are not entitled to edit block %1",$inputblockid);
@@ -177,7 +192,7 @@
 			}
 
 			//if we are called with a block_id GET parameter, it is from sitemgr-site edit mode or from archiv/commit
-			//we are shown in a separate edit window, without navbar. 
+			//we are shown in a separate edit window, without navbar.
 			if ($block_id)
 			{
 				$block = $this->bo->getblock($block_id,$this->worklanguage);
@@ -192,6 +207,7 @@
 				$this->t->set_block('Block','Moduleview','MvBlock');
 				$this->t->set_block('Moduleeditor','Version','EvBlock');
 				$this->t->set_block('Blocks','EditorElement','EeBlock');
+				$this->t->set_block('Blocks','EditorElementLarge','EeBlockLarge');
 				$this->t->set_block('Moduleview','ViewElement','VeBlock');
 
 				$this->t->set_var(array(
@@ -199,15 +215,15 @@
 					'deletebutton' => lang('Delete block'),
 					'contentarea' => lang('Contentarea'),
 					'createbutton' => lang('Create new version'),
-					'standalone' => "<html><head></head><body>",
+					'standalone' => '<div id="divMain">',
 					'donebutton' => '<input type="reset" onclick="opener.location.reload();self.close()" value="' . lang('Done') . '"  />'
 				));
 				$this->showblock($block,True,True);
+				$GLOBALS['phpgw']->common->phpgw_header();
 				$this->t->pfp('out','Block');
+				$GLOBALS['phpgw']->common->phpgw_exit();
 				return;
 			}
-
-			$this->common_ui->DisplayHeader();
 
 			$this->t->set_file('Managecontent', 'manage_content.tpl');
 			$this->t->set_file('Blocks','edit_block.tpl');
@@ -217,12 +233,8 @@
 			$this->t->set_block('Block','Moduleview','MvBlock');
 			$this->t->set_block('Moduleeditor','Version','EvBlock');
 			$this->t->set_block('Blocks','EditorElement','EeBlock');
+			$this->t->set_block('Blocks','EditorElementLarge','EeBlockLarge');
 			$this->t->set_block('Moduleview','ViewElement','VeBlock');
-			$this->t->set_var(Array(
-				'content_manager' => lang('%1 content manager', $scopename),
-				'page_or_cat_name' => ($page_or_cat_name ? (' - ' . $page_or_cat_name) : '')
-				));
-
 
 			$contentareas = $this->bo->getContentAreas();
 			if (is_array($contentareas))
@@ -241,7 +253,7 @@
 
 					$this->t->set_var(Array(
 						'area' => $contentarea,
-						'addblockform' => 
+						'addblockform' =>
 							($permittedmodules ?
 								('<form method="POST"><input type="hidden" value="' . $contentarea . '" name="inputarea" />' .
 									'<select style="vertical-align:middle" size="10" name="inputmoduleid">' .
@@ -278,6 +290,7 @@
 			{
 				$this->t->set_var('CBlock',$contentareas);
 			}
+			$this->common_ui->DisplayHeader(lang('%1 content manager', $scopename).($page_or_cat_name ? (' - ' . $page_or_cat_name) : ''));
 			$this->t->pfp('out', 'Managecontent');
 			$this->common_ui->DisplayFooter();
 		}
@@ -573,7 +586,7 @@
 							'label' => $element['label'],
 							'form' => $element['form']
 						));
-						$this->t->parse('versionelements','EditorElement', true);
+						$this->t->parse('versionelements',$element['large']?'EditorElementLarge':'EditorElement', true);
 					}
 					$this->t->parse('EvBlock','Version', true);
 				}
@@ -622,7 +635,7 @@
 // 									);
 // 								}
 //								$interface = array_merge($viewstandardelements,$viewmoduleelements);
-$interface = $viewstandardelements;
+				$interface = $viewstandardelements;
 				$this->t->set_var('VeBlock','');
 				while (list(,$element) = each($interface))
 				{

@@ -27,8 +27,6 @@
 
 		function manage()
 		{
-			$this->common_ui->DisplayHeader();
-
 			if ($this->acl->is_admin())
 			{
 				$GLOBALS['Common_BO']->globalize(array('btnselect','inputmodules','inputarea'));
@@ -53,12 +51,12 @@
 				$this->t->set_file('Managemodules', 'manage_modules.tpl');
 				$this->t->set_block('Managemodules','Contentarea','CBlock');
 				$this->t->set_var(array(
-					'module_manager' => lang('%1 module manager', $scopename),
+//					'module_manager' => lang('%1 module manager', $scopename),
 					'lang_help_module_manager' => lang('You can choose the modules that can be used on the site. The first list is a sort of master list, that is consulted if you do not configure lists specific to contentareas or (sub)categories. Then you can choose lists specific to each content area. In the category manager these lists can be overriden for each (sub)category.'),
 					'lang_findmodules' => lang('Register new modules'),
 					'lang_select_allowed_modules' => lang('Select allowed modules'),
 					'lang_configure_module_properties' => lang('Configure module properties'),
-					'cat_name' => ($cat_name ? (' - ' . $cat_name) : ''),
+//					'cat_name' => ($cat_name ? (' - ' . $cat_name) : ''),
 					'managelink' => ($managelink ? ('<a href="' . $managelink . '">&lt; ' . lang('Go to') . ' ' . $goto . ' &gt;</a>') : '')
 				));
 				$link_data['cat_id'] = $cat_id;
@@ -84,8 +82,8 @@
 					$permittedmodulescascading = $this->bo->getcascadingmodulepermissions($contentarea,$cat_id);
 
 					$this->t->set_var(Array(
-						'title' => ($contentarea == '__PAGE__') ? 
-							lang('Master list of permitted modules') : 
+						'title' => ($contentarea == '__PAGE__') ?
+							lang('Master list of permitted modules') :
 							lang('List of permitted modules specific to content area %1',$contentarea),
 						'contentarea' => $contentarea,
 						'selectmodules' => $this->inputmoduleselect(array_keys($permittedmodulesconfigured)),
@@ -94,10 +92,14 @@
 					));
 					$this->t->parse('CBlock','Contentarea', true);
 				}
+				$this->common_ui->DisplayHeader(lang('%1 module manager', $scopename).($cat_name ? (' - ' . $cat_name) : ''));
+
 				$this->t->pfp('out', 'Managemodules');
 			}
 			else
 			{
+				$this->common_ui->DisplayHeader();
+
 				echo lang("You must be an admin to manage module properties.") ."<br><br>";
 			}
 			$this->common_ui->DisplayFooter();

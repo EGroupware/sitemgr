@@ -1,4 +1,3 @@
-<div style="margin-bottom:1cm;font-weight:bold;text-align:center;text-decoration:underline">{translate}</div>
 <div style="text-align:center; color:#FF0000; font-weight:bold;"><b>{error_msg}</b></div>
 <form name="translatecategory" method="POST">
 <input type="hidden" name="category_id" value="{catid}">

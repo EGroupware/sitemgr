@@ -207,6 +207,9 @@
 					$inputbox = '';
 					switch($details['input'])
 					{
+						case 'htmlarea':
+							$inputbox = $this->inputhtmlarea($name);
+							break;
 						case 'textarea':
 							$inputbox = $this->inputtextarea($name);
 							break;
@@ -252,7 +255,7 @@
 				'" name="pref['.$name.']" value="'.$val.'">';
 		}
 
-		function inputtextarea($name='',$cols=40,$rows=5,$default='')
+		function inputtextarea($name,$cols=80,$rows=5,$default='')
 		{
 			$val = $GLOBALS['Common_BO']->sites->current_site[$name];
 			if (!$val)
@@ -260,8 +263,17 @@
 				$val = $default;
 			}
 
-			return '<textarea cols="' . $cols . '" rows="' . $rows . 
+			return '<textarea cols="' . $cols . '" rows="' . $rows .
 				'" name="pref['.$name.']">'. $GLOBALS['phpgw']->strip_html($val).'</textarea>';
+		}
+
+		function inputhtmlarea($name,$cols=80,$rows=5,$default='')
+		{
+			if (!is_object($GLOBALS['phpgw']->html))
+			{
+				$GLOBALS['phpgw']->html = CreateObject('phpgwapi.html');
+			}
+			return $GLOBALS['phpgw']->html->htmlarea("pref[$name]",$default,$cols,$rows);
 		}
 
 		function inputCheck($name = '')
@@ -320,9 +332,10 @@
 			$this->t->parse('PBlock','PrefBlock',true);
 		}
 
-		function DisplayHeader()
+		function DisplayHeader($extra_title='')
 		{
-			$GLOBALS['phpgw_info']['flags']['app_header'] = $GLOBALS['phpgw_info']['apps']['sitemgr']['title'];
+			$GLOBALS['phpgw_info']['flags']['app_header'] = $GLOBALS['phpgw_info']['apps']['sitemgr']['title'].
+				($extra_title ? ' - '.$extra_title : '');
 
 			if ($this->do_sites_exist)
 			{

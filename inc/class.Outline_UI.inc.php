@@ -36,12 +36,11 @@
 
 		function manage()
 		{
-			$this->common_ui->DisplayHeader();
+			$this->common_ui->DisplayHeader(lang('Manage categories and pages'));
 
 			$this->t->set_file('ManageOutline','manage_outline.tpl');
 			$this->t->set_block('ManageOutline', 'PageBlock', 'PBlock');
 			$this->t->set_block('ManageOutline', 'CategoryBlock', 'CBlock');
-			$this->t->set_var('outline_manager', lang('Manage categories and pages'));
 
 			if ($this->isadmin)
 			{
