@@ -127,7 +127,7 @@
 		array($module_id['login'],'right',$site_id,0,$visibility['anon'],'Login'),
 		array($module_id['amazon'],'right',$site_id,0,$visibility['all'],False,'Amazon.com','a:1:{s:6:"search";s:1:"1";}'),
 		array($module_id['html'],'header',$site_id,0,$visibility['all'],'HTML Module','a:1:{s:11:"htmlcontent";s:21:"<h1>SiteMgr Demo</h1>";}'),
-		array($module_id['html'],'footer',$site_id,0,$visibility['all'],'HTML Module','a:1:{s:11:"htmlcontent";s:253:"Powered by eGroupWare\'s <b>SiteMgr</b>. Please visit our Homepage <a href="http://www.egroupware.org" target="_blank">www.eGroupWare.org</a> and our <a href="http://www.sourcefourge.net/projects/egroupware/" target="_blank">Sourceforge Project page</a>.";}'),
+		array($module_id['html'],'footer',$site_id,0,$visibility['all'],'HTML Module','a:1:{s:11:"htmlcontent";s:253:"Powered by eGroupWare\'s <b>SiteMgr</b>. Please visit our Homepage <a href="http://www.egroupware.org" target="_blank">www.eGroupWare.org</a> and our <a href="http://www.sourceforge.net/projects/egroupware/" target="_blank">Sourceforge Project page</a>.";}'),
 		array($module_id['html'],'center',$cats['sample'],$pages['sample-page'],$visibility['all'],'HTML Module','a:1:{s:11:"htmlcontent";s:35:"some sample <b>HTML</b> content ...";}'),
 	);
 	foreach($blocks as $order => $block)
