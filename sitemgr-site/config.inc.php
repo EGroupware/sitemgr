@@ -6,7 +6,7 @@
 	$sitemgr_info = array(
 		// add trailing slash
 		'phpgw_path'           => '../../',
-		'htaccess_rewrite'         => 'enabled'
+		'htaccess_rewrite'         => False
 	);
 
 	/***********************************************************\

@@ -38,7 +38,7 @@
 		$page_name = $extravars['page_name'];
 
 		if (!$page_name == '' &&
-			$GLOBALS['sitemgr_info']['htaccess_rewrite']=='enabled')
+			$GLOBALS['sitemgr_info']['htaccess_rewrite'])
 		{
 			$url = '/'.$page_name;
 			$newextravars=array();
