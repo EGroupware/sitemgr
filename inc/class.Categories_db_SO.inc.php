@@ -2,7 +2,10 @@
 	class Categories_db_SO
 	{
 		var $db;
-		
+		var $public_functions=array(
+			'convert_to_phpgwapi'=>true
+		);
+
 		function Categories_db_SO()
 		{
 			$this->db = $GLOBALS['phpgw']->db;
@@ -60,6 +63,64 @@
 			else
 			{
 				return false;
+			}
+		}
+	
+		function convert_to_phpgwapi()
+		{
+			/******************************************************\
+			* Purpose of this func is to switch to phpgroupware    *
+			* categories from the db categories.  So the           *
+			* sql data will be moved to the cat stuff.             *
+			*                                                      *
+			* It would be nice if we could just run an UPDATE sql  *
+			* query, but then you run the risk of this scenario:   *
+			* old_cat_id = 5, new_cat_id = 2 --> update all pages  *
+			* old_cat_id = 2, new_cat_id = 3 --> update all pages  *
+			*  now all old_cat_id 5 pages are cat_id 3....         *
+			\******************************************************/
+
+			$cat_so = CreateObject('sitemgr.Categories_SO');
+
+			$old_cats = $this->getFullCategoryIDList();
+			$cat_conv = array();
+
+			// Add each old category to the new category system
+			// Remember the ID translation for the next step.
+			foreach($old_cats as $old_cat_id)
+			{
+				$new_cat_id = $cat_so->addCategory('','',0);
+				if (!$new_cat_id)
+				{
+					die("ERROR!  Can't upgrade tables until you get the latest phpgwapi/inc/class.categories.inc.php from the 0.9.14 branch of CVS!  Please get this now.");
+				}
+				$old_cat = $this->getCategory($old_cat_id);
+				$old_cat->id = $new_cat_id;
+				$cat_so->saveCategory($old_cat);
+				$cat_conv[$old_cat_id] = $new_cat_id;
+				echo "\n<br>&nbsp;&nbsp;Old category id $old_cat_id is becoming $new_cat_id";
+			}
+
+			$update = array();
+
+			// Make a list of page_id's and corresponding new_id's
+			$sql = 'SELECT page_id, cat_id FROM phpgw_sitemgr_pages WHERE 1';
+			$this->db->query($sql,__LINE__,__FILE__);
+			if ($this->db->num_rows())
+			{
+				while ($this->db->next_record())
+				{
+					$update[$this->db->f('page_id')] = $cat_conv[$this->db->f('cat_id')];
+				}
+			}
+
+			// Update those page categories
+			while (list($page_id,$new_cat_id) = each($update))
+			{
+				$sql = 'UPDATE phpgw_sitemgr_pages SET cat_id="'.$new_cat_id.
+					'" WHERE page_id="'.$page_id.'"';
+				$this->db->query($sql,__LINE__,__FILE__);
+				echo "\n<br>&nbsp;&nbsp;&nbsp;&nbsp;Updating page ".$page_id;
 			}
 		}
 	}
