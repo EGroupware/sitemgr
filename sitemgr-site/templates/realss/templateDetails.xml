@@ -3,9 +3,10 @@
 	<name>realss</name>
 	<creationDate>2004.06.25</creationDate>
 	<author>Zhang Weiwu</author>
-	<copyright></copyright>
+	<copyright>GPL</copyright>
 	<authorEmail></authorEmail>
-	<authorUrl>http://aliweekly.nease.net</authorUrl>
+	<authorUrl>http://www.zhangweiwu.com/</authorUrl>
 	<version>1.0</version>
-	<description>nothing.</description>
+	<description>the template used for my own company 
+www.realss.com</description>
 </mosinstall>
