@@ -107,6 +107,9 @@
 			global $database;
 			$database = new mos_database;
 
+			// add a content-type header to overwrite an existing default charset in apache (AddDefaultCharset directiv)
+			header('Content-type: text/html; charset='.$GLOBALS['phpgw']->translation->charset());
+
 			// define global $mosConfig vars
 			global $mosConfig_sitename,$mosConfig_live_site,$modConfig_offset,$cur_template;
 			$mosConfig_sitename = $this->t->get_meta('sitename').': '.$this->t->get_meta('title');

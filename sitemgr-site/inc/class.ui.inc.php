@@ -54,6 +54,9 @@
 
 		function generatePage()
 		{
+			// add a content-type header to overwrite an existing default charset in apache (AddDefaultCharset directiv)
+			header('Content-type: text/html; charset='.$GLOBALS['phpgw']->translation->charset());
+
 			echo $this->t->parse();
 		}
 
