@@ -26,7 +26,7 @@ class module_download extends Module
 			),
 			'text' => array(
 				'type' => 'textfield',
-				'label' => lang('The text for the link, if empty the module returns the raw URL (without the HTML A element)')
+				'label' => lang('The text for the link, if empty the module returns the raw URL (without a link)')
 			),
 			'op' => array(
 				'type' => 'select',
