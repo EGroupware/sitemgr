@@ -292,7 +292,7 @@ the category to display, 0 for complete table of contents	sitemgr	nl	Welke cator
 the complete path to the file to be included	sitemgr	nl	De complete folder van het bestand moet worden opgegeven
 the config.inc.php file needs to be edited to point to the phpgroupware directory. copy the config.inc.php.template file to config.inc.php and then edit it.	sitemgr	nl	
 the file to be downloaded	sitemgr	nl	Het bestand dat moet worden gedownload
-the first directory to think about is sitemgr-link.  if you move this to the parent directory of sitemgr (your phpgroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  if you don't want this icon, there's no reason to ever bother with the directory.	sitemgr	nl	
+the first directory to think about is sitemgr-link.  if you move this to the parent directory of sitemgr (your egroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  if you don't want this icon, there's no reason to ever bother with the directory.	sitemgr	nl	
 the images' common name	sitemgr	nl	de normale naam voor plaatjes
 the name field cannot contain punctuation or spaces (field modified).	sitemgr	nl	
 the page name must be unique.	sitemgr	nl	De pagina moet uniek zijn
