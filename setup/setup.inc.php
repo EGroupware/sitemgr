@@ -62,7 +62,7 @@ Arijit Ghosh (arijitg -AT- uci.edu)');
 	$setup_info['sitemgr']['hooks'][] = 'admin';
 	$setup_info['sitemgr']['hooks'][] = 'sidebox_menu';
 
-	/* Dependacies for this app to work */
+	/* Dependencies for this app to work */
 	$setup_info['sitemgr']['depends'][] = array(
 		'appname'  => 'phpgwapi',
 		'versions' => Array('0.9.14','0.9.15','1.0.0')
