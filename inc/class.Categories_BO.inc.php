@@ -90,7 +90,6 @@
 					}
 				}
 			}
-//print_r($permitted_list);
 			return $permitted_list;
 		}
 
@@ -319,6 +318,8 @@
 									$can_read = true;
 									break;
 								case 'write':
+									//write access implies read access, otherwise editing blocks would not work
+									$can_read = true;
 									$can_write = true;
 									break;
 								default:

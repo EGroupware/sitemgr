@@ -54,7 +54,8 @@
 				for($i = 0; $i < sizeof($this->cat_list); $i++)
 				{
 					$this->cat = $this->cat_bo->getCategory($this->cat_list[$i],$this->sitelanguages[0]);
-					if ($this->cat->depth)
+
+					if ($this->cat->depth>1)
 					{
 						$buffer = '-';
 					}
@@ -112,14 +113,18 @@
 				$this->t->set_var('category','No category is available');
 			}
 
-			$this->t->set_var('add', 
-				'<form action="'.
-				$GLOBALS['phpgw']->link('/index.php',
-				'menuaction=sitemgr.Categories_UI._editCategory').
-				'" method="POST">
-				<input type=submit value = "' . lang('Add a category') .'">
-				</form>'
-			);
+			if ($this->isadmin)
+			{
+				$this->t->set_var('add', 
+					'<form action="'.
+					$GLOBALS['phpgw']->link('/index.php',
+					'menuaction=sitemgr.Categories_UI._editCategory').
+					'" method="POST">
+					<input type=submit value = "' . lang('Add a category') .'">
+					</form>'
+				);
+			}
+
 			$this->t->set_var('managepageslink',$GLOBALS['phpgw']->link(
 				'/index.php',
 				'menuaction=sitemgr.Pages_UI._managePage')
@@ -215,6 +220,7 @@
 				'lang_groupname' => lang('Group Name'),
 				'lang_readperm' => lang('Read Permission'),
 				'lang_writeperm' => lang('Write Permission'),
+				'lang_implies' => lang('implies read permission'),
 				'lang_useraccess' => lang('Individual Access Permission'),
 				'lang_username' => lang('User Name'),
 				'lang_reset' => lang('Reset'),

@@ -56,7 +56,7 @@
 				<tr>
 					<td align="center" width="33%"><u>{lang_groupname}</u></td>
 					<td align="center" width="33%"><u>{lang_readperm}</u></td>
-					<td align="center" width="33%"><u>{lang_writeperm}</u></td>
+					<td align="center" width="33%"><u>{lang_writeperm}</u><br>({lang_implies})</td>
 				</tr>
 				<!-- BEGIN GroupBlock -->
 				<tr>
@@ -80,7 +80,7 @@
                                 <tr>
                                         <td align="center" width="33%"><u>{lang_username}</u></td>
                                         <td align="center" width="33%"><u>{lang_readperm}</u></td>
-                                        <td align="center" width="33%"><u>{lang_writeperm}</u></td>
+                                        <td align="center" width="33%"><u>{lang_writeperm}</u><br>({lang_implies})</td>
                                 </tr>
                                 <!-- BEGIN UserBlock -->
                                 <tr>

@@ -244,7 +244,7 @@
 		{
 			$accounts = $GLOBALS['phpgw']->accounts->get_list();
 			$admin_list = $this->bo->get_adminlist($site_id);
-print_r($admin_list);
+
 			while (list($null,$account) = each($accounts))
 			{
 				$selectlist .= '<option value="' . $account['account_id'] . '"';
@@ -281,12 +281,14 @@ print_r($admin_list);
 				$GLOBALS['phpgw']->common->phpgw_header();
 				echo parse_navbar();
 
+				$site = $this->bo->read($site_id);
+
 				$GLOBALS['phpgw']->template->set_file(array('site_delete' => 'delete_common.tpl'));
 
 				$GLOBALS['phpgw']->template->set_var(array(
 					'form_action' => $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Sites_UI.delete'),
 					'hidden_vars' => '<input type="hidden" name="site_id" value="' . $site_id . '"><script>document.yesbutton.yesbutton.focus()</script>',
-					'messages' => lang('Are you sure you want to delete this site and all its content?'),
+					'messages' => lang('Are you sure you want to delete site %1 and all its content? You cannot retrieve it if you continue.',$site['site_name']),
 					'no' => lang('No'),
 					'yes' => lang('Yes'),
 				));
