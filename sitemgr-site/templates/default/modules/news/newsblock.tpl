@@ -1,5 +1,5 @@
 <!-- BEGIN NewsBlock -->
-<div align="right">
+<div align="left">
 <table width="95%" border="0" cellspacing="0" cellpadding="0">
 <tr>
 	<td height="23" width="432">
