@@ -11,50 +11,63 @@
 
 	/* $Id$ */
 
-class module_index_block extends Module
-{
-	function module_index_block()
+	class module_index_block extends Module
 	{
-		$this->arguments = array();
-		$this->title = "Root Site Index";
-		$this->description = "This module displays the root categories, meant for side areas";
-	}
-
-	function get_content(&$arguments,$properties)
-	{
-		global $objbo;
-		$indexarray = $objbo->getIndex(false,true,True);
-		$content = "\n".'<table border="0" cellspacing="0" cellpadding="0" width="100%">';
-		$catname = '';
-		foreach($indexarray as $page)
+		function module_index_block()
 		{
-			if ($catname!=$page['catname']) //category name change
+			$this->arguments = array(
+				'sub_cats' => array(
+					'type' => 'checkbox',
+					'label' => lang('Show subcategories')
+				),
+				'no_full_index' => array(
+					'type' => 'checkbox',
+					'label' => lang('No link to full index')
+				),
+			);
+			$this->title = 'Root Site Index';
+			$this->description = lang('This module displays the root categories, its pages and evtl. subcategories. It is meant for side areas');
+		}
+
+		function get_content(&$arguments,$properties)
+		{
+			global $objbo;
+			$indexarray = $objbo->getIndex(False,!@$arguments['sub_cats'],True);
+			$catname = '';
+			foreach($indexarray as $temppage)
 			{
-				if ($catname=='')
+				if ($catname != $temppage['catname'] && $temppage['catdepth'] == 1) //category name change
 				{
-					$break = '';
+					if ($catname != '') //not the first name change
+					{
+						$content .= "\n</div>\n<br />";
+					}
+					$content .= "\n".'<div style="position: relative; left: '.max($temppage['catdepth']*15-30,0).'px;">';
+					$catname = $temppage['catname'];
+					$content .= "\n\t<b>$temppage[catlink]</b><br />";
+				}
+				if ($temppage['catdepth'] == 1)
+				{
+					$content .= "\n\t&nbsp;&middot;&nbsp;$temppage[pagelink]<br />";
 				}
 				else
 				{
-					$break = '<br>';
+					$content .= "\n\t&nbsp;&middot;&nbsp;".str_replace('</a>',' ...</a>',$temppage[catlink]).'<br />';
 				}
-				$catname = $page['catname'];
-				$content.="\n".'<tr><td width="15%" colspan="2">'.$break.'&nbsp;<b>'.
-					$page['catlink'].'</b></td></tr>'."\n";
 			}
-			if (!$page['hidden'])
+			if (count($indexarray))
 			{
-				$content .= "\n".'<tr><td align="right" valign="top" width="15%">'.
-					'&middot;&nbsp;</td><td>'.$page['pagelink'].'</td></tr>';
+				$content .= "\n</div>";
+				if (!$arguments['no_full_index'])
+				{
+					$content .= "\n".'<br /><i><a href="'.sitemgr_link2('/index.php','index=1').'"><font size="1">(' . lang('View full index') . ')</font></a></i>';
+				}
 			}
+			else
+			{
+				$content=lang('You do not have access to any content on this site.');
+			}
+			return $content;
 		}
-		$content .= "\n</table>";
-		$content .= '<br>&nbsp;&nbsp;<i><a href="'.sitemgr_link2('/index.php','index=1').'"><font size="1">(' . lang('View full index') . ')</font></a></i>';
-		if (count($indexarray)==0)
-		{
-			$content=lang('You do not have access to any content on this site.');
-		}
-		return $content;
 	}
-}
 ?>

@@ -96,7 +96,7 @@
 
 		function getIndex($showhidden=true,$rootonly=false,$subtitles=False)
 		{
-			$cats = $this->getCatLinks(0,!$rootonly);
+			$cats = $this->getCatLinks(0,!$rootonly,$subtitles);
 			$index = array();
 
 			if (count($cats)>0)

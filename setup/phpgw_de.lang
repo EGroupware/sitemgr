@@ -178,6 +178,7 @@ no anonymous user accounts installed. notify the administrator.	sitemgr-site	de	
 no content areas found in selected template	sitemgr	de	Keine Inhaltsbereich in der ausgewählten Vorlage gefunden.
 no content found	sitemgr	de	Kein Inhalt gefunden
 no groups defined.	sitemgr	de	Keine Gruppen definiert.
+no link to full index	sitemgr	de	Kein Link auf den Gesamtindex
 no matching news item	sitemgr	de	Keine zutreffenden Nachrichten
 no modules permitted for this content area/category	sitemgr	de	Für diesen Inhaltsbereich / Kategorie sind keine Module erlaubt
 no options available.	sitemgr	de	Keine Optionen verfügbar.
@@ -243,6 +244,7 @@ selected theme %1 does not exist.	sitemgr	de	Das ausgewählte Thema %1 ist nicht 
 should the file be viewed in the browser or downloaded	sitemgr	de	Soll die Datei im Browser angezeigt werden oder lokal gespeichert werden
 show searchbox	sitemgr	de	Suchfeld anzeigen
 show site index	sitemgr	de	Site Inhaltsverzeichnis anzeigen
+show subcategories	sitemgr	de	Unterkategorien anzeigen
 site	sitemgr	de	Website
 site %1 has been added	sitemgr	de	Website %1 wurde zugefügt
 site %1 has been updated	sitemgr	de	Website %1 wurde aktualisiert
@@ -311,7 +313,8 @@ this module demonstrates how handling data stored in xml and building an interac
 this module displays a login form	sitemgr	de	Dieses Modul bietet ein Anmelde Formular
 this module displays bookmarks in a javascript based tree	sitemgr	de	Diese Modul zeigt Lesezeichen (Bookmarks) in einer javascript basierenden Baumansicht
 this module displays the current month	sitemgr	de	Dieses Modul zeigt den aktuellen Monat an
-this module displays the phpgw forums on the web site	sitemgr	de	Dieses Modul stellt die phpGroupWare Foren auf der Webseite dar
+this module displays the phpgw forums on the web site	sitemgr	de	Dieses Module stellt eGroupWare Foren auf der Website dar
+this module displays the root categories, its pages and evtl. subcategories. it is meant for side areas	sitemgr	de	Dises Module zeigt die Hauptkategorien, ihre Seiten und ggf. Unterkategorien. Es ist gedacht für die Seitenspalten
 this module includes the contents of a file (readable by the webserver !)	sitemgr	de	Dieses Modul bindet den Inhalt einer (vom Webserver lesbaren !) Datei ein
 this module is a selectbox to change the mode (production, draft or edit) plus a link back to sitemgr and to log out. it is meant for registered users only	sitemgr	de	Dieses Modul ist eine Auswahlbox um den Modus (Produktion, Entwurf, Bearbeiten) zu ändern plus Links zurück zum SiteMgr und zum auslogen. Es ist ausschließlich für registierte Benutzer gedacht.
 this module is a simple html editor	sitemgr	de	Dieses Modul ist ein HTML Editor (formatierter Text)
@@ -319,7 +322,7 @@ this module lets users choose language	sitemgr	de	Dieses Modul erlaubt es Benutz
 this module lets you define pages that redirect to another url, if you use it, there should be no other block defined for the page	sitemgr	de	Dieses Modul erlaubt Seiten zu definieren die auf eine andere URL umleiten. Wenn sie es benutzen, sollten sie keine anderen Blöcke für diese Seite definieren.
 this module permits browsing through xml files stored in a directory, and transformed by xslt	sitemgr	de	Dieses Modul erlaubt das durchsuchen von Verzeichnisse mit XML Dateien und transformiert mit XSLT
 this module provides a complete table of contents, it is automatically used by the toc and category_id get parameters	sitemgr	de	Dieses Modul bietet ein komplettes Inhaltsverzeichnis. Dieses wird automatisch erstellt durch den toc und den category_ID GET parameter
-this module provides a condensed table of contents, meant for side areas	sitemgr	de	Dieses Modul liefert ein zusammengefasstes Inhaltsverzeichnis, gedacht für Bereiche der Website
+this module provides a condensed table of contents, meant for side areas	sitemgr	de	Dieses Modul liefert ein verdichtetes Inhaltsverzeichnis, gedacht für die Seitenspalten
 this module provides the site index, it is automatically used by the index get parameter	sitemgr	de	Dieses Modul stellt einen Seiten Index zur Verfügung. Es wird automatisch durch den Index GET parameter erstellt.
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	sitemgr	de	Dieses Modul publiziert Inhalt der Nachrichten Anwendung auf ihrer Website. Bitte beachten sie die Restriktionen der ACL Nachrichten Anwendung.
 this must be an absolute directory location.  <b>no trailing slash</b>.	sitemgr	de	Hier muss der Adsolute Pfad zu Verzeichniss angegeben werden. Zum Beispiel: /var/www/html/Ihre_Firma/sitemgr_site. <b>Keinen "/" am Ende des Pfades angeben!</b>

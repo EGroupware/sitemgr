@@ -174,6 +174,7 @@ no anonymous user accounts installed.  notify the administrator.	sitemgr	en	NO A
 no content areas found in selected template	sitemgr	en	No content areas found in selected template
 no content found	sitemgr	en	No content found
 no groups defined.	sitemgr	en	No groups defined.
+no link to full index	sitemgr	en	No link to full index
 no matching news item	sitemgr	en	No matching news item
 no modules permitted for this content area/category	sitemgr	en	No modules permitted for this content area/category
 no options available.	sitemgr	en	No options available.
@@ -239,6 +240,7 @@ selected theme %1 does not exist.	sitemgr	en	Selected theme %1 does not exist.
 should the file be viewed in the browser or downloaded	sitemgr	en	Should the file be viewed in the browser or downloaded
 show searchbox	sitemgr	en	Show searchbox
 show site index	sitemgr	en	Show Site Index
+show subcategories	sitemgr	en	Show subcategories
 site	sitemgr	en	Site
 site %1 has been added	sitemgr	en	Site %1 has been added
 site %1 has been updated	sitemgr	en	Site %1 has been updated
@@ -308,6 +310,7 @@ this module displays a login form	sitemgr	en	This module displays a login form
 this module displays bookmarks in a javascript based tree	sitemgr	en	This module displays bookmarks in a javascript based tree
 this module displays the current month	sitemgr	en	This module displays the current month
 this module displays the phpgw forums on the web site	sitemgr	en	This module displays the phpgw forums on the web site
+this module displays the root categories, its pages and evtl. subcategories. it is meant for side areas	sitemgr	en	This module displays the root categories, its pages and evtl. subcategories. It is meant for side areas
 this module includes the contents of a file (readable by the webserver !)	sitemgr	en	This module includes the contents of a file (readable by the webserver !)
 this module is a selectbox to change the mode (production, draft or edit) plus a link back to sitemgr and to log out. it is meant for registered users only	sitemgr	en	This module is a selectbox to change the mode (production, draft or edit) plus a link back to SiteMgr and to log out. It is meant for registered users only
 this module is a simple html editor	sitemgr	en	This module is a simple HTML editor
