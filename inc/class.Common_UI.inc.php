@@ -13,6 +13,7 @@
 	{
 		var $t;
 		var $acl;
+		var $prefs_so;
 		var $public_functions = array
 		(
 			'DisplayPrefs' => True
@@ -22,6 +23,7 @@
 		{
 			$this->t = $GLOBALS['phpgw']->template;
 			$this->acl = CreateObject('sitemgr.ACL_BO');
+			$this->prefs_so = CreateObject('sitemgr.sitePreference_SO', True);
 		}
 
 		function DisplayPrefs()
@@ -29,26 +31,65 @@
 			$this->DisplayHeader();
 			if ($this->acl->is_admin())
 			{
-				$prefs_so = CreateObject('sitemgr.sitePreference_SO', True);
+				$preferences['sitemgr-site-name'] = array(
+					'title'=>'Site name',
+					'note'=>'(This is used chiefly for meta data and the title bar.)',
+					'default'=>'New sitemgr site'
+				);
+				$preferences['sitemgr-site-url']=array(
+					'title'=>'URL to sitemgr-site',
+					'note'=>'(The URL can be relative or absolute.  Name must end in a slash.)'
+				);
+				$preferences['sitemgr-site-dir']=array(
+					'title'=>'Filesystem path to sitemgr-site directory',
+					'note'=>'(This must be an absolute directory location.  <b>No trailing slash</b>.)'
+				);
+				$preferences['home-page-id'] = array(
+					'title'=>'Default home page ID number',
+					'note'=>'(This should be a page that is readable by everyone. If you leave this blank, the site index will be shown by default.)',
+					'size'=>10
+				);
+				$preferences['login-domain'] = array(
+					'title'=>'Anonymous user login domain',
+					'note'=>'If you\'re not sure, enter Default.',
+					'default'=>'Default'
+				);
+				$preferences['anonymous-user'] = array(
+					'title'=>'Anonymous user\'s username',
+					'note'=>'(If you haven\'t done so already, create a user that will be used for public viewing of the site.  Recommended name: anonymous.)',
+					'default'=>'anonymous'
+				);
+				$preferences['anonymous-passwd'] = array(
+					'title'=>'Anonymous user\'s password',
+					'note'=>'(Password that you assigned for the aonymous user account.)',
+					'default'=>'anonymous'
+				);
+				$preferences['themesel'] = array(
+					'title'=>'Theme select',
+					'note'=>'(Choose your site\'s them.  This corresponds to a subdirectory of sitemgr-site/themes.  If you\'re not sure, enter NukeNews.  Case matters.)',
+					'default'=>'NukeNews'
+				);
 				if ($GLOBALS['btnSave'])
 				{
-					$prefs_so->setPreference('sitemgr-site-url',$GLOBALS['sitemgr_site_url']);
-					$prefs_so->setPreference('sitemgr-site-dir',$GLOBALS['sitemgr_site_dir']);
-					$prefs_so->setPreference('home-page-id',$GLOBALS['home_page_id']);
-					$prefs_so->setPreference('sitemgr-site-name',$GLOBALS['sitemgr_site_name']);
+					reset($preferences);
+					while (list($name,$details) = each($preferences))
+					{
+						$this->prefs_so->setPreference($name,$GLOBALS[$name]);
+					}
 					echo '<p><b>Changes Saved.</b></p>';
 				}
-				$sitemgr_site_url = $prefs_so->getPreference('sitemgr-site-url');
-				$sitemgr_site_dir = $prefs_so->getPreference('sitemgr-site-dir');
-				$home_page_id = $prefs_so->getPreference('home-page-id');
-				$sitemgr_site_name = $prefs_so->getPreference('sitemgr-site-name');
+
 				$this->t->set_file('sitemgr_prefs','sitemgr_preferences.tpl');
 				$this->t->set_var('formaction',$GLOBALS['phpgw']->link(
 					'/index.php','menuaction=sitemgr.Common_UI.DisplayPrefs'));
-				$this->t->set_var('sitemgr-site-url',$sitemgr_site_url);
-				$this->t->set_var('sitemgr-site-dir',$sitemgr_site_dir);
-				$this->t->set_var('home-page-id',$home_page_id);
-				$this->t->set_var('sitemgr-site-name',$sitemgr_site_name);
+				$this->t->set_block('sitemgr_prefs','PrefBlock','PBlock');
+				reset($preferences);
+				while (list($name,$details) = each($preferences))
+				{
+					$this->PrefBlock($details['title'],
+						$this->inputtext($name,$details['size'],$details['default']),
+						$details['note']);
+				}
 				$this->t->pfp('out','sitemgr_prefs');
 			}
 			else
@@ -56,6 +97,31 @@
 				echo "You must be an administrator to setup the Site Manager.<br><br>";
 			}
 			$this->DisplayFooter();
+		}
+
+		function inputText($name='',$size=40,$default='')
+		{
+			if (!is_int($size))
+			{
+				$size=40;
+			}
+			$val = $this->prefs_so->getPreference($name);
+			if (!$val)
+			{
+				$val = $default;
+			}
+
+			return '<input type="text" size="'.$size.
+				'" name="'.$name.'" value="'.$val.'">';
+		}
+
+		function PrefBlock($title,$input,$note)
+		{
+			//$this->t->set_var('PBlock','');
+			$this->t->set_var('pref-title',$title);
+			$this->t->set_var('pref-input',$input);
+			$this->t->set_var('pref-note',$note);
+			$this->t->parse('PBlock','PrefBlock',true);
 		}
 
 		function DisplayHeader()

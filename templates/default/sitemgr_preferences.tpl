@@ -1,31 +1,49 @@
 <!-- BEGIN sitemgr_prefs -->
 
+	<b>SiteMgr Setup Instructions</b>
 	<p>
-	The Administrator (that's you) has a number of things to setup before the Web Content Manager can be used.  Besides filling out the values on this page, there is a config.inc.php file that needs to be edited manually.
+	There are two subdirectories off of your sitemgr directory that you should move before you do anything else.  You don't <i>have</i> to move either of these directories, although you will probably want to.  
 	</p>
 	<p>
-	First, a quick overview on the program.  There are two phpGroupWare apps: sitemgr and sitemgr-link.  The first is used by people with administrator and contributor rights to manage the content and look and feel of the generated web site.  The second app is really a placeholder that redirects the phpGroupWare user to the generated site.  
+	The first directory to think about is sitemgr-link.  If you move this to the parent directory of sitemgr (your phpgroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  If you don't want this icon, there's no reason to ever bother with the directory.
 	</p>
 	<p>
-	Finally, the generated site is almost like another application.  It resides in its own directory (called sitemgr-site by default), which can be anywhere.  Presumably you'll want this to be outside of the phpgw directory tree, although it really doesn't matter where it is.  This directory is the one with the config.inc.php file in it that needs to be edited.  Some of the data in there is duplicated from what's on this page.  Remember that if you make a change you should check both places.
+	The second directory is the sitemgr-site directory.  This can be moved <i>anywhere</i>.  It can also be named <i>anything</i>.  Wherever it winds up, when you point a web browser to it, you will get the generated website.  Assuming, of course, that you've accurately completed the setup fields below and also <b><i>edited the config.inc.php</i></b> file.
 	</p>
+	<p>
+	The config.inc.php file needs to be edited to point to the phpGroupWare directory.  Copy the config.inc.php.template file to config.inc.php and then edit it.
+	<p>
 	<hr>
+	<b>SiteMgr Options</b>
+	</p>
+	<p>
 	<form action="{formaction}" method="post">
-
-	URL to sitemgr-site directory: <br><input type="text" name="sitemgr_site_url" value="{sitemgr-site-url}" size="100"><br>
-	<i>Note: the url can be relative or absolute.  Directory name must end in a slash.</i><br><br>
-
-	Filesystem location of sitemgr-site directory: <br><input type="text" name="sitemgr_site_dir" value="{sitemgr-site-dir}" size="100"><br>
-	<i>Note: this must be an absolute directory location.  <b>NO trailing slash.</b></i><br><br>
-
-	Default Home Page ID Number: <br><input type="text" name="home_page_id" value="{home-page-id}" size="10"><br>
-	<i>Note: This should be a page that is readable by everyone.  If you leave this blank, the Site Index will be shown by default.</i><br><br>
-
-	Site name: <br><input type="text" name="sitemgr_site_name" value="{sitemgr-site-name}" size="100"><br>
-	<i>Note: This is used chiefly for meta data and the titlebar title.</i><br><br>
+<center>
+<table border="0" width="90%" cellspacing="8">
+<!-- BEGIN PrefBlock -->
+	<tr>
+		<td>
+			<table border="1" cellpadding="5" cellspacing="0" width="100%">
+			<tr><td>
+			<table border="0" cellpadding="1" cellspacing="0" width="100%">
+				<tr>
+					<td width="50%" valign="top">
+						<b>{pref-title}</b><br>
+						{pref-input}
+					</td>
+					<td width="50%" valign="bottom">
+						<i>{pref-note}</i>
+					</td>
+				</tr>
+			</table>
+			</td></tr>
+			</table>
+		</td>
+	</tr>
+<!-- END PrefBlock -->
+</table>
+</center>
 
 	<input type="submit" name="btnSave" value="Save">
 	</form>
-	<hr>
-	<p>That's all the prefs for now... more to come later.</p>
 <!-- END sitemgr_prefs -->
