@@ -37,3 +37,4 @@
 </div>
 <br><br>
 <!-- END NewsBlock -->
+<table width="95%"><tr><td align="left">{lesslink}</td><td align="right">{morelink}</td></tr></table>

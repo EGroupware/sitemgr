@@ -21,10 +21,10 @@
      <input type="text" name="query">&nbsp;<input type="submit" name="search" value="{lang_search}"></form></td>
    </tr>
    <tr bgcolor="{th_bg}">
-    <td bgcolor="{th_bg}">{sort_name}</td>
-	<td bgcolor="{th_bg}">{sort_url}</td>
-    <td bgcolor="{th_bg}" align="center">{lang_edit}</td>
-    <td bgcolor="{th_bg}" align="center">{lang_delete}</td>
+    <td>{sort_name}</td>
+	<td>{sort_url}</td>
+    <td align="center">{lang_edit}</td>
+    <td align="center">{lang_delete}</td>
    </tr>
 
 <!-- BEGIN site_list -->

@@ -4,6 +4,7 @@
 	{
 		var $sites,$acl,$theme,$pages,$cats,$content,$modules;
 		var $state,$visiblestates;
+		var $sitemenu,$othermenu;
 		function Common_BO()
 		{
 			$this->sites = CreateObject('sitemgr.Sites_BO',True);
@@ -79,5 +80,64 @@
 			return $returnValue;
 		}
 
+		function set_menus()
+		{
+			$this->sitemenu = $this->get_sitemenu();
+			$this->othermenu = $this->get_othermenu();
+		}
+
+		function get_sitemenu()
+		{
+			if ($GLOBALS['Common_BO']->acl->is_admin())
+			{
+				$file['Configure Website'] = $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Common_UI.DisplayPrefs');
+				$link_data['cat_id'] = CURRENT_SITE_ID;
+				$link_data['menuaction'] = "sitemgr.Modules_UI.manage";
+				$file['Manage site-wide module properties'] = $GLOBALS['phpgw']->link('/index.php',$link_data);
+				$link_data['page_id'] = 0;
+				$link_data['menuaction'] = "sitemgr.Content_UI.manage";
+				$file['Manage site-wide content'] = $GLOBALS['phpgw']->link('/index.php',$link_data);
+			}
+			$file['Manage Categories and pages'] = $GLOBALS['phpgw']->link('/index.php', 'menuaction=sitemgr.Outline_UI.manage');
+			$file['Manage Translations'] = $GLOBALS['phpgw']->link('/index.php', 'menuaction=sitemgr.Translations_UI.manage');
+			$file['Commit Changes'] = $GLOBALS['phpgw']->link('/index.php', 'menuaction=sitemgr.Content_UI.commit');
+			$file['Manage archived content'] = $GLOBALS['phpgw']->link('/index.php', 'menuaction=sitemgr.Content_UI.archive');
+			$file['_NewLine_'] ='';
+			$file['View Generated Site'] = $GLOBALS['phpgw']->link('/sitemgr-link/');
+			return $file;
+		}
+
+		function get_othermenu()
+		{
+			$numberofsites = $GLOBALS['Common_BO']->sites->getnumberofsites();
+			$isadmin = $GLOBALS['phpgw']->acl->check('run',1,'admin');
+			if ($numberofsites < 2 && !$isadmin)
+			{
+				return false;
+			}
+			$menu_title = lang('Other websites');
+			if ($numberofsites > 1)
+			{
+				$link_data['menuaction'] = 'sitemgr.Common_UI.DisplayMenu';
+				$sites = $GLOBALS['Common_BO']->sites->list_sites(False);
+				while(list($site_id,$site) = @each($sites))
+				{
+					if ($site_id != CURRENT_SITE_ID)
+					{
+						$link_data['siteswitch'] = $site_id;
+						$file[$site['site_name']] = $GLOBALS['phpgw']->link('/index.php',$link_data);
+					}
+				}
+			}
+			if ($numberofsites > 1 && $isadmin)
+			{
+				$file['_NewLine_'] ='';
+			}
+			if ($isadmin)
+			{
+				$file['Define websites'] = $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Sites_UI.list_sites');
+			}
+			return $file;
+		}			
 	}
 ?>

@@ -28,57 +28,45 @@
 			$this->theme = &$Common_BO->theme;
 			$this->pages_bo = &$Common_BO->pages;
 			$this->cat_bo = &$Common_BO->cats;
-			$this->menu = array();
-			if ($this->acl->is_admin())
-			{
-				$this->menu[] = array(
-					'value' => $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Common_UI.DisplayPrefs'),
-					'display' => lang('Configure Website')
-				);
-				$link_data['cat_id'] = CURRENT_SITE_ID;
-				$link_data['menuaction'] = "sitemgr.Modules_UI.manage";
-				$this->menu[] = array(
-					'value' => $GLOBALS['phpgw']->link('/index.php',$link_data),
-					'display' => lang('Manage site-wide module properties')
-				);
-				$link_data['page_id'] = 0;
-				$link_data['menuaction'] = "sitemgr.Content_UI.manage";
-				$this->menu[] = array(
-					'value' => $GLOBALS['phpgw']->link('/index.php',$link_data),
-					'display' => lang('Manage site-wide content')
-				);
-			}
-			$this->menu[] = array(
-				'value' => $GLOBALS['phpgw']->link('/index.php', 'menuaction=sitemgr.Outline_UI.manage'),
-				'display' => lang('Manage Categories and pages')
-			);
-			$this->menu[] = array(
-				'value' => $GLOBALS['phpgw']->link('/index.php', 'menuaction=sitemgr.Translations_UI.manage'),
-				'display' => lang('Manage Translations')
-			);
-			$this->menu[] = array(
-				'value' => $GLOBALS['phpgw']->link('/index.php', 'menuaction=sitemgr.Content_UI.commit'),
-				'display' => lang('Commit Changes')
-			);
-			$this->menu[] = array(
-				'value' => $GLOBALS['phpgw']->link('/index.php', 'menuaction=sitemgr.Content_UI.archive'),
-				'display' => lang('Manage archived content')
-			);
+			$Common_BO->set_menus();
 		}
 
 
 		function DisplayMenu()
 		{
-
 			$this->DisplayHeader();
-			reset($this->menu);
 			$this->t->set_file('MainMenu','mainmenu.tpl');
-			$this->t->set_block('MainMenu','menuentry','MeBlock');
-
-			while (list($test,$menuentry) = each($this->menu))
+			$this->t->set_block('MainMenu','switch','switchhandle');
+			$this->t->set_block('MainMenu','menuentry','entry');
+			$this->t->set_var('lang_sitemenu',lang('Website') . ' ' . $GLOBALS['Common_BO']->sites->current_site['site_name']);
+			reset($GLOBALS['Common_BO']->sitemenu);
+			while (list($display,$value) = @each($GLOBALS['Common_BO']->sitemenu))
 			{
-				$this->t->set_var($menuentry);
-				$this->t->parse('MeBlock','menuentry', true);
+				if ($display == '_NewLine_')
+				{
+					continue;
+				}
+				$this->t->set_var(array('value'=>$value,'display'=>lang($display)));
+				$this->t->parse('sitemenu','menuentry', true);
+			}
+			if ($GLOBALS['Common_BO']->othermenu)
+			{
+				$this->t->set_var('lang_othermenu',lang('Other websites'));
+				reset($GLOBALS['Common_BO']->othermenu);
+				while (list($display,$value) = @each($GLOBALS['Common_BO']->othermenu))
+				{
+					if ($display == '_NewLine_')
+					{
+						continue;
+					}
+					$this->t->set_var(array('value'=>$value,'display'=>lang($display)));
+					$this->t->parse('othermenu','menuentry', true);
+				}
+				$this->t->parse('switchhandle','switch');
+			}
+			else
+			{
+				$this->t->set_var('switchhandle','testtesttest');
 			}
 			$this->t->pfp('out','MainMenu');
 			$this->DisplayFooter();
@@ -334,23 +322,20 @@
 
 		function DisplayHeader()
 		{
-			$GLOBALS['phpgw']->common->phpgw_header();
-			echo parse_navbar();
-			$this->t->set_file('sitemgr_header','sitemgr_header.tpl');
-			$this->t->set_block('sitemgr_header','switch','switchhandle');
-			$this->t->set_block('sitemgr_header','admin','adminhandle');
+			$GLOBALS['phpgw_info']['flags']['app_header'] = $GLOBALS['phpgw_info']['apps']['sitemgr']['title'];
+
 			if ($this->do_sites_exist)
 			{
-				$this->t->set_var(Array(
-					'sitemgr-site' => $GLOBALS['phpgw']->link('/sitemgr-link/'),
-					'sitemgr_administration' => lang('Web Content Manager Administration'),
-					'lang_sitename' => lang('Website name'),
-					'sitename' => $GLOBALS['Common_BO']->sites->current_site['site_name'],
-					'view_site' => lang('View Generated Site'),
-					'menulist' => $this->menuselectlist(),
-					'mainmenu' => $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Common_UI.DisplayMenu')
-				));
-				if ($GLOBALS['Common_BO']->sites->getnumberofsites() > 1)
+				if ($GLOBALS['phpgw_info']['server']['template_set'] == 'idots')
+				{
+					$GLOBALS['phpgw']->common->phpgw_header();
+					echo parse_navbar();
+					return;
+				}
+				$this->t->set_file('sitemgr_header','sitemgr_header.tpl');
+				$this->t->set_block('sitemgr_header','switch','switchhandle');
+				$this->t->set_var('menulist',$this->menuselectlist());
+				if ($GLOBALS['Common_BO']->othermenu)
 				{
 					$this->t->set_var('sitelist',$this->siteselectlist());
 					$this->t->parse('switchhandle','switch');
@@ -359,22 +344,13 @@
 				{
 					$this->t->set_var('switchhandle','');
 				}
-				if ($GLOBALS['phpgw']->acl->check('run',1,'admin'))
-				{
-					$this->t->set_var(array(
-						'sitesadmin' => $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Sites_UI.list_sites'),
-						'view_admin' => lang('Define Websites')
-					));
-					$this->t->parse('adminhandle','admin');
-				}
-				else
-				{
-					$this->t->set_var('adminhandle','');
-				}
-				$this->t->pparse('out','sitemgr_header');
+				$GLOBALS['phpgw_info']['flags']['app_header'] .= $this->t->parse('out','sitemgr_header');
+				$GLOBALS['phpgw']->common->phpgw_header();
+				echo parse_navbar();
 			}
 			else
 			{
+				$GLOBALS['phpgw']->common->phpgw_header();
 				echo lang('No websites defined');
 				$GLOBALS['phpgw']->common->phpgw_exit(True);
 			}
@@ -388,22 +364,32 @@
 
 		function siteselectlist()
 		{
-			$sites = $GLOBALS['Common_BO']->sites->list_sites(False);
-			$selectlist= '<option>' . lang('Switch website') . '</option>';
-			while(list($site_id,$site) = @each($sites))
+			$selectlist= '<option>' . lang('Other websites') . '</option>';
+			while(list($display,$value) = @each($GLOBALS['Common_BO']->othermenu))
 			{
-				$selectlist .= '<option value="' . $site_id . '">' . $site['site_name'] . '</option>' . "\n";
+				if ($display == '_NewLine_')
+				{
+					continue;
+				}
+				else
+				{
+					$selectlist .= '<option onClick="location.href=this.value" value="' . $value . '">' . lang($display) . '</option>' . "\n";
+				}
 			}
 			return $selectlist;
 		}
 
 		function menuselectlist()
 		{
-			$sites = $GLOBALS['Common_BO']->sites->list_sites(False);
-			$selectlist= '<option>' . lang('Choose action') . '</option>';
-			while(list(,$menuentry) = @each($this->menu))
+			reset($GLOBALS['Common_BO']->sitemenu);
+			$selectlist= '<option>' . lang('Website') . ' ' . $GLOBALS['Common_BO']->sites->current_site['site_name'] . '</option>';
+			while(list($display,$value) = @each($GLOBALS['Common_BO']->sitemenu))
 			{
-				$selectlist .= '<option value="' . $menuentry['value'] . '">' . $menuentry['display'] . '</option>' . "\n";
+				if ($display == '_NewLine_')
+				{
+					continue;
+				}
+				$selectlist .= '<option onClick="location.href=this.value" value="' . $value . '">' . lang($display) . '</option>' . "\n";
 			}
 			return $selectlist;
 		}

@@ -169,10 +169,11 @@
 			else
 			{
 				$GLOBALS['phpgw']->preferences->read_repository();
-				if ($_POST['siteswitch'])
+				$siteswitch = get_var('siteswitch');
+				if ($siteswitch)
 				{
-					$this->current_site = $this->read($_POST['siteswitch']);
-					$GLOBALS['phpgw']->preferences->change('sitemgr','currentsite',$_POST['siteswitch']);
+					$this->current_site = $this->read($siteswitch);
+					$GLOBALS['phpgw']->preferences->change('sitemgr','currentsite',$siteswitch);
 					$GLOBALS['phpgw']->preferences->save_repository(True);
 				}
 				else

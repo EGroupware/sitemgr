@@ -27,6 +27,7 @@
 	$setup_info['sitemgr']['hooks'][] = 'preferences';
 	$setup_info['sitemgr']['hooks'][] = 'about';
 	$setup_info['sitemgr']['hooks'][] = 'admin';
+	$setup_info['sitemgr']['hooks'][] = 'sidebox_menu';
 
 	/* Dependacies for this app to work */
 	$setup_info['sitemgr']['depends'][] = array(

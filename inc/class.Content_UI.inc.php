@@ -93,7 +93,6 @@
 				}
 				$page_or_cat_name = $page->name;
 				$cat_id = $page->cat_id;
-				$managelink = $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Pages_UI.manage');
 				$goto = lang('Page manager');
 				$scopename = lang('Page');
 			}
@@ -107,7 +106,6 @@
 				}
 				$page_or_cat_name = $cat->name;
 				$page_id = 0;
-				$managelink = $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Categories_UI.manage');
 				$goto = lang('Category manager');
 				$scopename = lang('Category');
 			}
@@ -222,8 +220,7 @@
 			$this->t->set_block('Moduleview','ViewElement','VeBlock');
 			$this->t->set_var(Array(
 				'content_manager' => lang('%1 content manager', $scopename),
-				'page_or_cat_name' => ($page_or_cat_name ? (' - ' . $page_or_cat_name) : ''),
-				'managelink' => ($managelink ? ('<a href="' . $managelink . '">&lt; ' . lang('Go to') . ' ' . $goto . ' &gt;</a>') : '')
+				'page_or_cat_name' => ($page_or_cat_name ? (' - ' . $page_or_cat_name) : '')
 				));
 
 

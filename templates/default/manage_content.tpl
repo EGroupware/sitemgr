@@ -10,5 +10,3 @@
 {addblockform}
 </div>
 <!-- END Contentarea -->
-
-<div align="center">{managelink}</div>

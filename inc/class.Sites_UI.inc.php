@@ -14,6 +14,7 @@
 	//copied from class admin.uiservers
 	class Sites_UI
 	{
+		var $common_ui;
 		var $public_functions = array(
 			'list_sites' => True,
 			'edit'         => True,
@@ -32,9 +33,8 @@
 
 		function Sites_UI()
 		{
-			global $Common_BO;
-			$Common_BO = CreateObject('sitemgr.Common_BO');
-			$this->bo = &$Common_BO->sites;
+			$this->common_ui = CreateObject('sitemgr.Common_UI',True);
+			$this->bo = &$GLOBALS['Common_BO']->sites;
 			$this->nextmatchs = createobject('phpgwapi.nextmatchs');
 
 			$this->start = $this->bo->start;
@@ -70,8 +70,7 @@
 
 		function list_sites()
 		{
-			$GLOBALS['phpgw']->common->phpgw_header();
-			echo parse_navbar();
+			$this->common_ui->DisplayHeader();
 
 			if (!$GLOBALS['phpgw']->acl->check('run',1,'admin'))
 			{
@@ -133,6 +132,7 @@
 
 			$GLOBALS['phpgw']->template->parse('out','site_list_t',True);
 			$GLOBALS['phpgw']->template->p('out');
+			$this->common_ui->DisplayFooter();
 		}
 
 		/* This function handles add or edit */
@@ -142,8 +142,7 @@
 			{
 				return $this->list_sites();
 			}
-			$GLOBALS['phpgw']->common->phpgw_header();
-			echo parse_navbar();
+			$this->common_ui->DisplayHeader();
 
 			if (!$GLOBALS['phpgw']->acl->check('run',1,'admin'))
 			{
@@ -238,6 +237,8 @@
 				$GLOBALS['phpgw']->template->parse('addhandle','add');
 			}
 			$GLOBALS['phpgw']->template->pparse('phpgw_body','form');
+			$this->common_ui->DisplayFooter();
+
 		}
 
 		function adminselectlist($site_id)
