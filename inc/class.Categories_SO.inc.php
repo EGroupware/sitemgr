@@ -10,7 +10,7 @@
 
 		function getFullCategoryIDList()
 		{
-			$sql = 'SELECT cat_id FROM phpgw_sitemgr_categories ORDER BY name';
+			$sql = 'SELECT cat_id FROM phpgw_sitemgr_categories ORDER BY sort_order';
 			$this->db->query($sql, __LINE__, __FILE__);
 			while ($this->db->next_record())
 			{
@@ -39,6 +39,7 @@
 		{
 			$sql = 'UPDATE phpgw_sitemgr_categories SET name="' .
 				$cat_info->name . '", description="' . $cat_info->description .
+				'", sort_order="'. (int) $cat_info->sort_order .
 				'" WHERE cat_id="' . $cat_info->id . '"';
 			$this->db->query($sql, __LINE__, __FILE__);
 		}
@@ -52,6 +53,7 @@
 				$cat_info = CreateObject('sitemgr.Category_SO', True);
 				$cat_info->id = $cat_id;
 				$cat_info->name = $this->db->f('name');
+				$cat_info->sort_order = $this->db->f('sort_order');
 				$cat_info->description = $this->db->f('description');
 				return $cat_info;
 			}

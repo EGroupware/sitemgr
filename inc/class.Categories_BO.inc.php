@@ -75,12 +75,13 @@
 			}
 		}
 
-		function saveCategoryInfo($cat_id, $cat_name, $cat_description)
+		function saveCategoryInfo($cat_id, $cat_name, $cat_description, $sort_order=0)
 		{
 			$cat_info = CreateObject('sitemgr.Category_SO', True);
 			$cat_info->id = $cat_id;
 			$cat_info->name = $cat_name;
 			$cat_info->description = $cat_description;
+			$cat_info->sort_order = $sort_order;
 
 			if ($this->acl->can_read_category($cat_id))
 			{	

@@ -33,7 +33,7 @@
 		function _manageCategories()
 		{
 			global $btnSaveCategory,$btnAddCategory,$btnEditCategory,$btnDelete,$btnPermission;
-			global $category_id,$catname,$catdesc,$catid;
+			global $category_id,$catname,$catdesc,$catid,$sort_order;
 			global $groupaccessread, $groupaccesswrite, $individualaccessread, $individualaccesswrite;
 
 			$common_ui = CreateObject('sitemgr.Common_UI',True);
@@ -56,7 +56,7 @@
 				}
 				else if($btnSaveCategory && ($catname == '' || $catdesc == ''))
 				{
-					$this->_editCategory($catid,True,$catname,$catdesc);
+					$this->_editCategory($catid,True,$catname,$catdesc,$sort_order);
 				}
 				else
 				{
@@ -72,7 +72,7 @@
 						}
 						$groupaccess = array_merge_recursive($groupaccessread, $groupaccesswrite);
 						$individualaccess = array_merge_recursive($individualaccessread, $individualaccesswrite);
-						$this->cat_bo->saveCategoryInfo($catid, $catname, $catdesc);
+						$this->cat_bo->saveCategoryInfo($catid, $catname, $catdesc, $sort_order);
 						$this->cat_bo->saveCategoryPerms($catid, $groupaccess, $individualaccess);
 					}
 	
@@ -135,7 +135,7 @@
 		
 
 
-		function _editCategory($cat_id,$error=False,$catname='',$catdesc='')
+		function _editCategory($cat_id,$error=False,$catname='',$catdesc='',$sort_order=0)
 		{
 			$this->t->set_file('EditCategory', 'edit_category.tpl');
 			$grouplist = $this->acl->get_group_list();
@@ -168,6 +168,7 @@
 				'catid' => $cat_id,
 				'catname' => $this->cat->name,
 				'catdesc' => $this->cat->description,
+				'sort_order' => $this->cat->sort_order,
 				'actionurl' =>
 				$GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Admin_ManageCategories_UI._manageCategories')
 			));

@@ -49,6 +49,7 @@
 			global $name;
 			global $subtitle;
 			global $main;
+			global $sort_order;
 			global $btnEditPage;
 		
 			$this->t->set_file('EditPage', 'page_editor.tpl');
@@ -79,6 +80,7 @@
 				$this->page->subtitle = $subtitle;
 				$this->page->content = $main;
 				$this->page->name = $name;
+				$this->page->sort_order = $sort_order;
 				$this->t->set_var('add_edit','Add Page');
 			}
 		
@@ -88,6 +90,7 @@
 				'subtitle' => $this->page->subtitle,
 				'main'=>strtr($this->page->content,$trans),
 				'name'=>$this->page->name,
+				'sort_order'=>$this->page->sort_order,
 				'pageid'=>$page_id,
 				'category_id' => $category_id
 			));
@@ -111,6 +114,7 @@
 			global $btnReset;
 			global $pageid;
 			global $category_id;
+			global $sort_order;
 			global $title;
 			global $name;
 			global $subtitle;
@@ -149,6 +153,7 @@
 					$this->page->subtitle = $subtitle;
 					$this->page->content = $main;
 					$this->page->cat_id = $category_id;
+					$this->page->sort_order = $sort_order;
 					$save_msg = $this->pagebo->savePageInfo($category_id, $this->page);
 				}
 				if (!is_string($save_msg))

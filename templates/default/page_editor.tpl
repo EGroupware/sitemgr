@@ -25,6 +25,10 @@
 		<td><input size="40" type="text" name="subtitle" value="{subtitle}"></td>
 	</tr>
 	<tr>
+		<td><b>Sort order: </b></td>
+		<td><input size="10" type="text" name="sort_order" value="{sort_order}"></td>
+	</tr>
+	<tr>
 		<td colspan='2'><b>Main Content: <font size='2' color='#ff0000'>*</font></b></td>
 	</tr>
 	<tr>
