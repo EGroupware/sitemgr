@@ -87,6 +87,20 @@
 			$val = $ui->get_news();
 			unset($ui);
 		}
+		elseif (substr($var,0,6) == 'block-')
+		{
+			if (file_exists('blocks/'.$var.'.php'))
+			{
+				$title=ereg_replace('_',' ',substr($var,6));
+				include 'blocks/'.$var.'.php';
+			}
+			else
+			{
+				$title = 'Block not found';
+				$content = 'Contact the administrator.';
+			}
+			$val = themecenterbox($title, $content);
+		}
 		else
 		{
 			/* Check for reserved vars first, otherwise
@@ -434,6 +448,7 @@
     }
 
 
+	/*
 	function themecenterbox($title, $content) 
 	{
     	$contents = OpenTable();
@@ -443,5 +458,6 @@
     	$contents.= "<br>";
 		echo $contents;
 	}
+	*/
 
 ?>

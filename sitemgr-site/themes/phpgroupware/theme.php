@@ -151,4 +151,14 @@ function themesidebox($title, $content) {
     print $r_file;
 }
 
+function themecenterbox($title, $content) {
+	$tmpl_file = "themes/phpgroupware/center_block.html";
+	$thefile = implode("", file($tmpl_file));
+	$thefile = addslashes($thefile);
+	$thefile = "\$r_file=\"".$thefile."\";";
+	$thefile = parse_theme_vars($thefile);
+	eval($thefile);
+	return $r_file;
+}
+
 ?>
