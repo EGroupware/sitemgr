@@ -17,6 +17,8 @@
 		var $cat_bo;
 		var $acl;
 		var $t;
+		var $preferenceso;
+		var $sitelanguages;
 		
 		var $public_functions = array
 		(
@@ -28,20 +30,47 @@
 			$this->t = $GLOBALS['phpgw']->template;
 			$this->cat_bo = CreateObject('sitemgr.Categories_BO', True);
 			$this->acl = CreateObject('sitemgr.ACL_BO', True);
+			$this->preferenceso = CreateObject('sitemgr.sitePreference_SO', true);
+			$this->sitelanguages = explode(',',$this->preferenceso->getPreference('sitelanguages'));
 		}
+
+		function globalize($varname)
+		{
+			if (is_array($varname))
+			{
+				foreach($varname as $var)
+				{
+					$GLOBALS[$var] = $_POST[$var];
+				}
+			}
+			else
+			{
+				$GLOBALS[$varname] = $_POST[$varname];
+			}
+		}
+
+		//this has to be moved somewhere else later
+		function getlangname($lang)
+		  {
+		    $GLOBALS['phpgw']->db->query("select lang_name from languages where lang_id = '$lang'",__LINE__,__FILE__);
+		    $GLOBALS['phpgw']->db->next_record();
+		    return $GLOBALS['phpgw']->db->f('lang_name');
+		  }
 
 		function _manageCategories()
 		{
+			$this->globalize(array('btnSaveCategory','btnAddCategory','btnEditCategory','btnDelete','btnPermission','category_id','catname','catdesc','catid','sort_order','parent','parent_old','groupaccessread','groupaccesswrite','individualaccessread','individualaccesswrite','savelanguage'));
 			global $btnSaveCategory,$btnAddCategory,$btnEditCategory,$btnDelete,$btnPermission;
-			global $category_id,$catname,$catdesc,$catid,$sort_order,$parent;
+			global $category_id,$catname,$catdesc,$catid,$sort_order,$parent,$parent_old;
 			global $groupaccessread, $groupaccesswrite, $individualaccessread, $individualaccesswrite;
+			global $savelanguage;
 
 			$common_ui = CreateObject('sitemgr.Common_UI',True);
 			$common_ui->DisplayHeader();
 
 			if (!$this->acl->is_admin())
 			{
-				echo "You must be an admin to edit categories.";
+				echo lang('You must be an admin to edit categories.');
 				$common_ui->DisplayFooter();
 			}
 			else
@@ -72,11 +101,14 @@
 						}
 						$groupaccess = array_merge_recursive($groupaccessread, $groupaccesswrite);
 						$individualaccess = array_merge_recursive($individualaccessread, $individualaccesswrite);
-						$this->cat_bo->saveCategoryInfo($catid, $catname, $catdesc, $sort_order, $parent);
+						$savelanguage = $savelanguage ? $savelanguage : $this->sitelanguages[0];
+						$this->cat_bo->saveCategoryInfo($catid, $catname, $catdesc, $savelanguage, $sort_order, $parent, $parent_old);
 						$this->cat_bo->saveCategoryPerms($catid, $groupaccess, $individualaccess);
 					}
 	
-					$this->t->set_var('category_manager','Category Manager');			
+					$this->t->set_var(Array('category_manager' => lang('Category Manager'),
+								'lang_catname' => lang('Category Name'),
+								'lang_goto' => lang('Go to Page Manager')));			
 					$this->t->set_file('ManageCategories', 'manage_categories.tpl');
 					$this->t->set_block('ManageCategories', 'CategoryBlock', 'CBlock');
 					//$this->cat_list = $this->cat_bo->getPermittedCategoryIDReadList();
@@ -85,7 +117,7 @@
 					{
 						for($i = 0; $i < sizeof($this->cat_list); $i++)
 						{
-							$this->cat = $this->cat_bo->getCategory($this->cat_list[$i]);
+							$this->cat = $this->cat_bo->getCategory($this->cat_list[$i],$this->sitelanguages[0]);
 							if ($this->cat->depth)
 							{
 								$buffer = '-';
@@ -105,7 +137,7 @@
 								$GLOBALS['phpgw']->link('/index.php',
 								'menuaction=sitemgr.Admin_ManageCategories_UI._manageCategories').
 								'" method="POST">
-								<input type="submit" name="btnEditCategory" value="Edit">
+								<input type="submit" name="btnEditCategory" value="' . lang('Edit') .'">
 								<input type="hidden" name="category_id" value="'.$category_id.'">
 								</form>');
 					
@@ -114,7 +146,7 @@
 								$GLOBALS['phpgw']->link('/index.php',
 								'menuaction=sitemgr.Admin_ManageCategories_UI._manageCategories').
 								'" method="POST">
-								<input type=submit name=btnDelete value = "Delete">
+								<input type=submit name=btnDelete value="' . lang('Delete') .'">
 								<input type= hidden name = "category_id" value="'. $category_id  .'">
 								</form>');
 								
@@ -130,7 +162,7 @@
 						$GLOBALS['phpgw']->link('/index.php',
 						'menuaction=sitemgr.Admin_ManageCategories_UI._manageCategories').
 						'" method="POST">
-						<input type=submit name=btnAddCategory value = "Add a category">
+						<input type=submit name=btnAddCategory value = "' . lang('Add a category') .'">
 						</form>'
 					);
 					$this->t->set_var('managepageslink',$GLOBALS['phpgw']->link(
@@ -159,7 +191,7 @@
 
 			if($error)
 			{
-				$this->t->set_var('error_msg','You failed to fill in one or more required fields');
+				$this->t->set_var('error_msg',lang('You failed to fill in one or more required fields.'));
 				$this->cat->name = $catname;
 				$this->cat->description = $catdesc;
 			}
@@ -167,19 +199,30 @@
 			{
 				if ($cat_id)
 				{
-			  		$this->cat = $this->cat_bo->getCategory($cat_id); 
+			  		$this->cat = $this->cat_bo->getCategory($cat_id,$this->sitelanguages[0]); 
 					$permissionlist = $this->acl->get_group_permission_list($cat_id);
 					//print_r($permissionlist);
-					$this->t->set_var('add_edit','Edit Category');
+					$this->t->set_var('add_edit',lang('Edit Category'));
 				}
 				else
 				{
 					$this->cat->name = '';
 					$this->cat->description = '';
-					$this->t->set_var('add_edit','Add Category');
+					$this->t->set_var('add_edit',lang('Add Category'));
 					$permissionlist = array();
 				}
 			}
+
+			if (count($this->sitelanguages))
+			  {
+			    $select = lang('as') . ' <select name="savelanguage">';
+			    foreach ($this->sitelanguages as $lang)
+			      {
+				$select .= '<option value="' . $lang . '">'. $this->getlangname($lang) . '</option>';
+			      }
+			    $select .= '</select> ';
+			    $this->t->set_var('savelang',$select);
+			  }
 
 			$this->t->set_var(array(
 				'catid' => $cat_id,
@@ -187,8 +230,22 @@
 				'catdesc' => $this->cat->description,
 				'sort_order' => $this->cat->sort_order,
 				'parent_dropdown' => $this->getParentOptions($this->cat->parent,$cat_id),
+				'old_parent' => $this->cat->parent,
 				'actionurl' => $GLOBALS['phpgw']->link('/index.php',
-					'menuaction=sitemgr.Admin_ManageCategories_UI._manageCategories')
+				         'menuaction=sitemgr.Admin_ManageCategories_UI._manageCategories'),
+				'lang_basic' => lang('Basic Settings'),
+				'lang_catname' => lang('Category Name'),
+				'lang_catsort' => lang('Sort Order'),
+				'lang_catparent' => lang('Parent'),
+				'lang_catdesc' => lang('Category Description'),
+				'lang_groupaccess' => lang('Group Access Permissions'),
+				'lang_groupname' => lang('Group Name'),
+				'lang_readperm' => lang('Read Permission'),
+				'lang_writeperm' => lang('Write Permission'),
+				'lang_useraccess' => lang('Individual Access Permission'),
+				'lang_username' => lang('User Name'),
+				'lang_reset' => lang('Reset'),
+				'lang_save' => lang('Save')
 			));
 			
 			$this->t->set_file('EditCategory', 'edit_category.tpl');
@@ -239,7 +296,7 @@
 			}
 			else
 			{
-				$this->t->set_var('groupname',"No groups defined");
+				$this->t->set_var('groupname',lang("No groups defined."));
 			}
 
 			$this->t->set_block('EditCategory','UserBlock', 'UBlock');
@@ -287,7 +344,7 @@
 			}
 			else
 			{
-				$this->t->set_var('username',"No users defined.");
+				$this->t->set_var('username',lang("No users defined."));
 			}
 
 			$this->t->pfp('out','EditCategory');
@@ -324,6 +381,7 @@
 
 		function _deleteCategory($cat_id)
 		{
+			$this->globalize('deleteconfirmed');
 			global $deleteconfirmed;
 			if ($deleteconfirmed==$cat_id)
 			{
@@ -331,10 +389,12 @@
 			}
 			else
 			{
-				$cat = $this->cat_bo->getCategory($cat_id);
+				$cat = $this->cat_bo->getCategory($cat_id,$this->sitelanguages[0]);
 				$this->t->set_file('ConfirmDelete','confirmdelete.tpl');
-				$this->t->set_var('category',$cat->name);
+				$this->t->set_var('deleteheader',lang('Are you sure you want to delete the category %1 and all of its associated pages?  You cannot retrieve the deleted pages if you continue.',$cat->name));
 				$this->t->set_var('category_id',$cat_id);
+				$this->t->set_var('lang_yes',lang('Yes, please delete it'));
+				$this->t->set_var('lang_no',lang('Cancel the delete'));
 				$this->t->set_var('actionurl',
 					$GLOBALS['phpgw']->link('/index.php',
 					'menuaction=sitemgr.Admin_ManageCategories_UI._manageCategories')

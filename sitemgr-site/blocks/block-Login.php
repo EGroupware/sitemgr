@@ -17,19 +17,19 @@ if (eregi("block-Login.php", $PHP_SELF)) {
     die();
 }
 
-$title = 'Login';
+$title = lang('Login');
 $boxstuff = '<form name="login" action="'.phpgw_link('/login.php').'" method="post">';
 $boxstuff .= '<input type="hidden" name="passwd_type" value="text">';
 $boxstuff .= '<input type="hidden" name="phpgw_forward" value="/sitemgr/">';
-$boxstuff .= '<center><font class="content">Login Name<br>';
+$boxstuff .= '<center><font class="content">' . lang('Login Name') .'<br>';
 $boxstuff .= '<input type="text" name="login" size="8" value=""><br>';
-$boxstuff .= 'Password<br>';
+$boxstuff .= lang('Password') . '<br>';
 $boxstuff .= '<input name="passwd" size="8" type="password"><br>';
-$boxstuff .= '<input type="submit" value="Login" name="submitit">';
+$boxstuff .= '<input type="submit" value="' . lang('Login') .'" name="submitit">';
 $boxstuff .= '</font></center></form>';
-$boxstuff .= '<center><font class="content">Don\'t have an account?  ';
+$boxstuff .= '<center><font class="content">' . lang("Don't have an account?") .'  ';
 $boxstuff .= '<a href="'.phpgw_link('/registration/index.php').'">';
-$boxstuff .= 'Register for one now.</a></font></center>';
+$boxstuff .= lang('Register for one now.') . '</a></font></center>';
 
 $content = $boxstuff;
 

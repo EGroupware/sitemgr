@@ -15,7 +15,7 @@
                 <td width=124 height=20><img src="templates/phpgroupware/images/layout02-header_04.gif" width=124 height=20 align="top"></td>
                 <td width=130 height=20 background="templates/phpgroupware/images/current_release.gif"> 
 					<div class="release" align="center">
-						current&nbsp;release:&nbsp;
+						current release:&nbsp;
 						<a href="{?page_name=downloads}">
 							<span class="release-num">0.9.14</span>
 						</a>
@@ -49,6 +49,7 @@
 							  {site_header}
 						  </font>
 						 </p>
+						 {center_blocks}
 						 <h1>{page_title}</h1>
 						 <h3>{page_subtitle}</h3>
 						 {page_content}

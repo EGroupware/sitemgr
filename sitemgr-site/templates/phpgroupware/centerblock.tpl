@@ -1,4 +1,4 @@
-<!-- BEGIN CenterBlock -->
+<!-- BEGIN SideBlock -->
 <table width="100" border="0" cellspacing="0" cellpadding="0" align="center" background="templates/phpgroupware/images/body_table_bg.gif">
 	<tr> 
 		<td width="39" background="templates/phpgroupware/images/body_table_top_left_bg.gif" height="27"> 
@@ -63,4 +63,4 @@
 </table>
 
 <hr width="90%" size="1" noshade>
-<!-- END CenterBlock -->
+<!-- END SideBlock -->

@@ -458,12 +458,11 @@
 			);
 		}
 
-		function replace_var($vars)
+		function make_link($linkcode)
 		{
-			$var = $vars[1];
-			if (substr($var,0,9)=='?sitemgr:')
+			if (substr($linkcode,0,9)=='?sitemgr:')
 			{
-				$params=explode(',',substr($var,9));
+				$params=explode(',',substr($linkcode,9));
 				switch(count($params))
 				{
 					case 0:
@@ -476,12 +475,12 @@
 						$val = sitemgr_link2($params[0],$params[1]);
 						break;
 					default:
-						$val = $var;
+						$val = $linkcode;
 				}
 			}
-			elseif (substr($var,0,7)=='?phpgw:')
+			elseif (substr($linkcode,0,7)=='?phpgw:')
 			{
-				$params=explode(',',substr($var,7));
+				$params=explode(',',substr($linkcode,7));
 				switch(count($params))
 				{
 					case 0:
@@ -494,17 +493,76 @@
 						$val = phpgw_link($params[0],$params[1]);
 						break;
 					default:
-						$val = $var;
+						$val = $linkcode;
 				}
 			}
-			elseif (substr($var,0,1)=='?')
+			elseif (substr($linkcode,0,1)=='?')
 			{
-				$val = sitemgr_link2('/index.php',substr($var,1));
+				$val = sitemgr_link2('/index.php',substr($linkcode,1));
+			}
+			
+			return $val;
+		}
+
+		function replace_var($vars)
+		{
+			$var = $vars[1];
+			if (substr($var,0,1)=='?')
+			{
+				$val = $this->make_link($var);
+			}
+			elseif (substr($var,0,6)=='block:')
+			{
+				$blockname = substr($var,6);
+				$themesel = $GLOBALS['sitemgr_info']['themesel'];
+				$sitemgr_path = $GLOBALS['sitemgr_info']['sitemgr-site_path'];
+				if (file_exists($sitemgr_path . '/blocks/block-' . 
+					$blockname . '.php'))
+				{
+					require_once($sitemgr_path . 
+						'/inc/class.blocks_bo.inc.php');
+					$blocks_bo = new blocks_bo;
+					
+					$block = $blocks_bo->find_block($blockname);
+					if ($block && ! $blocks_bo->block_allowed($block))
+					{
+						// If the block is specified and this user can't view it
+						$val = '';
+					}
+					else
+					{
+						// block not specified or block specified and viewable
+					
+						$t = new Template2;
+						$t->set_file('centerblocks', $sitemgr_path . 
+							'/templates/' . $themesel . '/centerblock.tpl');
+						$t->set_block('centerblocks','SideBlock','SBlock');
+						$t->set_var('block_title',
+							$blocks_bo->get_blocktitle($block));
+						$t->set_var('block_content',
+							$blocks_bo->get_blockcontent($block));
+						$val = $t->parse('SBlock','SideBlock',false);
+						unset($t);
+					}
+				}
+				else
+				{
+					$val = '<h4>CONTRIBUTOR SPECIFIED BLOCK, '. $blockname .
+						', NOT FOUND</h4>';
+				}
 			}
 			else
 			{
-				$val = '{'.$var.'}';
+				switch($var)
+				{
+					case 'xyz':
+						$val = 'test';
+						break;
+					default:
+						$val = '{'.$var.'}';
+				}
 			}
 			return $val;
 		}
 	}	
+?>

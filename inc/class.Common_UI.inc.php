@@ -11,7 +11,7 @@
 	
 	class Common_UI
 	{
-		var $t, $acl, $theme, $prefs_so, $pages_bo;
+		var $t, $acl, $theme, $prefs_so, $pages_bo, $cat_bo;
 		var $public_functions = array
 		(
 			'DisplayPrefs' => True
@@ -24,72 +24,176 @@
 			$this->theme = CreateObject('sitemgr.Theme_BO',True);
 			$this->prefs_so = CreateObject('sitemgr.sitePreference_SO', True);
 			$this->pages_bo = CreateObject('sitemgr.Pages_BO');
+			$this->cat_bo = CreateObject('sitemgr.Categories_BO');
 		}
+
+		//this has to be moved somewhere else later
+		function getlangname($lang)
+		  {
+		    $GLOBALS['phpgw']->db->query("select lang_name from languages where lang_id = '$lang'",__LINE__,__FILE__);
+		    $GLOBALS['phpgw']->db->next_record();
+		    return $GLOBALS['phpgw']->db->f('lang_name');
+		  }
+
 
 		function DisplayPrefs()
 		{
 			$this->DisplayHeader();
 			if ($this->acl->is_admin())
 			{
-				$preferences['sitemgr-site-name'] = array(
-					'title'=>'Site name',
-					'note'=>'(This is used chiefly for meta data and the title bar.)',
+				if ($_POST['btnlangchange'])
+				{
+					echo '<p>';
+					while (list($oldlang,$newlang) = each($_POST['change']))
+					{
+						if ($newlang == "delete")
+						{
+							echo '<b>' . lang('Deleting all data for %1',$this->getlangname($oldlang)) . '</b><br>';
+							$this->pages_bo->removealllang($oldlang);
+							$this->cat_bo->removealllang($oldlang);
+						}
+						else
+						{
+							echo '<b>' . lang('Migrating data for %1 to %2',
+									$this->getlangname($oldlang),
+									$this->getlangname($newlang)) . 
+							  '</b><br>';
+							$this->pages_bo->migratealllang($oldlang,$newlang);
+							$this->cat_bo->migratealllang($oldlang,$newlang);
+						}
+					}
+					echo '</p>';
+				}
+
+				if ($_POST['btnSave'])
+				{
+					$preferences = array(
+						'sitemgr-site-url','sitemgr-site-dir','home-page-id','login-domain',
+						'anonymous-user','anonymous-passwd','interface','themesel','sitelanguages');
+
+					$oldsitelanguages = $this->prefs_so->getPreference('sitelanguages');
+					if ($oldsitelanguages && ($oldsitelanguages != $_POST['sitelanguages']))
+					{
+						$oldsitelanguages = explode(',',$oldsitelanguages);
+						$newsitelanguages = explode(',',$_POST['sitelanguages']);
+						$replacedlang = array_diff($oldsitelanguages,$newsitelanguages);
+						$addedlang = array_diff($newsitelanguages,$oldsitelanguages);
+						if ($replacedlang)
+						{
+							echo lang('You removed one ore more languages from your site languages.') . '<br>' .
+							  lang('What do you want to do with existing translations of categories and pages for this language?') . '<br>';
+							if ($addedlang)
+							{
+								echo lang('You can either migrate them to a new language or delete them') . '<br>';
+							}
+							else
+							{
+								echo lang('Do you want to delete them?'). '<br>';
+							}
+							echo '<form action="' . 
+							  $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Common_UI.DisplayPrefs') .
+							  '" method="post"><table>';
+							foreach ($replacedlang as $oldlang)
+							{
+								$oldlangname = $this->getlangname($oldlang);
+								echo "<tr><td>" . $oldlangname . "</td>";
+								if ($addedlang)
+								{
+									foreach ($addedlang as $newlang)
+									{
+										echo '<td><input type="radio" name="change[' . $oldlang . 
+										  ']" value="' . $newlang . '"> Migrate to ' . 
+										  $this->getlangname($newlang) . "</td>";
+									}
+								}
+								echo '<td><input type="radio" name="change[' . $oldlang . ']" value="delete"> delete</td></tr>';
+							}
+							echo '<tr><td><input type="submit" name="btnlangchange" value="' . 
+							  lang('Submit') . '"></td></tr></table></form>';
+						}
+					}
+
+					$oldsitelanguages = $oldsitelanguages ? explode(',',$oldsitelanguages) : array("en");
+					foreach ($oldsitelanguages as $lang)
+					{
+						array_push($preferences,'sitemgr-site-name-' . $lang);
+					}
+
+					foreach ($preferences as $name)
+					{
+						$this->prefs_so->setPreference($name,$_POST[$name]);
+					}
+					echo '<p><b>' . lang('Changes Saved.') . '</b></p>';
+					unset($preferences);
+				}
+				
+				$sitelanguages = explode(',',$this->prefs_so->getPreference('sitelanguages'));
+				$sitelanguages = $sitelanguages ? $sitelanguages : array("en");
+				
+				foreach ($sitelanguages as $lang)
+				  {
+				    $preferences['sitemgr-site-name-' . $lang] = array(
+					'title'=>lang('Site name'). ' ' . $this->getlangname($lang),
+					'note'=>'(This is used chiefly for meta data and the title bar. If you change the site languages below you have to save before being able to set this preference for a new language.)',
 					'default'=>'New sitemgr site'
-				);
+				    );
+				  }
+
 				$preferences['sitemgr-site-url']=array(
-					'title'=>'URL to sitemgr-site',
+					'title'=>lang('URL to sitemgr-site'),
 					'note'=>'(The URL can be relative or absolute.  Name must end in a slash.)'
 				);
 				$preferences['sitemgr-site-dir']=array(
-					'title'=>'Filesystem path to sitemgr-site directory',
+					'title'=>lang('Filesystem path to sitemgr-site directory'),
 					'note'=>'(This must be an absolute directory location.  <b>No trailing slash</b>.)'
 				);
 				$preferences['home-page-id'] = array(
-					'title'=>'Default home page ID number',
+					'title'=>lang('Default home page ID number'),
 					'note'=>'(This should be a page that is readable by everyone. If you leave this blank, the site index will be shown by default.)',
 					'input'=>'option',
 					'options'=>$this->pages_bo->getPageOptionList()
 				);
 				$preferences['login-domain'] = array(
-					'title'=>'Anonymous user login domain',
+					'title'=>lang('Anonymous user login domain'),
 					'note'=>'If you\'re not sure, enter Default.',
 					'default'=>'Default'
 				);
 				$preferences['anonymous-user'] = array(
-					'title'=>'Anonymous user\'s username',
+					'title'=>lang('Anonymous user\'s username'),
 					'note'=>'(If you haven\'t done so already, create a user that will be used for public viewing of the site.  Recommended name: anonymous.)',
 					'default'=>'anonymous'
 				);
 				$preferences['anonymous-passwd'] = array(
-					'title'=>'Anonymous user\'s password',
+					'title'=>lang('Anonymous user\'s password'),
 					'note'=>'(Password that you assigned for the aonymous user account.)',
 					'default'=>'anonymous'
 				);
 				$preferences['interface'] = array(
-					'title'=>'Use phpNuke themes instead of templates',
+					'title'=>lang('Use phpNuke themes instead of templates'),
 					'note'=>'(This is NOT recommended.)',
 					'input'=>'checkbox'
 				);
 				$preferences['themesel'] = array(
-					'title'=>'Theme or template select',
+					'title'=>lang('Theme or template select'),
 					'note'=>'(Choose your site\'s theme or template.  Note that if you changed the above checkbox you need to save before choosing a theme or template.)',
 					'input'=>'option',
 					'options'=>$this->theme->getAvailableThemes(),
 					'default'=>'NukeNews'
 				);
-				if ($GLOBALS['btnSave'])
-				{
-					reset($preferences);
-					while (list($name,$details) = each($preferences))
-					{
-						$this->prefs_so->setPreference($name,$GLOBALS[$name]);
-					}
-					echo '<p><b>Changes Saved.</b></p>';
-				}
-				
+				$preferences['sitelanguages'] = array(
+					'title'=>lang('Languages the site user can choose from'),
+					'note'=>'(This should be a comma-separated list of language-codes.)',
+					'default'=>'en'
+				);
+
 				$this->t->set_file('sitemgr_prefs','sitemgr_preferences.tpl');
 				$this->t->set_var('formaction',$GLOBALS['phpgw']->link(
 					'/index.php','menuaction=sitemgr.Common_UI.DisplayPrefs'));
+				$this->t->set_var(Array('setup_instructions' => lang('SiteMgr Setup Instructions'),
+							'options' => lang('SiteMgr Options'),
+							'lang_save' => lang('Save')
+				));
+						       
 				$this->t->set_block('sitemgr_prefs','PrefBlock','PBlock');
 				reset($preferences);
 				while (list($name,$details) = each($preferences))
@@ -118,7 +222,7 @@
 			}
 			else
 			{
-				echo "You must be an administrator to setup the Site Manager.<br><br>";
+				echo lang("You must be an administrator to setup the Site Manager.") . "<br><br>";
 			}
 			$this->DisplayFooter();
 		}
@@ -163,7 +267,7 @@
 		{
 			if (!is_array($options) || count($options)==0)
 			{
-				return 'No options available.';
+				return lang('No options available.');
 			}
 			$val = $this->prefs_so->getPreference($name);
 			if(!$val)
@@ -205,6 +309,10 @@
 				'menuaction=sitemgr.MainMenu_UI.DisplayMenu')
 			);
 			$this->t->set_var('sitemgr-site', $GLOBALS['phpgw']->link('/sitemgr-link/'));
+			$this->t->set_var(Array('sitemgr_administration' => lang('Web Content Manager Administration'),
+						'view_menu' => lang('View Administrative Menu'),
+						'view_site' => lang('View Generated Site')
+			));
 			$this->t->pfp('out','sitemgr_header');
 		}
 

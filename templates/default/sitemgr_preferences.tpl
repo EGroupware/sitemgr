@@ -1,6 +1,6 @@
 <!-- BEGIN sitemgr_prefs -->
 
-	<b>SiteMgr Setup Instructions</b>
+	<b>{setup_instructions}</b>
 	<p>
 	There are two subdirectories off of your sitemgr directory that you should move before you do anything else.  You don't <i>have</i> to move either of these directories, although you will probably want to.  
 	</p>
@@ -14,7 +14,7 @@
 	The config.inc.php file needs to be edited to point to the phpGroupWare directory.  Copy the config.inc.php.template file to config.inc.php and then edit it.
 	<p>
 	<hr>
-	<b>SiteMgr Options</b>
+	<b>{options}</b>
 	</p>
 	<p>
 	<form action="{formaction}" method="post">
@@ -44,6 +44,6 @@
 </table>
 </center>
 
-	<input type="submit" name="btnSave" value="Save">
+	<input type="submit" name="btnSave" value="{lang_save}">
 	</form>
 <!-- END sitemgr_prefs -->

@@ -32,13 +32,17 @@
 			$this->t->set_file('MainMenu','mainmenu.tpl');
 			if ($this->acl->is_admin())
 			{
-				$this->t->set_var('menutitle','Administrative Menu');
+				$this->t->set_var(Array('menutitle' => lang('Administrative Menu'),
+							'lang_configure' => lang('Configure SiteMgr'),
+							'lang_check' => lang('check here after every upgrade'),
+							'lang_editheadfoot' => lang('Edit Site Header and Footer'),
+							'lang_managecat' => lang('Manage Categories')));
 				$catbo = CreateObject('sitemgr.Categories_BO');
 				if ($catbo->needUpdateCategories())
 				{
 					$updatemsg = $catbo->updateCategories();
-					$updatemsg = "\n".'<br><b>Updating to new category system:</b><br>'.
-						$updatemsg.'<br><b>Done.</b><br>';
+					$updatemsg = "\n".'<br><b>' . lang('Updating to new category system') . ':</b><br>'.
+						$updatemsg.'<br><b>' . lang('Done') . '</b><br>';
 					$this->t->set_var('updatecats',$updatemsg);
 				}
 				else
@@ -49,13 +53,21 @@
 			}
 			else
 			{
-				$this->t->set_var('menutitle','Contributor Menu');
+				$this->t->set_var('menutitle',lang('Contributor Menu'));
 			}
 
 			$this->t->set_var('managepage',
 				$GLOBALS['phpgw']->link('/index.php',
 				'menuaction=sitemgr.contributor_ManagePage_UI._managePage')
 			);
+
+			$this->t->set_var('managetranslations',
+				$GLOBALS['phpgw']->link('/index.php',
+				'menuaction=sitemgr.ManageTranslations_UI._manageTranslations')
+			);
+			$this->t->set_var(Array('lang_managepage' => lang('Manage Pages'),
+						'lang_managetranslations' => lang('Manage Translations')));
+
 			if ($this->acl->is_admin())
 			{
 				$this->t->set_var('managecategory',

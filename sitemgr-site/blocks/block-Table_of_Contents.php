@@ -4,7 +4,7 @@ if (eregi("block-Table_of_Contents.php",$PHP_SELF)) {
 	die();
 }
 
-	$title = 'Table of Contents';
+	$title = lang('Table of Contents');
 	$bo = new bo;
 	$indexarray = $bo->getCatLinks();
 	unset($bo);
@@ -22,6 +22,6 @@ if (eregi("block-Table_of_Contents.php",$PHP_SELF)) {
 	//$content .= '<br>&nbsp;&nbsp;<i><a href="'.sitemgr_link2('/index.php','toc=1').'"><font size="1">(View full contents)</font></a></i>';
 	if (count($indexarray)==0)
 	{
-		$content='You do not have access to any content on this site.';
+		$content=lang('You do not have access to any content on this site.');
 	}
 ?>

@@ -7,7 +7,7 @@
 		<td>
 		<table align='left' border='0' width='85%'>
 			<tr>
-				<td colspan="3"><u>Category Name</u></td>
+				<td colspan="3"><u>{lang_catname}</u></td>
 				<!-- <td>&nbsp;</td>
 				     <td>&nbsp;</td> -->
 			</tr>
@@ -37,7 +37,7 @@
 	</tr>
 	<tr>
 		<td align="right">
-			<a href="{managepageslink}">&lt; Go to Page Manager &gt;</a>
+			<a href="{managepageslink}">&lt; {lang_goto} &gt;</a>
 		</td>
 	</tr>
 </table>

@@ -4,7 +4,7 @@ if (eregi("block-SiteIndex.php",$PHP_SELF)) {
 	die();
 }
 
-	$title = 'Root Site Index';
+	$title = lang('Root Site Index');
 	$bo = new bo;
 	$indexarray = $bo->getIndex(false,true);
 	unset($bo);
@@ -33,9 +33,9 @@ if (eregi("block-SiteIndex.php",$PHP_SELF)) {
 		}
 	}
 	$content .= "\n</table>";
-	$content .= '<br>&nbsp;&nbsp;<i><a href="'.sitemgr_link2('/index.php','index=1').'"><font size="1">(View full index)</font></a></i>';
+	$content .= '<br>&nbsp;&nbsp;<i><a href="'.sitemgr_link2('/index.php','index=1').'"><font size="1">(' . lang('View full index') . ')</font></a></i>';
 	if (count($indexarray)==0)
 	{
-		$content='You do not have access to any content on this site.';
+		$content=lang('You do not have access to any content on this site.');
 	}
 ?>

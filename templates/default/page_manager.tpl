@@ -1,6 +1,6 @@
 <table border='0' width='50%'>  
 	<tr>
-		<td><b><u>Page Manager</u></b></td> 
+		<td><b><u>{page_manager}</u></b></td> 
 	</tr>
 	<tr>
 		<td><b><font color='#FF0000' size='2'>{message}</font></b><td>

@@ -12,35 +12,39 @@
 		'time' => '',
 		'blanguage' => '',
 		'blockfile' => 'block-Amazon.php',
-		'view' => 0        // 0=everybody, 1=admins 2=phpgw users 3=anonymous
+		'view' => 0        // 0=everybody, 1=phpgw users 2=admins 3=anonymous
 	);
 	*/
-	$blocks[]=array(
-		'skipifblank' => 1,
-		'position' => 'r',
-		'blockfile' => 'block-Current_Section.php',
+
+
+        $blocks[]=array(
+		'title' => lang('Choose language'),
+		'blockfile' => 'block-Choose_lang.php',
+		'position' => 'l',
+		'refresh' => 0,
 		'view' => 0
 	);
+
 	$blocks[]=array(
-		'title' => 'Root Site Index',
+		'title' => lang('Root Site Index'),
 		'position' => 'l',
 		'blockfile' => 'block-SiteIndex.php',
 		'view' => 0
 	);
 	$blocks[]=array(
-		'title' => 'Table of Contents',
-		'position' => 'l',
+		'title' => lang('Table of Contents'),
+		'position' => 'r',
 		'blockfile' => 'block-Table_of_Contents.php',
 		'view' => 0
 	);
 	$blocks[]=array(
-		'title' => 'Your Calendar',
+		'title' => lang('Your Calendar'),
 		'position' => 'l',
 		'blockfile' => 'block-phpgwCalendar.php',
 		'view' => 2
 	);
 	$blocks[]=array(
-		'title' => 'Login',
+		'title' => lang('Login'),
 		'position' => 'r',
 		'blockfile' => 'block-Login.php',
 		'view' => 3
@@ -55,7 +59,7 @@
 	);
 	*/
 	$blocks[]=array(
-		'title' => 'Google Search',
+		'title' => lang('Google Search'),
 		'position' => 'r',
 		'blockfile' => 'block-GoogleSearch.php',
 		'view' => 0
@@ -63,7 +67,7 @@
 	/*
 	$blocks[]=array(
 		'bkey' => '',
-		'title' => 'Headlines',
+		'title' => lang('Headlines'),
 		'position' => 'r',
 		'active' => 1,
 		'refresh' => 0,
@@ -73,8 +77,8 @@
 	*/
 	$blocks[]=array(
 		'bkey' => 'admin',
-		'title' => 'Administration',
-		'content' => '&nbsp;&nbsp;<strong><big>&middot;</big></strong><a href="'.phpgw_link('/index.php','menuaction=sitemgr.MainMenu_UI.DisplayMenu').'">Content Manager</a>',
+		'title' => lang('Administration'),
+		'content' => '&nbsp;&nbsp;<strong><big>&middot;</big></strong><a href="'.phpgw_link('/index.php','menuaction=sitemgr.MainMenu_UI.DisplayMenu').'">' . lang('Content Manager') . '</a>',
 		'position' => 'l',
 		'active' => 1,
 		'refresh' => 0,
@@ -84,7 +88,7 @@
 	);
 		
 	$blocks[]=array(
-		'title' => 'Amazon',
+		'title' => lang('Amazon'),
 		'position' => 'r',
 		'refresh' => 3600,
 		'blockfile' => 'block-Amazon.php',

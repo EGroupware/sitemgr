@@ -43,11 +43,17 @@
 		echo '<table width="50%"><tr><td>';
 		if ($aclbo->is_admin())
 		{
-			echo 'Before the public web site can be viewed, you must configure the various locations and preferences.  Please go to the sitemgr setup page by following this link: <a href="' . $GLOBALS['phpgw']->link('/index.php', 'menuaction=sitemgr.Common_UI.DisplayPrefs') . '">sitemgr setup page</a>.  Note that you may get this message if your preferences are incorrect.  For example, if config.inc.php is not found in the directory that you specified.';
+			echo lang('Before the public web site can be viewed, you must configure the various locations and preferences.  Please go to the sitemgr setup page by following this link:') . 
+			  '<a href="' . 
+			  $GLOBALS['phpgw']->link('/index.php', 'menuaction=sitemgr.Common_UI.DisplayPrefs') . 
+			  '">' .
+			  lang('sitemgr setup page') .
+			  '</a>. ' .
+			  lang('Note that you may get this message if your preferences are incorrect.  For example, if config.inc.php is not found in the directory that you specified.');
 		}
 		else
 		{
-			echo 'Your administrator has not yet setup the web content manager for public viewing.  Go bug your administrator to get their butt in gear.';
+			echo lang('Your administrator has not yet setup the web content manager for public viewing.  Go bug your administrator to get their butt in gear.');
 		}
 		echo '</td></tr></table>';
 		$GLOBALS['phpgw']->common->phpgw_footer();

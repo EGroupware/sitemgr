@@ -15,6 +15,8 @@ Team 10 in the UC Irvine Systems Design Course, ICS 125, chose this as their pro
 
 Credits
 -------
+The original code:
+
 ICS 125 Team 10:
 
 Tina Alinaghian (tina -AT- checkyour6.net)
@@ -28,4 +30,9 @@ Hadar Ziv (profziv -AT- aol.com)
 
 TA:
 Arijit Ghosh (arijitg -AT- uci.edu)
+
+Subsequent maintanence:
+
+Michael Totschnig (totschnig.michael -AT- uqam.ca) -- wrote and maintains multilingual facets of sitemgr
+Patrick Walsh (see above)
 

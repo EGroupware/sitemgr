@@ -39,7 +39,8 @@
 			'domain'               => $pref->getPreference('login-domain'),
 			'login' 		       => $pref->getPreference('anonymous-user'),
 			'passwd'		       => $pref->getPreference('anonymous-passwd'),
-			'themesel'	     	   => $pref->getPreference('themesel')
+			'themesel'	     	   => $pref->getPreference('themesel'),
+			'sitelanguages'            => explode(',',$pref->getPreference('sitelanguages'))             
 		);
 
 		if (! $GLOBALS['phpgw']->session->verify())
@@ -47,7 +48,7 @@
 			$GLOBALS['sessionid'] = $GLOBALS['phpgw']->session->create($sitemgr_info['login'],$sitemgr_info['passwd'], 'text');
 			if (!$GLOBALS['sessionid'])
 			{
-				die('NO ANONYMOUS USER ACCOUNTS INSTALLED.  NOTIFY THE ADMINISTRATOR.');
+				die(lang('NO ANONYMOUS USER ACCOUNTS INSTALLED.  NOTIFY THE ADMINISTRATOR.'));
 				//exit;
 			}
 			//$GLOBALS['phpgw']->redirect($GLOBALS['phpgw']->link($sitemgr_url . 'index.php'));
@@ -64,7 +65,8 @@
 			'domain'               => $pref->getPreference('login-domain'),
 			'login' 		       => $pref->getPreference('anonymous-user'),
 			'passwd'		       => $pref->getPreference('anonymous-passwd'),
-			'themesel'	     	   => $pref->getPreference('themesel')
+			'themesel'	     	   => $pref->getPreference('themesel'),
+			'sitelanguages'            => explode(',',$pref->getPreference('sitelanguages'))
 		);
 	}
 	unset($pref);

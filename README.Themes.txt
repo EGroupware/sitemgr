@@ -47,7 +47,7 @@ Making a phpNuke theme work in SiteMgr as a template
 	centerblock.tpl
 	---------------
 
-	Exactly the same as sideblock.tpl except that "SideBlock" should be replaced by "CenterBlock".
+	Exactly the same as sideblock.tpl, but used for blocks that go in the main page output area. 
 
 	newsblock.tpl
 	-------------

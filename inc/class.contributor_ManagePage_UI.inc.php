@@ -20,7 +20,9 @@
 		var $category;
 		var $cat_list;
 		var $page_list;
-
+		var $preferenceso;
+		var $sitelanguages;
+		
 		var $public_functions=array
 		(
 			'_managePage' => True
@@ -31,7 +33,16 @@
 			$this->t = $GLOBALS['phpgw']->template;
 			$this->pagebo = CreateObject('sitemgr.Pages_BO', True);
 			$this->categorybo = CreateObject('sitemgr.Categories_BO',True);
+			$this->preferenceso = CreateObject('sitemgr.sitePreference_SO', true);
+			$this->sitelanguages = explode(',',$this->preferenceso->getPreference('sitelanguages'));
 		}
+		
+		function getlangname($lang)
+		  {
+		    $GLOBALS['phpgw']->db->query("select lang_name from languages where lang_id = '$lang'",__LINE__,__FILE__);
+		    $GLOBALS['phpgw']->db->next_record();
+		    return $GLOBALS['phpgw']->db->f('lang_name');
+		  }
 		
 		function _addPage($category_id)
 		{
@@ -43,8 +54,24 @@
 			$this->pagebo->removePage($category_id, $page_id);
 		}
 		
+		function globalize($varname)
+		{
+			if (is_array($varname))
+			{
+				foreach($varname as $var)
+				{
+					$GLOBALS[$var] = $_POST[$var];
+				}
+			}
+			else
+			{
+				$GLOBALS[$varname] = $_POST[$varname];
+			}
+		}
+
 		function _editPage($category_id, $page_id,$cname='',$ctitle='',$csubtitle='',$cmain='')
 		{
+			$this->globalize(array('title','name','subtitle','main','sort_order','parent','hidden','btnEditPage','savelanguage'));
 			global $title;
 			global $name;
 			global $subtitle;
@@ -53,11 +80,12 @@
 			global $parent;
 			global $hidden;
 			global $btnEditPage;
+			global $savelanguage;
 		
 			$this->t->set_file('EditPage', 'page_editor.tpl');
 			if($page_id)
 			{
-				$this->page = $this->pagebo->getPage($page_id);
+				$this->page = $this->pagebo->getPage($page_id,$this->sitelanguages[0]);
 				if ($cname)
 				{
 					$this->page->name=$cname;
@@ -74,7 +102,7 @@
 				{
 					$this->page->content=$cmain;
 				}
-				$this->t->set_var('add_edit','Edit Page');
+				$this->t->set_var('add_edit',lang('Edit Page'));
 				$this->t->set_var('move_to',$this->getParentOptions($this->page->cat_id));
 			}
 			else
@@ -85,8 +113,8 @@
 				$this->page->name = $name;
 				$this->page->sort_order = $sort_order;
 				$this->page->cat_id = $category_id;
-				$this->t->set_var('add_edit','Add Page');
-				$move_msg = 'Cannot move page until it has been saved.';
+				$this->t->set_var('add_edit',lang('Add Page'));
+				$move_msg = lang('Cannot move page until it has been saved.');
 				$move_msg .= '<INPUT TYPE="hidden" name="parent" value="'.
 					$category_id.'">';
 				$this->t->set_var('move_to',$move_msg);
@@ -101,14 +129,43 @@
                         {   
                                 $this->t->set_var('hidden', '');
                         }
+			
+			if (count($this->sitelanguages))
+			  {
+			    $select = lang('as') . ' <select name="savelanguage">';
+			    
+			    foreach ($this->sitelanguages as $lang)
+			      {
+				$selected= '';
+				if ($lang == $page->lang)
+				  {
+				    $selected = 'selected="selected" ';
+				  }
+				$select .= '<option ' . $selected .'value="' . $lang . '">'. $this->getlangname($lang) . '</option>';
+			      }
+			    $select .= '</select> ';
+			    $this->t->set_var('savelang',$select);
+			  }
+			
 			$this->t->set_var(array(
 				'title' =>$this->page->title,
 				'subtitle' => $this->page->subtitle,
-				'main'=>strtr($this->page->content,$trans),
+				'main'=>strtr($GLOBALS['phpgw']->strip_html($this->page->content),$trans),
 				'name'=>$this->page->name,
 				'sort_order'=>$this->page->sort_order,
 				'pageid'=>$page_id,
-				'category_id' => $category_id
+				'category_id' => $category_id,
+				'lang_name' => lang('Name'),
+				'lang_title' => lang('Title'),
+				'lang_subtitle' => lang('Subtitle'),
+				'lang_sort' => lang('Sort order'),
+				'lang_move' => lang('Move to'),
+				'lang_maincontent' => lang('Main content'),
+				'lang_hide' => lang('Check to hide from condensed site index.'),
+				'lang_required' => lang('Required Fields'),
+				'lang_goback' => lang('Go back to Page Manager'),
+				'lang_reset' => lang('Reset'),
+				'lang_save' => lang('Save')
 			));
 
 			
@@ -123,10 +180,10 @@
 		
 		function _managePage()
 		{
+			$this->globalize(array('hidden','btnAddPage','btnDelete','btnEditPage','btnPrev','pageid','btnSave','category_id','sort_order','parent','title','name','subtitle','main','error','savelanguage'));
 			global $hidden;
 			global $btnAddPage, $btnDelete, $btnEditPage;
 			global $btnPrev;
-			global $pageid;
 			global $btnSave;
 			global $pageid;
 			global $category_id;
@@ -137,6 +194,7 @@
 			global $subtitle;
 			global $main;
 			global $error;
+			global $savelanguage;
 
 			$common_ui = CreateObject('sitemgr.Common_UI',True);
 			$common_ui->DisplayHeader();
@@ -145,7 +203,7 @@
 			{
 				if ($name == '' || $title == '' || $main == '')
 				{
-					$this->t->set_var('message','You failed to fill in one or more required fields.');
+					$this->t->set_var('message',lang('You failed to fill in one or more required fields.'));
 					$this->_editPage($category_id,$pageid,$name,$title,$subtitle,$main);
 					exit;
 				}
@@ -159,7 +217,7 @@
 					$pageid = $this->page->id;
 					if(!$this->page->id)
 					{
-						$save_msg = 'You don\'t have permission to write in the category';
+						$save_msg = lang("You don't have permission to write in the category");
 					}
 				}
 
@@ -180,11 +238,12 @@
 					{
 						$this->page->hidden = 0;
 					}
-					$save_msg = $this->pagebo->savePageInfo($this->page);
+					$savelanguage = $savelanguage ? $savelanguage : $this->sitelanguages[0];
+					$save_msg = $this->pagebo->savePageInfo($this->page,$savelanguage);
 				}
 				if (!is_string($save_msg))
 				{
-					echo('<p><b><font color="red">Page saved.</font></b></p>');
+					echo('<p><b><font color="red">' . lang('Page saved.') . '</font></b></p>');
 				}
 				else
 				{
@@ -197,7 +256,7 @@
 			}
 			if($btnPrev)
 			{
-				echo 'Go back to the category manager';
+				echo lang('Go back to the category manager.');
 				$btnEditPage = False;
 				$btnPrev = False;
 			}
@@ -219,6 +278,7 @@
 				$this->t->set_file('ManagePage','page_manager.tpl');
 				$this->t->set_block('ManagePage', 'PageBlock', 'PBlock');
 				$this->t->set_block('ManagePage', 'CategoryBlock', 'CBlock');
+				$this->t->set_var('page_manager', lang('Page Manager'));
 				$this->cat_list = $this->categorybo->getPermittedCategoryIDWriteList();
 			
 				if($this->cat_list)
@@ -234,15 +294,15 @@
 							for($j = 0; $j < sizeof($this->page_list); $j++)
 							{
 								$this->page_id =$this->page_list[$j];
-								$this->page = $this->pagebo->getPage($this->page_id);
-								$page_description = '<b>Name: </b>'.$this->page->name.'<br><b>Title: </b>'.$this->page->title;
+								$this->page = $this->pagebo->getPage($this->page_id,$this->sitelanguages[0]);
+								$page_description = '<b>' . lang('Name') . ': </b>'.$this->page->name.'<br><b>' . lang('Title') . ': </b>'.$this->page->title;
 								$this->t->set_var('page', $page_description);
 								$this->t->set_var('edit',
 									'<form action="'.
 									$GLOBALS['phpgw']->link('/index.php',
 										'menuaction=sitemgr.contributor_ManagePage_UI._managePage').
 										'" method="POST">
-									<input type="submit" name="btnEditPage" value = "Edit">
+									<input type="submit" name="btnEditPage" value="' . lang('Edit') .'">
 									<input type="hidden" name="category_id" value="'.
 										$this->cat_id.'">
 									<input type="hidden" name="parent" value="'.
@@ -255,7 +315,7 @@
 									'<form action="'.$GLOBALS['phpgw']->link('/index.php',
 									'menuaction=sitemgr.contributor_ManagePage_UI._managePage').
 										'" method="POST">
-									<input type="submit" name="btnDelete" value="Delete">
+									<input type="submit" name="btnDelete" value="' . lang('Delete') .'">
 									<input type="hidden" name="pageid" value="'.$this->page_id.'">
 									<input type="hidden" name="category_id" value="'.
 										$this->cat_id.'">
@@ -267,16 +327,17 @@
 						}
 						else
 						{
-							$this->t->set_var('msg' , 'This category has no pages.');
+							$this->t->set_var('msg' , lang('This category has no pages.'));
 						}
+						$padding = str_pad('',12*$this->category->depth,'&nbsp;');
 						$this->t->set_var('number', $i+1);
-						$this->t->set_var('category', '<b>'.$this->category->name.'</b>'); 
+						$this->t->set_var('category', $padding.'<b>'.$this->category->name.'</b>'); 
 						$this->t->set_var('add', 
 							'<form action="'.
 							$GLOBALS['phpgw']->link('/index.php',
 							'menuaction=sitemgr.contributor_ManagePage_UI._managePage').
 							'" method="POST">
-							<input type=submit name="btnAddPage" value ="Add new page to this category">
+							<input type=submit name="btnAddPage" value="' . lang('Add new page to this category') . '">
 							<input type=hidden name="category_id" value ="'.$this->cat_id .'">
 							</form>');
 					
@@ -286,7 +347,7 @@
 				}
 				else
 				{
-					echo 'I\'m sorry, you do not have write permissions for any site categories.<br><br>';
+					echo lang("I'm sorry, you do not have write permissions for any site categories.") . '<br><br>';
 				}
 			}
 			$common_ui->DisplayFooter();

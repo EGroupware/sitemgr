@@ -1,13 +1,13 @@
 <!-- BEGIN sitemgr_header -->
 	<!-- <center> -->
-	<b><u>Web Content Manager Administration</u></b>
+	<b><u>{sitemgr_administration}</u></b>
 		<br>
 		<!-- &nbsp;&nbsp;&nbsp; -->
 		[
 		<i>
-		<a href='{mainmenu}'>View Administrative Menu</a>
+		<a href='{mainmenu}'>{view_menu}</a>
 		</i>&nbsp;|&nbsp;<i>
-		<a href='{sitemgr-site}' target='_blank'>View Generated Site</a>
+		<a href='{sitemgr-site}' target='_blank'>{view_site}</a>
 		</i>
 		]
 	<hr>

@@ -23,23 +23,62 @@
 		{
 			$this->catbo = CreateObject('sitemgr.Categories_BO');
 			$this->pages_bo = CreateObject('sitemgr.Pages_BO');
-			$this->pages_so = CreateObject('sitemgr.Pages_SO');
+			//$this->pages_so = CreateObject('sitemgr.Pages_SO');
 			$this->headerfooter_bo = CreateObject('sitemgr.headerFooter_BO');
 			$this->page = CreateObject('sitemgr.Page_SO');
 			$this->acl = CreateObject('sitemgr.ACL_BO');
 		}
 
+		function getcatwrapper($cat_id)
+		{
+			$availablelangsforcat = $this->catbo->getlangarrayforcategory($cat_id);
+			if (in_array($GLOBALS['phpgw_info']['user']['preferences']['common']['lang'],$availablelangsforcat))
+			{
+				return $this->catbo->getCategory($cat_id,$GLOBALS['phpgw_info']['user']['preferences']['common']['lang']);
+			}
+			else
+			{
+				foreach ($GLOBALS['sitemgr_info']['sitelanguages'] as $lang)
+				{
+					if (in_array($lang,$availablelangsforcat))
+					{
+						return $this->catbo->getCategory($cat_id,$lang);
+					}
+				}
+			}
+		}
+
+		function getpagewrapper($page_id)
+		{
+			$availablelangsforpage = $this->pages_bo->getlangarrayforpage($page_id);
+                        if (in_array($GLOBALS['phpgw_info']['user']['preferences']['common']['lang'],$availablelangsforpage))
+                        {
+                                return $this->pages_bo->GetPage($page_id,$GLOBALS['phpgw_info']['user']['preferences']['common']['lang']);
+                        }
+                        else
+                        {
+                                foreach ($GLOBALS['sitemgr_info']['sitelanguages'] as $lang)
+                                {
+                                        if (in_array($lang,$availablelangsforpage))
+                                        return $this->pages_bo->GetPage($page_id,$lang);
+                                }
+                        }
+                }
+	
+
 		function loadPage($page_id)
 		{
-			$this->page = $this->pages_bo->GetPage($page_id);
+			$this->page = $this->getpagewrapper($page_id);
 		}
 
 		function loadIndex()
 		{
-			$this->page->title = 'Site Index';
+			$this->page->title = lang('Site Index');
 			$this->page->subtitle = '';
 			$indexarray = $this->getIndex();
-			$content = "\n".'<table border="0" width="100%" align="left" cellspacing="1" cellpadding="0"><tr>';
+			$content = "\n".
+				'<table border="0" width="100%" align="left" cellspacing="1" cellpadding="0">
+				<tr>';
 			$catname = '';
 			foreach($indexarray as $page)
 			{
@@ -67,7 +106,7 @@
 			$content .= "\n".'</td></tr></table></td></tr></table>';
 			if (count($indexarray)==0)
 			{
-				$content='You do not have access to any content on this site.';
+				$content=lang('You do not have access to any content on this site.');
 			}
 			$this->page->content = $content;
 		}
@@ -107,7 +146,7 @@
 							'catdepth'=>$cat['depth'],
 							'catdescrip'=>$cat['description'],
 							'catlink'=>$cat['link'],
-							'pagelink'=>'No pages available'
+							'pagelink'=>lang('No pages available')
 						);
 					}
 				}
@@ -127,28 +166,28 @@
 				if($acl->can_read_category($category_id))
 				{
 					$links = $this->getPageLinks($category_id,true);
-					$cat = $this->catbo->getCategory($category_id);
+					$cat = $this->getcatwrapper($category_id);
 					$content = '';
 					if ($cat)
 					{
-						$this->page->title = 'Category '.$cat->name;
+						$this->page->title = lang('Category').' '.$cat->name;
 						$this->page->subtitle = '<i>'.$cat->description.'</i>';
-						$content .= '<b><a href="'.sitemgr_link2('/index.php','toc=1').'">Up to table of contents</a></b>';
+						$content .= '<b><a href="'.sitemgr_link2('/index.php','toc=1').'">' . lang('Up to table of contents') . '</a></b>';
 						if ($cat->depth)
 						{
-							$content .= ' | <b><a href="'.sitemgr_link2('/index.php','category_id='.$cat->parent).'">Up to parent</a></b>';
+							$content .= ' | <b><a href="'.sitemgr_link2('/index.php','category_id='.$cat->parent).'">' . lang('Up to parent') . '</a></b>';
 						}
 						$children = $this->getCatLinks((int) $category_id,false);
 						if (count($children))
 						{
-							$content .= '<br><br><b>Subcategories:</b><br>';
+							$content .= '<br><br><b>' . lang('Subcategories') . ':</b><br>';
 							foreach ($children as $child)
 							{
 								$content .= '<br>&nbsp;&nbsp;&nbsp;&middot;&nbsp;<b>'.
 									$child['link'].'</b> &ndash; '.$child['description'];
 							}
 						}
-						$content .= '<br><br><b>Pages:</b><br>';
+						$content .= '<br><br><b>' . lang('Pages') . ':</b><br>';
 						$links = $this->getPageLinks($category_id,true);
 						if (count($links)>0)
 						{
@@ -165,7 +204,7 @@
 						}
 						else
 						{
-							$content .= '<li>There are no pages in this section</li>';
+							$content .= '<li>' . lang('There are no pages in this section') . '</li>';
 						}
 						$this->page->content=$content;
 					}
@@ -186,9 +225,9 @@
 			}
 			else
 			{
-				$this->page->title = 'Table of Contents';
+				$this->page->title = lang('Table of Contents');
 				$this->page->subtitle = '';
-				$content = '<b>Choose a category:</b><br>';
+				$content = '<b>' . lang('Choose a category') . ':</b><br>';
 				$links = $this->getCatLinks();
 				if (count($links)>0)
 				{
@@ -205,7 +244,7 @@
 				}
 				else
 				{
-					$content .= 'There are no sections available to you.';
+					$content .= lang('There are no sections available to you.');
 				}
 				$this->page->content=$content;
 			}
@@ -217,7 +256,7 @@
 			$pages=$this->pages_bo->getPageIDList($category_id);
 			foreach($pages as $page_id)
 			{
-				$page=$this->pages_bo->getPage($page_id);
+				$page=$this->getpagewrapper($page_id);
 				if ($showhidden || !$page->hidden)
 				{
 					if (strtolower($page->subtitle) == 'link')
@@ -257,7 +296,7 @@
 			}
 			foreach($cat_list as $cat_id)
 			{
-				$category = $this->catbo->getCategory($cat_id);
+				$category = $this->getcatwrapper($cat_id);
 				$catlinks[$cat_id] = array(
 					'name'=>$category->name,
 					'link'=>'<a href="'.sitemgr_link2('/index.php',
@@ -271,13 +310,13 @@
 
 		function get_header()
 		{
-			return $this->headerfooter_bo->getsiteheader();
+			return $this->headerfooter_bo->getsiteheader($GLOBALS['phpgw_info']['user']['preferences']['common']['lang']);
 		}
 
 		function get_siteName()
 		{
 			$prefs = CreateObject('sitemgr.sitePreference_SO');
-			return $prefs->getPreference('sitemgr-site-name');
+			return $prefs->getPreference('sitemgr-site-name-' . $GLOBALS['phpgw_info']['user']['preferences']['common']['lang']);
 		}
 
 		function get_title()
@@ -297,7 +336,7 @@
 
 		function get_footer()
 		{
-			return $this->headerfooter_bo->getsitefooter();
+			return $this->headerfooter_bo->getsitefooter($GLOBALS['phpgw_info']['user']['preferences']['common']['lang']);
 		}
 
 		function is_user()
@@ -316,6 +355,69 @@
 		function is_admin()
 		{
 			return $this->acl->is_admin();
+		}
+
+		//like $GLOBALS['phpgw']->common->getPreferredLanguage,
+		//but compares languages accepted by the user 
+		//to the languages the website is configured for
+		//instead of the languages installed in phpgroupware
+		function setsitemgrPreferredLanguage()
+		{
+			$supportedLanguages = $GLOBALS['sitemgr_info']['sitelanguages'] ? $GLOBALS['sitemgr_info']['sitelanguages'] : array('en');
+			$postlang = $_POST['language'];
+			if ($postlang && in_array($postlang,$supportedLanguages))
+			{
+				$GLOBALS['phpgw_info']['user']['preferences']['common']['lang'] = $postlang;
+				$GLOBALS['phpgw']->session->appsession('language','sitemgr-site',$postlang);
+				return;
+			}
+		    
+			$sessionlang = $GLOBALS['phpgw']->session->appsession('language','sitemgr-site');
+			if ($sessionlang)
+			{
+				$GLOBALS['phpgw_info']['user']['preferences']['common']['lang'] = $sessionlang;
+				return;
+			}
+			
+		    if ($this->is_user())
+			{
+				$userlang = $GLOBALS['phpgw_info']['user']['preferences']['common']['lang'];
+				if (in_array($userlang,$supportedLanguages))
+				{
+				//we do not touch $GLOBALS['phpgw_info']['user']['preferences']['common']['lang'] if
+				//the user is registered and his lang preference is supported by the website,
+				//but save it to the appsession for quicker retrieval
+				$GLOBALS['phpgw']->session->appsession('language','sitemgr-site',$userlang);
+			    return;
+				}
+			}
+			     	     
+			// create a array of languages the user is accepting
+			$userLanguages = explode(',',$GLOBALS['HTTP_ACCEPT_LANGUAGE']);
+		    
+			// find usersupported language
+			while (list($key,$value) = each($userLanguages))
+			{
+				// remove everything behind '-' example: de-de
+				$value = trim($value);
+				$pieces = explode('-', $value);
+				$value = $pieces[0];
+				//print "current lang $value<br>";
+				if (in_array($value,$supportedLanguages))
+				{
+					$browserlang = $value;
+					break;
+				}
+			}
+
+			// no usersupported language found -> return the first entry of sitelanguages
+			if (empty($browserlang))
+			{
+				$browserlang = $supportedLanguages[0];
+			}
+		    
+			$GLOBALS['phpgw_info']['user']['preferences']['common']['lang'] = $browserlang;
+			$GLOBALS['phpgw']->session->appsession('language','sitemgr-site',$browserlang);
 		}
 
 	}

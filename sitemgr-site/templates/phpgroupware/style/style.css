@@ -98,14 +98,14 @@ A:hover         {
 }
 .release-num {
 	COLOR: #000000;
-	FONT-SIZE: 9px;
+	FONT-SIZE: 8px;
 	TEXT-DECORATION: underline;
 	FONT-FAMILY: Verdana, Arial,Helvetica,Geneva
 }
 
 .release {
 	COLOR: #000000;
-	FONT-SIZE: 10px;
+	FONT-SIZE: 9px;
 	FONT-FAMILY: Verdana, Arial,Helvetica,Geneva; 
 	FONT-WEIGHT: bold;
 }

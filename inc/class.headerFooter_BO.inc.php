@@ -12,21 +12,21 @@
 			$this->acl = CreateObject('sitemgr.ACL_BO', True);
 		}
 
-		function getSiteHeader()
+		function getSiteHeader($lang)
 		{
-			return $this->preferenceso->getPreference('siteheader');
+			return $this->preferenceso->getPreference('siteheader-'. $lang);
 		}
 
-		function getSiteFooter()
+		function getSiteFooter($lang)
 		{	
-			return $this->preferenceso->getPreference('sitefooter');	
+			return $this->preferenceso->getPreference('sitefooter-'. $lang);	
 		}
 
-		function setSiteHeader($header)
+		function setSiteHeader($header,$lang)
 		{
 			if ($this->acl->is_admin())
 			{
-				if($this->preferenceso->setPreference('siteheader',$header))
+				if($this->preferenceso->setPreference('siteheader-'. $lang,$header))
 				{
 					return true;
 				}
@@ -41,11 +41,11 @@
 			}
 		}
 
-		function setSiteFooter($footer)
+		function setSiteFooter($footer,$lang)
 		{
 			if ($this->acl->is_admin())
 			{
-				if($this->preferenceso->setPreference('sitefooter',$footer))
+				if($this->preferenceso->setPreference('sitefooter-'. $lang,$footer))
 				{
 					return true;
 				}

@@ -13,7 +13,24 @@
 		function needUpdateCategories()
 		{
 			$prefs = CreateObject('sitemgr.sitePreference_SO');
-			return !$prefs->getPreference('catsupdated');
+			if ($prefs->getPreference('catsupdated'))
+			{
+				return False;
+			}
+			else
+			{
+				// if there is no table phpgw_sitemgr_categories we do not need and update
+				$table_names = $GLOBALS['phpgw']->db->table_names();
+				foreach ($table_names as $table)
+				{
+					if ($table['table_name'] == 'phpgw_sitemgr_categories')
+					{
+						return True;
+					}
+				}
+			$prefs->setPreference('catsupdated','True');
+			return False;
+			}
 		}
 
 		function updateCategories()
@@ -171,7 +188,7 @@
 			}
 		}
 
-		function saveCategoryInfo($cat_id, $cat_name, $cat_description, $sort_order=0, $parent=0)
+		function saveCategoryInfo($cat_id, $cat_name, $cat_description, $lang, $sort_order=0, $parent=0, $old_parent=0)
 		{
 			$cat_info = CreateObject('sitemgr.Category_SO', True);
 			$cat_info->id = $cat_id;
@@ -179,14 +196,26 @@
 			$cat_info->description = $cat_description;
 			$cat_info->sort_order = $sort_order;
 			$cat_info->parent = $parent;
+			if ($old_parent!='')
+			{
+				$cat_info->old_parent = $old_parent;
+			}
+			else
+			{
+				$cat_info->old_parent = $parent;
+			}
 
 			if ($this->acl->can_write_category($cat_id))
 			{	
-				if($this->so->saveCategory($cat_info))
-				{
-					return True;
-				}
-				return False;
+			  if ($this->so->saveCategory($cat_info));
+			  {
+			    if ($this->so->saveCategoryLang($cat_id, $cat_name, $cat_description, $lang))
+			      {
+				return True;
+			      }
+			    return false;
+			  }
+			  return false;
 			}
 			else
 			{
@@ -194,18 +223,32 @@
 			}
 		}
 
-		function getCategory($cat_id)
+		function saveCategoryLang($cat_id, $cat_name, $cat_description, $lang)
+		  {
+		    if ($this->so->saveCategoryLang($cat_id, $cat_name, $cat_description, $lang))
+		      {
+			return True;
+		      }
+		    return false;
+		  }
+		
+		function getCategory($cat_id,$lang=False)
 		{
 			if ($this->acl->can_read_category($cat_id))
 			{
-				return $this->so->getCategory($cat_id);
+				return $this->so->getCategory($cat_id,$lang);
 			}
 			else
 			{
 				return false;
 			}
 		}
-		
+
+		function getlangarrayforcategory($cat_id)
+		  {
+		    return $this->so->getlangarrayforcategory($cat_id);
+		  }
+
 		function saveCategoryPerms($cat_id, $group_access, $user_access)
 		{
 			if ($this->acl->is_admin())
@@ -260,6 +303,16 @@
 			{
 				echo 'wth!';
 			}
+		}
+
+		function removealllang($lang)
+		{
+			$this->so->removealllang($lang);
+		}
+
+		function migratealllang($oldlang,$newlang)
+		{
+			$this->so->migratealllang($oldlang,$newlang);
 		}
 	}
 ?>

@@ -13,6 +13,12 @@
 
 	function sitemgr_link2($url, $extravars = '')
 	{
+		// humor me with this wrapper function...
+		return sitemgr_link($url, $extravars);
+	}
+
+	function sitemgr_link($url, $extravars = '')
+	{
 		$kp3 = $GLOBALS['HTTP_GET_VARS']['kp3'] ? $GLOBALS['HTTP_GET_VARS']['kp3'] : $GLOBALS['HTTP_COOKIE_VARS']['kp3'];
 
 		if (! $kp3)
@@ -21,7 +27,7 @@
 		}
 
 		// Change http://xyz/index.php?page_name=page1 to
-		// http://xyz/page1/ i the htaccess stuff is enabled
+		// http://xyz/page1/ if the htaccess stuff is enabled
 		$page_name = '';
 		if (!is_array($extravars))
 		{
@@ -46,9 +52,11 @@
 			$extravars = $newextravars;
 		}
 
+		// In certain instances a url may look like this: 'http://xyz//hi.php' or
+		// like this: '//index.php?blahblahblah' -- so the code below will remove
+		// the inappropriate double slashes and leave appropriate ones
 		$url = $GLOBALS['sitemgr_info']['sitemgr-site_url'] . $url;
-
-		$url = ereg_replace('//','/',$url);
+		$url = substr(ereg_replace('([^:])//','\1/','s'.$url),1);
 
 		// build the extravars string from a array
 			

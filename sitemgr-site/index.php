@@ -31,21 +31,24 @@
 	{
 		die ("You need to copy config.inc.php.template to config.inc.php and edit the file before continuing.");
 	}
+
 	require_once('./functions.inc.php');
-	require_once('./blockconfig.inc.php');
 
 	include './inc/class.ui.inc.php';
 	include './inc/class.bo.inc.php';
 	include './inc/class.so.inc.php';
 	include './inc/class.Template2.inc.php';
 
-	global $page_id;
-	global $page_name;
-	global $category_id;
-	global $toc;
-	global $index;
 
 	$objui = new ui;
+
+
+	$page_id = $_GET['page_id'];
+	$page_name = $_GET['page_name'];
+	$category_id = $_GET['category_id'];
+	$toc = $_GET['toc'];
+	$index = $_GET['index'];
+
 	if ($page_name)
 	{
 		$objui->displayPageByName($page_name);

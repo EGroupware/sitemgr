@@ -96,8 +96,8 @@
 			}
 			else
 			{
-				$title = 'Block not found';
-				$content = 'Contact the administrator.';
+				$title = lang('Block not found');
+				$content = lang('Contact the administrator.');
 			}
 
 			add_theme_var('block_title',$title);
@@ -393,7 +393,7 @@
     	$file = @file("blocks/$blockfile");
     	if (!$file) 
 		{
-			$content = 'Block not found.';
+			$content = lang('Block not found.');
     	} 
 		else 
 		{
@@ -401,7 +401,7 @@
     	}
     	if ($content == '') 
 		{
-			$content = 'Block returned no content.';
+			$content = lang('Block returned no content.');
     	}
     	if ($side == 1) 
 		{

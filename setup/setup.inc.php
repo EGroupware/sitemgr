@@ -13,9 +13,9 @@
 
 	$setup_info['sitemgr']['name']      = 'sitemgr';
 	$setup_info['sitemgr']['title']     = 'SiteMgr Web Content Manager'; // note to mr_e: left for 0.9.14, need to go into the lang-file for HEAD
-	$setup_info['sitemgr']['version']   = '0.9.14.002';
+	$setup_info['sitemgr']['version']   = '0.9.14.005';
 	$setup_info['sitemgr']['app_order'] = 8;
-	$setup_info['sitemgr']['tables']    = array('phpgw_sitemgr_pages','phpgw_sitemgr_blocks','phpgw_sitemgr_preferences');
+	$setup_info['sitemgr']['tables']    = array('phpgw_sitemgr_pages','phpgw_sitemgr_pages_lang','phpgw_sitemgr_categories_lang','phpgw_sitemgr_blocks','phpgw_sitemgr_preferences');
 	$setup_info['sitemgr']['enable']    = 1;
 	$setup_info['sitemgr']['description'] =
 		'<u>Overview</u><br>

@@ -19,24 +19,33 @@
 				'sort_order' => array('type' => 'int', 'precision' => 4),
 				'hide_page' => array('type' => 'int', 'precision' => 4),
 				'name' => array('type' => 'varchar', 'precision' => 100),
-				'title' => array('type' => 'varchar', 'precision' => 256),
-				'subtitle' => array('type' => 'varchar', 'precision' => 256),
-				'content' => array('type' => 'text')
 			),
 			'pk' => array('page_id'),
 			'fk' => array(),
 			'ix' => array('cat_id'),
 			'uc' => array()
 		),
-		'phpgw_sitemgr_categories' => array(
+		'phpgw_sitemgr_pages_lang' => array(
+			'fd' => array(
+				'page_id' => array('type' => 'auto', 'nullable' => false),
+				'lang' => array('type' => 'varchar', 'precision' => 2, 'nullable' => false),
+				'title' => array('type' => 'varchar', 'precision' => 256),
+				'subtitle' => array('type' => 'varchar', 'precision' => 256),
+				'content' => array('type' => 'text')
+			),
+			'pk' => array('page_id','lang'),
+			'fk' => array(),
+			'ix' => array(),
+			'uc' => array()
+		),
+		'phpgw_sitemgr_categories_lang' => array(
 			'fd' => array(
 				'cat_id' => array('type' => 'auto', 'nullable' => false),
-				'sort_order' => array('type' => 'int', 'precision' => 4),
-				'parent' => array('type' => 'int', 'precision' => 4),
+				'lang' => array('type' => 'varchar', 'precision' => 2, 'nullable' => false),
 				'name' => array('type' => 'varchar', 'precision' => 100),
 				'description' => array('type' => 'varchar', 'precision' => 256)
 			),
-			'pk' => array('cat_id'),
+			'pk' => array('cat_id','lang'),
 			'fk' => array(),
 			'ix' => array(),
 			'uc' => array()
@@ -45,7 +54,7 @@
 			'fd' => array(
 				'block_id' => array('type' => 'auto', 'nullable' => false),
 				'side' => array('type' => 'int', 'precision' => 4),
-				'position' => array('type' => 'int', 'precision' => 4),
+				'pos' => array('type' => 'int', 'precision' => 4),
 				'filename' => array('type' => 'varchar', 'precision' => 300),
 				'title' => array('type' => 'varchar', 'precision' => 256)
 			),

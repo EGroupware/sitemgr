@@ -71,7 +71,23 @@ else
 	$base_script_server = 'http://'.$HTTP_SERVER_VARS['SERVER_NAME'].':'.$server_port;
 }
 
-$r = $HTTP_SERVER_VARS["REQUEST_URI"];
+//pos stuff is used for stripping get vars from the uri
+$pos = strpos($HTTP_SERVER_VARS['REQUEST_URI'],'?');
+if ($pos === false)
+{
+	$r = $HTTP_SERVER_VARS["REQUEST_URI"];
+}
+else
+{ 
+	if ($pos < 1)
+	{ 
+		$r = '';
+	}
+	else
+	{ 
+		$r = substr($HTTP_SERVER_VARS['REQUEST_URI'],0,$pos-1);
+	}
+}
 $r_doc = substr($r,strlen($base_script_uri));
 
 $url_array = explode("/", $r_doc);
