@@ -363,7 +363,7 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 					return $GLOBALS['sitemgr_info']['mode'] == 'Edit' ?
 						'<link href="templates/default/style/editmode.css" type="text/css" rel="StyleSheet" />' : '';
 				default:
-					return "{$var}";	// leave it unchanged, happens eg. with js-code
+					return '{'.$var.'}';	// leave it unchanged, happens eg. with js-code
 			}
 		}
 
