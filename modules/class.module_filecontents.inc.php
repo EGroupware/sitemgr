@@ -50,7 +50,11 @@ class module_filecontents extends Module
 			}
 			if ($fp = fopen($path,'rb'))
 			{
-				$ret = fread($fp,2000000);
+				$ret = '';
+				while (!feof($fp))
+				{
+					$ret .= fread($fp,1024);
+				}
 				fclose ($fp);
 				$is_html = True;
 			}
