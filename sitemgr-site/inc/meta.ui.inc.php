@@ -42,6 +42,6 @@ echo "<META NAME=\"RATING\" CONTENT=\"GENERAL\">\n";
 # DO NOT REMOVE THE FOLLOWING COPYRIGHT LINE! #
 ###############################################
 
-echo "<META NAME=\"GENERATOR\" CONTENT=\"phpGroupWare Web Content Manager\">\n";
+echo "<META NAME=\"GENERATOR\" CONTENT=\"eGroupWare Web Content Manager\">\n";
 
 ?>
