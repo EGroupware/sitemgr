@@ -32,7 +32,7 @@
 
 		function getlangname($lang)
 		  {
-		    $GLOBALS['phpgw']->db->query("select lang_name from languages where lang_id = '$lang'",__LINE__,__FILE__);
+		    $GLOBALS['phpgw']->db->query("select lang_name from phpgw_languages where lang_id = '$lang'",__LINE__,__FILE__);
 		    $GLOBALS['phpgw']->db->next_record();
 		    return $GLOBALS['phpgw']->db->f('lang_name');
 		  }
