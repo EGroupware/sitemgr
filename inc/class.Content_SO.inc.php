@@ -168,7 +168,7 @@
 
 		function getblock($block_id,$lang)
 		{
-			$sql = "SELECT t1.block_id,cat_id,page_id,area,t1.module_id,app_name,module_name,arguments,arguments_lang,sort_order,title,viewable,actif FROM phpgw_sitemgr_content AS t1,phpgw_sitemgr_modules AS t2 LEFT JOIN phpgw_sitemgr_content_lang as t3 ON (t1.block_id=t3.block_id AND lang='$lang') WHERE t1.module_id = t2.module_id AND t1.block_id = $block_id";
+			$sql = "SELECT t1.block_id,cat_id,page_id,area,t1.module_id,app_name,module_name,arguments,arguments_lang,sort_order,title,viewable,actif FROM phpgw_sitemgr_modules AS t2, phpgw_sitemgr_content AS t1 LEFT JOIN phpgw_sitemgr_content_lang as t3 ON (t1.block_id=t3.block_id AND lang='$lang') WHERE t1.module_id = t2.module_id AND t1.block_id = $block_id";
 			$this->db->query($sql,__LINE__,__FILE__);
 			if ($this->db->next_record())
 			{
