@@ -299,8 +299,16 @@
 			{
 				if ($_POST['btnDelete'] || $standalone)
 				{
+					$cat = $this->cat_bo->getCategory($cat_id,False,True);
 					$this->cat_bo->removeCategory($cat_id);
-					$reload = 'opener.location.reload();';
+					$parent_url = $GLOBALS['Common_BO']->sites->current_site['site_url'].'?category_id='.$cat->parent;
+					if (!isset($GLOBALS['phpgw_info']['server']['usecookies']) || !$GLOBALS['phpgw_info']['server']['usecookies'])
+					{
+						$parent_url .= '&sessionid='. @$GLOBALS['phpgw_info']['user']['sessionid'];
+						$parent_url .= '&kp3='.($_GET['kp3'] ? $_GET['kp3'] : $GLOBALS['phpgw_info']['user']['kp3']);
+						$parent_url .= '&domain='.@$GLOBALS['phpgw_info']['user']['domain'];
+					}
+					$reload = "opener.location.href='$parent_url';";
 				}
 				if ($standalone)
 				{
