@@ -20,7 +20,7 @@
 		{
 			 $mos_content_cache[$contentarea] = $objui->t->process_blocks($contentarea);
 		}
-		return !empty($mos_content_cache[$contentarea]);
+		return (int)!empty($mos_content_cache[$contentarea]);
 	}
 
 	function mosLoadModules($contentarea)
