@@ -5,6 +5,7 @@
 <b>autoregistration is not enabled / configured in the registration app !!!</b><br>you need to do so, to get the autoregistration link working.	sitemgr	sl	<b>Avtomatska registracija ni vključena / nastavljena v programu za registracijo!</b><br>Za delovanje povezave za avtomatsko registracijo, je to potrebno narediti.
 <b>want more templates?</b><br />just download one from the template gallery at %1www.egroupware.org%2 or use a %3mambo open source%4 version 4.5 compatible template eg. from %5. unpack the downloaded template in your templates directory (%6).	sitemgr	sl	<b>Želite več predlog?<b><br/>Prenesite si jih iz galerije predlog na %1www.eGroupWare.org%2 ali uporabite z %3Mambo Open Source%4 Version 4.5 združljivo predlogo, npr. iz %5. Odarhivirajte preneseno predlogo v vašo mapo s predlogami (%6).
 a simple picture galery	sitemgr	sl	Enostavna galerija slik
+actif	sitemgr	sl	Actif
 add a category	sitemgr	sl	Dodaj kategorijo
 add a new application	sitemgr	sl	Dodaj nov program
 add a new guestbook	sitemgr	sl	Dodaj novo knjigo gostov
@@ -20,7 +21,6 @@ administrative menu	sitemgr	sl	Administrativni meni
 administrators	sitemgr	sl	Administratorji
 all categories	sitemgr	sl	Vse kategorije
 all forums in category %1	sitemgr	sl	Vsi forumi v kategoriji %1
-all languages	sitemgr	sl	vsi jeziki
 allow posting of questions	sitemgr	sl	Dovoli objavljanje vprašanj
 amazon	sitemgr	sl	Amazon
 amazon server (without www), eg. amazon.com	sitemgr	sl	Amazon strežnik (brez www), npr. amazon.com
@@ -43,7 +43,6 @@ asin[=title] pairs (title is optional)	sitemgr	sl	ASIN[=naslov] pari (naslov ni 
 attempt to access information outside current website	sitemgr	sl	Poizkus dostopa do informacij izven trenutne spletne strani
 attempt to edit non-editable block	sitemgr	sl	Poizkus urejanja ne-urejevalnega bloka
 automatic index	sitemgr	sl	Avtomatično kazalo
-automatically generated notification	sitemgr	sl	Avtomatično poslano obvestilo
 back to module manager	sitemgr	sl	Nazaj na upravljalca modulov
 back to the list of languages	sitemgr	sl	Nazaj na seznam jezikov
 basic settings	sitemgr	sl	Osnovne nastavitve
@@ -65,7 +64,7 @@ category name	sitemgr	sl	Ime kategorije
 category saved	sitemgr	sl	Kategorija shranjena
 changes saved.	sitemgr	sl	Spremembe shranjene.
 check here after every upgrade	sitemgr	sl	preveri tukaj po vsaki nadgradnji
-check to hide from condensed site index.	sitemgr	sl	Preveri za prikritje v zgoščenem seznamu strani
+check to hide from condensed site index.	sitemgr	sl	Označi, da se povezava na stran v zgoščenem kazalu strani ne prikaže.
 choose a category	sitemgr	sl	Izberite kategorijo
 choose a guestbook	sitemgr	sl	Izberite knjigo gostov
 choose language	sitemgr	sl	Izberite jezik
@@ -76,8 +75,8 @@ collapse threads	sitemgr	sl	Skrij pogovorne niti
 commit changes	sitemgr	sl	Objavi spremembe
 common prefix of the image-name (a number starting with 1 will be appended)	sitemgr	sl	predpona imena za sliko (število, začenši z 1 bo dodano)
 configure module properties	sitemgr	sl	Nastavi module
-configure sitemgr	sitemgr	sl	Nastavi SiteManager
-configure website	sitemgr	sl	Nastavi spletno stran
+configure sitemgr	sitemgr	sl	Konfiguriraj upravljalca spletišč
+configure website	sitemgr	sl	Konfiguriraj spletišče
 contact the administrator.	sitemgr	sl	Kontaktiraj administratorja
 content areas	sitemgr	sl	Območja vsebine
 content blocks	sitemgr	sl	Bloki vsebine
@@ -90,14 +89,14 @@ create new version	sitemgr	sl	Ustvari novo verzijo
 current section	sitemgr	sl	Trenutni oddelek
 default	sitemgr	sl	Privzeto
 default home page id number	sitemgr	sl	Privzeta ID številka domače strani
-define websites	common	sl	Določi spletne strani
+define websites	common	sl	Urejanje spletišč
 delete block	sitemgr	sl	Zbriši blok
 delete category	sitemgr	sl	Zbriši kategorijo
 delete page	sitemgr	sl	Zbriši stran
 delete this application	sitemgr	sl	Zbriši ta program
 delete this block	sitemgr	sl	Zbriši ta blok
 delete this guestbook	sitemgr	sl	Izbrišite to knjigo gostov
-delete version	sitemgr	sl	Zbriši verzijo
+delete version	sitemgr	sl	Izbriši različico
 deleting all data for %1	sitemgr	sl	Zbriši vse podatke za %1
 details for language %1 (%2)	sitemgr	sl	Podrobnosti za jezik %1 (%2)
 discussions	sitemgr	sl	Debate
@@ -109,37 +108,27 @@ do you want to delete them?	sitemgr	sl	Ali jih želite zbrisati?
 do you want to publish a rss feed for this news category	sitemgr	sl	Ali želite objaviti RSS feed za to kategorijo novic
 documentation	sitemgr	sl	Dokumentacija
 domain-name (offical dns-name eg. www.egroupware.org) if you want to give the user a choice between searching this site or the whole web. leaving it empty allows to search the web only.	sitemgr	sl	Ime domene (uradno DNS ime, npr. www.eGroupWare.org), če naj uporabnik izbira med iskanjem po tem spletišču ali po celotnem spletu. Če pustite prazno, bo možno le iskanje po celotnem spletu.
-don't have an account?	sitemgr	sl	Nimate računa?
+don't have an account?	sitemgr	sl	Nimate gesla?
 done	sitemgr	sl	Končano
 download as zip-archiv	sitemgr	sl	prenesi kot ZIP-arhiv
 downloaded	sitemgr	sl	prenešeno
 draft	sitemgr	sl	osnutek
-draft mode	sitemgr	sl	Način osnutkov
+draft mode	sitemgr	sl	Prikaz osnutka
 edit categories and permissions	common	sl	Uredi kategorije in dovoljenja
 edit category	sitemgr	sl	Uredi kategorije
 edit individual pages	common	sl	Uredi posamezne strani
-edit mode	sitemgr	sl	Urejevalni način
+edit mode	sitemgr	sl	Prikaz z urejanjem
 edit page	sitemgr	sl	Uredi stran
 edit properties of module %1 for %2 with scope %3	sitemgr	sl	Uredi nastavitve za modul %1 za %2 z področjem %3
 edit site	sitemgr	sl	Uredi spletišče
 edit site header and footer	common	sl	Uredi glavo in nogo spletišča
 edit this block	sitemgr	sl	Uredi ta blok
 edit website	sitemgr	sl	Uredi spletišče
-egw users	sitemgr	sl	eGW uporabniki
-element successfully deleted.	sitemgr	sl	Element je bil uspešno izbrisan.
-email address	sitemgr	sl	Enaslov
 enter a name	sitemgr	sl	Vnesite ime
 enter the block content here	sitemgr	sl	Vnesite vsebino bloka tukaj
-enter the email to be notified about changes of the website.	sitemgr	sl	Vnesite enaslov, na katerega se bo poslalo obvestilo o spremembah na strežniku.
-enter the email to be notified about changes of the website:	sitemgr	sl	Vnesite enaslov, na katerega se bo poslalo obvestilo o spremembah na strežniku:
 enter the page content here	sitemgr	sl	Vnesite vsebino strani tukaj
 enterprise knowledge articles repository	sitemgr	sl	Zbirka člankov skupnih znanj
-entry duplicated.	sitemgr	sl	Vnos je bil podvojen.
-entry saved.	sitemgr	sl	Vnso je bil shranjen.
 error accessing page	common	sl	Napaka pri dostopu do strani
-error deleting the element.	sitemgr	sl	Napaka pri brisanju elementa.
-error writing to the database.	sitemgr	sl	Napaka pri pisanju v podatkovno bazo.
-error writing to the database: %1.	sitemgr	sl	Napaka pri pisanju v podatkovno bazo: %1.
 everybody	sitemgr	sl	vsi
 file %1 is not readable by the webserver !!!	sitemgr	sl	Datoteka %1 ni berljiva z internetnim strežnikom.
 file %1 is outside the docroot of the webserver !!!<br>this module does not allow - for security reasons - to open files outside the docroot.	sitemgr	sl	Datoteka %1 je izven korenske mape strežnika.<br>Ta modul zaradi varnostnih razlogov ne dopušča odpiranja datotek zunaj korenske mape.
@@ -180,7 +169,6 @@ individual access permissions	sitemgr	sl	Osebne pravice za dostop
 interface to google website	sitemgr	sl	Vmesnik za google spletišče
 invalid template directory '%1' !!!	sitemgr	sl	Nepravilna mapa s predlogami %1 !
 knowledge base	sitemgr	sl	Baza znanja
-language:	sitemgr	sl	Jezik:
 languages the site user can choose from	sitemgr	sl	Jeziki, ki jih lahko izbira uporabnik strani
 last entries to the guestbook	sitemgr	sl	Zadnji vnosi v knjigo gostov
 latest reply	sitemgr	sl	Zadnji odgovor
@@ -195,9 +183,7 @@ manage categories and pages	sitemgr	sl	Upravljaj kategorije in strani
 manage category wide content	sitemgr	sl	Upravljaj vsebino kategorije
 manage category wide module properties	sitemgr	sl	Upravljaj nastavitve modula kategorije
 manage content	sitemgr	sl	Upravljaj vsebino
-manage messages	sitemgr	sl	Upravljanje sporočil
 manage modules	sitemgr	sl	Upravljaj module
-manage notifications	sitemgr	sl	Upravljanje prijav
 manage page specific content	sitemgr	sl	Upravljaj vsebino, značilno za stran
 manage pages	common	sl	Upravljaj stran
 manage site content	sitemgr	sl	Upravljaj vsebino spletišča
@@ -205,8 +191,6 @@ manage site-wide content	sitemgr	sl	Upravljaj vsebino celotnega spletišča
 manage site-wide module properties	sitemgr	sl	Upravljaj nastavitve lastnosti modulov za celotno spletišče
 manage translations	sitemgr	sl	Upravljaj prevode
 master list of permitted modules	sitemgr	sl	Glavni list dovoljenih modulov
-message text:	sitemgr	sl	Besedilo sporočila:
-messages are defined for all site languages.	sitemgr	sl	Sporočila so definirana za vse jezike spletišča.
 migrating data for %1 to %2	sitemgr	sl	Prenašam podatke za %1 v %2
 module %1 is not permitted in this context!	sitemgr	sl	Modul %1 v tem kontekstu ni dovoljen.
 module manager	sitemgr	sl	Upravljalec modulov
@@ -225,7 +209,7 @@ no anonymous user accounts installed.  notify the administrator.	sitemgr	sl	NOBE
 no content areas found in selected template	sitemgr	sl	Ne najdem nobenega območja vsebin v označeni predlogi
 no content found	sitemgr	sl	Ne najdem vsebine
 no groups defined.	sitemgr	sl	Nobena skupina ni definirana.
-no link to full index	sitemgr	sl	Ni povezave na popolni seznam
+no link to full index	sitemgr	sl	Ni povezave na kazalo.
 no matching news item	sitemgr	sl	Ni ustreznih novic.
 no modules permitted for this content area/category	sitemgr	sl	Noben modul ni dovoljen za to območje vsebin/kategorijo
 no new modules found !!!	sitemgr	sl	Ne najdem novih modulov.
@@ -259,12 +243,13 @@ page title	sitemgr	sl	Naslov strani
 pages	sitemgr	sl	Strani
 pages:	sitemgr	sl	Strani:
 parent	sitemgr	sl	Nadrejen
-parent section:	sitemgr	sl	Nadrejena sekcija
+parent section:	sitemgr	sl	Nadrejena stran
 password	sitemgr	sl	Geslo
 password that you assigned for the anonymous user account.	sitemgr	sl	Geslo, ki je bilo določeno anonimnemu uporabniškemu računu.
 path to image-directory '%1' is not valid or readable by the webserver !!!	sitemgr	sl	Pot do mape s slikami '%1' ni pravilna ali berljiva s strani strežnika!
 path to zip binary if not in path of the webserver	sitemgr	sl	Pot do ZIP binarne datoteke, če ni pot do spletnega strežnika.
 percentage	sitemgr	sl	Odstotek
+phpgw users	sitemgr	sl	phpgw uporabniki
 phrases in total	sitemgr	sl	Vse fraze
 please enter a name for that site !	sitemgr	sl	Prosimo vnesite ime za to stran
 please sign the guestbook	sitemgr	sl	Prosim, podpišite knjigo gostov
@@ -272,13 +257,13 @@ post a message to this thread	sitemgr	sl	Objavi sporočilo v tej pogovorni niti
 prepublished	sitemgr	sl	predobjavljeno
 preunpublished	sitemgr	sl	predodstranjeno
 previous	sitemgr	sl	Prejšnji
-production mode	sitemgr	sl	Način produkcije
+production mode	sitemgr	sl	Produkcijski prikaz
 published	sitemgr	sl	Objavljeno
 reactivate content	sitemgr	sl	Ponovno aktiviraj vsebino
 read permission	sitemgr	sl	Pravica branja
 redirection	sitemgr	sl	Preusmeritev
 refresh	sitemgr	sl	Osveži
-register for one now.	sitemgr	sl	Registrirajte se sedaj.
+register for one now.	sitemgr	sl	Lahko se registrirate.
 register new modules	sitemgr	sl	Registriraj nove module
 reload	sitemgr	sl	Obnovi
 replies	sitemgr	sl	Odgovori
@@ -292,7 +277,7 @@ save	sitemgr	sl	Shrani
 save block	sitemgr	sl	Shrani blok
 saved	sitemgr	sl	Shranjeno
 scope	sitemgr	sl	Območje
-seen by	sitemgr	sl	Videno od
+seen by	sitemgr	sl	Vidno za
 select a category	sitemgr	sl	Označite kategorijo
 select a forum	sitemgr	sl	Označite forum
 select allowed modules	sitemgr	sl	Označite dovoljene module
@@ -313,11 +298,11 @@ site %1 has been updated	sitemgr	sl	Spletišče %1 je bilo obnovljeno.
 site administrators	sitemgr	sl	Administratorji spletišča
 site description	sitemgr	sl	Opis spletišča
 site format manager	sitemgr	sl	Upravljalec oblike strani
-site index	sitemgr	sl	Indeks spletišča
+site index	sitemgr	sl	Kazalo spletišča
 site name	sitemgr	sl	Ime spletišča
 site setup	common	sl	Namestitev spletišča
 site tree menu	sitemgr	sl	Meni drevesa spletišča
-site wide	sitemgr	sl	Območje spletišča
+site wide	sitemgr	sl	Celotno spletišče
 sitemgr	common	sl	Upravljalec spletišč
 sitemgr manual	sitemgr	sl	Upravljalec spletišč - priročnik
 sitemgr options	sitemgr	sl	Upravljalec spletišč - možnosti
@@ -341,11 +326,11 @@ template select	sitemgr	sl	Izbor predloge
 textarea	sitemgr	sl	Območje besedila
 the category to display, 0 for complete table of contents	sitemgr	sl	Kategorija za prikaz, 0 za popolno kazalo
 the complete url or path to a file to be included	sitemgr	sl	Celoten URL ali pot do datoteke za vključitev
-the config.inc.php file needs to be edited to point to the egroupware directory. copy the config.inc.php.template file to config.inc.php and then edit it.	sitemgr	sl	config.inc.php datoteko je potrebno urediti, da bo kazala na eGroupWare mapo. Skopirajte config.inc.php.template datoteko v config.inc.php in jo uredite.
+the config.inc.php file needs to be edited to point to the egroupware directory. copy the config.inc.php.template file to config.inc.php and then edit it.	sitemgr	sl	Datpteka config.inc.php mora biti popravljena, da kaže na začetno eGroupWare mapo. Prekopirajte datoteko config.inc.php.template v config.inc.php in jo nato popravite.
+the config.inc.php file needs to be edited to point to the phpgroupware directory. copy the config.inc.php.template file to config.inc.php and then edit it.	sitemgr	sl	config.inc.php datoteko je potrebno urediti, da bo kazala na phpGroupWare mapo. Skopirajte config.inc.php.template datoteko v config.inc.php in jo uredite.
 the file to be downloaded	sitemgr	sl	Datoteka za prenos
 the filesystem path to your sitemgr-site directory '%1' is probably wrong. go to sitemgr --> define websites and edit/fix the concerned site.	sitemgr	sl	Pot do vaše mape Upravljalca spletišč '%1' je najverjetneje napačna. Pojdite na Upravljalec spletišč --> Določi spletišča in uredite to stran
 the first directory to think about is sitemgr-link.  if you move this to the parent directory of sitemgr (your egroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  if you don't want this icon, there's no reason to ever bother with the directory.	sitemgr	sl	Prva mapa, o kateri je vredno razmisliti, je sitemgr-link. Če premaknete to v mapo, nadrejeno mapi sitemgr (vašo korensko eGroupWare mapo), boste aplikacijo lahko namestili in uporabniki bodo do strežnika lahko dostopali s pomočjo ikone v orodni vrstici. Če tega ne želite, preskočite ta korak.
-the messages for changes in this language will use the default text, if available.	sitemgr	sl	Obvestila o spremembah v tem jeziku bodo poslana v osnovnem jeziku spletišča, če so predloge v njem na voljo.
 the name field cannot contain punctuation or spaces (field modified).	sitemgr	sl	Polje Ime ne more vsebovati pik ali presledkov in je bilo spremenjeno.
 the page name must be unique.	sitemgr	sl	Ime strani ne sme biti že uporabljeno.
 the page was successfully saved.	sitemgr	sl	Stran je bila uspešno shranjena.
@@ -356,21 +341,18 @@ the text for the link, if empty the module returns the raw url (without a link)	
 the url can be relative or absolute.  name must end in a slash.	sitemgr	sl	URL je lahko relativen ali absoluten. Ime se mora končati s poševnico.
 the url must be absolute and end in a slash, for example http://mydomain.com/mysite/	sitemgr	sl	URL mora biti absoluten in se končati s poševnico, npr. http://domena.si/mojastran/
 the url to redirect to	sitemgr	sl	URL za preusmeritev
-the web	sitemgr	sl	splet
-the website has changed. too see the change, follow this url: $url.	sitemgr	sl	Spletišče se je spremenilo. Spremembe si lahko ogledate na naslenji povezavi: $URL .
+the web	sitemgr	sl	Splet
 the whole page	sitemgr	sl	Celotna stran
 the xml files' common name	sitemgr	sl	Splošno ime za XML datoteke
 theme or template select	sitemgr	sl	Izbira teme ali predloge
-there are %1 elements in the list.	sitemgr	sl	V seznamu je %1 elementov.
-there are no categories	sitemgr	sl	Ni nobenih kategorij
-there are no forums in this category	sitemgr	sl	V tej kategoriji ni nobenih forumov
-there are no pages in this section	sitemgr	sl	V tem oddelku ni nobenih strani
-there are no properties defined for this module	sitemgr	sl	Za ta modul niso določene nobene nastavitve
-there are no sections available to you.	sitemgr	sl	Na voljo ni nobenega oddelka
+there are no categories	sitemgr	sl	Ni kategorij.
+there are no forums in this category	sitemgr	sl	V tej kategoriji ni forumov.
+there are no pages in this section	sitemgr	sl	V tem razdelku ni podrejenih strani.
+there are no properties defined for this module	sitemgr	sl	Ta modul nima definiranih nastavitev.
+there are no sections available to you.	sitemgr	sl	Na voljo ni nobenega oddelka.
 there are two subdirectories off of your sitemgr directory that you should move before you do anything else.  you don't <i>have</i> to move either of these directories, although you will probably want to.	sitemgr	sl	Obstajata dve podmapi v vaši mapi sitemgr, ki ju je potrebno preden naredite karkoli drugega. Ni ju <i>potrebno</i> premakniti, vendar boste to verjetno želeli.
 there can only be one version in (pre(un))published state, with the one exeption that one prepublished version can coexist with one preunpublished version	sitemgr	sl	V stanju predobjavljeno ali predodstranjeno je lahko le ena različica, lahko pa obstajata obe hkrati.
 there is no website configured for url %1.  notify the administrator.	sitemgr	sl	NOBENA SPLETNA STRAN NI NASTAVLJENA ZA URL %1. OBVESTITE ADMINISTRATORJA.
-there is nothing to list.	sitemgr	sl	V seznamu ni ničesar.
 there was an error accessing the requested page. either you do not have permission to view this page, or the page does not exist.	common	sl	Napaka pri dostopanju do zahtevane strani. Lahko nimate dovoljenja za ogled strani ali pa ne obstaja.
 there was an error writing to the database.	sitemgr	sl	Pri pisanju v podatkovno bazo je prišlo napaka.
 this block displays a javascript based tree menu	sitemgr	sl	Ta blok prikaže drevesni meni, ki je baziran na javascriptu
@@ -386,6 +368,7 @@ this module displays a login form	sitemgr	sl	Ta modul prikaže obrazec za prijav
 this module displays bookmarks in a javascript based tree	sitemgr	sl	Ta modul prikaže zaznamke v drevesu
 this module displays the current month	sitemgr	sl	Ta modul prikaže trenutni mesec
 this module displays the egw forums on the web site	sitemgr	sl	Ta modul na spletišču prikaže eGroupWare forume.
+this module displays the phpgw forums on the web site	sitemgr	sl	Ta modul prikaže phpgw forume na spletni strani
 this module displays the root categories, its pages and evtl. subcategories. it is meant for side areas	sitemgr	sl	Ta modul prikaže korenske kageforije, njihove strani in morebitne podkategorije. Namenjen je  stranskim področjem.
 this module includes the contents of an url or file (readable by the webserver and in its docroot !)	sitemgr	sl	Ta modul vsebuje vsebino URL ali datoteke (lahko jo bere spletni strežnik ali njegov docroot!)
 this module is a selectbox to change the mode (production, draft or edit) plus a link back to sitemgr and to log out. it is meant for registered users only	sitemgr	sl	Ta modul je izbirni seznam za spremembo načina prikaza (produkcijski, osnutek ali urejanje), ter povezava nazaj v Upravljalca spletišča in za odjavo. Namenjen je le prijavljenim uporabnikom.
@@ -402,7 +385,7 @@ this module show the status / percentage of the translation of egw	sitemgr	sl	Ta
 this must be an absolute directory location.  <b>no trailing slash</b>.	sitemgr	sl	To mora biti absolutna pot do mape. <b>Brez zaključne poševnice</b>.
 this should be a comma-separated list of language-codes.	sitemgr	sl	To je seznam jezikovnih kod, ločenih z vejico.
 this should be a page that is readable by everyone. if you leave this blank, the site index will be shown by default.	sitemgr	sl	To je stran, ki jo lahko vidi vsak. Če jo pustite prazno, se bo prikazal seznam strani.
-this site	sitemgr	sl	to spletišče
+this site	sitemgr	sl	ta stran
 title	sitemgr	sl	Naslov
 topic	sitemgr	sl	Tema
 translate	sitemgr	sl	Prevedi
@@ -411,10 +394,8 @@ translate page	sitemgr	sl	Prevedi stran
 translate site-wide content blocks	sitemgr	sl	Prevedi vsebinske bloke po celotnem strežniku
 translation manager	sitemgr	sl	Upravljalec prevajanja
 translation status	sitemgr	sl	Stanje prevajanja
-unsubscribe	sitemgr	sl	Odjavi
-up to parent	sitemgr	sl	Gor do nadrejenega
-up to table of contents	sitemgr	sl	Gor do kazala
-update notification	sitemgr	sl	Usveži obvestilo
+up to parent	sitemgr	sl	Nadrejena stran
+up to table of contents	sitemgr	sl	Kazalo
 updating to new category system	sitemgr	sl	Nadgrajujem na nov sistem kategorij
 url pointing to the image-directory	sitemgr	sl	URL ki kaže na mapo s slikami
 url to sitemgr-site	sitemgr	sl	URL do strani Upravljalca strani
@@ -422,12 +403,12 @@ use phpnuke themes instead of templates	sitemgr	sl	Uporabi phpNuke teme namesto 
 use this module for displaying book ads for the amazon web site	sitemgr	sl	Uporabi ta modul za prikaz oglasov za amazon spletno stran
 use this module for displaying wiki-pages	sitemgr	sl	Uporabi ta modul za prikaz wiki-strani
 user name	sitemgr	sl	Uporabniško ime
-view administrative menu	sitemgr	sl	Poglej Administrativni meni
-view full index	sitemgr	sl	Poglejpopolen seznam
+view administrative menu	sitemgr	sl	Pokaži administrativni meni
+view full index	sitemgr	sl	Pokaži kazalo
 view generated site	sitemgr	sl	Poglej ustvarjeno stran
 view template on this site	sitemgr	sl	Poglej predlogo na tej strani
 view threads	sitemgr	sl	Preglej niti
-viewed	sitemgr	sl	Ogledano
+viewed	sitemgr	sl	videno
 web content manager	common	sl	Upravljalec strani - nadzor spletnih vsebin
 web content manager administration	sitemgr	sl	Nadzor in upravljanje spletnih vsebin
 web site manager	sitemgr	sl	Upravljalec spletnih strani
@@ -459,8 +440,6 @@ you must be an admin to edit the site header and footer.	sitemgr	sl	Za urejanje 
 you must be an admin to manage module properties.	sitemgr	sl	Za upravljanje nastavitev modula morate biti admin.
 you must be an administrator to setup the site manager.	sitemgr	sl	Za namestitev Upravljaleca strani morate biti administrator.
 you removed one ore more languages from your site languages.	sitemgr	sl	Odstranili ste enega ali več jezikov.
-you will remove the message in the following language from your notification system:	sitemgr	sl	S svojega spletišča boste izbrisali predlogo v naslednjem jeziku:
-you will stop notifying the following address about the changes of your site:	sitemgr	sl	Obvestila o spremembah se ne bodo več pošiljala na naslednji naslov:
 your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr	sl	Vaš administrator še ni namestil upravljalca spletnih vsebin za javni pogled. Pejte najedat administratorju, da naj prestavi svojo rit.
 your calendar	sitemgr	sl	Vaš koledar
 your comment	sitemgr	sl	Vaš komentar
