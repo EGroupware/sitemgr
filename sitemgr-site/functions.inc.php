@@ -38,9 +38,9 @@
 		$page_name = $extravars['page_name'];
 
 		if (!$page_name == '' &&
-			$GLOBALS['sitemgr_info']['htaccess_404']=='enabled')
+			$GLOBALS['sitemgr_info']['htaccess_rewrite']=='enabled')
 		{
-			$url = '/'.$page_name.'/';
+			$url = '/'.$page_name;
 			$newextravars=array();
 			while (list($key,$value) = each($extravars))
 			{
@@ -50,7 +50,6 @@
 				}
 			}
 			$extravars = $newextravars;
-
 		}
 
 		// In certain instances (wouldn't it be better to fix these instances? MT)
