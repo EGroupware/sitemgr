@@ -36,27 +36,11 @@
 			{
 				return $GLOBALS['phpgw']->strip_html($arguments['htmlcontent']);
 			}
-			// spamsaver emailaddress
-			$result = preg_replace('/mailto:([a-z0-9._-]+)@([a-z0-9_-]+)\.([a-z0-9._-]+)/i',
-					'<a href="#" onclick="document.location=\'mai\'+\'lto:\\1\'+unescape(\'%40\')+\'\\2.\\3\'; return false;">\\1 AT \\2 DOT \\3</a>',
-					$arguments['htmlcontent']);
-
-			//  First match things beginning with http:// (or other protocols)
-			$NotAnchor = '(?<!"|href=|href\s=\s|href=\s|href\s=)';
-			$Protocol = '(http|ftp|https):\/\/';
-			$Domain = '([\w]+.[\w]+)';
-			$Subdir = '([\w\-\.,@?^=%&:\/~\+#]*[\w\-\@?^=%&\/~\+#])?';
-			$Expr = '/' . $NotAnchor . $Protocol . $Domain . $Subdir . '/i';
-
-			$result = preg_replace( $Expr, "<a href=\"$0\" target=\"_blank\">$2$3</a>", $result );
-
-			//  Now match things beginning with www.
-			$NotAnchor = '(?<!"|href=|href\s=\s|href=\s|href\s=)';
-			$NotHTTP = '(?<!:\/\/)';
-			$Domain = 'www(.[\w]+)';
-			$Subdir = '([\w\-\.,@?^=%&:\/~\+#]*[\w\-\@?^=%&\/~\+#])?';
-			$Expr = '/' . $NotAnchor . $NotHTTP . $Domain . $Subdir . '/i';
-
-			return preg_replace( $Expr, "<a href=\"http://$0\" target=\"_blank\">$0</a>", $result );
+			// spamsaver emailaddress and activating the links
+			if (!is_object($GLOBALS['phpgw']->html))
+			{
+				$GLOBALS['phpgw']->html = CreateObject('phpgwapi.html');
+			}
+			return $GLOBALS['phpgw']->html->activate_links($arguments['htmlcontent']);
 		}
 	}
