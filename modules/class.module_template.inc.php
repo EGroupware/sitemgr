@@ -103,7 +103,7 @@
 				}
 				if ($show & 2)	// gallery
 				{
-					$t = CreateObject('phpgwapi.Template',PHPGW_SERVER_ROOT.'/sitemgr/templates/');
+					$t = CreateObject('phpgwapi.Template',$GLOBALS['phpgw']->common->get_tpl_dir('sitemgr'));
 					$t->set_file('theme_info','theme_info.tpl');
 					$t->set_block('theme_info','info_block');
 					$content .= '<table>'."\n";
