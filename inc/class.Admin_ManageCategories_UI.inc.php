@@ -94,8 +94,8 @@
 							{
 								$buffer = '';
 							}
-							$buffer = str_pad($buffer,$this->cat->depth*18,
-								'&nbsp;',STR_PAD_LEFT);
+							$buffer = str_pad('',$this->cat->depth*18,
+								'&nbsp;',STR_PAD_LEFT).$buffer;
 							$this->t->set_var('buffer', $buffer);
 							$this->t->set_var('category', $this->cat->name);
 							$category_id = $this->cat_list[$i];
