@@ -108,7 +108,7 @@
 				'area' => array('type' => 'varchar', 'precision' => 50, 'nullable' => false),
 				// cat_id 0 stands for site wide
 				'cat_id' => array('type' => 'int', 'precision' => 4, 'nullable' => false),
-				'module_id' => array('type' => 'auto', 'precision' => 4, 'nullable' => false)
+				'module_id' => array('type' => 'int', 'precision' => 4, 'nullable' => false)
 			),
 			'pk' => array('area','cat_id','module_id'),
 			'fk' => array(),
