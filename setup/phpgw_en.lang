@@ -22,11 +22,14 @@ changes saved.	sitemgr	en	Changes saved.
 check here after every upgrade	sitemgr	en	check here after every upgrade
 check to hide from condensed site index.	sitemgr	en	Check to hide from condensed site index.
 choose a category	sitemgr-site	en	Choose a category
+choose language	sitemgr-site	en	Choose language
 configure sitemgr	sitemgr	en	Configure SiteMgr
 contact the administrator.	sitemgr-site	en	Contact the administrator.
 content manager	sitemgr-site	en	Content Manager
 contributor menu	sitemgr	en	Contributor Menu
 default home page id number	sitemgr	en	Default home page ID number
+deleting all data for %1	sitemgr	en	Deleting all data for %1
+do you want to delete them?	sitemgr	en	Do you want to delete them?
 don't have an account?	sitemgr-site	en	Don't have an account?
 done	sitemgr	en	Done
 edit categories and permissions	common	en	Edit Categories and Permissions
@@ -54,6 +57,7 @@ main content	sitemgr	en	Main content
 manage categories	sitemgr	en	Manage Categories
 manage pages	common	en	Manage Pages
 manage translations	sitemgr	en	Manage Translations
+migrating data for %1 to %2	sitemgr	en	Migrating data for %1 to %2
 move to	sitemgr	en	Move to
 name	sitemgr	en	Name
 no anonymous user accounts installed. notify the administrator.	sitemgr-site	en	NO ANONYMOUS USER ACCOUNTS INSTALLED. NOTIFY THE ADMINISTRATOR.
@@ -62,12 +66,18 @@ no groups defined.	sitemgr	en	No groups defined.
 no options available.	sitemgr	en	No options available.
 no pages available	sitemgr-site	en	No pages available
 no users defined.	sitemgr	en	No users defined.
+page	sitemgr	en	Page
+page content	sitemgr	en	Page Content
 page manager	sitemgr	en	Page Manager
+page name	sitemgr	en	Page Name
 page saved.	sitemgr	en	Page saved.
+page subtitle	sitemgr	en	Page Subtitle
+page title	sitemgr	en	Page Title
 pages	sitemgr-site	en	Pages
 parent	sitemgr	en	Parent
 password	sitemgr-site	en	Password
 read permission	sitemgr	en	Read Permission
+refresh	sitemgr	en	Refresh
 register for one now.	sitemgr-site	en	Register for one now.
 required fields	sitemgr	en	Required Fields
 reset	sitemgr	en	Reset
@@ -99,6 +109,9 @@ there was an error accessing the requested page. either you do not have permissi
 there was an error writing to the database.	sitemgr	en	There was an error writing to the database.
 this category has no pages.	sitemgr	en	This category has no pages.
 title	sitemgr	en	Title
+translate	sitemgr	en	Translate
+translate category	sitemgr	en	Translate Category
+translate page	sitemgr	en	Translate Page
 translation manager	sitemgr	en	Translation Manager
 up to table of contents	sitemgr-site	en	Up to table of contents
 updating to new category system	sitemgr	en	Updating to new category system
@@ -109,8 +122,10 @@ view administrative menu	sitemgr	en	View Administrative Menu
 view generated site	sitemgr	en	View Generated Site
 web content manager	common	en	SiteMgr Web Content Manager
 web content manager administration	sitemgr	en	Web Content Manager Administration
+what do you want to do with existing translations of categories and pages for this language?	sitemgr	en	What do you want to do with existing translations of categories and pages for this language?
 write permission	sitemgr	en	Write Permission
 yes, please delete it	sitemgr	en	Yes, please delete it
+you can either migrate them to a new language or delete them	sitemgr	en	You can either migrate them to a new language or delete them
 you do not have access to any content on this site.	sitemgr-site	en	You do not have access to any content on this site.
 you don't have permission to write in the category	sitemgr	en	You don't have permission to write in the category
 you don't have permission to write to that category.	sitemgr	en	You don't have permission to write to that category.
@@ -118,4 +133,5 @@ you failed to fill in one or more required fields.	sitemgr	en	You failed to fill
 you must be an admin to edit categories.	sitemgr	en	You must be an admin to edit categories.
 you must be an admin to edit the site header and footer.	sitemgr	en	You must be an admin to edit the site header and footer.
 you must be an administrator to setup the site manager.	sitemgr	en	You must be an administrator to setup the Site Manager.
+you removed one ore more languages from your site languages.	sitemgr	en	You removed one ore more languages from your site languages.
 your calendar	sitemgr-site	en	Your Calendar
