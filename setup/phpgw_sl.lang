@@ -356,7 +356,7 @@ the text for the link, if empty the module returns the raw url (without a link)	
 the url can be relative or absolute.  name must end in a slash.	sitemgr	sl	URL je lahko relativen ali absoluten. Ime se mora končati s poševnico.
 the url must be absolute and end in a slash, for example http://mydomain.com/mysite/	sitemgr	sl	URL mora biti absoluten in se končati s poševnico, npr. http://domena.si/mojastran/
 the url to redirect to	sitemgr	sl	URL za preusmeritev
-the web	sitemgr	sl	Splet
+the web	sitemgr	sl	splet
 the website has changed. too see the change, follow this url: $url.	sitemgr	sl	Spletišče se je spremenilo. Spremembe si lahko ogledate na naslenji povezavi: $URL .
 the whole page	sitemgr	sl	Celotna stran
 the xml files' common name	sitemgr	sl	Splošno ime za XML datoteke
@@ -402,7 +402,7 @@ this module show the status / percentage of the translation of egw	sitemgr	sl	Ta
 this must be an absolute directory location.  <b>no trailing slash</b>.	sitemgr	sl	To mora biti absolutna pot do mape. <b>Brez zaključne poševnice</b>.
 this should be a comma-separated list of language-codes.	sitemgr	sl	To je seznam jezikovnih kod, ločenih z vejico.
 this should be a page that is readable by everyone. if you leave this blank, the site index will be shown by default.	sitemgr	sl	To je stran, ki jo lahko vidi vsak. Če jo pustite prazno, se bo prikazal seznam strani.
-this site	sitemgr	sl	ta stran
+this site	sitemgr	sl	to spletišče
 title	sitemgr	sl	Naslov
 topic	sitemgr	sl	Tema
 translate	sitemgr	sl	Prevedi
