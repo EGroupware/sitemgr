@@ -1,5 +1,5 @@
-before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr-link	zt	±z¥²¶·³]©w¦UºØ°Ï°ì»P°¾¦n¨ÓÅı¸ê°T¯à°÷¹ï¥~¤½¶}¡A½Ğ¨ìºô¯¸ºŞ²z­û³]©w¡G
-note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr-link	zt	±z¦pªG¨S¦³³]©w§¹¦¨´N·|¤@ª½¥X²{³o­Ó°T®§¡A¨Ò¦p config.inc.php ¤£¦b±z«ü©wªº¸ê®Æ§¨¤¤
-sitemgr setup page	sitemgr-link	zt	ºô¯¸ºŞ²z³]©w­¶­±
-you need to make sure the sitemgr-link app is in the phpgroupware directory.  if you made a symbolic link... it isn't working.	sitemgr-link	zt	±z¥²¶·½T©wºô¯¸³sµ²À³¥Îµ{¦¡¦beGroupWareªº¸ê®Æ§¨¤¤¡A¤£¯à°÷¥u¬O³z¹L³sµ²«ü¼Ğ¡C
-your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr-link	zt	±zªº¨t²ÎºŞ²z­û©|¥¼³]©wºô¯¸¤º®e¡A±z¥i¥H¥D°Ê¨D§U©ó¥L¡I
+before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr-link	zt	æ‚¨å¿…é ˆè¨­å®šå„ç¨®å€åŸŸèˆ‡åå¥½ä¾†è®“è³‡è¨Šèƒ½å¤ å°å¤–å…¬é–‹ï¼Œè«‹åˆ°ç¶²ç«™ç®¡ç†å“¡è¨­å®šï¼š
+note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr-link	zt	æ‚¨å¦‚æœæ²’æœ‰è¨­å®šå®Œæˆå°±æœƒä¸€ç›´å‡ºç¾é€™å€‹è¨Šæ¯ï¼Œä¾‹å¦‚ config.inc.php ä¸åœ¨æ‚¨æŒ‡å®šçš„è³‡æ–™å¤¾ä¸­
+sitemgr setup page	sitemgr-link	zt	ç¶²ç«™ç®¡ç†è¨­å®šé é¢
+you need to make sure the sitemgr-link app is in the phpgroupware directory.  if you made a symbolic link... it isn't working.	sitemgr-link	zt	æ‚¨å¿…é ˆç¢ºå®šç¶²ç«™é€£çµæ‡‰ç”¨ç¨‹å¼åœ¨eGroupWareçš„è³‡æ–™å¤¾ä¸­ï¼Œä¸èƒ½å¤ åªæ˜¯é€éé€£çµæŒ‡æ¨™ã€‚
+your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr-link	zt	æ‚¨çš„ç³»çµ±ç®¡ç†å“¡å°šæœªè¨­å®šç¶²ç«™å…§å®¹ï¼Œæ‚¨å¯ä»¥ä¸»å‹•æ±‚åŠ©æ–¼ä»–ï¼
