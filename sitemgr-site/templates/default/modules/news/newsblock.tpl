@@ -28,3 +28,7 @@
 </div>
 <br><br>
 <!-- END NewsBlock -->
+<!-- BEGIN RssBlock -->
+<a href="{rsslink}" target="_blank"><img src="images/M_images/rss.png" alt="RSS" /></a>
+<!-- END RssBlock -->
+

@@ -35,6 +35,10 @@
 
 		function get_user_interface()
 		{
+			if (!is_dir(PHPGW_SERVER_ROOT.'/news_admin') || !isset($GLOBALS['phpgw_info']['apps']['news_admin']))
+			{
+				return lang("Application '%1' is not installed !!!<br>Please install it, to be able to use the block.",'news_admin');
+			}
 			//we could put this into the module's constructor, but by putting it here, we make it execute only when the block is edited,
 			//and not when it is generated for the web site, thus speeding the latter up slightly
 			$cat = createobject('phpgwapi.categories','','news_admin');
@@ -53,10 +57,13 @@
 
 		function get_content(&$arguments,$properties)
 		{
+			if (!is_dir(PHPGW_SERVER_ROOT.'/news_admin') || !isset($GLOBALS['phpgw_info']['apps']['news_admin']))
+			{
+				return lang("Application '%1' is not installed !!!<br>Please install it, to be able to use the block.",'news_admin');
+			}
 			$bonews = CreateObject('news_admin.bonews');
 
-			$this->template = Createobject('phpgwapi.Template');
-			$this->template->set_root($this->find_template_dir());
+			$this->template = Createobject('phpgwapi.Template',$this->find_template_dir());
 			$this->template->set_file('news','newsblock.tpl');
 			$this->template->set_block('news','NewsBlock','newsitem');
 			$this->template->set_block('news','RssBlock','rsshandle');
