@@ -24,8 +24,7 @@
     (
       'edit' => True,
       'delete' => True,
-      'language' => True
-    );
+     );
     
     function Pages_UI()     
     {
@@ -114,34 +113,10 @@
           }
         }
       }
-      if($_POST['btnReload'])
-      {
-        if ($inputname == '' || $inputtitle == '')
-        {
-          $error = lang('You failed to fill in one or more required fields.');
-          $this->t->set_var('message',$error);
-        }
-        else
-        {
-          if(!$page_id)
-          {   
-            $page_id = $this->pagebo->addPage($inputcategoryid);
-            if(!$page_id)
-            {
-  //            echo lang("You don't have permission to write in the category");
-              $GLOBALS['phpgw']->redirect($GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Outline_UI.manage'));
-              return;
-            }
-          }
-          $focus_reload_close = 'opener.location.reload();';
-        }
-      }
 
       $openlanguage = $savelanguage ? $savelanguage : 
         ($GLOBALS['sitemgr_info']['userlang']?$GLOBALS['sitemgr_info']['userlang']:
           $this->sitelanguages[0]);
-      
-      //$GLOBALS['sitemgr_info']['userlang']=$openlanguage;
       
       if($page_id)
       {
@@ -154,7 +129,7 @@
         $this->t->set_var(array(
           'add_edit' => lang('Edit Page'),
           'catselect' => $this->getParentOptions($page->cat_id)
-      ));
+      	));
       }
       else
       {
