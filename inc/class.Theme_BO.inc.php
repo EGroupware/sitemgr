@@ -78,7 +78,7 @@
 							$info[$name] = $matches[2][$n];
 						}
 						$info['title'] = $info['description'];
-						if ($info['authorUrl'] && !strstr('http',$info['authorUrl']))
+						if ($info['authorUrl'] && substr($info['authorUrl'],0,4) != 'http')
 						{
 							$info['authorUrl'] = 'http://'.$info['authorUrl'];
 						}
