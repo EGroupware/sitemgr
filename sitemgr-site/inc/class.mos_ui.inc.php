@@ -14,13 +14,24 @@
 
 	function mosCountModules($contentarea)
 	{
-		return 1;
+		global $objui,$mos_content_cache;
+
+		if (!isset($mos_content_cache[$contentarea]))
+		{
+			 $mos_content_cache[$contentarea] = $objui->t->process_blocks($contentarea);
+		}
+		return !empty($mos_content_cache[$contentarea]);
 	}
 
 	function mosLoadModules($contentarea)
 	{
-		global $objui;
-		echo $objui->t->process_blocks($contentarea);
+		global $objui,$mos_content_cache;
+
+		if (!isset($mos_content_cache[$contentarea]))
+		{
+			 $mos_content_cache[$contentarea] = $objui->t->process_blocks($contentarea);
+		}
+		echo $mos_content_cache[$contentarea];
 	}
 
 	function mosLoadComponent($component)
