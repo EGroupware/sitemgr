@@ -196,6 +196,7 @@ no templates found.	sitemgr	en	No templates found.
 no users defined.	sitemgr	en	No users defined.
 no websites defined	sitemgr	en	No websites defined
 no, chooser only (for side-areas)	sitemgr	en	No, chooser only (for side-areas)
+no, chooser with preview	sitemgr	en	No, chooser with preview
 not yet translated	sitemgr	en	not yet translated
 note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	en	Note that you may get this message if your preferences are incorrect.  For example, if config.inc.php is not found in the directory that you specified.
 number of news items to be displayed on page	sitemgr	en	Number of news items to be displayed on page
@@ -254,6 +255,7 @@ selected template %1 does not exist.	sitemgr	en	Selected template %1 does not ex
 selected theme %1 does not exist.	sitemgr	en	Selected theme %1 does not exist.
 should the file be viewed in the browser or downloaded	sitemgr	en	Should the file be viewed in the browser or downloaded
 show a template-gallery (thumbnail and informations)	sitemgr	en	Show a template-gallery (thumbnail and informations)
+show only (in the next field) selected templates	sitemgr	en	Show only (in the next field) selected templates
 show searchbox	sitemgr	en	Show searchbox
 show site index	sitemgr	en	Show Site Index
 show subcategories	sitemgr	en	Show subcategories
@@ -284,6 +286,7 @@ subtitle	sitemgr	en	Subtitle
 summary of one forum	sitemgr	en	Summary of one forum
 table of contents	sitemgr	en	Table of Contents
 template chooser and/or gallery	sitemgr	en	Template chooser and/or gallery
+template select	sitemgr	en	Template select
 textarea	sitemgr	en	textarea
 the category to display, 0 for complete table of contents	sitemgr	en	The category to display, 0 for complete table of contents
 the complete path to the file to be included	sitemgr	en	The complete path to the file to be included
@@ -332,6 +335,7 @@ this module displays the root categories, its pages and evtl. subcategories. it 
 this module includes the contents of a file (readable by the webserver !)	sitemgr	en	This module includes the contents of a file (readable by the webserver !)
 this module is a selectbox to change the mode (production, draft or edit) plus a link back to sitemgr and to log out. it is meant for registered users only	sitemgr	en	This module is a selectbox to change the mode (production, draft or edit) plus a link back to SiteMgr and to log out. It is meant for registered users only
 this module is a simple html editor	sitemgr	en	This module is a simple HTML editor
+this module lets the users choose a template or shows a template gallery	sitemgr	en	This module lets the users choose a template or shows a template gallery
 this module lets users choose language	sitemgr	en	This module lets users choose language
 this module lets you define pages that redirect to another url, if you use it, there should be no other block defined for the page	sitemgr	en	This module lets you define pages that redirect to another URL, if you use it, there should be no other block defined for the page
 this module permits browsing through xml files stored in a directory, and transformed by xslt	sitemgr	en	This module permits browsing through XML files stored in a directory, and transformed by XSLT
