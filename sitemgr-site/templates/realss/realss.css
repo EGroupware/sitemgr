@@ -44,38 +44,33 @@ img {border: 0px}
 \***************************************************************************/
 
 #middle_contentarea_container {
-border-collapse: separate;
-border-spacing: 2px;
-width: 784px;
 }
 
 #contentarea_left {
-width: 170px;
 }
 
 #contentarea_center {
-width: 440px;
-padding:0px;
 }
 
 #contentarea_right {
-width: 170px;
 }
 
 .left_bt {
+width:161px;
 background-color: #f58020;
 background-image: url('images/left_bt_right.png');
 background-position: center right;
 background-repeat: repeat-y;
-padding: 3px;
 }
 
 .right_bt {
+width: 150px;
 background-color: white;
-padding: 3px;
+border: 1px solid #f58020;
 }
 
 #middle_bt {
+width: 469px;
 border-left: 1px #f58020 solid;
 border-right: 1px #f58020 solid;
 }
