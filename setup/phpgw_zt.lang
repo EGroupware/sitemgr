@@ -1,420 +1,331 @@
-%1 content manager	sitemgr	zt	%1 
-%1 module manager	sitemgr	zt	%1 
-'%1' is no valid sitemgr-site directory !!!	sitemgr	zt	'%1' 
-(do not put spaces or punctuation in the name field.)	sitemgr	zt	(
-<b>autoregistration is not enabled / configured in the registration app !!!</b><br>you need to do so, to get the autoregistration link working.	sitemgr	zt	<b>
-<b>want more templates?</b><br />just download one from the template gallery at %1www.egroupware.org%2 or use a %3mambo open source%4 version 4.5 compatible template eg. from %5. unpack the downloaded template in your templates directory (%6).	sitemgr	zt	<b>
-a simple picture galery	sitemgr	zt	
-actif	sitemgr	zt	
-add a category	sitemgr	zt	�Ps
-add a new application	sitemgr	zt	�Ps
-add block ...	sitemgr	zt	�Ps
-add block to content area %1	sitemgr	zt	�Ps
-add category	sitemgr	zt	�Ps
-add new page to this category	sitemgr	zt	�Ps
-add page	sitemgr	zt	�Ps
-add page to category	sitemgr	zt	�Ps
-add website	sitemgr	zt	�Ps
-administration	sitemgr	zt	
-administrative menu	sitemgr	zt	
-administrators	sitemgr	zt	
-all categories	sitemgr	zt	
-all forums in category %1	sitemgr	zt	
+%1 content manager	sitemgr	zt	%1 內容管理員
+%1 module manager	sitemgr	zt	%1 模組管理員
+'%1' is no valid sitemgr-site directory !!!	sitemgr	zt	'%1' 不是可用的 sitemgr-網站資料夾！
+(do not put spaces or punctuation in the name field.)	sitemgr	zt	(在名稱中請不要放入空白或是其他符號)
+<b>autoregistration is not enabled / configured in the registration app !!!</b><br>you need to do so, to get the autoregistration link working.	sitemgr	zt	<b>註冊系統並未啟動 / 請在註冊管理中設定！</b>
+<b>want more templates?</b><br />just download one from the template gallery at %1www.egroupware.org%2 or use a %3mambo open source%4 version 4.5 compatible template eg. from %5. unpack the downloaded template in your templates directory (%6).	sitemgr	zt	<b>想要找尋更多的樣板嗎？</b><br />您可以在%1www.eGroupWare.org%2下載或是使用%3Mambo Open Source%4版本4.5的樣板，例如從 %5。解壓縮下載的樣板後放到樣板資料夾中 (%6)。
+a simple picture galery	sitemgr	zt	一個簡單的圖庫
+actif	sitemgr	zt	如果符合
+add a category	sitemgr	zt	新增類別
+add a new application	sitemgr	zt	新增應用程式
+add block ...	sitemgr	zt	新增區塊...
+add block to content area %1	sitemgr	zt	新增區塊到內容區 %1
+add category	sitemgr	zt	新增類別
+add new page to this category	sitemgr	zt	新增頁面到這個類別
+add page	sitemgr	zt	新增頁面
+add page to category	sitemgr	zt	新增頁面到類別
+add website	sitemgr	zt	新增網站
+administration	sitemgr	zt	管理
+administrative menu	sitemgr	zt	管理選單
+administrators	sitemgr	zt	管理者
+all categories	sitemgr	zt	所有類別
+all forums in category %1	sitemgr	zt	類別 %1 的所有討論區
+allow posting of questions	sitemgr	zt	允許發表問題
 amazon	sitemgr	zt	Amazon
-amazon server (without www), eg. amazon.com	sitemgr	zt	Amazon
-an application directory	sitemgr	zt	
-anonymous	sitemgr	zt	�X
-anonymous user login domain	sitemgr	zt	�X
-anonymous user's password	sitemgr	zt	�X
-anonymous user's username	sitemgr	zt	�X
-application	sitemgr	zt	
-apply permissions also to subcategories?	sitemgr	zt	
-archived	sitemgr	zt	
-archived content	sitemgr	zt	
-are you sure you want to delete site %1 and all its content? you cannot retrieve it if you continue.	sitemgr	zt	��z
-are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	zt	��z
-as	common	zt	�P
-asin[=title] pairs (title is optional)	sitemgr	zt	ASIN[=
-attempt to access information outside current website	sitemgr	zt	
-attempt to edit non-editable block	sitemgr	zt	
-back to module manager	sitemgr	zt	
-back to the list of languages	sitemgr	zt	
-basic settings	sitemgr	zt	�X
-before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr	zt	��z
-block not found.	sitemgr	zt	��
-block returned no content.	sitemgr	zt	�X
-block saved	sitemgr	zt	�X
-bookmarks	sitemgr	zt	
-buy at %1	sitemgr	zt	
-calendar	sitemgr	zt	
-can't open an url or execute a script, because allow_url_fopen is not set in your php.ini !!!	sitemgr	zt	
-cancel the delete	sitemgr	zt	
-cannot move page until it has been saved.	sitemgr	zt	
-category	sitemgr	zt	
-category description	sitemgr	zt	
-category manager	sitemgr	zt	
-category name	sitemgr	zt	
-category saved	sitemgr	zt	
-changes saved.	sitemgr	zt	
-check here after every upgrade	sitemgr	zt	
-check to hide from condensed site index.	sitemgr	zt	
-choose a category	sitemgr	zt	
-choose language	sitemgr	zt	
-choose template	sitemgr	zt	
-choose the categories to display	sitemgr	zt	
-choose your site's theme or template.  note that if you changed the above checkbox you need to save before choosing a theme or template.	sitemgr	zt	
-collapse threads	sitemgr	zt	
-commit changes	sitemgr	zt	�X
-common prefix of the image-name (a number starting with 1 will be appended)	sitemgr	zt	
-configure module properties	sitemgr	zt	
-configure sitemgr	sitemgr	zt	
-configure website	sitemgr	zt	
-contact the administrator.	sitemgr	zt	
-content areas	sitemgr	zt	
-content blocks	sitemgr	zt	
-content blocks for category	sitemgr	zt	
-content manager	sitemgr	zt	
-contentarea	sitemgr	zt	
-contributor menu	sitemgr	zt	
-copyright	sitemgr	zt	
-create new version	sitemgr	zt	
-current section	sitemgr	zt	
-default	sitemgr	zt	
-default home page id number	sitemgr	zt	
-define websites	common	zt	
-delete block	sitemgr	zt	��R�X
-delete category	sitemgr	zt	��R�X
-delete page	sitemgr	zt	��R�X
-delete this application	sitemgr	zt	��R�X
-delete this block	sitemgr	zt	��R�X
-delete version	sitemgr	zt	��R�X
-deleting all data for %1	sitemgr	zt	��R�X
-details for language %1 (%2)	sitemgr	zt	
-discussions	sitemgr	zt	�XQ
-display link to autoregistration below login form?	sitemgr	zt	
-do you realy want to delete this block?	sitemgr	zt	��z
-do you realy want to delete this page?	sitemgr	zt	��z
-do you want to delete them?	sitemgr	zt	��z
-do you want to publish a rss feed for this news category	sitemgr	zt	��z
-documentation	sitemgr	zt	
-domain-name (offical dns-name eg. www.egroupware.org) if you want to give the user a choice between searching this site or the whole web. leaving it empty allows to search the web only.	sitemgr	zt	
-don't have an account?	sitemgr	zt	
-done	sitemgr	zt	��
-download as zip-archiv	sitemgr	zt	
-downloaded	sitemgr	zt	
-draft	sitemgr	zt	��
-draft mode	sitemgr	zt	��
-edit categories and permissions	common	zt	
-edit category	sitemgr	zt	
-edit individual pages	common	zt	
-edit mode	sitemgr	zt	
-edit page	sitemgr	zt	
-edit properties of module %1 for %2 with scope %3	sitemgr	zt	
-edit site	sitemgr	zt	
-edit site header and footer	common	zt	
-edit this block	sitemgr	zt	
-edit website	sitemgr	zt	
-enter a name	sitemgr	zt	
-enter the block content here	sitemgr	zt	
-enter the page content here	sitemgr	zt	
-error accessing page	common	zt	
-everybody	sitemgr	zt	
-file %1 is not readable by the webserver !!!	sitemgr	zt	
-file %1 is outside the docroot of the webserver !!!<br>this module does not allow - for security reasons - to open files outside the docroot.	sitemgr	zt	
-file contents	sitemgr	zt	
-file download	sitemgr	zt	
+amazon server (without www), eg. amazon.com	sitemgr	zt	Amazon伺服器(不要加www)，例如amazon.com
+an application directory	sitemgr	zt	應用程式資料夾
+anonymous	sitemgr	zt	匿名
+anonymous user login domain	sitemgr	zt	匿名者登入網域
+anonymous user's password	sitemgr	zt	匿名者的密碼
+anonymous user's username	sitemgr	zt	匿名者的帳號
+application	sitemgr	zt	應用程式
+application '%1' is not installed !!!<br>please install it, to be able to use the block.	sitemgr	zt	應用程式'%1'未安裝！<br>安裝完成後才能使用這個區塊。
+apply permissions also to subcategories?	sitemgr	zt	同時修改子資料夾的權限？
+archived	sitemgr	zt	存檔
+archived content	sitemgr	zt	保存的內容
+are you sure you want to delete site %1 and all its content? you cannot retrieve it if you continue.	sitemgr	zt	您確定要刪除網站%1與它的所有內容？這將無法還原
+are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	zt	您確定要刪除類別%1與它的所有頁面？這將無法還原
+as	common	zt	當
+asin[=title] pairs (title is optional)	sitemgr	zt	ASIN[=標題] 巴黎 (標題是選填的)
+attempt to edit non-editable block	sitemgr	zt	試著編輯無法編輯的區塊
+automatic index	sitemgr	zt	自動索引
+back to module manager	sitemgr	zt	回到模組管理
+back to the list of languages	sitemgr	zt	回到語言清單
+basic settings	sitemgr	zt	基本設定
+before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr	zt	?Ӻ
+block not found.	sitemgr	zt	找不到區塊
+block returned no content.	sitemgr	zt	區塊沒有內容
+block saved	sitemgr	zt	區塊已經儲存
+bookmarks	sitemgr	zt	書籤
+buy at %1	sitemgr	zt	在 %1 購買
+calendar	sitemgr	zt	行事曆
+cancel the delete	sitemgr	zt	取消刪除
+cannot move page until it has been saved.	sitemgr	zt	還沒儲存的頁面無法移動
+category	sitemgr	zt	類別
+category description	sitemgr	zt	描述
+category manager	sitemgr	zt	管理者
+category name	sitemgr	zt	名稱
+category saved	sitemgr	zt	儲存
+changes saved.	sitemgr	zt	已經更新
+check here after every upgrade	sitemgr	zt	在每次更新後勾選這裡
+check to hide from condensed site index.	sitemgr	zt	隱藏簡易的網站索引
+choose a category	sitemgr	zt	類別
+choose language	sitemgr	zt	選擇語言
+choose template	sitemgr	zt	選擇樣板
+choose the categories to display	sitemgr	zt	顯示的類別
+collapse threads	sitemgr	zt	展開
+commit changes	sitemgr	zt	執行異動
+configure module properties	sitemgr	zt	設定模組屬性
+configure sitemgr	sitemgr	zt	設定網站管理員
+configure website	sitemgr	zt	設定網站
+contact the administrator.	sitemgr	zt	連絡管理者
+content areas	sitemgr	zt	內容區域
+content blocks	sitemgr	zt	內容區塊
+content blocks for category	sitemgr	zt	類別的內容區塊
+content manager	sitemgr	zt	內容管理員
+contentarea	sitemgr	zt	內容區
+contributor menu	sitemgr	zt	網站選單
+copyright	sitemgr	zt	版權
+create new version	sitemgr	zt	建立新版本
+current section	sitemgr	zt	目前部份
+default	sitemgr	zt	預設
+default home page id number	sitemgr	zt	預設頁面 id 編號
+define websites	common	zt	定義網站
+delete block	sitemgr	zt	刪除區塊
+delete category	sitemgr	zt	刪除類別
+delete page	sitemgr	zt	刪除頁面
+delete this application	sitemgr	zt	刪除這個應用程式
+delete this block	sitemgr	zt	刪除這個區塊
+delete version	sitemgr	zt	刪除版本
+deleting all data for %1	sitemgr	zt	刪除 %1 的所有資料
+details for language %1 (%2)	sitemgr	zt	語言的細節 %1 (%2)
+discussions	sitemgr	zt	討論
+display link to autoregistration below login form?	sitemgr	zt	顯示註冊連結？
+do you realy want to delete this block?	sitemgr	zt	您確定要刪除這個區塊？
+do you realy want to delete this page?	sitemgr	zt	您確定要刪除這個頁面？
+do you want to delete them?	sitemgr	zt	您確定要刪除他們？
+do you want to publish a rss feed for this news category	sitemgr	zt	?Ӻ
+documentation	sitemgr	zt	文件
+don't have an account?	sitemgr	zt	還沒註冊？
+done	sitemgr	zt	完成
+download as zip-archiv	sitemgr	zt	以ZIP格式下載
+downloaded	sitemgr	zt	已經下載
+draft	sitemgr	zt	草稿
+draft mode	sitemgr	zt	草稿模式
+edit categories and permissions	common	zt	編輯類別與權限
+edit category	sitemgr	zt	編輯類別
+edit individual pages	common	zt	編輯個別頁面
+edit mode	sitemgr	zt	編輯模式
+edit page	sitemgr	zt	編輯頁面
+edit properties of module %1 for %2 with scope %3	sitemgr	zt	編輯 %2 在範圍 %3 的模組 %1 屬性
+edit site	sitemgr	zt	編輯網站
+edit site header and footer	common	zt	編輯網站頁首與頁尾
+edit this block	sitemgr	zt	編輯這個區塊
+edit website	sitemgr	zt	編輯網站
+enter a name	sitemgr	zt	輸入名稱
+enter the block content here	sitemgr	zt	輸入區塊內容
+enter the page content here	sitemgr	zt	輸入頁面內容
+error accessing page	common	zt	錯誤訊息頁面
+everybody	sitemgr	zt	所有人
+file %1 is not readable by the webserver !!!	sitemgr	zt	檔案 %1 沒有權限讀取！
+file contents	sitemgr	zt	檔案內容
+file download	sitemgr	zt	檔案下載
 filesystem path of the directory where xml files are stored	sitemgr	zt	XML
-filesystem path of the image-directory	sitemgr	zt	
-filesystem path to sitemgr-site directory	sitemgr	zt	
-fill in permissions from parent category? if you check this, below values will be ignored	sitemgr	zt	��q
-following new modules registed: %1	sitemgr	zt	�Ps
-footer editor	sitemgr	zt	
-forum	sitemgr	zt	�XQ
+filesystem path of the image-directory	sitemgr	zt	圖片檔案存放的路徑
+filesystem path to sitemgr-site directory	sitemgr	zt	網站管理員檔案存放的路徑
+fill in permissions from parent category? if you check this, below values will be ignored	sitemgr	zt	?ӱ
+following new modules registed: %1	sitemgr	zt	新模組登錄： %1
+footer editor	sitemgr	zt	頁尾編輯器
+forum	sitemgr	zt	討論區
 full path of the xslt file that should be applied to the xml files	sitemgr	zt	XSLT
-galerie	sitemgr	zt	
-gallery plus chooser	sitemgr	zt	
-gallery plus chooser and download	sitemgr	zt	
-gallery plus download	sitemgr	zt	
-go back to page manager	sitemgr	zt	
-go back to the category manager.	sitemgr	zt	
-go to	sitemgr	zt	
-go to page manager	sitemgr	zt	
+galerie	sitemgr	zt	圖庫
+gallery plus chooser	sitemgr	zt	圖庫加選擇器
+gallery plus chooser and download	sitemgr	zt	圖庫加選擇器與下載
+gallery plus download	sitemgr	zt	圖庫加下載
+go back to page manager	sitemgr	zt	回到頁面管理員
+go back to the category manager.	sitemgr	zt	回到類別管理員
+go to	sitemgr	zt	到
+go to page manager	sitemgr	zt	前往頁面管理員
 google	sitemgr	zt	Google
-google search	sitemgr	zt	Google �Pj
-group access permissions	sitemgr	zt	
-group name	sitemgr	zt	
-header editor	sitemgr	zt	
-headlines	sitemgr	zt	
-hello	sitemgr	zt	
-hello world	sitemgr	zt	
-html module	sitemgr	zt	HTML
-i'm sorry, you do not have write permissions for any site categories.	sitemgr	zt	
-if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	zt	
-image type	sitemgr	zt	
-implies read permission	sitemgr	zt	
-individual access permission	sitemgr	zt	
-individual access permissions	sitemgr	zt	
-interface to google website	sitemgr	zt	GOOGLE
-invalid template directory '%1' !!!	sitemgr	zt	
-languages the site user can choose from	sitemgr	zt	
-latest reply	sitemgr	zt	
-list of permitted modules specific to content area %1	sitemgr	zt	
-login	sitemgr	zt	
-login name	sitemgr	zt	
-main content	sitemgr	zt	
-mains	sitemgr	zt	
-manage archived content	sitemgr	zt	
-manage categories	sitemgr	zt	
-manage categories and pages	sitemgr	zt	
-manage category wide content	sitemgr	zt	
-manage category wide module properties	sitemgr	zt	
-manage content	sitemgr	zt	
-manage modules	sitemgr	zt	
-manage page specific content	sitemgr	zt	
-manage pages	common	zt	
-manage site content	sitemgr	zt	
-manage site-wide content	sitemgr	zt	
-manage site-wide module properties	sitemgr	zt	
-manage translations	sitemgr	zt	
-master list of permitted modules	sitemgr	zt	
-migrating data for %1 to %2	sitemgr	zt	��N
-module %1 is not permitted in this context!	sitemgr	zt	
-module manager	sitemgr	zt	
-module: %1, scope: %2, contentarea: %3, viewable: %4	sitemgr	zt	
-more news	sitemgr	zt	
-move block down (increase sort order)	sitemgr	zt	�X
-move block up (decrease sort order)	sitemgr	zt	�X
-move to	sitemgr	zt	
-name	sitemgr	zt	
-name has been translated to lower case	sitemgr	zt	
-new application	sitemgr	zt	�Ps
-new sitemgr site	sitemgr	zt	�Ps
-news module	sitemgr	zt	�Ps
-no anonymous user accounts installed.  notify the administrator.	sitemgr	zt	
-no content areas found in selected template	sitemgr	zt	
-no content found	sitemgr	zt	��
-no groups defined.	sitemgr	zt	
-no link to full index	sitemgr	zt	
-no matching news item	sitemgr	zt	
-no modules permitted for this content area/category	sitemgr	zt	
-no new modules found !!!	sitemgr	zt	��
-no options available.	sitemgr	zt	
-no pages available	sitemgr	zt	
-no sitelanguages configured	sitemgr	zt	
-no template file found.	sitemgr	zt	��
-no templates found.	sitemgr	zt	��
-no users defined.	sitemgr	zt	
-no websites defined	sitemgr	zt	
-no, chooser only (for side-areas)	sitemgr	zt	
-no, chooser with preview	sitemgr	zt	
-not yet translated	sitemgr	zt	
-note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	zt	
-number of news items to be displayed on page	sitemgr	zt	
-only gallery	sitemgr	zt	
-other websites	sitemgr	zt	
-overview of all available categories	sitemgr	zt	
-overview of one specific category	sitemgr	zt	
-own amazon partner-id or empty to donate to the egroupware project	sitemgr	zt	��z
-page	sitemgr	zt	
-page content	sitemgr	zt	
-page manager	sitemgr	zt	
-page name	sitemgr	zt	
-page saved	sitemgr	zt	
-page saved.	sitemgr	zt	
-page subtitle	sitemgr	zt	
-page title	sitemgr	zt	
-pages	sitemgr	zt	
-pages:	sitemgr	zt	
-parent	sitemgr	zt	
-parent section:	sitemgr	zt	
-password	sitemgr	zt	��K
-password that you assigned for the anonymous user account.	sitemgr	zt	
-path to image-directory '%1' is not valid or readable by the webserver !!!	sitemgr	zt	
-path to zip binary if not in path of the webserver	sitemgr	zt	ZIP
-percentage	sitemgr	zt	
-phpgw users	sitemgr	zt	
-phrases in total	sitemgr	zt	
-please enter a name for that site !	sitemgr	zt	
-post a message to this thread	sitemgr	zt	
-prepublished	sitemgr	zt	
-preunpublished	sitemgr	zt	
-previous	sitemgr	zt	
-production mode	sitemgr	zt	
-published	sitemgr	zt	
-reactivate content	sitemgr	zt	
-read permission	sitemgr	zt	
-redirection	sitemgr	zt	
-refresh	sitemgr	zt	
-register for one now.	sitemgr	zt	
-register new modules	sitemgr	zt	
-replies	sitemgr	zt	
-required fields	sitemgr	zt	
-reset	sitemgr	zt	
-return to forums	sitemgr	zt	
-return to main menu.	sitemgr	zt	
-return to message list	sitemgr	zt	
-root site index	sitemgr	zt	
-save	sitemgr	zt	
-save block	sitemgr	zt	
-saved	sitemgr	zt	
-scope	sitemgr	zt	
-seen by	sitemgr	zt	
-select a category	sitemgr	zt	
-select a forum	sitemgr	zt	
-select allowed modules	sitemgr	zt	
-select persons and groups that are entitled to configure the website.	sitemgr	zt	
-select the templates the user is allowed to see	sitemgr	zt	
-selected template %1 does not exist.	sitemgr	zt	
-selected theme %1 does not exist.	sitemgr	zt	
-should the file be viewed in the browser or downloaded	sitemgr	zt	
-show a template-gallery (thumbnail and informations)	sitemgr	zt	
-show details for the applications	sitemgr	zt	
-show only (in the next field) selected templates	sitemgr	zt	
-show searchbox	sitemgr	zt	
-show site index	sitemgr	zt	
-show subcategories	sitemgr	zt	
-site	sitemgr	zt	
-site %1 has been added, you need to %2configure the site%3 now	sitemgr	zt	
-site %1 has been updated	sitemgr	zt	
-site administrators	sitemgr	zt	
-site description	sitemgr	zt	
-site format manager	sitemgr	zt	
-site index	sitemgr	zt	
-site name	sitemgr	zt	
-site setup	common	zt	
-site tree menu	sitemgr	zt	
-site wide	sitemgr	zt	
-sitemgr	common	zt	
-sitemgr manual	sitemgr	zt	
-sitemgr options	sitemgr	zt	
-sitemgr setup instructions	sitemgr	zt	
-sitemgr setup page	sitemgr	zt	
-sitemgr web content manager	common	zt	
-sitemgr websites	sitemgr	zt	
-sort order	sitemgr	zt	��
-state	sitemgr	zt	
-strip html from block content?	sitemgr	zt	
-subcategories	sitemgr	zt	
-subsections:	sitemgr	zt	�X
-subtext for image %1	sitemgr	zt	
-subtitle	sitemgr	zt	�X
-summary of one forum	sitemgr	zt	
-table of contents	sitemgr	zt	
-template select	sitemgr	zt	
-textarea	sitemgr	zt	
-the category to display, 0 for complete table of contents	sitemgr	zt	
-the complete url or path to a file to be included	sitemgr	zt	
-the config.inc.php file needs to be edited to point to the phpgroupware directory. copy the config.inc.php.template file to config.inc.php and then edit it.	sitemgr	zt	
-the file to be downloaded	sitemgr	zt	
-the filesystem path to your sitemgr-site directory '%1' is probably wrong. go to sitemgr --> define websites and edit/fix the concerned site.	sitemgr	zt	
-the first directory to think about is sitemgr-link.  if you move this to the parent directory of sitemgr (your phpgroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  if you don't want this icon, there's no reason to ever bother with the directory.	sitemgr	zt	
-the name field cannot contain punctuation or spaces (field modified).	sitemgr	zt	
-the page name must be unique.	sitemgr	zt	
-the page was successfully saved.	sitemgr	zt	
-the path to the file to be downloaded	sitemgr	zt	
-the person to say hello to	sitemgr	zt	
-the second directory is the sitemgr-site directory.  this can be moved <i>anywhere</i>.  it can also be named <i>anything</i>.  wherever it winds up, when you point a web browser to it, you will get the generated website.  assuming, of course, that you've accurately completed the setup fields below and also <b><i>edited the config.inc.php</i></b> file.	sitemgr	zt	
-the text for the link, if empty the module returns the raw url (without a link)	sitemgr	zt	
-the url can be relative or absolute.  name must end in a slash.	sitemgr	zt	
-the url must be absolute and end in a slash, for example http://mydomain.com/mysite/	sitemgr	zt	
-the url to redirect to	sitemgr	zt	
-the web	sitemgr	zt	
-the whole page	sitemgr	zt	
-the xml files' common name	sitemgr	zt	
-theme or template select	sitemgr	zt	
-there are no categories	sitemgr	zt	
-there are no forums in this category	sitemgr	zt	
-there are no pages in this section	sitemgr	zt	
-there are no properties defined for this module	sitemgr	zt	
-there are no sections available to you.	sitemgr	zt	
-there are two subdirectories off of your sitemgr directory that you should move before you do anything else.  you don't <i>have</i> to move either of these directories, although you will probably want to.	sitemgr	zt	
-there can only be one version in (pre(un))published state, with the one exeption that one prepublished version can coexist with one preunpublished version	sitemgr	zt	
-there is no website configured for url %1.  notify the administrator.	sitemgr	zt	
-there was an error accessing the requested page. either you do not have permission to view this page, or the page does not exist.	common	zt	
-there was an error writing to the database.	sitemgr	zt	
-this block displays a javascript based tree menu	sitemgr	zt	
-this block displays the current section's table of contents	sitemgr	zt	
-this category has no pages.	sitemgr	zt	
-this is a simple sample module	sitemgr	zt	
-this is only used as an internal name for the website.	sitemgr	zt	
-this is used chiefly for meta data and the title bar. if you change the site languages below you have to save before being able to set this preference for a new language.	sitemgr	zt	
-this is used chiefly for meta data. if you change the site languages below you have to save before being able to set this preference for a new language.	sitemgr	zt	
-this module create a link for downloading a file from the vfs	sitemgr	zt	
-this module demonstrates how handling data stored in xml and building an interacvite interface from it	sitemgr	zt	
-this module displays a login form	sitemgr	zt	
-this module displays bookmarks in a javascript based tree	sitemgr	zt	
-this module displays the current month	sitemgr	zt	
-this module displays the phpgw forums on the web site	sitemgr	zt	
-this module displays the root categories, its pages and evtl. subcategories. it is meant for side areas	sitemgr	zt	
-this module includes the contents of an url or file (readable by the webserver and in its docroot !)	sitemgr	zt	
-this module is a selectbox to change the mode (production, draft or edit) plus a link back to sitemgr and to log out. it is meant for registered users only	sitemgr	zt	
-this module is a simple html editor	sitemgr	zt	
-this module lets the users choose a template or shows a template gallery	sitemgr	zt	
-this module lets users choose language	sitemgr	zt	
-this module lets you define pages that redirect to another url, if you use it, there should be no other block defined for the page	sitemgr	zt	
-this module permits browsing through xml files stored in a directory, and transformed by xslt	sitemgr	zt	
-this module provides a complete table of contents, it is automatically used by the toc and category_id get parameters	sitemgr	zt	
-this module provides a condensed table of contents, meant for side areas	sitemgr	zt	
-this module provides the site index, it is automatically used by the index get parameter	sitemgr	zt	
-this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	sitemgr	zt	
-this module show the status / percentage of the translation of egw	sitemgr	zt	
-this must be an absolute directory location.  <b>no trailing slash</b>.	sitemgr	zt	
-this should be a comma-separated list of language-codes.	sitemgr	zt	
-this should be a page that is readable by everyone. if you leave this blank, the site index will be shown by default.	sitemgr	zt	
-this site	sitemgr	zt	
-title	sitemgr	zt	
-topic	sitemgr	zt	
-translate	sitemgr	zt	
-translate category	sitemgr	zt	
-translate page	sitemgr	zt	
-translate site-wide content blocks	sitemgr	zt	
-translation manager	sitemgr	zt	
-translation status	sitemgr	zt	
-up to parent	sitemgr	zt	
-up to table of contents	sitemgr	zt	
-updating to new category system	sitemgr	zt	��
-url pointing to the image-directory	sitemgr	zt	
-url to sitemgr-site	sitemgr	zt	
-use phpnuke themes instead of templates	sitemgr	zt	
-use this module for displaying book ads for the amazon web site	sitemgr	zt	
-use this module for displaying wiki-pages	sitemgr	zt	
-user name	sitemgr	zt	
-view administrative menu	sitemgr	zt	
-view full index	sitemgr	zt	
-view generated site	sitemgr	zt	
-view template on this site	sitemgr	zt	
-view threads	sitemgr	zt	
-viewed	sitemgr	zt	
-web content manager	common	zt	SiteMgr
-web content manager administration	sitemgr	zt	
-web site manager	sitemgr	zt	
-website	sitemgr	zt	
-week	sitemgr	zt	
-what do you want to do with existing translations of categories and pages for this language?	sitemgr	zt	
-wiki	sitemgr	zt	
-wiki startpage	sitemgr	zt	Wiki
-with which view should the module be displayed in the beginning?	sitemgr	zt	
-write permission	sitemgr	zt	
-xml browser	sitemgr	zt	XML
-yes, please delete it	sitemgr	zt	
-you are not entitled to change the scope of block %1 to cat %2 and page %3	sitemgr	zt	
-you are not entitled to create module %1 on this scope	sitemgr	zt	
-you are not entitled to edit block %1	sitemgr	zt	
-you can choose the modules that can be used on the site. the first list is a sort of master list, that is consulted if you do not configure lists specific to contentareas or (sub)categories. then you can choose lists specific to each content area. in the category manager these lists can be overriden for each (sub)category.	sitemgr	zt	
-you can either migrate them to a new language or delete them	sitemgr	zt	
-you can override each content blocks default title. be aware that not in all content areas the block title will be visible.	sitemgr	zt	
-you did not choose a module.	sitemgr	zt	
-you do not have access to any content on this site.	sitemgr	zt	
-you do not have write permissions for any site categories.	sitemgr	zt	
-you don't have permission to write in the category	sitemgr	zt	
-you don't have permission to write to that category.	sitemgr	zt	
-you failed to fill in one or more required fields.	sitemgr	zt	
-you have no rights to view wiki content or the wiki is not installed at all !!!	sitemgr	zt	
-you may have deinstalled the used template '%1'. reinstall it or go to sitemgr --> configure website and select an other one.	sitemgr	zt	
-you must be an admin to edit categories.	sitemgr	zt	
-you must be an admin to edit the site header and footer.	sitemgr	zt	
-you must be an admin to manage module properties.	sitemgr	zt	
-you must be an administrator to setup the site manager.	sitemgr	zt	
-you removed one ore more languages from your site languages.	sitemgr	zt	��z
-your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr	zt	
-your calendar	sitemgr	zt	��z
+google search	sitemgr	zt	Google 搜尋
+group access permissions	sitemgr	zt	群組存取權限
+group name	sitemgr	zt	群組名稱
+header editor	sitemgr	zt	頁首編輯器
+headlines	sitemgr	zt	頭條新聞
+hello	sitemgr	zt	哈囉
+hello world	sitemgr	zt	哈囉，大家好
+html module	sitemgr	zt	HTML模組
+image type	sitemgr	zt	圖片格式
+implies read permission	sitemgr	zt	表示讀取權限
+index	sitemgr	zt	索引
+individual access permission	sitemgr	zt	個別存取權限
+individual access permissions	sitemgr	zt	個別存取權限
+interface to google website	sitemgr	zt	GOOGLE網站的介面
+invalid template directory '%1' !!!	sitemgr	zt	錯誤的樣版資料夾 '%1' ！
+knowledge base	sitemgr	zt	知識庫
+languages the site user can choose from	sitemgr	zt	網站訪客能夠選擇的語言
+latest reply	sitemgr	zt	最後回應
+login	sitemgr	zt	登入
+login name	sitemgr	zt	登入名稱
+main content	sitemgr	zt	主要內容
+mains	sitemgr	zt	主要的
+manage archived content	sitemgr	zt	管理儲存的內容
+manage categories	sitemgr	zt	管理類別
+manage categories and pages	sitemgr	zt	管理類別與頁面
+manage category wide content	sitemgr	zt	管理類別與內容
+manage category wide module properties	sitemgr	zt	管理類別與模組屬性
+manage content	sitemgr	zt	管理內容
+manage modules	sitemgr	zt	管理模組
+manage page specific content	sitemgr	zt	管理頁面特定內容
+manage pages	common	zt	管理頁面
+manage site content	sitemgr	zt	管理網站內容
+manage site-wide content	sitemgr	zt	管理所有網站內容
+manage site-wide module properties	sitemgr	zt	管理網站，包括模組屬性
+manage translations	sitemgr	zt	管理翻譯
+master list of permitted modules	sitemgr	zt	管理授權的模組清單
+migrating data for %1 to %2	sitemgr	zt	將資料從 %1 搬到 %2
+module %1 is not permitted in this context!	sitemgr	zt	模組 %1 無法使用
+module manager	sitemgr	zt	模組管理員
+more news	sitemgr	zt	其他新聞
+move block down (increase sort order)	sitemgr	zt	區塊下移
+move block up (decrease sort order)	sitemgr	zt	區塊上移
+move to	sitemgr	zt	移到
+name	sitemgr	zt	名稱
+name has been translated to lower case	sitemgr	zt	名稱被轉換為小寫
+new application	sitemgr	zt	新的應用程式
+new sitemgr site	sitemgr	zt	新網站
+news module	sitemgr	zt	新聞模組
+no content areas found in selected template	sitemgr	zt	在選擇的樣版中沒有發現內容區域
+no content found	sitemgr	zt	找不到內容
+no groups defined.	sitemgr	zt	未定義任何群組
+no link to full index	sitemgr	zt	沒有連結到全部索引
+no matching news item	sitemgr	zt	沒有符合的新聞
+no new modules found !!!	sitemgr	zt	找不到新的模組！
+no options available.	sitemgr	zt	沒有選項
+no pages available	sitemgr	zt	沒有頁面
+no sitelanguages configured	sitemgr	zt	未設定網站語言
+no template file found.	sitemgr	zt	找不到樣板檔案
+no templates found.	sitemgr	zt	找不到樣板
+no users defined.	sitemgr	zt	未定義使用者
+no websites defined	sitemgr	zt	未定義網站
+no, chooser only (for side-areas)	sitemgr	zt	不，只做選擇
+no, chooser with preview	sitemgr	zt	不，選擇並且預覽
+not yet translated	sitemgr	zt	未翻譯
+number of news items to be displayed on page	sitemgr	zt	網頁要顯示幾篇新聞
+only gallery	sitemgr	zt	只有圖庫
+other websites	sitemgr	zt	其他網站
+overview of all available categories	sitemgr	zt	所有可用的類別概要
+overview of one specific category	sitemgr	zt	指定類別概要
+own amazon partner-id or empty to donate to the egroupware project	sitemgr	zt	?Ӻ
+page	sitemgr	zt	頁
+page content	sitemgr	zt	網頁內容
+page manager	sitemgr	zt	網頁管理
+page name	sitemgr	zt	頁面名稱
+page saved	sitemgr	zt	網頁儲存
+page saved.	sitemgr	zt	網頁儲存。
+page subtitle	sitemgr	zt	頁面副標題
+page title	sitemgr	zt	頁面標題
+pages	sitemgr	zt	網頁
+pages:	sitemgr	zt	頁：
+parent	sitemgr	zt	上一層
+parent section:	sitemgr	zt	上一層：
+password	sitemgr	zt	密碼
+path to zip binary if not in path of the webserver	sitemgr	zt	ZIP路徑
+percentage	sitemgr	zt	比例
+phpgw users	sitemgr	zt	使用者
+phrases in total	sitemgr	zt	所有片語
+please enter a name for that site !	sitemgr	zt	請輸入網站的名稱！
+post a message to this thread	sitemgr	zt	回覆
+prepublished	sitemgr	zt	預定發布
+preunpublished	sitemgr	zt	預定到期
+previous	sitemgr	zt	上一個
+production mode	sitemgr	zt	產品模式
+published	sitemgr	zt	發布
+reactivate content	sitemgr	zt	重新啟用內容
+read permission	sitemgr	zt	讀取權限
+redirection	sitemgr	zt	轉向
+refresh	sitemgr	zt	重新整理
+register for one now.	sitemgr	zt	現在註冊一個新的
+register new modules	sitemgr	zt	註冊新模組
+replies	sitemgr	zt	回應
+required fields	sitemgr	zt	必填欄位
+reset	sitemgr	zt	重設
+return to forums	sitemgr	zt	回到討論區
+return to main menu.	sitemgr	zt	回到主要選單
+return to message list	sitemgr	zt	回到訊息列表
+root site index	sitemgr	zt	主要網站索引
+save	sitemgr	zt	儲存
+save block	sitemgr	zt	儲存區塊
+saved	sitemgr	zt	儲存
+scope	sitemgr	zt	範圍
+seen by	sitemgr	zt	訪客
+select a category	sitemgr	zt	類別
+select a forum	sitemgr	zt	選擇一個討論區
+select allowed modules	sitemgr	zt	選擇模組
+select the templates the user is allowed to see	sitemgr	zt	選擇使用者可以看到的樣板
+selected template %1 does not exist.	sitemgr	zt	選擇的樣板 %1 不存在
+selected theme %1 does not exist.	sitemgr	zt	選擇的佈景 %1 不存在
+show details for the applications	sitemgr	zt	顯示應用程式的細節
+show only (in the next field) selected templates	sitemgr	zt	顯示選取的樣板
+show searchbox	sitemgr	zt	顯示搜尋
+show site index	sitemgr	zt	顯示網站索引
+show subcategories	sitemgr	zt	顯示附屬類別
+site	sitemgr	zt	網站
+site %1 has been updated	sitemgr	zt	網站 %1 已經更新
+site administrators	sitemgr	zt	網站管理員
+site description	sitemgr	zt	描述
+site format manager	sitemgr	zt	格式管理員
+site index	sitemgr	zt	首頁
+site name	sitemgr	zt	名稱
+site setup	common	zt	安裝
+site tree menu	sitemgr	zt	樹狀選單
+site wide	sitemgr	zt	網站
+sitemgr	common	zt	網站管理
+sitemgr manual	sitemgr	zt	網站管理手冊
+sitemgr options	sitemgr	zt	網站管理選項
+sitemgr setup instructions	sitemgr	zt	網站管理安裝架構
+sitemgr setup page	sitemgr	zt	網站管理設定頁面
+sitemgr web content manager	common	zt	網站管理內容管理員
+sitemgr websites	sitemgr	zt	網站管理
+sort order	sitemgr	zt	排序方式
+state	sitemgr	zt	鄉/鎮/市
+strip html from block content?	sitemgr	zt	移除區塊內容中的HTML？
+subcategories	sitemgr	zt	附屬類別
+subsections:	sitemgr	zt	附屬區：
+subtext for image %1	sitemgr	zt	圖片 %1 的文字
+subtitle	sitemgr	zt	副標題
+summary of one forum	sitemgr	zt	一個討論區的概要
+table of contents	sitemgr	zt	內容表單
+template select	sitemgr	zt	樣板選擇
+textarea	sitemgr	zt	文字區
+the complete url or path to a file to be included	sitemgr	zt	要包含的檔案所在路徑
+the page name must be unique.	sitemgr	zt	頁面名稱必須是唯一的
+the whole page	sitemgr	zt	所有頁面
+there are no forums in this category	sitemgr	zt	這個類別中沒有任何討論區
+there was an error writing to the database.	sitemgr	zt	寫入資料庫時發生錯誤
+this category has no pages.	sitemgr	zt	這個類別沒有任何頁面
+this module displays a login form	sitemgr	zt	這個模組顯示一個登入表單
+this module is a simple html editor	sitemgr	zt	這個模組是一個簡單的HTML編輯器
+title	sitemgr	zt	標題
+topic	sitemgr	zt	主題
+translate	sitemgr	zt	翻譯
+translate category	sitemgr	zt	翻譯類別
+translate page	sitemgr	zt	翻譯頁面
+translate site-wide content blocks	sitemgr	zt	翻譯內容區塊
+translation manager	sitemgr	zt	翻譯管理員
+translation status	sitemgr	zt	翻譯狀態
+up to parent	sitemgr	zt	回到上一層
+up to table of contents	sitemgr	zt	回到內容資料表
+updating to new category system	sitemgr	zt	更新類別系統
+user name	sitemgr	zt	使用者帳號
+view administrative menu	sitemgr	zt	顯示管理者選單
+view full index	sitemgr	zt	顯示全部索引
+view generated site	sitemgr	zt	顯示建立的網站
+view template on this site	sitemgr	zt	顯示這個網站的樣板
+view threads	sitemgr	zt	樹狀檢視
+viewed	sitemgr	zt	瀏覽次數
+web content manager	common	zt	SiteMgr網站內容管理員
+web content manager administration	sitemgr	zt	網站內容管理員管理
+web site manager	sitemgr	zt	網站管理員
+website	sitemgr	zt	網站
+week	sitemgr	zt	週
+wiki	sitemgr	zt	協同編輯系統Wiki
+wiki startpage	sitemgr	zt	Wiki首頁
+write permission	sitemgr	zt	寫入權限
+xml browser	sitemgr	zt	XML瀏覽器
+yes, please delete it	sitemgr	zt	沒錯，請刪掉它
+you must be an admin to edit categories.	sitemgr	zt	管理員才能編輯類別
+you must be an admin to manage module properties.	sitemgr	zt	成為管理者才能夠修改模組屬性
+you must be an administrator to setup the site manager.	sitemgr	zt	成為管理者才能夠安裝網站管理員
+you removed one ore more languages from your site languages.	sitemgr	zt	您已經從網站語言移除了一或多個語言
+your calendar	sitemgr	zt	您的行事曆
