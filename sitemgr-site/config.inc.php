@@ -29,6 +29,13 @@
 	* Leave the rest of this file alone.                        *
 	\***********************************************************/
 
+		// do we use a different domain and are already loged in?
+		if (isset($GLOBALS['phpgw_info']['server']['default_domain']) && (isset($_GET['domain']) || isset($_COOKIE['domain'])))
+		{
+			// force our default domain
+			$_GET['domain'] = $GLOBALS['phpgw_info']['server']['default_domain'];
+		}
+
 		if (!file_exists($sitemgr_info['phpgw_path'] . 'header.inc.php'))
 		{
 			die("Header file not found.  Either your path to eGroupWare in the config.inc.php file is bad, or you have not setup eGroupWare.");
