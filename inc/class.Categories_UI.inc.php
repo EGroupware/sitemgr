@@ -87,6 +87,11 @@
 				}
 			}
 
+			if ($_GET['addsub'])
+			{
+				$cat->parent = $cat_id;
+				$cat_id = 0;
+			}
 			if ($cat_id)
 			{
 				//we use force here since we might edit an archive category
@@ -236,10 +241,6 @@
 		function getParentOptions($selected_id=0,$skip_id=0)
 		{
 			$option_list=$this->cat_bo->getCategoryOptionList();
-			if (!$selected_id)
-			{
-				$selected=' SELECTED="1"';
-			}
 			if (!$skip_id)
 			{
 				$skip_id = -1;

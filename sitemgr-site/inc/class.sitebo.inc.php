@@ -328,7 +328,8 @@
 			$cat = $GLOBALS['Common_BO']->cats->getCategory($cat_id,$GLOBALS['Common_BO']->sites->current_site['sitelanguages'][0]);
 
 			return $this->get_icons(array(
-				'new' => array(lang('Add page to category'),'menuaction'=>'sitemgr.Pages_UI.edit'),
+				'new_page' => array(lang('Add page to category'),'menuaction'=>'sitemgr.Pages_UI.edit'),
+				'new' => array(lang('Add a category'),'adminonly'=>True,'addsub'=>$cat_id,'menuaction'=>'sitemgr.Categories_UI.edit'),
 				'edit' => array(lang('Edit category'),'adminonly'=>True,'menuaction'=>'sitemgr.Categories_UI.edit'),
 				'delete' => array(lang('Delete category'),'adminonly'=>True,'confirm'=>lang('Are you sure you want to delete the category %1 and all of its associated pages?  You cannot retrieve the deleted pages if you continue.',$cat->name),'menuaction'=>'sitemgr.Categories_UI.delete','standalone'=>1),
 			),array(
