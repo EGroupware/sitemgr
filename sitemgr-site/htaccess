@@ -13,5 +13,9 @@
 # The other thing you need to do is to edit the
 # relocate.php file's top two lines.  
 #
+# Also, if you want your links to be pretty, change
+# the htaccess_404 link in config.inc.php to 'enabled'
+# from 'disabled'.
+#
 # mr_e
 ErrorDocument 404 /path/to/sitemgr-site/relocate.php

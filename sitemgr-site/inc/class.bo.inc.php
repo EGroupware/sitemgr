@@ -1,13 +1,13 @@
 <?php
-	/***************************************************************************\
-	* phpGroupWare - Web Content Manager                                        *
-	* http://www.phpgroupware.org                                               *
-	* -------------------------------------------------                         *
-	* This program is free software; you can redistribute it and/or modify it   *
-	* under the terms of the GNU General Public License as published by the     *
-	* Free Software Foundation; either version 2 of the License, or (at your    *
-	* option) any later version.                                                *
-	\***************************************************************************/
+	/*************************************************************************\
+	* phpGroupWare - Web Content Manager                                      *
+	* http://www.phpgroupware.org                                             *
+	* -------------------------------------------------                       *
+	* This program is free software; you can redistribute it and/or modify it *
+	* under the terms of the GNU General Public License as published by the   *
+	* Free Software Foundation; either version 2 of the License, or (at your  *
+	* option) any later version.                                              *
+	\*************************************************************************/
 	/* $Id$ */
 
 	class bo
@@ -39,23 +39,32 @@
 			$this->page->title = 'Site Index';
 			$this->page->subtitle = '';
 			$indexarray = $this->getIndex();
-			$content = "\n".'<ul>';
+			$content = "\n".'<table border="0" width="100%" align="left" cellspacing="1" cellpadding="0"><tr>';
 			$catname = '';
 			foreach($indexarray as $page)
 			{
+				$buffer = str_pad('', $page['catdepth']*24,'&nbsp;');
 				if ($catname!=$page['catname']) //category name change
 				{
 					if ($catname!='') //not the first name change
 					{
-						$content .= '</ol><br></li>';
+						$content .= '<br><br></td></tr></table></td></tr><tr>';
 					}
+					$content .= '<td>
+					<table border="0" width="100%" cellspacing="0" align="left" cellpadding="0">
+						<tr><td>'.$buffer.'</td>
+						<td width="100%">';
 					$catname = $page['catname'];
-					$content .= "\n".'<li><b>'.$catname.'</b><br><i>'.
-						$page['catdescrip'].'</i>'."\n".'<ol>';
+					if ($page['catdepth'])
+					{
+						$content .= '&middot;&nbsp;';
+					}
+					$content .= '<b>'.$catname.'</b> &ndash; <i>'.
+						$page['catdescrip'].'</i>'."\n";
 				}
-				$content .= "\n".'<li>'.$page['pagelink'].'</li>';
+				$content .= "\n".'<br>&nbsp;&nbsp;&nbsp;&nbsp;&middot;&nbsp;'.$page['pagelink'];
 			}
-			$content .= "\n".'</ol></li></ul>';
+			$content .= "\n".'</td></tr></table></td></tr></table>';
 			if (count($indexarray)==0)
 			{
 				$content='You do not have access to any content on this site.';
@@ -81,6 +90,7 @@
 						{
 							$index[] = array(
 								'catname'=>$cat['name'],
+								'catdepth'=>$cat['depth'],
 								'catlink'=>$cat['link'],
 								'catdescrip'=>$cat['description'],
 								'pagename'=>$link['name'],
@@ -94,9 +104,10 @@
 					{
 						$index[] = array(
 							'catname'=>$cat['name'],
+							'catdepth'=>$cat['depth'],
 							'catdescrip'=>$cat['description'],
 							'catlink'=>$cat['link'],
-							'pagelink'=>'No pages in this section.'
+							'pagelink'=>'No pages available'
 						);
 					}
 				}
@@ -115,26 +126,47 @@
 				$acl = CreateObject('sitemgr.ACL_BO');
 				if($acl->can_read_category($category_id))
 				{
-					$links = $this->getPageLinks($category_id);
+					$links = $this->getPageLinks($category_id,true);
 					$cat = $this->catbo->getCategory($category_id);
+					$content = '';
 					if ($cat)
 					{
-						$this->page->title = 'Table of Contents: '.$cat->name;
-						$this->page->subtitle = '<a href="'.sitemgr_link2('/index.php','toc=1').'">Up to table of contents</a>';
-						$links = $this->getPageLinks($category_id);
-						$content = '<ul>';
+						$this->page->title = 'Category '.$cat->name;
+						$this->page->subtitle = '<i>'.$cat->description.'</i>';
+						$content .= '<b><a href="'.sitemgr_link2('/index.php','toc=1').'">Up to table of contents</a></b>';
+						if ($cat->depth)
+						{
+							$content .= ' | <b><a href="'.sitemgr_link2('/index.php','category_id='.$cat->parent).'">Up to parent</a></b>';
+						}
+						$children = $this->getCatLinks((int) $category_id,false);
+						if (count($children))
+						{
+							$content .= '<br><br><b>Subcategories:</b><br>';
+							foreach ($children as $child)
+							{
+								$content .= '<br>&nbsp;&nbsp;&nbsp;&middot;&nbsp;'.
+									$child['link'].' &ndash; '.$child['description'];
+							}
+						}
+						$content .= '<br><br><b>Pages:</b><br>';
+						$links = $this->getPageLinks($category_id,true);
 						if (count($links)>0)
 						{
 							foreach($links as $pg)
 							{
-								$content .= "\n".'<li>'.$pg['link'].'</li>';
+								$content .= "\n<br>".
+									'&nbsp;&nbsp;&nbsp;&middot;&nbsp;'.$pg['link'];
+								if (!empty($pg['subtitle']))
+								{
+									$content .= ' &ndash; <i>'.$pg['subtitle'].'</i>';
+								}
+								$content .= '';
 							}
 						}
 						else
 						{
 							$content .= '<li>There are no pages in this section</li>';
 						}
-						$content .= '</ul>';
 						$this->page->content=$content;
 					}
 					else
@@ -156,21 +188,25 @@
 			{
 				$this->page->title = 'Table of Contents';
 				$this->page->subtitle = '';
-				$content = '<ul>';
+				$content = '<b>Choose a category:</b><br>';
 				$links = $this->getCatLinks();
 				if (count($links)>0)
 				{
 					foreach($links as $cat)
 					{
-						$content .= "\n".'<li>'.$cat['link'].'<br><i>'.$cat['description'].
-							'</i></li>';
+						$buffer = str_pad('', $cat['depth']*24,'&nbsp;').'&middot;&nbsp;';
+						if (!$cat['depth'])
+						{
+							$buffer = '<br>'.$buffer;
+						}
+						$content .= "\n".$buffer.$cat['link'].' &mdash; <i>'.$cat['description'].
+							'</i><br>';
 					}
 				}
 				else
 				{
-					$content .= '<li>There are no sections available to you.</li>';
+					$content .= 'There are no sections available to you.';
 				}
-				$content .= '</ul>';
 				$this->page->content=$content;
 			}
 			return true;

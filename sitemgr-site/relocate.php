@@ -12,11 +12,11 @@ $base_script_dir = "/filesystem/path/to/sitemgr-site/";
 
 function localpassthru($u)
 {
-	$fp = fsockopen($GLOBALS['HTTP_SERVER_VARS']['SERVER_NAME'], 
-		$GLOBALS['server_port']);
+	$server = $GLOBALS['HTTP_SERVER_VARS']['SERVER_NAME'];
+	$fp = fsockopen($server, $GLOBALS['server_port']);
 	if ($fp)
 	{
-		fputs ($fp, "GET $u HTTP/1.0\r\nHost: localhost\r\n\r\n");
+		fputs ($fp, "GET $u HTTP/1.0\r\nHost: $server\r\n\r\n");
 		$input = '';
 		while (!feof($fp)) 
 		{

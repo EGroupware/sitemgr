@@ -210,7 +210,7 @@ function themearticle ($aid, $informant, $datetime, $title, $thetext, $topic, $t
 /************************************************************/
 
 function themesidebox($title, $content) {
-    echo "<table border=0 cellspacing=0 cellpadding=0 width=150><tr>"
+    echo "\n<table border=0 cellspacing=0 cellpadding=0 width=150><tr>"
 	."<td width=17 height=17><img src=themes/Kaput/images/up-left.gif alt=\"\" border=0></td>"
         ."<td background=themes/Kaput/images/up.gif align=center width=100% height=17>&nbsp;</td>"
         ."<td><img src=themes/Kaput/images/up-right.gif width=17 height=17 alt=\"\" border=0></td></tr>"
