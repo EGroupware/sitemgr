@@ -13,14 +13,11 @@
 
 	$setup_info['sitemgr']['name']      = 'sitemgr';
 	$setup_info['sitemgr']['title']     = 'SiteMgr Web Content Management';
-	$setup_info['sitemgr']['version']   = '0.9.15.010';
+	$setup_info['sitemgr']['version']   = '1.0.0';
 	$setup_info['sitemgr']['app_order'] = 14;
 	$setup_info['sitemgr']['tables']    = array('phpgw_sitemgr_pages','phpgw_sitemgr_pages_lang','phpgw_sitemgr_categories_state','phpgw_sitemgr_categories_lang','phpgw_sitemgr_modules','phpgw_sitemgr_blocks','phpgw_sitemgr_blocks_lang','phpgw_sitemgr_content','phpgw_sitemgr_content_lang','phpgw_sitemgr_active_modules','phpgw_sitemgr_properties','phpgw_sitemgr_sites');
 	$setup_info['sitemgr']['enable']    = 1;
-	$setup_info['sitemgr']['author'] = array(
-		'name'  => 'Michael Totschnig</a> and others',
-		'email' => 'totschnig.michael@uqam.ca'
-	);
+	$setup_info['sitemgr']['author'] = 'Michael Totschnig and others';
 	$setup_info['sitemgr']['maintainer'] = array(
 		'name'  => 'Ralf Becker',
 		'email' => 'ralfbecker@outdoor-training.de'

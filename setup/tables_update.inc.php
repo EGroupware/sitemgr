@@ -744,7 +744,18 @@
 			'uc' => array()
 		));
 
-		$GLOBALS['setup_info']['sitemgr']['currentver'] = '0.9.15.010';
+		// we dont need to do update 0.9.15.010, as UpdateSequenze is called now by RefreshTable
+		$GLOBALS['setup_info']['sitemgr']['currentver'] = '1.0.0';
+		return $GLOBALS['setup_info']['sitemgr']['currentver'];
+	}
+	
+	
+	$test[] = '0.9.15.010';
+	function sitemgr_upgrade0_9_15_010()
+	{
+		$GLOBALS['phpgw_setup']->oProc->UpdateSequence('phpgw_sitemgr_pages','page_id');
+
+		$GLOBALS['setup_info']['sitemgr']['currentver'] = '1.0.0';
 		return $GLOBALS['setup_info']['sitemgr']['currentver'];
 	}
 ?>
