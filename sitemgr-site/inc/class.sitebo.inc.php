@@ -101,9 +101,8 @@
 
 			if (count($cats)>0)
 			{
-				reset($cats);
 				$content = "\n".'<ul>';
-				while(list($cat_id,$cat) = each($cats))
+				foreach($cats as $cat_id => $cat)
 				{
 					$pages = $this->getPageLinks($cat_id,$showhidden,$subtitles);
 					if (count($pages)>0)
