@@ -122,11 +122,6 @@ function toggle(image, catid)
 	   </xsl:otherwise>
 	  </xsl:choose>
 	 </xsl:attribute>
-	 <xsl:attribute name="onclick">
-	  <xsl:text>toggle(this, '</xsl:text>
-	  <xsl:value-of select="@id"/>
-	  <xsl:text>')</xsl:text>
-	 </xsl:attribute>
 	  <xsl:apply-templates select="bookmark"/>
 	  <xsl:apply-templates select="folder"/>
 	 </table>
