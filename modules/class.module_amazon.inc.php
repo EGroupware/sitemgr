@@ -46,7 +46,7 @@ class module_amazon extends Module
 
 	function get_content(&$arguments,$properties)
 	{
-		$asins = split("[; \n]+",$arguments['asins']);
+		$asins = explode("\n",$arguments['asins']);
 		if (!count($asins) || empty($asins[0]))
 		{
 			$asins = array('1565926102=Programming PHP');
