@@ -74,7 +74,7 @@ class module_guestbook extends Module
 	{
 		if (!$this->bo)
 		{
-			return array(array('label' => lang('Application sitemgr_module_guestbook must be installed as a phpgroupware application for this module to run')));
+			return array(array('label' => lang('Application sitemgr_module_guestbook must be installed as a eGroupWare application for this module to run')));
 		}
 
 		$books = $this->bo->get_books();
@@ -135,7 +135,7 @@ class module_guestbook extends Module
 	{
 		if (!$this->bo)
 		{
-			return lang('Application sitemgr_module_guestbook must be installed as a phpgroupware application for this module to run');
+			return lang('Application sitemgr_module_guestbook must be installed as a eGrouPware application for this module to run');
 		}
 
 		if ($arguments['save'])
