@@ -11,13 +11,14 @@
 	<meta name="DESCRIPTION" content="{slogan}">
 	<meta name="ROBOTS" content="INDEX, FOLLOW">
 	<meta name="REVISIT-AFTER" content="1 DAYS">
-	<meta name="RATING" content="GENERAL">
+	<meta name="rating" content="general">
 	<meta name="language" content="{lang}" />
 		{editmode_styles}
 	<link rel="stylesheet" type="text/css" 
 	      href="templates/realss/realss.css"/>
 </head>
 <body>
+<!-------   for template structure information read the stylesheets ------>
 <!-------------- title bar --------------!>
 <table align="center" id="contentarea_top" style="width: 784px">
 <tr><td>
@@ -37,7 +38,10 @@
 		<img src="templates/realss/images/center_bt_top.png"
 		     style="display:block"/>
 		<div id="middle_bt">
-		<h1>{title} {editicons}</h1>
+		<!-- the block title does not necessarily make sense 
+		in central content area. 
+		If you want it change display:block to enable it. -->
+		<h1 style="display:none">{title} {editicons}</h1>
 		<h3>{subtitle}</h3>
 		{contentarea:center}
 		</div>
