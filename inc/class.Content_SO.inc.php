@@ -287,7 +287,7 @@
 		function getversion($version_id,$lang=false)
 		{
 			$fields = "arguments" . ($lang ? ', arguments_lang' : '');
-			$lang_join = $lang ? "LEFT JOIN phpgw_sitemgr_content_lang AS t2 ON (t1.version_id = t2.version_id AND lang='$lang')" : '';
+			$lang_join = $lang ? "LEFT JOIN phpgw_sitemgr_content_lang AS t2 ON (t1.version_id = t2.version_id AND t2.lang='$lang')" : '';
 			$sql = "SELECT $fields FROM phpgw_sitemgr_content AS t1 $lang_join WHERE t1.version_id = $version_id";
 
 			$this->db->query($sql,__LINE__,__FILE__);
