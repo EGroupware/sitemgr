@@ -186,7 +186,11 @@
 
     function saveCategoryInfo($cat_id, $cat_name, $cat_description, $lang, $sort_order, $state, $parent=False, $old_parent=False,$index_page_id=0)
     {
-      
+      if (!$parent)
+      {
+        $parent = CURRENT_SITE_ID;
+      }
+      $cat_info = CreateObject('sitemgr.Category_SO', True);
       $cat_info->id = $cat_id;
       $cat_info->name = $cat_name;
       $cat_info->description = $cat_description;
