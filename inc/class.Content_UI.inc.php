@@ -593,7 +593,7 @@
 					{
 						$GLOBALS['phpgw']->html = CreateObject('phpgwapi.html');
 					}
-					return $GLOBALS['phpgw']->html->select('scope',$scope,$scopes,True);
+					return $GLOBALS['phpgw']->html->select('scope',array($scope),$scopes,True);
 				}
 				else
 				{
