@@ -48,20 +48,21 @@
 			return $this->cats->add($data);
 		}
 
-		function removeCategory($cat_id, $subs = False)
+		function removeCategory($cat_id)
 		{
-			$this->cats->delete($cat_id,$subs);
-			return true;
+			$this->cats->delete($cat_id,False,True);
+			return True;
 		}
 
 		function saveCategory($cat_info)
 		{
 			$data = array
 			(
-				'name'	=> $cat_info->name,
-				'descr'	=> $cat_info->description,
-				'data'	=> (int) $cat_info->sort_order,
-				'id'	=> $cat_info->id
+				'name'		=> $cat_info->name,
+				'descr'		=> $cat_info->description,
+				'data'		=> (int) $cat_info->sort_order,
+				'id'		=> $cat_info->id,
+				'parent'	=> $cat_info->parent
 			);
 
 			$this->cats->edit($data);
@@ -78,6 +79,7 @@
 				$cat_info->name			= $cat[0]['name'];
 				$cat_info->sort_order	= $cat[0]['data'];
 				$cat_info->description	= $cat[0]['description'];
+				$cat_info->parent		= $cat[0]['parent'];
 				return $cat_info;
 			}
 			else
