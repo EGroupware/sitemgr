@@ -66,6 +66,10 @@
 				$this->db->query('SELECT lang,lang_name,count( message_id ) AS count FROM phpgw_lang LEFT JOIN phpgw_languages ON lang=lang_id GROUP BY lang,lang_name ORDER BY count DESC,lang');
 				while($row = $this->db->row(True))
 				{
+					if (empty($row['lang']) || empty($row['lang_name']))
+					{
+						continue;
+					}
 					if (!isset($max)) $max = $row['count'];
 					$percent = sprintf('%0.1lf',100.0 * $row['count'] / $max);
 					foreach($colors as $minimum => $color)
