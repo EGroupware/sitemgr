@@ -217,7 +217,10 @@
 		function saveblockdata($block,$data)
 		{
 			//this is necessary because double slashed data breaks while serialized
-			$this->remove_magic_quotes($data);
+			if (isset($data))
+			{
+				$this->remove_magic_quotes($data);
+			}
 			$s = $this->db->db_addslashes(serialize($data));
 			$sql = "UPDATE phpgw_sitemgr_content SET arguments = '$s', sort_order = " . (int)$block->sort_order . 
 				", viewable = " . $block->view . ", actif = " . $block->actif . " WHERE block_id = " . $block->id;
@@ -227,7 +230,10 @@
 		function saveblockdatalang($block,$data,$lang)
 		{
 			//this is necessary because double slashed data breaks while serialized
-			$this->remove_magic_quotes($data);
+			if (isset($data))
+			{
+				$this->remove_magic_quotes($data);
+			}
 			$s = $this->db->db_addslashes(serialize($data));
 			$title = $this->db->db_addslashes($block->title);
 			$blockid = $block->id;
