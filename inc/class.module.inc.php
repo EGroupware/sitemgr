@@ -306,7 +306,7 @@ class Module
 			case 'checkbox':
 				return '<input type="checkbox" ' . $inputdef . ($default ? 'checked="1"' :'') . '" />';
 			case 'select':
-				$select = '<select ' .($input['multiple'] ? 'multiple="1"' : '') . $inputdef . '>';
+				$select = '<select ' .($input['multiple'] ? 'multiple="1"'.($input['multiple'] > 1 ? ' size="'.$input['multiple'].'"' : '') : '') . $inputdef . '>';
 				foreach ($input['options'] as $value => $display)
 				{
 					$title = '';
