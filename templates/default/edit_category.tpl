@@ -1,4 +1,4 @@
-<!-- BEGIN edit category -->
+<!-- BEGIN editcategory -->
 <form action="{actionurl}" method="POST">
 <input type="hidden" name="btnSaveCategory" value="True">
 <input type="hidden" name="catid" value="{catid}">
@@ -84,5 +84,4 @@
 	</tr>
 </table>
 </form>
-<!-- END edit category -->
-
+<!-- END editcategory -->
