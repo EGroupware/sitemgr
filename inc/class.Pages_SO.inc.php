@@ -75,32 +75,13 @@
 			return $retval;
 		}
 
-		function getPageByName($page_name,$lang)
+		function PagetoID($page_name)
 		{
-			$sql = 'SELECT * FROM phpgw_sitemgr_pages WHERE name=\'' . $page_name . '\'';
+			$sql = 'SELECT page_id FROM phpgw_sitemgr_pages WHERE name=\'' . $page_name . '\'';
 			$this->db->query($sql,__LINE__,__FILE__);
 			if ($this->db->next_record())
 			{
-				$page = CreateObject('sitemgr.Page_SO', True);
-				$page->id = $this->db->f('page_id');
-				$page->cat_id = $this->db->f('cat_id');
-				$page->name = stripslashes($this->db->f('name'));
-				$page->sort_order = (int) $this->db->f('sort_order');
-				$page->hidden = $this->db->f('hide_page');
-
-				$sql = "SELECT * FROM phpgw_sitemgr_pages_lang WHERE page_id='" . $page->id . "' and lang='$lang'";
-				$this->db->query($sql,__LINE__,__FILE__);
-				
-				if ($this->db->next_record())
-				{
-					$page->title= stripslashes($this->db->f('title'));
-					$page->subtitle = stripslashes($this->db->f('subtitle'));
-				}
-				else
-				{
-					$page->title = lang("The page %1 has not yet been translated to %2",$page->name, $lang);
-				}
-				return $page;
+				return $this->db->f('page_id');
 			}
 			else
 			{

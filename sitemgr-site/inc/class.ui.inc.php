@@ -27,8 +27,7 @@
 		{
 			global $objbo;
 			global $page;
-			$page = $GLOBALS['Common_BO']->pages->pageso->getPageByName($page_name,$GLOBALS['phpgw_info']['user']['preferences']['common']['lang']);
-			$objbo->loadPage($page->id);
+			$objbo->loadPage($GLOBALS['Common_BO']->pages->pageso->PageToID($page_name));
 			$this->generatePage();
 		}
 
@@ -51,25 +50,6 @@
 			global $objbo;
 			$objbo->loadTOC($categoryid);
 			$this->generatePage();
-		}
-
-		function get_news()
-		{
-			$bonews = CreateObject('news_admin.bonews');
-			$news = $bonews->get_NewsList(0, false);
-			unset($bonews);
-			//$themesel = $GLOBALS['sitemgr_info']['themesel'];
-			//require_once($GLOBALS['sitemgr_info']['sitemgr-site_path'] . 'themes/' . $themesel . '/theme.php');
-			foreach($news as $newsitem)
-			{   
-				$var = Array(
-					'subject'   => $newsitem['subject'],
-					'submittedby'    => 'Submitted by ' . $GLOBALS['phpgw']->accounts->id2name($newsitem['submittedby']) . ' on ' . $GLOBALS['phpgw']->common->show_date($newsitem['submissiondate']),
-					'content'   => nl2br($newsitem['content'])
-				);
-				return themearticle($aid, $informant, $var['submittedby'], $var['subject'], $var['content'], $topic, $topicname, $topicimage, $topictext);
-				
-			}
 		}
 
 		function generatePage()

@@ -94,7 +94,7 @@ document.write(monthNames[now.getMonth()] + " " + now.getDate() + ", " + thisYea
 <td><IMG height="17" alt="" hspace="0" src="templates/NukeNews/images/corner-top-right.gif" width="17" align="right"></td>
 </tr><tr align="center">
 <td width="100%" colspan="3">
-{footer}<br><big><a href="{?phpgw:/addressbook,order=n_given&sort=ASC}">test</a></big>
+{footer}
 </td>
 </tr><tr>
 <td><IMG height="17" alt="" hspace="0" src="templates/NukeNews/images/corner-bottom-left.gif" width="17" align="left"></td>

@@ -5,7 +5,6 @@
 
 		function Pages_BO()
 		{
-			//all sitemgr BOs should be instantiated via a globalized Common_BO object,
 			$this->pageso = CreateObject('sitemgr.Pages_SO',True);
 		}
 
@@ -56,7 +55,6 @@
 
 		function removePage($cat_id, $page_id)
 		{
-echo "debug $cat_id";
 			if ($GLOBALS['Common_BO']->acl->can_write_category($cat_id))
 			{
 				$this->pageso->removePage($page_id);

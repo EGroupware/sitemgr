@@ -99,6 +99,10 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 				"/\{\?((sitemgr|phpgw):)?([^{ ]*)\}/",
 				array($this,'make_link'),
 				$str);
+			$str = preg_replace_callback(
+				"/\{lang_([^{]+)\}/",
+				array($this,'lang'),
+				$str);
 			//all template variables that survive look for metainformation
 			return preg_replace_callback(
 				"/\{([^{ ]+)\}/",
@@ -224,6 +228,11 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 			}
 		}
 
+		function lang($vars)
+		{
+			return lang(str_replace('_',' ',$vars[1]));
+		}
+
 		function get_meta($vars)
 		{
 			global $page;
@@ -242,7 +251,7 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 					return $GLOBALS['Common_BO']->headerfooter->getsiteheader($GLOBALS['phpgw_info']['user']['preferences']['common']['lang']);
 				case 'user':
 					return $GLOBALS['phpgw_info']['user']['account_lid'];
-		}
+			}
 		}
 
 		function getmodule($appname,$modulename)

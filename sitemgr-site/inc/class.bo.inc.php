@@ -64,7 +64,6 @@
 			//fall back to a page in "default" lang
 			return $this->pages_bo->GetPage($page_id);
 		}
-	
 
 		function loadPage($page_id)
 		{
@@ -167,25 +166,12 @@
 				$page=$this->getpagewrapper($page_id);
 				if ($showhidden || !$page->hidden)
 				{
-					//this is not documented!?
-					if (strtolower($page->subtitle) == 'link')
-					{
-						$pglinks[$page_id] = array(
-							'name'=>$page->name,
-							'link'=>'<a href="'.$page->content.'">'.$page->title.'</a>',
-							'title'=>$page->title,
-							'subtitle'=>''
-						);
-					}
-					else
-					{
-						$pglinks[$page_id] = array(
-							'name'=>$page->name,
-							'link'=>'<a href="'.sitemgr_link('page_name='.$page->name).'">'.$page->title.'</a>',
-							'title'=>$page->title,
-							'subtitle'=>$page->subtitle
-						);
-					}
+					$pglinks[$page_id] = array(
+						'name'=>$page->name,
+						'link'=>'<a href="'.sitemgr_link('page_name='.$page->name).'">'.$page->title.'</a>',
+						'title'=>$page->title,
+						'subtitle'=>$page->subtitle
+					);
 				}
 			}
 			return $pglinks;
