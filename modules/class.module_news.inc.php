@@ -74,7 +74,11 @@
 				$this->template->set_var('rsshandle','');
 			}
 
-			$item = $arguments['item'];
+			// somehow $arguments['item'] is set to some whitespace
+			// i have no idea why :( 
+			// so i added trim
+			// lkneschke 2004-02-24
+			$item = trim($arguments['item']);
 			if ($item)
 			{
 				$newsitem = $bonews->get_news($item);
