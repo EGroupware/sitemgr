@@ -1,41 +1,35 @@
 <!-- BEGIN ManageBlock -->
-<table border='0' align='center' width='60%' cellpadding='0' cellspacing='0'>
+<div align='center'>
+	<B><u>{category_manager}</u></B>
+</div>
+<table align='center' border='0' width='60%'>
 	<tr>
-		<td align='center'><B><u>{category_manager}</u></B></td>
+		<td colspan="2"><u>{lang_catname} (ID)</u></td>
 	</tr>
+<!-- BEGIN CategoryBlock -->
 	<tr>
-		<td>
-		<table align='left' border='0' width='85%'>
-			<tr>
-				<td colspan="3"><u>{lang_catname}</u></td>
-				<!-- <td>&nbsp;</td>
-				     <td>&nbsp;</td> -->
-			</tr>
-			<!-- BEGIN CategoryBlock -->
-			<tr>
-				<td>
-				<table border="0" width="100%" align="left">
-					<tr>
-						<td>
-							{buffer}
-						</td>
-						<td align='left' bgcolor='dddddd' width='100%'>
-							{category}
-						</td>
-						<td align='center' bgcolor='dddddd'>{edit}</td>
-						<td align='center' bgcolor='dddddd'>{remove}</td>
-					</tr>
-				</table>
-				</td>
-			</tr>
-			<!-- END CategoryBlock -->
-		</table>
+		<td align='left' bgcolor='dddddd'>
+			{buffer}{category}
+		</td>
+		<td align='center' bgcolor='dddddd'>
+			<table>
+				<tr>
+					<td>{edit}</td>
+					<td>{remove}</td>
+					<td>{moduleconfig}</td>
+					<td>{content}</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+<!-- END CategoryBlock -->
+	<tr>
+		<td colspan="3">
+			{add}
 		</td>
 	</tr>
 	<tr>
-		<td>{add}</td>
-	</tr>
-	<tr>
+		<td></td>
 		<td align="right">
 			<a href="{managepageslink}">&lt; {lang_goto} &gt;</a>
 		</td>

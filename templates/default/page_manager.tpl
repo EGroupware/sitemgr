@@ -1,35 +1,27 @@
-<table border='0' width='50%'>  
+<div style="margin-bottom:1cm;font-weight:bold;text-align:center;text-decoration:underline">{page_manager}</div>
+<div><b><font color='#FF0000' size='2'>{message}</font></b></div>
+
+
+<!-- BEGIN CategoryBlock -->
+<div style="margin-left:{indent}mm">
+<table align='left' border='0' width='85%'>
 	<tr>
-		<td><b><u>{page_manager}</u></b></td> 
+		<td align='left' style="font-weight:bold;text-decoration:underline" valign='bottom'>{category}</td>
 	</tr>
+	<!-- BEGIN PageBlock -->
 	<tr>
-		<td><b><font color='#FF0000' size='2'>{message}</font></b><td>
-	</tr>
-	<!-- BEGIN CategoryBlock -->
-	<tr>
-		<td align='left' valign='bottom'><br><u>{category}</u></td>
-	</tr>
-	<tr>
-		<td align='left' width='50%'>
-		<table align='left' border='0' width='85%'>
-		<!-- BEGIN PageBlock -->
-			<tr>
-				<td width='10%'>&nbsp;</td>
-				<td align='left' bgcolor='dddddd' width='75%'>
-					{page}
-				</td>
-				<td align='center' bgcolor='dddddd' valign="center" width='5%'>{edit}</td>
-				<td align='center' bgcolor='dddddd' valign="center" width='5%'>{remove}</td>
-			</tr>
-		<!-- END PageBlock -->
-			<tr>
-				<td width='10%'>&nbsp;</td>
-				<td>{add}</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-			</tr>
-		</table>
+		<td align='left' bgcolor='dddddd' width='75%'>
+			{page}
 		</td>
+		<td align='center' bgcolor='dddddd' valign="center" width='5%'>{edit}</td>
+		<td align='center' bgcolor='dddddd' valign="center" width='5%'>{remove}</td>
+		<td align='center' bgcolor='dddddd' valign="center" width='5%'>{manage}</td>
 	</tr>
-	<!-- END CategoryBlock -->
+	<!-- END PageBlock -->
+	<tr>
+		<td>{add}</td>
+	</tr>
 </table>
+</div>
+<!-- END CategoryBlock -->
+<br clear="all">

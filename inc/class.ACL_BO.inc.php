@@ -71,6 +71,12 @@
 			$this->acl_so->remove_location('L'.$category_id);
 		}
 
+		function copy_permissions($fromcat,$tocat)
+		{
+			$this->remove_location($tocat);
+			$this->acl_so->copy_rights('L'.$fromcat,'L'.$tocat);
+		}
+
 		function grant_permissions($user, $category_id, $can_read, $can_write)
 		{
 			$rights = 0;
@@ -152,7 +158,10 @@
 			{
 				//$this->acl = CreateObject('phpgwapi.acl',$this->logged_in_user);
 				//return ($this->acl->get_rights($account_id,'L'.$category_id) & PHPGW_ACL_ADD);
-				return ($this->acl_so->get_permission('L'.$category_id) & PHPGW_ACL_ADD);
+				// if category_id = 0, we are in site-wide scope, and only admin can add content
+				return $category_id ? 
+					($this->acl_so->get_permission('L'.$category_id) & PHPGW_ACL_ADD) :
+					$this->is_admin();
 			}
 		}
 

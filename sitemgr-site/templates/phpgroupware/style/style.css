@@ -207,3 +207,18 @@ A:hover         {
 	FONT-FAMILY: Verdana, Helvetica; 
 	TEXT-DECORATION: none
 }
+
+.rowon TD         {
+        BACKGROUND:  #000000; 
+}
+.rowon A:hover { 
+  BACKGROUND:  #FFFFFF;
+  COLOR: #000000; 
+ }
+.rowoff  TD       {
+        BACKGROUND: #363636; 
+}
+.rowoff A:hover { 
+  BACKGROUND: #FFFFFF; 
+  COLOR: #363636; 
+ }

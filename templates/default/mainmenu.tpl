@@ -2,13 +2,13 @@
 	<b>{menutitle}</b>
 	<ul>
 		{begincomment}
-		{updatecats}
-		<li><a href='{setup}'>{lang_configure}</a> <i>({lang_check})</i></li>
-		<li><a href='{headerandfooter}'>{lang_editheadfoot}</a></li>
-		<li><a href='{managecategory}'>{lang_managecat}</a></li>
-		<li><a href='{manageblocks}'>{lang_manageblocks}</a></li>
+		<li><a href="{setup}">{lang_configure}</a> <i>({lang_check})</i></li>
+		<li><a href="{headerandfooter}">{lang_editheadfoot}</a></li>
+		<li><a href="{managesitemodules}">{lang_managesitemodules}</a></li>
+		<li><a href="{managesitecontent}">{lang_managesitecontent}</a></li>
 		{endcomment}
-		<li><a href='{managepage}'>{lang_managepage}</a></li>
-		<li><a href='{managetranslations}'>{lang_managetranslations}</a></li>
+		<li><a href="{managecategory}">{lang_managecat}</a></li>
+		<li><a href="{managepage}">{lang_managepage}</a></li>
+		<li><a href="{managetranslations}">{lang_managetranslations}</a></li>
 	</ul>
 <!-- END MainMenu -->

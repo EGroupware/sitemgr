@@ -2,12 +2,11 @@
 	class Pages_BO
 	{
 		var $pageso;
-		var $acl;
 
 		function Pages_BO()
 		{
+			//all sitemgr BOs should be instantiated via a globalized Common_BO object,
 			$this->pageso = CreateObject('sitemgr.Pages_SO',True);
-			$this->acl = CreateObject('sitemgr.ACL_BO');
 		}
 
 		function getPageOptionList()
@@ -24,7 +23,7 @@
 
 		function getPageIDList($cat_id=0)
 		{
-			if ($this->acl->can_read_category($cat_id))
+			if ($GLOBALS['Common_BO']->acl->can_read_category($cat_id))
 			{
 				return $this->pageso->getPageIDList($cat_id);	
 			}
@@ -36,7 +35,7 @@
 
 		function addPage($cat_id)
 		{
-			if ($this->acl->can_write_category($cat_id))
+			if ($GLOBALS['Common_BO']->acl->can_write_category($cat_id))
 			{
 				return $this->pageso->addPage($cat_id);
 			}
@@ -46,11 +45,22 @@
 			}
 		}
 
+		function removePagesInCat($cat_id)
+		{
+			$pages = $this->pageso->getPageIDList($cat_id);
+			while(list(,$page_id) = each($pages))
+			{
+				$this->removePage($cat_id,$page_id);
+			}
+		}
+
 		function removePage($cat_id, $page_id)
 		{
-			if ($this->acl->can_write_category($cat_id))
+echo "debug $cat_id";
+			if ($GLOBALS['Common_BO']->acl->can_write_category($cat_id))
 			{
-				return $this->pageso->removePage($page_id);
+				$this->pageso->removePage($page_id);
+				$GLOBALS['Common_BO']->content->removeBlocksInPageOrCat($cat_id,$page_id);
 			}
 			else
 			{
@@ -60,7 +70,7 @@
 
 		function getPage($page_id,$lang=False)
 		{
-			if ($this->acl->can_read_page($page_id))
+			if ($GLOBALS['Common_BO']->acl->can_read_page($page_id))
 			{
 				return $this->pageso->getPage($page_id,$lang);
 			}
@@ -70,19 +80,19 @@
 				$page->name = 'Error';
 				$page->title = lang('Error accessing page');
 				$page->subtitle = '';
-				$page->content = lang('There was an error accessing the requested page. Either you do not have permission to view this page, or the page does not exist.');
+//				$page->content = lang('There was an error accessing the requested page. Either you do not have permission to view this page, or the page does not exist.');
 				return $page;
 			}
 		}
 
 		function getlangarrayforpage($page_id)
-                {
-		  return $this->pageso->getlangarrayforpage($page_id);
+		{
+			return $this->pageso->getlangarrayforpage($page_id);
 		}
 
 		function savePageInfo($page_Info,$lang)
 		{
-			if (!$this->acl->can_write_category($page_Info->cat_id))
+			if (!$GLOBALS['Common_BO']->acl->can_write_category($page_Info->cat_id))
 			{
 				return lang("You don't have permission to write to that category.");
 			}

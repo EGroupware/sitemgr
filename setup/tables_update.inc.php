@@ -248,4 +248,125 @@
 			'actif', array('type' => 'int', 'precision' => 2));
 		return $setup_info['sitemgr']['currentver'];
 	}
+	
+	$test[] = '0.9.14.006';
+	function sitemgr_upgrade0_9_14_006()
+	{
+		global $setup_info,$phpgw_setup;
+		$setup_info['sitemgr']['currentver'] = '0.9.15.001';
+
+		$phpgw_setup->oProc->DropTable('phpgw_sitemgr_blocks');
+		$phpgw_setup->oProc->CreateTable('phpgw_sitemgr_modules',array(
+			'fd' => array(
+				'module_id' => array('type' => 'auto', 'precision' => 4, 'nullable' => false),
+				'app_name' => array('type' => 'varchar', 'precision' => 25),
+				'module_name' => array('type' => 'varchar', 'precision' => 25),
+				'description' => array('type' => 'varchar', 'precision' => 255)
+			),
+			'pk' => array('module_id'),
+			'fk' => array(),
+			'ix' => array(),
+			'uc' => array()
+		));
+		$phpgw_setup->oProc->CreateTable('phpgw_sitemgr_content',array(
+			'fd' => array(
+				'block_id' => array('type' => 'auto', 'nullable' => false),
+				'area' => array('type' => 'varchar', 'precision' => 50),
+				//if page_id != NULL scope=page, elseif cat_id != NULL scope=category, else scope=site
+				'cat_id' => array('type' => 'int', 'precision' => 4),
+				'page_id' => array('type' => 'int', 'precision' => 4),
+				'module_id' => array('type' => 'int', 'precision' => 4, 'nullable' => false),
+				'arguments' => array('type' => 'text'),
+				'sort_order' => array('type' => 'int', 'precision' => 4),
+				'view' => array('type' => 'int', 'precision' => 4),
+				'actif' => array('type' => 'int', 'precision' => 2)
+			),
+			'pk' => array('block_id'),
+			'fk' => array(),
+			'ix' => array(),
+			'uc' => array()
+		));
+		$phpgw_setup->oProc->CreateTable('phpgw_sitemgr_content_lang',array(
+			'fd' => array(
+				'block_id' => array('type' => 'auto', 'nullable' => false),
+				'lang' => array('type' => 'varchar', 'precision' => 2, 'nullable' => false),
+				'arguments_lang' => array('type' => 'text'),
+				'title' => array('type' => 'varchar', 'precision' => 255),
+			),
+			'pk' => array('block_id','lang'),
+			'fk' => array(),
+			'ix' => array(),
+			'uc' => array()
+		));
+		$phpgw_setup->oProc->CreateTable('phpgw_sitemgr_active_modules',array(
+			'fd' => array(
+				// area __PAGE__ stands for master list
+				'area' => array('type' => 'varchar', 'precision' => 50, 'nullable' => false),
+				// cat_id 0 stands for site wide
+				'cat_id' => array('type' => 'int', 'precision' => 4, 'nullable' => false),
+				'module_id' => array('type' => 'auto', 'precision' => 4, 'nullable' => false)
+			),
+			'pk' => array('area','cat_id','module_id'),
+			'fk' => array(),
+			'ix' => array(),
+			'uc' => array()
+		));
+		$phpgw_setup->oProc->CreateTable('phpgw_sitemgr_properties',array(
+			'fd' => array(
+				// area __PAGE__ stands for all areas
+				'area' => array('type' => 'varchar', 'precision' => 50, 'nullable' => false),
+				// cat_id 0 stands for site wide 
+				'cat_id' => array('type' => 'int', 'precision' => 4, 'nullable' => false), 
+				'module_id' => array('type' => 'int', 'precision' => 4, 'nullable' => false),
+				'properties' => array('type' => 'text')
+			),
+			'pk' => array('area','cat_id','module_id'),
+			'fk' => array(),
+			'ix' => array(),
+			'uc' => array()
+		));
+
+		//we register some standard modules so that the default site template works
+		$db2 = $phpgw_setup->db;
+		foreach (array('html','meta','index','toc') as $module)
+		{
+			$db2->query("INSERT INTO phpgw_sitemgr_modules (app_name,module_name) VALUES ('sitemgr','$module')",__LINE__,__FILE__);
+			$module_id = $db2->get_last_insert_id('phpgw_sitemgr_modules','module_id');
+			$db2->query("INSERT INTO phpgw_sitemgr_active_modules (area,cat_id,module_id) VALUES ('__PAGE__',0,$module_id)",__LINE__,__FILE__);
+		}
+
+		//now to the difficult part: we try to put the old content field of phpgw_sitemgr_pages into the new phpgw_sitemgr_content table
+		$db3 = $phpgw_setup->db;
+		$GLOBALS['phpgw_setup']->oProc->query("select * from phpgw_sitemgr_pages",__LINE__,__FILE__);
+		$emptyarray = serialize(array());
+		while($GLOBALS['phpgw_setup']->oProc->next_record())
+		{
+			$page_id = $GLOBALS['phpgw_setup']->oProc->f('page_id');
+			$cat_id = $GLOBALS['phpgw_setup']->oProc->f('cat_id');
+			$db2->query("INSERT INTO phpgw_sitemgr_content (area,cat_id,page_id,module_id,arguments,sort_order,view,actif) VALUES ('CENTER',$cat_id,$page_id,$module_id,'$emptyarray',0,0,1)",__LINE__,__FILE__);
+			$block_id = $db2->get_last_insert_id('phpgw_sitemgr_content','block_id');
+			$db2->query("select * from phpgw_sitemgr_pages_lang WHERE page_id = $page_id",__LINE__,__FILE__);
+			while($db2->next_record())
+			{
+				$lang = $db2->f('lang');
+				$content = serialize(array('htmlcontent' => $db2->f('content')));
+				$db3->query("INSERT INTO phpgw_sitemgr_content_lang (block_id,lang,arguments_lang,title) VALUES ($block_id,'$lang','$content','HTML')",__LINE__,__FILE__);
+			}
+		}
+		//finally drop the content field
+		$newtbldef = array(
+			'fd' => array(
+				'page_id' => array('type' => 'int', 'precision' => 4, 'nullable' => false),
+				'lang' => array('type' => 'varchar', 'precision' => 2, 'nullable' => false),
+				'title' => array('type' => 'varchar', 'precision' => 255),
+				'subtitle' => array('type' => 'varchar', 'precision' => 255)
+			),
+			'pk' => array('page_id','lang'),
+			'fk' => array(),
+			'ix' => array(),
+			'uc' => array()
+		);
+		$GLOBALS['phpgw_setup']->oProc->DropColumn('phpgw_sitemgr_pages_lang',$newtbldef,'content');
+		return $setup_info['sitemgr']['currentver'];
+	}
 ?>

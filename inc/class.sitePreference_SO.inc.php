@@ -40,6 +40,17 @@
 				return '';
 			}
 		}
+
+		function getallprefs()
+		{
+			$sql = 'SELECT name,value FROM phpgw_sitemgr_preferences';
+			$this->db->query($sql,__LINE__,__FILE__);
+			while ($this->db->next_record())
+			{
+				$result[$this->db->f('name')] = $this->db->f('value');
+			}
+			return $result;
+		}
 	}
 
 ?>

@@ -33,12 +33,6 @@
 		<td>{move_to}</td>
 	</tr>
 	<tr>
-		<td colspan='2'><b>{lang_maincontent}: <font size='2' color='#ff0000'>*</font></b></td>
-	</tr>
-	<tr>
-		<td colspan='2'><textarea ROWS="13" COLS="50" type="text" name="main">{main}</textarea>	</td>
-	</tr>
-	<tr>
 		<td align = 'right'><input type='checkbox' {hidden} name ="hidden" value="checked"></td>
 		<td>{lang_hide}</td>
 	</tr>

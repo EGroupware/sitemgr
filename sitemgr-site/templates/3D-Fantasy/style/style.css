@@ -19,3 +19,29 @@ A:hover         {BACKGROUND: none; COLOR: #000000; FONT-SIZE: 12px; FONT-FAMILY:
 .boxcontent 	{BACKGROUND: none; COLOR: #000000; FONT-SIZE: 12px; FONT-FAMILY: Verdana, Helvetica}
 .option 	{BACKGROUND: none; COLOR: #000000; FONT-SIZE: 14px; FONT-WEIGHT: bold; FONT-FAMILY: Verdana, Helvetica; TEXT-DECORATION: none}
 .tiny		{BACKGROUND: none; COLOR: #000000; FONT-SIZE: 10px; FONT-WEIGHT: normal; FONT-FAMILY: Verdana, Helvetica; TEXT-DECORATION: none}
+
+.rowon TD {
+  BACKGROUND:  #000000; 
+  COLOR: #FFFFFF;
+}
+.rowon A {
+   BACKGROUND:   #000000; 
+  COLOR: #FFFFFF;
+ }
+.rowon A:hover { 
+  BACKGROUND:  #FFFFFF;
+  COLOR: #000000; 
+ }
+
+.rowoff  TD {
+  BACKGROUND: #363636;
+  COLOR: #FFFFFF;
+}
+.rowoff A {
+  BACKGROUND: #363636;
+  COLOR: #FFFFFF;
+ }
+.rowoff A:hover { 
+  BACKGROUND: #FFFFFF; 
+  COLOR: #363636; 
+ }

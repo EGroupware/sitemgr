@@ -20,7 +20,7 @@
 			{
 				$cats = $this->cats->return_array('mains','',False,'','','cat_data',False, 0);
 			}
-			while (is_array($cats) && list(,$subs) = each($cats))
+			while (list(,$subs) = @each($cats))
 			{
 				if ($subs['parent']==$parent)
 				{
@@ -30,34 +30,11 @@
 			return $subs_id_list;
 		}
 
-		function getFullChildrenIDList($parent = '')
-		{
-			if (!$parent)
-			{
-				$parent = 0;
-			}
-
-			if ($parent == 0)
-			{
-				$cats = $this->cats->return_array('mains','',False,'','','cat_data',False, $parent);
-			}
-			else
-			{
-				$cats = $this->cats->return_array('all','',False,'','','cat_data',False,$parent);
-			}
-
-			while (is_array($cats) && list(,$subs) = each($cats))
-			{
-				$subs_id_list[] = $subs['id'];
-			}
-			return $subs_id_list;
-		}
-
 		function getFullCategoryIDList()
 		{
 			$cats = $this->cats->return_array('all','',False,'','','cat_data',False);
 
-			while (is_array($cats) && list(,$cat) = each($cats))
+			while (list(,$cat) = @each($cats))
 			{
 				$cat_id_list[] = $cat['id'];
 			}
@@ -115,6 +92,7 @@
 
 		function getlangarrayforcategory($cat_id)
 		{
+			$retval = array();
 			$this->db->query("SELECT lang FROM phpgw_sitemgr_categories_lang WHERE cat_id='$cat_id'");
 			while ($this->db->next_record())
 			{

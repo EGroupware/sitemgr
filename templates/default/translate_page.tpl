@@ -1,18 +1,11 @@
+<div style="margin-bottom:1cm;font-weight:bold;text-align:center;text-decoration:underline">{translate} {pagename}</div>
+<div style="text-align:center; color:#FF0000; font-weight:bold;"><b>{error_msg}</b></div>
 <form name="translatepage" method="POST">
 <input type="hidden" name="page_id" value="{pageid}">
 
-<table align="center" border ="0" width="80%" cellpadding="5" cellspacing="1">
-	<tr>	
-		<td align="center" colspan="3"><u><b>{translate}</b></u></td>
-	</tr>
+<table style="border-width:2px;border-style:solid;" align="center" border="1" rules="all" width="80%" cellpadding="5">
 	<tr>
-		<td align="center" colspan="3"><font size="2" color="#FF0000"><b>&nbsp;{error_msg}</b></font></td>
-	</tr>
-	<tr>
-		<td>{lang_pagename}</td>
-		<td align="center" colspan="2" style="font-weight:bold">{pagename}</td>
-	<tr>
-		<td>{lang_refresh}</td><td>{showlang}</td><td>{savelang}</td>
+		<td width="20%">{lang_refresh}</td><td width="40%">{showlang}</td><td width="40%">{savelang}</td>
 	</tr>
 	<tr>
 		<td>{lang_pagetitle}:</td>
@@ -25,13 +18,31 @@
 		<td><input type="text" size="50" name="savepagesubtitle" value="{savepagesubtitle}"></td>
 	</tr>
 	<tr>
-		<td>{lang_pagecontent}:</td>
-		<td style="vertical-align:top">{showpagecontent}</td>
-		<td><textarea rows="13" cols="50" type="text" name="savepagecontent">{savepagecontent}</textarea></td>
-	</tr>
-	<tr>
-		<td align="right"><input type="reset" name="reset" value="{lang_reset}"></td>
- 		<td align="left"><input type="submit" name="btnSavePage" value="{lang_save}"></td>
+		<td colspan="3" align="center"><input type="reset" name="reset" value="{lang_reset}"><input type="submit" name="btnSavePage" value="{lang_save}"></td>
 	</tr>
 </table>
 </form>
+<h4 style="text-align:center">Content blocks for page</h4>
+<!-- BEGIN Blocktranslator -->
+<h5>{moduleinfo}</h5>
+<div align="center" style="color:red">{validationerror}</div>
+<form method="POST">
+<table style="border-width:2px;border-style:solid;" align="center" border ="1" rules="all" width="80%" cellpadding="5">
+	<tr>
+		<td width="20%">{lang_refresh}</td><td width="40%">{showlang}</td><td width="40%">{savelang}</td>
+	</tr>
+<!-- BEGIN EditorElement -->
+	<tr>
+		<td>{label}</td>
+		<td>{value}</td>
+		<td>{form}</td>
+	</tr>
+<!-- END EditorElement -->
+	<tr>
+		<td colspan="3" align="center"><input type="reset" name="reset" value="{lang_reset}">{savebutton}</td>
+	</tr>
+</table>
+<input type="hidden" name="page_id" value="{pageid}">
+<input type="hidden" value="{blockid}" name="blockid" />
+</form>
+<!-- END Blocktranslator -->

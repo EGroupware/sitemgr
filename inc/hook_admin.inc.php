@@ -17,9 +17,9 @@
 		$file = Array
 		(
 			'Site Setup'     => $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Common_UI.DisplayPrefs'),
-			'Edit Categories and Permissions'    => $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Admin_ManageCategories_UI._manageCategories'),
-			'Edit Site Header and Footer' => $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.admin_ManageSiteContent_UI._editHeaderAndFooter'),
-			'Edit Individual Pages' => $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.contributor_ManagePage_UI._managePage')
+			'Edit Categories and Permissions'    => $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Categories_UI._manageCategories'),
+			'Edit Site Header and Footer' => $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.SiteContent_UI._editHeaderAndFooter'),
+			'Edit Individual Pages' => $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Pages_UI._managePage')
 		);
 
 //Do not modify below this line

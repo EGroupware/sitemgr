@@ -11,7 +11,7 @@
 	
 	class Common_UI
 	{
-		var $t, $acl, $theme, $prefs_so, $pages_bo, $cat_bo;
+		var $t, $acl, $theme, $prefs_so;
 		var $public_functions = array
 		(
 			'DisplayPrefs' => True
@@ -19,22 +19,15 @@
 
 		function Common_UI()
 		{
+			global $Common_BO;
+			$Common_BO = CreateObject('sitemgr.Common_BO',True);
 			$this->t = $GLOBALS['phpgw']->template;
-			$this->acl = CreateObject('sitemgr.ACL_BO');
-			$this->theme = CreateObject('sitemgr.Theme_BO',True);
+			$this->acl = &$Common_BO->acl;
+			$this->theme = &$Common_BO->theme;
 			$this->prefs_so = CreateObject('sitemgr.sitePreference_SO', True);
-			$this->pages_bo = CreateObject('sitemgr.Pages_BO');
-			$this->cat_bo = CreateObject('sitemgr.Categories_BO');
+			$this->pages_bo = &$Common_BO->pages;
+			$this->cat_bo = &$Common_BO->cats;
 		}
-
-		//this has to be moved somewhere else later
-		function getlangname($lang)
-		  {
-		    $GLOBALS['phpgw']->db->query("select lang_name from languages where lang_id = '$lang'",__LINE__,__FILE__);
-		    $GLOBALS['phpgw']->db->next_record();
-		    return $GLOBALS['phpgw']->db->f('lang_name');
-		  }
-
 
 		function DisplayPrefs()
 		{
@@ -48,15 +41,15 @@
 					{
 						if ($newlang == "delete")
 						{
-							echo '<b>' . lang('Deleting all data for %1',$this->getlangname($oldlang)) . '</b><br>';
+							echo '<b>' . lang('Deleting all data for %1',$GLOBALS['Common_BO']->getlangname($oldlang)) . '</b><br>';
 							$this->pages_bo->removealllang($oldlang);
 							$this->cat_bo->removealllang($oldlang);
 						}
 						else
 						{
 							echo '<b>' . lang('Migrating data for %1 to %2',
-									$this->getlangname($oldlang),
-									$this->getlangname($newlang)) . 
+									$GLOBALS['Common_BO']->getlangname($oldlang),
+									$GLOBALS['Common_BO']->getlangname($newlang)) . 
 							  '</b><br>';
 							$this->pages_bo->migratealllang($oldlang,$newlang);
 							$this->cat_bo->migratealllang($oldlang,$newlang);
@@ -68,8 +61,8 @@
 				if ($_POST['btnSave'])
 				{
 					$preferences = array(
-						'sitemgr-site-url','sitemgr-site-dir','home-page-id','login-domain',
-						'anonymous-user','anonymous-passwd','interface','themesel','sitelanguages');
+						'sitemgr-site-url','sitemgr-site-dir','home-page-id',
+						'anonymous-user','anonymous-passwd','themesel','sitelanguages');
 
 					$oldsitelanguages = $this->prefs_so->getPreference('sitelanguages');
 					if ($oldsitelanguages && ($oldsitelanguages != $_POST['sitelanguages']))
@@ -95,7 +88,7 @@
 							  '" method="post"><table>';
 							foreach ($replacedlang as $oldlang)
 							{
-								$oldlangname = $this->getlangname($oldlang);
+								$oldlangname = $GLOBALS['Common_BO']->getlangname($oldlang);
 								echo "<tr><td>" . $oldlangname . "</td>";
 								if ($addedlang)
 								{
@@ -103,7 +96,7 @@
 									{
 										echo '<td><input type="radio" name="change[' . $oldlang . 
 										  ']" value="' . $newlang . '"> Migrate to ' . 
-										  $this->getlangname($newlang) . "</td>";
+										  $GLOBALS['Common_BO']->getlangname($newlang) . "</td>";
 									}
 								}
 								echo '<td><input type="radio" name="change[' . $oldlang . ']" value="delete"> delete</td></tr>';
@@ -133,7 +126,7 @@
 				foreach ($sitelanguages as $lang)
 				  {
 				    $preferences['sitemgr-site-name-' . $lang] = array(
-					'title'=>lang('Site name'). ' ' . $this->getlangname($lang),
+					'title'=>lang('Site name'). ' ' . $GLOBALS['Common_BO']->getlangname($lang),
 					'note'=>'(This is used chiefly for meta data and the title bar. If you change the site languages below you have to save before being able to set this preference for a new language.)',
 					'default'=>'New sitemgr site'
 				    );
@@ -153,11 +146,12 @@
 					'input'=>'option',
 					'options'=>$this->pages_bo->getPageOptionList()
 				);
-				$preferences['login-domain'] = array(
-					'title'=>lang('Anonymous user login domain'),
-					'note'=>'If you\'re not sure, enter Default.',
-					'default'=>'Default'
-				);
+// this does not seem to be used anywhere
+// 				$preferences['login-domain'] = array(
+// 					'title'=>lang('Anonymous user login domain'),
+// 					'note'=>'If you\'re not sure, enter Default.',
+// 					'default'=>'Default'
+// 				);
 				$preferences['anonymous-user'] = array(
 					'title'=>lang('Anonymous user\'s username'),
 					'note'=>'(If you haven\'t done so already, create a user that will be used for public viewing of the site.  Recommended name: anonymous.)',
@@ -168,13 +162,8 @@
 					'note'=>'(Password that you assigned for the aonymous user account.)',
 					'default'=>'anonymous'
 				);
-				$preferences['interface'] = array(
-					'title'=>lang('Use phpNuke themes instead of templates'),
-					'note'=>'(This is NOT recommended.)',
-					'input'=>'checkbox'
-				);
 				$preferences['themesel'] = array(
-					'title'=>lang('Theme or template select'),
+					'title'=>lang('Template select'),
 					'note'=>'(Choose your site\'s theme or template.  Note that if you changed the above checkbox you need to save before choosing a theme or template.)',
 					'input'=>'option',
 					'options'=>$this->theme->getAvailableThemes(),

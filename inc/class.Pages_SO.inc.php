@@ -37,20 +37,6 @@
 			return $this->db->get_last_insert_id('phpgw_sitemgr_pages','page_id');
 		}
 
-		function removePagesInCat($cat_id)
-		{
-		  	$db2 = $this->db;
-		  	$sql = 'SELECT page_id FROM phpgw_sitemgr_pages WHERE cat_id=\''.$cat_id.'\'';
-			$db2->query($sql,__LINE__,__FILE__);
-			while ($db2->next_record())
-			{
-			  $page_id = $db2->f('page_id');
-			  $this->db->query("DELETE FROM phpgw_sitemgr_pages_lang WHERE page_id='$page_id'");
-			}
-			$sql = 'DELETE FROM phpgw_sitemgr_pages WHERE cat_id=\''.$cat_id.'\'';
-			$this->db->query($sql,__LINE__,__FILE__);
-		}
-
 		function removePage($page_id)
 		{
 			$sql = 'DELETE FROM phpgw_sitemgr_pages WHERE page_id=\'' . $page_id . '\'';
@@ -79,14 +65,15 @@
 
 
 		function getlangarrayforpage($page_id)
-                {
-                        $this->db->query("SELECT lang FROM phpgw_sitemgr_pages_lang WHERE page_id='$page_id'");
-                        while ($this->db->next_record())
-                        {
-                                $retval[] = $this->db->f('lang');
-                        }
-                        return $retval;
-                }
+		{
+			$retval = array();
+			$this->db->query("SELECT lang FROM phpgw_sitemgr_pages_lang WHERE page_id='$page_id'");
+			while ($this->db->next_record())
+			{
+				$retval[] = $this->db->f('lang');
+			}
+			return $retval;
+		}
 
 		function getPageByName($page_name,$lang)
 		{
@@ -106,14 +93,13 @@
 				
 				if ($this->db->next_record())
 				{
-				  $page->title= stripslashes($this->db->f('title'));
-				  $page->subtitle = stripslashes($this->db->f('subtitle'));
-				  $page->content = stripslashes($this->db->f('content'));
+					$page->title= stripslashes($this->db->f('title'));
+					$page->subtitle = stripslashes($this->db->f('subtitle'));
 				}
 				else
-				  {
-				    $page->title = lang("The page %1 has not yet been translated to %2",$page->name, $lang);
-				  }
+				{
+					$page->title = lang("The page %1 has not yet been translated to %2",$page->name, $lang);
+				}
 				return $page;
 			}
 			else
@@ -136,41 +122,39 @@
 				$page->hidden = $this->db->f('hide_page');
 				
 				if ($lang)
-				  {
-				    $sql = "SELECT * FROM phpgw_sitemgr_pages_lang WHERE page_id='$page_id' and lang='$lang'";
-				    $this->db->query($sql,__LINE__,__FILE__);
-				    
-				    if ($this->db->next_record())
-				      {
-					$page->title= stripslashes($this->db->f('title'));
-					$page->subtitle = stripslashes($this->db->f('subtitle'));
-					$page->content = stripslashes($this->db->f('content'));
-					$page->lang = $lang;
-				      }
-				    else
-				      {
-					$page->title = lang("not yet translated");
-				      }
-				  }
+				{
+					$sql = "SELECT * FROM phpgw_sitemgr_pages_lang WHERE page_id='$page_id' and lang='$lang'";
+					$this->db->query($sql,__LINE__,__FILE__);
+				
+					if ($this->db->next_record())
+					{
+						$page->title= stripslashes($this->db->f('title'));
+						$page->subtitle = stripslashes($this->db->f('subtitle'));
+						$page->lang = $lang;
+					}
+					else
+					{
+						$page->title = lang("not yet translated");
+					}
+				}
 				
 				//if there is no lang argument we return the content in whatever languages turns up first 
 				else
-				  {
-				    $sql = "SELECT * FROM phpgw_sitemgr_pages_lang WHERE page_id='" . $page->id . "'";
-				    $this->db->query($sql,__LINE__,__FILE__);
-				    
-				    if ($this->db->next_record())
-				      {
-					$page->title= stripslashes($this->db->f('title'));
-					$page->subtitle = stripslashes($this->db->f('subtitle'));
-					$page->content = stripslashes($this->db->f('content'));
-					$page->lang = $this->db->f('lang');
-				      }
-				    else
-				      {
-					$page->title = "This page has no data in any langugage: this should not happen";
-				      }
-				  }
+				{
+					$sql = "SELECT * FROM phpgw_sitemgr_pages_lang WHERE page_id='" . $page->id . "'";
+					$this->db->query($sql,__LINE__,__FILE__);
+				
+					if ($this->db->next_record())
+					{
+						$page->title= stripslashes($this->db->f('title'));
+						$page->subtitle = stripslashes($this->db->f('subtitle'));
+						$page->lang = $this->db->f('lang');
+					}
+					else
+					{
+						$page->title = "This page has no data in any langugage: this should not happen";
+					}
+				}
 
 				return $page;
 			}
@@ -186,36 +170,33 @@
 				'cat_id=\'' . $pageInfo->cat_id . '\',' .
 				'name=\'' . addslashes($pageInfo->name) . '\',' .
 				'sort_order=\'' . (int) $pageInfo->sort_order . '\',' .
-			  	'hide_page=\'' . $pageInfo->hidden . '\' ' .
+				'hide_page=\'' . $pageInfo->hidden . '\' ' .
 				'WHERE page_id=\'' . $pageInfo->id . '\'';
 			$this->db->query($sql, __LINE__,__FILE__);
 			return true;
 		}
 		
 		function savePageLang($pageInfo,$lang)
-		  {
-		    $page_id = $pageInfo->id;
-		    $this->db->query("SELECT * FROM phpgw_sitemgr_pages_lang WHERE page_id='$page_id' and lang='$lang'", __LINE__,__FILE__);
-		    if ($this->db->next_record())
-		      {
-			$sql = 'UPDATE phpgw_sitemgr_pages_lang SET ' . 
-				'title=\'' . addslashes($pageInfo->title) . '\',' .
-				'subtitle=\'' . addslashes($pageInfo->subtitle) . '\',' .
-				'content=\'' . addslashes($pageInfo->content) . '\' ' .
-				"WHERE page_id='$page_id' and lang='$lang'";
-			$this->db->query($sql, __LINE__,__FILE__);
-			return true;
-		      }
-		    else
-		      {
-			$sql = "INSERT INTO phpgw_sitemgr_pages_lang (page_id,lang,title,subtitle,content) VALUES ('$page_id','$lang','" .
-				addslashes($pageInfo->title) . "','" .
-			  	addslashes($pageInfo->subtitle) . "','" .
-			  	addslashes($pageInfo->content) ."')";
-			$this->db->query($sql, __LINE__,__FILE__);
-			return true;
-		      }
-		  }
+		{
+			$page_id = $pageInfo->id;
+			$this->db->query("SELECT * FROM phpgw_sitemgr_pages_lang WHERE page_id='$page_id' and lang='$lang'", __LINE__,__FILE__);
+			if ($this->db->next_record())
+			{
+				$sql = "UPDATE phpgw_sitemgr_pages_lang SET " . 
+					"title='" . addslashes($pageInfo->title) . "'," .
+					"subtitle='" . addslashes($pageInfo->subtitle) . "' WHERE page_id='$page_id' and lang='$lang'";
+				$this->db->query($sql, __LINE__,__FILE__);
+				return true;
+			}
+			else
+			{
+				$sql = "INSERT INTO phpgw_sitemgr_pages_lang (page_id,lang,title,subtitle) VALUES ('$page_id','$lang','" .
+					addslashes($pageInfo->title) . "','" .
+					addslashes($pageInfo->subtitle) . "')";
+				$this->db->query($sql, __LINE__,__FILE__);
+				return true;
+			}
+		}
 
 		function removealllang($lang)
 		{

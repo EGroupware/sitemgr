@@ -48,6 +48,16 @@ class ACL_SO
 		}
 	}
 
+	function copy_rights($fromlocation,$tolocation)
+	{
+		$sql = 'select acl_account,acl_rights from phpgw_acl where acl_appname=\'sitemgr\' and acl_location=\''.$fromlocation.'\'';
+		$this->db->query($sql,__LINE__,__FILE__);
+		while ($this->db->next_record())
+		{
+			$this->acl->add_repository('sitemgr',$tolocation,$this->db->f('acl_account'),$this->db->f('acl_rights'));
+		}
+	}
+
 	function remove_location($location)
 	{
 		$sql = 'delete from phpgw_acl where acl_appname=\'sitemgr\' and acl_location=\''.

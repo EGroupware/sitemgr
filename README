@@ -3,15 +3,29 @@ Web Content Manager
 
 Quick Install
 -------------
-Install documentation can be found in the README.Install.txt file.
+Documentation can be found in different formats in the doc
+directory. Read the introduction to learn how sitemgr works and the
+section "Administrator manual" for installation instructions
 
 Overview
 --------
-This program will generate a dynamic web site with discrete sections that various phpGroupWare users may edit, if the administrator gives them permission to do so.  In effect, the generated website can have sections which independent departments are in charge of maintaining.  The site administrator can choose a theme and create headers, footers, and sidebars to enforce a sitewide look and feel.  Site sections can be viewable public (viewable by anonymous users) or private (viewable by specified users and groups only).
+This program will generate a dynamic web site with discrete sections
+that various phpGroupWare users may edit, if the administrator gives
+them permission to do so.  In effect, the generated website can have
+sections which independent departments are in charge of maintaining.
+The site administrator can choose a theme and create headers, footers,
+and sidebars to enforce a sitewide look and feel.  Site sections can
+be viewable public (viewable by anonymous users) or private (viewable
+by specified users and groups only).
 
 Background
 ----------
-Team 10 in the UC Irvine Systems Design Course, ICS 125, chose this as their project.  Seek3r served as the project's "customer" and the team wrote extensive requirements and design documents followed by the actual coding of the project.  The course is ten weeks long, but coding doesn't start until part-way through week 6, so version 1.0 of sitemgr was programmed in an intensive 3 weeks.
+Team 10 in the UC Irvine Systems Design Course, ICS 125, chose this as
+their project.  Seek3r served as the project's "customer" and the team
+wrote extensive requirements and design documents followed by the
+actual coding of the project.  The course is ten weeks long, but
+coding doesn't start until part-way through week 6, so version 1.0 of
+sitemgr was programmed in an intensive 3 weeks.
 
 Credits
 -------
@@ -33,6 +47,8 @@ Arijit Ghosh (arijitg -AT- uci.edu)
 
 Subsequent maintanence:
 
-Michael Totschnig (totschnig.michael -AT- uqam.ca) -- wrote and maintains multilingual facets of sitemgr
+Michael Totschnig (totschnig.michael -AT- uqam.ca) -- wrote
+	multilingual facets of sitemgr, and conceived the modularized
+	architecture
 Patrick Walsh (see above)
 

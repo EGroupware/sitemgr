@@ -1,7 +1,6 @@
 <!-- BEGIN editcategory -->
-<form action="{actionurl}" method="POST">
-<input type="hidden" name="btnSaveCategory" value="True">
-<input type="hidden" name="catid" value="{catid}">
+<form method="POST">
+<input type="hidden" name="cat_id" value="{cat_id}">
 <input type="hidden" name="old_parent" value="{old_parent}">
 <table align="center" border ="0" width="80%" cellpadding="5" cellspacing="0">
 	<tr>
@@ -40,7 +39,13 @@
 	</tr>
 	<tr>
 		<td align="right"><input type="reset" name="reset" value="{lang_reset}"></td>
- 		<td align="left"><input type="submit" name="save" value="{lang_save}"> {savelang}</td>
+ 		<td align="left"><input type="submit" name="btnSave" value="{lang_save}"> {savelang}</td>
+	</tr>
+	<tr>
+		<td colspan="2"><input name="inputgetparentpermissions" type="checkbox">{lang_getparentpermissions}</td>
+	</tr>
+	<tr>
+		<td colspan="2"><input name="inputapplypermissionstosubs" type="checkbox">{lang_applypermissionstosubs}</td>
 	</tr>
 	<tr>
 		<td colspan="2">
@@ -93,7 +98,7 @@
 	</tr>
 	<tr>
 		<td align="right"><input type="reset" name="reset" value="{lang_reset}"></td>
- 		<td align="left"><input type="submit" name="save" value="{lang_save}"> {savelang}</td>
+ 		<td align="left"><input type="submit" name="btnSave" value="{lang_save}"> {savelang}</td>
 	</tr>
 </table>
 </form>

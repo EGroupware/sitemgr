@@ -27,11 +27,12 @@
 	$pref_so = CreateObject('sitemgr.sitePreference_SO', True);
 	$location = $pref_so->getPreference('sitemgr-site-url');
 	$dir = $pref_so->getPreference('sitemgr-site-dir');
-	if ($location && file_exists($dir . '/config.inc.php'))
+	$sitemgr_info['sitemgr-site-url'] = $pref_so->getPreference('sitemgr-site-url');
+	if ($location && file_exists($dir . '/functions.inc.php'))
 	{
-		require_once($dir . '/config.inc.php');
 		require_once($dir . '/functions.inc.php');
-		Header('Location: ' . sitemgr_link2('/index.php'));
+
+		Header('Location: ' . sitemgr_link2('/index.php',array("PHPSESSID" => session_id())));
 		//echo sitemgr_link2('/index.php');
 		exit;
 	}

@@ -13,11 +13,12 @@
 
 	function sitemgr_link2($url, $extravars = '')
 	{
-		// humor me with this wrapper function...
-		return sitemgr_link($url, $extravars);
+		//I remove the URL argument for sitemgr_link,since it should always be index.php
+		//which shouldn't be needed since the webserver interprets '/' as '/index.php'.
+		return sitemgr_link($extravars);
 	}
 
-	function sitemgr_link($url, $extravars = '')
+	function sitemgr_link($extravars = '')
 	{
 		$kp3 = $GLOBALS['HTTP_GET_VARS']['kp3'] ? $GLOBALS['HTTP_GET_VARS']['kp3'] : $GLOBALS['HTTP_COOKIE_VARS']['kp3'];
 
@@ -36,8 +37,7 @@
 		}
 		$page_name = $extravars['page_name'];
 
-		if (($url == '' || $url == '/' || $url == '/index.php') &&
-			!$page_name == '' &&
+		if (!$page_name == '' &&
 			$GLOBALS['sitemgr_info']['htaccess_404']=='enabled')
 		{
 			$url = '/'.$page_name.'/';
@@ -50,12 +50,14 @@
 				}
 			}
 			$extravars = $newextravars;
+
 		}
 
-		// In certain instances a url may look like this: 'http://xyz//hi.php' or
+		// In certain instances (wouldn't it be better to fix these instances? MT)
+		// a url may look like this: 'http://xyz//hi.php' or
 		// like this: '//index.php?blahblahblah' -- so the code below will remove
 		// the inappropriate double slashes and leave appropriate ones
-		$url = $GLOBALS['sitemgr_info']['sitemgr-site_url'] . $url;
+		$url = $GLOBALS['sitemgr_info']['sitemgr-site-url'] . $url;
 		$url = substr(ereg_replace('([^:])//','\1/','s'.$url),1);
 
 		// build the extravars string from a array
@@ -68,7 +70,7 @@
 				{
 					$new_extravars .= '&';
 				}
-				$new_extravars .= "$key=$value";
+				$new_extravars .= (($value == '') ? $key : "$key=$value");
 			}
 			// This needs to be explictly reset to a string variable type for PHP3
 			settype($extravars,'string');

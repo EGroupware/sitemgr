@@ -34,14 +34,18 @@
 
 	require_once('./functions.inc.php');
 
+	$Common_BO = CreateObject('sitemgr.Common_BO',True);
+
 	include './inc/class.ui.inc.php';
 	include './inc/class.bo.inc.php';
-	include './inc/class.so.inc.php';
-	include './inc/class.Template2.inc.php';
-
+	include './inc/class.Template3.inc.php';
 
 	$objui = new ui;
+	//I move the creation of the bo here, so that in the template we have access to it without creating it a second time
+	$objbo = new bo;
+	$objbo->setsitemgrPreferredLanguage();
 
+	$page = CreateObject('sitemgr.Page_SO');
 
 	$page_id = $_GET['page_id'];
 	$page_name = $_GET['page_name'];
@@ -61,11 +65,11 @@
 	{
 		$objui->displayPage($page_id);
 	}
-	elseif ($index)
+	elseif (isset($index))
 	{
 		$objui->displayIndex();
 	}
-	elseif ($toc)
+	elseif (isset($toc))
 	{
 		$objui->displayTOC();
 	}
@@ -80,6 +84,7 @@
 		}
 		else
 		{
+			$index = 1; 
 			$objui->displayIndex();
 		}
 	}

@@ -1,14 +1,11 @@
 <?php
 	class Theme_BO
 	{
-		var $acl;
 		var $preferenceso;
-		var $theme;
 
 		function Theme_BO()
 		{
-			$this->acl = CreateObject('ACL', True);
-			$this->preferenceso = CreateObject('sitemgr.sitePreferences_SO', True);
+			$this->preferenceso = CreateObject('sitemgr.sitePreference_SO', True);
 		}
 
 		function setTheme($theme)
@@ -23,18 +20,8 @@
 
 		function getAvailableThemes()
 		{
-			$pref = CreateObject('sitemgr.sitePreference_SO', True);
-			$sitemgr_dir = $pref->getPreference('sitemgr-site-dir');
-			$themes = $pref->getPreference('interface');
-			if ((int) $themes)
-			{
-				$interface = 'themes';
-			}
-			else
-			{
-				$interface = 'templates';
-			}
-			$dirname = $sitemgr_dir . '/' . $interface . '/';
+			$sitemgr_dir = $this->preferenceso->getPreference('sitemgr-site-dir');
+			$dirname = $sitemgr_dir . SEP . 'templates' . SEP;
 			$result_array=array();
 			@$handle=opendir($dirname);
 		
@@ -42,19 +29,14 @@
 			{
 				while (($file = readdir($handle)) !== false)
 				{
-					if (is_dir($dirname.$file) && substr($file,0,1)!='.' && strcmp($file,'index.html') != 0 
-						&& strcmp($file,'CVS') != 0)
+					if (is_dir($dirname . $file) && file_exists($dirname . $file . SEP . 'main.tpl'))
 					{
 						$result_array[]=array('value'=>$file,'display'=>$file);
 					}	
-				}        
+				}
+				closedir($handle);
 			}
-			else
-			{
-				return array(array('value'=>'','display'=>'No '.$interface.' found.'));
-			}
-			closedir($handle);
-			return $result_array;                        
+			return $result_array ? $result_array : array(array('value'=>'','display'=>lang('No templates found.')));
 		}
 		
 	}

@@ -2,48 +2,13 @@
 	class Categories_BO
 	{
 		var $so;
-		var $acl;
 		
 		function Categories_BO()
 		{
+			//all sitemgr BOs should be instantiated via a globalized Common_BO object,
 			$this->so = CreateObject('sitemgr.Categories_SO', True);
-			$this->acl = CreateObject('sitemgr.ACL_BO');
 		}
 
-		function needUpdateCategories()
-		{
-			$prefs = CreateObject('sitemgr.sitePreference_SO');
-			if ($prefs->getPreference('catsupdated'))
-			{
-				return False;
-			}
-			else
-			{
-				// if there is no table phpgw_sitemgr_categories we do not need and update
-				$table_names = $GLOBALS['phpgw']->db->table_names();
-				foreach ($table_names as $table)
-				{
-					if ($table['table_name'] == 'phpgw_sitemgr_categories')
-					{
-						return True;
-					}
-				}
-			$prefs->setPreference('catsupdated','True');
-			return False;
-			}
-		}
-
-		function updateCategories()
-		{
-			$prefs = CreateObject('sitemgr.sitePreference_SO');
-			$db_so = CreateObject('sitemgr.Categories_db_SO');
-			$rv = $db_so->convert_to_phpgwapi();
-			$prefs->setPreference('catsupdated','True');
-			unset($db_so);
-			unset($prefs);
-			return $rv;
-		}
-			
 		function getCategoryOptionList()
 		{
 			$retval[] = array('value'=>0,'display'=>'[No Parent]');
@@ -75,8 +40,7 @@
 				die("Whatcha doin callin this function, Willis?");
 			}
 
-			$root_list = $this->so->getFullChildrenIDList($cat_id);
-
+			$root_list = $this->so->getChildrenIDList($cat_id);
 			$permitted_list=array();
 			if (is_array($root_list))
 			{
@@ -84,11 +48,11 @@
 				{
 					if ($check=='read')
 					{
-						$permitted = $this->acl->can_read_category($root_cat);
+						$permitted = $GLOBALS['Common_BO']->acl->can_read_category($root_cat);
 					}
 					elseif ($check=='write')
 					{
-						$permitted = $this->acl->can_write_category($root_cat);
+						$permitted = $GLOBALS['Common_BO']->acl->can_write_category($root_cat);
 					}
 					else
 					{
@@ -98,34 +62,31 @@
 					if ($permitted)
 					{
 						$permitted_list[]=$root_cat;
-						$sub_list = $this->getPermittedCatNested($root_cat,$check);
-						if (is_array($sub_list) && count($sub_list)>0)
-						{
-							//array_push($permitted_list, $sub_list);
-							$permitted_list=array_merge($permitted_list, $sub_list);
-						}
+					}
+					//subcategories can be readable/writeable even when parent is not
+					$sub_list = $this->getPermittedCatNested($root_cat,$check);
+					if (is_array($sub_list) && count($sub_list)>0)
+					{
+						//array_push($permitted_list, $sub_list);
+						$permitted_list=array_merge($permitted_list, $sub_list);
 					}
 				}
 			}
+//print_r($permitted_list);
 			return $permitted_list;
 		}
 
-		function getPermittedCategoryIDWriteList($cat_id='')
+		//the next two functions do not recurse!
+		function getPermittedCategoryIDWriteList($cat_id=0)
 		{
-			if (is_int($cat_id))
-			{
-				$full_list = $this->so->getChildrenIDList($cat_id);
-			}
-			else
-			{
-				$full_list = $this->so->getFullcategoryIDList();
-			}
+			$full_list = $this->so->getChildrenIDList($cat_id);
+
 			$permitted_list=array();
 			if (is_array($full_list))
 			{
 				foreach($full_list as $item)
 				{
-					if ($this->acl->can_write_category($item))
+					if ($GLOBALS['Common_BO']->acl->can_write_category($item))
 					{
 						$permitted_list[]=$item;
 					}
@@ -134,23 +95,17 @@
 			return $permitted_list;
 		}
 
-		function getPermittedCategoryIDReadList($cat_id='')
+		function getPermittedCategoryIDReadList($cat_id=0)
 		{
-			if (is_int($cat_id))
-			{
-				$full_list = $this->so->getChildrenIDList($cat_id);
-			}
-			else
-			{
-				$full_list = $this->so->getFullcategoryIDList();
-			}
+			$full_list = $this->so->getChildrenIDList($cat_id);
+			
 			$permitted_list=array();
 			if (is_array($full_list))
 			{
 				reset($full_list);
 				foreach($full_list as $item)
 				{
-					if ($this->acl->can_read_category($item))
+					if ($GLOBALS['Common_BO']->acl->can_read_category($item))
 					{
 						$permitted_list[]=$item;
 					}
@@ -161,7 +116,7 @@
 
 		function addCategory($name, $description, $parent=0)		
 		{
-			if ($this->acl->is_admin())
+			if ($GLOBALS['Common_BO']->acl->is_admin())
 			{
 				return $this->so->addCategory($name, $description, $parent);
 			}
@@ -173,17 +128,17 @@
 
 		function removeCategory($cat_id)
 		{
-			if ($this->acl->is_admin())
+			if ($GLOBALS['Common_BO']->acl->is_admin())
 			{
 				/********************************************\
 				* We have to remove the category, all the    *
 				* associated pages, and all the associated   *
-				* acl stuff too.                             *
+				* acl stuff too.  not to forget blocks       *
 				\********************************************/
 				$this->so->removeCategory($cat_id);
-				$this->acl->remove_location($cat_id);
-				$pages_so = CreateObject('sitemgr.Pages_SO');
-				$pages_so->removePagesInCat($cat_id);
+				$GLOBALS['Common_BO']->acl->remove_location($cat_id);
+				$GLOBALS['Common_BO']->pages->removePagesInCat($cat_id);
+				$GLOBALS['Common_BO']->content->removeBlocksInPageOrCat($cat_id,0);
 				return True;
 			}
 		}
@@ -205,7 +160,7 @@
 				$cat_info->old_parent = $parent;
 			}
 
-			if ($this->acl->can_write_category($cat_id))
+			if ($GLOBALS['Common_BO']->acl->can_write_category($cat_id))
 			{	
 			  if ($this->so->saveCategory($cat_info));
 			  {
@@ -234,7 +189,7 @@
 		
 		function getCategory($cat_id,$lang=False)
 		{
-			if ($this->acl->can_read_category($cat_id))
+			if ($GLOBALS['Common_BO']->acl->can_read_category($cat_id))
 			{
 				return $this->so->getCategory($cat_id,$lang);
 			}
@@ -244,6 +199,21 @@
 			}
 		}
 
+		function getCategoryancestorids($cat_id,$permittedonly=False)
+		{
+			$result = array();
+			while ($cat_id != 0)
+			{
+				if (!$permittedonly || $GLOBALS['Common_BO']->acl->can_read_category($cat_id))
+				{
+					$result[] = $cat_id;
+				}
+				$cat_info = $this->so->getCategory($cat_id);
+				$cat_id = $cat_info->parent;
+			}
+			return $result;
+		}
+
 		function getlangarrayforcategory($cat_id)
 		  {
 		    return $this->so->getlangarrayforcategory($cat_id);
@@ -251,10 +221,10 @@
 
 		function saveCategoryPerms($cat_id, $group_access, $user_access)
 		{
-			if ($this->acl->is_admin())
+			if ($GLOBALS['Common_BO']->acl->is_admin())
 			{
-				$group_access=array_merge_recursive($this->acl->get_simple_group_list(),$group_access);
-				$user_access=array_merge_recursive($this->acl->get_simple_user_list(),$user_access);
+				$group_access=array_merge_recursive($GLOBALS['Common_BO']->acl->get_simple_group_list(),$group_access);
+				$user_access=array_merge_recursive($GLOBALS['Common_BO']->acl->get_simple_user_list(),$user_access);
 				$this->saveCatPermsGeneric($cat_id, $group_access);
 				$this->saveCatPermsGeneric($cat_id, $user_access);
 				return true;
@@ -296,12 +266,32 @@
 							}
 						}
 					}
-					$this->acl->grant_permissions($acctid, $cat_id, $can_read, $can_write);
+					$GLOBALS['Common_BO']->acl->grant_permissions($acctid, $cat_id, $can_read, $can_write);
 				}
 			}
 			else
 			{
 				echo 'wth!';
+			}
+		}
+
+		function saveCategoryPermsfromparent($cat_id)
+		{
+			$cat=$this->getCategory($cat_id);
+			$parent=$cat->parent;
+			if ($parent)
+			{
+				$GLOBALS['Common_BO']->acl->copy_permissions($parent,$cat_id);
+			}
+		}
+
+		function applyCategoryPermstosubs($cat_id)
+		{
+			$sublist = $this->getPermittedCatWriteNested($cat_id);
+
+			while (list(,$sub) = @each($sublist))
+			{
+				$GLOBALS['Common_BO']->acl->copy_permissions($cat_id,$sub);
 			}
 		}
 
