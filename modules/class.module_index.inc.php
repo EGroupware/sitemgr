@@ -13,40 +13,33 @@
 		{
 			global $objbo;
 			$indexarray = $objbo->getIndex();
-			$content = "\n".
-				'<table border="0" width="100%" align="left" cellspacing="1" cellpadding="0">
-				<tr>';
 			$catname = '';
 			foreach($indexarray as $temppage)
 			{
-				$buffer = str_pad('', $temppage['catdepth']*24,'&nbsp;');
 				if ($catname!=$temppage['catname']) //category name change
 				{
 					if ($catname!='') //not the first name change
 					{
-						$content .= '<br><br></td></tr></table></td></tr><tr>';
+						$content .= "\n</div>";
 					}
-					$content .= '<td>
-					<table border="0" width="100%" cellspacing="0" align="left" cellpadding="0">
-						<tr><td>'.$buffer.'</td>
-						<td width="100%">';
+					$content .= "\n".'<div style="position: relative; left: '.($temppage['catdepth']*15-15).'px;">'."\n";
 					$catname = $temppage['catname'];
 					if ($temppage['catdepth'])
 					{
-						$content .= '&middot;&nbsp;';
+						$content .= "\t&middot;&nbsp;";
 					}
-					$content .= '<b>'.$catname.'</b> '.$objbo->getEditIconsCat($temppage['cat_id']).' &ndash; <i>'.
+					$content .= "<b>$catname</b> ".$objbo->getEditIconsCat($temppage['cat_id']).' &ndash; <i>'.
 						$temppage['catdescrip'].'</i>'."\n";
 				}
-				$content .= "\n".'<br>&nbsp;&nbsp;&nbsp;&nbsp;&middot;&nbsp;'.$temppage['pagelink'];
+				$content .= "\n\t".'<div style="position: relative; left: 15px">&middot;&nbsp;'.$temppage['pagelink'];
 
 				if ($temppage['page_id'])
 				{
 					$content .= ' '.$objbo->getEditIconsPage($temppage['page_id'],$temppage['cat_id']);
 				}
+				$content .= '</div>';
 			}
-			$content .= "\n".'</td></tr></table></td></tr></table>';
-			if (count($indexarray)==0)
+			if (!count($indexarray))
 			{
 				$content=lang('You do not have access to any content on this site.');
 			}
