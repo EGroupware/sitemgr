@@ -1,0 +1,123 @@
+body {
+background-color: white;
+text-align: justify;
+text-justify: ideograph;
+}
+
+h1 {
+text-align: center;
+margin: 0px;
+padding: 10px;
+}
+
+/* h3 is used by the block title of each bt */
+h3 {
+margin: 0px;
+padding: 10px;
+}
+
+img {border: 0px}
+
+/*************************** top bar ***************************************\
+*      logo                                      <h1>header</h1>            *
+*****************************************************************************
+
+************************** content bar **************************************
+*  contentarea_left        contentarea_center                               *
+* +----------------+ +------------------------------+    +----------------+ *
+* |    left_bt     | |         middle_bt            |    |    right_bt    | *
+* |+--------------+| |+----------------------------+|    |+--------------+| *
+* ||   title      || ||                            ||    ||    title     || *
+* ||  content     || ||      <h1>title</h1>        ||    ||   content    || *
+* |+--------------+| ||          ....              ||    |+--------------+| *
+* |    left_bt     | ||    <h3>sub-title</h3>      ||    |    right_bt    | *
+* |+--------------+| ||                            ||    |+--------------+| *
+* ||   title      || ||                            ||    ||    title     || *
+* ||  content     || ||         content            ||    ||   content    || *
+* |+--------------+| ||          ....              ||    |+--------------+| *
+* |    left_bt     | ||          ....              ||    |    right_bt    | *
+* |+--------------+| ||          ....              ||    |+--------------+| *
+* ||   title      || ||                            ||    ||    title     || *
+* ||  content     || ||                            ||    ||   content    || *
+* |+--------------+| |+----------------------------+|    |+--------------+| *
+* +----------------+ +------------------------------+    +----------------+ *
+\***************************************************************************/
+
+#middle_contentarea_container {
+border-collapse: separate;
+border-spacing: 2px;
+width: 784px;
+}
+
+#contentarea_left {
+width: 170px;
+}
+
+#contentarea_center {
+width: 440px;
+padding:0px;
+}
+
+#contentarea_right {
+width: 170px;
+}
+
+.left_bt {
+background-color: #f58020;
+background-image: url('images/left_bt_right.png');
+background-position: center right;
+background-repeat: repeat-y;
+padding: 3px;
+}
+
+.right_bt {
+background-color: white;
+padding: 3px;
+}
+
+#middle_bt {
+border-left: 1px #f58020 solid;
+border-right: 1px #f58020 solid;
+}
+
+a:link          {color:black}
+a:active        {color:black}
+a:visited       {color:black}
+a:hover         {color:black}
+
+/* below is from 3D-Fantasy */
+.title 		{BACKGROUND: none; COLOR: #000000; FONT-SIZE: 16px; FONT-WEIGHT: bold; FONT-FAMILY: Verdana, Helvetica; TEXT-DECORATION: none}
+.content 	{BACKGROUND: none; COLOR: #000000; FONT-SIZE: 12px; FONT-FAMILY: Verdana, Helvetica}
+
+.storytitle 	{BACKGROUND: none; COLOR: #363636; FONT-SIZE: 14px; FONT-WEIGHT: bold; FONT-FAMILY: Verdana, Helvetica; TEXT-DECORATION: none}
+.storycat	{BACKGROUND: none; COLOR: #000000; FONT-SIZE: 14px; FONT-WEIGHT: bold; FONT-FAMILY: Verdana, Helvetica; TEXT-DECORATION: underline}
+.boxtitle 	{BACKGROUND: none; COLOR: #363636; FONT-SIZE: 12px; FONT-WEIGHT: bold; FONT-FAMILY: Verdana, Helvetica; TEXT-DECORATION: none}
+.boxcontent 	{BACKGROUND: none; COLOR: #000000; FONT-SIZE: 12px; FONT-FAMILY: Verdana, Helvetica}
+.option 	{BACKGROUND: none; COLOR: #000000; FONT-SIZE: 14px; FONT-WEIGHT: bold; FONT-FAMILY: Verdana, Helvetica; TEXT-DECORATION: none}
+.tiny		{BACKGROUND: none; COLOR: #000000; FONT-SIZE: 10px; FONT-WEIGHT: normal; FONT-FAMILY: Verdana, Helvetica; TEXT-DECORATION: none}
+
+.rowon TD {
+  BACKGROUND:  #000000; 
+  COLOR: #FFFFFF;
+}
+.rowon A {
+   BACKGROUND:   #000000; 
+  COLOR: #FFFFFF;
+ }
+.rowon A:hover { 
+  BACKGROUND:  #FFFFFF;
+  COLOR: #000000; 
+ }
+
+.rowoff  TD {
+  BACKGROUND: #363636;
+  COLOR: #FFFFFF;
+}
+.rowoff A {
+  BACKGROUND: #363636;
+  COLOR: #FFFFFF;
+ }
+.rowoff A:hover { 
+  BACKGROUND: #FFFFFF; 
+  COLOR: #363636; 
+ }
