@@ -48,8 +48,9 @@
 				case 'Production' :
 					return array(SITEMGR_STATE_PUBLISH,SITEMGR_STATE_PREUNPUBLISH);
 				case 'Draft' :
-				case 'Edit' :
 					return array(SITEMGR_STATE_PREPUBLISH,SITEMGR_STATE_PUBLISH);
+				case 'Edit' :
+					return array(SITEMGR_STATE_DRAFT,SITEMGR_STATE_PREPUBLISH,SITEMGR_STATE_PUBLISH,SITEMGR_STATE_PREUNPUBLISH);
 				case 'Commit' :
 					return array(SITEMGR_STATE_PREPUBLISH,SITEMGR_STATE_PREUNPUBLISH);
 				case 'Archive' :
