@@ -74,6 +74,7 @@
 				$page->subtitle = $this->db->f('subtitle');
 				$page->sort_order = (int) $this->db->f('sort_order');
 				$page->content = $this->db->f('content');
+				$page->hidden = $this->db->f('hide_page');
 				return $page;
 			}
 			else
@@ -96,6 +97,7 @@
 				$page->title= $this->db->f('title');
 				$page->subtitle = $this->db->f('subtitle');
 				$page->content = $this->db->f('content');
+				$page->hidden = $this->db->f('hide_page');
 				return $page;
 			}
 			else
@@ -113,6 +115,7 @@
 				'title="' . $pageInfo->title . '",' .
 				'subtitle="' . $pageInfo->subtitle . '",' .
 				'content="' . $pageInfo->content . '" ' .
+				'hide_page="' . $pageInfo->hidden . '" ' .
 				'WHERE page_id="' . $pageInfo->id . '"';
 			$this->db->query($sql, __LINE__,__FILE__);
 			return true;
