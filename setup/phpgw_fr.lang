@@ -5,136 +5,136 @@ add page	sitemgr	fr	Ajouter une page
 administration	sitemgr-site	fr	Administration
 administrative menu	sitemgr	fr	Menu administratif
 amazon	sitemgr-site	fr	Amazon
-anonymous user login domain	sitemgr	fr	Groupe auquel appartient l'usager anonyme
-anonymous user's password	sitemgr	fr	Mot de passe de l'usager anonyme
-anonymous user's username	sitemgr	fr	Nom de compte de l'usager anonyme
-are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	fr	Êtes vous sûr de vouloir effacert la catégorie %1 et toutes les pages qui y sont associées. Vous ne pourriez plus retrouver les pages effacées si vous continuez.
-as	common	fr	en tant que
+anonymous user login domain	sitemgr	fr	Domaine de l'utilisateur anonyme
+anonymous user's password	sitemgr	fr	Mot de passe de l'utilisateur anonyme
+anonymous user's username	sitemgr	fr	Nom de l'utilisateur anonyme
+are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	fr	Etes-vous sûr de vouloir effacer la catégorie %1 et toutes les pages qui y sont associées? Vous ne pourrez plus récupérer les pages effacées si vous continuez.
+as	common	fr	comme
 basic settings	sitemgr	fr	Réglages de base
-block not found	sitemgr-site	fr	Le bloc n'est pas trouvable
-block returned no content.	sitemgr-site	fr	Le bloc n'a pas retourné de contenu.
-cancel the delete	sitemgr	fr	Ne pas effacer
-cannot move page until it has been saved.	sitemgr	fr	Ne peut être déplacé avant d'être enregistrée
-category	sitemgr-site	fr	Categorie
+block not found	sitemgr-site	fr	Bloc non trouvé
+block returned no content.	sitemgr-site	fr	Le bloc n'a retourné aucun contenu.
+cancel the delete	sitemgr	fr	Annuler l'effacement
+cannot move page until it has been saved.	sitemgr	fr	Ne peut déplacer une page avant son enregistrement.
+category	sitemgr-site	fr	Catégorie
 category description	sitemgr	fr	Description de la catégorie
-category manager	sitemgr	fr	Gestion des catégories
+category manager	sitemgr	fr	Gestionnaire des catégories
 category name	sitemgr	fr	Nom de la catégorie
 changes saved.	sitemgr	fr	Changements enregistrés.
 check here after every upgrade	sitemgr	fr	Vérifiez ici après chaque mise à jour
 check to hide from condensed site index.	sitemgr	fr	Cochez pour cacher de l'index condensé du site.
-choose a category	sitemgr-site	fr	Selectionnez une catégorie
-choose language	sitemgr-site	fr	Selectionnez la langue
+choose a category	sitemgr-site	fr	Sélectionnez une catégorie
+choose language	sitemgr-site	fr	Sélectionnez la langue
 configure sitemgr	sitemgr	fr	Configurer SiteMgr
 contact the administrator.	sitemgr-site	fr	Contactez l'administrateur.
-content manager	sitemgr-site	fr	Gestion de contenu
+content manager	sitemgr-site	fr	Gestionnaire de contenu
 contributor menu	sitemgr	fr	Menu du contributeur
-default home page id number	sitemgr	fr	identifiant de la page par défaut
+default home page id number	sitemgr	fr	ID de la page racine par défaut
 deleting all data for %1	sitemgr	fr	Effacement de toutes les données pour %1
 do you want to delete them?	sitemgr	fr	Voulez-vous les effacer?
 don't have an account?	sitemgr-site	fr	Vous n'avez pas de compte?
 done	sitemgr	fr	Fait
-edit categories and permissions	common	fr	Editer les caategories et les permissions
-edit category	sitemgr	fr	Editer la categorie
-edit individual pages	common	fr	Editer les pages indivduellement
-edit page	sitemgr	fr	Editer la page
-edit site header and footer	common	fr	Editer l'en-tête et le bas de page
-error accessing page	common	fr	Erreur en chargeant la page
-filesystem path to sitemgr-site directory	sitemgr	fr	Chemin du système de fichier vers le dossier sitemgr-site
-footer editor	sitemgr	fr	Editeur du bas de page
-go back to page manager	sitemgr	fr	Retournez à la gestion des pages
-go back to the category manager.	sitemgr	fr	Retournez à la gestion des catégories
-go to page manager	sitemgr	fr	Allez à la gestion des pages
+edit categories and permissions	common	fr	Modifier les catégories et les permissions
+edit category	sitemgr	fr	Modifier la catégorie
+edit individual pages	common	fr	Modifier les pages individuellement
+edit page	sitemgr	fr	Modifier la page
+edit site header and footer	common	fr	Modifier l'entête et le bas de page
+error accessing page	common	fr	Erreur en accédant à la page
+filesystem path to sitemgr-site directory	sitemgr	fr	Chemin du système de fichiers vers le dossier sitemgr-site
+footer editor	sitemgr	fr	Editeur de bas de page
+go back to page manager	sitemgr	fr	Retourner au gestionnaire de pages
+go back to the category manager.	sitemgr	fr	Retourner au gestionnaire de catégories.
+go to page manager	sitemgr	fr	Aller au gestionnaire de pages
 google search	sitemgr-site	fr	Recherche Google
 group access permissions	sitemgr	fr	Permissions d'accès de groupe
 group name	sitemgr	fr	Nom du groupe
-header editor	sitemgr	fr	Editeur d'en-tête
+header editor	sitemgr	fr	Editeur d'entête
 headlines	sitemgr	fr	Titres
-i'm sorry, you do not have write permissions for any site categories.	sitemgr	fr	Malheureusement vous n'avez accès d'écriture à aucune catégorie.
+i'm sorry, you do not have write permissions for any site categories.	sitemgr	fr	Désolé, vous n'avez les droits d'écriture pour aucune catégorie du site.
 individual access permission	sitemgr	fr	Permissions d'accès individuelles
-languages the site user can choose from	sitemgr	fr	Les langues disponibles pour le visiteur du site.
+languages the site user can choose from	sitemgr	fr	Les langues que l'utilisateur du site peut choisir
 login	sitemgr-site	fr	Login
-login name	sitemgr-site	fr	Nom de login
-main content	sitemgr	fr	Contenu central
+login name	sitemgr-site	fr	Nom du login
+main content	sitemgr	fr	Contenu principal
 manage categories	sitemgr	fr	Gérer les catégories
 manage pages	common	fr	Gérer les pages
 manage translations	sitemgr	fr	Gérer les traductions
 migrating data for %1 to %2	sitemgr	fr	Migration des données de %1 vers %2
 move to	sitemgr	fr	Déplacer vers
 name	sitemgr	fr	Nom
-no anonymous user accounts installed. notify the administrator.	sitemgr-site	fr	IL N'Y A PAS DE COMPTE D'USAGER ANONYME. INFORMEZ L'ADMINISTRATEUR.
-no content found	sitemgr	fr	Aucun contenu trouvable
+no anonymous user accounts installed. notify the administrator.	sitemgr-site	fr	IL N'Y A PAS DE COMPTE UTILISATEUR ANONYME INSTALLE. INFORMEZ L'ADMINISTRATEUR.
+no content found	sitemgr	fr	Aucun contenu trouvé
 no groups defined.	sitemgr	fr	Aucun groupe défini.
 no options available.	sitemgr	fr	Aucune option disponible.
 no pages available	sitemgr-site	fr	Aucune page disponible
-no users defined.	sitemgr	fr	Aucun usager défini.
+no users defined.	sitemgr	fr	Aucun utilisateur défini.
 page	sitemgr	fr	Page
 page content	sitemgr	fr	Contenu de la page
-page manager	sitemgr	fr	Gestion des pages
+page manager	sitemgr	fr	Gestionnaire de pages
 page name	sitemgr	fr	Nom de la page
 page saved.	sitemgr	fr	Page enregistrée.
-page subtitle	sitemgr	fr	Soustitre de la page
+page subtitle	sitemgr	fr	Sous-titre de la page
 page title	sitemgr	fr	Titre de la page
 pages	sitemgr-site	fr	Pages
 parent	sitemgr	fr	Parent
 password	sitemgr-site	fr	Mot de passe
-read permission	sitemgr	fr	Permission de lecture
+read permission	sitemgr	fr	Permission en lecture
 refresh	sitemgr	fr	Actualiser
-register for one now.	sitemgr-site	fr	Enregistrez maintenant.
+register for one now.	sitemgr-site	fr	Enregistrez-vous maintenant.
 required fields	sitemgr	fr	Champs requis
-reset	sitemgr	fr	Reset
-return to main menu.	sitemgr	fr	Retour au menu principal
-root site index	sitemgr-site	fr	Index racine
-save	sitemgr	fr	Sauvegarder
-saved	sitemgr	fr	Sauvegardé
-selected template %1 does not exist.	sitemgr-site	fr	Le gabarit sélectionné %1 n'existe pas.
-selected theme %1 does not exist.	sitemgr-site	fr	Le thème sélectionné %1 n'existe pas.
-show site index	sitemgr	fr	Montrez l'index du site.
-site format manager	sitemgr	fr	Gestion du format du site.
+reset	sitemgr	fr	Réinitialisation
+return to main menu.	sitemgr	fr	Retour au menu principal.
+root site index	sitemgr-site	fr	Index de la racine du site
+save	sitemgr	fr	Enregistrer
+saved	sitemgr	fr	Enregistré
+selected template %1 does not exist.	sitemgr-site	fr	Le gabarit %1 sélectionné n'existe pas.
+selected theme %1 does not exist.	sitemgr-site	fr	Le thème %1 sélectionné n'existe pas.
+show site index	sitemgr	fr	Montrer l'index du site.
+site format manager	sitemgr	fr	Gestionnaire de format du site.
 site index	sitemgr-site	fr	Index du site
-site name	sitemgr	fr	Nom du site.
+site name	sitemgr	fr	Nom du site
 site setup	common	fr	Configuration du site
-sitemgr options	sitemgr	fr	Options de sitemgr
-sitemgr setup instructions	sitemgr	fr	Instruction de configuration de sitemgr
-sitemgr web content manager	common	fr	Gestionnaire de site web sitemgr
+sitemgr options	sitemgr	fr	Options de SiteMgr
+sitemgr setup instructions	sitemgr	fr	Instructions de configuration de SiteMgr
+sitemgr web content manager	common	fr	Gestionnaire de sites web SiteMgr
 sort order	sitemgr	fr	Ordre de tri
-subcategories	sitemgr-site	fr	Souscatégories
-subtitle	sitemgr	fr	Soustitre
+subcategories	sitemgr-site	fr	Sous-catégories
+subtitle	sitemgr	fr	Sous-titre
 table of contents	sitemgr-site	fr	Table de matières
-the name field cannot contain punctuation or spaces (field modified).	sitemgr	fr	Le champ nom ne peut contenir ponctuation ou des espaces (le champ a été modifié).
+the name field cannot contain punctuation or spaces (field modified).	sitemgr	fr	Le champ nom ne peut contenir de caractères de ponctuation ou d'espaces (le champ a été modifié).
 the page name must be unique.	sitemgr	fr	Le nom de la page doit être unique.
-the page was successfully saved.	sitemgr	fr	La page a été sauvegardée avec succès.
+the page was successfully saved.	sitemgr	fr	La page a été enregistrée avec succès.
 theme or template select	sitemgr	fr	Selection du thème ou du gabarit
 there are no pages in this section	sitemgr-site	fr	Il n'y a pas de page dans cette section.
 there are no sections available to you.	sitemgr-site	fr	Il n'y a pas de section disponible pour vous.
-there was an error accessing the requested page. either you do not have permission to view this page, or the page does not exist.	common	fr	Une erreur s'est produite en accédant à la page demandée. Soit vous n'avez pas la permission de lire cette page, soit la page n'existe pas.
-there was an error writing to the database.	sitemgr	fr	Erreur en écrivant dans la base de données.
+there was an error accessing the requested page. either you do not have permission to view this page, or the page does not exist.	common	fr	Une erreur s'est produite en accédant à la page demandée. Soit vous n'avez pas la permission de voir cette page, soit la page n'existe pas.
+there was an error writing to the database.	sitemgr	fr	Erreur à l'écriture dans la base de données.
 this category has no pages.	sitemgr	fr	Cette catégorie n'a pas de page.
 title	sitemgr	fr	Titre
 translate	sitemgr	fr	Traduire
 translate category	sitemgr	fr	Traduire la catégorie
 translate page	sitemgr	fr	Traduire la page
-translation manager	sitemgr	fr	Gestion des traductions
+translation manager	sitemgr	fr	Gestionnaire des traductions
 up to parent	sitemgr-site	fr	Vers le niveau supérieur
 up to table of contents	sitemgr-site	fr	Vers la table de matières
 updating to new category system	sitemgr	fr	Mise à jour vers le nouveau système de catégories
 url to sitemgr-site	sitemgr	fr	URL de sitemgr-site
 use phpnuke themes instead of templates	sitemgr	fr	Utilisez les thèmes phpnuke à la place des gabarits
-user name	sitemgr	fr	Nom d'usager
-view administrative menu	sitemgr	fr	Visualisez le menu administratif
-view generated site	sitemgr	fr	Visualisez le site genéré
-view full index	sitemgr-site	fr	Index complet
-web content manager	common	fr	Gestionnaire de site web
-web content manager administration	sitemgr	fr	Administration du gestionnaire de site web
+user name	sitemgr	fr	Nom d'utilisateur
+view administrative menu	sitemgr	fr	Voir le menu administratif
+view generated site	sitemgr	fr	Voir le site généré
+view full index	sitemgr-site	fr	Voir l'index complet
+web content manager	common	fr	Gestionnaire de contenu de site web
+web content manager administration	sitemgr	fr	Administration du gestionnaire de contenu de site web
 what do you want to do with existing translations of categories and pages for this language?	sitemgr	fr	Qu'est-ce que vous voulez faire avec les traductions existantes des catégories et pages pour cette langue?
 write permission	sitemgr	fr	Permission d'écriture
-yes, please delete it	sitemgr	fr	Oui, effacez
-you can either migrate them to a new language or delete them	sitemgr	fr	Vous pouvez soit les migrer vers une nouvelle langue soit les effacer.
-you do not have access to any content on this site.	sitemgr-site	fr	Vous n'avez accès à aucun conteny sur ce site.
+yes, please delete it	sitemgr	fr	Oui, SVP effacez-le
+you can either migrate them to a new language or delete them	sitemgr	fr	Vous pouvez soit les migrer vers une nouvelle langue soit les effacer
+you do not have access to any content on this site.	sitemgr-site	fr	Vous n'avez accès à aucun contenu sur ce site.
 you don't have permission to write in the category	sitemgr	fr	Vous n'avez pas la permission d'écrire dans cette catégorie
-you don't have permission to write to that category.	sitemgr	fr	Vous n'avez pas la permission d'écrire dans cette catégorie
-you failed to fill in one or more required fields.	sitemgr	fr	Vous n'avez pas rempli l'un ou plusieurs des champs requis.
-you must be an admin to edit categories.	sitemgr	fr	Seulement l'administrateur peut editer les catégories.
-you must be an admin to edit the site header and footer.	sitemgr	fr	Seulement l'administrateur peut editer l'en-tête et le bas de page.
-you must be an administrator to setup the site manager.	sitemgr	fr	Seulement l'administrateur peut configurer le gestionnaire de contenu.
-you removed one ore more languages from your site languages.	sitemgr	fr	Vous avez supprimé l'une ou plusieurs des langues de votre site.
+you don't have permission to write to that category.	sitemgr	fr	Vous n'avez pas la permission d'écrire dans cette catégorie.
+you failed to fill in one or more required fields.	sitemgr	fr	Vous n'avez pas rempli un ou plusieurs des champs requis.
+you must be an admin to edit categories.	sitemgr	fr	Seul un administrateur peut éditer les catégories.
+you must be an admin to edit the site header and footer.	sitemgr	fr	Seul un administrateur peut éditer l'entête et le bas de page du site.
+you must be an administrator to setup the site manager.	sitemgr	fr	Seul l'administrateur peut configurer le gestionnaire de site.
+you removed one ore more languages from your site languages.	sitemgr	fr	Vous avez supprimé une ou plusieurs des langues de votre site.
 your calendar	sitemgr-site	fr	Votre calendrier
