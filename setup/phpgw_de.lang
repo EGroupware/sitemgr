@@ -33,8 +33,8 @@ application '%1' is not installed !!!<br>please install it, to be able to use th
 apply permissions also to subcategories?	sitemgr	de	Zugriffsrechte auch auf Unterkategorien anwenden?
 archived	sitemgr	de	Archiviert
 archived content	sitemgr	de	Archivierter Inhalt
-are you sure you want to delete site %1 and all its content? you cannot retrieve it if you continue.	sitemgr	de	Sind Sie sicher das Sie Seite %1 und den kompltten Inhalt löschen möchten? Ein Wiederherstellen ist nicht möglich, wenn Sie fortfahren.
-are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	de	Sind sie sicher das Sie die Kategorie %1 und alle dazugehörigen Seiten löschen möchten?  Diese Seiten werden hiermit endgültüg gelöscht.
+are you sure you want to delete site %1 and all its content? you cannot retrieve it if you continue.	sitemgr	de	Sind Sie sicher das Sie Website %1 und den kompletten Inhalt löschen möchten? Ein Wiederherstellen ist nicht möglich, wenn Sie fortfahren.
+are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	de	Sind sie sicher das Sie die Kategorie %1 und alle dazugehörigen Seiten löschen möchten?  Diese Seiten werden hiermit endgültig gelöscht.
 as	common	de	als
 asin[=title] pairs (title is optional)	sitemgr	de	ASIN=[Titel] Paare (Titel ist optional)
 attempt to access information outside current website	sitemgr	de	Versuch auf Informationen ausserhalb der aktuellen  Website zuzugreifen
@@ -76,7 +76,7 @@ configure website	sitemgr	de	Website konfigurieren
 contact the administrator.	sitemgr	de	Kontaktieren Sie den Administrator
 content areas	sitemgr	de	Inhaltsbereiche
 content blocks	sitemgr	de	Inhaltsblock
-content blocks for category	sitemgr	de	Inhaltsblöcke der Kategory
+content blocks for category	sitemgr	de	Inhaltsblöcke der Kategorie
 content manager	sitemgr	de	Inhaltsmanager
 contentarea	sitemgr	de	Inhaltsbereich
 contributor menu	sitemgr	de	Autoren Menü
@@ -379,7 +379,7 @@ topic	sitemgr	de	Thema
 translate	sitemgr	de	Übersetzen
 translate category	sitemgr	de	Übersetzen der Kategorie
 translate page	sitemgr	de	Übersetzen der Seite
-translate site-wide content blocks	sitemgr	de	site-weite Inhaltsblöcke übersetzen
+translate site-wide content blocks	sitemgr	de	Website-weite Inhaltsblöcke übersetzen
 translation manager	sitemgr	de	Übersetzungen
 translation status	sitemgr	de	Status der Übersetzungen
 up to parent	sitemgr	de	Zur übergeordneten Ebene wechseln
