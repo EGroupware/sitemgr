@@ -138,18 +138,16 @@
 		/* This function handles add or edit */
 		function edit()
 		{
-
+			if ($_POST['done'])
+			{
+				return $this->list_sites();
+			}
 			$GLOBALS['phpgw']->common->phpgw_header();
 			echo parse_navbar();
 
 			if (!$GLOBALS['phpgw']->acl->check('run',1,'admin'))
 			{
 				$this->deny();
-			}
-
-			if ($_POST['done'])
-			{
-				return $this->list_sites();
 			}
 			if ($_POST['delete'])
 			{
@@ -200,7 +198,7 @@
 				'lang_anonpasswd' => lang('Anonymous user\'s password'),
 				'note_name' => lang('This is only used as an internal name for the website.'),
 				'note_dir' => lang('This must be an absolute directory location.  <b>No trailing slash</b>.'),
-				'note_url' => lang('The URL can be relative or absolute.  Name must end in a slash.'),
+				'note_url' => lang('The URL must be absolute and end in a slash, for example http://mydomain.com/mysite/'),
 				'note_anonuser' => lang('If you haven\'t done so already, create a user that will be used for public viewing of the site.  Recommended name: anonymous.'),
 				'note_anonpasswd' => lang('Password that you assigned for the anonymous user account.'),
 				'note_adminlist' => lang('Select persons and groups that are entitled to configure the website.')
@@ -246,10 +244,11 @@
 		{
 			$accounts = $GLOBALS['phpgw']->accounts->get_list();
 			$admin_list = $this->bo->get_adminlist($site_id);
+print_r($admin_list);
 			while (list($null,$account) = each($accounts))
 			{
 				$selectlist .= '<option value="' . $account['account_id'] . '"';
- 				if(in_array($account['account_id'],$admin_list))
+ 				if($admin_list[$account['account_id']] == SITEMGR_ACL_IS_ADMIN)
 				{
 					$selectlist .= ' selected="selected"';
 				}

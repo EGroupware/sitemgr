@@ -94,7 +94,7 @@
 				$result['sitelanguages'] = $result['site_languages'] ? explode(',',$result['site_languages']) : array('en');;
 				foreach($result['sitelanguages'] as $lang)
 				{
-					$langinfo = $GLOBALS['Common_BO']->cats->getCategory($id,$lang);
+					$langinfo = $GLOBALS['Common_BO']->cats->getCategory($id,$lang,True);
 					$result['site_name_' . $lang] = $langinfo->name;
 					$result['site_desc_' . $lang] = $langinfo->description;
 				}
@@ -108,7 +108,7 @@
 
 		function get_adminlist($site_id)
 		{
-			return $GLOBALS['Common_BO']->acl->get_adminlist($site_id);
+			return $GLOBALS['Common_BO']->acl->get_permission_list($site_id);
 		}
 
 		function add($site)
@@ -197,6 +197,7 @@
 				}
 			}
 			define('CURRENT_SITE_ID',$this->current_site['site_id']);
+			$GLOBALS['Common_BO']->cats->setcurrentcats();
 			return True;
 		}
 

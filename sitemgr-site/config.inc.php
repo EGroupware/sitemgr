@@ -28,10 +28,15 @@
 		$site_url = 'http://' . preg_replace('/\/[^\/]*$/','',$_SERVER['SERVER_NAME'] . $_SERVER['PHP_SELF']) . '/';
 
 		$GLOBALS['phpgw']->db->query("SELECT anonymous_user,anonymous_passwd FROM phpgw_sitemgr_sites WHERE site_url = '$site_url'");
-		$GLOBALS['phpgw']->db->next_record();
-		$anonymous_user = $GLOBALS['phpgw']->db->f('anonymous_user');
-		$anonymous_passwd = $GLOBALS['phpgw']->db->f('anonymous_passwd');
-
+		if ($GLOBALS['phpgw']->db->next_record())
+		{
+			$anonymous_user = $GLOBALS['phpgw']->db->f('anonymous_user');
+			$anonymous_passwd = $GLOBALS['phpgw']->db->f('anonymous_passwd');
+		}
+		else
+		{
+			die(lang('THERE IS NO WEBSITE CONFIGURED FOR URL %1.  NOTIFY THE ADMINISTRATOR.',$site_url));
+		}
 		//this is useful when you changed the API session class to not overgeneralize the session cookies
 		if ($GLOBALS['HTTP_GET_VARS']['PHPSESSID'])
 		{

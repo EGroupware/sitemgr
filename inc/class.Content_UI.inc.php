@@ -30,7 +30,7 @@
 				'2' => lang('administrators'),
 				'3' => lang('anonymous')
 			);
-			$this->sitelanguages = $GLOBALS['Common_BO']->sites->current_site['site_languages'];
+			$this->sitelanguages = $GLOBALS['Common_BO']->sites->current_site['sitelanguages'];
 			$sessionlang = $GLOBALS['phpgw']->session->appsession('worklanguage','sitemgr');
 			$this->worklanguage = $sessionlang ? $sessionlang : $this->sitelanguages[0];
 			$this->errormsg = array();

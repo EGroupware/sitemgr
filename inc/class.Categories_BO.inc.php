@@ -2,11 +2,19 @@
 	class Categories_BO
 	{
 		var $so;
-		
+		var $currentcats;
+
 		function Categories_BO()
 		{
 			//all sitemgr BOs should be instantiated via a globalized Common_BO object,
 			$this->so = CreateObject('sitemgr.Categories_SO', True);
+		}
+
+		//since we need this information several times we store it once,
+		//this function is called by Sites_BO after the current site is defined
+		function setcurrentcats()
+		{
+			$this->currentcats = $this->so->getallcatidsforsite(CURRENT_SITE_ID);
 		}
 
 		function getCategoryOptionList()
@@ -28,6 +36,10 @@
 			{
 				$cat_id = CURRENT_SITE_ID;
 			}
+			else
+			{
+				$this-check($cat_id);
+			}
 			return $this->getPermittedCatNested($cat_id,'read');
 		}
 		function getPermittedCatWriteNested($cat_id=False)
@@ -35,6 +47,10 @@
 			if (!$cat_id)
 			{
 				$cat_id = CURRENT_SITE_ID;
+			}	
+			else
+			{
+				$this-check($cat_id);
 			}
 			return $this->getPermittedCatNested($cat_id,'write');
 		}
@@ -85,6 +101,10 @@
 			{
 				$cat_id = CURRENT_SITE_ID;
 			}
+			else
+			{
+				$this-check($cat_id);
+			}
 
 			$full_list = $this->so->getChildrenIDList($cat_id);
 
@@ -107,6 +127,10 @@
 			if (!$cat_id)
 			{
 				$cat_id = CURRENT_SITE_ID;
+			}
+			else
+			{
+				$this-check($cat_id);
 			}
 			$full_list = $this->so->getChildrenIDList($cat_id);
 			
@@ -134,7 +158,9 @@
 
 			if ($GLOBALS['Common_BO']->acl->is_admin())
 			{
-				return $this->so->addCategory($name, $description, $parent);
+				$cat_id = $this->so->addCategory($name, $description, $parent);
+				$this->currentcats[] = $cat_id;
+				return $cat_id;
 			}
 			else
 			{
@@ -146,6 +172,8 @@
 		//$frecurse also removes subcats
 		function removeCategory($cat_id,$force=False,$recurse=False)
 		{
+			$this->check($cat_id);
+
 			if ($GLOBALS['Common_BO']->acl->is_admin() || $force)
 			{
 				if ($recurse)
@@ -210,9 +238,10 @@
 		    return false;
 		  }
 		
-		function getCategory($cat_id,$lang=False)
+		//$force is for bypassing ACL when we called from Sites_UI for building up the info for the currentsite
+		function getCategory($cat_id,$lang=False,$force=False)
 		{
-			if ($GLOBALS['Common_BO']->acl->can_read_category($cat_id))
+			if ($force || ($this->check($cat_id) && $GLOBALS['Common_BO']->acl->can_read_category($cat_id)))
 			{
 				return $this->so->getCategory($cat_id,$lang);
 			}
@@ -224,7 +253,14 @@
 
 		function getCategoryancestorids($cat_id,$permittedonly=False)
 		{
-			$cat_id = $cat_id ? $cat_id : CURRENT_SITE_ID;
+			if (!$cat_id)
+			{
+				$cat_id = CURRENT_SITE_ID;
+			}
+			else
+			{
+				$this->check($cat_id);
+			}
 			$result = array();
 			while ($cat_id != CURRENT_SITE_ID)
 			{
@@ -239,9 +275,9 @@
 		}
 
 		function getlangarrayforcategory($cat_id)
-		  {
+		{
 		    return $this->so->getlangarrayforcategory($cat_id);
-		  }
+		}
 
 		function saveCategoryPerms($cat_id, $group_access, $user_access)
 		{
@@ -327,6 +363,20 @@
 		function migratealllang($oldlang,$newlang)
 		{
 			$this->so->migratealllang($oldlang,$newlang);
+		}
+
+		//make sure cat_id belongs to current site
+		function check($cat_id)
+		{
+			if (in_array($cat_id,$this->currentcats))
+			{
+				return True;
+			}
+			else
+			{
+				echo '<p><center><b>'.lang('Attempt to access information outside current website').'</b></center>';
+				$GLOBALS['phpgw']->common->phpgw_exit(True);
+			}
 		}
 	}
 ?>

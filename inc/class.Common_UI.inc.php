@@ -282,6 +282,7 @@
 			echo parse_navbar();
 			$this->t->set_file('sitemgr_header','sitemgr_header.tpl');
 			$this->t->set_block('sitemgr_header','switch','switchhandle');
+			$this->t->set_block('sitemgr_header','admin','adminhandle');
 			if ($this->do_sites_exist)
 			{
 				$this->t->set_var(Array(
@@ -301,6 +302,18 @@
 				else
 				{
 					$this->t->set_var('switchhandle','');
+				}
+				if ($GLOBALS['phpgw']->acl->check('run',1,'admin'))
+				{
+					$this->t->set_var(array(
+						'sitesadmin' => $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Sites_UI.list_sites'),
+						'view_admin' => lang('Define Websites')
+					));
+					$this->t->parse('adminhandle','admin');
+				}
+				else
+				{
+					$this->t->set_var('adminhandle','');
 				}
 				$this->t->pparse('out','sitemgr_header');
 			}

@@ -233,10 +233,11 @@
 					//$account_name = $acct->id2name($permissionlist[$i]['account_id']);
 					//$this->t->set_var('group_id',$permissionlist[$i]['account_id']);
 					$account_name = $grouplist[$i]['account_lid'];
-					$this->t->set_var('group_id',$grouplist[$i]['account_id']);
+					$account_id = $grouplist[$i]['account_id'];
+					$this->t->set_var('group_id',$account_id);
 					if ($cat_id)
 					{
-						$permission_id = $permissionlist[$i]['rights'];
+						$permission_id = $permissionlist[$account_id];
 					}
 					else
 					{
@@ -244,10 +245,11 @@
 					}
 
 					$this->t->set_var('groupname', $account_name);
-					if ($permission_id == PHPGW_ACL_ADD)
-					{
-						$permission_id = PHPGW_ACL_ADD | PHPGW_ACL_READ;
-					}
+//I comment out the assumption, that when you write, you should necessarily read,
+// 					if ($permission_id == PHPGW_ACL_ADD)
+// 					{
+// 						$permission_id = PHPGW_ACL_ADD | PHPGW_ACL_READ;
+// 					}
 					if ($permission_id & PHPGW_ACL_READ)  
 					{
 						$this->t->set_var('checkedgroupread','CHECKED');
@@ -282,21 +284,22 @@
 				for($i = 0; $i < count($userlist); $i++ )
 				{
 					$user_name = $userlist[$i]['account_lid'];
+					$user_id = $userlist[$i]['account_id'];
 					if ($cat_id)
 					{
-						$user_permission_id = $userpermissionlist[$i]['rights'];
+						$user_permission_id = $userpermissionlist[$user_id];
 					}
 					else
 					{
 						$user_permission_id = 0;
 					}
-					$this->t->set_var('user_id', $userlist[$i]['account_id']);
+					$this->t->set_var('user_id', $user_id);
 					
 					$this->t->set_var('username', $user_name);
-					if ($user_permission_id == PHPGW_ACL_ADD)
-					{
-						$user_permission_id = PHPGW_ACL_ADD | PHPGW_ACL_READ;
-					}
+// 					if ($user_permission_id == PHPGW_ACL_ADD)
+// 					{
+// 						$user_permission_id = PHPGW_ACL_ADD | PHPGW_ACL_READ;
+// 					}
 					if ($user_permission_id & PHPGW_ACL_READ )
 					{
 						$this->t->set_var('checkeduserread','CHECKED');

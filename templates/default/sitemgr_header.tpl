@@ -7,6 +7,11 @@
 		</table>
 		<!-- &nbsp;&nbsp;&nbsp; -->
 		[
+<!-- BEGIN admin -->
+<i>
+		<a href='{sitesadmin}'>{view_admin}</a>
+		</i>&nbsp;|&nbsp
+<!-- END admin -->
 		<i>
 		<a href='{mainmenu}'>{view_menu}</a>
 		</i>&nbsp;|&nbsp;<i>

@@ -68,9 +68,14 @@
 
 		function getPage($page_id,$lang=False)
 		{
-			if ($GLOBALS['Common_BO']->acl->can_read_page($page_id))
+			$page = $this->pageso->getPage($page_id,$lang);
+			if(
+				$page && 
+				in_array($page->cat_id,$GLOBALS['Common_BO']->cats->currentcats) &&
+				$GLOBALS['Common_BO']->acl->can_read_category($page->cat_id)
+			)
 			{
-				return $this->pageso->getPage($page_id,$lang);
+				return $page;
 			}
 			else
 			{

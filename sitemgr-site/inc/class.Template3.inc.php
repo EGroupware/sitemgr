@@ -114,9 +114,10 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 		{
 			global $page;
 			$areaname = $vars[1];
-
 			$this->permitted_modules = array_keys($this->modulebo->getcascadingmodulepermissions($areaname,$page->cat_id));
+
 			$transformername = $areaname . '_bt';
+
 			$transformerfile = $this->root . SEP . $transformername . '.inc.php';
 			if (file_exists($transformerfile))
 			{
@@ -135,6 +136,7 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 				$transformer = new sideblock_transform($t);
 			}
 			$content = '';
+
 			$blocks = $this->bo->getvisibleblockdefsforarea($areaname,$page->cat_id,$page->id);
 
 			// if we are in the center area, we append special blocks

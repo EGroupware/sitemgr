@@ -28,47 +28,13 @@ define('SITEMGR_ACL_IS_ADMIN',1);
 			$this->acl_so = CreateObject('sitemgr.ACL_SO');
 		}
 
-		function can_read_page($page_id)
-		{
-			/*!
-			$acl->check_specific calls $acl->get_specific_rights which is for this->account_id
-			*/
-			$page = $this->pages_so->getPage($page_id);
-			if ($page)
-			{
-				if ($this->is_admin())
-				{
-					return true;
-				}
-				$category_id = $page->cat_id;
-				//$this->acl = CreateObject('phpgwapi.acl',$this->logged_in_user);
-				//return ($this->acl->get_rights('L'.$category_id,'sitemgr') & PHPGW_ACL_READ);
-	 			return ($this->acl_so->get_permission('L'.$category_id) & PHPGW_ACL_READ);
-			}
-			else
-			{
-				return false;
-			}
-		}
-
-		function is_admin($site_id=False,$account_id=False)
+		function is_admin($site_id=False)
 		{
 			if (!$site_id)
 			{
 				$site_id = CURRENT_SITE_ID;
 			}
-			if (!$account_id)
-			{
-				$account_id = $this->logged_in_user;
-			}
-			if ($this->acl_so->get_rights($account_id,'L'.$site_id) & SITEMGR_ACL_IS_ADMIN)
-			{
-				return True;
-			}
-			else
-			{
-				return False;
-			}
+			return $this->acl_so->get_permission('L'.$site_id) & SITEMGR_ACL_IS_ADMIN;
 		}
 
 		function set_adminlist($site_id,$account_list)
@@ -161,12 +127,12 @@ define('SITEMGR_ACL_IS_ADMIN',1);
 				//$this->acl = CreateObject('phpgwapi.acl',$account_id);
 				//$rights = $this->acl->get_specific_rights('L'.$category_id,'sitemgr');
 				$rights = $this->acl_so->get_rights($account_id, 'L'.$category_id);
-				$permissions[] = array('account_id'=>$account_id, 'rights'=>$rights);
+				$permissions[$account_id] = $rights;
 			}
 			return $permissions;
 		}
 
-		//at there are only implicit permissions for the toplevel site_category, is this a problem?
+		//at this moment there are only implicit permissions for the toplevel site_category, is this a problem?
 		//everybody can read it, only admins can write it. 
 		function can_read_category($category_id)
 		{

@@ -8,11 +8,22 @@
 			$this->db = $GLOBALS['phpgw']->db;
 		}
 
-		function getPageIDList($cat_id=0)
+		function getPageIDList($cat_id=False)
 		{
+			$page_id_list = array();
 			if (!$cat_id)
 			{
-				$sql = 'SELECT page_id FROM phpgw_sitemgr_pages WHERE 1=1 ORDER BY cat_id, sort_order ASC';
+				$cat_list = $GLOBALS['Common_BO']->cats->allcatidsforsite;
+				if ($cat_list)
+				{
+					$sql = 'SELECT page_id FROM phpgw_sitemgr_pages WHERE cat_id IN (' . 
+						implode(',',$cat_list) .  
+						')ORDER BY cat_id, sort_order ASC';
+				}
+				else
+				{
+					return $page_id_list;
+				}
 			}
 			else
 			{
@@ -22,10 +33,6 @@
 			while ($this->db->next_record())
 			{
 				$page_id_list[] = $this->db->f('page_id');
-			}
-			if (!is_array($page_id_list))
-			{
-				$page_id_list = array();
 			}
 			return $page_id_list;
 		}

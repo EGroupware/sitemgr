@@ -11,6 +11,18 @@
 			$this->db = $GLOBALS['phpgw']->db;			 
 		}
 
+		function getallcatidsforsite($site_id)
+		{
+			$result = array();
+			//the API's category class does not permit to retrieve all children of a main category
+			$this->db->query("SELECT cat_id from phpgw_categories WHERE cat_main = $site_id",__LINE__,__FILE__);
+			while ($this->db->next_record())
+			{
+				$result[] = $this->db->f('cat_id');
+			}
+			return $result;
+		}
+
 		function getChildrenIDList($parent)
 		{
 			$cats = $this->cats->return_array('all','',False,'','','',False,$parent);

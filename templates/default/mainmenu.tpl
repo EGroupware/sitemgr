@@ -2,7 +2,7 @@
 	<b>{menutitle}</b>
 	<ul>
 		{begincomment}
-		<li><a href="{setup}">{lang_configure}</a> <i>({lang_check})</i></li>
+		<li><a href="{setup}">{lang_configure}</a></li>
 		<li><a href="{managesitemodules}">{lang_managesitemodules}</a></li>
 		<li><a href="{managesitecontent}">{lang_managesitecontent}</a></li>
 		{endcomment}

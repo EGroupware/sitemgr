@@ -22,6 +22,7 @@
 			$this->t = $GLOBALS['phpgw']->template;
 			$this->bo = &$GLOBALS['Common_BO']->modules;
 			$this->acl = &$GLOBALS['Common_BO']->acl;
+			$this->catbo = &$GLOBALS['Common_BO']->cats;
 		}
 
 		function _manageModules()
@@ -33,23 +34,26 @@
 				$GLOBALS['Common_BO']->globalize(array('btnselect','inputmodules','inputarea'));
 				global $btnselect,$inputmodules,$inputarea;
 				$cat_id = $_GET['cat_id'];
-				$scopename = lang(($cat_id) ? 'Category' : 'Site');
 
 				$this->modules = $this->bo->getallmodules();
 
-				if ($cat_id)
+				if ($cat_id != CURRENT_SITE_ID)
 				{
-						$catbo = CreateObject('sitemgr.Categories_BO');
-						$cat = $catbo->getCategory($cat_id);
+						$cat = $this->catbo->getCategory($cat_id);
 						$cat_name = $cat->name;
 						$managelink = $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Categories_UI._manageCategories');
 						$goto = lang('Category manager');
+						$scopename = lang('Category');
+				}
+				else
+				{
+					$scopename = lang('Site');
 				}
 
 				$this->t->set_file('Managemodules', 'manage_modules.tpl');
 				$this->t->set_block('Managemodules','Contentarea','CBlock');
 				$this->t->set_var(array(
-					'module_manager' => lang('Module manager'),
+					'module_manager' => lang('%1 module manager', $scopename),
 					'lang_help_module_manager' => lang('You can choose the modules that can be used on the site. The first list is a sort of master list, that is consulted if you do not configure lists specific to contentareas or (sub)categories. Then you can choose lists specific to each content area. In the category manager these lists can be overriden for each (sub)category.'),
 					'lang_findmodules' => lang('Register new modules'),
 					'lang_select_allowed_modules' => lang('Select allowed modules'),
@@ -139,8 +143,7 @@
 				
 				if ($cat_id)
 				{
-						$catbo = CreateObject('sitemgr.Categories_BO');
-						$cat = $catbo->getCategory($cat_id);
+						$cat = $this->catbo->getCategory($cat_id);
 						$cat_name = $cat->name;
 				}
 
