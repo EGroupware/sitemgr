@@ -15,14 +15,14 @@
 	<meta name="language" content="{lang}" />
 		{editmode_styles}
 	<link rel="stylesheet" type="text/css" 
-	      href="templates/realss/realss.css"/>
+	      href="templates/real__ss/realss.css"/>
 </head>
 <body>
 <!-------   for template structure information read the stylesheets ------>
 <!-------------- title bar --------------!>
 <table align="center" id="contentarea_top" style="width: 784px">
 <tr><td>
-	<a href="index.php"><img src="templates/realss/images/logo.png" 
+	<a href="index.php"><img src="templates/real__ss/images/logo.png" 
 	                         alt="Welcome to {sitename}" ></a>
 </td><td>
 	{contentarea:header} 
@@ -35,7 +35,7 @@
 		{contentarea:left}
 	</td>
 	<td valign="top" id="contentarea_center">
-		<img src="templates/realss/images/center_bt_top.png"
+		<img src="templates/real__ss/images/center_bt_top.png"
 		     style="display:block"/>
 		<div id="middle_bt">
 		<!-- the block title does not necessarily make sense 
@@ -45,7 +45,7 @@
 		<h3>{subtitle}</h3>
 		{contentarea:center}
 		</div>
-		<img src="templates/realss/images/center_bt_bottom.png"
+		<img src="templates/real__ss/images/center_bt_bottom.png"
 		     style="display:block"/>
 	</td>
 	<td valign="top">
@@ -56,17 +56,17 @@
 <!------
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
 	<tr>
-		<td width="15" height="15"><img src="templates/realss/images/up-left2.gif" alt="" border="0"></td>
-		<td><img src="templates/realss/images/up2.gif" width="100%" height="15"></td>
-		<td><img src="templates/realss/images/up-right2.gif" width="15" height="15" alt="" border="0"></td>
+		<td width="15" height="15"><img src="templates/real__ss/images/up-left2.gif" alt="" border="0"></td>
+		<td><img src="templates/real__ss/images/up2.gif" width="100%" height="15"></td>
+		<td><img src="templates/real__ss/images/up-right2.gif" width="15" height="15" alt="" border="0"></td>
 	</tr><tr>
-		<td background="templates/realss/images/left2.gif" width="15">&nbsp;</td>
+		<td background="templates/real__ss/images/left2.gif" width="15">&nbsp;</td>
 		<td bgcolor="ffffff" width="100%" align="center"><font class="tiny">{contentarea:footer}</font></td>
-		<td background="templates/realss/images/right2.gif">&nbsp;</td>
+		<td background="templates/real__ss/images/right2.gif">&nbsp;</td>
 	</tr><tr>
-		<td width="15" height="15"><img src="templates/realss/images/down-left2.gif" alt="" border="0"></td>
-		<td height="15" background="templates/realss/images/down2.gif"></td>
-		<td width="15" height="15"><img src="templates/realss/images/down-right2.gif" alt="" border="0"></td>
+		<td width="15" height="15"><img src="templates/real__ss/images/down-left2.gif" alt="" border="0"></td>
+		<td height="15" background="templates/real__ss/images/down2.gif"></td>
+		<td width="15" height="15"><img src="templates/real__ss/images/down-right2.gif" alt="" border="0"></td>
 	</tr>
 </table>
 -->
