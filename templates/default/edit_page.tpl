@@ -1,17 +1,18 @@
 <script>{focus_reload_close}</script>
 <div id="divMain">
 <!-- BEGIN form -->
-<form method ="POST" action="{action_url}">
-<table align='center' border ="0" width="80%" cellpadding="5" cellspacing="0">
+<form method="POST" action="{action_url}">
+<input type="hidden" name="inputpageid" value="{page_id}">
+<table align="center" border="0" width="80%" cellpadding="5" cellspacing="0">
 	<tr>
-		<td><b>{lang_name}: <font size='2' color='#ff0000'>*</font></b></td>
+		<td><b>{lang_name}: <font size="2" color="#ff0000">*</font></b></td>
 		<td><input size="40" type="text" name="inputname" id="name" value="{name}"></td>
 	</tr>
 	<tr>
-		<td><font size='2' color='#ff0000'><b>*</b> {lang_required}</font></td>
-		<td><i><font size='2' color='#ff0000'>{lang_nameinfo}</font></i></td>
+		<td><font size="2" color="#ff0000"><b>*</b> {lang_required}</font></td>
+		<td><i><font size="2" color="#ff0000">{lang_nameinfo}</font></i></td>
 	<tr>
-		<td><b>{lang_title}: <font size='2' color='#ff0000'>*</font></b></td>
+		<td><b>{lang_title}: <font size="2" color="#ff0000">*</font></b></td>
 		<td><input size="40" type="text" name="inputtitle" value="{title}"></td>
 	</tr>
 	<tr>
@@ -31,7 +32,7 @@
 		<td><select name="inputstate">{stateselect}</select></td>
 	</tr>
 	<tr>
-		<td align='right'><input type='checkbox' {hidden} name="inputhidden" /></td>
+		<td align="right"><input type="checkbox" {hidden} name="inputhidden" /></td>
 		<td>{lang_hide}</td>
 	</tr>
 	<tr>
