@@ -24,6 +24,10 @@
 					<td><input type="text" name="sort_order" value="{sort_order}"></td>
 				</tr>
 				<tr>
+					<td>Parent:</td>
+					<td>{parent_dropdown}</td>
+				</tr>
+				<tr>
 					<td>Category Description:</td>
 					<td><textarea ROWS="3" COLS="50" name="catdesc">{catdesc}</textarea></td>
 				</tr>

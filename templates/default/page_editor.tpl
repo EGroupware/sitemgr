@@ -29,6 +29,10 @@
 		<td><input size="10" type="text" name="sort_order" value="{sort_order}"></td>
 	</tr>
 	<tr>
+		<td><b>Move to: </b></td>
+		<td>{move_to}</td>
+	</tr>
+	<tr>
 		<td colspan='2'><b>Main Content: <font size='2' color='#ff0000'>*</font></b></td>
 	</tr>
 	<tr>
@@ -36,7 +40,7 @@
 	</tr>
 	<tr>
 		<td align = 'right'><input type='checkbox' {hidden} name ="hidden" value="checked"></td>
-		<td>Check to hide from anonymouse viewer.</td>
+		<td>Check to hide from condensed site index.</td>
 	</tr>
 	<tr>
 		<td align='right'><input type="reset" name="btnReset" value="Reset"></td>

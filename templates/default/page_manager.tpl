@@ -18,8 +18,8 @@
 				<td align='left' bgcolor='dddddd' width='75%'>
 					{page}
 				</td>
-				<td align='center' bgcolor='dddddd' width='5%'>{edit}</td>
-				<td align='center' bgcolor='dddddd' width='5%'>{remove}</td>
+				<td align='center' bgcolor='dddddd' valign="center" width='5%'>{edit}</td>
+				<td align='center' bgcolor='dddddd' valign="center" width='5%'>{remove}</td>
 			</tr>
 		<!-- END PageBlock -->
 			<tr>
