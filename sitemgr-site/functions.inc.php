@@ -32,36 +32,18 @@
 
 	function sitemgr_link($extravars = '')
 	{
-		$kp3 = $_GET['kp3'] ? $_GET['kp3'] : $_COOKIE['kp3'];
-
-		if (! $kp3)
-		{
-			$kp3 = $GLOBALS['phpgw_info']['user']['kp3'];
-		}
-
 		// Change http://xyz/index.php?page_name=page1 to
 		// http://xyz/page1/ if the htaccess stuff is enabled
-		$page_name = '';
 		if (!is_array($extravars))
 		{
 			parse_str($extravars,$extravarsnew);
 			$extravars = $extravarsnew;
 		}
-		$page_name = $extravars['page_name'];
 
-		if (!$page_name == '' &&
-			$GLOBALS['sitemgr_info']['htaccess_rewrite'])
+		if ($extravars['page_name'] != '' && $GLOBALS['sitemgr_info']['htaccess_rewrite'])
 		{
-			$url = '/'.$page_name;
-			$newextravars=array();
-			while (list($key,$value) = each($extravars))
-			{
-				if ($key != 'page_name')
-				{
-					$newextravars[$key]=$value;
-				}
-			}
-			$extravars = $newextravars;
+			$url = '/'.$extravars['page_name'];
+			unset($extravars['page_name']);
 		}
 
 		// In certain instances (wouldn't it be better to fix these instances? MT)
@@ -71,52 +53,18 @@
 		$url = $GLOBALS['sitemgr_info']['site_url'] . $url;
 		$url = substr(ereg_replace('([^:])//','\1/','s'.$url),1);
 
+		if (!isset($GLOBALS['phpgw_info']['server']['usecookies']) || !$GLOBALS['phpgw_info']['server']['usecookies'])
+		{
+			$extravars['sessionid'] = @$GLOBALS['phpgw_info']['user']['sessionid'];
+			$extravars['kp3']       = $_GET['kp3'] ? $_GET['kp3'] : $GLOBALS['phpgw_info']['user']['kp3'];
+			$extravars['domain']    = @$GLOBALS['phpgw_info']['user']['domain'];
+		}
 		// build the extravars string from a array
-			
-		if (is_array($extravars))
+		$vars = array();
+		foreach($extravars as $key => $value)
 		{
-			while(list($key,$value) = each($extravars))
-			{
-				if (!empty($new_extravars))
-				{
-					$new_extravars .= '&';
-				}
-				$new_extravars .= (($value == '') ? $key : "$key=$value");
-			}
-			// This needs to be explictly reset to a string variable type for PHP3
-			settype($extravars,'string');
-			$extravars = $new_extravars;
+			$vars[] = urlencode($key).'='.urlencode($value);
 		}
-		if (isset($GLOBALS['phpgw_info']['server']['usecookies']) && $GLOBALS['phpgw_info']['server']['usecookies'])
-		{
-			if ($extravars)
-			{
-				$url .= '?' . $extravars;
-			}
-		}
-		else
-		{
-			$sessionID  = 'sessionid=' . @$GLOBALS['phpgw_info']['user']['sessionid'];
-			$sessionID .= '&kp3=' . $kp3;
-			$sessionID .= '&domain=' . @$GLOBALS['phpgw_info']['user']['domain'];
-			// This doesn't belong in the API.
-			// Its up to the app to pass this value. (jengo)
-			// Putting it into the app requires a massive number of updates in email app. 
-			// Until that happens this needs to stay here (seek3r)
-			if (isset($GLOBALS['phpgw_info']['flags']['newsmode']) && 
-				$GLOBALS['phpgw_info']['flags']['newsmode'])
-			{
-				$url .= '&newsmode=on';
-			}
-			if ($extravars)
-			{
-				$url .= '?' . $extravars . '&' . $sessionID;
-			}
-			else
-			{
-				$url .= '?' . $sessionID;
-			}
-		}
-		return $url;
+		return $url . (count($vars) ? '?'.implode('&',$vars) : '');
 	}
 ?>
