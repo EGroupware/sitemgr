@@ -99,6 +99,11 @@
 			if($page_id)
 			{
 				$page = $this->pagebo->getPage($page_id,$this->sitelanguages[0]);
+				if (!$GLOBALS['Common_BO']->acl->can_write_category($page->cat_id))
+				{
+					$GLOBALS['phpgw']->redirect($GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Outline_UI.manage'));
+					return;
+				}
 				$this->t->set_var(array(
 					'add_edit' => lang('Edit Page'),
 					'catselect' => $this->getParentOptions($page->cat_id)

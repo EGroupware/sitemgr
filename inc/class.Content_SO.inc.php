@@ -205,7 +205,7 @@
 				"AND  ((page_id = 0 and cat_id = ". CURRENT_SITE_ID  . ")";
 			if ($cat_list)
 			{
-				$sql .= " OR (page_id = 0 AND cat_id IN (" . $cat_list . "))";
+				$sql .= " OR (page_id = 0 AND cat_id IN (" . implode(',',$cat_list) . "))";
 			}
 			if ($page_id)
 			{

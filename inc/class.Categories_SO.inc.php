@@ -17,7 +17,6 @@
 			{
 				$states = $GLOBALS['Common_BO']->visiblestates;
 			}
-
 			$sql = "SELECT cat_id from phpgw_sitemgr_categories_state WHERE cat_id = $cat_id AND state IN (" . implode(',',$states) . ")";
 
 			$this->db->query($sql,__LINE__,__FILE__);

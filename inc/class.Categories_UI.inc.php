@@ -87,7 +87,8 @@
 
 			if ($cat_id)
 			{
-				$cat = $this->cat_bo->getCategory($cat_id,$this->sitelanguages[0]); 
+				//we use force here since we might edit an archive category
+				$cat = $this->cat_bo->getCategory($cat_id,$this->sitelanguages[0],True);
 			}
 
 			$this->t->set_file('EditCategory', 'edit_category.tpl');

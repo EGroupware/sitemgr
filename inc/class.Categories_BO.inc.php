@@ -102,7 +102,7 @@
 				//subcategories can be readable/writeable even when parent is not, but when parent is inactive subcats are too.
 				elseif ($check == 'active')
 				{
-					break;
+					continue;
 				}
 				if ($recurse)
 				{
@@ -191,6 +191,8 @@
 				{
 					if ($this->so->saveCategoryLang($cat_id, $cat_name, $cat_description, $lang))
 					{
+						//reflect changes
+						$this->setcurrentcats();
 						return true;
 					}
 				}
@@ -208,6 +210,7 @@
 		}
 		
 		//$force is for bypassing ACL when we called from Sites_UI for building up the info for the currentsite
+		//and for getting at archived categories that are not listed in current nor readablecats
 		function getCategory($cat_id,$lang=False,$force=False)
 		{
 			if ($force || ($this->check($cat_id) && in_array($cat_id,$this->readablecats)))

@@ -124,25 +124,20 @@ define('SITEMGR_VIEWABLE_ANONYMOUS',3);
 		//the next two functions retrieves all blocks for a certain area, if (cat_id = $site_id and page_id = 0), only site-wide blocks are retrieved.
 		//if (cat_id != $site_id and page_id is 0), site-wide blocks and all blocks for the category and all its ancestor categories are retrieved.
 		//if page_id is non zero, cat_id should be the page's category. Page blocks + category blocks + site blocks are retrieved.
+		//there is no ACL, since these functions are called in a context where getcategory and getpage have been called before and would have intercepted a breach
 		function getvisibleblockdefsforarea($area,$cat_id,$page_id,$isadmin,$isuser)
 		{
-			$cat_ancestorlist = $cat_id ? 
-				implode(',',$GLOBALS['Common_BO']->cats->getCategoryancestorids($cat_id,True)) : 
+			$cat_ancestorlist = ($cat_id != CURRENT_SITE_ID) ? 
+				$GLOBALS['Common_BO']->cats->getCategoryancestorids($cat_id,True) : 
 				False;
-			if ($page_id && !in_array($cat_id,$GLOBALS['Common_BO']->acl->readablecats))
-			{
-			   $page_id = False;
-			}
 			return $this->so->getvisibleblockdefsforarea($area,$cat_ancestorlist,$page_id,$isadmin,$isuser);
 		}
 
 		function getallblocksforarea($area,$cat_id,$page_id,$lang)
 		{
-			$cat_ancestorlist = ($cat_id != CURRENT_SITE_ID) ? $GLOBALS['Common_BO']->cats->getCategoryancestorids($cat_id,True) : False;
-			if ($page_id && !in_array($cat_id,$GLOBALS['Common_BO']->acl->readablecats))
-			{
-			   $page_id = False;
-			}
+			$cat_ancestorlist = ($cat_id != CURRENT_SITE_ID) ? 
+				$GLOBALS['Common_BO']->cats->getCategoryancestorids($cat_id,True) : 
+				False;
 			return $this->so->getallblocksforarea($area,$cat_ancestorlist,$page_id,$lang);
 		}
 

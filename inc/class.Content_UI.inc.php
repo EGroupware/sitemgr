@@ -86,6 +86,11 @@
 			elseif ($page_id)
 			{
 				$page = $GLOBALS['Common_BO']->pages->getPage($page_id);
+				if (!$GLOBALS['Common_BO']->acl->can_write_category($page->cat_id))
+				{
+					$GLOBALS['phpgw']->redirect($GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Outline_UI.manage'));
+					return;
+				}
 				$page_or_cat_name = $page->name;
 				$cat_id = $page->cat_id;
 				$managelink = $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Pages_UI.manage');
@@ -95,6 +100,11 @@
 			elseif ($cat_id != CURRENT_SITE_ID)
 			{
 				$cat = $GLOBALS['Common_BO']->cats->getCategory($cat_id);
+				if (!$GLOBALS['Common_BO']->acl->can_write_category($cat_id))
+				{
+					$GLOBALS['phpgw']->redirect($GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Outline_UI.manage'));
+					return;
+				}
 				$page_or_cat_name = $cat->name;
 				$page_id = 0;
 				$managelink = $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Categories_UI.manage');
@@ -401,7 +411,7 @@
 			$GLOBALS['Common_BO']->cats->currentcats = array_merge($GLOBALS['Common_BO']->cats->currentcats,$cats);
 			while (list(,$cat_id) = @each($cats))
 			{
-				$cat = $GLOBALS['Common_BO']->cats->getCategory($cat_id,$this->sitelanguages[0]);
+				$cat = $GLOBALS['Common_BO']->cats->getCategory($cat_id,$this->sitelanguages[0],True);
 				$this->t->set_var(array(
 					'category' => $cat->name,
 					'catid' => $cat_id,
