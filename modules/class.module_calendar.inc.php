@@ -16,8 +16,8 @@ class module_calendar extends Module
 				'src' => $GLOBALS['phpgw']->common->image('phpgwapi','right')
 			)
 		);
-        $this->title = "Calendar";
-        $this->description = "This module displays the current month";
+        $this->title = lang('Calendar');
+        $this->description = lang('This module displays the current month');
 		$this->bo = CreateObject('calendar.bocalendar');
    }
 

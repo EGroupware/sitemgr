@@ -6,8 +6,8 @@ class module_administration extends Module
 	{
 		$this->arguments = array();
 		$this->properties = array();
-		$this->title = "Administration";
-		$this->description = "This module presents a link back to the sitemgr's administration menu. It is meant for registered users";
+		$this->title = lang('Administration');
+		$this->description = lang('This module presents a link back to the sitemgr\'s administration menu. It is meant for registered users');
 	}
 
 	function get_content(&$arguments,$properties)

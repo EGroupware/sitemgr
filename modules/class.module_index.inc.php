@@ -6,7 +6,7 @@
 		{
 			$this->arguments = array();
 			$this->title = "Site Index";
-			$this->description = "This module provides the site index, it is automatically used by the index GET parameter";
+			$this->description = lang('This module provides the site index, it is automatically used by the index GET parameter');
 		}
 
 		function get_content(&$arguments,$properties)

@@ -7,12 +7,12 @@ class module_login extends Module
 		$this->arguments = array(
 			'registration' => array(
 				'type' => 'checkbox',
-				'label' => 'Display link to autoregistration below login form?'
+				'label' => lang('Display link to autoregistration below login form?')
 			)
 		);
 		$this->properties = array();
-		$this->title = "Login";
-		$this->description = "This module displays a login form";
+		$this->title = lang('Login');
+		$this->description = lang('This module displays a login form');
 	}
 
 	function get_content(&$arguments,$properties)

@@ -7,14 +7,14 @@
 			$this->arguments = array(
 				'htmlcontent' => array(
 					'type' => 'textarea', 
-					'label' => 'Enter the page content here', 
+					'label' => lang('Enter the page content here'), 
 					'i18n' => True,
 					'params' => Array('cols' => 50, 'rows' => 15)
 				)
 			);
-			$this->properties = array('striphtml' => array('type' => 'checkbox', 'label' => 'Strip HTML from block content?'));
-			$this->title = "HTML module";
-			$this->description = "This module is a simple HTML editor";
+			$this->properties = array('striphtml' => array('type' => 'checkbox', 'label' => lang('Strip HTML from block content?')));
+			$this->title = lang('HTML module');
+			$this->description = lang('This module is a simple HTML editor');
 		}
 
 	

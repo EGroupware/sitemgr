@@ -8,9 +8,9 @@ class module_xml extends Module
 	function module_xml()
 	{
 		$this->arguments = array(
-			'dirpath' => array('type' => 'textfield', 'label' => 'Filesystem path of the directory where XML files are stored'),
-			'filename' => array('type' => 'textfield', 'label' => 'the XML files\' common name'),
-			'xsltfile' => array('type' => 'textfield', 'label' => 'Full path of the XSLT file that should be applied to the XML files')
+			'dirpath' => array('type' => 'textfield', 'label' => lang('Filesystem path of the directory where XML files are stored')),
+			'filename' => array('type' => 'textfield', 'label' => lang('the XML files\' common name')),
+			'xsltfile' => array('type' => 'textfield', 'label' => lang('Full path of the XSLT file that should be applied to the XML files'))
 		);
 		$this->post = array(
 			'prev' => array(
@@ -23,8 +23,8 @@ class module_xml extends Module
 			)
 		);
 		$this->session = array('filenumber');
-		$this->title = "XML browser";
-		$this->description = "This module permits browsing through XML files stored in a directory, and transformed by XSLT";
+		$this->title = lang('XML browser');
+		$this->description = lang('This module permits browsing through XML files stored in a directory, and transformed by XSLT');
 	}
 
 	function set_block($block,$produce=False)

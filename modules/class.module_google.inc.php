@@ -6,8 +6,8 @@ class module_google extends Module
 	{
 		$this->arguments = array();
 		$this->properties = array();
-		$this->title = "Google";
-		$this->description = "Interface to Google website";
+		$this->title = lang('Google');
+		$this->description = lang('Interface to Google website');
 	}
 
 	function get_content(&$arguments,$properties)

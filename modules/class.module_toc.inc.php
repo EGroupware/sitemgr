@@ -4,9 +4,9 @@
 	{
 		function module_toc()
 		{
-			$this->arguments = array('category_id' => array('type' => 'textfield', 'label' => 'The category to display, 0 for complete table of contents'));
-			$this->title = "Table of contents";
-			$this->description = "This module provides a complete table of contents, it is automatically used by the toc and category_id GET parameters";
+			$this->arguments = array('category_id' => array('type' => 'textfield', 'label' => lang('The category to display, 0 for complete table of contents')));
+			$this->title = lang('Table of contents');
+			$this->description = lang('This module provides a complete table of contents, it is automatically used by the toc and category_id GET parameters');
 		}
 
 		function get_content(&$arguments,$properties)

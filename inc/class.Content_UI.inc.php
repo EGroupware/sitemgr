@@ -25,10 +25,10 @@
 			$this->acl = &$GLOBALS['Common_BO']->acl;
 			$this->modulebo = &$GLOBALS['Common_BO']->modules;
 			$this->viewable = array(
-				'0' => 'everybody',
-				'1' => 'phpgw users',
-				'2' => 'administrators',
-				'3' => 'anonymous'
+				'0' => lang('everybody'),
+				'1' => lang('phpgw users'),
+				'2' => lang('administrators'),
+				'3' => lang('anonymous')
 			);
 			$preferenceso = CreateObject('sitemgr.sitePreference_SO', true);
 			$this->sitelanguages = explode(',',$preferenceso->getPreference('sitelanguages'));
@@ -229,8 +229,9 @@
 								$interface = array_merge($editorstandardelements,$editormoduleelements);
 								$this->t->set_var(Array(
 									'blockid' => $id,
-									'savebutton' => '<input type="submit" value="Save" name="btnSaveBlock" />',
-									'deletebutton' => '<input type="submit" value="Delete" name="btnDeleteBlock" />',
+									'savebutton' => lang('Save'),
+									'deletebutton' => lang('Delete'),
+									'contentarea' => lang('Contentarea'),
 									'validationerror' => ($id == $blockid && $this->errormsg) ? join('<br>',$this->errormsg) : '',
 								));
 								$this->t->set_var('EeBlock','');

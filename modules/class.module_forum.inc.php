@@ -10,28 +10,28 @@ class module_forum extends Module
 		$this->arguments = array(
 			'startlevel' => array(
 				'type' => 'select',
-				'label' => 'With which view should the module be displayed in the beginning?',
+				'label' => lang('With which view should the module be displayed in the beginning?'),
 				'options' => array(
-					1 => 'Overview of all available categories',
-					2 => 'Overview of one specific category',
-					3 => 'Summary of one forum',
+					1 => lang('Overview of all available categories'),
+					2 => lang('Overview of one specific category'),
+					3 => lang('Summary of one forum'),
 				),
 			),
 			'startcat_id' => array(
 				'type' => 'select',
-				'label' => 'Select a category',
+				'label' => lang('Select a category'),
 				'options' => Array(),
 			),
 			'startforum_id' => array(
 				'type' => 'select',
-				'label' => 'Select a forum',
+				'label' => lang('Select a forum'),
 				'options' => Array(),
 			),
 		);
 		$this->get = array('level','cat_id','forum_id','msg','pos','view');
 		$this->session = array('level','cat_id','forum_id','view');
-		$this->title = "Discussions";
-		$this->description = "This module displays the phpgw forums on the web site";
+		$this->title = lang('Discussions');
+		$this->description = lang('This module displays the phpgw forums on the web site');
 		$this->bo = CreateObject('forum.boforum',1);
 	}
 

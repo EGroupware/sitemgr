@@ -6,8 +6,8 @@
 		{
 			$this->arguments = array();
 			$this->properties = array();
-			$this->title = "Choose language";
-			$this->description = "This module lets users choose language";
+			$this->title = lang('Choose language');
+			$this->description = lang('This module lets users choose language');
 		}
 	
 		function get_content(&$arguments,$properties)

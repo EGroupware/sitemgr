@@ -127,22 +127,22 @@
 				  {
 				    $preferences['sitemgr-site-name-' . $lang] = array(
 					'title'=>lang('Site name'). ' ' . $GLOBALS['Common_BO']->getlangname($lang),
-					'note'=>'(This is used chiefly for meta data and the title bar. If you change the site languages below you have to save before being able to set this preference for a new language.)',
-					'default'=>'New sitemgr site'
+					'note'=>lang('This is used chiefly for meta data and the title bar. If you change the site languages below you have to save before being able to set this preference for a new language.'),
+					'default'=>lang('New sitemgr site')
 				    );
 				  }
 
 				$preferences['sitemgr-site-url']=array(
 					'title'=>lang('URL to sitemgr-site'),
-					'note'=>'(The URL can be relative or absolute.  Name must end in a slash.)'
+					'note'=>lang('The URL can be relative or absolute.  Name must end in a slash.')
 				);
 				$preferences['sitemgr-site-dir']=array(
 					'title'=>lang('Filesystem path to sitemgr-site directory'),
-					'note'=>'(This must be an absolute directory location.  <b>No trailing slash</b>.)'
+					'note'=>lang('This must be an absolute directory location.  <b>No trailing slash</b>.')
 				);
 				$preferences['home-page-id'] = array(
 					'title'=>lang('Default home page ID number'),
-					'note'=>'(This should be a page that is readable by everyone. If you leave this blank, the site index will be shown by default.)',
+					'note'=>lang('This should be a page that is readable by everyone. If you leave this blank, the site index will be shown by default.'),
 					'input'=>'option',
 					'options'=>$this->pages_bo->getPageOptionList()
 				);
@@ -154,24 +154,24 @@
 // 				);
 				$preferences['anonymous-user'] = array(
 					'title'=>lang('Anonymous user\'s username'),
-					'note'=>'(If you haven\'t done so already, create a user that will be used for public viewing of the site.  Recommended name: anonymous.)',
+					'note'=>lang('If you haven\'t done so already, create a user that will be used for public viewing of the site.  Recommended name: anonymous.'),
 					'default'=>'anonymous'
 				);
 				$preferences['anonymous-passwd'] = array(
 					'title'=>lang('Anonymous user\'s password'),
-					'note'=>'(Password that you assigned for the aonymous user account.)',
+					'note'=>lang('Password that you assigned for the aonymous user account.'),
 					'default'=>'anonymous'
 				);
 				$preferences['themesel'] = array(
 					'title'=>lang('Template select'),
-					'note'=>'(Choose your site\'s theme or template.  Note that if you changed the above checkbox you need to save before choosing a theme or template.)',
+					'note'=>lang('Choose your site\'s theme or template.  Note that if you changed the above checkbox you need to save before choosing a theme or template.'),
 					'input'=>'option',
 					'options'=>$this->theme->getAvailableThemes(),
 					'default'=>'NukeNews'
 				);
 				$preferences['sitelanguages'] = array(
 					'title'=>lang('Languages the site user can choose from'),
-					'note'=>'(This should be a comma-separated list of language-codes.)',
+					'note'=>lang('This should be a comma-separated list of language-codes.'),
 					'default'=>'en'
 				);
 
@@ -180,7 +180,11 @@
 					'/index.php','menuaction=sitemgr.Common_UI.DisplayPrefs'));
 				$this->t->set_var(Array('setup_instructions' => lang('SiteMgr Setup Instructions'),
 							'options' => lang('SiteMgr Options'),
-							'lang_save' => lang('Save')
+							'lang_save' => lang('Save'),
+ 							'lang_subdir' => lang('There are two subdirectories off of your sitemgr directory that you should move before you do anything else.  You don\'t <i>have</i> to move either of these directories, although you will probably want to.'),
+							'lang_first_directory' => lang('The first directory to think about is sitemgr-link.  If you move this to the parent directory of sitemgr (your phpgroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  If you don\'t want this icon, there\'s no reason to ever bother with the directory.'),
+							'lang_second_directory' => lang('The second directory is the sitemgr-site directory.  This can be moved <i>anywhere</i>.  It can also be named <i>anything</i>.  Wherever it winds up, when you point a web browser to it, you will get the generated website.  Assuming, of course, that you\'ve accurately completed the setup fields below and also <b><i>edited the config.inc.php</i></b> file.'),
+							'lang_edit_config_inc}' => lang('The config.inc.php file needs to be edited to point to the phpGroupWare directory. Copy the config.inc.php.template file to config.inc.php and then edit it.')
 				));
 						       
 				$this->t->set_block('sitemgr_prefs','PrefBlock','PBlock');

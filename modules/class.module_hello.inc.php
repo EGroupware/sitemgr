@@ -7,13 +7,13 @@ class module_hello extends Module
 		$this->arguments = array(
 			'name' => array(
 				'type' => 'textfield', 
-				'label' => 'The person to say hello to'
+				'label' => lang('The person to say hello to')
 			)
 		);
 		$this->post = array('name' => array('type' => 'textfield'));
 		$this->session = array('name');
-		$this->title = "Hello world";
-		$this->description = "This is a simple sample module";
+		$this->title = lang('Hello world');
+		$this->description = lang('This is a simple sample module');
 	}
 
 	function get_content(&$arguments,$properties) 
@@ -29,7 +29,7 @@ class module_hello extends Module
 		if (preg_match("/[[:upper:]]/",$data['name']))
 		{
 			$data['name'] = strtolower($data['name']);
-			$this->validation_error = "Name has been translated to lower case";
+			$this->validation_error = lang('Name has been translated to lower case');
 		}
 		return true;
 	}

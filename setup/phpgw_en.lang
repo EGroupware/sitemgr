@@ -1,15 +1,20 @@
 %1 content manager	sitemgr	en	%1 content manager
+a simple picture galery	sitemgr	en	A simple picture galery
 actif	sitemgr	en	Actif
 add a category	sitemgr	en	Add a category
+add a new application	sitemgr	en	Add a new application
 add block to content area %1	sitemgr	en	Add block to content area %1
 add category	sitemgr	en	Add Category
 add new page to this category	sitemgr	en	Add new page to this category
 add page	sitemgr	en	Add Page
 administration	sitemgr-site	en	Administration
 administrative menu	sitemgr	en	Administrative Menu
+administrators	sitemgr	en	administrators
 all categories	sitemgr	en	All categories
 all forums in category %1	sitemgr	en	All forums in category %1
 amazon	sitemgr-site	en	Amazon
+an application directory	sitemgr	en	An application directory
+anonymous	sitemgr	en	anonymous
 anonymous user login domain	sitemgr	en	Anonymous user login domain
 anonymous user's password	sitemgr	en	Anonymous user's password
 anonymous user's username	sitemgr	en	Anonymous user's username
@@ -24,6 +29,8 @@ before the public web site can be viewed, you must configure the various locatio
 block not found	sitemgr-site	en	Block not found
 block not found.	sitemgr	en	Block not found.
 block returned no content.	sitemgr-site	en	Block returned no content.
+bookmarks	sitemgr	en	Bookmarks
+calendar	sitemgr	en	Calendar
 cancel the delete	sitemgr	en	Cancel the delete
 cannot move page until it has been saved.	sitemgr	en	Cannot move page until it has been saved.
 category	sitemgr-site	en	Category
@@ -35,45 +42,71 @@ check here after every upgrade	sitemgr	en	check here after every upgrade
 check to hide from condensed site index.	sitemgr	en	Check to hide from condensed site index.
 choose a category	sitemgr-site	en	Choose a category
 choose language	sitemgr-site	en	Choose language
+choose the categories to display	sitemgr	en	Choose the categories to display
+choose your site's theme or template.  note that if you changed the above checkbox you need to save before choosing a theme or template.	sitemgr	en	Choose your site's theme or template.  Note that if you changed the above checkbox you need to save before choosing a theme or template.
 collapse threads	sitemgr	en	Collapse Threads
+configure module properties	sitemgr	en	Configure module properties
 configure sitemgr	sitemgr	en	Configure SiteMgr
 contact the administrator.	sitemgr-site	en	Contact the administrator.
 content manager	sitemgr-site	en	Content Manager
+contentarea	sitemgr	en	Contentarea
 contributor menu	sitemgr	en	Contributor Menu
+current section	sitemgr	en	Current Section
 default home page id number	sitemgr	en	Default home page ID number
+delete this application	sitemgr	en	Delete this application
 deleting all data for %1	sitemgr	en	Deleting all data for %1
+discussions	sitemgr	en	Discussions
+display link to autoregistration below login form?	sitemgr	en	Display link to autoregistration below login form?
 do you want to delete them?	sitemgr	en	Do you want to delete them?
 don't have an account?	sitemgr-site	en	Don't have an account?
 done	sitemgr	en	Done
+downloaded	sitemgr	en	downloaded
 edit categories and permissions	common	en	Edit Categories and Permissions
 edit category	sitemgr	en	Edit Category
 edit individual pages	common	en	Edit Individual Pages
 edit page	sitemgr	en	Edit Page
+edit properties of module %1 for %2 with scope %3	sitemgr	en	Edit properties of module %1 for %2 with scope %3
 edit site header and footer	common	en	Edit Site Header and Footer
 enter a name	sitemgr	en	Enter a name
+enter the page content here	sitemgr	en	Enter the page content here
 error accessing page	common	en	Error accessing page
+everybody	sitemgr	en	everybody
+file contents	sitemgr	en	File contents
+file download	sitemgr	en	File download
+file is not world readable	sitemgr	en	File is not world readable
+filesystem path of the directory where the images are found (no trailing slash)	sitemgr	en	Filesystem path of the directory where the images are found (no trailing slash)
+filesystem path of the directory where xml files are stored	sitemgr	en	Filesystem path of the directory where XML files are stored
 filesystem path to sitemgr-site directory	sitemgr	en	Filesystem path to sitemgr-site directory
 fill in permissions from parent category? if you check this, below values will be ignored	sitemgr	en	Fill in permissions from parent category? If you check this, below values will be ignored
 footer editor	sitemgr	en	Footer Editor
 forum	sitemgr	en	Forum
+full path of the xslt file that should be applied to the xml files	sitemgr	en	Full path of the XSLT file that should be applied to the XML files
+galerie	sitemgr	en	Galerie
 go back to page manager	sitemgr	en	Go back to Page Manager
 go back to the category manager.	sitemgr	en	Go back to the category manager.
 go to	sitemgr	en	Go to
 go to page manager	sitemgr	en	Go to Page Manager
+google	sitemgr	en	Google
 google search	sitemgr-site	en	Google Search
 group access permissions	sitemgr	en	Group Access Permissions
 group name	sitemgr	en	Group Name
 header editor	sitemgr	en	Header Editor
 headlines	sitemgr	en	Headlines
 hello	sitemgr	en	Hello
+hello world	sitemgr	en	Hello world
+html module	sitemgr	en	HTML module
 i'm sorry, you do not have write permissions for any site categories.	sitemgr	en	I'm sorry, you do not have write permissions for any site categories.
+if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	en	If you haven't done so already, create a user that will be used for public viewing of the site.  Recommended name: anonymous.
+image type	sitemgr	en	image type
 individual access permission	sitemgr	en	Individual Access Permission
+interface to google website	sitemgr	en	
 languages the site user can choose from	sitemgr	en	Languages the site user can choose from
 latest reply	sitemgr	en	Latest Reply
 list of permitted modules specific to content area %1	sitemgr	en	List of permitted modules specific to content area %1
 login	sitemgr-site	en	Login
 login name	sitemgr-site	en	Login Name
 main content	sitemgr	en	Main content
+mains	sitemgr	en	Mains
 manage categories	sitemgr	en	Manage Categories
 manage content	sitemgr	en	Manage Content
 manage modules	sitemgr	en	Manage Modules
@@ -87,6 +120,10 @@ module %1 is not permitted in this context!	sitemgr	en	Module %1 is not permitte
 module manager	sitemgr	en	Module manager
 move to	sitemgr	en	Move to
 name	sitemgr	en	Name
+name has been translated to lower case	sitemgr	en	Name has been translated to lower case
+new application	sitemgr	en	New application
+new sitemgr site	sitemgr	en	New sitemgr site
+news module	sitemgr	en	News module
 no anonymous user accounts installed.  notify the administrator.	sitemgr	en	NO ANONYMOUS USER ACCOUNTS INSTALLED.  NOTIFY THE ADMINISTRATOR.
 no anonymous user accounts installed. notify the administrator.	sitemgr-site	en	NO ANONYMOUS USER ACCOUNTS INSTALLED. NOTIFY THE ADMINISTRATOR.
 no content areas found in selected template	sitemgr	en	No content areas found in selected template
@@ -100,6 +137,8 @@ no templates found.	sitemgr	en	No templates found.
 no users defined.	sitemgr	en	No users defined.
 not yet translated	sitemgr	en	not yet translated
 note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	en	Note that you may get this message if your preferences are incorrect.  For example, if config.inc.php is not found in the directory that you specified.
+overview of all available categories	sitemgr	en	Overview of all available categories
+overview of one specific category	sitemgr	en	Overview of one specific category
 page	sitemgr	en	Page
 page content	sitemgr	en	Page Content
 page manager	sitemgr	en	Page Manager
@@ -110,9 +149,12 @@ page title	sitemgr	en	Page Title
 pages	sitemgr-site	en	Pages
 parent	sitemgr	en	Parent
 password	sitemgr-site	en	Password
+password that you assigned for the aonymous user account.	sitemgr	en	Password that you assigned for the aonymous user account.
+phpgw users	sitemgr	en	phpgw users
 post a message to this thread	sitemgr	en	Post A Message To This Thread
 previous	sitemgr	en	Previous
 read permission	sitemgr	en	Read Permission
+redirection	sitemgr	en	Redirection
 refresh	sitemgr	en	Refresh
 register for one now.	sitemgr-site	en	Register for one now.
 register new modules	sitemgr	en	Register new modules
@@ -127,35 +169,80 @@ save	sitemgr	en	Save
 saved	sitemgr	en	Saved
 scope	sitemgr	en	Scope
 seen by	sitemgr	en	Seen by
+select a category	sitemgr	en	Select a category
+select a forum	sitemgr	en	Select a forum
+select allowed modules	sitemgr	en	Select allowed modules
 selected template %1 does not exist.	sitemgr-site	en	Selected template %1 does not exist.
 selected theme %1 does not exist.	sitemgr-site	en	Selected theme %1 does not exist.
+should the file be viewed in the browser or downloaded	sitemgr	en	Should the file be viewed in the browser or downloaded
 show site index	sitemgr	en	Show Site Index
 site	sitemgr	en	Site
 site format manager	sitemgr	en	Site Format Manager
 site index	sitemgr-site	en	Site Index
 site name	sitemgr	en	Site name
 site setup	common	en	Site Setup
+site tree menu	sitemgr	en	Site Tree Menu
 sitemgr options	sitemgr	en	SiteMgr Options
 sitemgr setup instructions	sitemgr	en	SiteMgr Setup Instructions
 sitemgr setup page	sitemgr	en	sitemgr setup page
 sitemgr web content manager	common	en	SiteMgr Web Content Manager
 sort order	sitemgr	en	Sort Order
+strip html from block content?	sitemgr	en	Strip HTML from block content?
 subcategories	sitemgr-site	en	Subcategories
 subtitle	sitemgr	en	Subtitle
+summary of one forum	sitemgr	en	Summary of one forum
 table of contents	sitemgr-site	en	Table of Contents
 template select	sitemgr	en	Template select
+textarea	sitemgr	en	textarea
+the category to display, 0 for complete table of contents	sitemgr	en	The category to display, 0 for complete table of contents
+the complete path to the file to be included	sitemgr	en	The complete path to the file to be included
+the config.inc.php file needs to be edited to point to the phpgroupware directory. copy the config.inc.php.template file to config.inc.php and then edit it.	sitemgr	en	The config.inc.php file needs to be edited to point to the phpGroupWare directory. Copy the config.inc.php.template file to config.inc.php and then edit it.
+the file to be downloaded	sitemgr	en	The file to be downloaded
+the first directory to think about is sitemgr-link.  if you move this to the parent directory of sitemgr (your phpgroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  if you don't want this icon, there's no reason to ever bother with the directory.	sitemgr	en	The first directory to think about is sitemgr-link.  If you move this to the parent directory of sitemgr (your phpgroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  If you don't want this icon, there's no reason to ever bother with the directory.
+the images' common name	sitemgr	en	the images' common name
 the name field cannot contain punctuation or spaces (field modified).	sitemgr	en	The Name field cannot contain punctuation or spaces (field modified).
 the page name must be unique.	sitemgr	en	The page name must be unique.
 the page was successfully saved.	sitemgr	en	The page was successfully saved.
+the path to the file to be downloaded	sitemgr	en	The path to the file to be downloaded
+the person to say hello to	sitemgr	en	The person to say hello to
+the second directory is the sitemgr-site directory.  this can be moved <i>anywhere</i>.  it can also be named <i>anything</i>.  wherever it winds up, when you point a web browser to it, you will get the generated website.  assuming, of course, that you've accurately completed the setup fields below and also <b><i>edited the config.inc.php</i></b> file.	sitemgr	en	The second directory is the sitemgr-site directory.  This can be moved <i>anywhere</i>.  It can also be named <i>anything</i>.  Wherever it winds up, when you point a web browser to it, you will get the generated website.  Assuming, of course, that you've accurately completed the setup fields below and also <b><i>edited the config.inc.php</i></b> file.
+the text for the link, if empty the filename is used	sitemgr	en	The text for the link, if empty the filename is used
+the url can be relative or absolute.  name must end in a slash.	sitemgr	en	The URL can be relative or absolute.  Name must end in a slash.
+the url to redirect to	sitemgr	en	The URL to redirect to
+the whole page	sitemgr	en	the whole page
+the xml files' common name	sitemgr	en	the XML files' common name
 theme or template select	sitemgr	en	Theme or template select
 there are no categories	sitemgr	en	There are no categories
 there are no forums in this category	sitemgr	en	There are no forums in this category
 there are no pages in this section	sitemgr-site	en	There are no pages in this section
 there are no properties defined for this module	sitemgr	en	There are no properties defined for this module
 there are no sections available to you.	sitemgr-site	en	There are no sections available to you.
+there are two subdirectories off of your sitemgr directory that you should move before you do anything else.  you don't <i>have</i> to move either of these directories, although you will probably want to.	sitemgr	en	There are two subdirectories off of your sitemgr directory that you should move before you do anything else.  You don't <i>have</i> to move either of these directories, although you will probably want to.
 there was an error accessing the requested page. either you do not have permission to view this page, or the page does not exist.	common	en	There was an error accessing the requested page. Either you do not have permission to view this page, or the page does not exist.
 there was an error writing to the database.	sitemgr	en	There was an error writing to the database.
+this block displays a javascript based tree menu	sitemgr	en	This block displays a javascript based tree menu
+this block displays the current section's table of contents	sitemgr	en	This block displays the current section's table of contents
 this category has no pages.	sitemgr	en	This category has no pages.
+this is a simple sample module	sitemgr	en	This is a simple sample module
+this is used chiefly for meta data and the title bar. if you change the site languages below you have to save before being able to set this preference for a new language.	sitemgr	en	This is used chiefly for meta data and the title bar. If you change the site languages below you have to save before being able to set this preference for a new language.
+this module create a link for downloading a file from the vfs	sitemgr	en	This module create a link for downloading a file from the VFS
+this module demonstrates how handling data stored in xml and building an interacvite interface from it	sitemgr	en	This module demonstrates how handling data stored in XML and building an interacvite interface from it
+this module displays a login form	sitemgr	en	This module displays a login form
+this module displays bookmarks in a javascript based tree	sitemgr	en	This module displays bookmarks in a javascript based tree
+this module displays the current month	sitemgr	en	This module displays the current month
+this module displays the phpgw forums on the web site	sitemgr	en	This module displays the phpgw forums on the web site
+this module includes the contents of a (world readable) file	sitemgr	en	This module includes the contents of a (world readable) file
+this module is a simple html editor	sitemgr	en	This module is a simple HTML editor
+this module lets users choose language	sitemgr	en	This module lets users choose language
+this module lets you define pages that redirect to another url, if you use it, there should be no other block defined for the page	sitemgr	en	This module lets you define pages that redirect to another URL, if you use it, there should be no other block defined for the page
+this module permits browsing through xml files stored in a directory, and transformed by xslt	sitemgr	en	This module permits browsing through XML files stored in a directory, and transformed by XSLT
+this module presents a link back to the sitemgr's administration menu. it is meant for registered users	sitemgr	en	This module presents a link back to the sitemgr's administration menu. It is meant for registered users
+this module provides a complete table of contents, it is automatically used by the toc and category_id get parameters	sitemgr	en	This module provides a complete table of contents, it is automatically used by the toc and category_id GET parameters
+this module provides a condensed table of contents, meant for side areas	sitemgr	en	This module provides a condensed table of contents, meant for side areas
+this module provides the site index, it is automatically used by the index get parameter	sitemgr	en	This module provides the site index, it is automatically used by the index GET parameter
+this must be an absolute directory location.  <b>no trailing slash</b>.	sitemgr	en	This must be an absolute directory location.  <b>No trailing slash</b>.
+this should be a comma-separated list of language-codes.	sitemgr	en	This should be a comma-separated list of language-codes.
+this should be a page that is readable by everyone. if you leave this blank, the site index will be shown by default.	sitemgr	en	This should be a page that is readable by everyone. If you leave this blank, the site index will be shown by default.
 title	sitemgr	en	Title
 topic	sitemgr	en	Topic
 translate	sitemgr	en	Translate
@@ -166,22 +253,28 @@ translation manager	sitemgr	en	Translation Manager
 up to parent	sitemgr-site	en	Up to parent
 up to table of contents	sitemgr-site	en	Up to table of contents
 updating to new category system	sitemgr	en	Updating to new category system
+url pointing to the directory where the images are found (no trailing slash)	sitemgr	en	URL pointing to the directory where the images are found (no trailing slash)
 url to sitemgr-site	sitemgr	en	URL to sitemgr-site
 use phpnuke themes instead of templates	sitemgr	en	Use phpNuke themes instead of templates
+use this module for displaying book ads for the amazon web site	sitemgr	en	Use this module for displaying book ads for the amazon web site
 user name	sitemgr	en	User Name
 view administrative menu	sitemgr	en	View Administrative Menu
 view full index	sitemgr-site	en	View full index
 view generated site	sitemgr	en	View Generated Site
 view threads	sitemgr	en	View Threads
+viewed	sitemgr	en	viewed
 web content manager	common	en	SiteMgr Web Content Manager
 web content manager administration	sitemgr	en	Web Content Manager Administration
 web site manager	sitemgr	en	Web Site Manager
 week	sitemgr	en	week
 what do you want to do with existing translations of categories and pages for this language?	sitemgr	en	What do you want to do with existing translations of categories and pages for this language?
+with which view should the module be displayed in the beginning?	sitemgr	en	With which view should the module be displayed in the beginning?
 write permission	sitemgr	en	Write Permission
+xml browser	sitemgr	en	XML browser
 yes, please delete it	sitemgr	en	Yes, please delete it
 you are not entitled to create module %1 on this scope	sitemgr	en	You are not entitled to create module %1 on this scope
 you are not entitled to edit block %1	sitemgr	en	You are not entitled to edit block %1
+you can choose the modules that can be used on the site. the first list is a sort of master list, that is consulted if you do not configure lists specific to contentareas or (sub)categories. then you can choose lists specific to each content area. in the category manager these lists can be overriden for each (sub)category.	sitemgr	en	You can choose the modules that can be used on the site. The first list is a sort of master list, that is consulted if you do not configure lists specific to contentareas or (sub)categories. Then you can choose lists specific to each content area. In the category manager these lists can be overriden for each (sub)category.
 you can either migrate them to a new language or delete them	sitemgr	en	You can either migrate them to a new language or delete them
 you can override each content blocks default title. be aware that not in all content areas the block title will be visible.	sitemgr	en	You can override each content blocks default title. Be aware that not in all content areas the block title will be visible.
 you did not choose a module.	sitemgr	en	You did not choose a module.

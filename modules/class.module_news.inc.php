@@ -29,10 +29,10 @@
 		function module_news()
 		{
 			//specification of options is postponed into the get_user_interface function
-			$this->arguments = array('category' => array('type' => 'select', 'label' => 'Choose a category', 'options' => array()));
+			$this->arguments = array('category' => array('type' => 'select', 'label' => lang('Choose a category'), 'options' => array()));
 			$this->properties = array();
-			$this->title = "News module";
-			$this->description = "This module is just a first trial of hooking news_admin into sitmgr's new architecture.";
+			$this->title = lang('News module');
+			$this->description = ('This module is just a first trial of hooking news_admin into sitmgr\'s new architecture.');
 		}
 
 		function get_user_interface()
@@ -41,7 +41,7 @@
 			//and not when it is generated for the web site, thus speeding the latter up slightly
 			$cat = createobject('phpgwapi.categories','','news_admin');
 			$cats = $cat->return_array('mains',0,False);
-			$cat_ids = array(0 => 'Mains');
+			$cat_ids = array(0 => lang('Mains'));
 			while (list(,$category) = @each($cats))
 			{
 				$cat_ids[$category['id']] = $category['name'];

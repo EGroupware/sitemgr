@@ -51,8 +51,8 @@
 				$this->t->set_var(array
 				(
 					'site_format_manager' => lang('Site Format Manager'),
-					'lang_reset' => lang('Reset'),
-					'lang_save' => lang('Save')
+					'lang_save' => lang('Save'),
+					'lang_reset' => lang('Reset')
 				));
 
 				foreach ($this->sitelanguages as $lang)

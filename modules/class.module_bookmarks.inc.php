@@ -7,13 +7,13 @@ class module_bookmarks extends Module
 
 	function module_bookmarks()
 	{
-		$this->title = "Bookmarks";
-		$this->description = "This module displays bookmarks in a javascript based tree";
+		$this->title = lang('Bookmarks');
+		$this->description = lang('This module displays bookmarks in a javascript based tree');
 		$this->cookie = array('expanded');
 		$this->arguments = array(
 			'category' => array(
-				'type' => 'select', 
-				'label' => 'Choose the categories to display', 
+				'type' => select, 
+				'label' => lang('Choose the categories to display'), 
 				'options' => array(),
 				'multiple' => True
 			)

@@ -9,8 +9,8 @@ class module_appdir extends Module
 	function module_appdir()
 	{
 		$this->arguments = array();
-		$this->title = "An application directory";
-		$this->description = "This module demonstrates how handling data stored in XML and building an interacvite interface from it";
+		$this->title = lang('An application directory');
+		$this->description = lang('This module demonstrates how handling data stored in XML and building an interacvite interface from it');
 	}
 
 	function get_user_interface()
@@ -44,7 +44,7 @@ class module_appdir extends Module
 				);
 				$interface[] = $element;
 			}
-			$element['label'] = 'Delete this application';
+			$element['label'] = lang('Delete this application');
 			$element['form'] = $this->build_input_element(
 				array('type' => 'checkbox'),
 				False,
@@ -56,7 +56,7 @@ class module_appdir extends Module
 		$element['label'] = '<hr>';
 		$element['form'] = '<hr>';
 		$interface[] = $element;
-		$element['label'] = 'Add a new application';
+		$element['label'] = lang('Add a new application');
 		$element['form'] = $this->build_input_element(
 			array('type' => 'checkbox'),
 			False,
@@ -91,10 +91,10 @@ class module_appdir extends Module
 			$xmltool->import_var(
 				'app',
 				array(
-					'name' => 'New application',
-					'maintainer' => 'Maintainer',
+					'name' => lang('New application'),
+					'maintainer' => lang('Maintainer'),
 					'url' => 'http://',
-					'description' => 'Description'
+					'description' => lang('Description')
 				)
 			);
 		}

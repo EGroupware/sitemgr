@@ -7,26 +7,26 @@ class module_download extends Module
 		$this->arguments = array(
 			'path' => array(
 				'type' => 'textfield', 
-				'label' => 'The path to the file to be downloaded'
+				'label' => lang('The path to the file to be downloaded')
 			),
 			'file' => array(
 				'type' => 'textfield', 
-				'label' => 'The file to be downloaded'
+				'label' => lang('The file to be downloaded')
 			),
 			'text' => array(
 				'type' => 'textfield',
-				'label' => 'The text for the link, if empty the filename is used'
+				'label' => lang('The text for the link, if empty the filename is used')
 			),
 			'op' => array(
 				'type' => 'select',
-				'label' => 'Should the file be viewed in the browser or downloaded',
-				'options' => array(1 => 'viewed', 2 => 'downloaded')
+				'label' => lang('Should the file be viewed in the browser or downloaded'),
+				'options' => array(1 => lang('viewed'), 2 => lang('downloaded'))
 			)
 		);
 		$this->post = array('name' => array('type' => 'textfield'));
 		$this->session = array('name');
-		$this->title = "File download";
-		$this->description = "This module create a link for downloading a file from the VFS";
+		$this->title = lang('File download');
+		$this->description = lang('This module create a link for downloading a file from the VFS');
 	}
 
 	function get_content(&$arguments,$properties) 

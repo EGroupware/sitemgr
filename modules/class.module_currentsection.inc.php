@@ -6,8 +6,8 @@ class module_currentsection extends Module
 	{
 		$this->arguments = array();
 		$this->properties = array();
-		$this->title = "Current Section";
-		$this->description = "This block displays the current section's table of contents";
+		$this->title = lang('Current Section');
+		$this->description = lang('This block displays the current section\'s table of contents');
 	}
 
 	function get_content(&$arguments,$properties)

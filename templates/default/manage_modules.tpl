@@ -14,7 +14,7 @@
 					{selectmodules}
 				</select>
 				<input type="hidden" name="inputarea" value={contentarea} />
-				<input style="vertical-align:middle" type="submit" name="btnselect" value="Select allowed modules"/>
+				<input style="vertical-align:middle" type="submit" name="btnselect" value={lang_select_allowed_modules} />
 			</form>
 		</td>
 		<td>
@@ -23,7 +23,7 @@
 					{configuremodules}
 				</select>
 				<input type="hidden" name="inputarea" value={contentarea} />
-				<input style="vertical-align:middle" type="submit" value="Configure module properties"/>
+				<input style="vertical-align:middle" type="submit" value={lang_configure_module_properties} />
 			</form>
 		</td>
 	</tr>

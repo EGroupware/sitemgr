@@ -22,8 +22,8 @@ class module_amazon extends Module
 	{
 		$this->arguments = array();
 		$this->properties = array();
-		$this->title = "Amazon";
-		$this->description = "Use this module for displaying book ads for the amazon web site ";
+		$this->title = lang('Amazon');
+		$this->description = lang('Use this module for displaying book ads for the amazon web site');
 	}
 
 	function get_content(&$arguments,$properties)

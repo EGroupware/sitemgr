@@ -7,19 +7,19 @@ class module_galerie extends Module
 		$this->arguments = array(
 			'imagedirurl' => array(
 				'type' => 'textfield', 
-				'label' => 'URL pointing to the directory where the images are found (no trailing slash)'
+				'label' => lang('URL pointing to the directory where the images are found (no trailing slash)')
 			),
 			'imagedirpath' => array(
 				'type' => 'textfield', 
-				'label' => 'Filesystem path of the directory where the images are found (no trailing slash)'
+				'label' => lang('Filesystem path of the directory where the images are found (no trailing slash)')
 			),
 			'imagename' => array(
 				'type' => 'textfield', 
-				'label' => 'the images\' common name'
+				'label' => lang('the images\' common name')
 			),
 			'imagetype' => array(
 				'type' => 'select', 
-				'label' => 'image type', 
+				'label' => lang('image type'), 
 				'options' => array(
 					'jpeg' => 'jpeg',
 					'gif' => 'gif',
@@ -27,7 +27,7 @@ class module_galerie extends Module
 				)
 			),
 		);
-		$this->title = "Galerie";
+		$this->title = lang('Galerie');
 		$this->post = array(
 			'prev' => array(
 				'type' => 'submit',
@@ -39,7 +39,7 @@ class module_galerie extends Module
 			)
 		);
 		$this->session = array('filenumber');
-		$this->description = "A simple picture galery";
+		$this->description = lang('A simple picture galery');
 	}
 
 	function get_user_interface()

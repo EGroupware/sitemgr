@@ -2,7 +2,7 @@
 {help}
 
 <!-- BEGIN Contentarea -->
-<h2 style="text-align:center">Contentarea {area}</h2>
+<h2 style="text-align:center">{contentarea} {area}</h2>
 <center style="color:red">{error}</center>
 
 <!-- BEGIN Module -->
@@ -20,7 +20,8 @@
 <!-- END EditorElement -->
 </table>
 <input type="hidden" value="{blockid}" name="blockid" />
-{savebutton} {savelang}{deletebutton}
+<input type="submit" value= {savebutton} name="btnSaveBlock" /> {savelang}
+<input type="submit" value= {deletebutton} name="btnDeleteBlock" />
 </form>
 </div>
 <!-- END Moduleeditor -->

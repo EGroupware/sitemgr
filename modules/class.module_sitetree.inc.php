@@ -7,8 +7,8 @@ class module_sitetree extends Module
 		$this->arguments = array();
 		$this->properties = array();
 		$this->cookie = array('menutree');
-		$this->title = "Site Tree Menu";
-		$this->description = "This block displays a javascript based tree menu";
+		$this->title = lang('Site Tree Menu');
+		$this->description = lang('This block displays a javascript based tree menu');
 		$this->expandedcats;
 	}
 

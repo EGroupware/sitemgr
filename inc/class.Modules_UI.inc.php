@@ -50,8 +50,10 @@
 				$this->t->set_block('Managemodules','Contentarea','CBlock');
 				$this->t->set_var(array(
 					'module_manager' => lang('Module manager'),
-					'help' => 'You can choose the modules that can be used on the site. The first list is a sort of master list, that is consulted if you do not configure lists specific to contentareas or (sub)categories. Then you can choose lists specific to each content area. In the category manager these lists can be overriden for each (sub)category.',
+					'lang_help_module_manager' => lang('You can choose the modules that can be used on the site. The first list is a sort of master list, that is consulted if you do not configure lists specific to contentareas or (sub)categories. Then you can choose lists specific to each content area. In the category manager these lists can be overriden for each (sub)category.'),
 					'lang_findmodules' => lang('Register new modules'),
+					'lang_select_allowed_modules' => lang('Select allowed modules'),
+					'lang_configure_module_properties' => lang('Configure module properties'),
 					'cat_name' => ($cat_name ? (' - ' . $cat_name) : ''),
 					'managelink' => ($managelink ? ('<a href="' . $managelink . '">&lt; ' . lang('Go to') . ' ' . $goto . ' &gt;</a>') : '')
 				));
@@ -166,19 +168,18 @@
 				}
 
 				$this->t->set_var(Array(
-					'module_edit' => lang(
-						'Edit properties of module %1 for %2 with scope %3',
+					'module_edit' => lang('Edit properties of module %1 for %2 with scope %3',
 						$module['module_name'],
-						($inputarea == '__PAGE__' ? 'the whole page' : ('Contentarea ' . $inputarea)),
+						($inputarea == '__PAGE__' ? lang('the whole page') : (lang('Contentarea') . $inputarea)),
 						($cat_id ? ('category ' . $cat_name) : ' the whole site')
 					),
 					'module_id' => $inputmodule_id,
 					'contentarea' => $inputarea,
 					'savebutton' => ($editormoduleelements ? 
-						'<input type="submit" value="Save" name="btnSaveProperties" />' :
+						'<input type="submit" value="'.lang('Save').'" name="btnSaveProperties" />' :
 						lang('There are no properties defined for this module')
 					),
-					'deletebutton' => $properties === False ? '' : '<input type="submit" value="Delete" name="btnDeleteProperties" />'
+					'deletebutton' => $properties === False ? '' : '<input type="submit" value="'.lang('Delete').'" name="btnDeleteProperties" />'
 					)
 				);
 				$link_data['cat_id'] = $cat_id;

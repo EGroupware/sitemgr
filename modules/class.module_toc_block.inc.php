@@ -5,8 +5,8 @@ class module_toc_block extends Module
 	function module_toc_block()
 	{
 		$this->arguments = array();
-		$this->title = "Table of contents";
-		$this->description = "This module provides a condensed table of contents, meant for side areas";
+		$this->title = lang('Table of contents');
+		$this->description = lang('This module provides a condensed table of contents, meant for side areas');
 	}
 
 	function get_content(&$arguments,$properties)
