@@ -286,7 +286,7 @@ template select	sitemgr	sl	Izbor predloge
 textarea	sitemgr	sl	Območje besedila
 the category to display, 0 for complete table of contents	sitemgr	sl	Kategorija za prikaz, 0 za popolno kazalo
 the complete url or path to a file to be included	sitemgr	sl	Celoten URL ali pot do datoteke za vključitev
-the config.inc.php file needs to be edited to point to the phpgroupware directory. copy the config.inc.php.template file to config.inc.php and then edit it.	sitemgr	sl	config.inc.php datoteko je potrebno urediti, da bo kazala na phpGroupWare mapo. Skopirajte config.inc.php.template datoteko v config.inc.php in jo uredite.
+the config.inc.php file needs to be edited to point to the egroupware directory. copy the config.inc.php.template file to config.inc.php and then edit it.	sitemgr	sl	config.inc.php datoteko je potrebno urediti, da bo kazala na eGroupWare mapo. Skopirajte config.inc.php.template datoteko v config.inc.php in jo uredite.
 the file to be downloaded	sitemgr	sl	Datoteka za prenos
 the filesystem path to your sitemgr-site directory '%1' is probably wrong. go to sitemgr --> define websites and edit/fix the concerned site.	sitemgr	sl	Pot do vaše mape Upravljalca strani '%1' je najverjetneje napačna. Pojdite na Upravljalec strani --> Določi spletne strani in uredite to stran
 the name field cannot contain punctuation or spaces (field modified).	sitemgr	sl	Polje Ime ne more vsebovati pik ali presledkov in je bilo spremenjeno.
