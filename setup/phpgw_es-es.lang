@@ -2,6 +2,7 @@
 %1 module manager	sitemgr	es-es	Administrador de módulos para %1
 '%1' is no valid sitemgr-site directory !!!	sitemgr	es-es	!!!'%1' no es un directorio válido para sitemgr-site!!!
 (do not put spaces or punctuation in the name field.)	sitemgr	es-es	(No ponga espacios ni signos de puntuación en el campo Nombre)
+<b>autoregistration is not enabled / configured in the registration app !!!</b><br>you need to do so, to get the autoregistration link working.	sitemgr	es-es	<b>Las suscripciones no están activadas o configuradas en la aplicación de suscripciones</b><br>Necesita hacerlo para que funcione el enlace de suscripciones.
 <b>want more templates?</b><br />just download a %1mambo open source%2 version 4.5 compatible template from %3 and unpack it in your templates directory (%4).	sitemgr	es-es	<b>¿Quiere más plantillas?</b><br />Simplmente descargue una plantilla compatible con %1Mambo Open Source%2 4.5 de %3 y descomprímala en su directorio de plantillas (%4).
 <b>want more templates?</b><br />just download one from the template gallery at %1www.egroupware.org%2 or use a %3mambo open source%4 version 4.5 compatible template eg. from %5. unpack the downloaded template in your templates directory (%6).	sitemgr	es-es	<b>¿Quiere más plantillas?</b><br />Simplemente descargue una de la galería de plantillas de %1www.eGroupWare.org%2 o use una plantilla compatible con versión 4.5 de %3Mambo Open Source%4 de %5. Descomprima la plantilla en su directorio de plantillas (%6).
 a simple picture galery	sitemgr	es-es	Una galería simple de imágenes
@@ -20,6 +21,7 @@ administrative menu	sitemgr	es-es	Menú administrativo
 administrators	sitemgr	es-es	administradores
 all categories	sitemgr	es-es	Todas las categorías
 all forums in category %1	sitemgr	es-es	Todos los foros en la categoría %1
+allow posting of questions	sitemgr	es-es	Permitir enviar preguntas
 amazon	sitemgr	es-es	Amazon
 amazon server (without www), eg. amazon.com	sitemgr	es-es	Servidor de Amanzo (sin www), p. ej. amazon.com
 an application directory	sitemgr	es-es	Un directorio de una aplicación
@@ -28,6 +30,7 @@ anonymous user login domain	sitemgr	es-es	Dominio del usuario anónimo
 anonymous user's password	sitemgr	es-es	Contraeña del usuario anónimo
 anonymous user's username	sitemgr	es-es	Nombre de usuario del usurio anónimo
 application	sitemgr	es-es	Aplicación
+application '%1' is not installed !!!<br>please install it, to be able to use the block.	sitemgr	es-es	La aplicación '%1' no está instalada<br>Por favor, instálela para poder usar el bloque.
 apply permissions also to subcategories?	sitemgr	es-es	¿Aplicar permisos también a las subcategorías?
 archived	sitemgr	es-es	archivado
 archived content	sitemgr	es-es	Contenido archivado
@@ -37,6 +40,7 @@ as	common	es-es	como
 asin[=title] pairs (title is optional)	sitemgr	es-es	pares ASIN[=título] (el título es opcional)
 attempt to access information outside current website	sitemgr	es-es	Intento de acceder a la información fuera del sitio web actual
 attempt to edit non-editable block	sitemgr	es-es	Intento de editar un bloque no editable
+automatic index	sitemgr	es-es	Indice automático
 back to module manager	sitemgr	es-es	Volver al administrador de módulos
 back to the list of languages	sitemgr	es-es	Volver a la lista de idiomas
 basic settings	sitemgr	es-es	Configuracón básica
@@ -65,6 +69,7 @@ choose the categories to display	sitemgr	es-es	Elegir las categorías a mostrar
 choose your site's theme or template.  note that if you changed the above checkbox you need to save before choosing a theme or template.	sitemgr	es-es	Elija el tema o la plantilla de su ssitio. Si cambió la casilla de arriba necesita guardar antes de elegir un tema o plantilla.
 collapse threads	sitemgr	es-es	Contraer conversaciones
 commit changes	sitemgr	es-es	Subir cambios
+common prefix of the image-name (a number starting with 1 will be appended)	sitemgr	es-es	prefijo común del nombre de imagen (se le añadirá un número a partir del 1)
 configure module properties	sitemgr	es-es	Configurar las propiedades del módulo
 configure sitemgr	sitemgr	es-es	Configurar el Administrador de sitios web
 configure website	sitemgr	es-es	Configurar sitio web
@@ -75,6 +80,7 @@ content blocks for category	sitemgr	es-es	Bloques de contenido para la categoría
 content manager	sitemgr	es-es	Administrador de contenido
 contentarea	sitemgr	es-es	Area de contenidos
 contributor menu	sitemgr	es-es	Menú del colaborador
+copyright	sitemgr	es-es	Derecho de copia
 create new version	sitemgr	es-es	Crear una versión nueva
 current section	sitemgr	es-es	Sección actual
 default	sitemgr	es-es	Predeterminado
@@ -90,6 +96,7 @@ deleting all data for %1	sitemgr	es-es	Borrar todos los datos de %1
 details for language %1 (%2)	sitemgr	es-es	Detalles para el idioma %1 (%2)
 discussions	sitemgr	es-es	Discusiones
 display link to autoregistration below login form?	sitemgr	es-es	¿Mostrar el enlace para registrarse automáticamente debajo del formulario?
+do you realy want to delete the selected categories (including all pages), pages and blocks?	sitemgr	es-es	¿Realmente quiere borrar las categorías seleccionadas (incluyendo todas las páginas), páginas y bloques?
 do you realy want to delete this block?	sitemgr	es-es	¿Realmente desea borrar este bloque?
 do you realy want to delete this page?	sitemgr	es-es	¿Realmente desea borrar esta página?
 do you want to delete them?	sitemgr	es-es	¿Desea borrarlos?
@@ -115,6 +122,7 @@ edit website	sitemgr	es-es	Editar sitio web
 enter a name	sitemgr	es-es	Introduzca un nombre
 enter the block content here	sitemgr	es-es	Introduzca aquí el contenido del bloque aquí
 enter the page content here	sitemgr	es-es	Introduzca aquí el contenido de la página
+enterprise knowledge articles repository	sitemgr	es-es	Repositorio para los artículos de conocimiento de la empresa
 error accessing page	common	es-es	Error al acceder a la página
 everybody	sitemgr	es-es	todo el mundo
 file %1 is not readable by the webserver !!!	sitemgr	es-es	¡¡ El servidor web no puede leer fichero %1!!
@@ -152,10 +160,12 @@ i'm sorry, you do not have write permissions for any site categories.	sitemgr	es
 if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	es-es	Si todavía no lo ha hecho, cree un usuario que se pueda usar para ver el sitio. Nombre recomendado: anónimo.
 image type	sitemgr	es-es	tipo de imagen
 implies read permission	sitemgr	es-es	implica permiso de lectura
+index	sitemgr	es-es	Indice
 individual access permission	sitemgr	es-es	Permiso de acceso individual
 individual access permissions	sitemgr	es-es	Permisos de acceso individuales
 interface to google website	sitemgr	es-es	interfaz a Google
 invalid template directory '%1' !!!	sitemgr	es-es	El directorio de plantillas '%1' no es válido
+knowledge base	sitemgr	es-es	Base de conocimiento
 languages the site user can choose from	sitemgr	es-es	Idiomas que puede elegir el usuario del sitio
 latest reply	sitemgr	es-es	Última respuesta
 list of permitted modules specific to content area %1	sitemgr	es-es	Lista de módulos permitidos específicos al área de contenidos %1
@@ -231,6 +241,7 @@ parent	sitemgr	es-es	Superior
 parent section:	sitemgr	es-es	Sección superior:
 password	sitemgr	es-es	Contraseña
 password that you assigned for the anonymous user account.	sitemgr	es-es	Contraseña asignada al usuario anónimo
+path to image-directory '%1' is not valid or readable by the webserver !!!	sitemgr	es-es	La ruta al directorio de imágenes '%1' no es válida o no tiene permiso de lectura para el servidor web.
 path to zip binary if not in path of the webserver	sitemgr	es-es	Ruta al binario zip si no está en la ruta del servidor web
 percentage	sitemgr	es-es	Porcentaje
 phpgw users	sitemgr	es-es	usuarios de eGW
@@ -301,6 +312,9 @@ subsections:	sitemgr	es-es	Subsecciones:
 subtext for image %1	sitemgr	es-es	Subtexto para la imagen %1
 subtitle	sitemgr	es-es	Subtítulo
 summary of one forum	sitemgr	es-es	Resumen de un foro
+suppress link to index (show all)	sitemgr	es-es	Suprime el enlace al índice (muestra todo)
+suppress link to parent category	sitemgr	es-es	Suprime el enlace a la categoría superior
+suppress the current page	sitemgr	es-es	Suprime la página actual
 table of contents	sitemgr	es-es	Tabla de contenidos
 template chooser and/or gallery	sitemgr	es-es	Selector de plantillas y/o galerías
 template select	sitemgr	es-es	Selección de plantilla
@@ -310,6 +324,7 @@ the complete path to the file to be included	sitemgr	es-es	La ruta completa al f
 the complete url or path to a file to be included	sitemgr	es-es	La URL completa o ruta al fichero a incluir
 the config.inc.php file needs to be edited to point to the phpgroupware directory. copy the config.inc.php.template file to config.inc.php and then edit it.	sitemgr	es-es	El fichero config.inc.php necesita editarse para apuntar al fichero eGW. Copie el fichero de plantilla config.inc.php.template a config.inc.php y luego edítelo
 the file to be downloaded	sitemgr	es-es	El fichero a descargar
+the filesystem path to your sitemgr-site directory '%1' is probably wrong. go to sitemgr --> define websites and edit/fix the concerned site.	sitemgr	es-es	La ruta local al directorio del sitio '%1' probablemente es incorrecta. Vaya a la opción Definir sitios web y corrija el sitio adecuado.
 the first directory to think about is sitemgr-link.  if you move this to the parent directory of sitemgr (your phpgroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  if you don't want this icon, there's no reason to ever bother with the directory.	sitemgr	es-es	El primer directorio en el que hay que pensar es <tt>sitemgr-link</tt>. Si lo mueve al directorio superior de <tt>sitemgr</tt> (el fichero raíz de la instalación) entonces puede usar <tt>setup</tt> para instalar la aplicación y todos los que tengan acceso a la aplicación tendrán un icono en su barra de navegación que está enlazada directamente al sitio web público. Si no quiere este icono, no hay razón para preocuparse de este directorio.
 the images' common name	sitemgr	es-es	El nombre común de las imágenes
 the name field cannot contain punctuation or spaces (field modified).	sitemgr	es-es	El campo Nombre no puede contener signos de puntuación ni espacios (campo modificado).
@@ -364,6 +379,7 @@ this module provides a complete table of contents, it is automatically used by t
 this module provides a condensed table of contents, meant for side areas	sitemgr	es-es	Este módulo proporciona una tabla de contenidos condensada, indicada para áreas laterales
 this module provides the site index, it is automatically used by the index get parameter	sitemgr	es-es	Este módulo proporciona el índice del sitio. Lo usa automáticamente el parámetro GET índice.
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	sitemgr	es-es	Este módulo publica noticias la aplicación news_admin en su sitio web. Tenga precaución con las restricciones ACL de news_admin.
+this module show the status / percentage of the translation of egw	sitemgr	es-es	Este módulo muestra el estado o porcentaje de la traducción de eGW
 this must be an absolute directory location.  <b>no trailing slash</b>.	sitemgr	es-es	Esto debe ser una ubicación de directorio absoluta. <b>Sin barra invertida al final</b>.
 this should be a comma-separated list of language-codes.	sitemgr	es-es	Esto debe ser una lista separada por comas de códigos de idioma.
 this should be a page that is readable by everyone. if you leave this blank, the site index will be shown by default.	sitemgr	es-es	Esto debe ser una página que pueda ser leída por todo el mundo. Si deja esto en blanco, se mostrará el índice del sitio por defecto.
@@ -417,6 +433,7 @@ you don't have permission to write in the category	sitemgr	es-es	No tiene permis
 you don't have permission to write to that category.	sitemgr	es-es	No tiene permiso de escritura en esa categoría
 you failed to fill in one or more required fields.	sitemgr	es-es	No ha rellenado correctamente uno o más campos requeridos
 you have no rights to view wiki content or the wiki is not installed at all !!!	sitemgr	es-es	No tiene derechos para ver el contenido del wiki o no está instalado
+you may have deinstalled the used template '%1'. reinstall it or go to sitemgr --> configure website and select an other one.	sitemgr	es-es	Puede haber desinstalado la plantilla usada '%1'. Reinstálela o vaya a la opción de Configurar sitio web y seleccione otra.
 you must be an admin to edit categories.	sitemgr	es-es	Debe ser un administrador para editar todas las categorías.
 you must be an admin to edit the site header and footer.	sitemgr	es-es	Debe ser un administrador para editar el encabezado y el pie del sitio.
 you must be an admin to manage module properties.	sitemgr	es-es	Debe ser un administrador para manejar las propiedades del módulo.
