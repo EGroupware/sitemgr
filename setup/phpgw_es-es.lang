@@ -56,6 +56,7 @@ configure module properties	sitemgr	es-es	Configurar las propiedades del módulo
 configure sitemgr	sitemgr	es-es	Configurar el Administrador de sitios web
 configure website	sitemgr	es-es	Configurar sitio web
 contact the administrator.	sitemgr	es-es	Póngase en contacto con el administrador
+content areas	sitemgr	es-es	Areas de contenido
 content blocks	sitemgr	es-es	Bloques de contenido
 content manager	sitemgr	es-es	Administrador de contenido
 contentarea	sitemgr	es-es	Area de contenidos
@@ -69,6 +70,7 @@ delete block	sitemgr	es-es	Borrar bloque
 delete category	sitemgr	es-es	Borrar categoría
 delete page	sitemgr	es-es	Borrar página
 delete this application	sitemgr	es-es	Borrar esta aplicación
+delete this block	sitemgr	es-es	Borrar este bloque
 delete version	sitemgr	es-es	Borrar versión
 deleting all data for %1	sitemgr	es-es	Borrar todos los datos de %1
 discussions	sitemgr	es-es	Discusiones
@@ -79,11 +81,11 @@ don't have an account?	sitemgr	es-es	¿No tiene una cuenta?
 done	sitemgr	es-es	Hecho
 downloaded	sitemgr	es-es	descargado
 draft	sitemgr	es-es	borrador
-draft mode	sitemgr	es-es	
+draft mode	sitemgr	es-es	Modo borrador
 edit categories and permissions	common	es-es	Editar las categorías y los permisos
 edit category	sitemgr	es-es	Editar categoría
 edit individual pages	common	es-es	Editar páginas individuales
-edit mode	sitemgr	es-es	
+edit mode	sitemgr	es-es	Modo edición
 edit page	sitemgr	es-es	Editar página
 edit properties of module %1 for %2 with scope %3	sitemgr	es-es	Editar las propiedades del módulo %1 para %2 en el ámbito %3
 edit site header and footer	common	es-es	Editar el encabezado y el pie del sitio
@@ -150,7 +152,10 @@ master list of permitted modules	sitemgr	es-es	Lista principal de módulos permit
 migrating data for %1 to %2	sitemgr	es-es	Migrar datos para %1 a %2
 module %1 is not permitted in this context!	sitemgr	es-es	El módulo %1 no está permitido en este contexto
 module manager	sitemgr	es-es	Administrador de módulos
+module: %1, scope: %2, contentarea: %3	sitemgr	es-es	Módulo: %1, ámbito: %2, área de contenido: %3
 more news	sitemgr	es-es	Más noticias
+move block down (increase sort order)	sitemgr	es-es	Mover bloque hacia abajo (incrementar el orden)
+move block up (decrease sort order)	sitemgr	es-es	Mover bloque hacia arriba (decrementar el orden)
 move to	sitemgr	es-es	Mover a
 name	sitemgr	es-es	Nombra
 name has been translated to lower case	sitemgr	es-es	El nombre se ha traducido en minúsculas
@@ -194,7 +199,7 @@ post a message to this thread	sitemgr	es-es	Publicar un mensaje en esta conversa
 prepublished	sitemgr	es-es	publicado previamente
 preunpublished	sitemgr	es-es	sin publicar previamente
 previous	sitemgr	es-es	Anterior
-production mode	sitemgr	es-es	
+production mode	sitemgr	es-es	Modo de producción
 published	sitemgr	es-es	publicado
 reactivate content	sitemgr	es-es	Reactivar contenido
 read permission	sitemgr	es-es	Leer permiso
