@@ -69,7 +69,7 @@ his own native format which is decript in the next paragraph.
    </listitem>
     <listitem>
     <para>
-Mambo Open Source (<ulink url="http://www.mamboserver.com">www.mamboserver.com</ulink>) MOS Ver. 4.5 templates. There are hunderets of templates availible for download (<ulink url="http://www.mambofiles.com/index.php?option=com_remository&amp;Itemid=26&amp;func=selectfolder&amp;filecatid=9">www.mamboportal.com</ulink>). To install, unpack the downloaded zip-archive into the sitemgr-site/templates directory. There's a series of articels from Arthur Konze about, how to develope these templates: <ulink url="http://www.mambofiles.com/content/category/2/34/28/">www.mamboportal.com</ulink>.
+Mambo Open Source (<ulink url="http://www.mamboserver.com">www.mamboserver.com</ulink>) MOS Ver. 4.5 templates. There are hunderets of templates availible for download (<ulink url="http://www.mamboportal.com/index.php?option=com_remository&amp;Itemid=26&amp;func=selectfolder&amp;filecatid=9">www.mamboportal.com</ulink>). To install, unpack the downloaded zip-archive into the sitemgr-site/templates directory. There's a series of articels from Arthur Konze about, how to develope these templates: <ulink url="http://www.mambofiles.com/content/category/2/34/28/">www.mamboportal.com</ulink>.
     </para>
 
    </listitem>

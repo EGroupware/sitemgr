@@ -219,7 +219,7 @@
 						lang('<b>Want more templates?</b><br />Just download one from the template gallery at %1www.eGroupWare.org%2 or use a %3Mambo Open Source%4 Version 4.5 compatible template eg. from %5. Unpack the downloaded template in your templates directory (%6).',
 							'<a href="http://www.eGroupWare.org/sitemgr" target="_blank">','</a>',
 							'<a href="http://www.mamboserver.com" target="_blank">','</a>',
-							'<a href="http://www.mambofiles.com/index.php?option=com_remository&Itemid=26&func=selectfolder&filecatid=9">www.mamboportal.com</a>',
+							'<a href="http://www.mamboportal.com/index.php?option=com_remository&Itemid=26&func=selectfolder&filecatid=9">www.mamboportal.com</a>',
 							$GLOBALS['Common_BO']->sites->current_site['site_dir'] . SEP . 'templates'),
 					'input'=>'option',
 					'options'=>$this->theme->getAvailableThemes(),
