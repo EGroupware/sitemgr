@@ -7,13 +7,13 @@
   See http://www.lyx.org/ for more information -->
   <articleinfo>
    <title>
-Sitemgr user manual
+SiteMgr manual
   </title>
   <date>
-January 1, 2003
+22. February 2004
   </date>
   <author>
-<firstname>Michael</firstname> <surname>Totschnig</surname>
+<firstname>Ralf</firstname> <surname>Becker</surname>
   </author>
 
   </articleinfo>
@@ -27,92 +27,145 @@ This introductory section describes some concepts, you will need to understand i
   </para>
    <sect2>
     <title>
-Template
+History
    </title>
-   <para>
-Sitemgr builds web sites from templates. Those are stored in the directory sitemgr/sitemg-site/templates. Each of them has a directory of its own. The file main.tpl defines the template of the whole site, there can be other files that define code for separate areas of the page or for specific modules. Templates contain four kinds of variables. These are explained here since the types 2,3,4 and 5 can be used both in the template as in the page content a module generates.
-   </para>
    <orderedlist>
     <listitem>
     <para>
-&lcub;contentarea: areaname&rcub; These define where administrator and contributor provided content go. The names and the number of contentareas a template defines are almost arbitrary.
+The first version of SiteMgr was developed by a group of students: Team 10 in the UC Irvine Systems Design Course, ICS 125. 
     </para>
 
    </listitem>
     <listitem>
     <para>
-&lcub;modulename(?arguments)&rcub;These let you hardcode a call to a module into a template. Arguments are in the HTTP GET query string syntax (?key1=value1&amp;key2=value2). At the moment, if you use this type of variables, you have to urlencode the query string yourself. Future versions of sitemgr might provide a simpler notation. For example,&lcub;lang_block&rsqb; creates the select box for multilingual sites.
+Michael Totschnig (totschnig.michael@uqam.ca) wrote the multilingual facets of SiteMgr and created the modularized architecture.
     </para>
 
    </listitem>
     <listitem>
     <para>
-&lcub;?(phpgw|sitemgr:)link&rcub; This lets you create links either to other pages of your website, or to phpgroupware applications:
-    </para>
-    <orderedlist>
-     <listitem>
-     <para>
-Links to sitemgr either start with '?sitemgr:' or only with '?'. You can either link to a page with &lcub;?page_name=downloads&rsqb; and &lsqb;?page_id=4&rcub;, to a category's index (?category_id=5), to the site index (?index), to the site's table of contents (?toc). Just &lsqb;?&rsqb; or &lcub;?sitemgr:&rcub; links to the administrator defined home page.
-     </para>
-
-    </listitem>
-     <listitem>
-     <para>
-Links to phpgw start with '?phpgw:' . You have to name the application followed by a comma, and optionnally arguments the application can interpret. For example &lcub;?phpgw:/addressbook,order=n_given&amp;sort=ASC&rcub;.
-     </para>
-
-    </listitem>
-
-    </orderedlist>
-
-   </listitem>
-    <listitem>
-    <para>
-&lcub;variable&rcub; Finally there are some simple variables you can use to retrieve metainformation about the page or about the user's context:
-    </para>
-    <orderedlist>
-     <listitem>
-     <para>
-&lcub;title&rcub; the page title
-     </para>
-
-    </listitem>
-     <listitem>
-     <para>
-&lcub;subtitle&rcub; the page subtitle
-     </para>
-
-    </listitem>
-     <listitem>
-     <para>
-&lcub;sitename&rcub;the sitename the administrator has chosen for the site
-     </para>
-
-    </listitem>
-     <listitem>
-     <para>
-&lcub;sitedescription&rcub; the sitedescription 
-     </para>
-
-    </listitem>
-     <listitem>
-     <para>
-&lcub;user&rcub;the user's account name
-     </para>
-
-    </listitem>
-
-    </orderedlist>
-
-   </listitem>
-    <listitem>
-    <para>
-&lcub;lang_translatable_string&rcub; This lets you make the template internationalized. The translatable string is sent through phpgroupware's lang function. Thus you can add it to the lang files in the setup directory and install it through the setup programm.
+Ralf Becker (RalfBecker@outdoor-training.de) extended the Edit mode into the easy-to-use default user-interface of SiteMgr. He also developed the compatibility with Mambo Open Source 4.5 templates and some of the new modules like the wiki, the new amazon or the template selection.
     </para>
 
    </listitem>
 
    </orderedlist>
+
+   </sect2>
+
+   <sect2>
+    <title>
+Templates
+   </title>
+   <para>
+SiteMgr builds web sites from templates. Those are stored in the directory sitemgr/sitemg-site/templates. Each of them has a sub-directory of its own. SiteMgr support two kind of templates:
+   </para>
+   <orderedlist>
+    <listitem>
+    <para>
+his own native format which is decript in the next paragraph. 
+    </para>
+
+   </listitem>
+    <listitem>
+    <para>
+Mambo Open Source (<ulink url="http://www.mamboserver.com">www.mamboserver.com</ulink>) MOS Ver. 4.5 templates. There are hunderets of templates availible for download (<ulink url="http://www.mambofiles.com/index.php?option=com_remository&amp;Itemid=26&amp;func=selectfolder&amp;filecatid=9">www.mamboportal.com</ulink>). To install, unpack the downloaded zip-archive into the sitemgr-site/templates directory. There's a series of articels from Arthur Konze about, how to develope these templates: <ulink url="http://www.mambofiles.com/content/category/2/34/28/">www.mamboportal.com</ulink>.
+    </para>
+
+   </listitem>
+
+   </orderedlist>
+    <sect3>
+     <title>
+SiteMgr's native template format
+    </title>
+    <para>
+The file main.tpl defines the template of the whole site, there can be other files that define code for separate areas of the page or for specific modules. Templates contain four kinds of variables. These are explained here since the types 2,3,4 and 5 can be used both in the template as in the page content a module generates.
+    </para>
+    <orderedlist>
+     <listitem>
+     <para>
+&lcub;contentarea: areaname&rcub; These define where administrator and contributor provided content go. The names and the number of contentareas a template defines are almost arbitrary.
+     </para>
+
+    </listitem>
+     <listitem>
+     <para>
+&lcub;modulename(?arguments)&rcub;These let you hardcode a call to a module into a template. Arguments are in the HTTP GET query string syntax (?key1=value1&amp;key2=value2). At the moment, if you use this type of variables, you have to urlencode the query string yourself. Future versions of sitemgr might provide a simpler notation. For example,&lcub;lang_block&rsqb; creates the select box for multilingual sites.
+     </para>
+
+    </listitem>
+     <listitem>
+     <para>
+&lcub;?(phpgw|sitemgr:)link&rcub; This lets you create links either to other pages of your website, or to eGroupWare applications:
+     </para>
+     <orderedlist>
+      <listitem>
+      <para>
+Links to sitemgr either start with '?sitemgr:' or only with '?'. You can either link to a page with &lcub;?page_name=downloads&rsqb; and &lsqb;?page_id=4&rcub;, to a category's index (?category_id=5), to the site index (?index), to the site's table of contents (?toc). Just &lsqb;?&rsqb; or &lcub;?sitemgr:&rcub; links to the administrator defined home page.
+      </para>
+
+     </listitem>
+      <listitem>
+      <para>
+Links to eGW start with '?phpgw:' . You have to name the application followed by a comma, and optionnally arguments the application can interpret. For example &lcub;?phpgw:/addressbook,order=n_given&amp;sort=ASC&rcub;.
+      </para>
+
+     </listitem>
+
+     </orderedlist>
+
+    </listitem>
+     <listitem>
+     <para>
+&lcub;variable&rcub; Finally there are some simple variables you can use to retrieve metainformation about the page or about the user's context:
+     </para>
+     <orderedlist>
+      <listitem>
+      <para>
+&lcub;title&rcub; the page title
+      </para>
+
+     </listitem>
+      <listitem>
+      <para>
+&lcub;subtitle&rcub; the page subtitle
+      </para>
+
+     </listitem>
+      <listitem>
+      <para>
+&lcub;sitename&rcub;the sitename the administrator has chosen for the site
+      </para>
+
+     </listitem>
+      <listitem>
+      <para>
+&lcub;sitedescription&rcub; the sitedescription 
+      </para>
+
+     </listitem>
+      <listitem>
+      <para>
+&lcub;user&rcub;the user's account name
+      </para>
+
+     </listitem>
+
+     </orderedlist>
+
+    </listitem>
+     <listitem>
+     <para>
+&lcub;lang_translatable_string&rcub; This lets you make the template internationalized. The translatable string is sent through eGroupWare's lang function. Thus you can add it to the lang files in the setup directory and install it through the setup programm.
+     </para>
+
+    </listitem>
+
+    </orderedlist>
+
+    </sect3>
+
 
    </sect2>
 
@@ -131,7 +184,7 @@ The main function of a sitemgr module is to generate dynamic web site content. T
 Argument/Content
    </title>
    <para>
-A module can be seen as a transformation of input arguments into generated content. It is important to understand that the input arguments can be of completely different kinds. On the one hand there can be arguments that are as close as possible to the generated content. For example the html module's only argument is named &ldquo;htmlcontent&rdquo; and in normal circumstances it is not transformed at all but handed over as is to the page generation engine. On the other hand arguments can play any conceivable role in the generation of content that is driven by data coming from other phpgroupware applications. They can be used to select between different categories of content, they can choose a certain format of presentation, they can function as search terms, etc.
+A module can be seen as a transformation of input arguments into generated content. It is important to understand that the input arguments can be of completely different kinds. On the one hand there can be arguments that are as close as possible to the generated content. For example the html module's only argument is named &ldquo;htmlcontent&rdquo; and in normal circumstances it is not transformed at all but handed over as is to the page generation engine. On the other hand arguments can play any conceivable role in the generation of content that is driven by data coming from other eGroupWare applications. They can be used to select between different categories of content, they can choose a certain format of presentation, they can function as search terms, etc.
    </para>
 
    </sect2>
@@ -199,7 +252,7 @@ The block content generated by a module can contain template variables of the sa
 Versioning
    </title>
    <para>
-Sitemgr handles block content in versions. This means that you can have different versions of one block at the same time, but only one of them is visible on the website. This allows for working on several changes to the website and viewing them in a draft mode, before commiting them all at once to the production site. Sitemgr distinguishes five states for versions:
+SiteMgr handles block content in versions. This means that you can have different versions of one block at the same time, but only one of them is visible on the website. This allows for working on several changes to the website and viewing them in a draft mode, before commiting them all at once to the production site. SiteMgr distinguishes five states for versions:
    </para>
    <variablelist>
     <varlistentry>
@@ -279,7 +332,7 @@ Transformers are also used on the level of the site template, insofar as each co
 Translations
    </title>
    <para>
-Sitemgr in its new modularized architecture continues to be fully multilingual. It is very simple to have a new module use this feature. All that is needed is to use a special flag in the definition of the module's arguments. All arguments that have this flag will be stored in a language specific database table, and can be translated in the translation manager, very similar to the way category and page definitions could already be translated to several languages.
+SiteMgr in its new modularized architecture continues to be fully multilingual. It is very simple to have a new module use this feature. All that is needed is to use a special flag in the definition of the module's arguments. All arguments that have this flag will be stored in a language specific database table, and can be translated in the translation manager, very similar to the way category and page definitions could already be translated to several languages.
    </para>
 
    </sect2>
@@ -350,7 +403,7 @@ to be completed
 Editing page content
     </title>
     <para>
-There are two interfaces for creating and editing content blocks. The first one is called &ldquo;content manager&rdquo; and works inside the phpgw interface, the second works in interaction with the generated web site and we call it &ldquo;editing mode&rdquo;.
+There are two interfaces for creating and editing content blocks. The first one is called &ldquo;content manager&rdquo; and works inside the eGW interface, the second works in interaction with the generated web site and we call it &ldquo;editing mode&rdquo;.
     </para>
      <sect4>
       <title>
@@ -395,7 +448,7 @@ Title
       <varlistentry>
       <term>
 Seenby
-</term><listitem><para>You can control the visibility of each block for the different user roles defined by sitemgr: site administrators, phpgroupware users (which include site administrators) and the anonymous user. Evidently you can also make the block visible for everyone which is the default. 
+</term><listitem><para>You can control the visibility of each block for the different user roles defined by sitemgr: site administrators, eGroupWare users (which include site administrators) and the anonymous user. Evidently you can also make the block visible for everyone which is the default. 
       </para>
 
      </listitem>
@@ -422,7 +475,7 @@ Even if not all blocks may make sense for each content area, the content manager
       <varlistentry>
       <term>
 administration
-</term><listitem><para>simply creates a link to sitemgr's administration interface. Thus you probably would not want to make it visible for anonymous user's but only for phpgw users or adminstrators.
+</term><listitem><para>simply creates a link to sitemgr's administration interface. Thus you probably would not want to make it visible for anonymous user's but only for eGW users or adminstrators.
       </para>
 
      </listitem>
@@ -449,7 +502,7 @@ appdir
       <varlistentry>
       <term>
 bookmarks
-</term><listitem><para>lets you show content from phpgw's bookmarks application
+</term><listitem><para>lets you show content from eGW's bookmarks application
       </para>
 
      </listitem>
@@ -458,7 +511,7 @@ bookmarks
       <varlistentry>
       <term>
 calendar
-</term><listitem><para>produces a calendar where each days links to phpgroupware's calendar application
+</term><listitem><para>produces a calendar where each days links to eGroupWare's calendar application
       </para>
 
      </listitem>
@@ -476,7 +529,7 @@ currentsection
       <varlistentry>
       <term>
 download
-</term><listitem><para>you can use this module for creating links to files you store with phpgw's filemanager
+</term><listitem><para>you can use this module for creating links to files you store with eGW's filemanager
       </para>
 
      </listitem>
@@ -494,7 +547,7 @@ filecontents
       <varlistentry>
       <term>
 forum
-</term><listitem><para>another demonstration of what sitemg's modules are intended for: This module displays the discussions of phpgroupware's forum application on the web site. It does not permit to post, since to implement this, in my humble opinion, the forum application has to be redesigned slightly.
+</term><listitem><para>another demonstration of what sitemg's modules are intended for: This module displays the discussions of eGroupWare's forum application on the web site. It does not permit to post, since to implement this, in my humble opinion, the forum application has to be redesigned slightly.
       </para>
 
      </listitem>
@@ -575,7 +628,7 @@ login
       <varlistentry>
       <term>
 news
-</term><listitem><para>publishes news you edit with phpgroupware's news_admin application. You can choose a category to display.
+</term><listitem><para>publishes news you edit with eGroupWare's news_admin application. You can choose a category to display.
       </para>
 
      </listitem>
@@ -691,7 +744,7 @@ Installation<anchor id="Installation">
    <orderedlist>
     <listitem>
     <para>
-Once you have the sitemgr directory inside your phpgroupware install you can setup it like any other phpgroupware application with the setup program (http://yourmachine/phpgw-path/setup/). You should also install the sitemgr-link application, which is is inside sitemgr and has to be moved up in the directory hierarchy.
+Once you have the sitemgr directory inside your eGroupWare install you can setup it like any other eGroupWare application with the setup program (http://yourmachine/eGW-path/setup/). You should also install the sitemgr-link application, which is is inside sitemgr and has to be moved up in the directory hierarchy.
     </para>
     <programlisting>
 <![CDATA[cd sitemgr
@@ -702,23 +755,25 @@ Once you have the sitemgr directory inside your phpgroupware install you can set
 and then install sitemgr-link with setup
     </para>
 
+    </listitem>
+
 
    </listitem>
     <listitem>
     <para>
-Log in to phpGroupWare as an admin and create an anonymous phpgw user and assign it a password. The only app (I assume) that they should have access to is sitemgr-link. sitemgr-link is a dummy application that redirects phpGW users to the generated site.
+Log in to eGroupWare as an admin and create an anonymous eGW user and assign it a password. The only app (I assume) that they should have access to is sitemgr-link. sitemgr-link is a dummy application that redirects eGW users to the generated site.
     </para>
 
    </listitem>
     <listitem>
     <para>
-Users who you wish to see sitemgr (aka contributors) must be given acces to sitemgr, users who you want to be able to link to the sitemgr site from phpGW must be given rights to sitemgr-link. The easiest way to do this is to go to User groups and give groups permissions to use the applications. 
+Users who you wish to see sitemgr (aka contributors) must be given acces to sitemgr, users who you want to be able to link to the sitemgr site from eGW must be given rights to sitemgr-link. The easiest way to do this is to go to User groups and give groups permissions to use the applications. 
     </para>
 
    </listitem>
     <listitem>
     <para>
-The sitemgr-site is the directory that serves the dynamic web site. It is located inside sitemgr and works without moving it somewhere else. But it can be located anywhere. For example, you could put it in /var/www/html. You could make the root location of your web server point to it, if you wish (ie, http://yourmachine/ refers to /var/www/html/sitemgr-site if you moved the directory, or to /path/to/phpgroupware/sitemgr/sitemgr-site if you did not). Make a mental note of the directory where you put it and the url that it is accessed by.
+The sitemgr-site is the directory that serves the dynamic web site. It is located inside sitemgr and works without moving it somewhere else. But it can be located anywhere. For example, you could put it in /var/www/html. You could make the root location of your web server point to it, if you wish (ie, http://yourmachine/ refers to /var/www/html/sitemgr-site if you moved the directory, or to /path/to/eGroupWare/sitemgr/sitemgr-site if you did not). Make a mental note of the directory where you put it and the url that it is accessed by.
     </para>
 
    </listitem>
@@ -727,18 +782,20 @@ The sitemgr-site is the directory that serves the dynamic web site. It is locate
 In the sitemgr-site directory is a file called config.inc.php. You only have to edit it if you moved the directory. Change the value of the line
     </para>
     <programlisting>
-<![CDATA['phpgw_path'           => '../../',
+<![CDATA['eGW_path'           => '../../',
 ]]>
     </programlisting>
     <para>
-so that the value of &dollar;sitemgr_info&lsqb;'phpgw_path'&rsqb; is '/path/to/phpgroupware/'
+so that the value of &dollar;sitemgr_info&lsqb;'eGW_path'&rsqb; is '/path/to/eGroupWare/'
     </para>
+
+    </listitem>
 
 
    </listitem>
     <listitem>
     <para>
-You can handle different websites with sitemgr. The first thing to do is to define your new website. Sitemgr defines a default website upon installation, but you will probably have to redefine it. Log in as a phpgw administrator and go into phpgroupware's admin application and choose &ldquo;Define websites&rdquo; in the sitemgr section. You should see the default website listed, and can choose to edit it. A website is defined by the following values:
+You can handle different websites with sitemgr. The first thing to do is to define your new website. SiteMgr defines a default website upon installation, but you will probably have to redefine it. Log in as a eGW administrator and go into eGroupWare's admin application and choose &ldquo;Define websites&rdquo; in the sitemgr section. You should see the default website listed, and can choose to edit it. A website is defined by the following values:
     </para>
     <variablelist>
      <varlistentry>
@@ -762,7 +819,7 @@ Filesystem_path_to_sitemgr-site_directory
      <varlistentry>
      <term>
 URL_to_sitemgr-site
-</term><listitem><para>You can also leave this unchanged if you want to access your public website with a url that looks like http:/your.phpgw.url/sitemgr/sitemgr-site. If you want a different URL, you either have to move the sitemgr-site directory or to use an alias or a virtual server in your webserver's configuration.
+</term><listitem><para>You can also leave this unchanged if you want to access your public website with a url that looks like http:/your.eGW.url/sitemgr/sitemgr-site. If you want a different URL, you either have to move the sitemgr-site directory or to use an alias or a virtual server in your webserver's configuration.
      </para>
 
     </listitem>
@@ -789,7 +846,7 @@ Anonymous_user's_password
      <varlistentry>
      <term>
 Site_administrators
-</term><listitem><para>Here you choose the users and/or groups that should have administrator rights for the website. They do not have to be adminstrators in phpgw's sense.
+</term><listitem><para>Here you choose the users and/or groups that should have administrator rights for the website. They do not have to be adminstrators in eGW's sense.
      </para>
 
     </listitem>
@@ -964,7 +1021,7 @@ You can hardcode module calls into the template if your site should have the sam
 Module developper manual<anchor id="Module-developper-manual">
   </title>
   <para>
-Sitemgr's parent module class, defines all the important functionality a module needs in its lifetime. Thus creating a new module can be as easy as creating a class that extends the standard module, defines the module's arguments if there are any, and has a function get_content that produces the module's content. Let's start with &ldquo;Hello World&rdquo;.
+SiteMgr's parent module class, defines all the important functionality a module needs in its lifetime. Thus creating a new module can be as easy as creating a class that extends the standard module, defines the module's arguments if there are any, and has a function get_content that produces the module's content. Let's start with &ldquo;Hello World&rdquo;.
   </para>
   <programlisting>
 <![CDATA[<?php
@@ -992,7 +1049,7 @@ Sitemgr's parent module class, defines all the important functionality a module 
   </programlisting>
   <para>
 Once your module is registered<footnote><para>
-Modules must be stored in the directory /path/to/phpgroupware/sitemgr/modules and be named class.module_modulename.inc.php in order that sitemgr can find them.
+Modules must be stored in the directory /path/to/eGroupWare/sitemgr/modules and be named class.module_modulename.inc.php in order that sitemgr can find them.
 </para>
 </footnote> and added to the list of permitted modules for some context, users can create blocks from this module: They will see in the content manager a textfield where they edit the argument name, and once the block is activated, it will generate the hello phrase on the website. Easy, isn't it?
   </para>
@@ -1110,6 +1167,8 @@ validate(&amp;&dollar;data)
 This would make sure that the module argument name would always be lowercase.
    </para>
 
+   </listitem>
+
 
   </listitem>
 
@@ -1210,7 +1269,7 @@ To summarize, there are the following requirements for a sitemgr module:
   <orderedlist>
    <listitem>
    <para>
-It is written as a class called module_name and extends the class Module. It must be put into a file called class.module_name.inc.php and put into the inc directory of any phpgroupware application.
+It is written as a class called module_name and extends the class Module. It must be put into a file called class.module_name.inc.php and put into the inc directory of any eGroupWare application.
    </para>
 
   </listitem>
@@ -1271,7 +1330,7 @@ The parent module class provides a user interface for editing module arguments. 
 
   </orderedlist>
   <para>
-These are the building blocks which should allow for some flexibility in constructing modules that make phpgroupware managed data visible on a sitemgr web site.
+These are the building blocks which should allow for some flexibility in constructing modules that make eGroupWare managed data visible on a sitemgr web site.
   </para>
 
   </sect1>
