@@ -1,10 +1,10 @@
 <h3>{lang_sitemenu}</h3>
-	<ul>
+	<ul style="padding-left:0cm">
 	{sitemenu}
 	</ul>
 <!-- BEGIN switch -->
 <h3>{lang_othermenu}</h3>
-	<ul>
+	<ul style="padding-left:0cm">
 	{othermenu}
 	</ul>
 <!-- END switch -->
