@@ -1,7 +1,7 @@
 <!-- BEGIN editcategory -->
 <form method="POST">
-<input type="hidden" name="cat_id" value="{cat_id}">
-<input type="hidden" name="old_parent" value="{old_parent}">
+<input type="hidden" name="inputcatid" value="{cat_id}">
+<input type="hidden" name="inputparentold" value="{old_parent}">
 <table align="center" border ="0" width="80%" cellpadding="5" cellspacing="0">
 	<tr>
 		<td align="center" colspan="2"><u><b>{add_edit}</b></u></td>
@@ -17,11 +17,11 @@
 				</tr>
 				<tr>
 					<td>{lang_catname}:</td>
-					<td><input type="text" name="catname" value="{catname}"></td>
+					<td><input type="text" name="inputcatname" value="{catname}"></td>
 				</tr>
 				<tr>
 					<td>{lang_catsort}:</td>
-					<td><input type="text" name="sort_order" value="{sort_order}"></td>
+					<td><input type="text" name="inputsort" value="{sort_order}"></td>
 				</tr>
 				<tr>
 					<td>{lang_catparent}:</td>
@@ -29,7 +29,11 @@
 				</tr>
 				<tr>
 					<td>{lang_catdesc}:</td>
-					<td><textarea ROWS="3" COLS="50" name="catdesc">{catdesc}</textarea></td>
+					<td><textarea ROWS="3" COLS="50" name="inputcatdesc">{catdesc}</textarea></td>
+				</tr>	
+				<tr>
+					<td>{lang_state}:</td>
+					<td><select name="inputstate">{stateselect}</select></td>
 				</tr>
 			</table>
 		</td>
@@ -61,8 +65,8 @@
 				<!-- BEGIN GroupBlock -->
 				<tr>
 					<td align="center" bgcolor="dddddd" width="33%">{groupname}</td>
- 					<td align="center" bgcolor="dddddd" width="33%"><input type="checkbox" {checkedgroupread} name="groupaccessread[i{group_id}][read]" value="checked"></td>
-					<td align="center" bgcolor="dddddd" width="33%"><input type="checkbox" {checkedgroupwrite} name="groupaccesswrite[i{group_id}][write]" value="checked"></td>
+ 					<td align="center" bgcolor="dddddd" width="33%"><input type="checkbox" {checkedgroupread} name="inputgroupaccessread[i{group_id}][read]" value="checked"></td>
+					<td align="center" bgcolor="dddddd" width="33%"><input type="checkbox" {checkedgroupwrite} name="inputgroupaccesswrite[i{group_id}][write]" value="checked"></td>
 				</tr>
 				<!-- END GroupBlock -->
 			</table>
@@ -85,8 +89,8 @@
                                 <!-- BEGIN UserBlock -->
                                 <tr>
                                         <td bgcolor="dddddd" align="center">{username}</td>
-                                        <td bgcolor="dddddd" align="center"><input type="checkbox" {checkeduserread} name="individualaccessread[i{user_id}][read]" value="checked"></td>
-                                        <td bgcolor="dddddd" align="center"><input type="checkbox" {checkeduserwrite} name="individualaccesswrite[i{user_id}][write]" value="checked"></td>
+                                        <td bgcolor="dddddd" align="center"><input type="checkbox" {checkeduserread} name="inputindividualaccessread[i{user_id}][read]" value="checked"></td>
+                                        <td bgcolor="dddddd" align="center"><input type="checkbox" {checkeduserwrite} name="inputindividualaccesswrite[i{user_id}][write]" value="checked"></td>
                                 </tr>
                                 <!-- END UserBlock -->
 

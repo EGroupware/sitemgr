@@ -23,7 +23,7 @@
 					if ($cat)
 					{
 						$content .= '<b><a href="'.sitemgr_link2('/index.php','toc=1').'">' . lang('Up to table of contents') . '</a></b>';
-						if ($cat->depth)
+						if ($cat->depth > 1)
 						{
 							$content .= ' | <b><a href="'.sitemgr_link2('/index.php','category_id='.$cat->parent).'">' . lang('Up to parent') . '</a></b>';
 						}

@@ -124,12 +124,23 @@
 			}
 		}
 
-		function add($id,$site)
+		function add($site)
 		{
-			$sql = "INSERT INTO phpgw_sitemgr_sites (site_id,site_name,site_url,site_dir,anonymous_user,anonymous_passwd) VALUES ($id,'" . 
+			$cats = CreateObject('phpgwapi.categories',-1,'sitemgr');
+				$data = array
+			(
+				'name'		=> $site['name'],
+				'descr'		=> '',
+				'access'	=> 'public',
+				'parent'	=> 0,
+				'old_parent' => 0
+			);
+			$site_id =  $cats->add($data);
+			$sql = "INSERT INTO phpgw_sitemgr_sites (site_id,site_name,site_url,site_dir,anonymous_user,anonymous_passwd) VALUES ($site_id,'" . 
 				$site['name'] . "','" . $site['url'] . "','" . $site['dir'] . "','" . $site['anonuser'] . "','" . $site['anonpasswd'] .
 				"')";
 			$this->db->query($sql,__LINE__,__FILE__);
+			return $site_id;
 		}
 
 		function update($id,$site)

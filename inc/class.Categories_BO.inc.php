@@ -14,13 +14,13 @@
 		//this function is called by Sites_BO after the current site is defined
 		function setcurrentcats()
 		{
-			$this->currentcats = $this->so->getallcatidsforsite(CURRENT_SITE_ID);
+			$this->currentcats = $this->getpermittedcats(CURRENT_SITE_ID,'active',True);
 		}
 
 		function getCategoryOptionList()
 		{
 			$retval[] = array('value'=>0,'display'=>'[No Parent]');
-			$list = $this->getPermittedCatWriteNested();
+			$list = $this->getpermittedcatsWrite();
 			foreach($list as $cat_id)
 			{
 				$cat = $this->getCategory($cat_id);
@@ -30,118 +30,86 @@
 			return $retval;
 		}
 
-		function getPermittedCatReadNested($cat_id=False)
+		function getpermittedcatsRead($cat_id=False,$recurse=true)
 		{
 			if (!$cat_id)
 			{
 				$cat_id = CURRENT_SITE_ID;
 			}
-			else
+			if ($cat_id != CURRENT_SITE_ID)
 			{
-				$this-check($cat_id);
+				$this->check($cat_id);
 			}
-			return $this->getPermittedCatNested($cat_id,'read');
+			return $this->getpermittedcats($cat_id,'read',$recurse);
 		}
-		function getPermittedCatWriteNested($cat_id=False)
+		function getpermittedcatsWrite($cat_id=False,$recurse=true)
 		{
 			if (!$cat_id)
 			{
 				$cat_id = CURRENT_SITE_ID;
 			}	
-			else
+			if ($cat_id != CURRENT_SITE_ID)
 			{
-				$this-check($cat_id);
+				$this->check($cat_id);
 			}
-			return $this->getPermittedCatNested($cat_id,'write');
+			return $this->getpermittedcats($cat_id,'write',$recurse);
+		}
+		function getpermittedcatsCommitable()
+		{
+			return $this->getpermittedcats(CURRENT_SITE_ID,'commitable',true);
 		}
 
-		// Don't call this function directly.  Use above funcs.
-		function getPermittedCatNested($cat_id,$check)
+		function getpermittedcatsArchived()
+		{
+			return $this->getpermittedcats(CURRENT_SITE_ID,'archived',true);
+		}
+
+		function getpermittedcats($cat_id,$check,$recurse)
 		{
 			$root_list = $this->so->getChildrenIDList($cat_id);
 			$permitted_list=array();
-			if (is_array($root_list))
+			while(list(,$root_cat) = @each($root_list))
 			{
-				foreach($root_list as $root_cat)
+				switch ($check)
 				{
-					if ($check=='read')
-					{
-						$permitted = $GLOBALS['Common_BO']->acl->can_read_category($root_cat);
-					}
-					elseif ($check=='write')
-					{
-						$permitted = $GLOBALS['Common_BO']->acl->can_write_category($root_cat);
-					}
-					else
-					{
-						die("Illegal call of function getPermittedCatNested");
-					}
+					case 'commitable':
+						$permitted = (
+							$this->so->isactive($root_cat,$GLOBALS['Common_BO']->getstates('Commit')) &&
+							$GLOBALS['Common_BO']->acl->is_admin()
+						);
+						break;
+					case 'archived':
+						$permitted = (
+							$this->so->isactive($root_cat,$GLOBALS['Common_BO']->getstates('Archive')) &&
+							$GLOBALS['Common_BO']->acl->is_admin()
+						);
+						break;
+					case 'active':
+						$permitted = $this->so->isactive($root_cat);
+						break;
+					case 'read':
+						$permitted = (in_array($root_cat,$this->currentcats) && $GLOBALS['Common_BO']->acl->can_read_category($root_cat));
+						break;
+					case 'write':
+						$permitted = (in_array($root_cat,$this->currentcats) && $GLOBALS['Common_BO']->acl->can_write_category($root_cat));
+				}
 
-					if ($permitted)
-					{
-						$permitted_list[]=$root_cat;
-					}
-					//subcategories can be readable/writeable even when parent is not
-					$sub_list = $this->getPermittedCatNested($root_cat,$check);
-					if (is_array($sub_list) && count($sub_list)>0)
+				if ($permitted)
+				{
+					$permitted_list[]=$root_cat;
+				}
+				//subcategories can be readable/writeable even when parent is not, but when parent is inactive subcats are too.
+				elseif ($check == 'active')
+				{
+					break;
+				}
+				if ($recurse)
+				{
+					$sub_list = $this->getpermittedcats($root_cat,$check,true);
+					if (count($sub_list)>0)
 					{
 						//array_push($permitted_list, $sub_list);
 						$permitted_list=array_merge($permitted_list, $sub_list);
-					}
-				}
-			}
-			return $permitted_list;
-		}
-
-		//the next two functions do not recurse!
-		function getPermittedCategoryIDWriteList($cat_id=False)
-		{
-			if (!$cat_id)
-			{
-				$cat_id = CURRENT_SITE_ID;
-			}
-			else
-			{
-				$this-check($cat_id);
-			}
-
-			$full_list = $this->so->getChildrenIDList($cat_id);
-
-			$permitted_list=array();
-			if (is_array($full_list))
-			{
-				foreach($full_list as $item)
-				{
-					if ($GLOBALS['Common_BO']->acl->can_write_category($item))
-					{
-						$permitted_list[]=$item;
-					}
-				}
-			}
-			return $permitted_list;
-		}
-
-		function getPermittedCategoryIDReadList($cat_id=False)
-		{
-			if (!$cat_id)
-			{
-				$cat_id = CURRENT_SITE_ID;
-			}
-			else
-			{
-				$this-check($cat_id);
-			}
-			$full_list = $this->so->getChildrenIDList($cat_id);
-			
-			$permitted_list=array();
-			if (is_array($full_list))
-			{
-				reset($full_list);
-				foreach($full_list as $item)
-				{
-					if ($GLOBALS['Common_BO']->acl->can_read_category($item))
-					{
-						$permitted_list[]=$item;
 					}
 				}
 			}
@@ -171,32 +139,37 @@
 		//$frecurse also removes subcats
 		function removeCategory($cat_id,$force=False,$recurse=False)
 		{
-			$this->check($cat_id);
-
-			if ($GLOBALS['Common_BO']->acl->is_admin() || $force)
+			if (!$force)
 			{
-				if ($recurse)
+				$this->check($cat_id);
+
+				if (!$GLOBALS['Common_BO']->acl->is_admin())
 				{
-					$children = $this->so->getChildrenIDList($cat_id);
-					while (list($null,$subcat) = @each($children))
-					{
-						$this->removeCategory($subcat,$force,$recurse);
-					}
+					return False;
 				}
-				/********************************************\
-				* We have to remove the category, all the    *
-				* associated pages, and all the associated   *
-				* acl stuff too.  not to forget blocks       *
-				\********************************************/
-				$this->so->removeCategory($cat_id);
-				$GLOBALS['Common_BO']->acl->remove_location($cat_id);
-				$GLOBALS['Common_BO']->pages->removePagesInCat($cat_id,$force);
-				$GLOBALS['Common_BO']->content->removeBlocksInPageOrCat($cat_id,0,$force);
-				return True;
 			}
+			if ($recurse)
+			{
+				$children = $this->so->getChildrenIDList($cat_id);
+				while (list($null,$subcat) = @each($children))
+				{
+					$this->removeCategory($subcat,True,True);
+				}
+			}
+			/********************************************\
+			* We have to remove the category, all the    *
+			* associated pages, and all the associated   *
+			* acl stuff too.  not to forget blocks       *
+			\********************************************/
+			$GLOBALS['Common_BO']->content->removeBlocksInPageOrCat($cat_id,0,True);
+			$GLOBALS['Common_BO']->pages->removePagesInCat($cat_id,True);
+			$this->so->removeCategory($cat_id);
+			$GLOBALS['Common_BO']->acl->remove_location($cat_id);
+			
+			return True;
 		}
 
-		function saveCategoryInfo($cat_id, $cat_name, $cat_description, $lang, $sort_order=0, $parent=False, $old_parent=False)
+		function saveCategoryInfo($cat_id, $cat_name, $cat_description, $lang, $sort_order=0, $state, $parent=False, $old_parent=False)
 		{
 			if (!$parent)
 			{
@@ -207,35 +180,31 @@
 			$cat_info->name = $cat_name;
 			$cat_info->description = $cat_description;
 			$cat_info->sort_order = $sort_order;
+			$cat_info->state = $state;
 			$cat_info->parent = $parent;
 			$cat_info->old_parent = $old_parent ? $old_parent : $parent;
 
 			if ($GLOBALS['Common_BO']->acl->can_write_category($cat_id))
-			{	
-			  if ($this->so->saveCategory($cat_info));
-			  {
-			    if ($this->so->saveCategoryLang($cat_id, $cat_name, $cat_description, $lang))
-			      {
-				return True;
-			      }
-			    return false;
-			  }
-			  return false;
-			}
-			else
 			{
-				return false;
+				if ($this->so->saveCategory($cat_info));
+				{
+					if ($this->so->saveCategoryLang($cat_id, $cat_name, $cat_description, $lang))
+					{
+						return true;
+					}
+				}
 			}
+			return false;
 		}
 
 		function saveCategoryLang($cat_id, $cat_name, $cat_description, $lang)
-		  {
-		    if ($this->so->saveCategoryLang($cat_id, $cat_name, $cat_description, $lang))
-		      {
-			return True;
-		      }
-		    return false;
-		  }
+		{
+			if ($this->so->saveCategoryLang($cat_id, $cat_name, $cat_description, $lang))
+			{
+				return true;
+			}
+			return false;
+		}
 		
 		//$force is for bypassing ACL when we called from Sites_UI for building up the info for the currentsite
 		function getCategory($cat_id,$lang=False,$force=False)
@@ -256,7 +225,7 @@
 			{
 				$cat_id = CURRENT_SITE_ID;
 			}
-			else
+			if ($cat_id != CURRENT_SITE_ID)
 			{
 				$this->check($cat_id);
 			}
@@ -275,7 +244,7 @@
 
 		function getlangarrayforcategory($cat_id)
 		{
-		    return $this->so->getlangarrayforcategory($cat_id);
+			return $this->so->getlangarrayforcategory($cat_id);
 		}
 
 		function saveCategoryPerms($cat_id, $group_access, $user_access)
@@ -348,7 +317,7 @@
 
 		function applyCategoryPermstosubs($cat_id)
 		{
-			$sublist = $this->getPermittedCatWriteNested($cat_id);
+			$sublist = $this->getpermittedcatsWrite($cat_id);
 
 			while (list(,$sub) = @each($sublist))
 			{
@@ -375,8 +344,26 @@
 			}
 			else
 			{
+print_r($this->currentcats);
+var_dump(debug_backtrace());
 				echo '<p><center><b>'.lang('Attempt to access information outside current website').'</b></center>';
 				$GLOBALS['phpgw']->common->phpgw_exit(True);
+			}
+		}
+
+		function commit($cat_id)
+		{
+			if ($GLOBALS['Common_BO']->acl->is_admin())
+			{
+				$this->so->commit($cat_id);
+			}
+		}
+
+		function reactivate($cat_id)
+		{
+			if ($GLOBALS['Common_BO']->acl->is_admin())
+			{
+				$this->so->reactivate($cat_id);
 			}
 		}
 	}

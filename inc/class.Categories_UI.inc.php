@@ -12,8 +12,6 @@
 	class Categories_UI
    	{
 		var $common_ui;
-		var $cat;
-		var $cat_list;
 		var $cat_bo;
 		var $acl;
 		var $isadmin;
@@ -22,9 +20,9 @@
 		
 		var $public_functions = array
 		(
-			'_manageCategories' => True,
-			'_editCategory' => True,
-			'_deleteCategory' => True
+			'manage' => True,
+			'edit' => True,
+			'delete' => True
 		);
 			
 		function Categories_UI()
@@ -38,7 +36,7 @@
 			$this->sitelanguages = $GLOBALS['Common_BO']->sites->current_site['sitelanguages'];
 		}
 
-		function _manageCategories()
+		function manage()
 		{
 			$this->common_ui->DisplayHeader();
 
@@ -48,14 +46,14 @@
 			$this->t->set_file('ManageCategories', 'manage_categories.tpl');
 			$this->t->set_block('ManageCategories', 'CategoryBlock', 'CBlock');
 
-			$this->cat_list = $this->cat_bo->getPermittedCatWriteNested();
-			if($this->cat_list)
+			$cat_list = $this->cat_bo->getpermittedcatsWrite();
+			if($cat_list)
 			{
-				for($i = 0; $i < sizeof($this->cat_list); $i++)
+				for($i = 0; $i < sizeof($cat_list); $i++)
 				{
-					$this->cat = $this->cat_bo->getCategory($this->cat_list[$i],$this->sitelanguages[0]);
+					$cat = $this->cat_bo->getCategory($cat_list[$i],$this->sitelanguages[0]);
 
-					if ($this->cat->depth>1)
+					if ($cat->depth>1)
 					{
 						$buffer = '-';
 					}
@@ -63,47 +61,31 @@
 					{
 						$buffer = '';
 					}
-					$buffer = str_pad('',$this->cat->depth*18,
+					$buffer = str_pad('',$cat->depth*18,
 						'&nbsp;',STR_PAD_LEFT).$buffer;
-					$cat_id = $this->cat_list[$i];
+					$cat_id = $cat_list[$i];
 					$this->t->set_var('buffer', $buffer);
-					$this->t->set_var('category', sprintf('%s : %d',$this->cat->name,$cat_id));
+					$this->t->set_var('category', sprintf('%s : %d',$cat->name,$cat_id));
 
 
 					$link_data['page_id'] = 0;
 					$link_data['cat_id'] = $cat_id;
 					if ($this->isadmin)
 					{
-						$this->t->set_var('edit', 
-							'<form action="'.
-							$GLOBALS['phpgw']->link('/index.php',
-							'menuaction=sitemgr.Categories_UI._editCategory').
-							'" method="POST"><input type="submit" value="' . lang('Edit') .'"><input type="hidden" name="cat_id" value="'.$cat_id.'">
-							</form>');
-					
-						$this->t->set_var('remove',
-							'<form action="'.
-							$GLOBALS['phpgw']->link('/index.php',
-							'menuaction=sitemgr.Categories_UI._deleteCategory').
-							'" method="POST">
-							<input type="submit" value="' . lang('Delete') .'">
-							<input type="hidden" name="cat_id" value="'. $cat_id  .'">
-							</form>');
-
-						$link_data['menuaction'] = "sitemgr.Modules_UI._manageModules";
-						$this->t->set_var('moduleconfig',
-							'<form action="'.
-							$GLOBALS['phpgw']->link('/index.php',$link_data).
-							'" method="POST">
-							<input type="submit" value="' . lang('Manage Modules') .'"></form>');
+						$link_data['menuaction'] = "sitemgr.Categories_UI.edit";
+						$this->t->set_var('edit','<form action="' . $GLOBALS['phpgw']->link('/index.php',$link_data) .
+							'" method="POST"><input type="submit" value="' . lang('Edit') .'"></form>');
+						$link_data['menuaction'] = "sitemgr.Categories_UI.delete";
+						$this->t->set_var('remove','<form action="' . $GLOBALS['phpgw']->link('/index.php',$link_data) .
+							'" method="POST"><input type="submit" value="' . lang('Delete') .'"></form>');
+						$link_data['menuaction'] = "sitemgr.Modules_UI.manage";
+						$this->t->set_var('moduleconfig','<form action="' . $GLOBALS['phpgw']->link('/index.php',$link_data).
+							'" method="POST"><input type="submit" value="' . lang('Manage Modules') .'"></form>');
 					}
 
-					$link_data['menuaction'] = "sitemgr.Content_UI._manageContent";
-					$this->t->set_var('content',
-						'<form action="'.
-						$GLOBALS['phpgw']->link('/index.php',$link_data).
-						'" method="POST">
-						<input type="submit" value="' . lang('Manage Content') .'"></form>');
+					$link_data['menuaction'] = "sitemgr.Content_UI.manage";
+					$this->t->set_var('content','<form action="' . $GLOBALS['phpgw']->link('/index.php',$link_data) .
+						'" method="POST"><input type="submit" value="' . lang('Manage Content') .'"></form>');
 
 					$this->t->parse('CBlock', 'CategoryBlock', True);
 				}
@@ -118,7 +100,7 @@
 				$this->t->set_var('add', 
 					'<form action="'.
 					$GLOBALS['phpgw']->link('/index.php',
-					'menuaction=sitemgr.Categories_UI._editCategory').
+					'menuaction=sitemgr.Categories_UI.edit').
 					'" method="POST">
 					<input type=submit value = "' . lang('Add a category') .'">
 					</form>'
@@ -127,37 +109,40 @@
 
 			$this->t->set_var('managepageslink',$GLOBALS['phpgw']->link(
 				'/index.php',
-				'menuaction=sitemgr.Pages_UI._managePage')
+				'menuaction=sitemgr.Pages_UI.manage')
 			);
 			$this->t->pfp('out', 'ManageCategories');	
 
 			$this->common_ui->DisplayFooter();
 		}
 
-		function _editCategory()
+		function edit()
 		{
 			if (!$this->isadmin)
 			{
-				$this->_manageCategories();
+				$this->manage();
 				return False;
 			}
 
-			$GLOBALS['Common_BO']->globalize(array('btnSave','catname','catdesc','cat_id','sort_order','parent','parent_old','groupaccessread','groupaccesswrite','individualaccessread','individualaccesswrite','savelanguage','inputgetparentpermissions','inputapplypermissionstosubs'));
+			$GLOBALS['Common_BO']->globalize(array(
+				'btnSave','inputcatname','inputcatdesc','inputcatid','inputsortorder','inputparent','inputstate',
+				'inputparentold','savelanguage','inputgetparentpermissions','inputapplypermissionstosubs',
+				'inputgroupaccessread','inputgroupaccesswrite','inputindividualaccessread','individualaccesswrite'
+			));
 
-			global $btnSave, $cat_id,$catname,$catdesc,$sort_order,$parent,$parent_old;
-			global $groupaccessread, $groupaccesswrite, $individualaccessread, $individualaccesswrite;
+			global $btnSave, $inputcatid,$inputcatname,$inputcatdesc,$inputsortorder,$inputparent,$inputparentold,$inputstate;
+			global $inputgroupaccessread, $inputgroupaccesswrite, $inputindividualaccessread, $inputindividualaccesswrite;
 			global $savelanguage, $inputgetparentpermissions,$inputapplypermissionstosubs;
+			$cat_id = $inputcatid ? $inputcatid : $_GET['cat_id'];
 
-			if ($btnSave && $catname && $catdesc)
+			if ($btnSave && $inputcatname && $inputcatdesc)
 			{
-				if (!$cat_id)
-				{
-					$cat_id=$this->cat_bo->addCategory('','');
-				}
-				$groupaccess = array_merge_recursive($groupaccessread, $groupaccesswrite);
-				$individualaccess = array_merge_recursive($individualaccessread, $individualaccesswrite);
+				$cat_id =  $cat_id ? $cat_id : $this->cat_bo->addCategory('','');
+
+				$groupaccess = array_merge_recursive($inputgroupaccessread, $inputgroupaccesswrite);
+				$individualaccess = array_merge_recursive($inputindividualaccessread, $inputindividualaccesswrite);
 				$savelanguage = $savelanguage ? $savelanguage : $this->sitelanguages[0];
-				$this->cat_bo->saveCategoryInfo($cat_id, $catname, $catdesc, $savelanguage, $sort_order, $parent, $parent_old);
+				$this->cat_bo->saveCategoryInfo($cat_id, $inputcatname, $inputcatdesc, $savelanguage, $inputsortorder, $inputstate, $inputparent, $inputparentold);
 				if ($inputgetparentpermissions)
 				{
 					$this->cat_bo->saveCategoryPermsfromparent($cat_id);
@@ -170,7 +155,7 @@
 				{
 					$this->cat_bo->applyCategoryPermstosubs($cat_id);
 				}
-				$this->_manageCategories();
+				$this->manage();
 				return;
 			}
 
@@ -178,15 +163,15 @@
 
 			if ($cat_id)
 			{
-				$this->cat = $this->cat_bo->getCategory($cat_id,$this->sitelanguages[0]); 
+				$cat = $this->cat_bo->getCategory($cat_id,$this->sitelanguages[0]); 
 			}
 
 			//if the user tried to save, but catname or catdesc were empty, we remember the modified values
 			if ($btnSave)
 			{
 				$this->t->set_var('error_msg',lang('You failed to fill in one or more required fields.'));
-				$this->cat->name = $catname;
-				$this->cat->description = $catdesc;
+				$cat->name = $inputcatname;
+				$cat->description = $inputcatdesc;
 			}
 
 			$this->t->set_file('EditCategory', 'edit_category.tpl');
@@ -206,11 +191,12 @@
 			$this->t->set_var(array(
 				'add_edit' => ($cat_id ? lang('Edit Category') : lang('Add Category')),
 				'cat_id' => $cat_id,
-				'catname' => $this->cat->name,
-				'catdesc' => $this->cat->description,
-				'sort_order' => $this->cat->sort_order,
-				'parent_dropdown' => $this->getParentOptions($this->cat->parent,$cat_id),
-				'old_parent' => $this->cat->parent,
+				'catname' => $cat->name,
+				'catdesc' => $cat->description,
+				'sort_order' => $cat->sort_order,
+				'parent_dropdown' => $this->getParentOptions($cat->parent,$cat_id),
+				'stateselect' => $GLOBALS['Common_BO']->inputstateselect($cat->state),
+				'old_parent' => $cat->parent,
 				'lang_basic' => lang('Basic Settings'),
 				'lang_catname' => lang('Category Name'),
 				'lang_catsort' => lang('Sort Order'),
@@ -225,6 +211,7 @@
 				'lang_username' => lang('User Name'),
 				'lang_reset' => lang('Reset'),
 				'lang_save' => lang('Save'),
+				'lang_state' => lang('State'),
 				'lang_getparentpermissions' => lang('Fill in permissions from parent category? If you check this, below values will be ignored'),
 				'lang_applypermissionstosubs' => lang('Apply permissions also to subcategories?')
 			));
@@ -251,11 +238,6 @@
 					}
 
 					$this->t->set_var('groupname', $account_name);
-//I comment out the assumption, that when you write, you should necessarily read,
-// 					if ($permission_id == PHPGW_ACL_ADD)
-// 					{
-// 						$permission_id = PHPGW_ACL_ADD | PHPGW_ACL_READ;
-// 					}
 					if ($permission_id & PHPGW_ACL_READ)  
 					{
 						$this->t->set_var('checkedgroupread','CHECKED');
@@ -302,10 +284,6 @@
 					$this->t->set_var('user_id', $user_id);
 					
 					$this->t->set_var('username', $user_name);
-// 					if ($user_permission_id == PHPGW_ACL_ADD)
-// 					{
-// 						$user_permission_id = PHPGW_ACL_ADD | PHPGW_ACL_READ;
-// 					}
 					if ($user_permission_id & PHPGW_ACL_READ )
 					{
 						$this->t->set_var('checkeduserread','CHECKED');
@@ -346,7 +324,7 @@
 			{
 				$skip_id = -1;
 			}
-			$retval="\n".'<SELECT NAME="parent">'."\n";
+			$retval="\n".'<SELECT NAME="inputparent">'."\n";
 			foreach($option_list as $option)
 			{
 				if ($option['value']!=$skip_id)
@@ -364,25 +342,27 @@
 			return $retval;
 		}
 
-		function _deleteCategory()
+		function delete()
 		{
 			if (!$this->isadmin)
 			{
-				$this->_manageCategories();
+				$this->manage();
 				return;
 			}
 
-			$GLOBALS['Common_BO']->globalize(array('cat_id','btnDelete','btnCancel'));
-			global $cat_id,$btnDelete,$btnCancel;
+			$GLOBALS['Common_BO']->globalize(array('btnDelete','btnCancel'));
+			global $btnDelete,$btnCancel;
+			$cat_id = $_GET['cat_id'];
+
 			if ($btnDelete)
 			{
 				$this->cat_bo->removeCategory($cat_id);
-				$this->_manageCategories();
+				$this->manage();
 				return;
 			}
 			if ($btnCancel)
 			{
-				$this->_manageCategories();
+				$this->manage();
 				return;
 			}
 

@@ -11,43 +11,31 @@
 			$this->db = $GLOBALS['phpgw']->db;			 
 		}
 
-		function getallcatidsforsite($site_id)
+		function isactive($cat_id,$states=false)
 		{
-			$result = array();
-			//the API's category class does not permit to retrieve all children of a main category
-			$this->db->query("SELECT cat_id from phpgw_categories WHERE cat_main = $site_id",__LINE__,__FILE__);
-			while ($this->db->next_record())
+			if (!$states)
 			{
-				$result[] = $this->db->f('cat_id');
+				$states = $GLOBALS['Common_BO']->visiblestates;
 			}
-			return $result;
+
+			$sql = "SELECT cat_id from phpgw_sitemgr_categories_state WHERE cat_id = $cat_id AND state IN (" . implode(',',$states) . ")";
+
+			$this->db->query($sql,__LINE__,__FILE__);
+			return $this->db->next_record();
 		}
 
 		function getChildrenIDList($parent)
 		{
+			//TODO add a return_id_array function to the API category class
 			$cats = $this->cats->return_array('all','',False,'','','',False,$parent);
+			$result = array();
 
 			while (list(,$subs) = @each($cats))
 			{
-				if ($subs['parent']==$parent)
-				{
-					$subs_id_list[] = $subs['id'];
-				}
+				$subs_id_list[] = $subs['id'];
 			}
 			return $subs_id_list;
 		}
-
-//this does not seem to be called anywhere
-// 		function getFullCategoryIDList()
-// 		{
-// 			$cats = $this->cats->return_array('all','',False,'','','',False);
-
-// 			while (list(,$cat) = @each($cats))
-// 			{
-// 				$cat_id_list[] = $cat['id'];
-// 			}
-// 			return $cat_id_list;
-// 		}
 
 		function addCategory($name, $description, $parent = False)
 		{
@@ -59,14 +47,18 @@
 				'parent'	=> $parent,
 				'old_parent' => $parent
 			);
-
-			return $this->cats->add($data);
+			$cat_id =  $this->cats->add($data);
+			$sql = "INSERT INTO phpgw_sitemgr_categories_state (cat_id) VALUES ($cat_id)";
+			$this->db->query($sql, __LINE__,__FILE__);
+			return $cat_id;
 		}
 
 		function removeCategory($cat_id)
 		{
 			$this->cats->delete($cat_id,False,True);
 			$sql = "DELETE FROM phpgw_sitemgr_categories_lang WHERE cat_id = $cat_id";
+			$this->db->query($sql, __LINE__,__FILE__);
+			$sql = "DELETE FROM phpgw_sitemgr_categories_state WHERE cat_id = $cat_id";
 			$this->db->query($sql, __LINE__,__FILE__);
 			return True;
 		}
@@ -83,8 +75,9 @@
 				'parent'	=> $cat_info->parent,
 				'old_parent' => $cat_info->old_parent
 			);
-
 			$this->cats->edit($data);
+			$sql = "UPDATE phpgw_sitemgr_categories_state SET state = " . $cat_info->state . " WHERE cat_id = " . $cat_info->id;
+			$this->db->query($sql, __LINE__,__FILE__);
 		}
 
 		function saveCategoryLang($cat_id, $cat_name, $cat_description, $lang)
@@ -125,10 +118,13 @@
 				$cat_info->parent		= $cat[0]['parent'];
 				$cat_info->depth		= $cat[0]['level'];
 				$cat_info->root			= $cat[0]['main'];
-				
+
+				$this->db->query("SELECT state FROM phpgw_sitemgr_categories_state WHERE cat_id=$cat_id");
+				$cat_info->state = $this->db->next_record() ? $this->db->f('state') : 0;
+
 				if ($lang)
 				{
-					$this->db->query("SELECT * FROM phpgw_sitemgr_categories_lang WHERE cat_id='$cat_id' and lang='$lang'");
+					$this->db->query("SELECT * FROM phpgw_sitemgr_categories_lang WHERE cat_id=$cat_id and lang='$lang'");
 					if ($this->db->next_record())
 					{
 						$cat_info->name = $this->db->f('name');
@@ -174,6 +170,20 @@
 		function migratealllang($oldlang,$newlang)
 		{
 			$sql = "UPDATE phpgw_sitemgr_categories_lang SET lang='$newlang' WHERE lang='$oldlang'";
+			$this->db->query($sql, __LINE__,__FILE__);
+		}
+
+		function commit($cat_id)
+		{
+			$sql = "UPDATE phpgw_sitemgr_categories_state SET state = " . SITEMGR_STATE_PUBLISH . " WHERE state = " . SITEMGR_STATE_PREPUBLISH . " AND cat_id = $cat_id";
+			$this->db->query($sql, __LINE__,__FILE__);
+			$sql = "UPDATE phpgw_sitemgr_categories_state SET state = " . SITEMGR_STATE_ARCHIVE . " WHERE state = " . SITEMGR_STATE_PREUNPUBLISH . " AND cat_id = $cat_id";;
+			$this->db->query($sql, __LINE__,__FILE__);
+		}
+
+		function reactivate($cat_id)
+		{
+			$sql = "UPDATE phpgw_sitemgr_categories_state SET state = " . SITEMGR_STATE_DRAFT . " WHERE state = " . SITEMGR_STATE_ARCHIVE . " AND cat_id = $cat_id";
 			$this->db->query($sql, __LINE__,__FILE__);
 		}
 	}

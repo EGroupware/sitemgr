@@ -15,7 +15,7 @@
 			if ($GLOBALS['sitemgr_info']['sitelanguages'])
 			{
 				$content = '<form name="langselect" method="post">';
-				$content .= '<select onChange="this.form.submit()" name="language">';
+				$content .= '<select onChange="location.href=this.value" name="language">';
 				foreach ($GLOBALS['sitemgr_info']['sitelanguages'] as $lang)
 				{
 					$selected='';
@@ -23,7 +23,7 @@
 					{
 						$selected = 'selected="selected" ';
 					}
-					$content .= '<option ' . $selected . 'value="' . $lang . '">'. $GLOBALS['Common_BO']->getlangname($lang) . '</option>';
+					$content .= '<option ' . $selected . 'value="' . $this->link(array('select'=>$lang)) . '">'. $GLOBALS['Common_BO']->getlangname($lang) . '</option>';
 				}
 				$content .= '</select>';
 				$content .= '</form>';

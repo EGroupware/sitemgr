@@ -11,9 +11,9 @@
 
 		var $public_functions = array
 		(
-			'_manageModules' => True,
+			'manage' => True,
 			'findmodules' => True,
-			'_configureModule' => True
+			'configure' => True
 		);
 
 		function Modules_UI()
@@ -25,7 +25,7 @@
 			$this->catbo = &$GLOBALS['Common_BO']->cats;
 		}
 
-		function _manageModules()
+		function manage()
 		{
 			$this->common_ui->DisplayHeader();
 
@@ -41,7 +41,7 @@
 				{
 						$cat = $this->catbo->getCategory($cat_id);
 						$cat_name = $cat->name;
-						$managelink = $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Categories_UI._manageCategories');
+						$managelink = $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Categories_UI.manage');
 						$goto = lang('Category manager');
 						$scopename = lang('Category');
 				}
@@ -64,7 +64,7 @@
 				$link_data['cat_id'] = $cat_id;
 				$link_data['menuaction'] = "sitemgr.Modules_UI.findmodules";
 				$this->t->set_var('findmodules', $GLOBALS['phpgw']->link('/index.php',$link_data));
-				$link_data['menuaction'] = "sitemgr.Modules_UI._configureModule";
+				$link_data['menuaction'] = "sitemgr.Modules_UI.configure";
 				$this->t->set_var('configureurl', $GLOBALS['phpgw']->link('/index.php',$link_data));
 				$contentareas = $GLOBALS['Common_BO']->content->getContentAreas();
 				if (!is_array($contentareas))
@@ -106,10 +106,10 @@
 		function findmodules()
 		{
 			$this->bo->findmodules();
-			$this->_manageModules();
+			$this->manage();
 		}
 
-		function _configureModule()
+		function configure()
 		{
 			if ($this->acl->is_admin())
 			{
@@ -119,7 +119,7 @@
 				if (!$inputmodule_id)
 				{
 					$this->errormsg = lang("You did not choose a module.");
-					$this->_manageModules();
+					$this->manage();
 					return;
 				}
 				$cat_id = $_GET['cat_id'];
@@ -129,13 +129,13 @@
 				if ($btnSaveProperties)
 				{
 					$this->bo->savemoduleproperties($inputmodule_id,$element,$inputarea,$cat_id);
-					$this->_manageModules();
+					$this->manage();
 					return;
 				}
 				elseif ($btnDeleteProperties)
 				{
 					$this->bo->deletemoduleproperties($inputmodule_id,$inputarea,$cat_id);
-					$this->_manageModules();
+					$this->manage();
 					return;
 				}
 
@@ -190,7 +190,7 @@
 					)
 				);
 				$link_data['cat_id'] = $cat_id;
-				$link_data['menuaction'] = "sitemgr.Modules_UI._manageModules";
+				$link_data['menuaction'] = "sitemgr.Modules_UI.manage";
 				$this->t->set_var('backlink',
 					'<a href="' . $GLOBALS['phpgw']->link('/index.php',$link_data) . 
 					'">&lt; ' . lang('Back to module manager') . ' &gt;</a>'

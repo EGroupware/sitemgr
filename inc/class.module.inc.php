@@ -34,9 +34,9 @@ class Module
 		$this->description = "Parent class that all modules should extend";
 	}
 
-	function add_transformer($transformer)
+	function add_transformer(&$transformer)
 	{
-		$this->transformer_chain[] = $transformer;
+		$this->transformer_chain[] =& $transformer;
 	}
 
 	//before calling the functions get_user_interface, get_output,
@@ -45,7 +45,7 @@ class Module
 	//this function can be overriden (but do not forget to call parent::set_block) in order to do some configuration
 	//that depends on the blocks arguments
 	//the produce argument is set when content is generated, so we can do some stuff we do not need when editing the block
-	function set_block($block,$produce=False)
+	function set_block(&$block,$produce=False)
 	{
 		if ($produce)
 		{
@@ -84,7 +84,7 @@ class Module
 				}
 			}
 		}
-		$this->block = $block;
+		$this->block =& $block;
 	}
 
 	function link($modulevars=array())
@@ -128,22 +128,29 @@ class Module
 
 	function get_properties($cascading=True)
 	{
-		if ($cascading)
+		if ($this->properties)
 		{
-			return $GLOBALS['Common_BO']->modules->getcascadingmoduleproperties(
-				$this->block->module_id,
-				$this->block->area,
-				$this->block->cat_id,
-				$this->block->module_name
-			);
+			if ($cascading)
+			{
+				return $GLOBALS['Common_BO']->modules->getcascadingmoduleproperties(
+					$this->block->module_id,
+					$this->block->area,
+					$this->block->cat_id,
+					$this->block->module_name
+				);
+			}
+			else
+			{
+				return $GLOBALS['Common_BO']->modules->getmoduleproperties(
+					$this->block->module_id,
+					$this->block->area,
+					$this->block->cat_id
+				);
+			}
 		}
 		else
 		{
-			return $GLOBALS['Common_BO']->modules->getmoduleproperties(
-				$this->block->module_id,
-				$this->block->area,
-				$this->block->cat_id
-			);
+			return False;
 		}
 	}
 
@@ -155,7 +162,8 @@ class Module
 		reset($this->arguments);
 		while (list($key,$input) = @each($this->arguments))
 		{
-			$elementname = ($input['i18n'] ? ('element[i18n][' .$key . ']') : ('element[' .$key . ']'));
+			$elementname = 'element[' . $this->block->version . ']';
+			$elementname .= ($input['i18n'] ? ('[i18n][' .$key . ']') : ('[' .$key . ']'));
 			//arrays of input elements are only implemented for the user interface
 			if ($input['type'] == 'array')
 			{
@@ -189,7 +197,7 @@ class Module
 		{
 			if ($input['i18n'])
 			{
-				$elementname = 'element[i18n][' .$key . ']';
+				$elementname = 'element[' . $this->block->version . '][i18n][' .$key . ']';
 				//arrays of input elements are only implemented for the user interface
 				if ($input['type'] == 'array')
 				{
@@ -326,12 +334,9 @@ class Module
 		}
 		else
 		{
-			if ($this->transformer_chain)
+			for ( $i = 0; $i < count( $this->transformer_chain ); ++$i )
 			{
-				foreach ($this->transformer_chain as $transformer)
-				{
-					$content = $transformer->apply_transform($this->block->title,$content);
-				}
+				$content = $this->transformer_chain[$i]->apply_transform($this->block->title,$content);
 			}
 			//store session variables
 			if ($this->session)

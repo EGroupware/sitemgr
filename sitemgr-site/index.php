@@ -21,33 +21,29 @@
 		'noapi' => True,
 		'nonavbar'   => True
 	);
-	require_once('./security.inc.php');
 
 	if (file_exists('./config.inc.php'))
 	{
-		require_once('./config.inc.php');
+		include('./config.inc.php');
 	}
 	else
 	{
 		die ("You need to copy config.inc.php.template to config.inc.php and edit the file before continuing.");
 	}
 
-	require_once('./functions.inc.php');
-
-
-	$Common_BO = CreateObject('sitemgr.Common_BO');
-	$Common_BO->sites->set_currentsite($site_url);
-	$sitemgr_info = array_merge($sitemgr_info,$Common_BO->sites->current_site);
-	$sitemgr_info['sitelanguages'] = explode(',',$sitemgr_info['site_languages']);
+	include('./functions.inc.php');
 
 	include './inc/class.ui.inc.php';
 	include './inc/class.sitebo.inc.php';
 	include './inc/class.Template3.inc.php';
-
-	$objui = new ui;
-	//I move the creation of the bo here, so that in the template we have access to it without creating it a second time
+	
+	$Common_BO = CreateObject('sitemgr.Common_BO');
 	$objbo = new sitebo;
+	$Common_BO->sites->set_currentsite($site_url,$objbo->getmode());
+	$sitemgr_info = array_merge($sitemgr_info,$Common_BO->sites->current_site);
+	$sitemgr_info['sitelanguages'] = explode(',',$sitemgr_info['site_languages']);
 	$objbo->setsitemgrPreferredLanguage();
+	$objui = new ui;
 
 	$page = CreateObject('sitemgr.Page_SO');
 

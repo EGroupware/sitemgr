@@ -4,8 +4,6 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 
 	class Template3
 	{
-
-
 		/* 'yes' => halt, 'report' => report error, continue, 'no' => ignore error quietly */
 		var $bo;
 		var $halt_on_error = 'yes';
@@ -14,6 +12,7 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 		var $modules;
 		var $permitted_modules;
 		var $sitename;
+		var $draft_transformer, $edit_transformer;
 
 		function Template3($root)
 		{
@@ -83,6 +82,30 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 
 		function parse()
 		{
+			if ($GLOBALS['sitemgr_info']['mode'] == 'Draft')
+			{
+				$transformerfile = $this->root . SEP . 'draft_transform.inc.php';
+				if (file_exists($transformerfile))
+				{
+					include($transformerfile);
+					if (class_exists('draft_transform'))
+					{
+						$this->draft_transformer = new draft_transform();
+					}
+				}
+			}
+			elseif ($GLOBALS['sitemgr_info']['mode'] == 'Edit')
+			{
+				$transformerfile = $this->root . SEP . 'edit_transform.inc.php';
+				if (file_exists($transformerfile))
+				{
+					include($transformerfile);
+					if (class_exists('edit_transform'))
+					{
+						$this->edit_transformer = new edit_transform();
+					}
+				}
+			}
 			//get block content for contentareas
 			$str = preg_replace_callback(
 				"/\{contentarea:([^{ ]+)\}/",
@@ -113,6 +136,8 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 		function process_blocks($vars)
 		{
 			global $page;
+			global $objbo;
+
 			$areaname = $vars[1];
 			$this->permitted_modules = array_keys($this->modulebo->getcascadingmodulepermissions($areaname,$page->cat_id));
 
@@ -137,48 +162,58 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 			}
 			$content = '';
 
-			$blocks = $this->bo->getvisibleblockdefsforarea($areaname,$page->cat_id,$page->id);
-
+			$blocks = $this->bo->getvisibleblockdefsforarea($areaname,$page->cat_id,$page->id,$objbo->is_admin(),$objbo->is_user());
 			// if we are in the center area, we append special blocks
 			if ($areaname == "center" && $page->block)
 			{
 				array_unshift($blocks,$page->block);
 			}
-
 			if ($blocks)
 			{
 				while (list(,$block) = each($blocks))
 				{
-					if ($this->block_allowed($block->view))
+					if (in_array($block->module_id,$this->permitted_modules))
 					{
-						if (in_array($block->module_id,$this->permitted_modules))
+						if ($block->id)
 						{
-							if ($block->id)
-							{
-								$block = $this->getblockwrapper($block->id);
-							}
-							//we maintain an array of modules we have already used, so we do not 
-							//have to create them anew. Since they are copied, before the transformer
-							//is added, we do not have to worry about transformers staying around 
-							//on the transformer chain
-							$moduleobject = $this->getmodule($block->module_name);
-							$moduleobject->set_block($block,True);
-							if (isset($transformer))
-							{
-								$moduleobject->add_transformer($transformer);
-							}
+							$block->title = $this->getblocktitlewrapper($block->id);
+							$blockdata = $this->getversionwrapper($block->version);
+							$block->arguments = $blockdata->arguments;
+							$block->state = $blockdata->state;
+						}
 
-							$output = $moduleobject->get_output();
-							//process module calls embedded into output
-							$content .= preg_replace_callback(
-								"/\{([[:alnum:]_-]*)\.([[:alnum:]_-]*)(\?([^{ ]+))?\}/",
-								array($this,'exec_module'),
-								$output);
-						}
-						else
+						//we maintain an array of modules we have already used, so we do not 
+						//have to create them anew. Since they are copied, before the transformer
+						//is added, we do not have to worry about transformers staying around 
+						//on the transformer chain
+						$moduleobject = $this->getmodule($block->module_name);
+						$moduleobject->set_block($block,True);
+
+						if (($block->state == SITEMGR_STATE_PREPUBLISH) && is_object($this->draft_transformer))
 						{
-							$content .= lang('Module %1 is not permitted in this context!',$block->module_name);
+
+							$moduleobject->add_transformer($this->draft_transformer);
 						}
+						if (isset($transformer))
+						{
+							$moduleobject->add_transformer($transformer);
+						}
+						if (($GLOBALS['sitemgr_info']['mode'] == 'Edit') && $block->id && is_object($this->edit_transformer))
+						{
+							$this->edit_transformer->block_id = $block->id;
+							$moduleobject->add_transformer($this->edit_transformer);
+						}
+
+						$output = $moduleobject->get_output();
+						//process module calls embedded into output
+						$content .= preg_replace_callback(
+							"/\{([[:alnum:]_-]*)\.([[:alnum:]_-]*)(\?([^{ ]+))?\}/",
+							array($this,'exec_module'),
+							$output);
+					}
+					else
+					{
+						$content .= lang('Module %1 is not permitted in this context!',$block->module_name);
 					}
 				}
 			}
@@ -256,6 +291,9 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 				case 'sitename':
 				case 'site_name':
 					return $GLOBALS['sitemgr_info']['site_name_' . $GLOBALS['phpgw_info']['user']['preferences']['common']['lang']];
+				case 'sitedesc':
+				case 'site_desc':
+					return $GLOBALS['sitemgr_info']['site_desc_' . $GLOBALS['phpgw_info']['user']['preferences']['common']['lang']];
 // 				case 'footer':
 // 				case 'site_footer':
 // 					return $GLOBALS['Common_BO']->headerfooter->getsitefooter($GLOBALS['phpgw_info']['user']['preferences']['common']['lang']);
@@ -299,25 +337,43 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 			return false;
 		}
 
-		function getblockwrapper($block_id)
+		function getblocktitlewrapper($block_id)
 		{
-			$availablelangsforblock = $this->bo->getlangarrayforblock($block_id);
-			if (in_array($GLOBALS['sitemgr_info']['userlang'],$availablelangsforblock))
+			$availablelangsforblocktitle = $this->bo->getlangarrayforblocktitle($block_id);
+			if (in_array($GLOBALS['sitemgr_info']['userlang'],$availablelangsforblocktitle))
 			{
-				return $this->bo->getblock($block_id,$GLOBALS['sitemgr_info']['userlang']);
+				return $this->bo->getlangblocktitle($block_id,$GLOBALS['sitemgr_info']['userlang']);
 			}
 			else
 			{
 				foreach ($GLOBALS['sitemgr_info']['sitelanguages'] as $lang)
 				{
-					if (in_array($lang,$availablelangsforblock))
+					if (in_array($lang,$availablelangsforblocktitle))
 					{
-						return $this->bo->getblock($block_id,$lang);
+						return $this->bo->getlangblocktitle($block_id,$lang);
 					}
 				}
 			}
 		}
 
+		function getversionwrapper($version_id)
+		{
+			$availablelangsforversion = $this->bo->getlangarrayforversion($version_id);
+			if (in_array($GLOBALS['sitemgr_info']['userlang'],$availablelangsforversion))
+			{
+				return $this->bo->getversion($version_id,$GLOBALS['sitemgr_info']['userlang']);
+			}
+			else
+			{
+				foreach ($GLOBALS['sitemgr_info']['sitelanguages'] as $lang)
+				{
+					if (in_array($lang,$availablelangsforversion))
+					{
+						return $this->bo->getversion($version_id,$lang);
+					}
+				}
+			}
+		}
 	}
 
 	class sideblock_transform

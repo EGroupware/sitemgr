@@ -11,10 +11,18 @@
 		var $sort_order;
 		var $title;
 		var $view;
-		var $actif;
+		var $state;
+		var $version;
 		
 		function Block_SO()
 		{
+		}
+
+		function set_version($version)
+		{
+			$this->arguments = $version['arguments'];
+			$this->state = $version['state'];
+			$this->version = $version['id'];
 		}
 	}
 ?>

@@ -17,7 +17,7 @@
         );
         include('../header.inc.php');
 
-	$MainMenu = CreateObject('sitemgr.MainMenu_UI');
-	$MainMenu->DisplayMenu();
+	$CommonUI = CreateObject('sitemgr.Common_UI');
+	$CommonUI->DisplayMenu();
 	$GLOBALS['phpgw']->common->phpgw_footer();
 ?>

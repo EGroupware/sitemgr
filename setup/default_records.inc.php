@@ -1,5 +1,5 @@
 <?php
-	$oProc->query("INSERT INTO phpgw_categories (cat_parent,cat_owner,cat_access,cat_appname,cat_name,cat_description) VALUES (0,-1,'public','sitemgr','Default Website','This website has been add by setup')");
+	$oProc->query("INSERT INTO phpgw_categories (cat_parent,cat_owner,cat_access,cat_appname,cat_name,cat_description) VALUES (0,-1,'public','sitemgr','Default Website','This website has been added by setup')");
 	$site_id = $oProc->m_odb->get_last_insert_id('phpgw_categories','cat_id');
 	$oProc->query("UPDATE phpgw_categories SET cat_main = $site_id WHERE cat_id = $site_id",__LINE__,__FILE__);
 

@@ -10,7 +10,8 @@
 		var $hidden;
 		var $lang;
 		var $block;
-		
+		var $state;
+
 		function Page_SO()
 		{
 			$hidden = 0;

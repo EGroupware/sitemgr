@@ -432,7 +432,7 @@
  		$db2 = $phpgw_setup->db;
 
 		//Create default site and hang all existing categories into it
-		$db2->query("INSERT INTO phpgw_categories (cat_parent,cat_owner,cat_access,cat_appname,cat_name,cat_description) VALUES (0,-1,'public','sitemgr','Default Website','This website has been add by setup')");
+		$db2->query("INSERT INTO phpgw_categories (cat_parent,cat_owner,cat_access,cat_appname,cat_name,cat_description) VALUES (0,-1,'public','sitemgr','Default Website','This website has been added by setup')");
 		$site_id = $db2->get_last_insert_id('phpgw_categories','cat_id');
 		$db2->query("UPDATE phpgw_categories SET cat_main = $site_id WHERE cat_appname = 'sitemgr'",__LINE__,__FILE__);
 		$db2->query("UPDATE phpgw_categories SET cat_parent = $site_id WHERE cat_appname = 'sitemgr' AND cat_parent = 0 AND cat_id != $site_id",__LINE__,__FILE__);
@@ -503,6 +503,134 @@
  		$phpgw_setup->oProc->DropTable('phpgw_sitemgr_preferences');
 
  		return $setup_info['sitemgr']['currentver'];
+	}
+
+ 	$test[] = '0.9.15.004';
+ 	function sitemgr_upgrade0_9_15_004()
+ 	{
+ 		global $setup_info,$phpgw_setup;
+ 		$setup_info['sitemgr']['currentver'] = '0.9.15.005';
+ 		$db2 = $phpgw_setup->db;
+		$db3 = $phpgw_setup->db;
+
+		//Create the field state for pages and categories and give all existing pages and categories published state (2)
+		$phpgw_setup->oProc->AddColumn('phpgw_sitemgr_pages',
+			'state',array('type'=>int, 'precision'=>2));
+	
+		$db2->query("UPDATE phpgw_sitemgr_pages SET state = 2");
+
+		$phpgw_setup->oProc->CreateTable('phpgw_sitemgr_categories_state',array(
+			'fd' => array(
+				'cat_id' => array('type' => 'int', 'precision' => 4, 'nullable' => false),
+				'state' => array('type' => 'int', 'precision' => 2)
+			),
+			'pk' => array('cat_id'),
+			'fk' => array(),
+			'ix' => array(),
+			'uc' => array()
+		));
+
+		$GLOBALS['phpgw_setup']->oProc->query("select cat_id from phpgw_categories where cat_appname='sitemgr' AND cat_level > 0");
+		while($GLOBALS['phpgw_setup']->oProc->next_record())
+		{
+			$cat_id = $GLOBALS['phpgw_setup']->oProc->f('cat_id');
+			$db2->query("INSERT INTO phpgw_sitemgr_categories_state (cat_id,state) VALUES ($cat_id,2)");
+		}
+
+		//rename table content blocks and table content_lang blocks_lang
+		//and add the new tables content and content_lang
+		$GLOBALS['phpgw_setup']->oProc->RenameTable('phpgw_sitemgr_content','phpgw_sitemgr_blocks');
+		$GLOBALS['phpgw_setup']->oProc->RenameTable('phpgw_sitemgr_content_lang','phpgw_sitemgr_blocks_lang');
+		$GLOBALS['phpgw_setup']->oProc->CreateTable('phpgw_sitemgr_content',array(
+			'fd' => array(
+				'version_id' => array('type' => 'auto', 'nullable' => false),
+				'block_id' => array('type' => 'int', 'precision' => 4, 'nullable' => false),
+				'arguments' => array('type' => 'text'),
+				'state' => array('type' => 'int', 'precision' => 2)
+			),
+			'pk' => array('version_id'),
+			'fk' => array(),
+			'ix' => array(),
+			'uc' => array()
+		));
+		$GLOBALS['phpgw_setup']->oProc->CreateTable('phpgw_sitemgr_content_lang',array(
+			'fd' => array(
+				'version_id' => array('type' => 'int', 'precision' => 4, 'nullable' => false),
+				'lang' => array('type' => 'varchar', 'precision' => 2, 'nullable' => false),
+				'arguments_lang' => array('type' => 'text'),
+			),
+			'pk' => array('version_id','lang'),
+			'fk' => array(),
+			'ix' => array(),
+			'uc' => array()
+		));
+
+		//create rows in the new content tables from old content tables (where state=0(Draft) when inactive, state=2(Published) when active)
+		$GLOBALS['phpgw_setup']->oProc->query("SELECT block_id,arguments,actif FROM phpgw_sitemgr_blocks");
+		while ($GLOBALS['phpgw_setup']->oProc->next_record())
+		{
+			$block_id = $GLOBALS['phpgw_setup']->oProc->f('block_id');
+			$arguments = $GLOBALS['phpgw_setup']->oProc->f('arguments');
+			$state = $GLOBALS['phpgw_setup']->oProc->f('actif') ? 0 : 2;
+			$db2->query("INSERT INTO phpgw_sitemgr_content (block_id,arguments,state) VALUES ($block_id,'$arguments',$state)");
+			$version_id = $db2->get_last_insert_id('phpgw_sitemgr_content','version_id');
+			$db2->query("SELECT lang,arguments_lang  FROM phpgw_sitemgr_blocks_lang WHERE block_id = $block_id");
+			while ($db2->next_record())
+			{
+				$lang = $db2->f('lang');
+				$arguments_lang = $db2->f('arguments_lang');
+				$title = $db2->f('title');
+				$db3->query("INSERT INTO phpgw_sitemgr_content_lang (version_id,lang,arguments_lang) VALUES ($version_id,'$lang','$arguments_lang')");
+			}
+		}
+
+		//drop columns in tables blocks and blocks_lang
+		$newtbldef = array(
+			'fd' => array(
+				'block_id' => array('type' => 'auto', 'nullable' => false),
+				'area' => array('type' => 'varchar', 'precision' => 50),
+				'cat_id' => array('type' => 'int', 'precision' => 4),
+				'page_id' => array('type' => 'int', 'precision' => 4),
+				'module_id' => array('type' => 'int', 'precision' => 4, 'nullable' => false),
+				'sort_order' => array('type' => 'int', 'precision' => 4),
+				'viewable' => array('type' => 'int', 'precision' => 4),
+				'actif' => array('type' => 'int', 'precision' => 2)
+			),
+			'pk' => array('block_id'),
+			'fk' => array(),
+			'ix' => array(),
+			'uc' => array()
+		);
+		$phpgw_setup->oProc->DropColumn('phpgw_sitemgr_blocks',$newtbldef,'arguments');
+		$newtbldef = array(
+			'fd' => array(
+				'block_id' => array('type' => 'auto', 'nullable' => false),
+				'area' => array('type' => 'varchar', 'precision' => 50),
+				'cat_id' => array('type' => 'int', 'precision' => 4),
+				'page_id' => array('type' => 'int', 'precision' => 4),
+				'module_id' => array('type' => 'int', 'precision' => 4, 'nullable' => false),
+				'sort_order' => array('type' => 'int', 'precision' => 4),
+				'viewable' => array('type' => 'int', 'precision' => 4),
+			),
+			'pk' => array('block_id'),
+			'fk' => array(),
+			'ix' => array(),
+			'uc' => array()
+		);
+		$phpgw_setup->oProc->DropColumn('phpgw_sitemgr_blocks',$newtbldef,'actif');
+		$newtbldef = array(
+			'fd' => array(
+				'block_id' => array('type' => 'auto', 'nullable' => false),
+				'lang' => array('type' => 'varchar', 'precision' => 2, 'nullable' => false),
+				'title' => array('type' => 'varchar', 'precision' => 255),
+			),
+			'pk' => array('block_id','lang'),
+			'fk' => array(),
+			'ix' => array(),
+			'uc' => array()
+		);
+		$phpgw_setup->oProc->DropColumn('phpgw_sitemgr_blocks_lang',$newtbldef,'arguments_lang');
+		return $setup_info['sitemgr']['currentver'];
 	}
 
 ?>

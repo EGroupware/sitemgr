@@ -8,31 +8,35 @@
 			$this->db = $GLOBALS['phpgw']->db;
 		}
 
-		function getPageIDList($cat_id=False)
+		
+		//if $cats is an array, pages from this list are retrieved,
+		//is $cats is an int, pages from this cat are retrieved,
+		//if $cats is 0 or false, pages from currentcats are retrieved
+		function getPageIDList($cats=False,$states=false)
 		{
+			if (!$states)
+			{
+				$states = $GLOBALS['Common_BO']->visiblestates;
+			}
+
 			$page_id_list = array();
-			if (!$cat_id)
+			$cat_list = is_array($cats) ? implode(',',$cats) :
+				($cats ? $cats : 
+					($GLOBALS['Common_BO']->cats->currentcats ? implode(',',$GLOBALS['Common_BO']->cats->currentcats) : false)
+				);
+			if ($cat_list)
 			{
-				$cat_list = $GLOBALS['Common_BO']->cats->allcatidsforsite;
-				if ($cat_list)
+				$sql = "SELECT page_id FROM phpgw_sitemgr_pages WHERE cat_id IN ($cat_list) ";
+				if ($states)
 				{
-					$sql = 'SELECT page_id FROM phpgw_sitemgr_pages WHERE cat_id IN (' . 
-						implode(',',$cat_list) .  
-						')ORDER BY cat_id, sort_order ASC';
+					$sql .= 'AND state in ('. implode(',',$states)  . ')';
 				}
-				else
+				$sql .=' ORDER BY cat_id, sort_order ASC'; 
+				$this->db->query($sql,__LINE__,__FILE__);
+				while ($this->db->next_record())
 				{
-					return $page_id_list;
+					$page_id_list[] = $this->db->f('page_id');
 				}
-			}
-			else
-			{
-				$sql = 'SELECT page_id FROM phpgw_sitemgr_pages WHERE cat_id=\'' . $cat_id . '\' ORDER BY sort_order';
-			}
-			$this->db->query($sql,__LINE__,__FILE__);
-			while ($this->db->next_record())
-			{
-				$page_id_list[] = $this->db->f('page_id');
 			}
 			return $page_id_list;
 		}
@@ -96,9 +100,23 @@
 			}
 		}
 
+		function getcatidforpage($page_id)
+		{
+			$sql = "SELECT cat_id FROM phpgw_sitemgr_pages WHERE page_id = $page_id";
+			$this->db->query($sql,__LINE__,__FILE__);
+			if ($this->db->next_record())
+ 			{
+				return $this->db->f('cat_id');
+			}
+			else
+			{
+				return false;
+			}
+		}
+
 		function getPage($page_id,$lang=False)
 		{
-			$sql = 'SELECT * FROM phpgw_sitemgr_pages WHERE page_id=\'' . $page_id . '\'';
+			$sql = "SELECT * FROM phpgw_sitemgr_pages WHERE page_id= $page_id";
 			$this->db->query($sql,__LINE__,__FILE__);
 			if ($this->db->next_record())
 			{
@@ -108,10 +126,11 @@
 				$page->sort_order = (int) $this->db->f('sort_order');
 				$page->name = stripslashes($this->db->f('name'));
 				$page->hidden = $this->db->f('hide_page');
+				$page->state = $this->db->f('state');
 				
 				if ($lang)
 				{
-					$sql = "SELECT * FROM phpgw_sitemgr_pages_lang WHERE page_id='$page_id' and lang='$lang'";
+					$sql = "SELECT * FROM phpgw_sitemgr_pages_lang WHERE page_id=$page_id AND lang='$lang'";
 					$this->db->query($sql,__LINE__,__FILE__);
 				
 					if ($this->db->next_record())
@@ -158,7 +177,8 @@
 				'cat_id=\'' . $pageInfo->cat_id . '\',' .
 				'name=\'' . $this->db->db_addslashes($pageInfo->name) . '\',' .
 				'sort_order=\'' . (int) $pageInfo->sort_order . '\',' .
-				'hide_page=\'' . $pageInfo->hidden . '\' ' .
+				'hide_page=\'' . $pageInfo->hidden . '\',' .
+				'state=\'' . $pageInfo->state . '\' ' .
 				'WHERE page_id=\'' . $pageInfo->id . '\'';
 			$this->db->query($sql, __LINE__,__FILE__);
 			return true;
@@ -195,6 +215,20 @@
 		function migratealllang($oldlang,$newlang)
 		{
 			$sql = "UPDATE phpgw_sitemgr_pages_lang SET lang='$newlang' WHERE lang='$oldlang'";
+			$this->db->query($sql, __LINE__,__FILE__);
+		}
+
+		function commit($page_id)
+		{
+			$sql = "UPDATE phpgw_sitemgr_pages SET state = " . SITEMGR_STATE_PUBLISH . " WHERE state = " . SITEMGR_STATE_PREPUBLISH . " AND page_id = $page_id";
+			$this->db->query($sql, __LINE__,__FILE__);
+			$sql = "UPDATE phpgw_sitemgr_pages SET state = " . SITEMGR_STATE_ARCHIVE . " WHERE state = " . SITEMGR_STATE_PREUNPUBLISH . " AND page_id = $page_id";;
+			$this->db->query($sql, __LINE__,__FILE__);
+		}
+
+		function reactivate($page_id)
+		{
+			$sql = "UPDATE phpgw_sitemgr_pages SET state = " . SITEMGR_STATE_DRAFT . " WHERE state = " . SITEMGR_STATE_ARCHIVE . " AND page_id = $page_id";
 			$this->db->query($sql, __LINE__,__FILE__);
 		}
 	}

@@ -113,8 +113,7 @@
 
 		function add($site)
 		{
-			$site_id = $GLOBALS['Common_BO']->cats->so->addCategory($site['name'],'',0);
-			$this->so->add($site_id,$site);
+			$site_id = $this->so->add($site);
 			//$GLOBALS['Common_BO']->cats->saveCategoryLang($site_id, $site['name'],$site['description'],$site['savelang']);
 			$GLOBALS['Common_BO']->acl->set_adminlist($site_id,$site['adminlist']);
 			return $site_id;
@@ -147,8 +146,12 @@
 
 		function delete($id)
 		{
- 			$this->so->delete($id);
+			if (!$GLOBALS['phpgw']->acl->check('run',1,'admin'))
+			{
+				return False;
+			}
  			$GLOBALS['Common_BO']->cats->removeCategory($id,True,True);
+ 			$this->so->delete($id);
 			return True;
 		}
 
@@ -158,7 +161,7 @@
 		}
 
 
-		function set_currentsite($site_url)
+		function set_currentsite($site_url,$mode)
 		{
 			if ($site_url)
 			{
@@ -196,9 +199,17 @@
 					return False;
 				}
 			}
+			
 			define('CURRENT_SITE_ID',$this->current_site['site_id']);
-			$GLOBALS['Common_BO']->cats->setcurrentcats();
+			$this->setmode($mode);
 			return True;
+		}
+
+		function setmode($mode)
+		{
+			$this->current_site['mode'] = $mode;
+			$GLOBALS['Common_BO']->setvisiblestates($mode);
+			$GLOBALS['Common_BO']->cats->setcurrentcats();
 		}
 
 		//this function is here so that we can retrieve basic info from sitemgr-link without creating COMMON_BO

@@ -13,9 +13,14 @@
 
 	$setup_info['sitemgr']['name']      = 'sitemgr';
 	$setup_info['sitemgr']['title']     = 'SiteMgr Web Content Manager';
-	$setup_info['sitemgr']['version']   = '0.9.15.004';
+	$setup_info['sitemgr']['version']   = '0.9.15.005';
 	$setup_info['sitemgr']['app_order'] = 8;
-	$setup_info['sitemgr']['tables']    = array('phpgw_sitemgr_pages','phpgw_sitemgr_pages_lang','phpgw_sitemgr_categories_lang','phpgw_sitemgr_sites','phpgw_sitemgr_modules','phpgw_sitemgr_content','phpgw_sitemgr_content_lang','phpgw_sitemgr_active_modules','phpgw_sitemgr_properties');
+	$setup_info['sitemgr']['tables']    = array(
+		'phpgw_sitemgr_sites','phpgw_sitemgr_categories_state','phpgw_sitemgr_categories_lang',
+		'phpgw_sitemgr_pages','phpgw_sitemgr_pages_lang','phpgw_sitemgr_blocks','phpgw_sitemgr_blocks_lang',
+		'phpgw_sitemgr_content','phpgw_sitemgr_content_lang',
+		'phpgw_sitemgr_modules','phpgw_sitemgr_active_modules','phpgw_sitemgr_properties'
+	);
 	$setup_info['sitemgr']['enable']    = 1;
 
 	/* The hooks this app includes, needed for hooks registration */

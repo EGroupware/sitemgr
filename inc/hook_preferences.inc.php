@@ -16,8 +16,8 @@
 		$title = 'Web Content Manager';
 		$file = Array
 		(
-			'Manage Categories'    => $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Categories_UI._manageCategories'),
-			'Manage Pages' => $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Pages_UI._managePage')
+			'Manage Categories'    => $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Categories_UI.manage'),
+			'Manage Pages' => $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Pages_UI.manage')
 		);
 
 //Do not modify below this line

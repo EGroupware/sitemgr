@@ -80,7 +80,8 @@
 			$page->block = CreateObject('sitemgr.Block_SO',True);
 			$page->block->module_name = 'index';
 			$page->block->module_id = $GLOBALS['Common_BO']->modules->getmoduleid('index');
-			$page->block->view = 0;
+			$page->block->view = SITEMGR_VIEWABLE_EVERBODY;
+			$page->block->status = SITEMGR_STATE_PUBLISH;
 			$page->cat_id = $GLOBALS['Common_BO']->current_site['site_id'];
 			return true;
 		}
@@ -157,7 +158,8 @@
 			$page->block->module_name = 'toc';
 			$page->block->arguments = array('category_id' => $category_id);
 			$page->block->module_id = $GLOBALS['Common_BO']->modules->getmoduleid('toc');
-			$page->block->view = 0;
+			$page->block->view = SITEMGR_VIEWABLE_EVERBODY;
+			$page->block->state = SITEMGR_STATE_PUBLISH;
 			return true;
 		}
 		
@@ -183,14 +185,7 @@
 		function getCatLinks($cat_id=0,$recurse=true)
 		{
 			$catlinks = array();
-			if ($recurse)
-			{
-				$cat_list=$this->catbo->getPermittedCatReadNested($cat_id);
-			}
-			else
-			{
-				$cat_list=$this->catbo->getPermittedCategoryIDReadList($cat_id);
-			}
+			$cat_list = $this->catbo->getpermittedcatsRead($cat_id,$recurse);
 			foreach($cat_list as $cat_id)
 			{
 				$category = $this->getcatwrapper($cat_id);
@@ -234,7 +229,7 @@
 			//is there a more efficient way to do the same thing?
 			unset($GLOBALS['lang']);
 			$supportedLanguages = $GLOBALS['sitemgr_info']['sitelanguages'] ? $GLOBALS['sitemgr_info']['sitelanguages'] : array('en');
-			$postlang = $_POST['language'];
+			$postlang = $_GET['lang_block']['select'];
 			if ($postlang && in_array($postlang,$supportedLanguages))
 			{
 				$GLOBALS['phpgw_info']['user']['preferences']['common']['lang'] = $postlang;
@@ -294,5 +289,23 @@
 			$GLOBALS['phpgw']->session->appsession('language','sitemgr-site',$browserlang);
 		}
 
+		function getmode()
+		{
+			if ($this->is_user())
+			{
+				$postmode = $_GET['administration']['mode'];
+				if ($postmode)
+				{
+					$GLOBALS['phpgw']->session->appsession('mode','sitemgr-site',$postmode);
+					return $postmode;
+				}
+				$sessionmode = $GLOBALS['phpgw']->session->appsession('mode','sitemgr-site');
+				if($sessionmode)
+				{
+					return $sessionmode;
+				}
+			}
+			return 'Production';
+		}
 	}
 ?>

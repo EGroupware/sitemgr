@@ -22,10 +22,10 @@
 
 		var $public_functions = array
 		(
-			'_manageTranslations' => True,
-			'_translateCategory' => True,
-			'_translatePage' => True,
-			'_translateSitecontent' => True,
+			'manage' => True,
+			'translateCategory' => True,
+			'translatePage' => True,
+			'translateSitecontent' => True,
 		);
 
 		function Translations_UI()
@@ -40,7 +40,7 @@
 			$this->modulebo = &$GLOBALS['Common_BO']->modules;
 		}
 
-		function _manageTranslations()
+		function manage()
 		{
 			$this->common_ui->DisplayHeader();
 
@@ -56,22 +56,22 @@
 				$this->t->set_var('sitelanguage',$lang);
 				$this->t->parse('slBlock', 'sitelanguages', true);
 			}
-
+			$link_data['menuaction'] = "sitemgr.Translations_UI.translateSitecontent";
 			$this->t->set_var(Array(
 				'translation_manager' => lang('Translation Manager'),
 				'lang_catname' => lang('Category Name'),
-				'translate_site_content' => $GLOBALS['phpgw']->link('/index.php', 'menuaction=sitemgr.Translations_UI._translateSitecontent'),
+				'translate_site_content' => $GLOBALS['phpgw']->link('/index.php', $link_data),
 				'lang_site_content' => lang('Translate site-wide content blocks'),
 				'colspan' => (count($this->sitelanguages) + 2)
 			));
-			$this->cat_list = $this->cat_bo->getPermittedCatWriteNested();
-			if($this->cat_list)
+			$cat_list = $this->cat_bo->getpermittedcatsWrite();
+			if($cat_list)
 			{
-				for($i = 0; $i < sizeof($this->cat_list); $i++)
+				for($i = 0; $i < sizeof($cat_list); $i++)
 				{			
 					//setup entry in categorblock for translations of categories
-					$this->cat = $this->cat_bo->getCategory($this->cat_list[$i]);
-					if ($this->cat->depth)
+					$cat = $this->cat_bo->getCategory($cat_list[$i]);
+					if ($cat->depth)
 					{
 						$buffer = '-';
 					}
@@ -79,39 +79,38 @@
 					{
 						$buffer = '';
 					}
-					$buffer = str_pad('',$this->cat->depth*18,
+					$buffer = str_pad('',$cat->depth*18,
 						'&nbsp;',STR_PAD_LEFT).$buffer;
 					$this->t->set_var('buffer', $buffer);
-					$this->t->set_var('category', $this->cat->name);
-					$category_id = $this->cat_list[$i];
+					$this->t->set_var('category', $cat->name);
+					$category_id = $cat_list[$i];
 
-					$availablelangsforcat = $this->cat_bo->getlangarrayforcategory($category_id);
+					$availablelangsforcat = $this->cat_bo->getlangarrayforcategory($cat_list[$i]);
 					$this->t->set_var('langcatBlock','');
 					foreach ($this->sitelanguages as $lang)
 					{
 						$this->t->set_var('catexistsinlang', in_array($lang,$availablelangsforcat) ? 'ø' : '&nbsp;');
 						$this->t->parse('langcatBlock', 'langexistcat', true);
 					}
-				
+
+					$link_data['menuaction'] = 'sitemgr.Translations_UI.translateCategory';
+					$link_data['category_id'] = $cat_list[$i];
 					$this->t->set_var('translatecat', 
-						'<form action="'.
-						$GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Translations_UI._translateCategory').
-						'" method="POST"><input type="submit" name="btnTranslateCategory" value="' . lang('Translate') .'">'.
-						'<input type="hidden" name="category_id" value="'.$category_id.'"></form>');
+						'<form action="' . $GLOBALS['phpgw']->link('/index.php',$link_data) .
+						'" method="POST"><input type="submit" name="btnTranslateCategory" value="' . lang('Translate') .'"></form>');
 
 					//setup page list
 					$this->t->set_var('PBlock', '');
-					$this->page_list = $this->pagebo->getPageIDList($this->cat_list[$i]);
-					if($this->page_list && sizeof($this->page_list)>0)
+					$page_list = $this->pagebo->getPageIDList($cat_list[$i]);
+					if($page_list && sizeof($page_list)>0)
 					{
-						for($j = 0; $j < sizeof($this->page_list); $j++)
+						for($j = 0; $j < sizeof($page_list); $j++)
 						{
-							$this->page_id =$this->page_list[$j];
-							$this->page = $this->pagebo->getPage($this->page_id,$this->sitelanguages[0]);
-							$page_description = '<i>' . lang('Page') . ': </i>'.$this->page->name.'<br><i>' . lang('Title') . ': </i>'.$this->page->title;
+							$page = $this->pagebo->getPage($page_list[$j],$this->sitelanguages[0]);
+							$page_description = '<i>' . lang('Page') . ': </i>'.$page->name.'<br><i>' . lang('Title') . ': </i>'.$page->title;
 							$this->t->set_var('page', $page_description);
 
-							$availablelangsforpage = $this->pagebo->getlangarrayforpage($this->page_id);
+							$availablelangsforpage = $this->pagebo->getlangarrayforpage($page_list[$j]);
 							$this->t->set_var('langpageBlock','');
 							foreach ($this->sitelanguages as $lang)
 							{
@@ -119,11 +118,11 @@
 								$this->t->parse('langpageBlock', 'langexistpage', true);
 							}
 
+							$link_data['page_id'] = $page_list[$j];
+							$link_data['menuaction'] = 'sitemgr.Translations_UI.translatePage';
 							$this->t->set_var('translatepage', 
-								'<form action="'.
-								$GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Translations_UI._translatePage').
-								'" method="POST"><input type="submit" name="btnTranslatePage" value="' . lang('Translate') .'">'.
-								'<input type="hidden" name="page_id" value="'.$this->page_id.'"></form>');
+								'<form action="' . $GLOBALS['phpgw']->link('/index.php',$link_data) .
+								'" method="POST"><input type="submit" name="btnTranslatePage" value="' . lang('Translate') .'"></form>');
 							$this->t->parse('PBlock', 'PageBlock', true);
 						}
 					}
@@ -140,16 +139,15 @@
 			$this->common_ui->DisplayFooter();
 		}
 
-		function _translateCategory()
+		function translateCategory()
 		{
-			$GLOBALS['Common_BO']->globalize(array('category_id','changelanguage','showlanguage','savelanguage','btnSaveCategory','savecatname','savecatdesc','btnSaveBlock','element','blockid','blocktitle'));
-			global $category_id, $changelanguage, $showlanguage, $savelanguage, $btnSaveCategory, $savecatname, $savecatdesc,$btnSaveBlock;
+			$GLOBALS['Common_BO']->globalize(array('changelanguage','showlanguage','savelanguage','btnSaveCategory','savecatname','savecatdesc','btnSaveBlock','element','blockid','blocktitle'));
+			global $changelanguage, $showlanguage, $savelanguage, $btnSaveCategory, $savecatname, $savecatdesc,$btnSaveBlock;
+			$category_id = $_GET['category_id'];
 
 			if ($btnSaveCategory)
 			{
 				$this->cat_bo->saveCategoryLang($category_id, $savecatname, $savecatdesc, $savelanguage);
-				$this->_manageTranslations();
-				return;
 			}
 			elseif ($btnSaveBlock)
 			{
@@ -158,18 +156,20 @@
 
 			$this->common_ui->DisplayHeader();
 			$this->t->set_file('TranslateCategory', 'translate_category.tpl');
-			$this->t->set_block('TranslateCategory','Blocktranslator','Tblock');
-			$this->t->set_block('Blocktranslator','EditorElement','Eblock');
+			$this->t->set_file('Blocks','translate_block.tpl');
+			$this->t->set_block('Blocks','Blocktranslator');
+			$this->t->set_block('Blocktranslator','Version','Vblock');
+			$this->t->set_block('Blocks','EditorElement','Eblock');
 			
 			if($error)
 			{
 				$this->t->set_var('error_msg',lang('You failed to fill in one or more required fields.'));
-				$this->cat->name = $savecatname;
-				$this->cat->description = $savecatdesc;
+				$cat->name = $savecatname;
+				$cat->description = $savecatdesc;
 			}
 			else
 			{
-				$this->cat = $this->cat_bo->getCategory($category_id);
+				$cat = $this->cat_bo->getCategory($category_id);
 				$showlanguage = $showlanguage ? $showlanguage : $this->sitelanguages[0];
 				$showlangdata = $this->cat_bo->getCategory($category_id,$showlanguage);
 				$savelanguage = $savelanguage ? $savelanguage : $this->sitelanguages[1]; 
@@ -194,19 +194,18 @@
 			$this->common_ui->DisplayFooter();
 		}
 
-		function _translatePage()
+		function translatePage()
 		{
-			$GLOBALS['Common_BO']->globalize(array('page_id','changelanguage','showlanguage','savelanguage','btnSavePage','savepagetitle','savepagesubtitle','btnSaveBlock','element','blockid','blocktitle'));
-			global $page_id, $changelanguage, $showlanguage, $savelanguage, $btnSavePage, $savepagetitle, $savepagesubtitle,$btnSaveBlock;
+			$GLOBALS['Common_BO']->globalize(array('changelanguage','showlanguage','savelanguage','btnSavePage','savepagetitle','savepagesubtitle','btnSaveBlock','element','blockid','blocktitle'));
+			global $changelanguage, $showlanguage, $savelanguage, $btnSavePage, $savepagetitle, $savepagesubtitle,$btnSaveBlock;
+			$page_id = $_GET['page_id'];
 			
 			if ($btnSavePage)
 			{
-				$this->page->id = $page_id;
-				$this->page->title = $savepagetitle;
-				$this->page->subtitle = $savepagesubtitle;
-				$this->pagebo->savePageLang($this->page, $savelanguage);
-				$this->_manageTranslations();
-				return;
+				$page->id = $page_id;
+				$page->title = $savepagetitle;
+				$page->subtitle = $savepagesubtitle;
+				$this->pagebo->savePageLang($page, $savelanguage);
 			}
 			elseif ($btnSaveBlock)
 			{
@@ -215,19 +214,21 @@
 			$this->common_ui->DisplayHeader();
 
 			$this->t->set_file('TranslatePage', 'translate_page.tpl');
-			$this->t->set_block('TranslatePage','Blocktranslator','Tblock');
-			$this->t->set_block('Blocktranslator','EditorElement','Eblock');
+			$this->t->set_file('Blocks','translate_block.tpl');
+			$this->t->set_block('Blocks','Blocktranslator');
+			$this->t->set_block('Blocktranslator','Version','Vblock');
+			$this->t->set_block('Blocks','EditorElement','Eblock');
 
 			//TODO: error handling seems not correct
 			if($error)
 			{
 				$this->t->set_var('error_msg',lang('You failed to fill in one or more required fields.'));
-				$this->page->title = $savepagetitle;
-				$this->page->subtitle = $savepagesubtitle;
+				$page->title = $savepagetitle;
+				$page->subtitle = $savepagesubtitle;
 			}
 			else
 			{
-				$this->page = $this->pagebo->getPage($page_id);
+				$page = $this->pagebo->getPage($page_id);
 				$showlanguage = $showlanguage ? $showlanguage : $this->sitelanguages[0];
 				$showlangdata = $this->pagebo->getPage($page_id,$showlanguage);
 				$savelanguage = $savelanguage ? $savelanguage : $this->sitelanguages[1]; 
@@ -238,7 +239,7 @@
 					'translate' => lang('Translate Page'),
 					'pageid' => $page_id,
 					'lang_pagename' => lang('Page Name'),
-					'pagename' => $this->page->name,
+					'pagename' => $page->name,
 					'lang_pagetitle' => lang('Page Title'),
 					'showpagetitle' => $showlangdata->title,
 					'savepagetitle' => $savelangdata->title,
@@ -248,13 +249,13 @@
 				));
 
 				//Content blocks
-				$this->process_blocks($this->contentbo->getblocksforscope($this->page->cat_id,$page_id));
+				$this->process_blocks($this->contentbo->getblocksforscope($page->cat_id,$page_id));
 				$this->t->pfp('out','TranslatePage');
 			}
 			$this->common_ui->DisplayFooter();
 		}
 
-		function _translateSitecontent()
+		function translateSitecontent()
 		{
 			$GLOBALS['Common_BO']->globalize(array('changelanguage','showlanguage','savelanguage','btnSaveBlock','element','blockid','blocktitle'));
 			global $changelanguage, $showlanguage, $savelanguage, $btnSaveBlock;
@@ -266,8 +267,10 @@
 
 			$this->common_ui->DisplayHeader();
 			$this->t->set_file('TranslateSitecontent', 'translate_sitecontent.tpl');
-			$this->t->set_block('TranslateSitecontent','Blocktranslator','Tblock');
-			$this->t->set_block('Blocktranslator','EditorElement','Eblock');
+			$this->t->set_file('Blocks','translate_block.tpl');
+			$this->t->set_block('Blocks','Blocktranslator');
+			$this->t->set_block('Blocktranslator','Version','Vblock');
+			$this->t->set_block('Blocks','EditorElement','Eblock');
 
 			$showlanguage = $showlanguage ? $showlanguage : $this->sitelanguages[0];
 			$savelanguage = $savelanguage ? $savelanguage : $this->sitelanguages[1]; 
@@ -287,37 +290,61 @@
 				$moduleobject = $this->modulebo->createmodule($block->module_name);
 				$this->t->set_var('moduleinfo',($block->module_name));
 
-				$savelangdata = $this->contentbo->getlangblockdata($id,$savelanguage);
-				$showlangdata = $this->contentbo->getlangblockdata($id,$showlanguage);
+				$savelangtitle = $this->contentbo->getlangblocktitle($id,$savelanguage);
+				$showlangtitle = $this->contentbo->getlangblocktitle($id,$showlanguage);
+				$savelangversions = $this->contentbo->getallversionsforblock($id,$savelanguage);
+				$showlangversions = $this->contentbo->getallversionsforblock($id,$showlanguage);
 				$translatorstandardelements = array(
 					array('label' => lang('Title'),
-						  'value' => ($showlangdata->title ? $showlangdata->title : $moduleobject->title),
+						  'value' => ($showlangtitle ? $showlangtitle : $moduleobject->title),
 						  'form' => ('<input type="text" name="blocktitle" value="' . 
-							($savelangdata->title ? $savelangdata->title : $moduleobject->title) . '" />')
+							($savelangtitle ? $savelangtitle : $moduleobject->title) . '" />')
 					)
 				);
-				$block->arguments = $showlangdata->arguments;
 				$moduleobject->set_block($block);
 				$saveblock = $block;
-				$saveblock->arguments = $savelangdata->arguments;
-				$translatormoduleelements = $moduleobject->get_translation_interface($block,$saveblock);
+//				$translatormoduleelements = $moduleobject->get_translation_interface($block,$saveblock);
 
-				$interface = array_merge($translatorstandardelements,$translatormoduleelements);
+//				$interface = array_merge($translatorstandardelements,$translatormoduleelements);
 
-				$this->t->set_var('Eblock','');
-				while (list(,$element) = each($interface))
+				$this->t->set_var('standardelements','');
+				while (list(,$element) = each($translatorstandardelements))
 				{
 					$this->t->set_var(Array(
 						'label' => $element['label'],
 						'value' => $element['value'],
 						'form' => $element['form']
 					));
-					$this->t->parse('Eblock','EditorElement', true);
+					$this->t->parse('standardelements','EditorElement', true);
+				}
+				$this->t->set_var('Vblock','');
+				while (list($version_id,$version) = each($showlangversions))
+				{
+					//set the version of the block which is referenced by the moduleobject, 
+					//so that we retrieve a interface with the current version's arguments 
+					$block->set_version($version);
+					$saveblock->set_version($savelangversions[$version_id]);
+					$translatormoduleelements = $moduleobject->get_translation_interface($block,$saveblock);
+						$this->t->set_var(array(
+						'version_id' => $version_id,
+						'version_state' => $GLOBALS['Common_BO']->state[$version['state']],
+						'versionelements' => ''
+					));
+					while (list(,$element) = each($translatormoduleelements))
+					{
+						$this->t->set_var(Array(
+							'label' => $element['label'],
+							'value' => $element['value'],
+							'form' => $element['form']
+						));
+						$this->t->parse('versionelements','EditorElement', true);
+					}
+					$this->t->parse('Vblock','Version', true);
 				}
 				$this->t->set_var(Array(
 					'blockid' => $id,
 				));
-				$this->t->parse('Tblock','Blocktranslator', true);
+				$this->t->parse('blocks','Blocktranslator', true);
 			}
 		}
 
@@ -325,21 +352,13 @@
 		{
 			global $blockid, $element,$blocktitle,$savelanguage;
 
-			$moduleobject = $this->contentbo->getblockmodule($blockid);
-
-			if ($moduleobject->validate($element))
+			$block = CreateObject('sitemgr.Block_SO',True);
+			$block->id = $blockid;
+			$block->title = $blocktitle;
+			$result = $this->contentbo->saveblockdatalang($block,$element,$savelanguage);
+			if ($result !== True)
 			{
-				$block = CreateObject('sitemgr.Block_SO',True);
-				$block->id = $blockid;
-				$block->title = $blocktitle;
-				if (!$this->contentbo->saveblockdatalang($block,$element,$savelanguage))
-				{
-					$this->t->set_var('validationerror', lang("You are not entitled to edit block %1",$blockid));;
-				}
-			}
-			else
-			{
-				$this->t->set_var('validationerror', $module->get_validationerror());
+				$this->t->set_var('validationerror', $result);
 			}
 		}
 

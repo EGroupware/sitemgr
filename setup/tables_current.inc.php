@@ -19,6 +19,9 @@
 				'sort_order' => array('type' => 'int', 'precision' => 4),
 				'hide_page' => array('type' => 'int', 'precision' => 4),
 				'name' => array('type' => 'varchar', 'precision' => 100),
+				//one of constants SITEMGR_STATE_DRAFT, SITEMGR_STATE_PREPUBLISH, SITEMGR_STATE_PUBLISH,
+				//SITEMGR_STATE_PREUNPUBLISH, SITEMGR_STATE_ARCHIVE
+				'state' => array('type' => 'int', 'precision' => 2)
 			),
 			'pk' => array('page_id'),
 			'fk' => array(),
@@ -37,6 +40,16 @@
 			'ix' => array(),
 			'uc' => array()
 		),
+		'phpgw_sitemgr_categories_state' => array(
+			'fd' => array(
+				'cat_id' => array('type' => 'int', 'precision' => 4, 'nullable' => false),
+				'state' => array('type' => 'int', 'precision' => 2)
+			),
+			'pk' => array('cat_id'),
+			'fk' => array(),
+			'ix' => array(),
+			'uc' => array()
+		),
 		'phpgw_sitemgr_categories_lang' => array(
 			'fd' => array(
 				'cat_id' => array('type' => 'int', 'precision' => 4, 'nullable' => false),
@@ -49,18 +62,6 @@
 			'ix' => array(),
 			'uc' => array()
 		),
-// 		'phpgw_sitemgr_preferences' => array(
-// 			'fd' => array(
-// 				'pref_id' => array('type' => 'auto', 'nullable' => false),
-// 				'name' => array('type' => 'varchar', 'precision' => 255),
-// 				'value' => array('type' => 'text'),
-// 				'site_id' => array('type' => 'int', 'precision' => 4, 'nullable' => false),
-// 			),
-// 			'pk' => array('pref_id'),
-// 			'fk' => array(),
-// 			'ix' => array(),
-// 			'uc' => array()
-// 		),
 		'phpgw_sitemgr_modules' => array(
 			'fd' => array(
 				'module_id' => array('type' => 'auto', 'precision' => 4, 'nullable' => false),
@@ -72,32 +73,53 @@
 			'ix' => array(),
 			'uc' => array()
 		),
-		'phpgw_sitemgr_content' => array(
+		'phpgw_sitemgr_blocks' => array(
 			'fd' => array(
 				'block_id' => array('type' => 'auto', 'nullable' => false),
 				'area' => array('type' => 'varchar', 'precision' => 50),
-				//if page_id != NULL scope=page, elseif cat_id != NULL scope=category, else scope=site
+				//if page_id != NULL scope=page, elseif cat_id != CURRENT_SITE_ID scope=category, else scope=site
 				'cat_id' => array('type' => 'int', 'precision' => 4),
 				'page_id' => array('type' => 'int', 'precision' => 4),
 				'module_id' => array('type' => 'int', 'precision' => 4, 'nullable' => false),
-				'arguments' => array('type' => 'text'),
 				'sort_order' => array('type' => 'int', 'precision' => 4),
 				'viewable' => array('type' => 'int', 'precision' => 4),
-				'actif' => array('type' => 'int', 'precision' => 2)
 			),
 			'pk' => array('block_id'),
 			'fk' => array(),
 			'ix' => array(),
 			'uc' => array()
 		),
-		'phpgw_sitemgr_content_lang' => array(
+		'phpgw_sitemgr_blocks_lang' => array(
 			'fd' => array(
-				'block_id' => array('type' => 'int', 'precision' => 4, 'nullable' => false),
+				'block_id' => array('type' => 'auto', 'nullable' => false),
 				'lang' => array('type' => 'varchar', 'precision' => 2, 'nullable' => false),
-				'arguments_lang' => array('type' => 'text'),
 				'title' => array('type' => 'varchar', 'precision' => 255),
 			),
 			'pk' => array('block_id','lang'),
+			'fk' => array(),
+			'ix' => array(),
+			'uc' => array()
+		),
+		'phpgw_sitemgr_content' => array(
+			'fd' => array(
+				'version_id' => array('type' => 'auto', 'nullable' => false),
+				'block_id' => array('type' => 'int', 'precision' => 4, 'nullable' => false),
+				'arguments' => array('type' => 'text'),
+				//one of constants SITEMGR_STATE_PUBLISH, SITEMGR_STATE_PREPUBLISH, SITEMGR_STATE_PREUNPUBLISH, SITEMGR_STATE_DRAFT
+				'state' => array('type' => 'int', 'precision' => 2)
+			),
+			'pk' => array('version_id'),
+			'fk' => array(),
+			'ix' => array(),
+			'uc' => array()
+		),
+		'phpgw_sitemgr_content_lang' => array(
+			'fd' => array(
+				'version_id' => array('type' => 'int', 'precision' => 4, 'nullable' => false),
+				'lang' => array('type' => 'varchar', 'precision' => 2, 'nullable' => false),
+				'arguments_lang' => array('type' => 'text'),
+			),
+			'pk' => array('version_id','lang'),
 			'fk' => array(),
 			'ix' => array(),
 			'uc' => array()

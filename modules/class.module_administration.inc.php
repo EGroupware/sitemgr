@@ -12,7 +12,17 @@ class module_administration extends Module
 
 	function get_content(&$arguments,$properties)
 	{
-			return '&nbsp;&nbsp;<strong><big>&middot;</big></strong><a href="'.phpgw_link('/sitemgr/index.php').'">' . lang('Content Manager') . '</a>';
+		$content = '<form name="modeselect" method="post">' .
+			'<select onChange="location.href=this.value" name="mode">';
+		foreach(array('Production','Draft','Edit') as $mode)
+		{
+			$selected = ($GLOBALS['sitemgr_info']['mode'] == $mode) ? ' selected="selected"' : '';
+			$content .=	'<option value="' .$this->link(array('mode'=>$mode)) .'"' . $selected  . '>' . lang($mode . ' mode') . '</option>';
+		}
+		$content .= '</select></form>' .
+			'&nbsp;&nbsp;<strong><big>&middot;</big></strong><a href="' . phpgw_link('/sitemgr/index.php') .
+			'">' . lang('Content Manager') . '</a>';
+		return $content;
 	}
 
 }

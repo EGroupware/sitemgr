@@ -11,23 +11,83 @@
 	
 	class Common_UI
 	{
-		var $t, $acl, $theme, $do_sites_exist;
+		var $t, $acl, $theme, $do_sites_exist, $menu;
 		var $public_functions = array
 		(
-			'DisplayPrefs' => True
+			'DisplayPrefs' => True,
+			'DisplayMenu' => True
 		);
 
 		function Common_UI()
 		{
 			global $Common_BO;
 			$Common_BO = CreateObject('sitemgr.Common_BO');
-			$this->do_sites_exist = $Common_BO->sites->set_currentsite(False);
+			$this->do_sites_exist = $Common_BO->sites->set_currentsite(False,'Administration');
 			$this->t = $GLOBALS['phpgw']->template;
 			$this->acl = &$Common_BO->acl;
 			$this->theme = &$Common_BO->theme;
 			$this->pages_bo = &$Common_BO->pages;
 			$this->cat_bo = &$Common_BO->cats;
+			$this->menu = array();
+			if ($this->acl->is_admin())
+			{
+				$this->menu[] = array(
+					'value' => $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Common_UI.DisplayPrefs'),
+					'display' => lang('Configure Website')
+				);
+				$link_data['cat_id'] = CURRENT_SITE_ID;
+				$link_data['menuaction'] = "sitemgr.Modules_UI.manage";
+				$this->menu[] = array(
+					'value' => $GLOBALS['phpgw']->link('/index.php',$link_data),
+					'display' => lang('Manage site-wide module properties')
+				);
+				$link_data['page_id'] = 0;
+				$link_data['menuaction'] = "sitemgr.Content_UI.manage";
+				$this->menu[] = array(
+					'value' => $GLOBALS['phpgw']->link('/index.php',$link_data),
+					'display' => lang('Manage Site Content')
+				);
+			}
+			$this->menu[] = array(
+				'value' => $GLOBALS['phpgw']->link('/index.php', 'menuaction=sitemgr.Categories_UI.manage'),
+				'display' => lang('Manage Categories')
+			);
+			$this->menu[] = array(
+				'value' => $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Pages_UI.manage'),
+				'display' => lang('Manage Pages')
+			);
+			$this->menu[] = array(
+				'value' => $GLOBALS['phpgw']->link('/index.php', 'menuaction=sitemgr.Translations_UI.manage'),
+				'display' => lang('Manage Translations')
+			);
+			$this->menu[] = array(
+				'value' => $GLOBALS['phpgw']->link('/index.php', 'menuaction=sitemgr.Content_UI.commit'),
+				'display' => lang('Commit Changes')
+			);
+			$this->menu[] = array(
+				'value' => $GLOBALS['phpgw']->link('/index.php', 'menuaction=sitemgr.Content_UI.archive'),
+				'display' => lang('Manage archived content')
+			);
 		}
+
+
+		function DisplayMenu()
+		{
+
+			$this->DisplayHeader();
+			reset($this->menu);
+			$this->t->set_file('MainMenu','mainmenu.tpl');
+			$this->t->set_block('MainMenu','menuentry','MeBlock');
+
+			while (list($test,$menuentry) = each($this->menu))
+			{
+				$this->t->set_var($menuentry);
+				$this->t->parse('MeBlock','menuentry', true);
+			}
+			$this->t->pfp('out','MainMenu');
+			$this->DisplayFooter();
+		}
+
 
 		function DisplayPrefs()
 		{
@@ -286,13 +346,13 @@
 			if ($this->do_sites_exist)
 			{
 				$this->t->set_var(Array(
-					'mainmenu' => $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.MainMenu_UI.DisplayMenu'),
 					'sitemgr-site' => $GLOBALS['phpgw']->link('/sitemgr-link/'),
 					'sitemgr_administration' => lang('Web Content Manager Administration'),
 					'lang_sitename' => lang('Website name'),
 					'sitename' => $GLOBALS['Common_BO']->sites->current_site['site_name'],
-					'view_menu' => lang('View Administrative Menu'),
-					'view_site' => lang('View Generated Site')
+					'view_site' => lang('View Generated Site'),
+					'menulist' => $this->menuselectlist(),
+					'mainmenu' => $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Common_UI.DisplayMenu')
 				));
 				if ($GLOBALS['Common_BO']->sites->getnumberofsites() > 1)
 				{
@@ -337,6 +397,17 @@
 			while(list($site_id,$site) = @each($sites))
 			{
 				$selectlist .= '<option value="' . $site_id . '">' . $site['site_name'] . '</option>' . "\n";
+			}
+			return $selectlist;
+		}
+
+		function menuselectlist()
+		{
+			$sites = $GLOBALS['Common_BO']->sites->list_sites(False);
+			$selectlist= '<option>' . lang('Choose action') . '</option>';
+			while(list(,$menuentry) = @each($this->menu))
+			{
+				$selectlist .= '<option value="' . $menuentry['value'] . '">' . $menuentry['display'] . '</option>' . "\n";
 			}
 			return $selectlist;
 		}

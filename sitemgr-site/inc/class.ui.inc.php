@@ -27,7 +27,7 @@
 		{
 			global $objbo;
 			global $page;
-			$objbo->loadPage($GLOBALS['Common_BO']->pages->pageso->PageToID($page_name));
+			$objbo->loadPage($GLOBALS['Common_BO']->pages->so->PageToID($page_name));
 			$this->generatePage();
 		}
 

@@ -222,3 +222,7 @@ A:hover         {
   BACKGROUND: #FFFFFF; 
   COLOR: #363636; 
  }
+
+div.draft { 
+  COLOR : red;
+ }

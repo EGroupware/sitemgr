@@ -7,7 +7,7 @@
 			$this->arguments = array(
 				'htmlcontent' => array(
 					'type' => 'textarea', 
-					'label' => lang('Enter the page content here'), 
+					'label' => lang('Enter the block content here'), 
 					'i18n' => True,
 					'params' => Array('cols' => 50, 'rows' => 15)
 				)

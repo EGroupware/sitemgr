@@ -13,7 +13,7 @@
 		</i>&nbsp;|&nbsp
 <!-- END admin -->
 		<i>
-		<a href='{mainmenu}'>{view_menu}</a>
+		<form name="mainmenu" method="POST" style="display:inline"><select name="menuswitch" onChange="location.href=this.value">{menulist}</select></form>
 		</i>&nbsp;|&nbsp;<i>
 		<a href='{sitemgr-site}' target='_blank'>{view_site}</a>
 		</i>

@@ -144,7 +144,7 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 		//and if it still does not find a value, looking for __PAGE__/cat_id, and again climbing up until the master list
 		function getcascadingmodulepermissions($contentarea,$cat_id)
 		{
-			$cat_ancestorlist = $GLOBALS['Common_BO']->cats->getCategoryancestorids($cat_id);
+			$cat_ancestorlist = ($cat_id !=  CURRENT_SITE_ID) ? $GLOBALS['Common_BO']->cats->getCategoryancestorids($cat_id) : array();
 			$cat_ancestorlist[] = CURRENT_SITE_ID;
 
 			$cat_ancestorlist_temp = $cat_ancestorlist;
@@ -172,7 +172,7 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 		//getcascadingmodulepermissions does
 		function getcascadingmoduleproperties($module_id,$contentarea,$cat_id,$modulename=False)
 		{
-			$cat_ancestorlist = $GLOBALS['Common_BO']->cats->getCategoryancestorids($cat_id);
+			$cat_ancestorlist = ($cat_id !=  CURRENT_SITE_ID) ? $GLOBALS['Common_BO']->cats->getCategoryancestorids($cat_id) : array();
 			$cat_ancestorlist[] = CURRENT_SITE_ID;
 
 			$cat_ancestorlist_temp = $cat_ancestorlist;
