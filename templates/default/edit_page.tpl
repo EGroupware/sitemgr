@@ -1,5 +1,6 @@
-<!-- BEGIN form -->
 <script>window.focus();</script>
+<div id="divMain">
+<!-- BEGIN form -->
 <form method ="POST">
 <input type="hidden" name="inputpageid" value="{page_id}">
 <table align='center' border ="0" width="80%" cellpadding="5" cellspacing="0">
@@ -14,9 +15,9 @@
 		<td><input size="40" type="text" name="inputname" id="name" value="{name}"></td>
 	</tr>
 	<tr>
-		<td><br></td>
-		<td><i><b><font size='2' color='#ff0000'>{lang_nameinfo}</font></b></i></td>
-	<tr>	
+		<td><font size='2' color='#ff0000'><b>*</b> {lang_required}</font></td>
+		<td><i><font size='2' color='#ff0000'>{lang_nameinfo}</font></i></td>
+	<tr>
 		<td><b>{lang_title}: <font size='2' color='#ff0000'>*</font></b></td>
 		<td><input size="40" type="text" name="inputtitle" value="{title}"></td>
 	</tr>
@@ -47,9 +48,8 @@
 			<input type="reset" onclick="opener.location.reload();self.close()" value="{lang_done}"  />
 		</td>
 	</tr>
-	<tr>
-		<td align='center' colspan='2'><font size='2' color='#ff0000'><b>* {lang_required}</b></font></td>
-	</tr>
 </table>
 </form>
 <!-- END form -->
+</div>
+
