@@ -180,7 +180,7 @@ move to	sitemgr	de	Verschieben nach
 name	sitemgr	de	Name
 name has been translated to lower case	sitemgr	de	Der Name wurde in Kleinbuchstaben umgewandelt
 new application	sitemgr	de	Neue Applikation
-new sitemgr site	sitemgr	de	Neue Sitemanager Seite
+new sitemgr site	sitemgr	de	Neue SiteMgr Website
 news module	sitemgr	de	Nachrichten Modul
 no anonymous user accounts installed.  notify the administrator.	sitemgr	de	KEINE ANONYME BENUTZERKENNUNG INSTALLIERT. BENACHRICHTIGEN SIE DEN ADMINISTRATOR.
 no anonymous user accounts installed. notify the administrator.	sitemgr-site	de	DER USER ANONYMOUS IST NICHT INSTALLIERT. BENACHRICHTIGEN SIE DEN ADMINISTRATOR.
@@ -287,7 +287,6 @@ subsections:	sitemgr	de	Unterkategorien:
 subtitle	sitemgr	de	Untertitel
 summary of one forum	sitemgr	de	Zusammenfassung eines Forums
 table of contents	sitemgr	de	Themengebiete
-template chooser and/or gallery	sitemgr	de	Designvorlagenauswahl und/oder -galerie
 template select	sitemgr	de	Designvorlage auswählen
 textarea	sitemgr	de	Textfeld
 the category to display, 0 for complete table of contents	sitemgr	de	Die Kategorie welche angezeigt werden soll. 0 für alle Themengebiete

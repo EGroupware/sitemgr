@@ -17,7 +17,7 @@
 		function module_template()
 		{
 			$this->arguments = array();
-			$this->title = lang('Template chooser and/or gallery');
+			$this->title = lang('Choose template');
 			$this->themes = $GLOBALS['Common_BO']->theme->getAvailableThemes();
 			$this->arguments = array(
 				'only_allowed' => array(
@@ -67,7 +67,7 @@
 				passthru('cd '.$GLOBALS['sitemgr_info']['site_dir'].'/templates; '.$zip.' -qr - '.$download);
 				exit;
 			}
-			if (count($arguments['allowed']) > 1)
+			if (count($arguments['only_allowed'] ? $arguments['allowed'] : $this->themes) > 1)
 			{
 				if ($show == 1 || $show == 8)	// only chooser or chooser with preview
 				{
@@ -76,7 +76,7 @@
 					$content .= '<form name="themeselect" method="post">'."\n";
 					if ($show == 8)
 					{
-						$content .= '<img width="170" height="130" name="preview" src="'.$this->themes[$GLOBALS['sitemgr_info']['themesel']]['thumbnail'].'">'."\n";
+						$content .= '<img width="140" height="110" name="preview" src="'.$this->themes[$GLOBALS['sitemgr_info']['themesel']]['thumbnail'].'"><br />'."\n";
 						$content .= '<select onChange="document.images.preview.src=\'templates/\'+this.value+\'/template_thumbnail.png\'" name="themesel">'."\n";
 					}
 					else
@@ -97,7 +97,7 @@
 					$content .= '</select>'."\n";
 					if ($show == 8)
 					{
-						$content .= '<input type="submit" value="'.lang('Select').'" onclick="location.href=\''.$link.'\'+this.form.themesel.value; return false;">'."\n";
+						$content .= '<br ><input type="submit" value="'.lang('Select').'" onclick="location.href=\''.$link.'\'+this.form.themesel.value; return false;">'."\n";
 					}
 					$content .= '</form>'."\n";
 				}
