@@ -33,5 +33,15 @@
 		$menu_title = lang('Other websites');
 		display_sidebox($appname,$menu_title,$file);
 	}
+	$menu_title = lang('Documentation');
+	$docs = $GLOBALS['phpgw_info']['server']['webserver_url'].'/sitemgr/doc/';
+	$file = array(
+		array(
+			'text'   => 'SiteMgr manual',
+			'link'   => $docs.'sitemgr.html',
+			'target' => 'docs'
+		),
+	);
+	display_sidebox($appname,$menu_title,$file);
 }
 ?>
