@@ -30,13 +30,12 @@
 	$sites_bo = createobject('sitemgr.Sites_BO');
 	$siteinfo = $sites_bo->get_currentsiteinfo();
 	$location = $siteinfo['site_url'];
-	$dir = $siteinfo['site_dir'];
-	$sitemgr_info['site_url'] = $location;
-	if ($location && file_exists($dir . '/functions.inc.php'))
+	if ($location && file_exists($siteinfo['site_dir'] . '/functions.inc.php'))
 	{
-		require_once($dir . '/functions.inc.php');
-		
-		$GLOBALS['phpgw']->redirect(sitemgr_link(/*array("PHPSESSID" => session_id())*/));
+		$location .= '?sessionid='.@$GLOBALS['phpgw_info']['user']['sessionid'] .
+					'&kp3=' . @$GLOBALS['phpgw_info']['user']['kp3'] .
+					'&domain=' . @$GLOBALS['phpgw_info']['user']['domain'];
+		$GLOBALS['phpgw']->redirect($location);
 		exit;
 	}
 	else

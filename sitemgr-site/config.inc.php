@@ -35,7 +35,6 @@
 			// force our default domain
 			$_GET['domain'] = $GLOBALS['phpgw_info']['server']['default_domain'];
 		}
-
 		if (!file_exists($sitemgr_info['phpgw_path'] . 'header.inc.php'))
 		{
 			die("Header file not found.  Either your path to eGroupWare in the config.inc.php file is bad, or you have not setup eGroupWare.");
@@ -60,14 +59,8 @@
 		{
 			die(lang('THERE IS NO WEBSITE CONFIGURED FOR URL %1.  NOTIFY THE ADMINISTRATOR.',$site_url));
 		}
-		//this is useful when you changed the API session class to not overgeneralize the session cookies
-		if ($_GET['PHPSESSID'])
-		{
-			$GLOBALS['phpgw']->session->phpgw_setcookie('PHPSESSID',$_GET['PHPSESSID']);
-		}
 
-
-		if (! $GLOBALS['phpgw']->session->verify())
+		if (!$GLOBALS['phpgw']->session->verify())
 		{
 			$GLOBALS['sessionid'] = $GLOBALS['phpgw']->session->create($anonymous_user,$anonymous_passwd, 'text');
 			if (!$GLOBALS['sessionid'])
@@ -77,4 +70,11 @@
 			}
 			//$GLOBALS['phpgw']->redirect($GLOBALS['phpgw']->link($sitemgr_url . 'index.php'));
 		}
-		?>
+		elseif($GLOBALS['phpgw_info']['server']['usecookies'] && $_COOKIE['sessionid'] != $GLOBALS['phpgw_info']['user']['sessionid'])
+		{
+			// happens if eGW runs on cookies and sitemgr has to use an URL to forward the session to the other site/domain
+			$GLOBALS['phpgw']->session->phpgw_setcookie('sessionid',$GLOBALS['phpgw_info']['user']['sessionid']);
+			$GLOBALS['phpgw']->session->phpgw_setcookie('kp3',$GLOBALS['phpgw_info']['user']['kp3']);
+			$GLOBALS['phpgw']->session->phpgw_setcookie('domain',$GLOBALS['phpgw_info']['user']['domain']);
+		}
+?>

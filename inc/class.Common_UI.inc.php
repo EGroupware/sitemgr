@@ -91,13 +91,10 @@
 			if (($site = $GLOBALS['Common_BO']->sites->read(CURRENT_SITE_ID)) && $site['site_url'])
 			{
 				$this->displayHeader($site['site_name']);
-				$site['site_url'] .= '?mode=Edit';
-				if (!$GLOBALS['phpgw_info']['server']['usecookies'])
-				{
-					$site['site_url'] .= '&sessionid='.@$GLOBALS['phpgw_info']['user']['sessionid'] .
-						'&kp3=' . @$GLOBALS['phpgw_info']['user']['kp3'] .
-						'&domain=' . @$GLOBALS['phpgw_info']['user']['domain'];
-				}
+				$site['site_url'] .= '?mode=Edit&sessionid='.@$GLOBALS['phpgw_info']['user']['sessionid'] .
+					'&kp3=' . @$GLOBALS['phpgw_info']['user']['kp3'] .
+					'&domain=' . @$GLOBALS['phpgw_info']['user']['domain'];
+
 				echo "\n".'<div style="width: 100%; height: 100%; min-width: 800px; height: 600px">';
 				echo "\n\t".'<iframe src="'.$site['site_url'].'" name="site" width="100%" height="100%" frameborder="0" marginwidth="0" marginheight="0"><a href="'.$site['site_url'].'">'.$site['site_url'].'</a></iframe>';
 				echo "\n</div>\n";

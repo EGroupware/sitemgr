@@ -127,13 +127,11 @@
 			if (($site = $this->sites->read(CURRENT_SITE_ID)) && $site['site_url'])
 			{
 				$file[] = '_NewLine_';
-				$file['View generated Site'] = $site['site_url'].'?mode=Production';
-				if (!$GLOBALS['phpgw_info']['server']['usecookies'])
-				{
-					$file['View generated Site'] .= '&sessionid='.@$GLOBALS['phpgw_info']['user']['sessionid'] .
-						'&kp3=' . @$GLOBALS['phpgw_info']['user']['kp3'] .
-						'&domain=' . @$GLOBALS['phpgw_info']['user']['domain'];
-				}
+				$file['View generated Site'] = $site['site_url'].'?mode=Production'.
+ 					'&sessionid='.@$GLOBALS['phpgw_info']['user']['sessionid'] .
+					'&kp3=' . @$GLOBALS['phpgw_info']['user']['kp3'] .
+					'&domain=' . @$GLOBALS['phpgw_info']['user']['domain'];
+
 				$file['Edit Site'] = $GLOBALS['phpgw']->link('/sitemgr/');
 			}
 			return $file;
