@@ -12,7 +12,7 @@
 	/* $Id$ */
 
 	$setup_info['sitemgr']['name']      = 'sitemgr';
-	$setup_info['sitemgr']['title']     = 'SiteMgr Web Content Manager';
+	$setup_info['sitemgr']['title']     = 'SiteMgr Web Content Management';
 	$setup_info['sitemgr']['version']   = '0.9.15.005';
 	$setup_info['sitemgr']['app_order'] = 8;
 	$setup_info['sitemgr']['tables']    = array(
@@ -22,6 +22,39 @@
 		'phpgw_sitemgr_modules','phpgw_sitemgr_active_modules','phpgw_sitemgr_properties'
 	);
 	$setup_info['sitemgr']['enable']    = 1;
+	$setup_info['sitemgr']['author'] = array(
+		'name'  => 'Michael Totschnig</a> and others',
+		'email' => 'totschnig.michael@uqam.ca'
+	);
+	$setup_info['sitemgr']['maintainer'] = array(
+		'name'  => 'Ralf Becker',
+		'email' => 'ralfbecker@outdoor-training.de'
+	);
+	$setup_info['sitemgr']['license']  = 'GPL';
+	$setup_info['sitemgr']['description'] = nl2br(
+'This program will generate a dynamic web site with discrete sections that various eGroupWare users may edit, if the administrator gives them permission to do so.  In effect, the generated website can have sections which independent departments are in charge of maintaining.  The site administrator can choose a theme and create headers, footers, and sidebars to enforce a sitewide look and feel.  Site sections can be viewable public (viewable by anonymous users) or private (viewable by specified users and groups only).
+
+<b>Former Contributors and Maintainers</b>
+Michael Totschnig (totschnig.michael -AT- uqam.ca)
+wrote multilingual facets of sitemgr, and conceived the modularized architecture
+
+Team 10 in the UC Irvine Systems Design Course, ICS 125, chose this as their project.  Seek3r served as the project\'s "customer" and the team wrote extensive requirements and design documents followed by the actual coding of the project.  The course is ten weeks long, but coding doesn\'t start until part-way through week 6, so version 1.0 of sitemgr was programmed in an intensive 3 weeks.
+
+<u>Credits</u>
+ICS 125 Team 10:
+
+Tina Alinaghian (tina -AT- checkyour6.net)
+Austin Lee (anhjah -AT- hotmail.com)
+Siu Leung (rurouni_master -AT- hotmail.com)
+Fang Ming Lo (flo -AT- uci.edu)
+Patrick Walsh (mr_e -AT- phpgroupware.org)
+
+Professor:
+Hadar Ziv (profziv -AT- aol.com)
+
+TA:
+Arijit Ghosh (arijitg -AT- uci.edu)');
+	$setup_info['sitemgr']['note'] = '';
 
 	/* The hooks this app includes, needed for hooks registration */
 	$setup_info['sitemgr']['hooks'][] = 'preferences';
@@ -32,6 +65,6 @@
 	/* Dependacies for this app to work */
 	$setup_info['sitemgr']['depends'][] = array(
 		'appname'  => 'phpgwapi',
-		'versions' => Array('0.9.11','0.9.12','0.9.13','0.9.14','0.9.15')
+		'versions' => Array('0.9.14','0.9.15','1.0.0')
 	);
 ?>
