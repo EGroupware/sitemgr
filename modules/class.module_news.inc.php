@@ -16,7 +16,7 @@
 					'news_title' => $newsitem['subject'],
 					'news_submitter' => $GLOBALS['phpgw']->accounts->id2name($newsitem['submittedby']),
 					'news_date' => $GLOBALS['phpgw']->common->show_date($newsitem['submissiondate']),
-					'news_content' => nl2br($newsitem['content'])
+					'news_content' => $newsitem['content']
 				));
 				$result .= $this->template->parse('out','news');
 			}
