@@ -9,6 +9,9 @@
 		'phpgw_path'           => '../../',
 		'htaccess_rewrite'         => False,
 	);
+	// uncomment the next line if sitemgr should use a eGW domain different from the first one defined in your header.inc.php
+	// and of cause change the name accordingly ;-)
+	//$GLOBALS['phpgw_info']['server']['default_domain'] = 'other';
 
 	/***********************************************************\
 	* Leave the rest of this file alone.                        *
@@ -39,9 +42,9 @@
 			die(lang('THERE IS NO WEBSITE CONFIGURED FOR URL %1.  NOTIFY THE ADMINISTRATOR.',$site_url));
 		}
 		//this is useful when you changed the API session class to not overgeneralize the session cookies
-		if ($GLOBALS['HTTP_GET_VARS']['PHPSESSID'])
+		if ($_GET['PHPSESSID'])
 		{
-			$GLOBALS['phpgw']->session->phpgw_setcookie('PHPSESSID',$GLOBALS['HTTP_GET_VARS']['PHPSESSID']);
+			$GLOBALS['phpgw']->session->phpgw_setcookie('PHPSESSID',$_GET['PHPSESSID']);
 		}
 
 
