@@ -239,19 +239,37 @@ class Module
 		);
 	}
 
-	function build_input_element($input,$default,$elementname)
+	//this function strips html and curly braces from the default values of the input elements
+	//the former is necessary for valid input forms, the latter would hurt phpgw's template
+	function escape_default(&$default)
 	{
 		$trans = array('{' => '&#123;', '}' => '&#125;');
-		if ($default)
+		if (is_array($default))
+		{
+			reset($default);
+			while (list($key,$val) = each($default))
+			{
+				$this->escape_default($data[$key]);
+			}
+		}
+		else
 		{
 			$default = strtr($GLOBALS['phpgw']->strip_html($default),$trans);
+		}
+	}
+
+	function build_input_element($input,$default,$elementname)
+	{
+		if ($default)
+		{
+			$this->escape_default($default);
 		}
 		$paramstring = '';
 		while (list($param,$value) = @each($input['params']))
 		{
 			$paramstring .= $param . '="' . $value . '" ';
 		}
-		$inputdef = $paramstring . ' name="' . $elementname . '"';
+		$inputdef = $paramstring . ' name="' . $elementname . ($input['multiple'] ? '[]' : '') . '"';
 		switch($input['type'])
 		{
 			case 'textarea':
@@ -261,15 +279,15 @@ class Module
 			case 'checkbox':
 				return '<input type="checkbox" ' . $inputdef . ($default ? 'checked="checked"' :'') . '" />';
 			case 'select':
-				$select = '<select name="' . $elementname . '">';
+				$select = '<select ' .($input['multiple'] ? 'multiple="multiple"' : '') . $inputdef . '>';
 				foreach ($input['options'] as $value => $display)
 				{
 					$selected='';
-					if ($default == $value)
+					if (($input['multiple'] && in_array($value,$default)) || (!$input['multiple'] && ($default == $value)))
 					{
 						$selected = 'selected="selected"';
 					}
-						$select .= '<option value="'. $value . '" ' . $selected . '>' . $display . '</option>';
+					$select .= '<option value="'. $value . '" ' . $selected . '>' . $display . '</option>';
 				}
 				$select .= '</select>';
 				return $select;
