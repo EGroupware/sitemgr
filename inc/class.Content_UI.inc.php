@@ -185,6 +185,10 @@
 					//result should be an array of validationerrors
 					$this->errormsg = $result;
 				}
+				else
+				{
+					$this->errormsg[] = lang('Block saved');
+				}
 				if ($_GET['sort_order'])
 				{
 					echo '<html><head></head><body onload="opener.location.reload();self.close()"></body></html>';
@@ -234,6 +238,7 @@
 				$this->t->set_block('Moduleview','ViewElement','VeBlock');
 
 				$this->t->set_var(array(
+					'validationerror' => implode('<br />',$this->errormsg),
 					'savebutton' => lang('Save block'),
 					'deletebutton' => lang('Delete block'),
 					'contentarea' => lang('Contentarea'),
