@@ -72,7 +72,7 @@ Sitemgr builds web sites from templates.
  The file main.tpl defines the template of the whole site, there can be other
  files that define code for separate areas of the page or for specific modules.
  Templates contain four kinds of variables.
- These are explained here since the types 2,3 and 4 can be used both in
+ These are explained here since the types 2,3,4 and 5 can be used both in
  the template as in the page content a module generates.
 \layout Enumerate
 
@@ -137,6 +137,12 @@ Links to phpgw start with '?phpgw:' .
 
 {user}the user's account name
 \end_deeper 
+\layout Enumerate
+
+{lang_translatable_string} This lets you make the template internationalized.
+ The translatable string is sent through phpgroupware's lang function.
+ Thus you can add it to the lang files in the setup directory and install
+ it through the setup programm.
 \layout Subsection
 
 Module

@@ -1,38 +1,19 @@
 <?php 
 
-	class news_transform
-	{
-		function news_transform(&$template)
-		{
-			$this->template = $template;
-		}
-
-		function apply_transform($title,$content)
-		{
-			$result ='';
-			while (list(,$newsitem) = @each($content))
-			{
-				$this->template->set_var(array(
-					'news_title' => $newsitem['subject'],
-					'news_submitter' => $GLOBALS['phpgw']->accounts->id2name($newsitem['submittedby']),
-					'news_date' => $GLOBALS['phpgw']->common->show_date($newsitem['submissiondate']),
-					'news_content' => $newsitem['content']
-				));
-				$result .= $this->template->parse('out','news');
-			}
-			return $result;
-		}
-	}
-
 	class module_news extends Module
 	{
 		function module_news()
 		{
 			//specification of options is postponed into the get_user_interface function
-			$this->arguments = array('category' => array('type' => 'select', 'label' => lang('Choose a category'), 'options' => array()));
+			$this->arguments = array(
+				'category' => array('type' => 'select', 'label' => lang('Choose a category'), 'options' => array()),
+				'rsslink' => array('type' => 'checkbox', 'label' => lang('Do you want to publish a RSS feed for this news category'))
+			);
+			$this->get = array('item');
 			$this->properties = array();
 			$this->title = lang('News module');
-			$this->description = ('This module is just a first trial of hooking news_admin into sitmgr\'s new architecture.');
+			$this->description = lang('This module publishes news from the news_admin application on your website.');
+			$this->template;
 		}
 
 		function get_user_interface()
@@ -50,21 +31,59 @@
 			return parent::get_user_interface();
 		}
 
-		function set_block($block,$produce=False)
-		{
-			parent::set_block($block,$produce);
-			if ($produce)
-			{
-				$t = Createobject('phpgwapi.Template');
-				$t->set_root($this->find_template_dir());
-				$t->set_file('news','newsblock.tpl');
-				$this->add_transformer(new news_transform($t));
-			}
-		}
-
 		function get_content(&$arguments,$properties)
 		{
 			$bonews = CreateObject('news_admin.bonews');
-			return $bonews->get_NewsList($arguments['category'], false);
+
+			$this->template = Createobject('phpgwapi.Template');
+			$this->template->set_root($this->find_template_dir());
+			$this->template->set_file('news','newsblock.tpl');
+			$this->template->set_block('news','NewsBlock','newsitem');
+			$this->template->set_block('news','RssBlock','rsshandle');
+
+			$item = $arguments['item'];
+			if ($item)
+			{
+				$newsitem = $bonews->get_news($item);
+				if ($newsitem)
+				{
+					$this->render($newsitem[$item]);
+					return $this->template->get_var('newsitem');
+				}
+				else
+				{
+					return lang('No matching news item');
+				}
+			}
+
+			$newslist = $bonews->get_NewsList($arguments['category'], false);
+
+			if ($arguments['rss'])
+			{
+				$this->template->set_var('rsslink',
+					$GLOBALS['phpgw_info']['server']['webserver_url'] . '/news_admin/website/export.php?cat_id=' . $arguments['category']);
+				$this->template->parse('rsshandle','RssBlock');
+			}
+			else
+			{
+				$this->template->set_var('rsshandle','');
+			}
+
+			while (list(,$newsitem) = @each($newslist))
+			{
+				$this->render($newsitem);
+			}
+			return $this->template->parse('out','news');
+		}
+
+		function render($newsitem)
+		{
+			$this->template->set_var(array(
+				'news_title' => $newsitem['subject'],
+				'news_submitter' => $GLOBALS['phpgw']->accounts->id2name($newsitem['submittedby']),
+				'news_date' => $GLOBALS['phpgw']->common->show_date($newsitem['submissiondate']),
+				'news_content' => $newsitem['content']
+			));
+			$this->template->parse('newsitem','NewsBlock',True);
 		}
 	}

@@ -1,3 +1,6 @@
+<!-- BEGIN RssBlock -->
+<div align="right"><a href="{rsslink}">XML RSS</a></div>
+<!-- END RssBlock -->
 <!-- BEGIN NewsBlock -->
 <div align="right">
 <table width="95%" border="0" cellspacing="0" cellpadding="0">

@@ -91,7 +91,8 @@ class Module
 	{
 		while (list($key,$value) = @each($modulevars))
 		{
-			$extravars[$this->block->module_name.'['.$key.']'] = $value;
+			//%5B and %5D are urlencoded [ and ]
+			$extravars[$this->block->module_name.'%5B'.$key.'%5D'] = $value;
 		}
 		if ($GLOBALS['page']->name)
 		{
