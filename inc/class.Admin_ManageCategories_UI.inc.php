@@ -33,7 +33,7 @@
 		function _manageCategories()
 		{
 			global $btnSaveCategory,$btnAddCategory,$btnEditCategory,$btnDelete,$btnPermission;
-			global $category_id,$catname,$catdesc,$catid,$sort_order;
+			global $category_id,$catname,$catdesc,$catid,$sort_order,$parent;
 			global $groupaccessread, $groupaccesswrite, $individualaccessread, $individualaccesswrite;
 
 			$common_ui = CreateObject('sitemgr.Common_UI',True);
@@ -56,7 +56,7 @@
 				}
 				else if($btnSaveCategory && ($catname == '' || $catdesc == ''))
 				{
-					$this->_editCategory($catid,True,$catname,$catdesc,$sort_order);
+					$this->_editCategory($catid,True,$catname,$catdesc,$sort_order, $parent);
 				}
 				else
 				{
@@ -72,19 +72,31 @@
 						}
 						$groupaccess = array_merge_recursive($groupaccessread, $groupaccesswrite);
 						$individualaccess = array_merge_recursive($individualaccessread, $individualaccesswrite);
-						$this->cat_bo->saveCategoryInfo($catid, $catname, $catdesc, $sort_order);
+						$this->cat_bo->saveCategoryInfo($catid, $catname, $catdesc, $sort_order, $parent);
 						$this->cat_bo->saveCategoryPerms($catid, $groupaccess, $individualaccess);
 					}
 	
 					$this->t->set_var('category_manager','Category Manager');			
 					$this->t->set_file('ManageCategories', 'manage_categories.tpl');
 					$this->t->set_block('ManageCategories', 'CategoryBlock', 'CBlock');
-					$this->cat_list = $this->cat_bo->getPermittedCategoryIDReadList();
+					//$this->cat_list = $this->cat_bo->getPermittedCategoryIDReadList();
+					$this->cat_list = $this->cat_bo->getPermittedCatWriteNested();
 					if($this->cat_list)
 					{
 						for($i = 0; $i < sizeof($this->cat_list); $i++)
 						{
 							$this->cat = $this->cat_bo->getCategory($this->cat_list[$i]);
+							if ($this->cat->depth)
+							{
+								$buffer = '-';
+							}
+							else
+							{
+								$buffer = '';
+							}
+							$buffer = str_pad($buffer,$this->cat->depth*18,
+								'&nbsp;',STR_PAD_LEFT);
+							$this->t->set_var('buffer', $buffer);
 							$this->t->set_var('category', $this->cat->name);
 							$category_id = $this->cat_list[$i];
 						
@@ -119,7 +131,12 @@
 						'menuaction=sitemgr.Admin_ManageCategories_UI._manageCategories').
 						'" method="POST">
 						<input type=submit name=btnAddCategory value = "Add a category">
-						</form>');
+						</form>'
+					);
+					$this->t->set_var('managepageslink',$GLOBALS['phpgw']->link(
+						'/index.php',
+						'menuaction=sitemgr.contributor_ManagePage_UI._managePage')
+					);
 					$this->t->pfp('out', 'ManageCategories');	
 				}
 				$common_ui->DisplayFooter();
@@ -135,7 +152,7 @@
 		
 
 
-		function _editCategory($cat_id,$error=False,$catname='',$catdesc='',$sort_order=0)
+		function _editCategory($cat_id,$error=False,$catname='',$catdesc='',$sort_order=0, $parent=0)
 		{
 			$this->t->set_file('EditCategory', 'edit_category.tpl');
 			$grouplist = $this->acl->get_group_list();
@@ -169,8 +186,9 @@
 				'catname' => $this->cat->name,
 				'catdesc' => $this->cat->description,
 				'sort_order' => $this->cat->sort_order,
-				'actionurl' =>
-				$GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Admin_ManageCategories_UI._manageCategories')
+				'parent_dropdown' => $this->getParentOptions($this->cat->parent,$cat_id),
+				'actionurl' => $GLOBALS['phpgw']->link('/index.php',
+					'menuaction=sitemgr.Admin_ManageCategories_UI._manageCategories')
 			));
 			
 			$this->t->set_file('EditCategory', 'edit_category.tpl');
@@ -273,6 +291,31 @@
 			}
 
 			$this->t->pfp('out','EditCategory');
+		}
+
+		function getParentOptions($selected_id=0,$skip_id=0)
+		{
+			$option_list=$this->cat_bo->getCategoryOptionList();
+			if (!(int) $selected_id)
+			{
+				$selected=' SELECTED';
+			}
+			$retval="\n".'<SELECT NAME="parent">'."\n";
+			foreach($option_list as $option)
+			{
+				if ($option['value']!=$skip_id)
+				{
+					$selected='';
+					if ($option['value']==$selected_id)
+					{
+						$selected=' SELECTED';
+					}
+					$retval.='<OPTION VALUE="'.$option['value'].'"'.$selected.'>'.
+						$option['display'].'</OPTION>'."\n";
+				}
+			}
+			$retval.='</SELECT>';
+			return $retval;
 		}
 
 		function _deleteCategory($cat_id)

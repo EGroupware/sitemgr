@@ -8,9 +8,16 @@
 			$this->db = $GLOBALS['phpgw']->db;
 		}
 
-		function getPageIDList($cat_id)
+		function getPageIDList($cat_id=0)
 		{
-			$sql = 'SELECT page_id FROM phpgw_sitemgr_pages WHERE cat_id="' . $cat_id . '" ORDER BY sort_order';
+			if (!$cat_id)
+			{
+				$sql = 'SELECT page_id FROM phpgw_sitemgr_pages WHERE 1 ORDER BY cat_id, sort_order ASC';
+			}
+			else
+			{
+				$sql = 'SELECT page_id FROM phpgw_sitemgr_pages WHERE cat_id="' . $cat_id . '" ORDER BY sort_order';
+			}
 			$this->db->query($sql,__LINE__,__FILE__);
 			while ($this->db->next_record())
 			{

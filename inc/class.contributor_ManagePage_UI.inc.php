@@ -50,6 +50,7 @@
 			global $subtitle;
 			global $main;
 			global $sort_order;
+			global $parent;
 			global $hidden;
 			global $btnEditPage;
 		
@@ -74,6 +75,7 @@
 					$this->page->content=$cmain;
 				}
 				$this->t->set_var('add_edit','Edit Page');
+				$this->t->set_var('move_to',$this->getParentOptions($page->cat_id));
 			}
 			else
 			{
@@ -82,7 +84,12 @@
 				$this->page->content = $main;
 				$this->page->name = $name;
 				$this->page->sort_order = $sort_order;
+				$this->page->cat_id = $category_id;
 				$this->t->set_var('add_edit','Add Page');
+				$move_msg = 'Cannot move page until it has been saved.';
+				$move_msg .= '<INPUT TYPE="hidden" name="parent" value="'.
+					$category_id.'">';
+				$this->t->set_var('move_to',$move_msg);
 			}
 			
 			$trans = array("{" => "&#123;", "}" => "&#125;");
@@ -103,6 +110,8 @@
 				'pageid'=>$page_id,
 				'category_id' => $category_id
 			));
+
+			
 			
 			$this->t->set_var('actionurl', $GLOBALS['phpgw']->link('/index.php',
 				'menuaction=sitemgr.contributor_ManagePage_UI._managePage'));
@@ -125,6 +134,7 @@
 			global $pageid;
 			global $category_id;
 			global $sort_order;
+			global $parent;
 			global $title;
 			global $name;
 			global $subtitle;
@@ -163,8 +173,8 @@
 					$this->page->name = $name;
 					$this->page->subtitle = $subtitle;
 					$this->page->content = $main;
-					$this->page->cat_id = $category_id;
 					$this->page->sort_order = $sort_order;
+					$this->page->cat_id = $parent;
 
 					if($hidden)
 					{
@@ -174,7 +184,7 @@
 					{
 						$this->page->hidden = 0;
 					}
-					$save_msg = $this->pagebo->savePageInfo($category_id, $this->page);
+					$save_msg = $this->pagebo->savePageInfo($this->page);
 				}
 				if (!is_string($save_msg))
 				{
@@ -229,7 +239,7 @@
 							{
 								$this->page_id =$this->page_list[$j];
 								$this->page = $this->pagebo->getPage($this->page_id);
-								$page_description = 'Name: '.$this->page->name.'<br>Title: '.$this->page->title.'<br>ID: '.$this->page->id;
+								$page_description = '<b>Name: </b>'.$this->page->name.'<br><b>Title: </b>'.$this->page->title;
 								$this->t->set_var('page', $page_description);
 								$this->t->set_var('edit',
 									'<form action="'.
@@ -260,7 +270,7 @@
 							$this->t->set_var('msg' , 'This category has no pages.');
 						}
 						$this->t->set_var('number', $i+1);
-						$this->t->set_var('category', $this->category->name); 
+						$this->t->set_var('category', '<b>'.$this->category->name.'</b>'); 
 						$this->t->set_var('add', 
 							'<form action="'.
 							$GLOBALS['phpgw']->link('/index.php',
@@ -280,6 +290,31 @@
 				}
 			}
 			$common_ui->DisplayFooter();
+		}
+
+		function getParentOptions($selected_id=0)
+		{
+			$option_list=$this->categorybo->getCategoryOptionList();
+			if (!(int) $selected_id)
+			{
+				$selected=' SELECTED'; 
+			}       
+			$retval="\n".'<SELECT NAME="parent">'."\n";
+			foreach($option_list as $option)
+			{   
+				if ((int) $option['value']!=0)
+				{
+					$selected='';
+					if ($option['value']==$selected_id)
+					{
+						$selected=' SELECTED';
+					}
+					$retval.='<OPTION VALUE="'.$option['value'].'"'.$selected.'>'.
+					$option['display'].'</OPTION>'."\n";
+				}
+			}       
+			$retval.='</SELECT>';
+			return $retval;
 		}
 	}	
 ?>

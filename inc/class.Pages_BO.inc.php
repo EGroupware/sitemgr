@@ -10,7 +10,19 @@
 			$this->acl = CreateObject('sitemgr.ACL_BO');
 		}
 
-		function getPageIDList($cat_id)
+		function getPageOptionList()
+		{
+			$pagelist = $this->pageso->getPageIDList();
+			$retval[]=array('value'=>'','display'=>'[Show Site Index]');
+			foreach($pagelist as $page_id)
+			{
+				$page = $this->pageso->getPage($page_id);
+				$retval[]=array('value'=>$page_id,'display'=>$page->name);
+			}
+			return $retval;
+		}
+
+		function getPageIDList($cat_id=0)
 		{
 			if ($this->acl->can_read_category($cat_id))
 			{
@@ -64,8 +76,12 @@
 			}
 		}
 
-		function savePageInfo($cat_id, $page_Info)
+		function savePageInfo($page_Info)
 		{
+			if (!$this->acl->can_write_category($page_Info->cat_id))
+			{
+				return 'You don\'t have permission to write to that category.';
+			}
 			$fixed_name = strtr($page_Info->name, '!@#$%^&*()-_=+	/?><,.\\\'":;|`~{}[]','                               ');
 			$fixed_name = str_replace(' ', '', $fixed_name);
 			if ($fixed_name != $page_Info->name)

@@ -10,13 +10,85 @@
 			$this->acl = CreateObject('sitemgr.ACL_BO');
 		}
 
-		function getPermittedCategoryIDWriteList()
+		function getCategoryOptionList()
 		{
-			$full_list = $this->so->getFullcategoryIDList();
+			$retval[] = array('value'=>0,'display'=>'[No Parent]');
+			$list = $this->getPermittedCatWriteNested();
+			foreach($list as $cat_id)
+			{
+				$cat = $this->getCategory($cat_id);
+				$padding = str_pad('',12*$cat->depth,'&nbsp;');
+				$retval[] = array('value'=>$cat->id, 'display'=>$padding.$cat->name);
+			}
+			return $retval;
+		}
+
+		function getPermittedCatReadNested($cat_id=0)
+		{
+			return $this->getPermittedCatNested($cat_id,'read');
+		}
+		function getPermittedCatWriteNested($cat_id=0)
+		{
+			return $this->getPermittedCatNested($cat_id,'write');
+		}
+
+		// Don't call this function directly.  Use above funcs.
+		function getPermittedCatNested($cat_id=0,$check='')
+		{
+			if (!$check)
+			{
+				// You should use the getPermittedCatReadNested and WriteNested funcs
+				die("Whatcha doin callin this function, Willis?");
+			}
+
+			$root_list = $this->so->getFullChildrenIDList($cat_id);
+
+			$permitted_list=array();
+			if (is_array($root_list))
+			{
+				foreach($root_list as $root_cat)
+				{
+					if ($check=='read')
+					{
+						$permitted = $this->acl->can_read_category($root_cat);
+					}
+					elseif ($check=='write')
+					{
+						$permitted = $this->acl->can_write_category($root_cat);
+					}
+					else
+					{
+						die("What'd I tell you about calling this function?");
+					}
+
+					if ($permitted)
+					{
+						$permitted_list[]=$root_cat;
+						$sub_list = $this->getPermittedCatNested($root_cat,$check);
+						if (is_array($sub_list) && count($sub_list)>0)
+						{
+							//array_push($permitted_list, $sub_list);
+							$permitted_list=array_merge($permitted_list, $sub_list);
+						}
+					}
+				}
+			}
+			return $permitted_list;
+		}
+
+		function getPermittedCategoryIDWriteList($cat_id='')
+		{
+			if (is_int($cat_id))
+			{
+				$full_list = $this->so->getChildrenIDList($cat_id);
+			}
+			else
+			{
+				$full_list = $this->so->getFullcategoryIDList();
+			}
 			$permitted_list=array();
 			if (is_array($full_list))
 			{
-				reset($full_list);
 				foreach($full_list as $item)
 				{
 					if ($this->acl->can_write_category($item))
@@ -28,9 +100,16 @@
 			return $permitted_list;
 		}
 
-		function getPermittedCategoryIDReadList()
+		function getPermittedCategoryIDReadList($cat_id='')
 		{
-			$full_list = $this->so->getFullcategoryIDList();
+			if (is_int($cat_id))
+			{
+				$full_list = $this->so->getChildrenIDList($cat_id);
+			}
+			else
+			{
+				$full_list = $this->so->getFullcategoryIDList();
+			}
 			$permitted_list=array();
 			if (is_array($full_list))
 			{
@@ -46,11 +125,11 @@
 			return $permitted_list;
 		}
 
-		function addCategory($name, $description)		
+		function addCategory($name, $description, $parent=0)		
 		{
 			if ($this->acl->is_admin())
 			{
-				return $this->so->addCategory($name, $description);
+				return $this->so->addCategory($name, $description, $parent);
 			}
 			else
 			{
@@ -75,15 +154,16 @@
 			}
 		}
 
-		function saveCategoryInfo($cat_id, $cat_name, $cat_description, $sort_order=0)
+		function saveCategoryInfo($cat_id, $cat_name, $cat_description, $sort_order=0, $parent=0)
 		{
 			$cat_info = CreateObject('sitemgr.Category_SO', True);
 			$cat_info->id = $cat_id;
 			$cat_info->name = $cat_name;
 			$cat_info->description = $cat_description;
 			$cat_info->sort_order = $sort_order;
+			$cat_info->parent = $parent;
 
-			if ($this->acl->can_read_category($cat_id))
+			if ($this->acl->can_write_category($cat_id))
 			{	
 				if($this->so->saveCategory($cat_info))
 				{

@@ -11,10 +11,7 @@
 	
 	class Common_UI
 	{
-		var $t;
-		var $acl;
-		var $theme;
-		var $prefs_so;
+		var $t, $acl, $theme, $prefs_so, $pages_bo;
 		var $public_functions = array
 		(
 			'DisplayPrefs' => True
@@ -26,6 +23,7 @@
 			$this->acl = CreateObject('sitemgr.ACL_BO');
 			$this->theme = CreateObject('sitemgr.Theme_BO',True);
 			$this->prefs_so = CreateObject('sitemgr.sitePreference_SO', True);
+			$this->pages_bo = CreateObject('sitemgr.Pages_BO');
 		}
 
 		function DisplayPrefs()
@@ -49,7 +47,8 @@
 				$preferences['home-page-id'] = array(
 					'title'=>'Default home page ID number',
 					'note'=>'(This should be a page that is readable by everyone. If you leave this blank, the site index will be shown by default.)',
-					'input_size'=>10
+					'input'=>'option',
+					'options'=>$this->pages_bo->getPageOptionList()
 				);
 				$preferences['login-domain'] = array(
 					'title'=>'Anonymous user login domain',
