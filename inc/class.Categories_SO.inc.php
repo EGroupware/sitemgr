@@ -15,7 +15,7 @@
 				$parent = 0;
 			}
 
-			$cats = $this->cats->return_array('all','',False,'','cat_data','',False, $parent)
+			$cats = $this->cats->return_array('all','',False,'','cat_data','',False, $parent);
 
 			while (is_array($cats) && list(,$subs) = each($cats))
 			{
@@ -26,7 +26,7 @@
 
 		function getFullCategoryIDList()
 		{
-			$cats = $this->cats->return_array('all','',False,'','cat_data','',False)
+			$cats = $this->cats->return_array('all','',False,'','cat_data','',False);
 
 			while (is_array($cats) && list(,$cat) = each($cats))
 			{
