@@ -12,7 +12,7 @@
 	/* $Id$ */
 
 	$setup_info['sitemgr-link']['name']      = 'sitemgr-link';
-	$setup_info['sitemgr-link']['title']     = 'Web Content Manager Public Web Site';
+	$setup_info['sitemgr-link']['title']     = 'SiteMgr Public Web Site';
 	$setup_info['sitemgr-link']['version']   = '0.9.13.001';
 	$setup_info['sitemgr-link']['app_order'] = 9;
 	$setup_info['sitemgr-link']['tables']    = array();
