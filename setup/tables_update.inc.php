@@ -430,15 +430,15 @@
 			'uc' => array()
 		));
 
-		//Create default site and hang all existing categories into it
-		$phpgw_setup->oProc->query("INSERT INTO phpgw_categories (cat_parent,cat_owner,cat_access,cat_appname,cat_name,cat_description,last_mod) VALUES (0,-1,'public','sitemgr','Default Website','This website has been added by setup',0)");
-		$site_id = $phpgw_setup->oProc->get_last_insert_id('phpgw_categories','cat_id');
-		$phpgw_setup->oProc->query("UPDATE phpgw_categories SET cat_main = $site_id WHERE cat_appname = 'sitemgr'",__LINE__,__FILE__);
-		$phpgw_setup->oProc->query("UPDATE phpgw_categories SET cat_parent = $site_id WHERE cat_appname = 'sitemgr' AND cat_parent = 0 AND cat_id != $site_id",__LINE__,__FILE__);
-		$phpgw_setup->oProc->query("UPDATE phpgw_categories SET cat_level = cat_level +1 WHERE cat_appname = 'sitemgr' AND cat_id != $site_id",__LINE__,__FILE__);
-		$phpgw_setup->oProc->query("INSERT INTO phpgw_sitemgr_sites (site_id,site_name)  VALUES ($site_id,'Default Website')");
-
 		$db2 = $phpgw_setup->db;
+
+		//Create default site and hang all existing categories into it
+		$db2->query("INSERT INTO phpgw_categories (cat_parent,cat_owner,cat_access,cat_appname,cat_name,cat_description,last_mod) VALUES (0,-1,'public','sitemgr','Default Website','This website has been added by setup',0)");
+		$site_id = $db2->get_last_insert_id('phpgw_categories','cat_id');
+		$db2->query("UPDATE phpgw_categories SET cat_main = $site_id WHERE cat_appname = 'sitemgr'",__LINE__,__FILE__);
+		$db2->query("UPDATE phpgw_categories SET cat_parent = $site_id WHERE cat_appname = 'sitemgr' AND cat_parent = 0 AND cat_id != $site_id",__LINE__,__FILE__);
+		$db2->query("UPDATE phpgw_categories SET cat_level = cat_level +1 WHERE cat_appname = 'sitemgr' AND cat_id != $site_id",__LINE__,__FILE__);
+		$db2->query("INSERT INTO phpgw_sitemgr_sites (site_id,site_name)  VALUES ($site_id,'Default Website')");
 
 
 		//insert values from old preferences table into new sites table
