@@ -172,7 +172,7 @@
 			'pk' => array('notification_id'),
 			'fk' => array('site_id' => 'phpgw_sitemgr_sites'),
 			'ix' => array('email'),
-			'uc' => array('notification_id')
+			'uc' => array()
 		),
 		'phpgw_sitemgr_notify_messages' => array(
 			'fd' => array(
