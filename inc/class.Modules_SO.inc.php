@@ -78,16 +78,20 @@
 
 		function registermodule($modulename,$description)
 		{
-			return $this->db->insert($this->modules_table,array(
+			$newly = !$this->getmoduleid($modulename);
+
+			$this->db->insert($this->modules_table,array(
 				'description' => $description
 			),array(
 				'module_name' => $modulename
-			),__LINE__,__FILE__) !== True;	// returns True on a new insert
+			),__LINE__,__FILE__);
+
+			return $newly;	// returns True on a new insert
 		}
 
 		function getallmodules()
 		{
-			$this->db->select($this->modules_table,'*',false,__LINE__,__FILE__);
+			$this->db->select($this->modules_table,'*',false,__LINE__,__FILE__,false,'ORDER BY module_name');
 
 			return $this->constructmodulearray();
 		}
