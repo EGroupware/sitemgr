@@ -40,7 +40,6 @@ class module_login extends Module
 	{
 		$content = '<form name="login" action="'.phpgw_link('/login.php').'" method="post">';
 		$content .= '<input type="hidden" name="passwd_type" value="text">';
-		$content .= '<input type="hidden" name="phpgw_forward" value="/sitemgr/">';
 		$content .= '<input type="hidden" name="logindomain" value="'. $GLOBALS['phpgw_info']['user']['domain'] .'">';
 		$content .= '<center><font class="content">' . lang('Login Name') .'<br>';
 		$content .= '<input type="text" name="login" size="8" value=""><br>';
