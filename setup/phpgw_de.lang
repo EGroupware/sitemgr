@@ -1,112 +1,116 @@
-Add Category	sitemgr de	Kategorie hinzufügen
-Add Page	sitemgr	de	Seite hinzufügen
-Add a category	sitemgr	de	Kategorie hinzufügen
-Add new page to this category	sitemgr	de	Eine neue Seite zu dieser Kategorie hinzufügen
-Administration	sitemgr-site	de	Administration
-Administrative Menu	sitemgr	de	Administrations Menü
-Amazon	sitemgr-site	de	Amazon
-Anonymous user login domain	sitemgr	de	Anonymous User login Domain
-Anonymous user's password	sitemgr	de	Anonymous User Password
-Anonymous user's username	sitemgr	de	Anonymous User Username
-Are you sure you want to delete the category %1 and all of its associated pages?  You cannot retrieve the deleted pages if you continue.	sitemgr	de	Sind sie sicher das Sie die Kategorie %1 und alle dazugehörigen Seiten löschen möchten?  Diese Seiten werden hiermit endgültüg gelöscht.
-Basic Settings	sitemgr	de	Basis Einstellungen
-Block not found	sitemgr-site	de	Block nicht gefunden
-Block returned no content.	sitemgr-site	de	Dieser Bloch hat keinen Content.
-Cancel the delete	sitemgr	de	Abbrechen, nicht löschen
-Cannot move page until it has been saved.	sitemgr	de	Die Seite kann zuerst verschoben werden wenn Sie gespeichert wurde.
-Category	sitemgr-site	de	Kategorie
-Category Description	sitemgr	de	Kategorie Beschreibung
-Category Manager	sitemgr	de	Kategorie Manager
-Category Name	sitemgr	de	Kategorie Name
-Changes saved.	sitemgr	de	Änderungen gespeichert.
-Check to hide from condensed site index.	sitemgr	en	Hier auswählen um Seite im Seiten Index zu verbergen.
-Choose a category	sitemgr-site	de	Wählen Sie eine Kategorie
-Configure SiteMgr	sitemgr	de	SiteMgr konfigurieren
-Contact the administrator.	sitemgr-site	de	Kontaktieren Sie den Administrator	
-Content Manager	sitemgr-site	de	Content Manager
-Contributor Menu	sitemgr	de	Contributor Menu
-Default home page ID number	sitemgr	de	Standard Home Page ID Nummer
-Don't have an account?	sitemgr-site	de	Sie haben keinen Account?
-Done	sitemgr	de	Ausgeführt
-Edit Category	sitemgr	de	Kategorien Editieren
-Edit Page	sitemgr	de	Seite bearbeiten
-Edit Site Header and Footer	sitemgr	de	Seiten Kopf und Fusszeile editieren
-Error accessing page	common	de	Fehler beim Aufruf der Seite
-Filesystem path to sitemgr-site directory	sitemgr	de	Filesystem Pfad zum sitemgr-site Ordner
-Footer Editor	sitemgr	de	Fusszeilen Editor
-Go back to Page Manager	sitemgr	de	Zurück zum Seiten Manager
-Go back to the category manager.	sitemgr	de	Zurück zum Kategorie Manager gehen	
-Go to Page Manager	sitemgr	de	Gehe zur Seiten Bearbeitung
-Google Search	sitemgr-site	de	Google Suche
-Group Access Permissions	sitemgr	de	Gruppen Zugriffs Rechte
-Group Name	sitemgr	de	Gruppen Name
-Header Editor	sitemgr	de	Kopfzeilen Editor
-Headlines	sitemgr-site	de	Kopfzeilen
-I'm sorry, you do not have write permissions for any site categories.	sitemgr	de	Sie haben keine Schreib Rechte für die Seiten Kategorien.
-Individual Access Permission	sitemgr	de	Individuelle Zugriffs Rechte
-Login	sitemgr-site	de	Login
-Login Name	sitemgr-site	de	Login Name
-Main content	sitemgr	de	Hauptinhalt
-Manage Categories	sitemgr	de	Kategorien bearbeiten	
-Manage Pages	sitemgr	de	Seiten verwalten
-Move to	sitemgr	de	Verschieben in
-NO ANONYMOUS USER ACCOUNTS INSTALLED. NOTIFY THE ADMINISTRATOR.	sitemgr-site	de	DER USER ANONYMOUS IST NICHT INSTALLIERT. BENACHRICHTIGEN SIE DEN ADMINISTRATOR.
-Name	sitemgr	en	Name
-No content found	sitemgr-site	de	Es wurde kein Content gefunden
-No groups defined.	sitemgr de	Keine Gruppen definiert.
-No options available.	sitemgr	de	Keine Optionen verfügbar.
-No pages available	sitemgr-site	de	Keine Seiten verfügbar
-No users defined.	sitemgr	de	Keine Benutzer definiert.
-Page Manager	sitemgr	de	Seiten Manager
-Page saved.	sitemgr	de	Seite gespeichert	
-Pages	sitemgr-site	de	Seiten
-Parent	sitemgr	de	Übergeordnet
-Password	sitemgr-site	de	Password
-Read Permission	sitemgr	de	Lese Rechte
-Register for one now.	sitemgr-site	de	Hier können Sie sich Registrieren.
-Required Fields	sitemgr	de	Benötigte Felder
-Reset	sitemgr	de	Zurück Setzen
-Return to main menu.	sitemgr	de	Zurück zum Hauptmenü.
-Root Site Index	sitemgr-site   de	Inhalsverzeichnis
-Save	sitemgr	de	Speichern
-Saved	sitemgr	de	Gespeichert
-Selected template %1 does not exist.	sitemgr-site	de	Das ausgewählte Template %1 ist nicht verfügbar.
-Selected theme %1 does not exist.	sitemgr-site	de	Das ausgewählte Thema %1 ist nicht verfügbar.
-Site Format Manager	sitemgr	de	Site Format Manager
-Site Index	sitemgr-site	de	Seiten Index
-Site name	sitemgr	de	Seiten Name
-SiteMgr Options	sitemgr	de	SiteMgr Optionen
-SiteMgr Setup Instructions	sitemgr	de	SiteMgr Setup Informationen
-Sort Order	sitemgr	de	Reihenfolge der Sortierung
-Subcategories	sitemgr-site	de	Unterkategorien
-Subtitle	sitemgr	de	Untertitel
-Table of Contents	sitemgr-site	de	Themengebiete
-The Name field cannot contain punctuation or spaces (field modified).	sitemgr	de	Das Feld Name darf keine Punkte oder Leerzeichen enthalten (field modified).
-The page name must be unique.	sitemgr	de	Der Seiten Name muss einmalig sein.
-The page was successfully saved.	sitemgr	de	Die Seite wurde erfolgreich gespeichert.
-Theme or template select	sitemgr	de	Thema oder Template auswahl
-There are no pages in this section	sitemgr-site	de	In diesem Bereich sind keine Seiten vorhanden 
-There are no sections available to you.	sitemgr-site	de	Sie haben auf keinen Zugriff auf die Sektionen.
-There was an error accessing the requested page. Either you do not have permission to view this page, or the page does not exist.	common	de	Ein Fehler ist aufgetreten beim Aufruf der angeforderten Seite. Entweder haben Sie nicht die Rechte diese Seite anzusehen, oder diese Seite existiert nicht.
-There was an error writing to the database.	sitemgr	de	Beim schreiben in die Datenbank ist ein Fehler aufgetreten.
-This category has no pages.	sitemgr	de	Diese Kategorie hat keine Seiten.
-Title	sitemgr	en	Titel
-URL to sitemgr-site	sitemgr	de	URL zur sitemgr-site
-Up to table of contents	sitemgr-site	de	Zum Inhaltsverzeichnis wechseln
-Updating to new category system	sitemgr	de	Update zum neuen Kategorie System
-Use phpNuke themes instead of templates	sitemgr	de	Benutze phpNuke Themen anstelle von Templates
-User Name	sitemgr	de	Benutzer Name
-View Administrative Menu	sitemgr	de	Administrations Menü
-View Generated Site	sitemgr	de	Erstellte Seite ansehen
-Web Content Manager Administration	sitemgr	de	Web Content Manager Administration
-Write Permission	sitemgr	de	Schreib Rechte
-Yes, please delete it	sitemgr	de	Ja, löschen
-You do not have access to any content on this site.	sitemgr-site	de	Sie haben keinen Zugriff zum Inhalte dieser Seite.
-You don't have permission to write in the category	sitemgr	 de	Sie haben keine Rechte um in dieser Kategorie zu schreiben	
-You don't have permission to write to that category.	sitemgr	de	Sie haben nicht die Rechte in diese Kategorie zu schreiben.
-You failed to fill in one or more required fields.	sitemgr	de	Sie haben eines oder mehrere benötigte Felder nicht ausgefüllt.
-You must be an admin to edit categories.	sitemgr	de	Sie benötigen Administrator Rechte zum Editieren der Kategorien.
-You must be an admin to edit the site header and footer.	sitemgr	de	Sie müssen Admin Rechte  haben zum editieren der Seiten Kopf oder Fusszeile
-You must be an administrator to setup the Site Manager.	sitemgr	de	Sie müssen administrative Rechte haben zum Konfigurieren des Site Managers.
-Your Calendar	sitemgr-site	de	Ihr Kalendar
-check here after every upgrade	sitemgr	de	Nach jedem upgrade hier bitte nochmals überprüfen
+add a category	sitemgr	de	Kategorie hinzufügen
+add category	sitemgr	de	Kategorie hinzufügen
+add new page to this category	sitemgr	de	Eine neue Seite zu dieser Kategorie hinzufügen
+add page	sitemgr	de	Seite hinzufügen
+administration	sitemgr	de	Administration
+administrative menu	sitemgr	de	Administrations Menü
+amazon	sitemgr	de	Amazon
+anonymous user login domain	sitemgr	de	Anonymous User login Domain
+anonymous user's password	sitemgr	de	Anonymous User Password
+anonymous user's username	sitemgr	de	Anonymous User Username
+are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	de	Sind sie sicher das Sie die Kategorie %1 und alle dazugehörigen Seiten löschen möchten?  Diese Seiten werden hiermit endgültüg gelöscht.
+basic settings	sitemgr	de	Basis Einstellungen
+block not found	sitemgr	de	Block nicht gefunden
+block returned no content.	sitemgr	de	Dieser Block hat keinen Content.
+cancel the delete	sitemgr	de	Abbrechen, nicht löschen
+cannot move page until it has been saved.	sitemgr	de	Die Seite kann zuerst verschoben werden wenn Sie gespeichert wurde.
+category	sitemgr	de	Kategorie
+category description	sitemgr	de	Kategorie Beschreibung
+category manager	sitemgr	de	Kategorie Manager
+category name	sitemgr	de	Kategorie Name
+changes saved.	sitemgr	de	Änderungen gespeichert.
+check here after every upgrade	sitemgr	de	Nach jedem upgrade bitte nochmals hier überprüfen
+check to hide from condensed site index.	sitemgr	de	Hier auswählen um eine Seite im Inhaltsverzeichnis nicht anzuzeigen.
+choose a category	sitemgr	de	Wählen Sie eine Kategorie
+configure sitemgr	sitemgr	de	SiteMgr konfigurieren
+contact the administrator.	sitemgr	de	Kontaktieren Sie den Administrator
+content manager	sitemgr	de	Inhaltsmanager
+contributor menu	sitemgr	de	Autoren Menü
+default home page id number	sitemgr	de	Standard Home Page ID Nummer
+don't have an account?	sitemgr	de	Sie haben keinen Account?
+done	sitemgr	de	Fertig
+edit category	sitemgr	de	Kategorie bearbeiten
+edit page	sitemgr	de	Seite bearbeiten
+edit site header and footer	sitemgr	de	Seiten Kopf- und Fusszeile editieren
+error accessing page	common	de	Fehler beim Aufruf der Seite
+filesystem path to sitemgr-site directory	sitemgr	de	Dateisystem Pfad zum sitemgr-site Ordner
+footer editor	sitemgr	de	Fusszeilen Editor
+go back to page manager	sitemgr	de	Zurück zum Seiten Manager
+go back to the category manager.	sitemgr	de	Zurück zum Kategorie Manager gehen
+go to page manager	sitemgr	de	Gehe zur Seiten Bearbeitung
+google search	sitemgr	de	Google Suche
+group access permissions	sitemgr	de	Gruppen Zugriffsrechte
+group name	sitemgr	de	Gruppen Name
+header editor	sitemgr	de	Kopfzeilen Editor
+headlines	sitemgr	de	Kopfzeilen
+i'm sorry, you do not have write permissions for any site categories.	sitemgr	de	Sie haben keine Schreibrechte für die Seiten Kategorien.
+individual access permission	sitemgr	de	Individuelle Zugriffs Rechte
+languages the site user can choose from	sitemgr	de	Sprachen die der Benutzer auswählen kann
+login	sitemgr	de	Login
+login name	sitemgr	de	Login Name
+main content	sitemgr	de	Hauptinhalt
+manage categories	sitemgr	de	Kategorien bearbeiten
+manage pages	sitemgr	de	Seiten verwalten
+manage translations	sitemgr	de	Übersetzungen verwalten
+move to	sitemgr	de	Verschieben nach
+name	sitemgr	de	Name
+no anonymous user accounts installed. notify the administrator.	sitemgr	de	DER USER ANONYMOUS IST NICHT INSTALLIERT. BENACHRICHTIGEN SIE DEN ADMINISTRATOR.
+no content found	sitemgr	de	Kein Inhalt gefunden
+no groups defined.	sitemgr	de	Keine Gruppen definiert.
+no options available.	sitemgr	de	Keine Optionen verfügbar.
+no pages available	sitemgr	de	Keine Seiten verfügbar
+no users defined.	sitemgr	de	Keine Benutzer definiert.
+page manager	sitemgr	de	Seiten Manager
+page saved.	sitemgr	de	Seite gespeichert.
+pages	sitemgr	de	Seiten
+parent	sitemgr	de	Übergeordnet
+password	sitemgr	de	Passwort
+read permission	sitemgr	de	Leserechte
+register for one now.	sitemgr	de	Hier können Sie sich Registrieren.
+required fields	sitemgr	de	Benötigte Felder
+reset	sitemgr	de	Zurück Setzen
+return to main menu.	sitemgr	de	Zurück zum Hauptmenü.
+root site index	sitemgr	de	Wurzelverzeichnis
+save	sitemgr	de	Speichern
+saved	sitemgr	de	Gespeichert
+selected template %1 does not exist.	sitemgr	de	Das ausgewählte Template %1 ist nicht verfügbar.
+selected theme %1 does not exist.	sitemgr	de	Das ausgewählte Thema %1 ist nicht verfügbar.
+show site index	sitemgr	de	Site Inhaltsverzeichnis anzeigen
+site format manager	sitemgr	de	Site Formatmanager
+site index	sitemgr	de	Site Inhaltsverzeichnis
+site name	sitemgr	de	Site Name
+sitemgr options	sitemgr	de	SiteMgr Optionen
+sitemgr setup instructions	sitemgr	de	SiteMgr Setup Informationen
+sort order	sitemgr	de	Reihenfolge der Sortierung
+subcategories	sitemgr	de	Unterkategorien
+subtitle	sitemgr	de	Untertitel
+table of contents	sitemgr	de	Themengebiete
+the name field cannot contain punctuation or spaces (field modified).	sitemgr	de	Das Feld Name darf keine Punkte oder Leerzeichen enthalten (field modified).
+the page name must be unique.	sitemgr	de	Der Seiten Name muss einmalig sein.
+the page was successfully saved.	sitemgr	de	Die Seite wurde erfolgreich gespeichert.
+theme or template select	sitemgr	de	Thema oder Templateauswahl
+there are no pages in this section	sitemgr	de	In diesem Bereich sind keine Seiten vorhanden
+there are no sections available to you.	sitemgr	de	Sie haben auf keinen Zugriff auf die Sektionen.
+there was an error accessing the requested page. either you do not have permission to view this page, or the page does not exist.	common	de	Ein Fehler ist aufgetreten beim Aufruf der angeforderten Seite. Entweder haben Sie nicht die Rechte diese Seite anzusehen, oder diese Seite existiert nicht.
+there was an error writing to the database.	sitemgr	de	Beim schreiben in die Datenbank ist ein Fehler aufgetreten.
+this category has no pages.	sitemgr	de	Diese Kategorie hat keine Seiten.
+title	sitemgr	de	Titel
+translation manager	sitemgr	de	Übersetzungen
+up to table of contents	sitemgr	de	Zum Inhaltsverzeichnis wechseln
+updating to new category system	sitemgr	de	Update zum neuen Kategorie System
+url to sitemgr-site	sitemgr	de	URL zur sitemgr-site
+use phpnuke themes instead of templates	sitemgr	de	Benutze phpNuke Themen anstelle von Templates
+user name	sitemgr	de	Benutzer Name
+view administrative menu	sitemgr	de	Administrations Menü
+view generated site	sitemgr	de	Erstellte Seite ansehen
+web content manager administration	sitemgr	de	Web Content Manager Administration
+write permission	sitemgr	de	Schreibrechte
+yes, please delete it	sitemgr	de	Ja, löschen
+you do not have access to any content on this site.	sitemgr	de	Sie haben keinen Zugriff zum Inhalte dieser Seite.
+you don't have permission to write in the category	sitemgr	de	Sie haben keine Rechte um in dieser Kategorie zu schreiben
+you don't have permission to write to that category.	sitemgr	de	Sie haben nicht die Rechte in diese Kategorie zu schreiben.
+you failed to fill in one or more required fields.	sitemgr	de	Sie haben eines oder mehrere benötigte Felder nicht ausgefüllt.
+you must be an admin to edit categories.	sitemgr	de	Sie benötigen Administrator Rechte zum Editieren der Kategorien.
+you must be an admin to edit the site header and footer.	sitemgr	de	Sie müssen Admin Rechte  haben zum editieren der Seiten Kopf oder Fusszeile
+you must be an administrator to setup the site manager.	sitemgr	de	Sie müssen administrative Rechte haben zum Konfigurieren des Site Managers.
+your calendar	sitemgr	de	Ihr Kalendar

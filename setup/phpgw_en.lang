@@ -1,1 +1,114 @@
-database	setup	en	Database
+add a category	sitemgr	en	Add a category
+add category	sitemgr	en	Add Category
+add new page to this category	sitemgr	en	Add new page to this category
+add page	sitemgr	en	Add Page
+administration	sitemgr	en	Administration
+administrative menu	sitemgr	en	Administrative Menu
+amazon	sitemgr	en	Amazon
+anonymous user login domain	sitemgr	en	Anonymous user login domain
+anonymous user's password	sitemgr	en	Anonymous user's password
+anonymous user's username	sitemgr	en	Anonymous user's username
+are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	en	Are you sure you want to delete the category %1 and all of its associated pages?  You cannot retrieve the deleted pages if you continue.
+basic settings	sitemgr	en	Basic Settings
+block not found	sitemgr	en	Block not found
+block returned no content.	sitemgr	en	Block returned no content.
+cancel the delete	sitemgr	en	Cancel the delete
+cannot move page until it has been saved.	sitemgr	en	Cannot move page until it has been saved.
+category	sitemgr	en	Category
+category description	sitemgr	en	Category Description
+category manager	sitemgr	en	Category Manager
+category name	sitemgr	en	Category Name
+changes saved.	sitemgr	en	Changes saved.
+check here after every upgrade	sitemgr	en	check here after every upgrade
+check to hide from condensed site index.	sitemgr	en	Check to hide from condensed site index.
+choose a category	sitemgr	en	Choose a category
+configure sitemgr	sitemgr	en	Configure SiteMgr
+contact the administrator.	sitemgr	en	Contact the administrator.
+content manager	sitemgr	en	Content Manager
+contributor menu	sitemgr	en	Contributor Menu
+default home page id number	sitemgr	en	Default home page ID number
+don't have an account?	sitemgr	en	Don't have an account?
+done	sitemgr	en	Done
+edit category	sitemgr	en	Edit Category
+edit page	sitemgr	en	Edit Page
+edit site header and footer	sitemgr	en	Edit Site Header and Footer
+error accessing page	common	en	Error accessing page
+filesystem path to sitemgr-site directory	sitemgr	en	Filesystem path to sitemgr-site directory
+footer editor	sitemgr	en	Footer Editor
+go back to page manager	sitemgr	en	Go back to Page Manager
+go back to the category manager.	sitemgr	en	Go back to the category manager.
+go to page manager	sitemgr	en	Go to Page Manager
+google search	sitemgr	en	Google Search
+group access permissions	sitemgr	en	Group Access Permissions
+group name	sitemgr	en	Group Name
+header editor	sitemgr	en	Header Editor
+headlines	sitemgr	en	Headlines
+i'm sorry, you do not have write permissions for any site categories.	sitemgr	en	I'm sorry, you do not have write permissions for any site categories.
+individual access permission	sitemgr	en	Individual Access Permission
+languages the site user can choose from	sitemgr	en	Languages the site user can choose from
+login	sitemgr	en	Login
+login name	sitemgr	en	Login Name
+main content	sitemgr	en	Main content
+manage categories	sitemgr	en	Manage Categories
+manage pages	sitemgr	en	Manage Pages
+move to	sitemgr	en	Move to
+name	sitemgr	en	Name
+no anonymous user accounts installed. notify the administrator.	sitemgr	en	NO ANONYMOUS USER ACCOUNTS INSTALLED. NOTIFY THE ADMINISTRATOR.
+no content found	sitemgr	en	No content found
+no groups defined.	sitemgr	en	No groups defined.
+no options available.	sitemgr	en	No options available.
+no pages available	sitemgr	en	No pages available
+no users defined.	sitemgr	en	No users defined.
+page manager	sitemgr	en	Page Manager
+page saved.	sitemgr	en	Page saved.
+pages	sitemgr	en	Pages
+parent	sitemgr	en	Parent
+password	sitemgr	en	Password
+read permission	sitemgr	en	Read Permission
+register for one now.	sitemgr	en	Register for one now.
+required fields	sitemgr	en	Required Fields
+reset	sitemgr	en	Reset
+return to main menu.	sitemgr	en	Return to main menu.
+root site index	sitemgr	en	Root Site Index
+save	sitemgr	en	Save
+saved	sitemgr	en	Saved
+selected template %1 does not exist.	sitemgr	en	Selected template %1 does not exist.
+selected theme %1 does not exist.	sitemgr	en	Selected theme %1 does not exist.
+show site index	sitemgr	en	Show Site Index
+site format manager	sitemgr	en	Site Format Manager
+site index	sitemgr	en	Site Index
+site name	sitemgr	en	Site name
+sitemgr options	sitemgr	en	SiteMgr Options
+sitemgr setup instructions	sitemgr	en	SiteMgr Setup Instructions
+sort order	sitemgr	en	Sort Order
+subcategories	sitemgr	en	Subcategories
+subtitle	sitemgr	en	Subtitle
+table of contents	sitemgr	en	Table of Contents
+the name field cannot contain punctuation or spaces (field modified).	sitemgr	en	The Name field cannot contain punctuation or spaces (field modified).
+the page name must be unique.	sitemgr	en	The page name must be unique.
+the page was successfully saved.	sitemgr	en	The page was successfully saved.
+theme or template select	sitemgr	en	Theme or template select
+there are no pages in this section	sitemgr	en	There are no pages in this section
+there are no sections available to you.	sitemgr	en	There are no sections available to you.
+there was an error accessing the requested page. either you do not have permission to view this page, or the page does not exist.	common	en	There was an error accessing the requested page. Either you do not have permission to view this page, or the page does not exist.
+there was an error writing to the database.	sitemgr	en	There was an error writing to the database.
+this category has no pages.	sitemgr	en	This category has no pages.
+title	sitemgr	en	Title
+up to table of contents	sitemgr	en	Up to table of contents
+updating to new category system	sitemgr	en	Updating to new category system
+url to sitemgr-site	sitemgr	en	URL to sitemgr-site
+use phpnuke themes instead of templates	sitemgr	en	Use phpNuke themes instead of templates
+user name	sitemgr	en	User Name
+view administrative menu	sitemgr	en	View Administrative Menu
+view generated site	sitemgr	en	View Generated Site
+web content manager administration	sitemgr	en	Web Content Manager Administration
+write permission	sitemgr	en	Write Permission
+yes, please delete it	sitemgr	en	Yes, please delete it
+you do not have access to any content on this site.	sitemgr	en	You do not have access to any content on this site.
+you don't have permission to write in the category	sitemgr	en	You don't have permission to write in the category
+you don't have permission to write to that category.	sitemgr	en	You don't have permission to write to that category.
+you failed to fill in one or more required fields.	sitemgr	en	You failed to fill in one or more required fields.
+you must be an admin to edit categories.	sitemgr	en	You must be an admin to edit categories.
+you must be an admin to edit the site header and footer.	sitemgr	en	You must be an admin to edit the site header and footer.
+you must be an administrator to setup the site manager.	sitemgr	en	You must be an administrator to setup the Site Manager.
+your calendar	sitemgr	en	Your Calendar
