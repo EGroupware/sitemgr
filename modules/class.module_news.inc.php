@@ -40,7 +40,7 @@
 			//we could put this into the module's constructor, but by putting it here, we make it execute only when the block is edited,
 			//and not when it is generated for the web site, thus speeding the latter up slightly
 			$cat = createobject('phpgwapi.categories','','news_admin');
-			$cats = $cat->return_array('mains',0);
+			$cats = $cat->return_array('mains',0,False);
 			$cat_ids = array(0 => 'Mains');
 			while (list(,$category) = @each($cats))
 			{
