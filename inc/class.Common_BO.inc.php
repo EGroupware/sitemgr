@@ -103,17 +103,24 @@
 			$file['Commit Changes'] = $GLOBALS['phpgw']->link('/index.php', 'menuaction=sitemgr.Content_UI.commit');
 			$file['Manage archived content'] = $GLOBALS['phpgw']->link('/index.php', 'menuaction=sitemgr.Content_UI.archive');
 
-			if ($GLOBALS['phpgw_info']['user']['apps']['sitemgr-link'])	// show it only if user has rights to it
+			if (($site = $this->sites->read(CURRENT_SITE_ID)) && $site['site_url'])
 			{
 				$file[] = '_NewLine_';
-				$file['View Generated Site'] = $GLOBALS['phpgw']->link('/sitemgr-link/');
+				$file['View generated Site'] = $site['site_url'].'?mode=Production';
+				if (!$GLOBALS['phpgw_info']['server']['usecookies'])
+				{
+					$file['View generated Site'] .= '&sessionid='.@$GLOBALS['phpgw_info']['user']['sessionid'] .
+						'&kp3=' . @$GLOBALS['phpgw_info']['user']['kp3'] .
+						'&domain=' . @$GLOBALS['phpgw_info']['user']['domain'];
+				}
+				$file['Edit Site'] = $GLOBALS['phpgw']->link('/sitemgr/');
 			}
 			return $file;
 		}
 
 		function get_othermenu()
 		{
-			$numberofsites = $GLOBALS['Common_BO']->sites->getnumberofsites();
+			$numberofsites = $this->sites->getnumberofsites();
 			$isadmin = $GLOBALS['phpgw']->acl->check('run',1,'admin');
 			if ($numberofsites < 2 && !$isadmin)
 			{
@@ -122,14 +129,18 @@
 			$menu_title = lang('Other websites');
 			if ($numberofsites > 1)
 			{
-				$link_data['menuaction'] = 'sitemgr.Common_UI.DisplayMenu';
+				$link_data['menuaction'] = 'sitemgr.Common_UI.DisplayIFrame';
 				$sites = $GLOBALS['Common_BO']->sites->list_sites(False);
 				while(list($site_id,$site) = @each($sites))
 				{
 					if ($site_id != CURRENT_SITE_ID)
 					{
 						$link_data['siteswitch'] = $site_id;
-						$file[$site['site_name']] = $GLOBALS['phpgw']->link('/index.php',$link_data);
+						$file[] = array(
+							'text' => $site['site_name'],
+							'no_lang' => True,
+							'link' => $GLOBALS['phpgw']->link('/index.php',$link_data)
+						);
 					}
 				}
 			}

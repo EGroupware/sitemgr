@@ -15,20 +15,20 @@
 		var $public_functions = array
 		(
 			'DisplayPrefs' => True,
-			'DisplayMenu' => True
+			'DisplayMenu' => True,
+			'DisplayIFrame' => True
 		);
 
 		function Common_UI()
 		{
-			global $Common_BO;
-			$Common_BO = CreateObject('sitemgr.Common_BO');
-			$this->do_sites_exist = $Common_BO->sites->set_currentsite(False,'Administration');
+			$GLOBALS['Common_BO'] = CreateObject('sitemgr.Common_BO');
+			$this->do_sites_exist = $GLOBALS['Common_BO']->sites->set_currentsite(False,'Administration');
 			$this->t = $GLOBALS['phpgw']->template;
-			$this->acl = &$Common_BO->acl;
-			$this->theme = &$Common_BO->theme;
-			$this->pages_bo = &$Common_BO->pages;
-			$this->cat_bo = &$Common_BO->cats;
-			$Common_BO->set_menus();
+			$this->acl = &$GLOBALS['Common_BO']->acl;
+			$this->theme = &$GLOBALS['Common_BO']->theme;
+			$this->pages_bo = &$GLOBALS['Common_BO']->pages;
+			$this->cat_bo = &$GLOBALS['Common_BO']->cats;
+			$GLOBALS['Common_BO']->set_menus();
 		}
 
 
@@ -52,14 +52,26 @@
 			if ($GLOBALS['Common_BO']->othermenu)
 			{
 				$this->t->set_var('lang_othermenu',lang('Other websites'));
-				reset($GLOBALS['Common_BO']->othermenu);
-				while (list($display,$value) = @each($GLOBALS['Common_BO']->othermenu))
+				foreach($GLOBALS['Common_BO']->othermenu as $display => $value)
 				{
-					if ($display == '_NewLine_')
+					if ($display === '_NewLine_')
 					{
 						continue;
 					}
-					$this->t->set_var(array('value'=>$value,'display'=>lang($display)));
+					if (is_array($value))
+					{
+						$this->t->set_var(array(
+							'display' => $value['no_lang'] ? $value['text'] : lang($value['text']),
+							'value'   => $value['link']
+						));
+					}
+					else
+					{
+						$this->t->set_var(array(
+							'display' => lang($display),
+							'value'   => $value
+						));
+					}
 					$this->t->parse('othermenu','menuentry', true);
 				}
 				$this->t->parse('switchhandle','switch');
@@ -72,6 +84,27 @@
 			$this->DisplayFooter();
 		}
 
+		function DisplayIFrame()
+		{
+			if (($site = $GLOBALS['Common_BO']->sites->read(CURRENT_SITE_ID)) && $site['site_url'])
+			{
+				$this->displayHeader($site['site_name']);
+				$site['site_url'] .= '?mode=Edit';
+				if (!$GLOBALS['phpgw_info']['server']['usecookies'])
+				{
+					$site['site_url'] .= '&sessionid='.@$GLOBALS['phpgw_info']['user']['sessionid'] .
+						'&kp3=' . @$GLOBALS['phpgw_info']['user']['kp3'] .
+						'&domain=' . @$GLOBALS['phpgw_info']['user']['domain'];
+				}
+				echo '<div style="width: 100%; height: 100%; min-width: 800px; min-height: 600px">';
+				echo '<iframe src="'.$site['site_url'].'" name="site" width="100%" height="100%" frameborder="0" marginwidth="0" marginheight="0"></iframe>';
+				echo '</div>';
+			}
+			else
+			{
+				$CommonUI->DisplayMenu();
+			}
+		}
 
 		function DisplayPrefs()
 		{
