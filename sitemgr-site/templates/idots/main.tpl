@@ -2,7 +2,7 @@
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title>{sitename}: {title}</title>
-		<meta http-equiv="content-type" content="text/html; {charset}" />
+		<meta http-equiv="content-type" content="text/html; charset={charset}" />
 		<meta http-equiv="expires" content="0" />
 		<meta name="RESOURCE-TYPE" content="DOCUMENT">
 		<meta name="DISTRIBUTION" content="GLOBAL">
@@ -60,7 +60,7 @@
 {contentarea:left}
 				</td>
 				<td id="tdAppbox">
-					<div id="divAppboxHeader">{title}</div>
+					<div id="divAppboxHeader">{title} {editicons}</div>
 					<div id="divAppbox">
 						<h3>{subtitle}</h3>
 {contentarea:center}
