@@ -25,6 +25,6 @@
 	);
 	$setup_info['sitemgr-link']['depends'][] = array(
 		'appname' => 'sitemgr',
-		'versions' => array('0.9.13','0.9.13.001','0.9.14','0.9.14.001')
+		'versions' => array('0.9.13','0.9.13.001','0.9.14','0.9.14.001','0.9.15')
 	);
 ?>
