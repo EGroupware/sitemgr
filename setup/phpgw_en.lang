@@ -21,6 +21,7 @@ administrative menu	sitemgr	en	Administrative Menu
 administrators	sitemgr	en	administrators
 all categories	sitemgr	en	All categories
 all forums in category %1	sitemgr	en	All forums in category %1
+all languages	sitemgr	en	all languages
 allow posting of questions	sitemgr	en	Allow posting of questions
 amazon	sitemgr	en	Amazon
 amazon server (without www), eg. amazon.com	sitemgr	en	Amazon server (without www), eg. amazon.com
@@ -43,6 +44,7 @@ asin[=title] pairs (title is optional)	sitemgr	en	ASIN[=title] pairs (title is o
 attempt to access information outside current website	sitemgr	en	Attempt to access information outside current website
 attempt to edit non-editable block	sitemgr	en	Attempt to edit non-editable block
 automatic index	sitemgr	en	Automatic index
+automatically generated notification	sitemgr	en	Automatically generated notification
 back to module manager	sitemgr	en	Back to module manager
 back to the list of languages	sitemgr	en	Back to the list of languages
 basic settings	sitemgr	en	Basic Settings
@@ -124,11 +126,20 @@ edit site	sitemgr	en	Edit Site
 edit site header and footer	common	en	Edit Site Header and Footer
 edit this block	sitemgr	en	Edit this block
 edit website	sitemgr	en	Edit Website
+egw users	sitemgr	en	egw users
+element successfully deleted.	sitemgr	en	Element successfully deleted.
 enter a name	sitemgr	en	Enter a name
 enter the block content here	sitemgr	en	Enter the block content here
+enter the email to be notified about changes of the website.	sitemgr	en	Enter the email to be notified about changes of the website.
+enter the email to be notified about changes of the website:	sitemgr	en	Enter the email to be notified about changes of the website:
 enter the page content here	sitemgr	en	Enter the page content here
 enterprise knowledge articles repository	sitemgr	en	Enterprise Knowledge articles repository
+entry duplicated.	sitemgr	en	Entry duplicated.
+entry saved.	sitemgr	en	Entry saved.
 error accessing page	common	en	Error accessing page
+error deleting the element.	sitemgr	en	Error deleting the element.
+error writing to the database.	sitemgr	en	Error writing to the database.
+error writing to the database: %1.	sitemgr	en	Error writing to the database: %1.
 everybody	sitemgr	en	everybody
 file %1 is not readable by the webserver !!!	sitemgr	en	File %1 is not readable by the webserver !!!
 file %1 is outside the docroot of the webserver !!!<br>this module does not allow - for security reasons - to open files outside the docroot.	sitemgr	en	File %1 is outside the docroot of the webserver !!!<br>This module does NOT allow - for security reasons - to open files outside the docroot.
@@ -158,6 +169,7 @@ header editor	sitemgr	en	Header Editor
 headlines	sitemgr	en	Headlines
 hello	sitemgr	en	Hello
 hello world	sitemgr	en	Hello world
+helps you respect html/xhtml standards.	sitemgr	en	Helps you respect HTML/XHTML standards.
 html module	sitemgr	en	HTML module
 i'm sorry, you do not have write permissions for any site categories.	sitemgr	en	I'm sorry, you do not have write permissions for any site categories.
 if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	en	If you haven't done so already, create a user that will be used for public viewing of the site.  Recommended name: anonymous.
@@ -191,6 +203,7 @@ manage site-wide content	sitemgr	en	Manage site-wide content
 manage site-wide module properties	sitemgr	en	Manage site-wide module properties
 manage translations	sitemgr	en	Manage Translations
 master list of permitted modules	sitemgr	en	Master list of permitted modules
+messages are defined for all site languages.	sitemgr	en	Messages are defined for all site languages.
 migrating data for %1 to %2	sitemgr	en	Migrating data for %1 to %2
 module %1 is not permitted in this context!	sitemgr	en	Module %1 is not permitted in this context!
 module manager	sitemgr	en	Module manager
@@ -249,7 +262,6 @@ password that you assigned for the anonymous user account.	sitemgr	en	Password t
 path to image-directory '%1' is not valid or readable by the webserver !!!	sitemgr	en	Path to image-directory '%1' is not valid or readable by the webserver !!!
 path to zip binary if not in path of the webserver	sitemgr	en	Path to zip binary if not in path of the webserver
 percentage	sitemgr	en	Percentage
-egw users	sitemgr	en	egw users
 phrases in total	sitemgr	en	Phrases in total
 please enter a name for that site !	sitemgr	en	Please enter a name for that site !
 please sign the guestbook	sitemgr	en	Please sign the guestbook
@@ -322,6 +334,7 @@ suppress link to index (show all)	sitemgr	en	Suppress link to index (show all)
 suppress link to parent category	sitemgr	en	Suppress link to parent category
 suppress the current page	sitemgr	en	Suppress the current page
 table of contents	sitemgr	en	Table of Contents
+template based navigation module	sitemgr	en	Template based navigation module
 template select	sitemgr	en	Template select
 textarea	sitemgr	en	textarea
 the category to display, 0 for complete table of contents	sitemgr	en	The category to display, 0 for complete table of contents
@@ -341,9 +354,11 @@ the url can be relative or absolute.  name must end in a slash.	sitemgr	en	The U
 the url must be absolute and end in a slash, for example http://mydomain.com/mysite/	sitemgr	en	The URL must be absolute and end in a slash, for example http://mydomain.com/mysite/
 the url to redirect to	sitemgr	en	The URL to redirect to
 the web	sitemgr	en	the web
+the website has changed. too see the change, follow this url: $url.	sitemgr	en	The website has changed. Too see the change, follow this URL: $URL.
 the whole page	sitemgr	en	the whole page
 the xml files' common name	sitemgr	en	the XML files' common name
 theme or template select	sitemgr	en	Theme or template select
+there are %1 elements in the list.	sitemgr	en	There are %1 elements in the list.
 there are no categories	sitemgr	en	There are no categories
 there are no forums in this category	sitemgr	en	There are no forums in this category
 there are no pages in this section	sitemgr	en	There are no pages in this section
@@ -352,6 +367,7 @@ there are no sections available to you.	sitemgr	en	There are no sections availab
 there are two subdirectories off of your sitemgr directory that you should move before you do anything else.  you don't <i>have</i> to move either of these directories, although you will probably want to.	sitemgr	en	There are two subdirectories off of your sitemgr directory that you should move before you do anything else.  You don't <i>have</i> to move either of these directories, although you will probably want to.
 there can only be one version in (pre(un))published state, with the one exeption that one prepublished version can coexist with one preunpublished version	sitemgr	en	There can only be one version in (pre(un))published state, with the one exeption that one prepublished version can coexist with one preunpublished version
 there is no website configured for url %1.  notify the administrator.	sitemgr	en	THERE IS NO WEBSITE CONFIGURED FOR URL %1.  NOTIFY THE ADMINISTRATOR.
+there is nothing to list.	sitemgr	en	There is nothing to list.
 there was an error accessing the requested page. either you do not have permission to view this page, or the page does not exist.	common	en	There was an error accessing the requested page. Either you do not have permission to view this page, or the page does not exist.
 there was an error writing to the database.	sitemgr	en	There was an error writing to the database.
 this block displays a javascript based tree menu	sitemgr	en	This block displays a javascript based tree menu
@@ -367,6 +383,7 @@ this module displays a login form	sitemgr	en	This module displays a login form
 this module displays bookmarks in a javascript based tree	sitemgr	en	This module displays bookmarks in a javascript based tree
 this module displays the current month	sitemgr	en	This module displays the current month
 this module displays the egw forums on the web site	sitemgr	en	This module displays the eGW forums on the web site
+this module displays the root categories in one block each, with pages and subcategories (incl. their pages if activated).	sitemgr	en	This module displays the root categories in one block each, with pages and subcategories (incl. their pages if activated).
 this module displays the root categories, its pages and evtl. subcategories. it is meant for side areas	sitemgr	en	This module displays the root categories, its pages and evtl. subcategories. It is meant for side areas
 this module includes the contents of an url or file (readable by the webserver and in its docroot !)	sitemgr	en	This module includes the contents of an URL or file (readable by the webserver and in its docroot !)
 this module is a selectbox to change the mode (production, draft or edit) plus a link back to sitemgr and to log out. it is meant for registered users only	sitemgr	en	This module is a selectbox to change the mode (production, draft or edit) plus a link back to SiteMgr and to log out. It is meant for registered users only
@@ -392,8 +409,10 @@ translate page	sitemgr	en	Translate Page
 translate site-wide content blocks	sitemgr	en	Translate site-wide content blocks
 translation manager	sitemgr	en	Translation Manager
 translation status	sitemgr	en	Translation Status
+unsubscribe	sitemgr	en	Unsubscribe
 up to parent	sitemgr	en	Up to parent
 up to table of contents	sitemgr	en	Up to table of contents
+update notification	sitemgr	en	Update Notification
 updating to new category system	sitemgr	en	Updating to new category system
 url pointing to the image-directory	sitemgr	en	URL pointing to the image-directory
 url to sitemgr-site	sitemgr	en	URL to sitemgr-site
@@ -401,6 +420,7 @@ use phpnuke themes instead of templates	sitemgr	en	Use phpNuke themes instead of
 use this module for displaying book ads for the amazon web site	sitemgr	en	Use this module for displaying book ads for the amazon web site
 use this module for displaying wiki-pages	sitemgr	en	Use this module for displaying wiki-pages
 user name	sitemgr	en	User Name
+validator	sitemgr	en	Validator
 view administrative menu	sitemgr	en	View Administrative Menu
 view full index	sitemgr	en	View full index
 view generated site	sitemgr	en	View Generated Site
