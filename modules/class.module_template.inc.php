@@ -49,7 +49,7 @@
 					'default' => 'zip',
 				),
 			);
-			$this->description = lang('This module lets the users choose a template');
+			$this->description = lang('This module lets the users choose a template or shows a template gallery');
 		}
 
 		function get_content(&$arguments,$properties)
