@@ -85,8 +85,21 @@
 			}
 
 			$wikipage = empty($_GET[$this->wikipage_param]) ? (empty($arguments['startpage']) ? $GLOBALS['HomePage'] : $arguments['startpage']) : stripslashes(urldecode($_GET['wikipage']));
+			$parts = explode(':',$wikipage);
+			if (count($parts) > 1)
+			{
+				$lang = array_pop($parts);
+				if (strlen($lang) == 2 || strlen($lang) == 5 && $lang[2] == '-')
+				{
+					$wikipage = implode(':',$parts);
+				}
+				else
+				{
+					$lang = '';
+				}
+			}
 
-			$pg = $GLOBALS['pagestore']->page($wikipage);
+			$pg = $GLOBALS['pagestore']->page($wikipage,$lang);
 			$pg->read();
 
 			// we need to set ViewBase to the name of the actual page, to get wiki to stay inside this page
