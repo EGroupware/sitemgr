@@ -56,7 +56,7 @@ define('SITEMGR_VIEWABLE_ANONYMOUS',3);
 				if (preg_match_all("/(mosLoadModules|include|include_once|require|require_once)[ (\"']+([^\"']+)/",$str,$matches))
 				{
 					$matches = $matches[2];
-					$conversation = array('includes/footer.php' => 'footer','mainbody.php'=>'center');
+					$conversation = array('includes/footer.php' => 'footer','mainbody.php'=>'center','mainmenu.php'=>'mainmenu');
 					foreach($matches as $n => $name)
 					{
 						if (substr($name,-4) == '.php')
