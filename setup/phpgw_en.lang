@@ -314,7 +314,7 @@ the page was successfully saved.	sitemgr	en	The page was successfully saved.
 the path to the file to be downloaded	sitemgr	en	The path to the file to be downloaded
 the person to say hello to	sitemgr	en	The person to say hello to
 the second directory is the sitemgr-site directory.  this can be moved <i>anywhere</i>.  it can also be named <i>anything</i>.  wherever it winds up, when you point a web browser to it, you will get the generated website.  assuming, of course, that you've accurately completed the setup fields below and also <b><i>edited the config.inc.php</i></b> file.	sitemgr	en	The second directory is the sitemgr-site directory.  This can be moved <i>anywhere</i>.  It can also be named <i>anything</i>.  Wherever it winds up, when you point a web browser to it, you will get the generated website.  Assuming, of course, that you've accurately completed the setup fields below and also <b><i>edited the config.inc.php</i></b> file.
-the text for the link, if empty the module returns the raw url (without the html a element)	sitemgr	en	The text for the link, if empty the module returns the raw URL (without the HTML A element
+the text for the link, if empty the module returns the raw url (without a link)	sitemgr	en	The text for the link, if empty the module returns the raw URL (without a link)
 the url can be relative or absolute.  name must end in a slash.	sitemgr	en	The URL can be relative or absolute.  Name must end in a slash.
 the url must be absolute and end in a slash, for example http://mydomain.com/mysite/	sitemgr	en	The URL must be absolute and end in a slash, for example http://mydomain.com/mysite/
 the url to redirect to	sitemgr	en	The URL to redirect to

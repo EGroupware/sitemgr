@@ -300,7 +300,7 @@ the page was successfully saved.	sitemgr	da	Siden var sucessrigt gemt.
 the path to the file to be downloaded	sitemgr	da	Stien til filen som skal hentes
 the person to say hello to	sitemgr	da	Personen at sige goddag til
 the second directory is the sitemgr-site directory.  this can be moved <i>anywhere</i>.  it can also be named <i>anything</i>.  wherever it winds up, when you point a web browser to it, you will get the generated website.  assuming, of course, that you've accurately completed the setup fields below and also <b><i>edited the config.inc.php</i></b> file.	sitemgr	da	Det andet er sitemgr-site biblioteket. Den kan flyttes <i>hvor som helst</i> Den kan også navngives <i>hvor som helst</i>. Hvor endt den er, er stien hvor du skal skrive stien i din webbrowser for at se den genererede webside. Forudsat selvfølgelig, at du har omhyggeligt har fuldført opsætningen i felterne nedenunder og <b><i>redigeret config.inc.php filen.</i></b>
-the text for the link, if empty the module returns the raw url (without the html a element)	sitemgr	da	
+the text for the link, if empty the module returns the raw url (without a link)	sitemgr	da	
 the url can be relative or absolute.  name must end in a slash.	sitemgr	da	URL'en kan være relativ eller absolut. Navne skal ende med en skråstreg
 the url must be absolute and end in a slash, for example http://mydomain.com/mysite/	sitemgr	da	URL'en skal være absolut og ende med en stråstreg, f.eks. http://mitdomæne.dk/minwebside/
 the url to redirect to	sitemgr	da	Viderestil til følgende URL

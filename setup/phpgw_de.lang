@@ -102,7 +102,7 @@ domain-name (offical dns-name eg. www.egroupware.org) if you want to give the us
 don't have an account?	sitemgr	de	Sie haben keinen Benutzerkonto?
 done	sitemgr	de	Fertig
 download as zip-archiv	sitemgr	de	als ZIP-Archiv herunterladen
-downloaded	sitemgr	de	Download abgeschlossen
+downloaded	sitemgr	de	herunterladen
 draft	sitemgr	de	Entwurf
 draft mode	sitemgr	de	Entwurfsmodus
 edit categories and permissions	common	de	Kategorien und Zugriffsrechte bearbeiten
@@ -268,7 +268,7 @@ select persons and groups that are entitled to configure the website.	sitemgr	de
 select the templates the user is allowed to see	sitemgr	de	Designvorlagen auswählen die der Benutzer sehen darf
 selected template %1 does not exist.	sitemgr	de	Das ausgewählte Design %1 ist nicht verfügbar.
 selected theme %1 does not exist.	sitemgr	de	Das ausgewählte Thema %1 ist nicht verfügbar.
-should the file be viewed in the browser or downloaded	sitemgr	de	Soll die Datei im Browser angezeigt werden oder lokal gespeichert werden
+should the file be viewed in the browser or downloaded	sitemgr	de	Soll die Datei im Browser angezeigt oder heruntergelanden werden
 show a template-gallery (thumbnail and informations)	sitemgr	de	Galerie mit Designvorlagen (Bilder und Informationen) anzeigen
 show details for the applications	sitemgr	de	Zeite Details über die einzelnen Anwendungen
 show only (in the next field) selected templates	sitemgr	de	Zeige nur die (im nächsten Feld) ausgewählten Designvorlagen
@@ -313,10 +313,10 @@ the first directory to think about is sitemgr-link.  if you move this to the par
 the name field cannot contain punctuation or spaces (field modified).	sitemgr	de	Das Feld Name darf keine Punkte oder Leerzeichen enthalten (field modified).
 the page name must be unique.	sitemgr	de	Der Seiten Name muss einmalig sein.
 the page was successfully saved.	sitemgr	de	Die Seite wurde erfolgreich gespeichert.
-the path to the file to be downloaded	sitemgr	de	Der Pfad zu Datei welche lokal gespeichert werden soll
+the path to the file to be downloaded	sitemgr	de	Der Pfad zur Datei die heruntergelanden werden soll
 the person to say hello to	sitemgr	de	Die Person welche hello gesagt wird
 the second directory is the sitemgr-site directory.  this can be moved <i>anywhere</i>.  it can also be named <i>anything</i>.  wherever it winds up, when you point a web browser to it, you will get the generated website.  assuming, of course, that you've accurately completed the setup fields below and also <b><i>edited the config.inc.php</i></b> file.	sitemgr	de	Das zweite Verzeichnis ist das sitemmgr-site Verzeichnis. Dieses können Sie an einen <i>beliebigen</i> Platz verschieben. Sie können diesem Verzeichnis auch einen <i>beliebigen</i> Namen geben. Unabhängig vom Namen und dem Ort an welchem es sich befindet wird die erzeugte Seite angezeigt. Bedingung hierfür ist jedoch das die Setup Informationen vollständig und richtig eingegeben wurden und die Datei <b>config.inc.php</b> bearbeitet wurde.
-the text for the link, if empty the module returns the raw url (without the html a element)	sitemgr	de	Der Text für den Link, falls kein Eintrag vorhanden ist gibt das Modul die rohe URL aus (ohne das HTML Element A)
+the text for the link, if empty the module returns the raw url (without a link)	sitemgr	de	Der Text für den Link, wenn leer gibt das Modul die rohe URL aus (ohne einen Link)
 the url can be relative or absolute.  name must end in a slash.	sitemgr	de	Die URL kann absolute oder relativ angegeben werden. Der Pfad muss mit einem Slash "/" enden.
 the url must be absolute and end in a slash, for example http://mydomain.com/mysite/	sitemgr	de	Die URL muss absolut sein und mit einem Slash "/" enden, zB. http://mydomain.com/mysite/
 the url to redirect to	sitemgr	de	Die URL auf die umgeleitet werden soll
@@ -341,7 +341,7 @@ this is a simple sample module	sitemgr	de	Dies ist ein einfaches Beispiel Modul
 this is only used as an internal name for the website.	sitemgr	de	Dies wird nur als interner Name der Website verwendet.
 this is used chiefly for meta data and the title bar. if you change the site languages below you have to save before being able to set this preference for a new language.	sitemgr	de	Dieser Eintrag wird hauptsächlich für die META-Daten und den Seiten Titel benutzt. Wenn Sie weiter unten die Seitensprache ändern, müssen Sie zuerst speichern bevor Sie diese Einstellungen für eine andere Sprache eintragen können.
 this is used chiefly for meta data. if you change the site languages below you have to save before being able to set this preference for a new language.	sitemgr	de	Dieser Eintrag wird hauptsächlich für die META-Daten benutzt. Wenn Sie weiter unten die Seitensprache ändern, müssen Sie zuerst speichern bevor Sie diese Einstellungen für eine andere Sprache eintragen können.
-this module create a link for downloading a file from the vfs	sitemgr	de	Dieses Modul stellt einen Link bereit zum lokalen speichern eine Datei aus dem VFS
+this module create a link for downloading a file from the vfs	sitemgr	de	Dieses Modul liefert einen Link zum herunterladen einer Datei aus dem VFS
 this module demonstrates how handling data stored in xml and building an interacvite interface from it	sitemgr	de	Dieses Modul zeigt wie interaktives Interface erzeugen kann mit Informationen, welche im XML Format gespeichert sind
 this module displays a login form	sitemgr	de	Dieses Modul bietet ein Anmelde Formular
 this module displays bookmarks in a javascript based tree	sitemgr	de	Diese Modul zeigt Lesezeichen (Bookmarks) in einer javascript basierenden Baumansicht
@@ -386,7 +386,7 @@ view full index	sitemgr	de	Gesamtindex
 view generated site	sitemgr	de	Erstellte Seite ansehen
 view template on this site	sitemgr	de	Designvorlage auf dieser Website ansehen
 view threads	sitemgr	de	Threads anzeigen
-viewed	sitemgr	de	angesehen
+viewed	sitemgr	de	anzeigen
 web content manager	common	de	SiteMgr Contentmanagement
 web content manager administration	sitemgr	de	Web Content Manager Administration
 web site manager	sitemgr	de	Verwaltung der Website
