@@ -39,7 +39,7 @@ class module_google extends Module
 		if ($arguments['sitesearch'])
 		{
 			$content .= '<div style="margin-top: 5px;">'."\n";
-			$content .= '<input id="this_site" type="radio" checked="1" name="sitesearch" value="www.egroupware.org" />'."\n";
+			$content .= '<input id="this_site" type="radio" checked="1" name="sitesearch" value="'.$arguments['sitesearch'].'" />'."\n";
 			$content .= '<label for="this_site">'.lang('this site')."</label>\n";
 			$content .= '<input id="the_web" type="radio" name="sitesearch" value="" />'."\n";
 			$content .= '<label for="the_web">'.lang('the web')."</label>\n";
