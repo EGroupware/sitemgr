@@ -9,12 +9,14 @@ if (eregi("block-SiteIndex.php",$PHP_SELF)) {
 		if ($GLOBALS['page_id'])
 		{
 			$page = ExecMethod('sitemgr.Pages_SO.getPage',$GLOBALS['page_id']);
+			$page_id = $GLOBALS['page_id'];
 			$cat_id = (int) $page->cat_id;
 			unset($page);
 		}
 		elseif ($GLOBALS['page_name'])
 		{
 			$page = ExecMethod('sitemgr.Pages_SO.getPageByName',$GLOBALS['page_name']);
+			$page_id = $page->id;
 			$cat_id = (int) $page->cat_id;
 			unset($page);
 		}
@@ -51,10 +53,20 @@ if (eregi("block-SiteIndex.php",$PHP_SELF)) {
 		}
 		if (count($pagelinks)>1 || (count($pagelinks)>0 && $content))
 		{
-			$content .= "\n".'<b>Pages:</b><br>';
-			foreach ($pagelinks as $pagelink)
+			$content .= "\n".'<b>Pages:</b>';
+			$content .= ' (<a href="'.sitemgr_link2('/index.php','category_id='.$cat_id).
+				'"><i>show all</i></a>)<br>';
+			reset($pagelinks);
+			while(list($pagelink_id,$pagelink) = each($pagelinks))
 			{
-				$content .= '&nbsp;&middot;&nbsp;'.$pagelink['link'].'<br>';
+				if ($page_id && $page_id == $pagelink_id)
+				{
+					$content .= '&nbsp;&gt;'.$pagelink['link'].'&lt;<br>';
+				}
+				else
+				{
+					$content .= '&nbsp;&middot;&nbsp;'.$pagelink['link'].'<br>';
+				}
 			}
 		}
 	}
