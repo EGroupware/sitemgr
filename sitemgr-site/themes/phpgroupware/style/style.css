@@ -1,29 +1,30 @@
 FONT {
-	FONT-FAMILY: Verdana,Helvetica,Geneva,Arial; 
-	FONT-SIZE: 10px
+	FONT-FAMILY: Verdana,Arial,Helvetica,Geneva; 
+	FONT-SIZE: 11px
 }
 H1 {
-	FONT-FAMILY: Verdana,Helvetica,Geneva,Arial; 
+	FONT-FAMILY: Verdana,Arial,Helvetica,Geneva; 
+	FONT-SIZE: 22px;
 	COLOR: #ffffff
 }
 TD {
 	FONT-FAMILY: Verdana,Helvetica,Geneva,Arial; 
-	FONT-SIZE: 10px
+	FONT-SIZE: 12px
 }
 BODY {
 	FONT-FAMILY: Verdana,Helvetica,Geneva,Arial; 
 	COLOR: #ffffff; 
-	FONT-SIZE: 10px
+	FONT-SIZE: 12px
 }
 P {
-	FONT-FAMILY: Verdana,Helvetica,Geneva,Arial; 
+	FONT-FAMILY: Verdana,Arial,Helvetica,Geneva; 
 	COLOR: #ffffff;
-	FONT-SIZE: 10px
+	FONT-SIZE: 12px
 }
 DIV {
 	FONT-FAMILY: Verdana,Helvetica,Geneva,Arial; 
 	COLOR: #ffffff;
-	FONT-SIZE: 10px
+	FONT-SIZE: 12px
 }
 INPUT {
 	BORDER-TOP-COLOR: #000000; 
@@ -67,35 +68,43 @@ FORM {
 }
 A:link {
 	BACKGROUND: none; 
-	COLOR: #363636; 
-	FONT-SIZE: 10px; 
+	COLOR: #eeeeee; 
+	FONT-SIZE: 12px; 
 	FONT-FAMILY: Verdana, Helvetica,Geneva,Arial; 
 	TEXT-DECORATION: underline
 }
 A:active        {
 	BACKGROUND: none; 
-	COLOR: #363636; 
-	FONT-SIZE: 10px; 
+	COLOR: #eeeeee; 
+	FONT-SIZE: 12px; 
 	FONT-FAMILY: Verdana, Helvetica,Geneva,Arial; 
 	TEXT-DECORATION: underline
 }
 A:visited       {
 	BACKGROUND: none; 
-	COLOR: #363636; 
-	FONT-SIZE: 10px; 
+	COLOR: #eeeeee; 
+	FONT-SIZE: 12px; 
 	FONT-FAMILY: Verdana, Helvetica,Geneva,Arial; 
 	TEXT-DECORATION: underline
 }
 A:hover         {
 	BACKGROUND: none; 
 	COLOR: #363636; 
-	FONT-SIZE: 10px; 
 	FONT-FAMILY: Verdana, Helvetica,Geneva,Arial; 
+	FONT-SIZE: 12px; 
 	TEXT-DECORATION: underline
 }
+.release-num {
+	COLOR: #000000;
+	FONT-SIZE: 9px;
+	TEXT-DECORATION: underline;
+	FONT-FAMILY: Verdana, Arial,Helvetica,Geneva
+}
+
 .release {
 	COLOR: #000000;
-	FONT-SIZE: 8px;
+	FONT-SIZE: 10px;
+	FONT-FAMILY: Verdana, Arial,Helvetica,Geneva; 
 	FONT-WEIGHT: bold;
 }
 .minicalendar {
@@ -106,7 +115,7 @@ A:hover         {
 .title 		{
 	BACKGROUND: none; 
 	COLOR: #000000; 
-	FONT-SIZE: 14px; 
+	FONT-SIZE: 16px; 
 	FONT-WEIGHT: bold; 
 	FONT-FAMILY: Verdana, Helvetica,Geneva,Arial; 
 	TEXT-DECORATION: none
@@ -119,9 +128,10 @@ A:hover         {
 }
 .block-title	{
 	BACKGROUND: none; 
-	COLOR: #FFFFFF; 
-	FONT-SIZE: 10px; 
-	FONT-FAMILY: Verdana, Helvetica
+	COLOR: #537991; 
+	FONT-SIZE: 12px; 
+	FONT-WEIGHT: bold;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
 }
 .storytitle 	{
 	BACKGROUND: none; 
