@@ -1,17 +1,17 @@
 <?php
-	/**************************************************************************\
-	* eGroupWare SiteMgr - Web Content Management                              *
-	* http://www.egroupware.org                                                *
-	* --------------------------------------------                             *
-	*  This program is free software; you can redistribute it and/or modify it *
-	*  under the terms of the GNU General Public License as published by the   *
-	*  Free Software Foundation; either version 2 of the License, or (at your  *
-	*  option) any later version.                                              *
-	\**************************************************************************/
+  /**************************************************************************\
+  * eGroupWare SiteMgr - Web Content Management                              *
+  * http://www.egroupware.org                                                *
+  * --------------------------------------------                             *
+  *  This program is free software; you can redistribute it and/or modify it *
+  *  under the terms of the GNU General Public License as published by the   *
+  *  Free Software Foundation; either version 2 of the License, or (at your  *
+  *  option) any later version.                                              *
+  \**************************************************************************/
 
-	/* $Id$ */
+  /* $Id$ */
 
-	$phpgw_baseline = array(
+  	$phpgw_baseline = array(
 		'phpgw_sitemgr_pages' => array(
 			'fd' => array(
 				'page_id' => array('type' => 'auto','nullable' => False),
@@ -160,5 +160,31 @@
 			'fk' => array(),
 			'ix' => array('site_url'),
 			'uc' => array()
+		),
+		'phpgw_sitemgr_notifications' => array(
+			'fd' => array(
+				'notification_id' => array('type' => 'auto','nullable' => False),
+				'site_id' => array('type' => 'int','precision' => '4','nullable' => False),
+				'site_language' => array('type' => 'varchar','precision' => '3','nullable' => False,'default' => 'all'),
+				'cat_id' => array('type' => 'int','precision' => '4','nullable' => False,'default' => '0'),
+				'email' => array('type' => 'varchar','precision' => '255','nullable' => False)
+			),
+			'pk' => array('notification_id'),
+			'fk' => array('site_id' => 'phpgw_sitemgr_sites'),
+			'ix' => array('email'),
+			'uc' => array('notification_id')
+		),
+		'phpgw_sitemgr_notify_messages' => array(
+			'fd' => array(
+				'message_id' => array('type' => 'auto','nullable' => False),
+				'site_id' => array('type' => 'int','precision' => '4','nullable' => False),
+				'language' => array('type' => 'varchar','precision' => '3'),
+				'message' => array('type' => 'text','nullable' => False),
+				'subject' => array('type' => 'text','nullable' => False)
+			),
+			'pk' => array('message_id'),
+			'fk' => array('site_id' => 'phpgw_sitemgr_sites'),
+			'ix' => array(),
+			'uc' => array(array('site_id','language'))
 		)
 	);

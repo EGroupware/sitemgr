@@ -496,6 +496,15 @@
       return $this->db->next_record() ? $this->db->f('title') : false;
     }
 
+    function getblockstate($block_id)
+    {
+      $cols = array('block_id' => $block_id);
+
+      $this->db->select($this->content_table,'state',$cols,__LINE__,__FILE__);
+        
+      return $this->db->next_record() ? $this->db->f('title') : false;
+    }
+
     /**
      * Save block-data: sort-order and by whom viewable 
      * @param object $block block-object
@@ -549,7 +558,7 @@
     }
 
     /**
-     * Save block-data: the language independent state of a version of block-content
+     * Save block-state
      * @param int $block_id block-id
      * @param int $version_id version-id
      * @param int $state state 
@@ -574,8 +583,6 @@
      */
     function saveversiondatalang($version_id,$data,$lang)
     {
-echo "<PRE>"; print_r($data); echo "/n"; echo $lang; echo "</PRE>";
-
       //this is necessary because double slashed data breaks while serialized
       if (isset($data))
       {
@@ -645,4 +652,4 @@ echo "<PRE>"; print_r($data); echo "/n"; echo $lang; echo "</PRE>";
           'block_id' => $block_id,
         ), __LINE__,__FILE__);
     }
-  }
+}
