@@ -364,7 +364,7 @@
       }
       else
       {
-        echo '<p><center><b>'.lang('Attempt to access information outside current website').": cat_id=$cat_id".'</b></center>';
+        echo '<p><center><b>'.lang('Attempt to access information outside current website').': cat_id='.htmlspecialchars($cat_id).'</b></center>';
         //echo "Backtrace:<pre>".print_r(debug_backtrace(),True)."</pre>\n";
         $GLOBALS['phpgw']->common->phpgw_exit(True);
       }
