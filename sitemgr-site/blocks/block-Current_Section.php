@@ -27,9 +27,19 @@ if (eregi("block-SiteIndex.php",$PHP_SELF)) {
 		$pagelinks = $bo->getPageLinks($cat_id,false);
 		$category = ExecMethod('sitemgr.Categories_BO.getCategory',$cat_id);
 		$title = $category->name.' Section';
+		$parent = $category->parent;
 		unset($bo);
+		unset($category);
 
 		$content = '';
+		if ($parent)
+		{
+			$parentcat = ExecMethod('sitemgr.Categories_BO.getCategory',$parent);
+			$content .= "\n".'<b>Parent Section:</b><br>&nbsp;&middot;&nbsp;<a href="'.
+				sitemgr_link2('/index.php','category_id='.$parent).'">'.$parentcat->name.
+				'</a><br><br>';
+			unset($parentcat);
+		}
 		if (count($catlinks))
 		{
 			$content .= "\n".'<b>Subsections:</b><br>';
@@ -39,7 +49,7 @@ if (eregi("block-SiteIndex.php",$PHP_SELF)) {
 			}
 			$content .= '<br>';
 		}
-		if (count($pagelinks)>1)
+		if (count($pagelinks)>1 || (count($pagelinks)>0 && $content))
 		{
 			$content .= "\n".'<b>Pages:</b><br>';
 			foreach ($pagelinks as $pagelink)
