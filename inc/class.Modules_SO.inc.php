@@ -142,11 +142,10 @@
 			foreach($modules as $module_id)
 			{
 				$this->db->insert($this->active_modules_table,array(
-						'module_id' => $module_id
-					),array(
+						'module_id' => $module_id,
 						'area'	=> $contentarea,
 						'cat_id'=> $cat_id,
-					),__LINE__,__FILE__);
+					),False,__LINE__,__FILE__);
 			}
 		}
 
