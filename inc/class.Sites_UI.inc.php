@@ -174,6 +174,10 @@
 				{
 					$GLOBALS['phpgw']->template->set_var('message',lang('Please enter a name for that site !'));
 				}
+				elseif (!is_dir($site['dir']) || !is_readable($site['dir'].'/config.inc.php'))
+				{
+					$GLOBALS['phpgw']->template->set_var('message',lang("'%1' is no valid sitemgr-site directory !!!",$site['dir']));
+				}
 				elseif ($site_id)
 				{
 					$this->bo->update($site_id,$site);
@@ -185,12 +189,14 @@
 					// save some default prefs, so that the site works instantly
 					$this->bo->saveprefs(array(
 						'home_page_id' => 0,	// Index
-						'themesel' => '3D-Fantasy',
-						'site_languages' => 'en'
+						'themesel' => 'idots',
+						'site_languages' => $GLOBALS['phpgw_info']['user']['preferences']['common']['lang']
 					),$site_id);
 					// allow all modules for the whole page
 					$GLOBALS['Common_BO']->modules->savemodulepermissions('__PAGE__',$site_id,array_keys($GLOBALS['Common_BO']->modules->getallmodules()));
-					$GLOBALS['phpgw']->template->set_var('message',lang('Site %1 has been added',$site['_name']));
+
+					$GLOBALS['phpgw']->template->set_var('message',lang('Site %1 has been added, you need to %2configure the site%3 now',
+						$site['_name'],'<a href="'.$GLOBALS['phpgw']->link('/index.php',array('menuaction'=>'sitemgr.Common_UI.DisplayPrefs')).'">','</a>'));
 				}
 			}
 			else
@@ -200,6 +206,15 @@
 			if ($site_id)
 			{
 				$site = $this->bo->read($site_id);
+			}
+			else
+			{
+				$site = array(
+					'site_dir' => PHPGW_SERVER_ROOT . '/sitemgr/sitemgr-site',
+					'site_url' => $GLOBALS['phpgw_info']['server']['webserver_url'] . '/sitemgr/sitemgr-site/',
+					'anonymous_user' => 'anonymous',
+					'anonymous_passwd' => 'anonymous',
+				);
 			}
 
 			$GLOBALS['phpgw']->template->set_var('title_sites',$site_id ? lang('Edit Website') : lang('Add Website'));
@@ -263,12 +278,13 @@
 			$accounts = $GLOBALS['phpgw']->accounts->get_list();
 			$admin_list = $this->bo->get_adminlist($site_id);
 
-			while (list($null,$account) = each($accounts))
+			foreach($accounts as $account)
 			{
 				$selectlist .= '<option value="' . $account['account_id'] . '"';
- 				if($admin_list[$account['account_id']] == SITEMGR_ACL_IS_ADMIN)
+ 				if($admin_list[$account['account_id']] == SITEMGR_ACL_IS_ADMIN ||
+				   !$site_id && $account['account_lid'] == 'Admins')
 				{
-					$selectlist .= ' selected="selected"';
+					$selectlist .= ' selected="1"';
 				}
 				$selectlist .= '>' . $account['account_firstname'] . ' ' . $account['account_lastname']
 										. ' [ ' . $account['account_lid'] . ' ]' . '</option>' . "\n";

@@ -1,5 +1,6 @@
 %1 content manager	sitemgr	de	%1 Inhaltsmanager
 %1 module manager	sitemgr	de	%1 Modulmanager
+'%1' is no valid sitemgr-site directory !!!	sitemgr	de	'%1' ist kein gültiges sitemgr-site Verzeichnis !!!
 (do not put spaces or punctuation in the name field.)	sitemgr	de	(Im Namensfeld sind keine Leer- oder Satzzeichen erlaubt.)
 a simple picture galery	sitemgr	de	Eine einfache Bilder Gallerie
 actif	sitemgr	de	Aktiv
@@ -24,8 +25,6 @@ anonymous	sitemgr	de	Anonymer Benutzer
 anonymous user login domain	sitemgr	de	Anonymer Benutzer login Domain
 anonymous user's password	sitemgr	de	Anonymer Benutzer Password
 anonymous user's username	sitemgr	de	Anonymer Benutzer Username
-anonymous user\'s password	sitemgr	de	Anonymer Benutzer Password
-anonymous user\'s username	sitemgr	de	Anonymer Benutzer Username
 apply permissions also to subcategories?	sitemgr	de	Zugriffsrechte auch auf Unterkategorien anwenden?
 archived	sitemgr	de	Archiviert
 archived content	sitemgr	de	Archivierter Inhalt
@@ -212,8 +211,8 @@ password that you assigned for the anonymous user account.	sitemgr	de	Passwort d
 phpgw users	sitemgr	de	eGroupWare Benutzer
 please enter a name for that site !	sitemgr	de	Bitte geben sie einen Namen für die Website an !
 post a message to this thread	sitemgr	de	Eine Nachricht in diesem Thread posten.
-prepublished	sitemgr	de	vorveröffentlicht
-preunpublished	sitemgr	de	nicht mehr vorveröffentlicht
+prepublished	sitemgr	de	zu veröffentlichen
+preunpublished	sitemgr	de	zu archivieren
 previous	sitemgr	de	Vorhergehend
 production mode	sitemgr	de	Produktionsmodus
 published	sitemgr	de	Veröffentlicht
@@ -246,7 +245,7 @@ show searchbox	sitemgr	de	Suchfeld anzeigen
 show site index	sitemgr	de	Site Inhaltsverzeichnis anzeigen
 show subcategories	sitemgr	de	Unterkategorien anzeigen
 site	sitemgr	de	Website
-site %1 has been added	sitemgr	de	Website %1 wurde hinzugefügt
+site %1 has been added, you need to %2configure the site%3 now	sitemgr	de	Website %1 wurde zugefügt, sie sollten die %2Website jetzt konfigurieren%3
 site %1 has been updated	sitemgr	de	Website %1 wurde aktualisiert
 site administrators	sitemgr	de	Website Administratoren
 site description	sitemgr	de	Beschreibung der Website

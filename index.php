@@ -21,6 +21,11 @@
 	include('../header.inc.php');
 
 	$CommonUI = CreateObject('sitemgr.Common_UI');
+
+	if (!$CommonUI->do_sites_exist && $GLOBALS['phpgw_info']['user']['apps']['admin'])
+	{
+		$GLOBALS['phpgw']->redirect_link('/index.php',array('menuaction'=>'sitemgr.Sites_UI.edit'));
+	}
 	$CommonUI->DisplayIFrame();
 
 	$GLOBALS['phpgw']->common->phpgw_footer();

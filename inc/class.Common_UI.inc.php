@@ -371,15 +371,10 @@
 		{
 			$GLOBALS['phpgw_info']['flags']['app_header'] = $GLOBALS['phpgw_info']['apps']['sitemgr']['title'].
 				($extra_title ? ' - '.$extra_title : '');
+			$GLOBALS['phpgw']->common->phpgw_header();
 
-			if ($this->do_sites_exist)
+			if ($this->do_sites_exist && $GLOBALS['phpgw_info']['server']['template_set'] != 'idots')
 			{
-				if ($GLOBALS['phpgw_info']['server']['template_set'] == 'idots')
-				{
-					$GLOBALS['phpgw']->common->phpgw_header();
-					echo parse_navbar();
-					return;
-				}
 				$this->t->set_file('sitemgr_header','sitemgr_header.tpl');
 				$this->t->set_block('sitemgr_header','switch','switchhandle');
 				$this->t->set_var('menulist',$this->menuselectlist());
@@ -393,21 +388,15 @@
 					$this->t->set_var('switchhandle','');
 				}
 				$GLOBALS['phpgw_info']['flags']['app_header'] .= $this->t->parse('out','sitemgr_header');
-				$GLOBALS['phpgw']->common->phpgw_header();
-				echo parse_navbar();
 			}
-			else
-			{
-				$GLOBALS['phpgw']->common->phpgw_header();
-				echo lang('No websites defined');
-				$GLOBALS['phpgw']->common->phpgw_exit(True);
-			}
+			echo parse_navbar();
 		}
 
 		function DisplayFooter()
 		{
-			$this->t->set_file('sitemgr_footer','sitemgr_footer.tpl');
-			$this->t->pfp('out','sitemgr_footer');
+			// is empty atm
+			// $this->t->set_file('sitemgr_footer','sitemgr_footer.tpl');
+			// $this->t->pfp('out','sitemgr_footer');
 		}
 
 		function siteselectlist()
