@@ -1,6 +1,6 @@
 <script>{focus_reload_close}</script>
 <div id="divMain">
-<form method="POST">
+<form method="POST" action="{action_url}">
 <input type="hidden" name="inputcatid" value="{cat_id}">
 <input type="hidden" name="inputparentold" value="{old_parent}">
 <table align="center" border ="0" width="80%" cellpadding="5" cellspacing="0">

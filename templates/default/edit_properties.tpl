@@ -1,7 +1,6 @@
 <div style="margin-bottom:1cm;font-weight:bold;text-align:center;text-decoration:underline">{module_edit}</div>
-<form method="POST">
 <div style="border-width:2px;border-style:solid; margin:5mm;padding:5mm">
-<form method="POST">
+<form method="POST" action="{action_url}">
 <table>
 <!-- BEGIN EditorElement -->
 	<tr>

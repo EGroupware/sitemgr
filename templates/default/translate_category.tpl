@@ -1,5 +1,5 @@
 <div style="text-align:center; color:#FF0000; font-weight:bold;"><b>{error_msg}</b></div>
-<form name="translatecategory" method="POST">
+<form name="translatecategory" method="POST" action="{action_url}">
 <input type="hidden" name="category_id" value="{catid}">
 
 <table style="border-width:2px;border-style:solid;" align="center" border="1" rules="all" width="80%" cellpadding="5">

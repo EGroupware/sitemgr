@@ -64,7 +64,8 @@
 				'lang_catname' => lang('Category Name'),
 				'translate_site_content' => $GLOBALS['phpgw']->link('/index.php', $link_data),
 				'lang_site_content' => lang('Translate site-wide content blocks'),
-				'colspan' => (count($this->sitelanguages) + 2)
+				'colspan' => (count($this->sitelanguages) + 2),
+				'action_url' => $GLOBALS['phpgw']->link('/index.php',array('menuaction'=>'sitemgr.Translations_UI.manage')),
 			));
 			$cat_list = $this->cat_bo->getpermittedcatsWrite();
 			if($cat_list)
@@ -96,7 +97,7 @@
 					}
 
 					$link_data['menuaction'] = 'sitemgr.Translations_UI.translateCategory';
-					$link_data['category_id'] = $cat_list[$i];
+					$link_data['cat_id'] = $cat_list[$i];
 					$this->t->set_var('translatecat',
 						'<form action="' . $GLOBALS['phpgw']->link('/index.php',$link_data) .
 						'" method="POST"><input type="submit" name="btnTranslateCategory" value="' . lang('Translate') .'"></form>');
@@ -145,11 +146,11 @@
 		{
 			$GLOBALS['Common_BO']->globalize(array('changelanguage','showlanguage','savelanguage','btnSaveCategory','savecatname','savecatdesc','btnSaveBlock','element','blockid','blocktitle'));
 			global $changelanguage, $showlanguage, $savelanguage, $btnSaveCategory, $savecatname, $savecatdesc,$btnSaveBlock;
-			$category_id = $_GET['category_id'];
+			$cat_id = $_GET['cat_id'];
 
 			if ($btnSaveCategory)
 			{
-				$this->cat_bo->saveCategoryLang($category_id, $savecatname, $savecatdesc, $savelanguage);
+				$this->cat_bo->saveCategoryLang($cat_id, $savecatname, $savecatdesc, $savelanguage);
 			}
 			elseif ($btnSaveBlock)
 			{
@@ -171,16 +172,16 @@
 			}
 			else
 			{
-				$cat = $this->cat_bo->getCategory($category_id);
+				$cat = $this->cat_bo->getCategory($cat_id);
 				$showlanguage = $showlanguage ? $showlanguage : $this->sitelanguages[0];
-				$showlangdata = $this->cat_bo->getCategory($category_id,$showlanguage);
+				$showlangdata = $this->cat_bo->getCategory($cat_id,$showlanguage);
 				$savelanguage = $savelanguage ? $savelanguage : $this->sitelanguages[1];
-				$savelangdata = $this->cat_bo->getCategory($category_id,$savelanguage);
+				$savelangdata = $this->cat_bo->getCategory($cat_id,$savelanguage);
 
 				$this->templatehelper();
 				$this->t->set_var(Array(
 //					'translate' => lang('Translate Category'),
-					'catid' => $category_id,
+					'catid' => $cat_id,
 					'lang_catname' => lang('Category Name'),
 					'showcatname' => $showlangdata->name,
 					'savecatname' => $savelangdata->name,
@@ -188,10 +189,14 @@
 					'showcatdesc' => $showlangdata->description,
 					'savecatdesc' => $savelangdata->description,
 					'lang_contentblocks' => lang('Content blocks for category'),
+					'action_url' => $GLOBALS['phpgw']->link('/index.php',array(
+						'menuaction'=>'sitemgr.Translation_UI.translateCategory',
+						'cat_id' => $cat_id,
+					)),
 				));
 
 				//Content blocks
-				$this->process_blocks($this->contentbo->getblocksforscope($category_id,0));
+				$this->process_blocks($this->contentbo->getblocksforscope($cat_id,0));
 				$this->t->pfp('out','TranslateCategory');
 			}
 			$this->common_ui->DisplayFooter();
@@ -249,6 +254,10 @@
 					'showpagesubtitle' => $showlangdata->subtitle,
 					'savepagesubtitle' => $savelangdata->subtitle,
 					'lang_contentblocks' => lang('Content blocks for category'),
+					'action_url' => $GLOBALS['phpgw']->link('/index.php',array(
+						'menuaction'=>'sitemgr.Translation_UI.translatePage',
+						'page_id' => $page_id,
+					)),
 				));
 
 				//Content blocks

@@ -68,7 +68,8 @@
 					'lang_select_allowed_modules' => lang('Select allowed modules'),
 					'lang_configure_module_properties' => lang('Configure module properties'),
 //					'cat_name' => ($cat_name ? (' - ' . $cat_name) : ''),
-					'managelink' => ($managelink ? ('<a href="' . $managelink . '">&lt; ' . lang('Go to') . ' ' . $goto . ' &gt;</a>') : '')
+					'managelink' => ($managelink ? ('<a href="' . $managelink . '">&lt; ' . lang('Go to') . ' ' . $goto . ' &gt;</a>') : ''),
+					'action_url' => $GLOBALS['phpgw']->link('/index.php',array('menuaction'=>'sitemgr.Modules_UI.manage','cat_id'=>$cat_id)),
 				));
 				$link_data['cat_id'] = $cat_id;
 				$link_data['menuaction'] = "sitemgr.Modules_UI.findmodules";
@@ -203,14 +204,15 @@
 						'<input type="submit" value="'.lang('Save').'" name="btnSaveProperties" />' :
 						lang('There are no properties defined for this module')
 					),
-					'deletebutton' => $properties === False ? '' : '<input type="submit" value="'.lang('Delete').'" name="btnDeleteProperties" />'
+					'deletebutton' => $properties === False ? '' : '<input type="submit" value="'.lang('Delete').'" name="btnDeleteProperties" />',
+					'action_url' => $GLOBALS['phpgw']->link('/index.php',array('menuaction'=>'sitemgr.Modules_UI.configure','cat_id'=>$cat_id)),
 					)
 				);
-				$link_data['cat_id'] = $cat_id;
-				$link_data['menuaction'] = "sitemgr.Modules_UI.manage";
 				$this->t->set_var('backlink',
-					'<a href="' . $GLOBALS['phpgw']->link('/index.php',$link_data) . 
-					'">&lt; ' . lang('Back to module manager') . ' &gt;</a>'
+					'<a href="' . $GLOBALS['phpgw']->link('/index.php',array(
+						'menuaction' => 'sitemgr.Modules_UI.manage',
+						'cat_id' => $cat_id
+					)) . '">&lt; ' . lang('Back to module manager') . ' &gt;</a>'
 				);
 
 				$this->t->pfp('out', 'Editproperties');

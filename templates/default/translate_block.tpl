@@ -2,7 +2,7 @@
 <div style="border-width:2px;border-style:solid; margin:5mm;padding:5mm">
 <h5>{moduleinfo}</h5>
 <div align="center" style="color:red">{validationerror}</div>
-<form method="POST">
+<form method="POST" action="{action_url}">
 <table style="border-width:2px;border-style:solid;" align="center" border ="1" rules="all" width="80%" cellpadding="5">
 	<tr>
 		<td width="20%">{lang_refresh}</td><td width="40%">{showlang}</td><td width="40%">{savelang}</td>

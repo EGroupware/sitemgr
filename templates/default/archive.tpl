@@ -1,5 +1,5 @@
 <div style="margin-bottom:1cm;font-weight:bold;text-align:center;text-decoration:underline">{archive_manager} </div>
-<form method="POST">
+<form method="POST" action="{action_url}>
 <h2 style="text-align:center">{lang_categories}</h2>
 <table align="center" width="60%">
 <!-- BEGIN Category -->

@@ -55,6 +55,7 @@
 			global $inputpageid,$inputcategoryid, $inputhidden, $inputstate;
 			global $inputsort,$inputtitle, $inputname, $inputsubtitle;
 			global $savelanguage;
+
 			$page_id = $inputpageid ? $inputpageid : $_GET['page_id'];
 			$category_id = $inputcategoryid ? $inputcategoryid : $_GET['cat_id'];
 
@@ -154,6 +155,7 @@
 			$link_data['page_id'] = $page_id;
 			$link_data['category_id'] = $inputcategoryid;
 			$this->t->set_var(array(
+				'action_url' => $GLOBALS['phpgw']->link('/index.php',array('menuaction'=>'sitemgr.Pages_UI.edit')),
 				'focus_reload_close' => $focus_reload_close,
 				'title' =>$page->title,
 				'subtitle' => $page->subtitle,
@@ -177,7 +179,7 @@
 				'lang_state' => lang('State'),
 				'lang_nameinfo' => lang('(Do not put spaces or punctuation in the Name field.)'),
 			));
-			
+
 			$this->t->pfp('out','EditPage');
 		}
 

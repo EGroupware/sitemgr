@@ -126,6 +126,7 @@
 					($page['value'] == $cat->index_page_id ? ' selected="1"' : '').'>'.$page[display]."</option>\n";
 			}
 			$this->t->set_var(array(
+				'action_url' => $GLOBALS['phpgw']->link('/index.php',array('menuaction'=>'sitemgr.Categories_UI.edit')),
 				'focus_reload_close' => $focus_reload_close,
 				'add_edit' => ($cat_id ? lang('Edit Category') : lang('Add Category')),
 				'cat_id' => $cat_id,
@@ -318,6 +319,7 @@
 			$this->t->set_var('lang_yes',lang('Yes, please delete it'));
 			$this->t->set_var('lang_no',lang('Cancel the delete'));
 			$this->t->set_var('standalone',$_GET['standalone']);
+			$this->t->set_var('action_url',$GLOBALS['phpgw']->link('/index.php',array('menuaction'=>'sitemgr.Categories_UI.delete','cat_id'=>$cat_id)));
 			$this->t->pfp('out','ConfirmDelete');
 		}
 	}

@@ -1,5 +1,5 @@
 <div style="text-align:center; color:#FF0000; font-weight:bold;"><b>{error_msg}</b></div>
-<form name="translatepage" method="POST">
+<form name="translatepage" method="POST" action="{action_url}">
 <input type="hidden" name="page_id" value="{pageid}">
 
 <table style="border-width:2px;border-style:solid;" align="center" border="1" rules="all" width="80%" cellpadding="5">

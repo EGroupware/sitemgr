@@ -1,7 +1,7 @@
 <script>{focus_reload_close}</script>
 <div id="divMain">
 <!-- BEGIN form -->
-<form method ="POST">
+<form method ="POST" action="{action_url}">
 <input type="hidden" name="inputpageid" value="{page_id}">
 <table align='center' border ="0" width="80%" cellpadding="5" cellspacing="0">
 	<tr>

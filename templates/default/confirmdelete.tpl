@@ -1,5 +1,5 @@
 <!-- BEGIN ConfirmDelete -->
-<form method="post">
+<form method="post" action="{action_url}">
 <input type="hidden" name="deleteconfirmed" value="{cat_id}">
 <input type="hidden" name="cat_id" value="{cat_id}">
 <input type="hidden" name="standalone" value="{standalone}">

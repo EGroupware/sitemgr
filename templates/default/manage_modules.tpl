@@ -6,7 +6,7 @@
 <table align="center">
 	<tr>
 		<td>
-			<form method="POST">
+			<form method="POST" action="{action_url}">
 				<select style="vertical-align:middle" size="10" name="inputmodules[]" multiple="multiple">
 					{selectmodules}
 				</select>

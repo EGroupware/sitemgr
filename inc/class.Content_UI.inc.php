@@ -235,7 +235,15 @@
 				$this->t->set_block('Blocks','EditorElementLarge','EeBlockLarge');
 				$this->t->set_block('Moduleview','ViewElement','VeBlock');
 
+				$action_vars = array('menuaction' => 'sitemgr.Content_UI.manage');
+				foreach(array('page_id','cat_id','block_id') as $name)
+				{
+					if ($$name) $action_vars[$name] = $$name;
+				}
+				$action_url = $GLOBALS['phpgw']->link('/index.php',$action_vars);
+
 				$this->t->set_var(array(
+					'action_url' => $action_url,
 					'validationerror' => implode('<br />',$this->errormsg),
 					'lang_save' => lang('Save'),
 					'lang_delete' => lang('Delete'),
@@ -286,7 +294,7 @@
 						'area' => $contentarea,
 						'addblockform' =>
 							($permittedmodules ?
-								('<form method="POST"><input type="hidden" value="' . $contentarea . '" name="inputarea" />' .
+								('<form method="POST" action="' . $action_url . '"><input type="hidden" value="' . $contentarea . '" name="inputarea" />' .
 									'<select style="vertical-align:middle" size="10" name="inputmoduleid">' .
 									$this->inputmoduleselect($permittedmodules) .
 									'</select><input type="submit" name="btnAddBlock" value="' .
@@ -354,7 +362,8 @@
 				'lang_categories' => lang('Categories'),
 				'lang_pages' => lang('Pages'),
 				'lang_blocks' => lang('Content blocks'),
-				'lang_commit' => lang('Commit changes')
+				'lang_commit' => lang('Commit changes'),
+				'action_url' => $GLOBALS['phpgw']->link('/index.php',array('menuaction'=>'sitemgr.Content_UI.commit')),
 			));
 
 			//Categories
@@ -469,6 +478,7 @@
 			$this->t->set_block('Commit','Page','Pblock');
 			$this->t->set_block('Commit','Block','Bblock');
 			$this->t->set_var(array(
+				'action_url' => $GLOBALS['phpgw']->link('/index.php',array('menuaction'=>'sitemgr.Content_UI.archive')),
 				'commit_manager' => lang('Archived content'),
 				'lang_categories' => lang('Categories'),
 				'lang_pages' => lang('Pages'),
