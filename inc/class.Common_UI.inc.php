@@ -210,12 +210,21 @@
 					'input'=>'option',
 					'options'=>$this->pages_bo->getPageOptionList()
 				);
+				$theme = $GLOBALS['Common_BO']->sites->current_site['themesel'];
+				$theme_info = $GLOBALS['phpgw']->link('/sitemgr/theme_info.php');
+				$theme_info .= (strstr($theme_info,'?') ? '&' : '?').'theme=';
 				$preferences['themesel'] = array(
 					'title'=>lang('Template select'),
-					'note'=>lang('Choose your site\'s theme or template.  Note that if you changed the above checkbox you need to save before choosing a theme or template.'),
+					'note'=>lang('Choose your site\'s theme or template.  Note that if you changed the above checkbox you need to save before choosing a theme or template.').'<br /><br />'.
+						lang('<b>Want more templates?</b><br />Just download a %1Mambo Open Source%2 Version 4.5 compatible template from %3 and unpack it in your templates directory (%4).',
+							'<a href="http://www.mamboserver.com" target="_blank">','</a>',
+							'<a href="http://www.mambofiles.com/index.php?option=com_remository&Itemid=26&func=selectfolder&filecatid=9">www.mamboportal.com</a>',
+							$GLOBALS['Common_BO']->sites->current_site['site_dir'] . SEP . 'templates'),
 					'input'=>'option',
 					'options'=>$this->theme->getAvailableThemes(),
-					'default'=>'NukeNews'
+					'extra'=> 'onchange="frames.TemplateInfo.location=\''.$theme_info.'\'+this.value"',
+					'below' => '<iframe name="TemplateInfo" width="100%" height="180" src="'.$theme_info.($theme ? $theme : 'idots').'" frameborder="0" scrolling="auto"></iframe>',
+					'default'=>'idots'
 				);
 				$preferences['site_languages'] = array(
 					'title'=>lang('Languages the site user can choose from'),
@@ -236,8 +245,7 @@
 				));
 
 				$this->t->set_block('sitemgr_prefs','PrefBlock','PBlock');
-				reset($preferences);
-				while (list($name,$details) = each($preferences))
+				foreach($preferences as $name => $details)
 				{
 					$inputbox = '';
 					switch($details['input'])
@@ -253,7 +261,7 @@
 							break;
 						case 'option':
 							$inputbox = $this->inputOption($name,
-								$details['options'],$details['default']);
+								$details['options'],$details['default'],@$details['extra']);
 							break;
 						case 'inputbox':
 						default:
@@ -262,6 +270,10 @@
 					}
 					if ($inputbox)
 					{
+						if (isset($details['below']))
+						{
+							$inputbox .= "<br /".$details['below'];
+						}
 						$this->PrefBlock($details['title'],$inputbox,$details['note']);
 					}
 				}
@@ -331,7 +343,7 @@
 				
 		}
 
-		function inputOption($name = '', $options='', $default = '')
+		function inputOption($name = '', $options='', $default = '',$extra='')
 		{
 			if (!is_array($options) || count($options)==0)
 			{
@@ -342,19 +354,20 @@
 			{
 				$val = $default;
 			}
-			$returnValue = '<SELECT NAME="pref['.$name.']">'."\n";
+			$returnValue = '<select name="pref['.$name.']" '.$extra.'>'."\n";
 			
 			foreach($options as $option)
 			{
 				$selected='';
 				if ($val == $option['value'])
 				{
-					$selected = 'SELECTED ';
+					$selected = 'selected="1" ';
 				}
-				$returnValue.='<OPTION '.$selected.'VALUE="'.$option['value'].'">'.
-					$option['display'].'</OPTION>'."\n";
+				$returnValue.='<option '.($val == $option['value'] ? 'selected="1" ':'').
+					(isset($option['title']) ? 'title="'.$option['title'].'" ':'').
+					'value="'.$option['value'].'">'.$option['display'].'</option>'."\n";
 			}
-			$returnValue .= '</SELECT>';
+			$returnValue .= '</select>';
 			return $returnValue;
 		}
 

@@ -128,9 +128,9 @@
 		function saveprefs($prefs,$site_id=CURRENT_SITE_ID)
 		{
 			$this->so->saveprefs($prefs,$site_id);
-			$sitelanguages = $prefs['site_languages'] ? $prefs['site_languages'] : $this->current_site['site_languages'];
-			$sitelanguages = $site_languages ? explode(',',$site_languages) : array('en');
-			foreach ($sitelanguages as $lang)
+			$site_languages = $prefs['site_languages'] ? $prefs['site_languages'] : $this->current_site['site_languages'];
+			$site_languages = $site_languages ? explode(',',$site_languages) : array('en');
+			foreach ($site_languages as $lang)
 			{
 				$GLOBALS['Common_BO']->cats->saveCategoryLang(
 					$site_id,

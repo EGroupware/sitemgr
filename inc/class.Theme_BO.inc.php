@@ -2,6 +2,7 @@
 	/**************************************************************************\
 	* eGroupWare SiteMgr - Web Content Management                              *
 	* http://www.egroupware.org                                                *
+	* Written and (c) by RalfBecker@outdoor-training.de                        *
 	* --------------------------------------------                             *
 	*  This program is free software; you can redistribute it and/or modify it *
 	*  under the terms of the GNU General Public License as published by the   *
@@ -13,40 +14,82 @@
 
 	class Theme_BO
 	{
-		var $preferenceso;
-
 		function Theme_BO()
 		{
 		}
 
 		function getAvailableThemes()
 		{
-			$sitemgr_dir = $GLOBALS['Common_BO']->sites->current_site['site_dir'];
-			$dirname = $sitemgr_dir . SEP . 'templates' . SEP;
+			$templates_dir = $GLOBALS['Common_BO']->sites->current_site['site_dir'] . SEP . 'templates' . SEP;
 			$result_array=array();
-			@$handle=opendir($dirname);
-		
-			if ($handle)
+
+			if ($handle = @opendir($templates_dir))
 			{
-				while (($file = readdir($handle)) !== false)
+				while ($file = readdir($handle))
 				{
-					if (is_dir($dirname . $file) && $file != '..' && $file != '.')
+					if (is_dir($templates_dir . $file) && $file != '..' && $file != '.' && $file != 'CVS')
 					{
-						if (file_exists($dirname . $file . SEP . 'main.tpl'))
+						if ($info = $this->getThemeInfos($file))
 						{
-							$result_array[]=array('value'=>$file,'display'=>$file);
-						}
-						elseif (file_exists($dirname . $file . SEP . 'index.php'))
-						{
-							$result_array[]=array('value'=>$file,'display'=>'mambo: '.$file);
+							$result_array[$file] = $info;
 						}
 					}
 				}
 				closedir($handle);
+
+				asort($result_array);
 			}
+			//echo "<p>Theme_BO::getAvailableThemes('$templates_dir')=".print_r(array_keys($result_array),true)."</p>";
 			return $result_array ? $result_array : array(array('value'=>'','display'=>lang('No templates found.')));
 		}
-		
-	}
 
+		function getThemeInfos($theme)
+		{
+			//echo "<p>Theme_BO::getThemeInfos('$theme')</p>";
+			$templates_dir = $GLOBALS['Common_BO']->sites->current_site['site_dir'] . SEP . 'templates' . SEP;
+			$info = False;
+			if (!is_dir($dir = $templates_dir . $theme))
+			{
+				return False;
+			}
+			if (file_exists($dir . SEP . 'main.tpl'))
+			{
+				$info = array(
+					'value' => $theme,
+					'display' => $theme.' (sitemgr)'
+				);
+			}
+			elseif (file_exists($dir . SEP . 'index.php'))
+			{
+				$info = array(
+					'value'=> $theme,
+					'display'=> $theme.' (mambo)'
+				);
+			}
+			if ($info)
+			{
+				if (file_exists($xml_details = $dir . SEP . 'templateDetails.xml'))
+				{
+					//if (ereg('<description>(.*)</description>',$info['xml']=implode("\n",file($xml_details)),$parts))
+					if (preg_match_all('/<(description|author|authorEmail|authorUrl|copyright|version|name|creationDate)>([^>]+)</',implode("\n",file($xml_details)),$matches))
+					{
+						foreach($matches[1] as $n => $name)
+						{
+							$info[$name] = $matches[2][$n];
+						}
+						$info['title'] = $info['description'];
+						if ($info['authorUrl'] && !strstr('http',$info['authorUrl']))
+						{
+							$info['authorUrl'] = 'http://'.$info['authorUrl'];
+						}
+					}
+				}
+				if (file_exists($dir . SEP . 'template_thumbnail.png'))
+				{
+					$info['thumbnail'] = $GLOBALS['Common_BO']->sites->current_site['site_url']."/templates/$theme/template_thumbnail.png";
+				}
+			}
+			return $info;
+		}
+	}
 ?>
