@@ -310,7 +310,7 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 		{
 			global $page,$objbo;
 
-			switch (is_array($vars) ? $vars[1] : $vars)
+			switch ($var = is_array($vars) ? $vars[1] : $vars)
 			{
 				case 'title':
 				case 'page_title':
@@ -362,6 +362,8 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 				case 'editmode_styles':
 					return $GLOBALS['sitemgr_info']['mode'] == 'Edit' ?
 						'<link href="templates/default/style/editmode.css" type="text/css" rel="StyleSheet" />' : '';
+				default:
+					return "{$var}";	// leave it unchanged, happens eg. with js-code
 			}
 		}
 
