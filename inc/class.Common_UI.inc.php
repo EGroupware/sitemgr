@@ -61,7 +61,7 @@
 		function DisplayHeader()
 		{
 			$GLOBALS['phpgw']->common->phpgw_header();
-			//echo parse_navbar_end();
+			echo parse_navbar();
 			$this->t->set_file('sitemgr_header','sitemgr_header.tpl');
 			$this->t->set_var('mainmenu',
 				$GLOBALS['phpgw']->link('/index.php',
