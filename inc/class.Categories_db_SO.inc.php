@@ -2,9 +2,6 @@
 	class Categories_db_SO
 	{
 		var $db;
-		var $public_functions=array(
-			'convert_to_phpgwapi'=>true
-		);
 
 		function Categories_db_SO()
 		{
