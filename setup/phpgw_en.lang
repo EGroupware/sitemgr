@@ -18,6 +18,7 @@ administrators	sitemgr	en	administrators
 all categories	sitemgr	en	All categories
 all forums in category %1	sitemgr	en	All forums in category %1
 amazon	sitemgr	en	Amazon
+amazon server (without www), eg. amazon.com	sitemgr	en	Amazon server (without www), eg. amazon.com
 an application directory	sitemgr	en	An application directory
 anonymous	sitemgr	en	anonymous
 anonymous user login domain	sitemgr	en	Anonymous user login domain
@@ -29,6 +30,7 @@ archived content	sitemgr	en	Archived content
 are you sure you want to delete site %1 and all its content? you cannot retrieve it if you continue.	sitemgr	en	Are you sure you want to delete site %1 and all its content? You cannot retrieve it if you continue.
 are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	en	Are you sure you want to delete the category %1 and all of its associated pages?  You cannot retrieve the deleted pages if you continue.
 as	common	en	as
+asin[=title] pairs (title is optional)	sitemgr	en	ASIN[=title] pairs (title is optional)
 attempt to access information outside current website	sitemgr	en	Attempt to access information outside current website
 attempt to edit non-editable block	sitemgr	en	Attempt to edit non-editable block
 back to module manager	sitemgr	en	Back to module manager
@@ -37,6 +39,7 @@ before the public web site can be viewed, you must configure the various locatio
 block not found.	sitemgr	en	Block not found.
 block returned no content.	sitemgr	en	Block returned no content.
 bookmarks	sitemgr	en	Bookmarks
+buy at %1	sitemgr	en	Buy at %1
 calendar	sitemgr	en	Calendar
 cancel the delete	sitemgr	en	Cancel the delete
 cannot move page until it has been saved.	sitemgr	en	Cannot move page until it has been saved.
@@ -186,6 +189,7 @@ number of news items to be displayed on page	sitemgr	en	Number of news items to 
 other websites	sitemgr	en	Other websites
 overview of all available categories	sitemgr	en	Overview of all available categories
 overview of one specific category	sitemgr	en	Overview of one specific category
+own amazon partner-id or empty to donate to the egroupware project	sitemgr	en	Own Amazon partner-id or empty to donate to the eGroupWare project
 page	sitemgr	en	Page
 page content	sitemgr	en	Page Content
 page manager	sitemgr	en	Page Manager
@@ -233,6 +237,7 @@ select persons and groups that are entitled to configure the website.	sitemgr	en
 selected template %1 does not exist.	sitemgr	en	Selected template %1 does not exist.
 selected theme %1 does not exist.	sitemgr	en	Selected theme %1 does not exist.
 should the file be viewed in the browser or downloaded	sitemgr	en	Should the file be viewed in the browser or downloaded
+show searchbox	sitemgr	en	Show searchbox
 show site index	sitemgr	en	Show Site Index
 site	sitemgr	en	Site
 site %1 has been added	sitemgr	en	Site %1 has been added

@@ -18,6 +18,7 @@ administrators	sitemgr	de	Administratoren
 all categories	sitemgr	de	Alle Kategorien
 all forums in category %1	sitemgr	de	Alle Foren in der Kategorie %1
 amazon	sitemgr	de	Amazon
+amazon server (without www), eg. amazon.com	sitemgr	de	Amazon Server (ohne www), zB. amazon.de
 an application directory	sitemgr	de	Ein Applikations Ordner
 anonymous	sitemgr	de	Anonymer Benutzer
 anonymous user login domain	sitemgr	de	Anonymer Benutzer login Domain
@@ -31,6 +32,7 @@ archived content	sitemgr	de	Archivierter Content
 are you sure you want to delete site %1 and all its content? you cannot retrieve it if you continue.	sitemgr	de	Sind Sie sicher das Sie Seite %1 und den kompltten Inhalt löschen möchten? Ein Wiederherstellen ist nicht möglich, wenn Sie fortfahren.
 are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	de	Sind sie sicher das Sie die Kategorie %1 und alle dazugehörigen Seiten löschen möchten?  Diese Seiten werden hiermit endgültüg gelöscht.
 as	common	de	als
+asin[=title] pairs (title is optional)	sitemgr	de	ASIN=[Titel] Paare (Titel ist optional)
 attempt to access information outside current website	sitemgr	de	Versuch auf Informationen ausserhalb der aktuellen  Website zuzugreifen
 attempt to edit non-editable block	sitemgr	de	Versuch einen nicht-bearbeitbaren Block zu bearbeiten
 back to module manager	sitemgr	de	Zurück zum Modulmanager
@@ -40,6 +42,7 @@ block not found	sitemgr-site	de	Block nicht gefunden
 block not found.	sitemgr	de	Block nicht gefunden.
 block returned no content.	sitemgr	de	Dieser Block hat keinen Inhalt.
 bookmarks	sitemgr	de	Lesezeichen
+buy at %1	sitemgr	de	bei %1 kaufen
 calendar	sitemgr	de	Kalender
 cancel the delete	sitemgr	de	Abbrechen, nicht löschen
 cannot move page until it has been saved.	sitemgr	de	Die Seite kann zuerst verschoben werden wenn Sie gespeichert wurde.
@@ -190,6 +193,7 @@ number of news items to be displayed on page	sitemgr	de	Anzahl Nachrichten die a
 other websites	sitemgr	de	Andere Websites
 overview of all available categories	sitemgr	de	Überblick über alle verfügbaren Kategorien
 overview of one specific category	sitemgr	de	Überblick über eine spezielle Kategorie
+own amazon partner-id or empty to donate to the egroupware project	sitemgr	de	Eigene Amazon Partner-Id oder leer um an das eGroupWare Projekt zu spenden
 page	sitemgr	de	Seite
 page content	sitemgr	de	Seiteninhalt
 page manager	sitemgr	de	Seiten Manager
@@ -237,6 +241,7 @@ select persons and groups that are entitled to configure the website.	sitemgr	de
 selected template %1 does not exist.	sitemgr	de	Das ausgewählte Vorlage %1 ist nicht verfügbar.
 selected theme %1 does not exist.	sitemgr	de	Das ausgewählte Thema %1 ist nicht verfügbar.
 should the file be viewed in the browser or downloaded	sitemgr	de	Soll die Datei im Browser angezeigt werden oder lokal gespeichert werden
+show searchbox	sitemgr	de	Suchfeld anzeigen
 show site index	sitemgr	de	Site Inhaltsverzeichnis anzeigen
 site	sitemgr	de	Website
 site %1 has been added	sitemgr	de	Website %1 wurde zugefügt
