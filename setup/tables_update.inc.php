@@ -92,7 +92,7 @@
 		    $lang = "en";
 		  }
 
-		echo 'Updating sitemgr to a multilingual architecture with existing site language ' . $lang;
+		//echo 'Updating sitemgr to a multilingual architecture with existing site language ' . $lang;
 
 		$db2 = $phpgw_setup->db;
 
@@ -677,3 +677,74 @@
 		$GLOBALS['setup_info']['sitemgr']['currentver'] = '0.9.15.007';
 		return $GLOBALS['setup_info']['sitemgr']['currentver'];
 	}
+
+	// the following series of updates add some indices, to speedup the selects
+
+	$test[] = '0.9.15.007';
+	function sitemgr_upgrade0_9_15_007()
+	{
+		$GLOBALS['phpgw_setup']->oProc->RefreshTable('phpgw_sitemgr_pages',array(
+			'fd' => array(
+				'page_id' => array('type' => 'auto','nullable' => False),
+				'cat_id' => array('type' => 'int','precision' => '4'),
+				'sort_order' => array('type' => 'int','precision' => '4'),
+				'hide_page' => array('type' => 'int','precision' => '4'),
+				'name' => array('type' => 'varchar','precision' => '100'),
+				'state' => array('type' => 'int','precision' => '2')
+			),
+			'pk' => array('page_id'),
+			'fk' => array(),
+			'ix' => array('cat_id',array('state','cat_id','sort_order'),array('name','cat_id')),
+			'uc' => array()
+		));
+
+		$GLOBALS['setup_info']['sitemgr']['currentver'] = '0.9.15.008';
+		return $GLOBALS['setup_info']['sitemgr']['currentver'];
+	}
+
+
+	$test[] = '0.9.15.008';
+	function sitemgr_upgrade0_9_15_008()
+	{
+		$GLOBALS['phpgw_setup']->oProc->RefreshTable('phpgw_sitemgr_categories_state',array(
+			'fd' => array(
+				'cat_id' => array('type' => 'int','precision' => '4','nullable' => False),
+				'state' => array('type' => 'int','precision' => '2'),
+				'index_page_id' => array('type' => 'int','precision' => '4','default' => '0')
+			),
+			'pk' => array('cat_id'),
+			'fk' => array(),
+			'ix' => array(array('cat_id','state')),
+			'uc' => array()
+		));
+
+		$GLOBALS['setup_info']['sitemgr']['currentver'] = '0.9.15.009';
+		return $GLOBALS['setup_info']['sitemgr']['currentver'];
+	}
+
+
+	$test[] = '0.9.15.009';
+	function sitemgr_upgrade0_9_15_009()
+	{
+		$GLOBALS['phpgw_setup']->oProc->RefreshTable('phpgw_sitemgr_sites',array(
+			'fd' => array(
+				'site_id' => array('type' => 'int','precision' => '4','nullable' => False),
+				'site_name' => array('type' => 'varchar','precision' => '255'),
+				'site_url' => array('type' => 'varchar','precision' => '255'),
+				'site_dir' => array('type' => 'varchar','precision' => '255'),
+				'themesel' => array('type' => 'varchar','precision' => '50'),
+				'site_languages' => array('type' => 'varchar','precision' => '50'),
+				'home_page_id' => array('type' => 'int','precision' => '4'),
+				'anonymous_user' => array('type' => 'varchar','precision' => '50'),
+				'anonymous_passwd' => array('type' => 'varchar','precision' => '50')
+			),
+			'pk' => array('site_id'),
+			'fk' => array(),
+			'ix' => array('site_url'),
+			'uc' => array()
+		));
+
+		$GLOBALS['setup_info']['sitemgr']['currentver'] = '0.9.15.010';
+		return $GLOBALS['setup_info']['sitemgr']['currentver'];
+	}
+?>

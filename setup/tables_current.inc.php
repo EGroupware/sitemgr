@@ -23,7 +23,7 @@
 			),
 			'pk' => array('page_id'),
 			'fk' => array(),
-			'ix' => array('cat_id'),
+			'ix' => array('cat_id',array('state','cat_id','sort_order'),array('name','cat_id')),
 			'uc' => array()
 		),
 		'phpgw_sitemgr_pages_lang' => array(
@@ -46,7 +46,7 @@
 			),
 			'pk' => array('cat_id'),
 			'fk' => array(),
-			'ix' => array(),
+			'ix' => array(array('cat_id','state')),
 			'uc' => array()
 		),
 		'phpgw_sitemgr_categories_lang' => array(
@@ -158,7 +158,7 @@
 			),
 			'pk' => array('site_id'),
 			'fk' => array(),
-			'ix' => array(),
+			'ix' => array('site_url'),
 			'uc' => array()
 		)
 	);
