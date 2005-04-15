@@ -415,8 +415,8 @@
       {
          return $lang ? 
           array_merge(
-            unserialize($this->db->f('arguments')),
-            unserialize($this->db->f('arguments_lang')) 
+            (array) unserialize($this->db->f('arguments')),
+            (array) unserialize($this->db->f('arguments_lang')) 
           ) : 
           unserialize($this->db->f('arguments'));
       }
