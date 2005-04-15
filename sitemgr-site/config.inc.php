@@ -23,7 +23,8 @@
 	);
 	// uncomment the next line if sitemgr should use a eGW domain different from the first one defined in your header.inc.php
 	// and of cause change the name accordingly ;-)
-	//$GLOBALS['phpgw_info']['server']['default_domain'] = 'other';
+	//$GLOBALS['phpgw_info']['user']['domain'] = $GLOBALS['phpgw_info']['server']['default_domain'] = 'other';
+	// in case of auth via LDAP and multiple domains we need to set $GLOBALS['phpgw_info']['user']['domain']
 
 	/***********************************************************\
 	* Leave the rest of this file alone.                        *
