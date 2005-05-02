@@ -68,7 +68,7 @@ class module_xml extends Module
 				$this->block->arguments['filenumber'] = 1;
 			}
 
-			require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.xslt_transform.inc.php');
+			require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.xslt_transform.inc.php');
 			$this->add_transformer(new xslt_transform($this->block->arguments['xsltfile']));
 
 			$prevlink = ($this->block->arguments['filenumber'] > 1) ? $this->build_post_element('prev') : '';
@@ -79,7 +79,7 @@ class module_xml extends Module
 				)) ?
 				$this->build_post_element('next') : 
 				'';
-			require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.browser_transform.inc.php');
+			require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.browser_transform.inc.php');
 			$this->add_transformer(new browser_transform($prevlink,$nextlink,$this->block->module_name));
 		}
 	}

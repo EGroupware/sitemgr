@@ -30,17 +30,17 @@
 			$this->title = lang('Translation Status');
 			$this->description = lang('This module show the status / percentage of the translation of eGW');
 
-			if (!is_object($GLOBALS['phpgw']->html))
+			if (!is_object($GLOBALS['egw']->html))
 			{
-				$GLOBALS['phpgw']->html = CreateObject('phpgwapi.html');
+				$GLOBALS['egw']->html =& CreateObject('phpgwapi.html');
 			}
-			$this->html = &$GLOBALS['phpgw']->html;
-			$this->db = $GLOBALS['phpgw']->db;
+			$this->html = &$GLOBALS['egw']->html;
+			$this->db = $GLOBALS['egw']->db;
 		}
 
 		function try_lang($message_id,$args='')
 		{
-			return $GLOBALS['phpgw']->translation->translate($message_id,$args,'');
+			return $GLOBALS['egw']->translation->translate($message_id,$args,'');
 		}
 	
 		function get_content(&$arguments,$properties)

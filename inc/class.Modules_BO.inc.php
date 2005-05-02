@@ -11,7 +11,7 @@
 
 	/* $Id$ */
 
-	require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.module.inc.php');
+	require_once(EGW_INCLUDE_ROOT . '/sitemgr/inc/class.module.inc.php');
 
 	class Modules_BO
 	{
@@ -20,7 +20,7 @@
 		function Modules_BO()
 		{
 			//all sitemgr BOs should be instantiated via a globalized Common_BO object,
-			$this->so = CreateObject('sitemgr.Modules_SO', true);
+			$this->so =& CreateObject('sitemgr.Modules_SO', true);
 		}
 
 		function getmoduleid($modulename)
@@ -36,7 +36,7 @@
 		function savemoduleproperties($module_id,$element,$contentarea,$cat_id)
 		{
 			$module = $this->getmodule($module_id);
-			$moduleobject = $this->createmodule($module['module_name']);
+			$moduleobject =& $this->createmodule($module['module_name']);
 			if ($moduleobject->validate_properties($element))
 			{
 				$this->so->savemoduleproperties($module_id,$element,$contentarea,$cat_id);
@@ -48,64 +48,29 @@
 			$this->so->deletemoduleproperties($module_id,$contentarea,$cat_id);
 		}
 
-
-		//this is identical to CreateObect in phpgwapi/functions.inc.php, but looks into sitemgr/modules instead of appname/inc
-		function createmodule($modulename)
+		/**
+		 * instanciates the sitemgr module $modulename
+		 *
+		 * The module is stored either in sitemgr/modules or in $app/sitemgr in class.modules_$modulename.inc.php
+		 * The appname is the modulename (eg. 'calendar') or the first part of the modulename (eg. 'calendar_day').
+		 *
+		 * @param string $modulename
+		 * @return object/boolean reference to the instanciated class, or false on error
+		 */
+		function &createmodule($modulename)
 		{
-			global $phpgw_info, $phpgw;
-	
-			//if (is_object(@$GLOBALS['phpgw']->log) && $class != 'phpgwapi.error' && $class != 'phpgwapi.errorlog')
-			//{
-				//$GLOBALS['phpgw']->log->write(array('text'=>'D-Debug, dbg: %1','p1'=>'This class was run: '.$class,'file'=>__FILE__,'line'=>__LINE__));
-			//}
-	
-			/* error_reporting(0); */
-			//list($appname,$classname) = explode(".", $class);
-			
+			$obj = false;
 			$classname = 'module_' . $modulename;
+			list($app) = explode('_',$modulename);
 	
-			if (!isset($GLOBALS['phpgw_info']['flags']['included_classes'][$classname]) ||
-				!$GLOBALS['phpgw_info']['flags']['included_classes'][$classname])
+			if (@file_exists($file = EGW_INCLUDE_ROOT.'/sitemgr/modules/class.'.$classname.'.inc.php') ||
+				@file_exists($file = EGW_INCLUDE_ROOT.'/'.$app.'/sitemgr/class.'.$classname.'.inc.php'))
 			{
-				if(@file_exists(PHPGW_INCLUDE_ROOT.'/sitemgr/modules/class.'.$classname.'.inc.php'))
-				{
-					include(PHPGW_INCLUDE_ROOT.'/sitemgr/modules/class.'.$classname.'.inc.php');
-					$GLOBALS['phpgw_info']['flags']['included_classes'][$classname] = True;
-				}
-				else
-				{
-					$GLOBALS['phpgw_info']['flags']['included_classes'][$classname] = False;
-				}
+				include_once($file);
+				
+				$obj =& new $classname;
 			}
-			if($GLOBALS['phpgw_info']['flags']['included_classes'][$classname])
-			{
-				if ($p1 == '_UNDEF_' && $p1 != 1)
-				{
-					eval('$obj = new ' . $classname . ';');
-				}
-				else
-				{
-					$input = array($p1,$p2,$p3,$p4,$p5,$p6,$p7,$p8,$p9,$p10,$p11,$p12,$p13,$p14,$p15,$p16);
-					$i = 1;
-					$code = '$obj = new ' . $classname . '(';
-					while (list($x,$test) = each($input))
-					{
-						if (($test == '_UNDEF_' && $test != 1 ) || $i == 17)
-						{
-							break;
-						}
-						else
-						{
-							$code .= '$p' . $i . ',';
-						}
-						$i++;
-					}
-					$code = substr($code,0,-1) . ');';
-					eval($code);
-				}
-				/* error_reporting(E_ERROR | E_WARNING | E_PARSE); */
-				return $obj;
-			}
+			return $obj;
 		}
 
 
@@ -114,31 +79,39 @@
 			return $this->so->getallmodules();
 		}
 
+		/**
+		 * Searches sitemgr/modules and $app/sitemgr dirs for new modules
+		 *
+		 * @return array with modulename => modulename: description pairs
+		 */
 		function findmodules()
 		{
 			$new_modules = array();
-			$incdir = PHPGW_SERVER_ROOT . SEP . 'sitemgr' . SEP . 'modules';
-			if (is_dir($incdir))
+			foreach($GLOBALS['egw_info']['apps'] as $app => $data)
 			{
-				$d = dir($incdir);
-				while ($file = $d->read())
+				$moddir = EGW_SERVER_ROOT . '/' . $app . ($app == 'sitemgr' ? '/modules' : '/sitemgr');
+				if (is_dir($moddir))
 				{
-					if (preg_match ("/class\.module_(.*)\.inc\.php$/", $file, $module))
+					$d = dir($moddir);
+					while ($file = $d->read())
 					{
-						$modulename = $module[1];
-
-						$moduleobject = $this->createmodule($modulename);
-						if ($moduleobject)
+						if (preg_match ("/class\.module_(.*)\.inc\.php$/", $file, $module))
 						{
-							if ($this->so->registermodule($modulename,$moduleobject->description))
+							$modulename = $module[1];
+	
+							$moduleobject =& $this->createmodule($modulename);
+							if ($moduleobject)
 							{
-								$new_modules[$modulename] = $modulename.': '.$moduleobject->description;
+								if ($this->so->registermodule($modulename,$moduleobject->description))
+								{
+									$new_modules[$modulename] = $modulename.': '.$moduleobject->description;
+								}
 							}
+							//echo "<p>Modules_BO::findmodules() found $modulename: $moduleobject->description</p>\n";
 						}
-						//echo "<p>Modules_BO::findmodules() found $modulename: $moduleobject->description</p>\n";
 					}
+					$d->close();
 				}
-				$d->close();
 			}
 			return $new_modules;
 		}

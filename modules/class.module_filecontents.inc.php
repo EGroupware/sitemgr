@@ -77,7 +77,7 @@ class module_filecontents extends Module
 			}
 			if (preg_match('/<meta http-equiv="content-type" content="text\/html; ?charset=([^"]+)"/i',$one_line,$parts))
 			{
-				$ret = $GLOBALS['phpgw']->translation->convert($ret,$parts[1]);
+				$ret = $GLOBALS['egw']->translation->convert($ret,$parts[1]);
 			}
 		}
 		return $ret;
@@ -87,7 +87,7 @@ class module_filecontents extends Module
 	//
 	function in_docroot($path)
 	{
-		$docroots = array(PHPGW_SERVER_ROOT,$_SERVER['DOCUMENT_ROOT']);
+		$docroots = array(EGW_SERVER_ROOT,$_SERVER['DOCUMENT_ROOT']);
 		$path = realpath($path);
 
 		foreach ($docroots as $docroot)

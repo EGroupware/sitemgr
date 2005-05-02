@@ -19,16 +19,16 @@ class ACL_SO
 
 	function ACL_SO()
 	{
-		$this->db = $GLOBALS['phpgw']->db;
-		$this->acl = CreateObject('phpgwapi.acl');
-		$this->acct = CreateObject('phpgwapi.accounts');
+		$this->db = clone($GLOBALS['egw']->db);
+		$this->acl =& CreateObject('phpgwapi.acl');
+		$this->acct =& CreateObject('phpgwapi.accounts');
 	}
 
 	function get_permission($location)
 	{
 		$memberships = $this->acct->membership($this->acl->logged_in_user);
 		$sql = 'SELECT acl_rights FROM phpgw_acl WHERE acl_location=\''.$location.
-			'\' and acl_account in ('.$GLOBALS['phpgw_info']['user']['account_id'];
+			'\' and acl_account in ('.$GLOBALS['egw_info']['user']['account_id'];
 		if (is_array($memberships))
 		{
 			foreach($memberships as $group)

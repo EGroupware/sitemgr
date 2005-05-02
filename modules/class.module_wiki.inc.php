@@ -20,10 +20,10 @@
 	global $ParseEngine,$DisplayEngine,$ViewMacroEngine;
 	global $UpperPtn,$LowerPtn,$AlphaPtn,$LinkPtn,$UrlPtn,$InterwikiPtn,$MaxNesting,$MaxHeading;
 
-	require(PHPGW_SERVER_ROOT.'/wiki/lib/defaults.php');
+	require(EGW_SERVER_ROOT.'/wiki/lib/defaults.php');
 
 	global $Admin,$HomePage,$InterWikiPrefix,$EnableFreeLinks,$EnableWikiLinks;
-	$config = $GLOBALS['phpgw_info']['server']['wiki'];
+	$config = $GLOBALS['egw_info']['server']['wiki'];
 	$Admin = $config[emailadmin];
 	$HomePage = (isset($config[wikihome])?$config[wikihome]:'eGroupWare');
 	$InterWikiPrefix = (isset($config[InterWikiPrefix])?$config[InterWikiPrefix]:'EGroupWare');
@@ -31,23 +31,23 @@
 	$EnableWikiLinks = (isset($config[Enable_Wiki_Links])?$config[Enable_Wiki_Links]:1);
 
 	global $Charset,$UserName;
-	$Charset = $GLOBALS['phpgw']->translation->charset();
-	$UserName = $GLOBALS['phpgw_info']['user']['account_lid'];
+	$Charset = $GLOBALS['egw']->translation->charset();
+	$UserName = $GLOBALS['egw_info']['user']['account_lid'];
 
-	require(PHPGW_SERVER_ROOT.'/wiki/lib/url.php');
-	require(PHPGW_SERVER_ROOT.'/wiki/lib/messages.php');
+	require(EGW_SERVER_ROOT.'/wiki/lib/url.php');
+	require(EGW_SERVER_ROOT.'/wiki/lib/messages.php');
 
 	global $pagestore;
-	$pagestore = CreateObject('wiki.sowiki');
+	$pagestore =& CreateObject('wiki.sowiki');
 
 	global $FlgChr,$Entity;
 	$FlgChr = chr(255);                     // Flag character for parse engine.
 	$Entity = array();                      // Global parser entity list.
 
-	require(PHPGW_SERVER_ROOT.'/wiki/parse/transforms.php');
-	require(PHPGW_SERVER_ROOT.'/wiki/parse/main.php');
-	require(PHPGW_SERVER_ROOT.'/wiki/parse/macros.php');
-	require(PHPGW_SERVER_ROOT.'/wiki/parse/html.php');
+	require(EGW_SERVER_ROOT.'/wiki/parse/transforms.php');
+	require(EGW_SERVER_ROOT.'/wiki/parse/main.php');
+	require(EGW_SERVER_ROOT.'/wiki/parse/macros.php');
+	require(EGW_SERVER_ROOT.'/wiki/parse/html.php');
 
 	function isEditable($page_mutable=True)
 	{
@@ -79,7 +79,7 @@
 
 		function get_content(&$arguments,$properties)
 		{
-			if (!is_readable(PHPGW_SERVER_ROOT.'/wiki') || !@$GLOBALS['phpgw_info']['user']['apps']['wiki'])
+			if (!is_readable(EGW_SERVER_ROOT.'/wiki') || !@$GLOBALS['egw_info']['user']['apps']['wiki'])
 			{
 				return lang('You have no rights to view wiki content or the wiki is not installed at all !!!');
 			}

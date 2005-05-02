@@ -30,7 +30,7 @@ class module_redirect extends Module
 	{
 		if ($GLOBALS['sitemgr_info']['mode'] != 'Edit')
 		{
-			$GLOBALS['phpgw']->redirect($arguments['URL']);
+			$GLOBALS['egw']->redirect($arguments['URL']);
 		}
 		else
 		{

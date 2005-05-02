@@ -34,7 +34,7 @@
 		function Sites_BO($session=False)
 		{
 			//Web site definitions are stored as top level categories
-			$this->so = CreateObject('sitemgr.Sites_SO');
+			$this->so =& CreateObject('sitemgr.Sites_SO');
 
 			if($session)
 			{
@@ -60,13 +60,13 @@
 			if ($this->use_session)
 			{
 				if($this->debug) { echo '<br>Save:'; _debug_array($data); }
-				$GLOBALS['phpgw']->session->appsession('session_data','sitemgr_sites',$data);
+				$GLOBALS['egw']->session->appsession('session_data','sitemgr_sites',$data);
 			}
 		}
 
 		function read_sessiondata()
 		{
-			$data = $GLOBALS['phpgw']->session->appsession('session_data','sitemgr_sites');
+			$data = $GLOBALS['egw']->session->appsession('session_data','sitemgr_sites');
 			if($this->debug) { echo '<br>Read:'; _debug_array($data); }
 
 			$this->start  = $data['start'];
@@ -149,7 +149,7 @@
 
 		function delete($id)
 		{
-			if (!$GLOBALS['phpgw']->acl->check('run',1,'admin'))
+			if (!$GLOBALS['egw']->acl->check('run',1,'admin'))
 			{
 				return False;
 			}
@@ -180,17 +180,17 @@
 			}
 			else
 			{
-				$GLOBALS['phpgw']->preferences->read_repository();
+				$GLOBALS['egw']->preferences->read_repository();
 				$siteswitch = get_var('siteswitch');
 				if ($siteswitch)
 				{
 					$this->current_site = $this->read($siteswitch);
-					$GLOBALS['phpgw']->preferences->change('sitemgr','currentsite',$siteswitch);
-					$GLOBALS['phpgw']->preferences->save_repository(True);
+					$GLOBALS['egw']->preferences->change('sitemgr','currentsite',$siteswitch);
+					$GLOBALS['egw']->preferences->save_repository(True);
 				}
 				else
 				{
-					$currentsite = $GLOBALS['phpgw_info']['user']['preferences']['sitemgr']['currentsite'];
+					$currentsite = $GLOBALS['egw_info']['user']['preferences']['sitemgr']['currentsite'];
 					if($currentsite)
 					{
 						$this->current_site = $this->read($currentsite);
@@ -203,8 +203,8 @@
 				if ($allsites)
 				{
 					$this->current_site = $this->read($allsites[0]);
-					$GLOBALS['phpgw']->preferences->change('sitemgr','currentsite',$allsites[0]);
-					$GLOBALS['phpgw']->preferences->save_repository(True);
+					$GLOBALS['egw']->preferences->change('sitemgr','currentsite',$allsites[0]);
+					$GLOBALS['egw']->preferences->save_repository(True);
 				}
 				else
 				{
@@ -214,10 +214,10 @@
 			// overwrite selected theme by user
 			if (isset($_GET['themesel']) && ($theme_info = $GLOBALS['Common_BO']->theme->getThemeInfos($_GET['themesel'])))
 			{
-				$GLOBALS['phpgw']->session->appsession('themesel','sitemgr-site',$theme_info['value']);
+				$GLOBALS['egw']->session->appsession('themesel','sitemgr-site',$theme_info['value']);
 				$this->current_site['themesel'] = $theme_info['value'];
 			}
-			elseif ($theme = $GLOBALS['phpgw']->session->appsession('themesel','sitemgr-site'))
+			elseif ($theme = $GLOBALS['egw']->session->appsession('themesel','sitemgr-site'))
 			{
 				$this->current_site['themesel'] = $theme;
 			}
@@ -236,8 +236,8 @@
 		//this function is here so that we can retrieve basic info from sitemgr-link without creating COMMON_BO
 		function get_currentsiteinfo()
 		{
-			$GLOBALS['phpgw']->preferences->read_repository();
-			$currentsite = $GLOBALS['phpgw_info']['user']['preferences']['sitemgr']['currentsite'];
+			$GLOBALS['egw']->preferences->read_repository();
+			$currentsite = $GLOBALS['egw_info']['user']['preferences']['sitemgr']['currentsite'];
 			if($currentsite)
 			{
 				$info = $this->so->read2($currentsite);
@@ -246,8 +246,8 @@
 			{
 				$allsites = $this->so->list_siteids();
 				$info = $this->so->read2($allsites[0]);
-				$GLOBALS['phpgw']->preferences->change('sitemgr','currentsite',$allsites[0]);
-				$GLOBALS['phpgw']->preferences->save_repository(True);
+				$GLOBALS['egw']->preferences->change('sitemgr','currentsite',$allsites[0]);
+				$GLOBALS['egw']->preferences->save_repository(True);
 			}
 			return $info;
 		}

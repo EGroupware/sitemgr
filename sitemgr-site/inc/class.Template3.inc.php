@@ -11,7 +11,7 @@
 
 	/* $Id$ */
 
-require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.module.inc.php');
+require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.module.inc.php');
 
 	class Template3
 	{
@@ -83,7 +83,7 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 				echo('<b>Halted.</b>');
 			}
 
-			$GLOBALS['phpgw']->common->phpgw_exit(True);
+			$GLOBALS['egw']->common->egw_exit(True);
 		}
 
 		/* public, override: haltmsg($msg)
@@ -108,7 +108,7 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 					include_once($transformerfile);
 					if (class_exists('draft_transform'))
 					{
-						$this->draft_transformer = new draft_transform();
+						$this->draft_transformer =& new draft_transform();
 					}
 				}
 			}
@@ -124,7 +124,7 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 					include_once($transformerfile);
 					if (class_exists('edit_transform'))
 					{
-						$this->edit_transformer = new edit_transform();
+						$this->edit_transformer =& new edit_transform();
 					}
 				}
 			}
@@ -171,7 +171,7 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 				include_once($transformerfile);
 				if (class_exists($transformername))
 				{
-					$transformer = new $transformername;
+					$transformer =& new $transformername;
 				}
 			}
 			//compatibility with former sideblocks template
@@ -180,7 +180,7 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 				$t = Createobject('phpgwapi.Template');
 				$t->set_root($this->root);
 				$t->set_file('SideBlock','sideblock.tpl');
-				$transformer = new sideblock_transform($t);
+				$transformer =& new sideblock_transform($t);
 			}
 			$content = '';
 
@@ -261,7 +261,7 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 				{
 					parse_str($query,$arguments);
 					//we set up a block object so that the module object can retrieve the right arguments and properties
-					$block = CreateObject('sitemgr.Block_SO',True);
+					$block =& CreateObject('sitemgr.Block_SO',True);
 					$block->module_id = 0;
 					$block->area = '__PAGE__';
 					$block->cat_id = $page->cat_id;
@@ -340,20 +340,20 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 					return $page->subtitle;
 				case 'sitename':
 				case 'site_name':
-					return $GLOBALS['sitemgr_info']['site_name_' . $GLOBALS['phpgw_info']['user']['preferences']['common']['lang']];
+					return $GLOBALS['sitemgr_info']['site_name_' . $GLOBALS['egw_info']['user']['preferences']['common']['lang']];
 				case 'sitedesc':
 				case 'site_desc':
-					return $GLOBALS['sitemgr_info']['site_desc_' . $GLOBALS['phpgw_info']['user']['preferences']['common']['lang']];
+					return $GLOBALS['sitemgr_info']['site_desc_' . $GLOBALS['egw_info']['user']['preferences']['common']['lang']];
 // 				case 'footer':
 // 				case 'site_footer':
-// 					return $GLOBALS['Common_BO']->headerfooter->getsitefooter($GLOBALS['phpgw_info']['user']['preferences']['common']['lang']);
+// 					return $GLOBALS['Common_BO']->headerfooter->getsitefooter($GLOBALS['egw_info']['user']['preferences']['common']['lang']);
 // 				case 'header':
 // 				case 'site_header':
-// 					return $GLOBALS['Common_BO']->headerfooter->getsiteheader($GLOBALS['phpgw_info']['user']['preferences']['common']['lang']);
+// 					return $GLOBALS['Common_BO']->headerfooter->getsiteheader($GLOBALS['egw_info']['user']['preferences']['common']['lang']);
 				case 'user':
-					return $GLOBALS['phpgw_info']['user']['account_lid'];
+					return $GLOBALS['egw_info']['user']['account_lid'];
 				case 'charset':
-					return is_object($GLOBALS['phpgw']->translation) ? $GLOBALS['phpgw']->translation->charset() : 'iso-8859-1';
+					return is_object($GLOBALS['egw']->translation) ? $GLOBALS['egw']->translation->charset() : 'iso-8859-1';
 				case 'lang':
 					return $GLOBALS['sitemgr_info']['userlang'];
 				case 'year':
@@ -362,9 +362,9 @@ require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.m
 					return $GLOBALS['sitemgr_info']['mode'] == 'Edit' ?
 						'<link href="templates/default/style/editmode.css" type="text/css" rel="StyleSheet" />' : '';
 				case 'java_script':
-					return $GLOBALS['phpgw']->common->get_java_script();
+					return $GLOBALS['egw']->common->get_java_script();
 				case 'need_footer':
-					return $GLOBALS['phpgw_info']['flags']['need_footer'];
+					return $GLOBALS['egw_info']['flags']['need_footer'];
 				default:
 					return '{'.$var.'}';	// leave it unchanged, happens eg. with js-code
 			}

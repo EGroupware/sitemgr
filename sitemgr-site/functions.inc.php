@@ -20,7 +20,7 @@
 
 	function phpgw_link($url, $extravars = '')
 	{
-		return $GLOBALS['phpgw']->session->link($url, $extravars);
+		return $GLOBALS['egw']->session->link($url, $extravars);
 	} 
 
 	function sitemgr_link2($url, $extravars = '')
@@ -53,11 +53,11 @@
 		$url = $GLOBALS['sitemgr_info']['site_url'] . $url;
 		$url = substr(ereg_replace('([^:])//','\1/','s'.$url),1);
 
-		if (!isset($GLOBALS['phpgw_info']['server']['usecookies']) || !$GLOBALS['phpgw_info']['server']['usecookies'])
+		if (!isset($GLOBALS['egw_info']['server']['usecookies']) || !$GLOBALS['egw_info']['server']['usecookies'])
 		{
-			$extravars['sessionid'] = @$GLOBALS['phpgw_info']['user']['sessionid'];
-			$extravars['kp3']       = $_GET['kp3'] ? $_GET['kp3'] : $GLOBALS['phpgw_info']['user']['kp3'];
-			$extravars['domain']    = @$GLOBALS['phpgw_info']['user']['domain'];
+			$extravars['sessionid'] = @$GLOBALS['egw_info']['user']['sessionid'];
+			$extravars['kp3']       = $_GET['kp3'] ? $_GET['kp3'] : $GLOBALS['egw_info']['user']['kp3'];
+			$extravars['domain']    = @$GLOBALS['egw_info']['user']['domain'];
 		}
 		// build the extravars string from a array
 		$vars = array();

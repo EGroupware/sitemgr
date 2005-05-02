@@ -30,7 +30,7 @@ class module_appdir extends Module
 
 		$allapps = $this->block->arguments['directory'];
 		//xmltool2 is a slightly modified version of phpgwapi.xmltool of HEAD
-		$xmltool = CreateObject('sitemgr.xmltool2');
+		$xmltool =& CreateObject('sitemgr.xmltool2');
 		$xmltool->import_xml($allapps);
 		$apparray = $xmltool->export_var();		
 		$i = 0;
@@ -79,7 +79,7 @@ class module_appdir extends Module
 
 	function validate(&$data)
 	{
-		$xmltool = CreateObject('sitemgr.xmltool2','node','directory','');
+		$xmltool =& CreateObject('sitemgr.xmltool2','node','directory','');
 		$i = 0;
 		while (isset($data['name'][$i]))
 		{
@@ -121,7 +121,7 @@ class module_appdir extends Module
 
 		if ($produce)
 		{
-			require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.xslt_transform.inc.php');
+			require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.xslt_transform.inc.php');
 			$this->add_transformer(new xslt_transform($this->find_template_dir() . SEP . 'list.xsl'));
 		}
 	}

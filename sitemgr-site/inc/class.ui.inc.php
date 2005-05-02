@@ -20,7 +20,7 @@
 		{
 			$themesel = $GLOBALS['sitemgr_info']['themesel'];
 			$templateroot = $GLOBALS['sitemgr_info']['site_dir'] . SEP . 'templates' . SEP . $themesel;
-			$this->t = new Template3($templateroot);
+			$this->t =& new Template3($templateroot);
 		}
 
 		function displayPageByName($page_name)
@@ -55,7 +55,7 @@
 		function generatePage()
 		{
 			// add a content-type header to overwrite an existing default charset in apache (AddDefaultCharset directiv)
-			header('Content-type: text/html; charset='.$GLOBALS['phpgw']->translation->charset());
+			header('Content-type: text/html; charset='.$GLOBALS['egw']->translation->charset());
 
 			echo $this->t->parse();
 		}

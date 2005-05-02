@@ -11,7 +11,7 @@
 
 	/* $Id$ */
 
-	$GLOBALS['phpgw_info']['flags'] = array
+	$GLOBALS['egw_info']['flags'] = array
 	(
 			'currentapp' => 'sitemgr',
 			'noheader'   => True,
@@ -19,14 +19,13 @@
 			'noapi'      => False
 	);
 	include('../header.inc.php');
+	
+	$CommonUI =& CreateObject('sitemgr.Common_UI');
 
-	$CommonUI = CreateObject('sitemgr.Common_UI');
-
-	if (!$CommonUI->do_sites_exist && $GLOBALS['phpgw_info']['user']['apps']['admin'])
+	if (!$CommonUI->do_sites_exist && $GLOBALS['egw_info']['user']['apps']['admin'])
 	{
-		$GLOBALS['phpgw']->redirect_link('/index.php',array('menuaction'=>'sitemgr.Sites_UI.edit'));
+		$GLOBALS['egw']->redirect_link('/index.php',array('menuaction'=>'sitemgr.Sites_UI.edit'));
 	}
 	$CommonUI->DisplayIFrame();
 
-	$GLOBALS['phpgw']->common->phpgw_footer();
-?>
+	$GLOBALS['egw']->common->egw_footer();

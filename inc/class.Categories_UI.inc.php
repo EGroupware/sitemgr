@@ -25,13 +25,13 @@ class Categories_UI
 		'edit' => True,
 		'delete' => True
 	);
-	  
+		
 	function Categories_UI()
 	{
-		$this->common_ui = CreateObject('sitemgr.Common_UI',True);
-		$this->t = $GLOBALS['phpgw']->template;
+		$this->common_ui =& CreateObject('sitemgr.Common_UI',True);
+		$this->t = $GLOBALS['egw']->template;
 		$this->cat_bo = $GLOBALS['Common_BO']->cats;
-		$this->cat = CreateObject('sitemgr.Category_SO', True);
+		$this->cat =& CreateObject('sitemgr.Category_SO', True);
 		$this->acl = $GLOBALS['Common_BO']->acl;
 		$this->isadmin = $this->acl->is_admin();
 		$this->sitelanguages = $GLOBALS['Common_BO']->sites->current_site['sitelanguages'];
@@ -41,7 +41,7 @@ class Categories_UI
 	{
 		if (!$this->isadmin)
 		{
-			$GLOBALS['phpgw']->redirect($GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Outline_UI.manage'));
+			$GLOBALS['egw']->redirect($GLOBALS['egw']->link('/index.php','menuaction=sitemgr.Outline_UI.manage'));
 			return False;
 		}
 	
@@ -104,7 +104,7 @@ class Categories_UI
 			$cat = $this->cat_bo->getCategory($cat_id,$savelanguage,True);
 		}
 		
-		$GLOBALS['phpgw']->common->phpgw_header();
+		$GLOBALS['egw']->common->egw_header();
 		$this->t->set_file('EditCategory', 'edit_category.tpl');
 		$this->t->set_block('EditCategory','GroupBlock', 'GBlock');
 		
@@ -131,7 +131,7 @@ class Categories_UI
 				($page['value'] == $cat->index_page_id ? ' selected="1"' : '').'>'.$page[display]."</option>\n";
 		}
 		$this->t->set_var(array(
-			'action_url' => $GLOBALS['phpgw']->link('/index.php',array('menuaction'=>'sitemgr.Categories_UI.edit')),
+			'action_url' => $GLOBALS['egw']->link('/index.php',array('menuaction'=>'sitemgr.Categories_UI.edit')),
 			'focus_reload_close' => $focus_reload_close,
 			'add_edit' => ($cat_id ? lang('Edit Category') : lang('Add Category')),
 			'cat_id' => $cat_id,
@@ -167,7 +167,7 @@ class Categories_UI
 			'lang_required' => lang('Required Fields'),
 		));
 		
-		$acct = CreateObject('phpgwapi.accounts');
+		$acct =& CreateObject('phpgwapi.accounts');
 		$grouplist = $this->acl->get_group_list();
 		$permissionlist = ($cat_id ? $this->acl->get_group_permission_list($cat_id) : array());
 		if($grouplist)
@@ -189,7 +189,7 @@ class Categories_UI
 				}
 				
 				$this->t->set_var('groupname', $account_name);
-				if ($permission_id & PHPGW_ACL_READ)  
+				if ($permission_id & EGW_ACL_READ)  
 				{
 					$this->t->set_var('checkedgroupread','CHECKED="1"');
 				}
@@ -197,7 +197,7 @@ class Categories_UI
 				{
 					$this->t->set_var('checkedgroupread','');
 				}
-				if ($permission_id & PHPGW_ACL_ADD)
+				if ($permission_id & EGW_ACL_ADD)
 				{
 					$this->t->set_var('checkedgroupwrite','CHECKED="1"');
 				}
@@ -235,7 +235,7 @@ class Categories_UI
 				$this->t->set_var('user_id', $user_id);
 				
 				$this->t->set_var('username', $user_name);
-				if ($user_permission_id & PHPGW_ACL_READ )
+				if ($user_permission_id & EGW_ACL_READ )
 				{
 					$this->t->set_var('checkeduserread','CHECKED="1"');
 				}
@@ -243,7 +243,7 @@ class Categories_UI
 				{
 					$this->t->set_var('checkeduserread','');
 				}
-				if ($user_permission_id & PHPGW_ACL_ADD )
+				if ($user_permission_id & EGW_ACL_ADD )
 				{
 					$this->t->set_var('checkeduserwrite','CHECKED="1"');
 				}
@@ -293,7 +293,7 @@ class Categories_UI
 	{
 		if (!$this->isadmin)
 		{
-			$GLOBALS['phpgw']->redirect($GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Outline_UI.manage'));
+			$GLOBALS['egw']->redirect($GLOBALS['egw']->link('/index.php','menuaction=sitemgr.Outline_UI.manage'));
 			return;
 		}
 		
@@ -308,11 +308,11 @@ class Categories_UI
 				$cat = $this->cat_bo->getCategory($cat_id,False,True);
 				$this->cat_bo->removeCategory($cat_id);
 				$parent_url = $GLOBALS['Common_BO']->sites->current_site['site_url'].'?category_id='.$cat->parent;
-				if (!isset($GLOBALS['phpgw_info']['server']['usecookies']) || !$GLOBALS['phpgw_info']['server']['usecookies'])
+				if (!isset($GLOBALS['egw_info']['server']['usecookies']) || !$GLOBALS['egw_info']['server']['usecookies'])
 				{
-					$parent_url .= '&sessionid='. @$GLOBALS['phpgw_info']['user']['sessionid'];
-					$parent_url .= '&kp3='.($_GET['kp3'] ? $_GET['kp3'] : $GLOBALS['phpgw_info']['user']['kp3']);
-					$parent_url .= '&domain='.@$GLOBALS['phpgw_info']['user']['domain'];
+					$parent_url .= '&sessionid='. @$GLOBALS['egw_info']['user']['sessionid'];
+					$parent_url .= '&kp3='.($_GET['kp3'] ? $_GET['kp3'] : $GLOBALS['egw_info']['user']['kp3']);
+					$parent_url .= '&domain='.@$GLOBALS['egw_info']['user']['domain'];
 				}
 				$reload = "opener.location.href='$parent_url';";
 			}
@@ -321,7 +321,7 @@ class Categories_UI
 				echo '<html><head></head><body onload="'.$reload.'self.close()"></body></html>';
 				return;
 			}
-			$GLOBALS['phpgw']->redirect_link('/index.php','menuaction=sitemgr.Outline_UI.manage');
+			$GLOBALS['egw']->redirect_link('/index.php','menuaction=sitemgr.Outline_UI.manage');
 		}
 		
 		$this->common_ui->DisplayHeader();
@@ -333,7 +333,7 @@ class Categories_UI
 		$this->t->set_var('lang_yes',lang('Yes, please delete it'));
 		$this->t->set_var('lang_no',lang('Cancel the delete'));
 		$this->t->set_var('standalone',$_GET['standalone']);
-		$this->t->set_var('action_url',$GLOBALS['phpgw']->link('/index.php',array('menuaction'=>'sitemgr.Categories_UI.delete','cat_id'=>$cat_id)));
+		$this->t->set_var('action_url',$GLOBALS['egw']->link('/index.php',array('menuaction'=>'sitemgr.Categories_UI.delete','cat_id'=>$cat_id)));
 		$this->t->pfp('out','ConfirmDelete');
 	}
 }

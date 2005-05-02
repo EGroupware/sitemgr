@@ -12,7 +12,7 @@
 
 	/* $Id$ */
 
-	$GLOBALS['phpgw_info']['flags'] = array
+	$GLOBALS['egw_info']['flags'] = array
 	(
 			'currentapp' => 'sitemgr',
 			'nonavbar'   => True,
@@ -21,19 +21,19 @@
 	);
 	include('../header.inc.php');
 
-	$GLOBALS['Common_BO'] = CreateObject('sitemgr.Common_BO');
+	$GLOBALS['Common_BO'] =& CreateObject('sitemgr.Common_BO');
 	$GLOBALS['Common_BO']->sites->set_currentsite(False,'Administration');
 
-	$GLOBALS['phpgw']->template->set_file('theme_info','theme_info.tpl');
+	$GLOBALS['egw']->template->set_file('theme_info','theme_info.tpl');
 	if ($_GET['theme'] && ($info = $GLOBALS['Common_BO']->theme->getThemeInfos($_GET['theme'])))
 	{
 		if ($info['thumbnail']) $info['thumbnail'] = '<img src="'.$info['thumbnail'].'" />';
-		$GLOBALS['phpgw']->template->set_var($info);
-		$GLOBALS['phpgw']->template->set_var(array(
+		$GLOBALS['egw']->template->set_var($info);
+		$GLOBALS['egw']->template->set_var(array(
 			'lang_author' => lang('Author'),
 			'lang_copyright' => lang('Copyright'),
 		));
 	}
-	$GLOBALS['phpgw']->template->pfp('out','theme_info');
+	$GLOBALS['egw']->template->pfp('out','theme_info');
 
-	$GLOBALS['phpgw']->common->phpgw_exit();
+	$GLOBALS['egw']->common->egw_exit();

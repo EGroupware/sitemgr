@@ -19,7 +19,7 @@
 		
 		function Sites_SO()
 		{
-			$this->db = $GLOBALS['phpgw']->db;
+			$this->db = clone($GLOBALS['egw']->db);
 			$this->db->set_app('sitemgr');
 		}
 
@@ -133,7 +133,7 @@
 
 		function add($site)
 		{
-			$cats = CreateObject('phpgwapi.categories',-1,'sitemgr');
+			$cats =& CreateObject('phpgwapi.categories',-1,'sitemgr');
 			$site_id =  $cats->add(array(
 				'name'		=> $site['name'],
 				'descr'		=> '',

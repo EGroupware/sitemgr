@@ -11,7 +11,7 @@
 
 	/* $Id$ */
 
-	$GLOBALS['phpgw_info']['flags'] = array
+	$GLOBALS['egw_info']['flags'] = array
 	(
 		// currentapp set in config.inc.php
 		'disable_template_class' => True,
@@ -34,15 +34,15 @@
 
 	include('./functions.inc.php');
 
-	$Common_BO = CreateObject('sitemgr.Common_BO');
+	$Common_BO =& CreateObject('sitemgr.Common_BO');
 	require_once './inc/class.sitebo.inc.php';
-	$objbo = new sitebo;
+	$objbo =& new sitebo;
 	$Common_BO->sites->set_currentsite($site_url,$objbo->getmode());
 	$sitemgr_info = array_merge($sitemgr_info,$Common_BO->sites->current_site);
 	$sitemgr_info['sitelanguages'] = explode(',',$sitemgr_info['site_languages']);
 	$objbo->setsitemgrPreferredLanguage();
-	$GLOBALS['phpgw']->translation->add_app('common');	// as we run as sitemgr-site
-	$GLOBALS['phpgw']->translation->add_app('sitemgr');	// as we run as sitemgr-site
+	$GLOBALS['egw']->translation->add_app('common');	// as we run as sitemgr-site
+	$GLOBALS['egw']->translation->add_app('sitemgr');	// as we run as sitemgr-site
 
 	$templateroot = $GLOBALS['sitemgr_info']['site_dir'] . SEP . 'templates' . SEP . $GLOBALS['sitemgr_info']['themesel'];
 
@@ -66,11 +66,11 @@
 		{
 			echo lang("You may have deinstalled the used template '%1'. Reinstall it or go to SiteMgr --> Configure Website and select an other one.",$GLOBALS['sitemgr_info']['themesel']);
 		}
-		$GLOBALS['phpgw']->common->phpgw_exit();
+		$GLOBALS['egw']->common->egw_exit();
 	}
-	$objui = new ui;
+	$objui =& new ui;
 
-	$page = CreateObject('sitemgr.Page_SO');
+	$page =& CreateObject('sitemgr.Page_SO');
 
 	$page_id = $_GET['page_id'];
 	$page_name = $_GET['page_name'];

@@ -16,13 +16,13 @@
 
 		$file = Array
 		(
-			'Define Websites' => $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Sites_UI.list_sites'),
+			'Define Websites' => $GLOBALS['egw']->link('/index.php','menuaction=sitemgr.Sites_UI.list_sites'),
 		);
 
 //Do not modify below this line
-		if (method_exists($GLOBALS['phpgw']->common,'display_mainscreen'))
+		if (method_exists($GLOBALS['egw']->common,'display_mainscreen'))
 		{
-			$GLOBALS['phpgw']->common->display_mainscreen($appname,$file);
+			$GLOBALS['egw']->common->display_mainscreen($appname,$file);
 		}
 		else
 		{

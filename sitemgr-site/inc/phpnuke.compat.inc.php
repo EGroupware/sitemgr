@@ -95,7 +95,7 @@
 		}
 		elseif ($var == 'news')
 		{
-			$ui = new ui;
+			$ui =& new ui;
 			$val = $ui->get_news();
 			unset($ui);
 		}
@@ -127,7 +127,7 @@
 		else
 		{
 			/* Check for reserved vars first, otherwise
-			   get from the global theme_vars
+				 get from the global theme_vars
 			*/
 			switch (strtolower($var))
 			{
@@ -169,7 +169,7 @@
 	}
 	function footmsg()
 	{
-		$objbo = new bo;
+		$objbo =& new bo;
 		echo $objbo->get_footer();
 	}
 
@@ -179,7 +179,7 @@
 	\******************************************************/
 	function is_admin()
 	{
-		$acl = CreateObject('sitemgr.ACL_BO');
+		$acl =& CreateObject('sitemgr.ACL_BO');
 		$retval = $acl->is_admin();
 		unset($acl);
 		return $retval;
@@ -187,7 +187,7 @@
 	function is_user()
 	{
 		global $sitemgr_info;
-		if ($GLOBALS['phpgw_info']['user']['account_lid'] != $sitemgr_info['login'])
+		if ($GLOBALS['egw_info']['user']['account_lid'] != $sitemgr_info['login'])
 		{
 			return true;
 		}
@@ -224,7 +224,7 @@
 	function is_active($module) 
 	{
 		return false;
-    }
+		}
 	function message_box() 
 	{
 		// For displaying news
@@ -258,13 +258,13 @@
 	}
 	function check_words($Message) 
 	{
-    	return ($Message);
+			return ($Message);
 	}
 	function getusrinfo($user)
 	{
 		$userinfo = array(
-			'uid' => $GLOBALS['phpgw_info']['user']['account_id'],
-			'name' => $GLOBALS['phpgw_info']['user']['account_lid'],
+			'uid' => $GLOBALS['egw_info']['user']['account_id'],
+			'name' => $GLOBALS['egw_info']['user']['account_lid'],
 			'uname' => '',
 			'email' => '',
 			'femail' => '',
@@ -294,7 +294,7 @@
 			'newsletter' => 0
 		);
 
-    	return $userinfo;
+			return $userinfo;
 	}
 	
 	/******************************************************\
@@ -302,31 +302,31 @@
 	\******************************************************/
 	function render_blocks($side, $blockfile, $title, $content, $bid, $url) 
 	{
-    	if ($url == '') 
+			if ($url == '') 
 		{
 			if ($blockfile == "") 
 			{
-	    		if ($side == "c") 
+					if ($side == "c") 
 				{
 					themecenterbox($title, $content);
-	    		} 
+					} 
 				else 
 				{
 					themesidebox($title, $content);
-	    		}
+					}
 			} 
 			else 
 			{
-	    		if ($side == "c") 
+					if ($side == "c") 
 				{
 					blockfileinc($title, $blockfile, 1);
-	    		} 
+					} 
 				else 
 				{
 					blockfileinc($title, $blockfile);
-	    		}
+					}
 			}
-    	} 
+			} 
 		else 
 		{
 			if ($side == "c") 
@@ -337,12 +337,12 @@
 			{
 				headlines($bid);
 			}
-    	}
+			}
 	}
 
 	function blocks($side) 
 	{
-    	global $blocks;
+			global $blocks;
 
 		//switch(strtolower(substr($side,0,1)))
 		switch(strtolower(substr($side,0,1)))
@@ -369,65 +369,65 @@
 
 				if ($bkey == 'admin') 
 				{
-	    			adminblock();
+						adminblock();
 				} 
 				elseif ($bkey == 'userbox') 
 				{
-	    			userblock();
+						userblock();
 				} 
 				elseif ($bkey == '') 
 				{
-	    			if ($view==0) 
+						if ($view==0) 
 					{
 						render_blocks($side, $blockfile, $title, $content, $bid, $url);
-	    			} 
+						} 
 					elseif ($view==1 && is_user()) 
 					{
 						render_blocks($side, $blockfile, $title, $content, $bid, $url);
-	    			} 
+						} 
 					elseif ($view==2 && is_admin()) 
 					{
 						render_blocks($side, $blockfile, $title, $content, $bid, $url);
-	    			} 
+						} 
 					elseif (($view==3) && (!is_user()))
 					{
 						render_blocks($side, $blockfile, $title, $content, $bid, $url);
-	    			}
+						}
 				}
 			}
-    	}
+			}
 	}
 
 
 	function blockfileinc($title, $blockfile, $side=0) 
 	{
-    	$blockfiletitle = $title;
-    	$file = @file("blocks/$blockfile");
-    	if (!$file) 
+			$blockfiletitle = $title;
+			$file = @file("blocks/$blockfile");
+			if (!$file) 
 		{
 			$content = lang('Block not found.');
-    	} 
+			} 
 		else 
 		{
 			include("blocks/$blockfile");
-    	}
-    	if ($content == '') 
+			}
+			if ($content == '') 
 		{
 			$content = lang('Block returned no content.');
-    	}
-    	if ($side == 1) 
+			}
+			if ($side == 1) 
 		{
 			themecenterbox($blockfiletitle, $content);
-    	} 
+			} 
 		else 
 		{
 			themesidebox($blockfiletitle, $content);
-    	}
+			}
 	}
 
 	function adminblock() 
 	{
-    	if (is_admin()) 
+			if (is_admin()) 
 		{
 			global $blocks;
 
@@ -435,19 +435,19 @@
 			{
 				if ($block['bkey']=='admin')
 				{
-	    			$content = '<font class="content">'.$block['content'].'</font>';
+						$content = '<font class="content">'.$block['content'].'</font>';
 					$title = $block['title'];
-	    			themesidebox($title, $content);
+						themesidebox($title, $content);
 				}
 			}
-    	}
+			}
 	}
 
 	function loginbox() {
-    	if (!is_user()) 
+			if (!is_user()) 
 		{
 			$title = 'Login';
-			$boxstuff = '<form name="login" action="'.$GLOBALS['phpgw_info']['server']['webserver_url'].'/login.php" method="post">';
+			$boxstuff = '<form name="login" action="'.$GLOBALS['egw_info']['server']['webserver_url'].'/login.php" method="post">';
 			$boxstuff .= '<input type="hidden" name="passwd_type" value="text">';
 			$boxstuff .= '<center><font class="content">Login Name<br>';
 			$boxstuff .= '<input type="text" name="login" size="8" value=""><br>';
@@ -457,28 +457,28 @@
 			$boxstuff .= '</font></center></form>';
 			$boxstuff .= "<center><font class=\"content\">Don't have an account?  Maybe in a future version you can create one. :-)</font></center>";
 			themesidebox($title, $boxstuff);
-    	}
+			}
 	}
 
 	function userblock() 
 	{
-    	if(is_user())
+			if(is_user())
 		{
 			//this is a handy function to allow the user to 
 			//have their own custom block.  too bad we don't
 			//have that feature (yet).
 		}
-    }
+		}
 
 
 	/*
 	function themecenterbox($title, $content) 
 	{
-    	$contents = OpenTable();
-    	$contents.='<center><font class="option"><b>'.
+			$contents = OpenTable();
+			$contents.='<center><font class="option"><b>'.
 			$title.'</b></font></center><br>'."$content";
-    	$contents.=CloseTable();
-    	$contents.= "<br>";
+			$contents.=CloseTable();
+			$contents.= "<br>";
 		echo $contents;
 	}
 	*/

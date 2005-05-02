@@ -46,7 +46,7 @@
 				'catdepth'	=> 1,
 			);
 
-			$this->template = CreateObject('phpgwapi.Template',$this->find_template_dir());
+			$this->template =& CreateObject('phpgwapi.Template',$this->find_template_dir());
 			$this->template->set_file('cat_block','navigation.tpl');
 			$this->template->set_block('cat_block','block_start');
 			$this->template->set_block('cat_block','level1');

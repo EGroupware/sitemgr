@@ -23,9 +23,9 @@
 
 		function Common_UI()
 		{
-			$GLOBALS['Common_BO'] = CreateObject('sitemgr.Common_BO');
+			$GLOBALS['Common_BO'] =& CreateObject('sitemgr.Common_BO');
 			$this->do_sites_exist = $GLOBALS['Common_BO']->sites->set_currentsite(False,'Administration');
-			$this->t = $GLOBALS['phpgw']->template;
+			$this->t = $GLOBALS['egw']->template;
 			$this->acl = &$GLOBALS['Common_BO']->acl;
 			$this->theme = &$GLOBALS['Common_BO']->theme;
 			$this->pages_bo = &$GLOBALS['Common_BO']->pages;
@@ -91,9 +91,9 @@
 			if (($site = $GLOBALS['Common_BO']->sites->read(CURRENT_SITE_ID)) && $site['site_url'])
 			{
 				$this->displayHeader($site['site_name']);
-				$site['site_url'] .= '?mode=Edit&sessionid='.@$GLOBALS['phpgw_info']['user']['sessionid'] .
-					'&kp3=' . @$GLOBALS['phpgw_info']['user']['kp3'] .
-					'&domain=' . @$GLOBALS['phpgw_info']['user']['domain'];
+				$site['site_url'] .= '?mode=Edit&sessionid='.@$GLOBALS['egw_info']['user']['sessionid'] .
+					'&kp3=' . @$GLOBALS['egw_info']['user']['kp3'] .
+					'&domain=' . @$GLOBALS['egw_info']['user']['domain'];
 
 				echo "\n".'<div style="width: 100%; height: 100%; min-width: 800px; height: 600px">';
 				echo "\n\t".'<iframe src="'.$site['site_url'].'" name="site" width="100%" height="100%" frameborder="0" marginwidth="0" marginheight="0"><a href="'.$site['site_url'].'">'.$site['site_url'].'</a></iframe>';
@@ -157,7 +157,7 @@
 								echo lang('Do you want to delete them?'). '<br>';
 							}
 							echo '<form action="' . 
-							$GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Common_UI.DisplayPrefs') .
+							$GLOBALS['egw']->link('/index.php','menuaction=sitemgr.Common_UI.DisplayPrefs') .
 							'" method="post"><table>';
 							foreach ($replacedlang as $oldlang)
 							{
@@ -208,7 +208,7 @@
 					'options'=>$this->pages_bo->getPageOptionList()
 				);
 				$theme = $GLOBALS['Common_BO']->sites->current_site['default_theme'];
-				$theme_info = $GLOBALS['phpgw']->link('/sitemgr/theme_info.php');
+				$theme_info = $GLOBALS['egw']->link('/sitemgr/theme_info.php');
 				$theme_info .= (strstr($theme_info,'?') ? '&' : '?').'theme=';
 				$preferences['default_theme'] = array(
 					'title'=>lang('Template select'),
@@ -231,7 +231,7 @@
 				);
 
 				$this->t->set_file('sitemgr_prefs','sitemgr_preferences.tpl');
-				$this->t->set_var('formaction',$GLOBALS['phpgw']->link(
+				$this->t->set_var('formaction',$GLOBALS['egw']->link(
 					'/index.php','menuaction=sitemgr.Common_UI.DisplayPrefs'));
 				$this->t->set_var(Array('setup_instructions' => lang('SiteMgr Setup Instructions'),
 							'options' => lang('SiteMgr Options'),
@@ -309,16 +309,16 @@
 			}
 
 			return '<textarea cols="' . $cols . '" rows="' . $rows .
-				'" name="pref['.$name.']">'. $GLOBALS['phpgw']->strip_html($val).'</textarea>';
+				'" name="pref['.$name.']">'. $GLOBALS['egw']->strip_html($val).'</textarea>';
 		}
 
 		function inputhtmlarea($name,$cols=80,$rows=5,$default='')
 		{
-			if (!is_object($GLOBALS['phpgw']->html))
+			if (!is_object($GLOBALS['egw']->html))
 			{
-				$GLOBALS['phpgw']->html = CreateObject('phpgwapi.html');
+				$GLOBALS['egw']->html =& CreateObject('phpgwapi.html');
 			}
-			return $GLOBALS['phpgw']->html->htmlarea("pref[$name]",$default,'',$GLOBALS['Common_BO']->sites->current_site['site_url']);
+			return $GLOBALS['egw']->html->htmlarea("pref[$name]",$default,'',$GLOBALS['Common_BO']->sites->current_site['site_url']);
 		}
 
 		function inputCheck($name = '')
@@ -380,11 +380,11 @@
 
 		function DisplayHeader($extra_title='')
 		{
-			$GLOBALS['phpgw_info']['flags']['app_header'] = $GLOBALS['phpgw_info']['apps']['sitemgr']['title'].
+			$GLOBALS['egw_info']['flags']['app_header'] = $GLOBALS['egw_info']['apps']['sitemgr']['title'].
 				($extra_title ? ' - '.$extra_title : '');
-			$GLOBALS['phpgw']->common->phpgw_header();
+			$GLOBALS['egw']->common->egw_header();
 
-			if ($this->do_sites_exist && $GLOBALS['phpgw_info']['server']['template_set'] != 'idots')
+			if ($this->do_sites_exist && $GLOBALS['egw_info']['server']['template_set'] != 'idots')
 			{
 				$this->t->set_file('sitemgr_header','sitemgr_header.tpl');
 				$this->t->set_block('sitemgr_header','switch','switchhandle');
@@ -398,7 +398,7 @@
 				{
 					$this->t->set_var('switchhandle','');
 				}
-				$GLOBALS['phpgw_info']['flags']['app_header'] .= $this->t->parse('out','sitemgr_header');
+				$GLOBALS['egw_info']['flags']['app_header'] .= $this->t->parse('out','sitemgr_header');
 			}
 			echo parse_navbar();
 		}

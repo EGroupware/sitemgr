@@ -63,7 +63,7 @@ class Module
 		{
 			if (is_array($this->session) && count($this->session))
 			{
-				$sessionvars = $GLOBALS['phpgw']->session->appsession('block[' . $block->id . ']', 'sitemgr-site');
+				$sessionvars = $GLOBALS['egw']->session->appsession('block[' . $block->id . ']', 'sitemgr-site');
 			}
 			foreach(array(
 				'session' => $sessionvars,
@@ -270,7 +270,7 @@ class Module
 		}
 		else
 		{
-			$default = strtr($GLOBALS['phpgw']->strip_html($default),$trans);
+			$default = strtr($GLOBALS['egw']->strip_html($default),$trans);
 		}
 	}
 
@@ -294,11 +294,11 @@ class Module
 		switch($input['type'])
 		{
 			case 'htmlarea':
-				if (!is_object($GLOBALS['phpgw']->html))
+				if (!is_object($GLOBALS['egw']->html))
 				{
-					$GLOBALS['phpgw']->html = CreateObject('phpgwapi.html');
+					$GLOBALS['egw']->html =& CreateObject('phpgwapi.html');
 				}
-				return $GLOBALS['phpgw']->html->htmlarea($elementname,$default,$input['params']['style'],$GLOBALS['Common_BO']->sites->current_site['site_url']);
+				return $GLOBALS['egw']->html->htmlarea($elementname,$default,$input['params']['style'],$GLOBALS['Common_BO']->sites->current_site['site_url']);
 			case 'textarea':
 				return '<textarea ' . $inputdef . '>' . $default . '</textarea>';
 			case 'textfield':
@@ -379,7 +379,7 @@ class Module
 						$sessionarguments[$argument] = $this->block->arguments[$argument];
 					}
 				}
-				$GLOBALS['phpgw']->session->appsession('block[' . $this->block->id . ']','sitemgr-site',$sessionarguments);
+				$GLOBALS['egw']->session->appsession('block[' . $this->block->id . ']','sitemgr-site',$sessionarguments);
 			}
 			return $content;
 		}

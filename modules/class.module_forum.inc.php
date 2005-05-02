@@ -43,7 +43,7 @@ class module_forum extends Module
 		$this->session = array('level','cat_id','forum_id','view');
 		$this->title = lang('Discussions');
 		$this->description = lang('This module displays the eGW forums on the web site');
-		$this->bo = CreateObject('forum.boforum',1);
+		$this->bo =& CreateObject('forum.boforum',1);
 	}
 
 	function get_user_interface()
@@ -87,7 +87,7 @@ class module_forum extends Module
 		{
 			$arguments['level'] = $this->startlevel;
 		}
-		$this->template = CreateObject('phpgwapi.Template');
+		$this->template =& CreateObject('phpgwapi.Template');
 		$this->template->set_root($this->find_template_dir());
 
 		if ($arguments['level'] == 1)
@@ -145,7 +145,7 @@ class module_forum extends Module
 		$this->template->set_block('INDEX','CategoryForum','CatF');
 
 		$var = Array(
-			'CAT_IMG'	=> $GLOBALS['phpgw']->common->image('forum','category'),
+			'CAT_IMG'	=> $GLOBALS['egw']->common->image('forum','category'),
 		);
 		$this->template->set_var($var);
 
@@ -186,7 +186,7 @@ class module_forum extends Module
 		$this->template->set_block('_list','row');
 
 		$var = Array(
-			'FORUM_IMG' => $GLOBALS['phpgw']->common->image('forum','forum'),
+			'FORUM_IMG' => $GLOBALS['egw']->common->image('forum','forum'),
 			'CATEGORY'=> $cat['name'],
 			'LANG_CATEGORY'=> lang('Category'),
 			'BACKLINK'=> (($this->startlevel == 1) ? 
@@ -259,7 +259,7 @@ class module_forum extends Module
 			$this->template->set_block('COLLAPSE','CollapseThreads','CollapseT');
 
 			$this->template->set_var($pre_var);
-			$this->template->set_var('THREAD_IMG',$GLOBALS['phpgw']->common->image('forum','thread'));
+			$this->template->set_var('THREAD_IMG',$GLOBALS['egw']->common->image('forum','thread'));
 
 			$rowon = true;
 			while($thread_listing && list($key,$thread) = each($thread_listing))
@@ -269,7 +269,7 @@ class module_forum extends Module
 				$var = Array(
 					'ROWONOFF'	=> $rowon ? 'rowon' : 'rowoff',
 					'TOPIC'	=> ($thread['subject']?$thread['subject']:'[No subject]'),
-					'AUTHOR'	=> ($thread['author']?$GLOBALS['phpgw']->common->grab_owner_name($thread['author']):lang('Unknown')),
+					'AUTHOR'	=> ($thread['author']?$GLOBALS['egw']->common->grab_owner_name($thread['author']):lang('Unknown')),
 					'REPLIES'	=> $thread['replies'],
 					'READ_LINK'	=> $this->link(Array(
 						'level'	=> 4,
@@ -311,13 +311,13 @@ class module_forum extends Module
 				{
 					$move .= '&nbsp;&nbsp;';
 				}
-				$move .= '<img src="'.$GLOBALS['phpgw']->common->image('forum','n').'">';
+				$move .= '<img src="'.$GLOBALS['egw']->common->image('forum','n').'">';
 				$move .= '&nbsp;&nbsp;';
 
 				$var = Array(
 					'ROWONOFF'	=> $rowon ? 'rowon' : 'rowoff',
 					'TOPIC'	=> ($thread['subject']?$thread['subject']:'[No subject]'),
-					'AUTHOR'	=> ($thread['author']?$GLOBALS['phpgw']->common->grab_owner_name($thread['author']):lang('Unknown')),
+					'AUTHOR'	=> ($thread['author']?$GLOBALS['egw']->common->grab_owner_name($thread['author']):lang('Unknown')),
 					'REPLIES'	=> $thread['replies'],
 					'READ_LINK'	=> $this->link(Array(
 						'level'	=> 4,
@@ -397,8 +397,8 @@ class module_forum extends Module
 			}
 
 			$var = Array(
-				'AUTHOR'=> ($message['thread_owner']?$GLOBALS['phpgw']->common->grab_owner_name($message['thread_owner']):lang('Unknown')),
-				'POSTDATE'=> $GLOBALS['phpgw']->common->show_date($GLOBALS['phpgw']->db->from_timestamp($message['postdate'])),
+				'AUTHOR'=> ($message['thread_owner']?$GLOBALS['egw']->common->grab_owner_name($message['thread_owner']):lang('Unknown')),
+				'POSTDATE'=> $GLOBALS['egw']->common->show_date($GLOBALS['egw']->db->from_timestamp($message['postdate'])),
 				'SUBJECT_LINK' => $this->link(Array(
 					'msg' => $message['id'],
 					'pos' => $message['pos']

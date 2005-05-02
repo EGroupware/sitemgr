@@ -1,122 +1,122 @@
 <?php
-  /**************************************************************************\
-  * eGroupWare SiteMgr - Web Content Management                              *
-  * http://www.egroupware.org                                                *
-  * --------------------------------------------                             *
-  *  This program is free software; you can redistribute it and/or modify it *
-  *  under the terms of the GNU General Public License as published by the   *
-  *  Free Software Foundation; either version 2 of the License, or (at your  *
-  *  option) any later version.                                              *
-  \**************************************************************************/
+	/**************************************************************************\
+	* eGroupWare SiteMgr - Web Content Management                              *
+	* http://www.egroupware.org                                                *
+	* --------------------------------------------                             *
+	*  This program is free software; you can redistribute it and/or modify it *
+	*  under the terms of the GNU General Public License as published by the   *
+	*  Free Software Foundation; either version 2 of the License, or (at your  *
+	*  option) any later version.                                              *
+	\**************************************************************************/
 
-  /* $Id$ */
+	/* $Id$ */
 
-  class notification_so
-  {
-    var $db;
+	class notification_so
+	{
+		var $db;
 
-    function notification_so()
-    {
-      $this->db = $GLOBALS['phpgw']->db;
-      $this->db->app = 'sitemgr_module_notify';  // as we run as sitemgr !
-      $this->notifications_table = 'phpgw_sitemgr_notifications';
-      $this->messages_table = 'phpgw_sitemgr_notify_messages';
-    }
+		function notification_so()
+		{
+			$this->db = clone($GLOBALS['egw']->db);
+			$this->db->app = 'sitemgr_module_notify';  // as we run as sitemgr !
+			$this->notifications_table = 'phpgw_sitemgr_notifications';
+			$this->messages_table = 'phpgw_sitemgr_notify_messages';
+		}
 
-    function create_notification($email,$all_langs)
-    {
-      $values=array(
-          'site_id' => $GLOBALS['sitemgr_info']['site_id'],
-          'email' => $email
-        );
-      if (!$all_langs) {
-        $values['site_language'] = $GLOBALS['sitemgr_info']['userlang'];
-      }
-      $this->db->insert($this->notifications_table,$values,False,__LINE__,__FILE__);
+		function create_notification($email,$all_langs)
+		{
+			$values=array(
+					'site_id' => $GLOBALS['sitemgr_info']['site_id'],
+					'email' => $email
+				);
+			if (!$all_langs) {
+				$values['site_language'] = $GLOBALS['sitemgr_info']['userlang'];
+			}
+			$this->db->insert($this->notifications_table,$values,False,__LINE__,__FILE__);
 
-      return $this->db->get_last_insert_id($this->notifications_table,'notification_id');
-    }
+			return $this->db->get_last_insert_id($this->notifications_table,'notification_id');
+		}
 
-    function delete_notifications($email)
-    {
-      $this->db->delete($this->notifications_table,array('email'=>$email),__LINE__,__FILE__);
-    }
+		function delete_notifications($email)
+		{
+			$this->db->delete($this->notifications_table,array('email'=>$email),__LINE__,__FILE__);
+		}
 
-    function get_notifications($site_id,$lang)
-    {
-      $this->db->select($this->notifications_table,array('email'),
-        'site_id='.$site_id." AND site_language='".$lang."'",
-        __LINE__,__FILE__);
+		function get_notifications($site_id,$lang)
+		{
+			$this->db->select($this->notifications_table,array('email'),
+				'site_id='.$site_id." AND site_language='".$lang."'",
+				__LINE__,__FILE__);
 
-      while($this->db->next_record())
-      {
-        $result[] = $this->db->f('email');
-      }
+			while($this->db->next_record())
+			{
+				$result[] = $this->db->f('email');
+			}
 
-      $this->db->select($this->notifications_table,array('email'),
-        'site_id='.$site_id." AND site_language ='all'",
-        __LINE__,__FILE__);
+			$this->db->select($this->notifications_table,array('email'),
+				'site_id='.$site_id." AND site_language ='all'",
+				__LINE__,__FILE__);
 
-      while($this->db->next_record())
-      {
-        $result[] = $this->db->f('email');
-      }
+			while($this->db->next_record())
+			{
+				$result[] = $this->db->f('email');
+			}
 
-      return $result;
-    }
+			return $result;
+		}
 
-    function get_message($site_id,$lang,$def_lang)
-    {
-      $this->db->select($this->messages_table,array('message','subject'),
-        'site_id='.$site_id." AND language='".$lang."'",
-        __LINE__,__FILE__);
+		function get_message($site_id,$lang,$def_lang)
+		{
+			$this->db->select($this->messages_table,array('message','subject'),
+				'site_id='.$site_id." AND language='".$lang."'",
+				__LINE__,__FILE__);
 
-      if($this->db->next_record())
-      {
-        return $this->db->Query_ID->fields;
-      }
+			if($this->db->next_record())
+			{
+				return $this->db->Query_ID->fields;
+			}
 
-      //language not found, try default language
-      $this->db->select($this->messages_table,array('message','subject'),
-        'site_id='.$site_id." AND language='".$def_lang."'",
-        __LINE__,__FILE__);
+			//language not found, try default language
+			$this->db->select($this->messages_table,array('message','subject'),
+				'site_id='.$site_id." AND language='".$def_lang."'",
+				__LINE__,__FILE__);
 
-      if($this->db->next_record())
-      {
-        return $this->db->Query_ID->fields;
-      }
-      
-      //even default language not found, state the default text
-      return False;
-    }
+			if($this->db->next_record())
+			{
+				return $this->db->Query_ID->fields;
+			}
+			
+			//even default language not found, state the default text
+			return False;
+		}
 
-    function get_permissions($cat_id) 
-    {
-      $account=$GLOBALS['phpgw']->accounts->name2id(
-        $GLOBALS['Common_BO']->sites->current_site['anonymous_user']);
-        
-      $memberships = $GLOBALS['phpgw']->accounts->membership($account);
-      
-      $sql = 'SELECT acl_rights FROM phpgw_acl WHERE acl_location=\'L'.$cat_id.
-        '\' and acl_account in ('.$account;
-        
-      if (is_array($memberships))
-      {
-        foreach($memberships as $group)
-        {
-          $sql .= ','.$group['account_id'];
-        }
-      }
-      $sql .= ')';
-      
-      $this->db->query($sql,__LINE__,__FILE__);
-      $permission = 0;
-      while ($this->db->next_record())
-      {
-        $permission = $permission | $this->db->f('acl_rights');
+		function get_permissions($cat_id) 
+		{
+			$account=$GLOBALS['egw']->accounts->name2id(
+				$GLOBALS['Common_BO']->sites->current_site['anonymous_user']);
+				
+			$memberships = $GLOBALS['egw']->accounts->membership($account);
+			
+			$sql = 'SELECT acl_rights FROM phpgw_acl WHERE acl_location=\'L'.$cat_id.
+				'\' and acl_account in ('.$account;
+				
+			if (is_array($memberships))
+			{
+				foreach($memberships as $group)
+				{
+					$sql .= ','.$group['account_id'];
+				}
+			}
+			$sql .= ')';
+			
+			$this->db->query($sql,__LINE__,__FILE__);
+			$permission = 0;
+			while ($this->db->next_record())
+			{
+				$permission = $permission | $this->db->f('acl_rights');
 //echo __FILE__.__LINE__."Anonymous permissions: |$permission|<BR>";        
-      }
-      return $permission;
-    }
-  }
+			}
+			return $permission;
+		}
+	}
 

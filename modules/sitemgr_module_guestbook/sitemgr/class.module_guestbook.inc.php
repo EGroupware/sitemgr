@@ -29,7 +29,13 @@ class module_guestbook extends Module
 			),
 		);
 		$this->properties = array('allownew' => array('type' => 'checkbox', 'label' => lang('Are contributors allowed to define new guestbooks?')));
-		$this->bo = createobject('sitemgr_module_guestbook.guestbook_BO');
+		
+		// check if module is installed
+		if (is_array($GLOBALS['egw_info']['apps']['sitemgr_module_guestbook']) &&
+			is_dir(EGW_INCLUDE_ROOT.'sitemgr_module_guestbook/inc'))
+		{
+			$this->bo =& CreateObject('sitemgr_module_guestbook.guestbook_BO');
+		}
 	}
 
 	function validate(&$data)

@@ -6,7 +6,7 @@
 
 		function guestbook_SO()
 		{
-			$this->db = $GLOBALS['phpgw']->db;
+			$this->db = $GLOBALS['egw']->db;
 			$this->db->app = 'sitemgr_module_guestbook';	// as we run as sitemgr !
 			$this->books_table = 'phpgw_sitemgr_module_guestbook_books';
 			$this->entries_table = 'phpgw_sitemgr_module_guestbook_entries';

@@ -13,8 +13,8 @@
 
 /* $ Id: class.et_media.inc.php,v 1.2 2002/10/19 11:11:03 ralfbecker Exp $ */
 
-include_once(PHPGW_INCLUDE_ROOT . '/etemplate/inc/class.so_sql.inc.php');
-$GLOBALS['phpgw_info']['flags']['included_classes']['so_sql'] = True;
+include_once(EGW_INCLUDE_ROOT . '/etemplate/inc/class.so_sql.inc.php');
+$GLOBALS['egw_info']['flags']['included_classes']['so_sql'] = True;
 
 
 /**!
@@ -56,8 +56,8 @@ $GLOBALS['phpgw_info']['flags']['included_classes']['so_sql'] = True;
 @discussion    "command"
 @discussion 6. Create a file class.ui_myclass.inc.php looking like
 @discussion 
-@discussion include_once(PHPGW_INCLUDE_ROOT . '/.../inc/class.generic_list.inc.php');
-@discussion $GLOBALS['phpgw_info']['flags']['included_classes']['generic_list'] = True;
+@discussion include_once(EGW_INCLUDE_ROOT . '/.../inc/class.generic_list.inc.php');
+@discussion $GLOBALS['egw_info']['flags']['included_classes']['generic_list'] = True;
 @discussion 
 @discussion class ui_myclass extends generic_list
 @discussion {
@@ -148,107 +148,107 @@ $GLOBALS['phpgw_info']['flags']['included_classes']['so_sql'] = True;
  
 class generic_list_so extends so_sql
 {
-   var $application;
-   var $table;
-   var $class_name;
-   var $id;
-   var $master;
-   var $master_id;
-   
-   function generic_list_so($app, $tab, $cls, $id,  $mas='', $mas_val=0)
-   {
-      $this->application=$app;
-      $this->table=$tab;
-      $this->class_name=$app.'.'.$cls;
-      $this->id=$id;
-      $this->master=$mas;
-      $this->master_id=$mas_val;
-      
-      $this->so_sql($this->application,$this->table);   // sets up our storage layer using the table 
-      $this->empty_on_write = "''";    // what to write in the db, if a column is empty, the default is NULL
+	 var $application;
+	 var $table;
+	 var $class_name;
+	 var $id;
+	 var $master;
+	 var $master_id;
+	 
+	 function generic_list_so($app, $tab, $cls, $id,  $mas='', $mas_val=0)
+	 {
+			$this->application=$app;
+			$this->table=$tab;
+			$this->class_name=$app.'.'.$cls;
+			$this->id=$id;
+			$this->master=$mas;
+			$this->master_id=$mas_val;
+			
+			$this->so_sql($this->application,$this->table);   // sets up our storage layer using the table 
+			$this->empty_on_write = "''";    // what to write in the db, if a column is empty, the default is NULL
 
-  }
-  
-  function get_master_id()
-  {
-    return $this->master_id;
-  }
+	}
+	
+	function get_master_id()
+	{
+		return $this->master_id;
+	}
 
-  function check_master($content)
-  {
-      if (($this->master!='') && ($this->master_id==0)) {
-        if (isset($content[$this->master]))
-          $this->master_id=$content[$this->master];
-        else
-          $this->master_id=$_GET[$this->master];
-      }
-      return $this->master_id>0;
-  }
-  
-  
-  function list_elts()
-  {
-    if ($this->master_id>0) {
-      return $this->search($this->master.'='.$this->master_id,False);
-    }
-    else {
-      return $this->search('',False);
-    }
-  }  
-  
-  function get_data()
-  {
-    return $this->data;
-  }
+	function check_master($content)
+	{
+			if (($this->master!='') && ($this->master_id==0)) {
+				if (isset($content[$this->master]))
+					$this->master_id=$content[$this->master];
+				else
+					$this->master_id=$_GET[$this->master];
+			}
+			return $this->master_id>0;
+	}
+	
+	
+	function list_elts()
+	{
+		if ($this->master_id>0) {
+			return $this->search($this->master.'='.$this->master_id,False);
+		}
+		else {
+			return $this->search('',False);
+		}
+	}  
+	
+	function get_data()
+	{
+		return $this->data;
+	}
 
-  function process_content(&$content)
-  {
-    if ($this->master_id>0) {
-     $content = $content+$this->get_master_array();
-    }
+	function process_content(&$content)
+	{
+		if ($this->master_id>0) {
+		 $content = $content+$this->get_master_array();
+		}
 
-    if ($content[$this->id] > 0)      // if we have an id --> read the entry
-    {
-      $this->read($content);
-    }
-    $this->data_merge($content);  // merge content with our internal data-array ($this->data)
-    
-    return $content;
-  }  
+		if ($content[$this->id] > 0)      // if we have an id --> read the entry
+		{
+			$this->read($content);
+		}
+		$this->data_merge($content);  // merge content with our internal data-array ($this->data)
+		
+		return $content;
+	}  
 
-  function get_master_array()
-  {
-    return $this->master_id>0?array($this->master => $this->master_id):array();
-  }
+	function get_master_array()
+	{
+		return $this->master_id>0?array($this->master => $this->master_id):array();
+	}
 
-  function get_id_array($master)
-  {
-    if ($master) {
-      return array($this->id => $this->data[$this->id])+$this->get_master_array();
-    }
-    else {
-      return array($this->id => $this->data[$this->id]);
-    }
-  }
-  
-  function get_id()
-  {
-    return $this->data[$this->id];
-  }
+	function get_id_array($master)
+	{
+		if ($master) {
+			return array($this->id => $this->data[$this->id])+$this->get_master_array();
+		}
+		else {
+			return array($this->id => $this->data[$this->id]);
+		}
+	}
+	
+	function get_id()
+	{
+		return $this->data[$this->id];
+	}
 
-  function read_id($content) 
-  {
-    if ($content[$this->id]>0) {
-      $this->read($content); 
-      $this->data_merge($content); 
-      return $content[$this->id];
-    }
-    else {
-      $this->read(array($this->id=>$content));     
-      $content[$this->id];      
-    }
-    return False;
-  }
-  
+	function read_id($content) 
+	{
+		if ($content[$this->id]>0) {
+			$this->read($content); 
+			$this->data_merge($content); 
+			return $content[$this->id];
+		}
+		else {
+			$this->read(array($this->id=>$content));     
+			$content[$this->id];      
+		}
+		return False;
+	}
+	
 }
 

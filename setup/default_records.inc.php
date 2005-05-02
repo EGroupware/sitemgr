@@ -18,7 +18,7 @@
 	$oProc->query("select config_value FROM phpgw_config WHERE config_name='webserver_url'");
 	$oProc->next_record();
 	$siteurl = $oProc->f('config_value') . '/sitemgr/sitemgr-site/';	// url always uses slashes, dont use SEP!!!
-	$sitedir = $GLOBALS['phpgw_setup']->db->db_addslashes(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'sitemgr-site');
+	$sitedir = $GLOBALS['phpgw_setup']->db->db_addslashes(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'sitemgr-site');
 	$oProc->query("INSERT INTO phpgw_sitemgr_sites (site_id,site_name,site_url,site_dir,themesel,site_languages,home_page_id,anonymous_user,anonymous_passwd) VALUES ($site_id,'Default Website','$siteurl','$sitedir','idots','en,de',0,'anonymous','anonymous')");
 
 	// give Admins group rights vor sitemgr and for the created default-site
@@ -58,7 +58,7 @@
 		'toc' => array('__PAGE__'),
 		'wiki' => array('__PAGE__'),
 	);
-	$dir = opendir(PHPGW_SERVER_ROOT.'/sitemgr/modules');
+	$dir = opendir(EGW_SERVER_ROOT.'/sitemgr/modules');
 	while($file = readdir($dir))
 	{
 		if (!eregi('class.module_([^.]*).inc.php',$file,$parts))
@@ -66,7 +66,7 @@
 			continue;
 		}
 		$module = $parts[1];
-		if (ereg('\$this->description = lang\(\'([^'."\n".']*)\'\);',implode("\n",file(PHPGW_SERVER_ROOT.'/sitemgr/modules/'.$file)),$parts))
+		if (ereg('\$this->description = lang\(\'([^'."\n".']*)\'\);',implode("\n",file(EGW_SERVER_ROOT.'/sitemgr/modules/'.$file)),$parts))
 		{
 			$description = $GLOBALS['phpgw_setup']->db->db_addslashes(str_replace("\\'","'",$parts[1]));
 		}
@@ -186,9 +186,9 @@
 		return True;
 	}
 
-	if (!file_exists(PHPGW_SERVER_ROOT.'/sitemgr-link') && is_writable(PHPGW_SERVER_ROOT))
+	if (!file_exists(EGW_SERVER_ROOT.'/sitemgr-link') && is_writable(EGW_SERVER_ROOT))
 	{
-		chdir(PHPGW_SERVER_ROOT);
+		chdir(EGW_SERVER_ROOT);
 		if (function_exists('symlink'))
 		{
 			symlink('sitemgr/sitemgr-link','sitemgr-link');
@@ -202,7 +202,7 @@
 		}
 	}
 
-	if (file_exists($sitemgr_link_setup = PHPGW_SERVER_ROOT.'/sitemgr-link/setup/setup.inc.php'))
+	if (file_exists($sitemgr_link_setup = EGW_SERVER_ROOT.'/sitemgr-link/setup/setup.inc.php'))
 	{
 		include($sitemgr_link_setup);
 		$GLOBALS['setup_info']['sitemgr-link'] = $setup_info['sitemgr-link'];

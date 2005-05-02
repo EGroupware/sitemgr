@@ -13,8 +13,8 @@
 
 /* $ Id: class.et_media.inc.php,v 1.2 2002/10/19 11:11:03 ralfbecker Exp $ */
 
-include_once(PHPGW_INCLUDE_ROOT . '/etemplate/inc/class.so_sql.inc.php');
-$GLOBALS['phpgw_info']['flags']['included_classes']['so_sql'] = True;
+include_once(EGW_INCLUDE_ROOT . '/etemplate/inc/class.so_sql.inc.php');
+$GLOBALS['egw_info']['flags']['included_classes']['so_sql'] = True;
 
 
 /**!
@@ -56,8 +56,8 @@ $GLOBALS['phpgw_info']['flags']['included_classes']['so_sql'] = True;
 @discussion    "command"
 @discussion 6. Create a file class.ui_myclass.inc.php looking like
 @discussion 
-@discussion include_once(PHPGW_INCLUDE_ROOT . '/.../inc/class.generic_list.inc.php');
-@discussion $GLOBALS['phpgw_info']['flags']['included_classes']['generic_list'] = True;
+@discussion include_once(EGW_INCLUDE_ROOT . '/.../inc/class.generic_list.inc.php');
+@discussion $GLOBALS['egw_info']['flags']['included_classes']['generic_list'] = True;
 @discussion 
 @discussion class ui_myclass extends generic_list
 @discussion {
@@ -149,83 +149,83 @@ $GLOBALS['phpgw_info']['flags']['included_classes']['so_sql'] = True;
 class generic_list_bo 
 {
 
-  var $so;
+	var $so;
 
-  function check_master($content)
-  {
-    return $this->so->check_master($content);
-  }
-  
-  function get_master_array()
-  {
-    return $this->so->get_master_array($content);
-  }
+	function check_master($content)
+	{
+		return $this->so->check_master($content);
+	}
+	
+	function get_master_array()
+	{
+		return $this->so->get_master_array($content);
+	}
 
-  function get_master_id()
-  {
-    return $this->so->get_master_id();
-  }
+	function get_master_id()
+	{
+		return $this->so->get_master_id();
+	}
 
-  function get_id_array($master)
-  {
-    return $this->so->get_id_array($master);
-  }
+	function get_id_array($master)
+	{
+		return $this->so->get_id_array($master);
+	}
 
-  function process_content(&$content)
-  {
-    return $this->so->process_content($content);
-  }
-  
-  function read_id($content) 
-  {
-    return $this->so->read_id($content);
-  }
-  
-  function set_button_id($content,$btn) 
-  {
-    list($key,$value)=each($content[$btn]);
-    $this->so->read_id($key);
-    return $this->so->get_id_array(False);
-  }
-  
-  function save($keys='')
-  {
-    return $this->so->save($keys);
-  }
+	function process_content(&$content)
+	{
+		return $this->so->process_content($content);
+	}
+	
+	function read_id($content) 
+	{
+		return $this->so->read_id($content);
+	}
+	
+	function set_button_id($content,$btn) 
+	{
+		list($key,$value)=each($content[$btn]);
+		$this->so->read_id($key);
+		return $this->so->get_id_array(False);
+	}
+	
+	function save($keys='')
+	{
+		return $this->so->save($keys);
+	}
 
-  function delete($keys)
-  {
-    return $this->so->delete($keys);
-  }
+	function delete($keys)
+	{
+		return $this->so->delete($keys);
+	}
 
-  function get_data()
-  {
-    return $this->so->get_data();
-  }
+	function get_data()
+	{
+		return $this->so->get_data();
+	}
 
-  function list_elts()
-  {
-    $elts=$this->so->list_elts();
-    
-    if (!is_array($elts) || !count($elts))
-    {
-       $content = array(
-          'msg' => lang('There is nothing to list.')
-       );
-    }
-    else {
-      reset($elts);     // create array with all matches, indexes starting with 1
-      for ($row=0; list($key,$data) = each($elts); ++$row)
-      {
-        $entry[$row] = $data;
-      }
-      $content = array(
-         'msg' => lang('There are %1 elements in the list.',count($elts)),
-         'entry' => $entry
-      );
-    }
-    
-    return $content;
-  }
+	function list_elts()
+	{
+		$elts=$this->so->list_elts();
+		
+		if (!is_array($elts) || !count($elts))
+		{
+			 $content = array(
+					'msg' => lang('There is nothing to list.')
+			 );
+		}
+		else {
+			reset($elts);     // create array with all matches, indexes starting with 1
+			for ($row=0; list($key,$data) = each($elts); ++$row)
+			{
+				$entry[$row] = $data;
+			}
+			$content = array(
+				 'msg' => lang('There are %1 elements in the list.',count($elts)),
+				 'entry' => $entry
+			);
+		}
+		
+		return $content;
+	}
 }
 

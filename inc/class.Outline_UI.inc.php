@@ -28,8 +28,8 @@
 		
 		function Outline_UI()			
 		{
-			$this->common_ui = CreateObject('sitemgr.Common_UI',True);
-			$this->t = $GLOBALS['phpgw']->template;
+			$this->common_ui =& CreateObject('sitemgr.Common_UI',True);
+			$this->t = $GLOBALS['egw']->template;
 			$this->pagebo = &$GLOBALS['Common_BO']->pages;
 			$this->cat_bo = &$GLOBALS['Common_BO']->cats;
 			$this->acl = $GLOBALS['Common_BO']->acl;
@@ -47,7 +47,7 @@
 			if ($this->isadmin)
 			{
 				$this->t->set_var('addcategory','<a target="editwindow" href="' . 
-					$GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Categories_UI.edit').
+					$GLOBALS['egw']->link('/index.php','menuaction=sitemgr.Categories_UI.edit').
 					'">' . lang('Add a category') .'</a>'
 				);
 			}
@@ -79,15 +79,15 @@
 					$this->t->set_var('page', $page_description);
 					$link_data['page_id'] = $page_id;
 					$link_data['menuaction'] = "sitemgr.Pages_UI.edit";
-					$this->t->set_var('editpage','<a target="editwindow" href="' . $GLOBALS['phpgw']->link('/index.php',$link_data) .
+					$this->t->set_var('editpage','<a target="editwindow" href="' . $GLOBALS['egw']->link('/index.php',$link_data) .
 						'">' . lang('Edit page') . '</a>'
 					);
 					$link_data['menuaction'] = "sitemgr.Content_UI.manage";
-					$this->t->set_var('pagecontent','<a href="' . $GLOBALS['phpgw']->link('/index.php',$link_data) .
+					$this->t->set_var('pagecontent','<a href="' . $GLOBALS['egw']->link('/index.php',$link_data) .
 						'">' . lang('Manage page specific content') . '</a>'
 					);
 					$link_data['menuaction'] = "sitemgr.Pages_UI.delete";
-					$this->t->set_var('deletepage','<a href="' . $GLOBALS['phpgw']->link('/index.php',$link_data) .
+					$this->t->set_var('deletepage','<a href="' . $GLOBALS['egw']->link('/index.php',$link_data) .
 						'">' . lang('Delete page') . '</a>'
 					);
 					$this->t->parse('PBlock', 'PageBlock', true);
@@ -101,21 +101,21 @@
 				if ($this->isadmin)
 				{
 					$link_data['menuaction'] = "sitemgr.Categories_UI.edit";
-					$this->t->set_var('editcat','<a target="editwindow" href="' . $GLOBALS['phpgw']->link('/index.php',$link_data) .
+					$this->t->set_var('editcat','<a target="editwindow" href="' . $GLOBALS['egw']->link('/index.php',$link_data) .
 						'">' . lang('Edit category') . '</a>');
 					$link_data['menuaction'] = "sitemgr.Categories_UI.delete";
-					$this->t->set_var('deletecat','<a href="' . $GLOBALS['phpgw']->link('/index.php',$link_data) .
+					$this->t->set_var('deletecat','<a href="' . $GLOBALS['egw']->link('/index.php',$link_data) .
 						'">'  . lang('Delete category') . '</a>');
 					$link_data['menuaction'] = "sitemgr.Modules_UI.manage";
-					$this->t->set_var('moduleconfig','<a href="' . $GLOBALS['phpgw']->link('/index.php',$link_data) .
+					$this->t->set_var('moduleconfig','<a href="' . $GLOBALS['egw']->link('/index.php',$link_data) .
 						'">'  . lang('Manage category wide module properties') . '</a>');
 				}
 
 				$link_data['menuaction'] = "sitemgr.Pages_UI.edit";
-				$this->t->set_var('addpage','<a target="editwindow" href="' . $GLOBALS['phpgw']->link('/index.php',$link_data) .
+				$this->t->set_var('addpage','<a target="editwindow" href="' . $GLOBALS['egw']->link('/index.php',$link_data) .
 					'">' . lang('Add page to category') . '</a>');
 				$link_data['menuaction'] = "sitemgr.Content_UI.manage";
-				$this->t->set_var('catcontent','<a href="' . $GLOBALS['phpgw']->link('/index.php',$link_data) .
+				$this->t->set_var('catcontent','<a href="' . $GLOBALS['egw']->link('/index.php',$link_data) .
 					'">' . lang('Manage category wide content') . '</a>');
 				$this->t->parse('CBlock', 'CategoryBlock', true); 
 			}

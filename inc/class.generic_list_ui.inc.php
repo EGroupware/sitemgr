@@ -53,8 +53,8 @@
 @discussion    "command"
 @discussion 6. Create a file class.ui_myclass.inc.php looking like
 @discussion 
-@discussion include_once(PHPGW_INCLUDE_ROOT . '/.../inc/class.generic_list.inc.php');
-@discussion $GLOBALS['phpgw_info']['flags']['included_classes']['generic_list'] = True;
+@discussion include_once(EGW_INCLUDE_ROOT . '/.../inc/class.generic_list.inc.php');
+@discussion $GLOBALS['egw_info']['flags']['included_classes']['generic_list'] = True;
 @discussion 
 @discussion class ui_myclass extends generic_list
 @discussion {
@@ -145,183 +145,183 @@
  
 class generic_list_ui
 {
-   var $application;
-   var $bo;
-   var $class_name;
-   var $limited;
-   
-   var $list_template;
-   var $edit_template;
-   var $delete_teplate;
+	 var $application;
+	 var $bo;
+	 var $class_name;
+	 var $limited;
+	 
+	 var $list_template;
+	 var $edit_template;
+	 var $delete_teplate;
 
-   function generic_list_ui($app, $cls, $lst, $edt, $del)
-   {
-      $this->application=$app;
-      $this->class_name=$app.'.'.$cls;
-      
-      $this->list_template=$lst;
-      $this->edit_template=$edt;
-      $this->delete_template=$del;
-      
-      $this->tmpl = CreateObject('etemplate.etemplate',$this->list_template);
+	 function generic_list_ui($app, $cls, $lst, $edt, $del)
+	 {
+			$this->application=$app;
+			$this->class_name=$app.'.'.$cls;
+			
+			$this->list_template=$lst;
+			$this->edit_template=$edt;
+			$this->delete_template=$del;
+			
+			$this->tmpl =& CreateObject('etemplate.etemplate',$this->list_template);
 
-      $this->public_functions = array(   // this function can be called external, eg. by /index.php?menuaction=...
-         'list_all' => True,
-         'edit_elt' => True,
-         'delete_elt' => True
-      );
-  }
-  
-  function get_sel_fields($content,$template)
-  {
-    //Default: no FK descriptors;
-    return(array());
-  }
-  function get_readonly_fields($content,$template)
-  {
-    //Default: all fields editable;
-    return(array());
-  }
-  function preprocess_content($content,$template)
-  {
-    //Default: no FK descriptors;
-    return $content;
-  }
-  
-  function list_all($content='',$msg='')
-   {
-      $this->limited=$this->bo->check_master($content);
-    
-      $content = $this->bo->list_elts();
-      
-      if (!empty($msg))
-         $content['msg']=$msg.' '.$content['msg'];
+			$this->public_functions = array(   // this function can be called external, eg. by /index.php?menuaction=...
+				 'list_all' => True,
+				 'edit_elt' => True,
+				 'delete_elt' => True
+			);
+	}
+	
+	function get_sel_fields($content,$template)
+	{
+		//Default: no FK descriptors;
+		return(array());
+	}
+	function get_readonly_fields($content,$template)
+	{
+		//Default: all fields editable;
+		return(array());
+	}
+	function preprocess_content($content,$template)
+	{
+		//Default: no FK descriptors;
+		return $content;
+	}
+	
+	function list_all($content='',$msg='')
+	 {
+			$this->limited=$this->bo->check_master($content);
+		
+			$content = $this->bo->list_elts();
+			
+			if (!empty($msg))
+				 $content['msg']=$msg.' '.$content['msg'];
 
-      $this->tmpl->read($this->list_template);    // read the show-template
+			$this->tmpl->read($this->list_template);    // read the show-template
 
-      // exec it with the edit-function as callback, passing master ID if neccessary
+			// exec it with the edit-function as callback, passing master ID if neccessary
 
-      if ($this->limited) {
-        $preserve=$this->bo->get_master_array();
-      }
-      else {
-        $preserve=array();
-      }
-      
-      $this->tmpl->exec($this->class_name.'.edit_elt',
-        $this->preprocess_content($content,$this->list_template),
-        $this->get_sel_fields($content,$this->list_template),
-        $this->get_readonly_fields($content,$this->list_template),
-        $preserve);   
-      
-   }
-
-
-   function edit_elt($content='',$msg = '')
-   {
-     $this->limited=$this->bo->check_master($content);
-     
-     if (isset($content['entry']))
-        $content=$content['entry'];
+			if ($this->limited) {
+				$preserve=$this->bo->get_master_array();
+			}
+			else {
+				$preserve=array();
+			}
+			
+			$this->tmpl->exec($this->class_name.'.edit_elt',
+				$this->preprocess_content($content,$this->list_template),
+				$this->get_sel_fields($content,$this->list_template),
+				$this->get_readonly_fields($content,$this->list_template),
+				$preserve);   
+			
+	 }
 
 
-     if (isset($content['add'])) {
-       $this->edit_elt('',$msg);
-     }
-     else if (isset($content['edit'])) {
-       $this->edit_elt($this->bo->set_button_id($content,'edit'),$msg);
-       exit;
-     }
-     else if (isset($content['delete'])) {
-       $this->delete_elt($this->bo->set_button_id($content,'delete'),$msg);
-       exit;
-     }
-
-     if (is_array($content)) // we are called as callback for the dialog / form
-     {
-       $this->bo->process_content($content);  
-
-       if (isset($content['save']))  // save the entry ($this->data)
-        {
-           $err=$this->bo->save();
-           if (!$err) {
-              $this->list_all(lang('Entry saved.'));
-              return;
-           }
-           else
-              $msg.= lang('Error writing to the database: %1.',$err);
-        }
-        else if (isset($content['duplicate']))  // save the entry ($this->data)
-        {
-           $err=$this->bo->save(array($this->id=>''));
-           if (!$err) {
-              $this->list_all(lang('Entry duplicated.'));
-              return;
-           }
-           else
-              $msg.= lang('Error writing to the database: %1.',$err);
-        }
-        else if (isset($content['cancel'])) // just show the list
-        {
-           $this->list_all();
-           return;
-        }
-     }
-
-     // now we are filling the content array for the next call to etemplate.exec
-     $content = $this->bo->get_data() + array(  // the content to be merged in the template
-        'msg' => $msg
-     );
-     
-     $this->tmpl->read($this->edit_template);   // read the edit-template
-     // exec it with the edit-function as callback, passing master ID if neccessary
-     $this->tmpl->exec($this->class_name.'.edit_elt',
-       $this->preprocess_content($content,$this->edit_template),
-       $this->get_sel_fields($content,$this->edit_template),
-       $this->get_readonly_fields($content,$this->edit_template),
-       $this->bo->get_id_array(True));   
-  }
+	 function edit_elt($content='',$msg = '')
+	 {
+		 $this->limited=$this->bo->check_master($content);
+		 
+		 if (isset($content['entry']))
+				$content=$content['entry'];
 
 
-   function delete_elt($content='',$msg = '')
-   {
-     $this->limited=$this->bo->check_master($content);
-     
-      if (!is_array($content)){
-         $this->list_all();
-         return;
-      }
+		 if (isset($content['add'])) {
+			 $this->edit_elt('',$msg);
+		 }
+		 else if (isset($content['edit'])) {
+			 $this->edit_elt($this->bo->set_button_id($content,'edit'),$msg);
+			 exit;
+		 }
+		 else if (isset($content['delete'])) {
+			 $this->delete_elt($this->bo->set_button_id($content,'delete'),$msg);
+			 exit;
+		 }
 
-      if ($this->bo->read_id($content) <= 0){
-         $this->list_all();
-         return;
-      }
+		 if (is_array($content)) // we are called as callback for the dialog / form
+		 {
+			 $this->bo->process_content($content);  
 
-      if (isset($content['yes']))   //
-      {
-         $msg .= $this->bo->delete($content) ? lang('Element successfully deleted.') 
-          : lang('Error deleting the element.');
-         $this->list_all('',$msg);
-         return;
-      }
-      else if (isset($content['no']))  // just show the list
-      {
-         $this->list_all();
-         return;
-      }
+			 if (isset($content['save']))  // save the entry ($this->data)
+				{
+					 $err=$this->bo->save();
+					 if (!$err) {
+							$this->list_all(lang('Entry saved.'));
+							return;
+					 }
+					 else
+							$msg.= lang('Error writing to the database: %1.',$err);
+				}
+				else if (isset($content['duplicate']))  // save the entry ($this->data)
+				{
+					 $err=$this->bo->save(array($this->id=>''));
+					 if (!$err) {
+							$this->list_all(lang('Entry duplicated.'));
+							return;
+					 }
+					 else
+							$msg.= lang('Error writing to the database: %1.',$err);
+				}
+				else if (isset($content['cancel'])) // just show the list
+				{
+					 $this->list_all();
+					 return;
+				}
+		 }
 
-      // now we fill the content array for the next call to etemplate.exec
-      $content = $this->bo->get_data() + array(  // the content to be merged in the template
-         'msg' => $msg
-      );
+		 // now we are filling the content array for the next call to etemplate.exec
+		 $content = $this->bo->get_data() + array(  // the content to be merged in the template
+				'msg' => $msg
+		 );
+		 
+		 $this->tmpl->read($this->edit_template);   // read the edit-template
+		 // exec it with the edit-function as callback, passing master ID if neccessary
+		 $this->tmpl->exec($this->class_name.'.edit_elt',
+			 $this->preprocess_content($content,$this->edit_template),
+			 $this->get_sel_fields($content,$this->edit_template),
+			 $this->get_readonly_fields($content,$this->edit_template),
+			 $this->bo->get_id_array(True));   
+	}
 
-      $this->tmpl->read($this->delete_template);    // read the delete-template
-      // exec it with the edit-function as callback, passing master ID if neccessary
-      $this->tmpl->exec($this->class_name.'.delete_elt',
-        $this->preprocess_content($content,$this->delete_template),
-        $this->get_sel_fields($content,$this->delete_template),
-        $this->get_readonly_fields($content,$this->delete_template),
-        $this->bo->get_id_array(True));   
-   }
+
+	 function delete_elt($content='',$msg = '')
+	 {
+		 $this->limited=$this->bo->check_master($content);
+		 
+			if (!is_array($content)){
+				 $this->list_all();
+				 return;
+			}
+
+			if ($this->bo->read_id($content) <= 0){
+				 $this->list_all();
+				 return;
+			}
+
+			if (isset($content['yes']))   //
+			{
+				 $msg .= $this->bo->delete($content) ? lang('Element successfully deleted.') 
+					: lang('Error deleting the element.');
+				 $this->list_all('',$msg);
+				 return;
+			}
+			else if (isset($content['no']))  // just show the list
+			{
+				 $this->list_all();
+				 return;
+			}
+
+			// now we fill the content array for the next call to etemplate.exec
+			$content = $this->bo->get_data() + array(  // the content to be merged in the template
+				 'msg' => $msg
+			);
+
+			$this->tmpl->read($this->delete_template);    // read the delete-template
+			// exec it with the edit-function as callback, passing master ID if neccessary
+			$this->tmpl->exec($this->class_name.'.delete_elt',
+				$this->preprocess_content($content,$this->delete_template),
+				$this->get_sel_fields($content,$this->delete_template),
+				$this->get_readonly_fields($content,$this->delete_template),
+				$this->bo->get_id_array(True));   
+	 }
 }
 

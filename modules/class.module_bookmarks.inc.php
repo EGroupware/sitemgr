@@ -38,7 +38,7 @@ class module_bookmarks extends Module
 		$cat_ids = array();
 		while (list(,$category) = @each($cats))
 		{
-			$cat_ids[$category['id']] = $GLOBALS['phpgw']->strip_html($category['name']);
+			$cat_ids[$category['id']] = $GLOBALS['egw']->strip_html($category['name']);
 		}
 		$this->arguments['category']['options'] = $cat_ids;
 		return parent::get_user_interface();
@@ -50,7 +50,7 @@ class module_bookmarks extends Module
 
 		if ($produce)
 		{
-			require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.xslt_transform.inc.php');
+			require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.xslt_transform.inc.php');
 			$this->add_transformer(new xslt_transform(
 				$this->find_template_dir() . SEP . 'xbel.xsl',
 				array('blockid' => $this->block->id)

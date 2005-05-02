@@ -17,7 +17,7 @@
 
 		function get_content(&$arguments, $properties)
 		{
-			$GLOBALS['phpgw_info']['flags']['currentapp'] = 'phpbrain';
+			$GLOBALS['egw_info']['flags']['currentapp'] = 'phpbrain';
 
 			if (isset($_GET['menuaction']))
 			{
@@ -29,7 +29,7 @@
 				$method = 'index';
 			}
 			$app = 'phpbrain';
-			$GLOBALS[$class] = CreateObject(sprintf('%s.%s',$app,$class), $this->find_template_dir(), $this->link(), $arguments);
+			$GLOBALS[$class] =& CreateObject(sprintf('%s.%s',$app,$class), $this->find_template_dir(), $this->link(), $arguments);
 			if((is_array($GLOBALS[$class]->public_functions) && $GLOBALS[$class]->public_functions[$method]))
 			{
 				return ExecMethod($app .'.'. $class.'.'.$method);

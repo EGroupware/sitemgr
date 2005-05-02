@@ -23,7 +23,7 @@
 			$this->pages_bo = &$GLOBALS['Common_BO']->pages;
 			$this->acl = &$GLOBALS['Common_BO']->acl;
 			//$anonymous_user is globally set in config.inc.php
-			$this->isuser = ($GLOBALS['phpgw_info']['user']['account_lid'] != $GLOBALS['anonymous_user']);
+			$this->isuser = ($GLOBALS['egw_info']['user']['account_lid'] != $GLOBALS['anonymous_user']);
 		}
 
 		function is_admin()
@@ -85,7 +85,7 @@
 			$page->title = lang('Site Index');
 			$page->subtitle = '';
 			$page->index = True;
-			$page->block = CreateObject('sitemgr.Block_SO',True);
+			$page->block =& CreateObject('sitemgr.Block_SO',True);
 			$page->block->module_name = 'index';
 			$page->block->module_id = $GLOBALS['Common_BO']->modules->getmoduleid('index');
 			$page->block->view = SITEMGR_VIEWABLE_EVERBODY;
@@ -147,7 +147,7 @@
 			$page->subtitle = '';
 			$page->toc = True;
 			$page->cat_id = $category_id ? $category_id : CURRENT_SITE_ID;
-			$page->block = CreateObject('sitemgr.Block_SO',True);
+			$page->block =& CreateObject('sitemgr.Block_SO',True);
 			$page->block->module_name = 'toc';
 			$page->block->arguments = array('category_id' => $category_id);
 			$page->block->module_id = $GLOBALS['Common_BO']->modules->getmoduleid('toc');
@@ -196,17 +196,17 @@
 
 		function check_load_translations($lang)
 		{
-			$GLOBALS['phpgw_info']['user']['preferences']['common']['lang'] = $GLOBALS['sitemgr_info']['userlang'] = $lang;
+			$GLOBALS['egw_info']['user']['preferences']['common']['lang'] = $GLOBALS['sitemgr_info']['userlang'] = $lang;
 
 			//since there are lang calls in the API, and the first lang call builds $GLOBAL['lang'], we have to re-initialise
-			if ($GLOBALS['phpgw']->translation->userlang != $lang)
+			if ($GLOBALS['egw']->translation->userlang != $lang)
 			{
-				$GLOBALS['phpgw']->translation->init();		// unset $GLOBALS[lang] and re-reads
+				$GLOBALS['egw']->translation->init();		// unset $GLOBALS[lang] and re-reads
 			}
-			$GLOBALS['phpgw']->translation->add_app('sitemgr');		// as we run as sitemgr-site
+			$GLOBALS['egw']->translation->add_app('sitemgr');		// as we run as sitemgr-site
 		}
 
-		//like $GLOBALS['phpgw']->common->getPreferredLanguage,
+		//like $GLOBALS['egw']->common->getPreferredLanguage,
 		//but compares languages accepted by the user
 		//to the languages the website is configured for
 		//instead of the languages installed in egroupware
@@ -216,12 +216,12 @@
 			$postlang = $_GET['lang'];
 			if ($postlang && in_array($postlang,$supportedLanguages))
 			{
-				$GLOBALS['phpgw']->session->appsession('language','sitemgr-site',$postlang);
+				$GLOBALS['egw']->session->appsession('language','sitemgr-site',$postlang);
 				$this->check_load_translations($postlang);
 				return;
 			}
 
-			$sessionlang = $GLOBALS['phpgw']->session->appsession('language','sitemgr-site');
+			$sessionlang = $GLOBALS['egw']->session->appsession('language','sitemgr-site');
 			if ($sessionlang)
 			{
 				$this->check_load_translations($sessionlang);
@@ -230,13 +230,13 @@
 
 			if ($this->isuser)
 			{
-				$userlang = $GLOBALS['phpgw_info']['user']['preferences']['common']['lang'];
+				$userlang = $GLOBALS['egw_info']['user']['preferences']['common']['lang'];
 				if (in_array($userlang,$supportedLanguages))
 				{
-					//we do not touch $GLOBALS['phpgw_info']['user']['preferences']['common']['lang'] if
+					//we do not touch $GLOBALS['egw_info']['user']['preferences']['common']['lang'] if
 					//the user is registered and his lang preference is supported by the website,
 					//but save it to the appsession for quicker retrieval
-					$GLOBALS['phpgw']->session->appsession('language','sitemgr-site',$userlang);
+					$GLOBALS['egw']->session->appsession('language','sitemgr-site',$userlang);
 					$this->check_load_translations($userlang);
 					return;
 				}
@@ -266,7 +266,7 @@
 				$browserlang = $supportedLanguages[0];
 			}
 
-			$GLOBALS['phpgw']->session->appsession('language','sitemgr-site',$browserlang);
+			$GLOBALS['egw']->session->appsession('language','sitemgr-site',$browserlang);
 			$this->check_load_translations($browserlang);
 		}
 
@@ -278,10 +278,10 @@
 				$postmode = $_GET['mode'];
 				if (isset($allowed_modes[$postmode]))
 				{
-					$GLOBALS['phpgw']->session->appsession('mode','sitemgr-site',$postmode);
+					$GLOBALS['egw']->session->appsession('mode','sitemgr-site',$postmode);
 					return $postmode;
 				}
-				$sessionmode = $GLOBALS['phpgw']->session->appsession('mode','sitemgr-site');
+				$sessionmode = $GLOBALS['egw']->session->appsession('mode','sitemgr-site');
 				if(isset($allowed_modes[$sessionmode]))
 				{
 					return $sessionmode;
@@ -312,8 +312,8 @@
 				$onclick = "if (confirm('".addslashes($data['confirm'])."')) { $open } else { return false; }";
 				unset($data['confirm']);
 			}
-			$content .= $GLOBALS['phpgw']->html->a_href(
-				$GLOBALS['phpgw']->html->image('sitemgr',$name,$label,'border="0"'),
+			$content .= $GLOBALS['egw']->html->a_href(
+				$GLOBALS['egw']->html->image('sitemgr',$name,$label,'border="0"'),
 				array_merge($link_data,$data),False,'target="editwindow" onclick="'.$onclick.'"');
 		}
 		return $content;

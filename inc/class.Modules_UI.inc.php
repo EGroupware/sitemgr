@@ -29,8 +29,8 @@
 
 		function Modules_UI()
 		{
-			$this->common_ui = CreateObject('sitemgr.Common_UI',True);
-			$this->t = $GLOBALS['phpgw']->template;
+			$this->common_ui =& CreateObject('sitemgr.Common_UI',True);
+			$this->t = $GLOBALS['egw']->template;
 			$this->bo = &$GLOBALS['Common_BO']->modules;
 			$this->acl = &$GLOBALS['Common_BO']->acl;
 			$this->catbo = &$GLOBALS['Common_BO']->cats;
@@ -50,7 +50,7 @@
 				{
 						$cat = $this->catbo->getCategory($cat_id);
 						$cat_name = $cat->name;
-						$managelink = $GLOBALS['phpgw']->link('/index.php','menuaction=sitemgr.Categories_UI.manage');
+						$managelink = $GLOBALS['egw']->link('/index.php','menuaction=sitemgr.Categories_UI.manage');
 						$goto = lang('Category manager');
 						$scopename = lang('Category');
 				}
@@ -69,13 +69,13 @@
 					'lang_configure_module_properties' => lang('Configure module properties'),
 //					'cat_name' => ($cat_name ? (' - ' . $cat_name) : ''),
 					'managelink' => ($managelink ? ('<a href="' . $managelink . '">&lt; ' . lang('Go to') . ' ' . $goto . ' &gt;</a>') : ''),
-					'action_url' => $GLOBALS['phpgw']->link('/index.php',array('menuaction'=>'sitemgr.Modules_UI.manage','cat_id'=>$cat_id)),
+					'action_url' => $GLOBALS['egw']->link('/index.php',array('menuaction'=>'sitemgr.Modules_UI.manage','cat_id'=>$cat_id)),
 				));
 				$link_data['cat_id'] = $cat_id;
 				$link_data['menuaction'] = "sitemgr.Modules_UI.findmodules";
-				$this->t->set_var('findmodules', $GLOBALS['phpgw']->link('/index.php',$link_data));
+				$this->t->set_var('findmodules', $GLOBALS['egw']->link('/index.php',$link_data));
 				$link_data['menuaction'] = "sitemgr.Modules_UI.configure";
-				$this->t->set_var('configureurl', $GLOBALS['phpgw']->link('/index.php',$link_data));
+				$this->t->set_var('configureurl', $GLOBALS['egw']->link('/index.php',$link_data));
 				$contentareas = $GLOBALS['Common_BO']->content->getContentAreas();
 				if (!is_array($contentareas))
 				{
@@ -169,8 +169,8 @@
 				$this->t->set_block('Editproperties','EditorElement','EBlock');
 
 				$module = $this->bo->getmodule($inputmodule_id);
-				$moduleobject = $this->bo->createmodule($module['module_name']);
-				$blockcontext = CreateObject('sitemgr.Block_SO',True);
+				$moduleobject =& $this->bo->createmodule($module['module_name']);
+				$blockcontext =& CreateObject('sitemgr.Block_SO',True);
 				$blockcontext->module_id = $inputmodule_id;
 				$blockcontext->area = $inputarea;
 				$blockcontext->cat_id = $cat_id;
@@ -178,7 +178,7 @@
 
 				$editorstandardelements = array(
 					array('label' => lang('Title'),
-						  'form' => $moduleobject->title
+							'form' => $moduleobject->title
 					)
 				);
 				$editormoduleelements = $moduleobject->properties ? $moduleobject->get_admin_interface() : False;
@@ -205,11 +205,11 @@
 						lang('There are no properties defined for this module')
 					),
 					'deletebutton' => $properties === False ? '' : '<input type="submit" value="'.lang('Delete').'" name="btnDeleteProperties" />',
-					'action_url' => $GLOBALS['phpgw']->link('/index.php',array('menuaction'=>'sitemgr.Modules_UI.configure','cat_id'=>$cat_id)),
+					'action_url' => $GLOBALS['egw']->link('/index.php',array('menuaction'=>'sitemgr.Modules_UI.configure','cat_id'=>$cat_id)),
 					)
 				);
 				$this->t->set_var('backlink',
-					'<a href="' . $GLOBALS['phpgw']->link('/index.php',array(
+					'<a href="' . $GLOBALS['egw']->link('/index.php',array(
 						'menuaction' => 'sitemgr.Modules_UI.manage',
 						'cat_id' => $cat_id
 					)) . '">&lt; ' . lang('Back to module manager') . ' &gt;</a>'

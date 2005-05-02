@@ -6,7 +6,7 @@
 
 		function guestbook_BO()
 		{
-			$this->so = CreateObject('sitemgr_module_guestbook.guestbook_SO', true);
+			$this->so =& CreateObject('sitemgr_module_guestbook.guestbook_SO', true);
 		}
 
 		function create_book($name)

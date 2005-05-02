@@ -62,7 +62,7 @@
 			{
 				$zip = @$arguments['zip'] ? $arguments['zip'] : 'zip';
 				ob_end_clean();	// discard all previous output
-				$browser = CreateObject('phpgwapi.browser');
+				$browser =& CreateObject('phpgwapi.browser');
 				$browser->content_header($download.'.zip','application/zip');
 				passthru('cd '.$GLOBALS['sitemgr_info']['site_dir'].'/templates; '.$zip.' -qr - '.$download);
 				exit;
@@ -103,7 +103,7 @@
 				}
 				if ($show & 2)	// gallery
 				{
-					$t = CreateObject('phpgwapi.Template',$GLOBALS['phpgw']->common->get_tpl_dir('sitemgr'));
+					$t =& CreateObject('phpgwapi.Template',$GLOBALS['egw']->common->get_tpl_dir('sitemgr'));
 					$t->set_file('theme_info','theme_info.tpl');
 					$t->set_block('theme_info','info_block');
 					$content .= '<table>'."\n";

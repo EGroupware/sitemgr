@@ -19,7 +19,7 @@
 
 		function Pages_SO()
 		{
-			$this->db = $GLOBALS['phpgw']->db;
+			$this->db = clone($GLOBALS['egw']->db);
 			$this->db->set_app('sitemgr');
 
 			foreach(array('pages','pages_lang') as $name)
@@ -103,7 +103,7 @@
 
 		function PagetoID($page_name)
 		{
-			$cats = CreateObject('phpgwapi.categories', -1, 'sitemgr');
+			$cats =& CreateObject('phpgwapi.categories', -1, 'sitemgr');
 			$cat_list = $cats->return_sorted_array(0, False, '', '', '', False, CURRENT_SITE_ID);
 			
 			if($cat_list)
@@ -145,7 +145,7 @@
 
 			if ($this->db->next_record())
 			{
-				$page = CreateObject('sitemgr.Page_SO', True);
+				$page =& CreateObject('sitemgr.Page_SO', True);
 				$page->id = $page_id;
 				$page->cat_id = $this->db->f('cat_id');
 				$page->sort_order = (int) $this->db->f('sort_order');

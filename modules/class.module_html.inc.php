@@ -34,13 +34,13 @@
 		{
 			if ($properties['striphtml'])
 			{
-				return $GLOBALS['phpgw']->strip_html($arguments['htmlcontent']);
+				return $GLOBALS['egw']->strip_html($arguments['htmlcontent']);
 			}
 			// spamsaver emailaddress and activating the links
-			if (!is_object($GLOBALS['phpgw']->html))
+			if (!is_object($GLOBALS['egw']->html))
 			{
-				$GLOBALS['phpgw']->html = CreateObject('phpgwapi.html');
+				$GLOBALS['egw']->html =& CreateObject('phpgwapi.html');
 			}
-			return $GLOBALS['phpgw']->html->activate_links($arguments['htmlcontent']);
+			return $GLOBALS['egw']->html->activate_links($arguments['htmlcontent']);
 		}
 	}

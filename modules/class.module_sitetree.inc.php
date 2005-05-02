@@ -100,7 +100,7 @@ function add(catid)
 
 function remove(catid)
 {
-	var now = new Date();
+	var now =& new Date();
 	document.cookie = 'block[" . $this->block->id . "][menutree][' + catid + ']=; expires=' + now.toGMTString();
 }
 

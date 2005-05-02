@@ -33,7 +33,7 @@ class module_google extends Module
 		$content = '<form action="http://www.google.com/search" name="f" target="_blank">'."\n";
 		$content .= '<img src="images/Google_25wht.gif" border="0" align="middle" hspace="0" vspace="0"><br />'."\n";
 		$content .= '<input type="hidden" name="hl" value="'.$GLOBALS['sitemgr_info']['userlang'].'">'."\n";
-		$content .= '<input type="hidden" name="ie" value="'.$GLOBALS['phpgw']->translation->charset().'">'."\n";
+		$content .= '<input type="hidden" name="ie" value="'.$GLOBALS['egw']->translation->charset().'">'."\n";
 		$content .= '<input maxLength="256" size="15" name="q" value="">'."\n";
 		$content .= '<input type="submit" value="' . lang('Search') . '" name="btnG" title="'.lang('Google Search').'">'."\n";
 		if ($arguments['sitesearch'])

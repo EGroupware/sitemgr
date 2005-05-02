@@ -35,7 +35,7 @@
 
 		function get_user_interface()
 		{
-			if (!is_dir(PHPGW_SERVER_ROOT.'/news_admin') || !isset($GLOBALS['phpgw_info']['apps']['news_admin']))
+			if (!is_dir(EGW_SERVER_ROOT.'/news_admin') || !isset($GLOBALS['egw_info']['apps']['news_admin']))
 			{
 				return lang("Application '%1' is not installed !!!<br>Please install it, to be able to use the block.",'news_admin');
 			}
@@ -57,11 +57,11 @@
 
 		function get_content(&$arguments,$properties)
 		{
-			if (!is_dir(PHPGW_SERVER_ROOT.'/news_admin') || !isset($GLOBALS['phpgw_info']['apps']['news_admin']))
+			if (!is_dir(EGW_SERVER_ROOT.'/news_admin') || !isset($GLOBALS['egw_info']['apps']['news_admin']))
 			{
 				return lang("Application '%1' is not installed !!!<br>Please install it, to be able to use the block.",'news_admin');
 			}
-			$bonews = CreateObject('news_admin.bonews');
+			$bonews =& CreateObject('news_admin.bonews');
 
 			$this->template = Createobject('phpgwapi.Template',$this->find_template_dir());
 			$this->template->set_file('news','newsblock.tpl');
@@ -73,7 +73,7 @@
 			if ($arguments['rsslink'])
 			{
 				$this->template->set_var('rsslink',
-					$GLOBALS['phpgw_info']['server']['webserver_url'] . '/news_admin/website/export.php?cat_id=' . $arguments['category']);
+					$GLOBALS['egw_info']['server']['webserver_url'] . '/news_admin/website/export.php?cat_id=' . $arguments['category']);
 				$this->template->parse('rsshandle','RssBlock');
 			}
 			else
@@ -132,8 +132,8 @@
 		{
 			$this->template->set_var(array(
 				'news_title' => $newsitem['subject'],
-				'news_submitter' => $GLOBALS['phpgw']->accounts->id2name($newsitem['submittedby']),
-				'news_date' => $GLOBALS['phpgw']->common->show_date($newsitem['date']),
+				'news_submitter' => $GLOBALS['egw']->accounts->id2name($newsitem['submittedby']),
+				'news_date' => $GLOBALS['egw']->common->show_date($newsitem['date']),
 				'news_content' => $newsitem['content']
 			));
 			$this->template->parse('newsitem','NewsBlock',True);

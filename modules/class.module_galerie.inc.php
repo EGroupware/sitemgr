@@ -127,7 +127,7 @@ class module_galerie extends Module
 				)) ?
 				$this->build_post_element('next') : 
 				'';
-			require_once(PHPGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.browser_transform.inc.php');
+			require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.browser_transform.inc.php');
 			$this->add_transformer(new browser_transform($prevlink,$nextlink));
 		}
 	}

@@ -19,7 +19,7 @@
 
 		function Modules_SO()
 		{
-			$this->db = $GLOBALS['phpgw']->db;
+			$this->db = clone($GLOBALS['egw']->db);
 			$this->db->set_app('sitemgr');
 			foreach(array('properties','modules','active_modules') as $name)
 			{

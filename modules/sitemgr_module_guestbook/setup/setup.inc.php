@@ -23,6 +23,11 @@
 	/* Dependacies for this app to work */
 	$setup_info['sitemgr_module_guestbook']['depends'][] = array(
 		'appname'  => 'sitemgr',
-		'versions' => Array('0.9.15')
+		'versions' => Array('1.0.0','1.0.1')
+	);
+	/* Dependencies for this app to work */
+	$setup_info['sitemgr']['depends'][] = array(
+		'appname'  => 'phpgwapi',
+		'versions' => Array('1.0.1')
 	);
 ?>
