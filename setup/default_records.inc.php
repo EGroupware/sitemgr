@@ -15,26 +15,26 @@
 	$site_id = $oProc->m_odb->get_last_insert_id('phpgw_categories','cat_id');
 	$oProc->query("UPDATE phpgw_categories SET cat_main = $site_id WHERE cat_id = $site_id",__LINE__,__FILE__);
 
-	$oProc->query("select config_value FROM phpgw_config WHERE config_name='webserver_url'");
+	$oProc->query("SELECT config_value FROM phpgw_config WHERE config_name='webserver_url'");
 	$oProc->next_record();
 	$siteurl = $oProc->f('config_value') . '/sitemgr/sitemgr-site/';	// url always uses slashes, dont use SEP!!!
-	$sitedir = $GLOBALS['phpgw_setup']->db->db_addslashes(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'sitemgr-site');
+	$sitedir = $GLOBALS['egw_setup']->db->db_addslashes(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'sitemgr-site');
 	$oProc->query("INSERT INTO phpgw_sitemgr_sites (site_id,site_name,site_url,site_dir,themesel,site_languages,home_page_id,anonymous_user,anonymous_passwd) VALUES ($site_id,'Default Website','$siteurl','$sitedir','idots','en,de',0,'anonymous','anonymous')");
 
 	// give Admins group rights vor sitemgr and for the created default-site
-	$admingroup = $GLOBALS['phpgw_setup']->add_account('Admins','Admin','Group',False,False);
-	$GLOBALS['phpgw_setup']->add_acl('sitemgr','run',$admingroup);
-	$GLOBALS['phpgw_setup']->add_acl('sitemgr',"L$site_id",$admingroup);
+	$admingroup = $GLOBALS['egw_setup']->add_account('Admins','Admin','Group',False,False);
+	$GLOBALS['egw_setup']->add_acl('sitemgr','run',$admingroup);
+	$GLOBALS['egw_setup']->add_acl('sitemgr',"L$site_id",$admingroup);
 	// give Default group rights vor sitemgr-link
-	$defaultgroup = $GLOBALS['phpgw_setup']->add_account('Default','Default','Group',False,False);
-	$GLOBALS['phpgw_setup']->add_acl('sitemgr-link','run',$defaultgroup);
+	$defaultgroup = $GLOBALS['egw_setup']->add_account('Default','Default','Group',False,False);
+	$GLOBALS['egw_setup']->add_acl('sitemgr-link','run',$defaultgroup);
 
 	// Create anonymous user for sitemgr
-	$GLOBALS['phpgw_setup']->add_account('NoGroup','No','Rights',False,False);
-	$anonymous = $GLOBALS['phpgw_setup']->add_account('anonymous','SiteMgr','User','anonymous','NoGroup');
+	$GLOBALS['egw_setup']->add_account('NoGroup','No','Rights',False,False);
+	$anonymous = $GLOBALS['egw_setup']->add_account('anonymous','SiteMgr','User','anonymous','NoGroup');
 	// give the anonymous user only sitemgr-link-rights
-	$GLOBALS['phpgw_setup']->add_acl('sitemgr-link','run',$anonymous);
-	$GLOBALS['phpgw_setup']->add_acl('phpgwapi','anonymous',$anonymous);
+	$GLOBALS['egw_setup']->add_acl('sitemgr-link','run',$anonymous);
+	$GLOBALS['egw_setup']->add_acl('phpgwapi','anonymous',$anonymous);
 
 	// register all modules and allow them in the following contentareas
 	// note '__PAGE__' is used for contentareas with NO module specialy selected, eg. only 'center' in this example !!!
@@ -44,7 +44,7 @@
 		'calendar' => array('left','right'),
 		'currentsection' => array('left','right'),
 		'download' => array('__PAGE__'),
-		// disabled for securityreasons by default, it allows to show eg. /etc/passwd or our header 'filecontents' => array('left','right','header','footer','__PAGE__'),
+		'filecontents' => array('left','right','header','footer','__PAGE__'),
 		'google' => array('left','right'),
 		'html' => array('left','right','header','footer','__PAGE__'),
 		'index_block' => array('left','right'),
@@ -58,33 +58,43 @@
 		'toc' => array('__PAGE__'),
 		'wiki' => array('__PAGE__'),
 	);
-	$dir = opendir(EGW_SERVER_ROOT.'/sitemgr/modules');
-	while($file = readdir($dir))
+	$dir = dir(EGW_SERVER_ROOT);
+	while(($app = $dir->read()))
 	{
-		if (!eregi('class.module_([^.]*).inc.php',$file,$parts))
+		$moddir = EGW_SERVER_ROOT . '/' . $app . ($app == 'sitemgr' ? '/modules' : '/sitemgr');
+		if (is_dir($moddir))
 		{
-			continue;
-		}
-		$module = $parts[1];
-		if (ereg('\$this->description = lang\(\'([^'."\n".']*)\'\);',implode("\n",file(EGW_SERVER_ROOT.'/sitemgr/modules/'.$file)),$parts))
-		{
-			$description = $GLOBALS['phpgw_setup']->db->db_addslashes(str_replace("\\'","'",$parts[1]));
-		}
-		else
-		{
-			$description = '';
-		}
-		$oProc->query("INSERT INTO phpgw_sitemgr_modules (module_name,description) VALUES ('$module','$description')",__LINE__,__FILE__);
-		$id = $module_id[$module] = $oProc->m_odb->get_last_insert_id('phpgw_sitemgr_modules','module_id');
-		if (isset($areas[$module]))
-		{
-			foreach($areas[$module] as $area)
+			$d = dir($moddir);
+			while (($file = $d->read()))
 			{
-				$oProc->query("INSERT INTO phpgw_sitemgr_active_modules (area,cat_id,module_id) VALUES ('$area',$site_id,$id)",__LINE__,__FILE__);
+				if (preg_match ("/class\.module_(.*)\.inc\.php$/", $file, $module))
+				{
+					$module = $module[1];
+
+					if (ereg('\$this->description = lang\(\'([^'."\n".']*)\'\);',implode("\n",file($moddir.'/'.$file)),$parts))
+					{
+						$description = $GLOBALS['egw_setup']->db->db_addslashes(str_replace("\\'","'",$parts[1]));
+					}
+					else
+					{
+						$description = '';
+					}
+					$oProc->query("INSERT INTO phpgw_sitemgr_modules (module_name,description) VALUES ('$module','$description')",__LINE__,__FILE__);
+					$id = $module_id[$module] = $oProc->m_odb->get_last_insert_id('phpgw_sitemgr_modules','module_id');
+					if (isset($areas[$module]))
+					{
+						foreach($areas[$module] as $area)
+						{
+							$oProc->query("INSERT INTO phpgw_sitemgr_active_modules (area,cat_id,module_id) VALUES ('$area',$site_id,$id)",__LINE__,__FILE__);
+						}
+					}
+				}
 			}
+			$d->close();
 		}
 	}
-
+	$dir->close();
+	
 	// create some sample categories for the site
 	foreach(array(
 		'other'  => 'one more',
@@ -100,7 +110,7 @@
 		$oProc->query("INSERT INTO phpgw_sitemgr_categories_state (cat_id,state) VALUES ($cat_id,2)");
 		foreach(array($admingroup => 3,$defaultgroup => 1,$anonymous => 1) as $account => $rights)
 		{
-			$GLOBALS['phpgw_setup']->add_acl('sitemgr',"L$cat_id",$account,$rights);
+			$GLOBALS['egw_setup']->add_acl('sitemgr',"L$cat_id",$account,$rights);
 		}
 	}
 	foreach(array(
@@ -141,7 +151,7 @@
 		$version_id = $oProc->m_odb->get_last_insert_id('phpgw_sitemgr_content','version_id');
 		if ($content_en)
 		{
-			$oProc->query("INSERT INTO phpgw_sitemgr_content_lang (version_id,lang,arguments_lang) VALUES ($version_id,'en','".$GLOBALS['phpgw_setup']->db->db_addslashes($content_en)."')",__LINE__,__FILE__);
+			$oProc->query("INSERT INTO phpgw_sitemgr_content_lang (version_id,lang,arguments_lang) VALUES ($version_id,'en','".$GLOBALS['egw_setup']->db->db_addslashes($content_en)."')",__LINE__,__FILE__);
 		}
 	}
 	//echo "SiteMgr demo site installed<br>";
@@ -172,7 +182,7 @@
 				echo "Can't open $from !!!";
 				return False;
 			}
-			while($file = readdir($dir))
+			while(($file = readdir($dir)))
 			{
 				if ($file != '.' && $file != '..')
 				{
@@ -206,7 +216,7 @@
 	{
 		include($sitemgr_link_setup);
 		$GLOBALS['setup_info']['sitemgr-link'] = $setup_info['sitemgr-link'];
-		$GLOBALS['phpgw_setup']->register_app('sitemgr-link');
+		$GLOBALS['egw_setup']->register_app('sitemgr-link');
 		echo "sitemgr-link installed\n";
 	}
 	else
