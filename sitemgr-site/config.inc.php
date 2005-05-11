@@ -65,7 +65,7 @@
 		{
 			if($GLOBALS['egw_info']['server']['allow_cookie_auth'])
 			{
-				$eGW_remember = unserialize(stripslashes($_COOKIE['eGW_remeber']));
+				$eGW_remember = unserialize(stripslashes($_COOKIE['eGW_remember']));
 				if($eGW_remember['login'] && $eGW_remember['passwd'] && $eGW_remember['passwd_type'])
 				{
 					$GLOBALS['sessionid'] = $GLOBALS['egw']->session->create($eGW_remember['login'], $eGW_remember['passwd'], $eGW_remember['passwd_type']);
