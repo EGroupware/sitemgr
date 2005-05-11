@@ -60,10 +60,23 @@
 		{
 			die(lang('THERE IS NO WEBSITE CONFIGURED FOR URL %1.  NOTIFY THE ADMINISTRATOR.',$site_url));
 		}
-
+		
 		if (!$GLOBALS['egw']->session->verify())
 		{
-			$GLOBALS['sessionid'] = $GLOBALS['egw']->session->create($anonymous_user,$anonymous_passwd, 'text');
+			if($GLOBALS['egw_info']['server']['allow_cookie_auth'])
+			{
+				$eGW_remember = unserialize(stripslashes($_COOKIE['eGW_remeber']));
+				if($eGW_remember['login'] && $eGW_remember['passwd'] && $eGW_remember['passwd_type'])
+				{
+					$GLOBALS['sessionid'] = $GLOBALS['egw']->session->create($eGW_remember['login'], $eGW_remember['passwd'], $eGW_remember['passwd_type']);
+				}
+			}
+			
+			if (!$GLOBALS['sessionid'])
+			{
+				$GLOBALS['sessionid'] = $GLOBALS['egw']->session->create($anonymous_user,$anonymous_passwd, 'text');
+			}
+			
 			if (!$GLOBALS['sessionid'])
 			{
 				die(lang('NO ANONYMOUS USER ACCOUNTS INSTALLED.  NOTIFY THE ADMINISTRATOR.'));
