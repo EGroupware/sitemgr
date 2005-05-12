@@ -28,6 +28,13 @@
 		die("You need to make sure the sitemgr-link app is in the eGroupWare directory.  Under *nix you can make a symbolic link.");
 	}
 	$sites_bo = createobject('sitemgr.Sites_BO');
+        if(isset($location))    // for logins from website, to choose the right site!
+        {
+                $dest_site_id =  $sites_bo->urltoid($location);
+                $GLOBALS['phpgw_info']['user']['preferences']['sitemgr']['currentsite'] = $dest_site_id;
+                $GLOBALS['phpgw']->preferences->change('sitemgr','currentsite', $dest_site_id);
+                $GLOBALS['phpgw']->preferences->save_repository(True);
+        }
 	$siteinfo = $sites_bo->get_currentsiteinfo();
 	$location = $siteinfo['site_url'];
 	if ($location && file_exists($siteinfo['site_dir'] . '/functions.inc.php'))
