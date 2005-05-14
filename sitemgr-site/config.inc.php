@@ -50,7 +50,7 @@
 		$site_url2 = $GLOBALS['egw']->db->db_addslashes(preg_replace('/\/[^\/]*$/','',$_SERVER['PHP_SELF'])) . '/';
 		$site_url3 = ($_SERVER['HTTPS'] ? 'https://' : 'http://') . $_SERVER['SERVER_ADDR'] . $site_url2;
 		$site_url  = ($_SERVER['HTTPS'] ? 'https://' : 'http://') . $_SERVER['SERVER_NAME'] . $site_url2;
-		$GLOBALS['egw']->db->query("SELECT anonymous_user,anonymous_passwd FROM phpgw_sitemgr_sites WHERE site_url='$site_url' OR site_url='$site_url2' OR site_url='$site_url3'");
+		$GLOBALS['egw']->db->query("SELECT anonymous_user,anonymous_passwd,site_id FROM phpgw_sitemgr_sites WHERE site_url='$site_url' OR site_url='$site_url2' OR site_url='$site_url3'");
 		if ($GLOBALS['egw']->db->next_record())
 		{
 			$anonymous_user = $GLOBALS['egw']->db->f('anonymous_user');
@@ -69,6 +69,10 @@
 				if($eGW_remember['login'] && $eGW_remember['passwd'] && $eGW_remember['passwd_type'])
 				{
 					$GLOBALS['sessionid'] = $GLOBALS['egw']->session->create($eGW_remember['login'], $eGW_remember['passwd'], $eGW_remember['passwd_type']);
+					// switch to current website. This is needed to let contributers work on currentsite
+					$GLOBALS['egw_info']['user']['preferences']['sitemgr']['currentsite'] = $GLOBALS['egw']->db->f('site_id');
+					$GLOBALS['egw']->preferences->change('sitemgr','currentsite', $GLOBALS['egw']->db->f('site_id'));
+					$GLOBALS['egw']->preferences->save_repository(True);
 				}
 			}
 			
