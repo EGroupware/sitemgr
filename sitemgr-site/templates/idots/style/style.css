@@ -295,3 +295,7 @@ a.textSidebox
 	text-align:center;
 	width:99%;
 }
+
+.row_on { color: #000000; background-color: #F1F1F1; }
+.row_off { color: #000000; background-color: #ffffff; }
+.th { color: #000000; background-color: #D3DCE3; }

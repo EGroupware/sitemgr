@@ -544,3 +544,11 @@ a.pagenav:hover {
 	font-weight: normal;
 	font-size: 8pt;
 }
+
+.row_on { color: #000000; background-color: #F1F1F1; }
+.row_off { color: #000000; background-color: #ffffff; }
+.th {	
+	background-color: #edf1f1;
+	color : #3C4B4D;
+	font-weight : bold;
+}
