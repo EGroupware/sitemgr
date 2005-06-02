@@ -73,8 +73,8 @@ class Categories_UI
 			{
 				$cat_id =  $cat_id ? $cat_id : $this->cat_bo->addCategory('','');
 				
-				$groupaccess = array_merge_recursive($inputgroupaccessread, $inputgroupaccesswrite);
-				$individualaccess = array_merge_recursive($inputindividualaccessread, $inputindividualaccesswrite);
+				$groupaccess = array_merge_recursive((array)$inputgroupaccessread, (array)$inputgroupaccesswrite);
+				$individualaccess = array_merge_recursive((array)$inputindividualaccessread, (array)$inputindividualaccesswrite);
 				$savelanguage = $savelanguage ? $savelanguage : $this->sitelanguages[0];
 				$this->cat_bo->saveCategoryInfo($cat_id, $inputcatname, $inputcatdesc, $savelanguage, $inputsortorder, $inputstate, $inputparent, $inputparentold,$inputindexpage);
 				if ($inputgetparentpermissions)
