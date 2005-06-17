@@ -22,7 +22,10 @@
 					'label' => lang('Enter the block content here'),
 					'large' => True,	// show label above content
 					'i18n' => True,
-					'params' => Array('style' => 'width:100%; min-width:500px; height:300px')
+					'params' => Array(
+						'style' => 'width:100%; min-width:500px; height:300px',
+						'plugins' => 'UploadImage,ContextMenu,TableOperations,SpellChecker'
+					)
 				)
 			);
 			$this->properties = array('striphtml' => array('type' => 'checkbox', 'label' => lang('Strip HTML from block content?')));

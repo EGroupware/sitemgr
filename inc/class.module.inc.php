@@ -298,7 +298,7 @@ class Module
 				{
 					$GLOBALS['egw']->html =& CreateObject('phpgwapi.html');
 				}
-				return $GLOBALS['egw']->html->htmlarea($elementname,$default,$input['params']['style'],$GLOBALS['Common_BO']->sites->current_site['site_url']);
+				return $GLOBALS['egw']->html->htmlarea($elementname,$default,$input['params']['style'],$GLOBALS['Common_BO']->sites->current_site['site_url'],$input['params']['plugins']);
 			case 'textarea':
 				return '<textarea ' . $inputdef . '>' . $default . '</textarea>';
 			case 'textfield':

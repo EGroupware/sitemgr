@@ -795,4 +795,17 @@
 		return $GLOBALS['setup_info']['sitemgr']['currentver'];
 	}
 
+
+
+	$test[] = '1.0.0.001';
+	function sitemgr_upgrade1_0_0_001()
+	{
+		$GLOBALS['phpgw_setup']->oProc->AddColumn('phpgw_sitemgr_sites','upload_dir',array(
+			'type' => 'varchar',
+			'precision' => '50'
+		));
+
+		$GLOBALS['setup_info']['sitemgr']['currentver'] = '1.0.0.002';
+		return $GLOBALS['setup_info']['sitemgr']['currentver'];
+	}
 ?>

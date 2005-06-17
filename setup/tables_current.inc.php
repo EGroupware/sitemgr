@@ -11,7 +11,7 @@
 
 	/* $Id$ */
 
-		$phpgw_baseline = array(
+	$phpgw_baseline = array(
 		'phpgw_sitemgr_pages' => array(
 			'fd' => array(
 				'page_id' => array('type' => 'auto','nullable' => False),
@@ -154,7 +154,8 @@
 				'site_languages' => array('type' => 'varchar','precision' => '50'),
 				'home_page_id' => array('type' => 'int','precision' => '4'),
 				'anonymous_user' => array('type' => 'varchar','precision' => '50'),
-				'anonymous_passwd' => array('type' => 'varchar','precision' => '50')
+				'anonymous_passwd' => array('type' => 'varchar','precision' => '50'),
+				'upload_dir' => array('type' => 'varchar','precision' => '50')
 			),
 			'pk' => array('site_id'),
 			'fk' => array(),

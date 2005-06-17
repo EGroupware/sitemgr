@@ -98,6 +98,8 @@
 					$result['site_desc_' . $lang] = $langinfo->description;
 				}
 				$result['default_theme'] = $result['themesel'];	// set the new name
+				$result['app'] = 'sitemgr'; // we need this for ImageUpload in htmlarea
+				$GLOBALS['phpgw']->session->appsession('UploadImage','phpgwapi',$result);
 				return $result;
 			}
 			else

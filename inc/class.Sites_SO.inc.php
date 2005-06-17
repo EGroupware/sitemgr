@@ -98,8 +98,9 @@
 			{
 				foreach(
 					array(
-						'site_id', 'site_name', 'site_url', 'site_dir', 'themesel', 
-						'site_languages', 'home_page_id', 'anonymous_user','anonymous_passwd'
+						'site_id', 'site_name', 'site_url', 'site_dir', 'themesel',
+						'site_languages', 'home_page_id', 'anonymous_user','anonymous_passwd',
+						'upload_dir'
 					) as $col
 				)
 				{
@@ -161,6 +162,7 @@
 					'site_dir'  => $site['dir'],
 					'anonymous_user' => $site['anonuser'],
 					'anonymous_passwd' => $site['anonpasswd'],
+					'upload_dir' => $site['upload_dir'],
 				),array(
 					'site_id' => $site_id
 				),__LINE__,__FILE__);
@@ -179,6 +181,7 @@
 					'themesel' => $prefs['themesel'],
 					'site_languages' => $prefs['site_languages'],
 					'home_page_id' => $prefs['home_page_id'],
+					'upload_dir' => $prefs['upload_dir'],
 				),array(
 					'site_id' => $site_id
 				),__LINE__,__FILE__);

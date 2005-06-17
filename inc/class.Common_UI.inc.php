@@ -180,7 +180,7 @@
 					}
 
 					$oldsitelanguages = $oldsitelanguages ? explode(',',$oldsitelanguages) : array("en");
-
+					
 					$GLOBALS['Common_BO']->sites->saveprefs($_POST['pref']);
 
 					echo '<p><b>' . lang('Changes Saved.') . '</b></p>';
@@ -223,6 +223,17 @@
 					'extra'=> 'onchange="frames.TemplateInfo.location=\''.$theme_info.'\'+this.value"',
 					'below' => '<iframe name="TemplateInfo" width="100%" height="180" src="'.$theme_info.($theme ? $theme : 'idots').'" frameborder="0" scrolling="auto"></iframe>',
 					'default'=>'idots'
+				);
+				$upload_dir = $GLOBALS['Common_BO']->sites->current_site['upload_dir'];
+				$preferences['upload_dir'] = array(
+					'title'=>lang('Directory for uploads (images etc.)'),
+					'note'=> $GLOBALS['Common_BO']->sites->current_site['upload_dir'] ? 
+						(
+							is_writeable($upload_dir) ? '' : 
+							lang('Directory is not writeable by webserver. Please correct this situation!')
+						) :
+						lang('Note, this directory has to be writeable by webserver!'),
+					'default'=> $GLOBALS['Common_BO']->sites->current_site['site_dir'] . SEP . 'images'
 				);
 				$preferences['site_languages'] = array(
 					'title'=>lang('Languages the site user can choose from'),
