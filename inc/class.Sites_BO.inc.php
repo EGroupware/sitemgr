@@ -99,6 +99,7 @@
 				}
 				$result['default_theme'] = $result['themesel'];	// set the new name
 				$result['app'] = 'sitemgr'; // we need this for ImageUpload in htmlarea
+				$result['admin_method'] = $GLOBALS['phpgw']->link('/index.php', 'menuaction=sitemgr.Common_UI.DisplayPrefs');
 				$GLOBALS['phpgw']->session->appsession('UploadImage','phpgwapi',$result);
 				return $result;
 			}
