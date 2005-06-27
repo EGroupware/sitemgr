@@ -38,6 +38,13 @@
 	require_once './inc/class.sitebo.inc.php';
 	$objbo =& new sitebo;
 	$Common_BO->sites->set_currentsite($site_url,$objbo->getmode());
+	if($objbo->getmode() != 'Production')
+	{
+		// we need this to avoid the "attempt to access ..." errors if users contribute to multiple websites.
+		// This does not solve the Problem if they work simultanus in two browsers :-(
+		$GLOBALS['egw']->preferences->change('sitemgr','currentsite', $Common_BO->sites->urltoid($site_url));
+		$GLOBALS['egw']->preferences->save_repository(True);
+	}
 	$sitemgr_info = array_merge($sitemgr_info,$Common_BO->sites->current_site);
 	$sitemgr_info['sitelanguages'] = explode(',',$sitemgr_info['site_languages']);
 	$objbo->setsitemgrPreferredLanguage();
