@@ -26,8 +26,15 @@
 		var $state;
 		var $version;
 		
-		function Block_SO()
+		function Block_SO($args=array())
 		{
+			if (is_array($args))
+			{
+				foreach($args as $name => $value)
+				{
+					$this->$name = $value;
+				}
+			}
 		}
 
 		function set_version($version)

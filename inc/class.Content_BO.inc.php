@@ -166,7 +166,7 @@ define('SITEMGR_VIEWABLE_ANONYMOUS',3);
 		//if (cat_id != $site_id and page_id is 0), site-wide blocks and all blocks for the category and all its ancestor categories are retrieved.
 		//if page_id is non zero, cat_id should be the page's category. Page blocks + category blocks + site blocks are retrieved.
 		//there is no ACL, since these functions are called in a context where getcategory and getpage have been called before and would have intercepted a breach
-		function getvisibleblockdefsforarea($area,$cat_id,$page_id,$isadmin,$isuser)
+		function &getvisibleblockdefsforarea($area,$cat_id,$page_id,$isadmin,$isuser)
 		{
 			$cat_ancestorlist = ($cat_id != CURRENT_SITE_ID) ? 
 				$GLOBALS['Common_BO']->cats->getCategoryancestorids($cat_id,True) : 
@@ -174,7 +174,7 @@ define('SITEMGR_VIEWABLE_ANONYMOUS',3);
 			return $this->so->getvisibleblockdefsforarea($area,$cat_ancestorlist,$page_id,$isadmin,$isuser);
 		}
 
-		function getallblocksforarea($area,$cat_id,$page_id,$lang)
+		function &getallblocksforarea($area,$cat_id,$page_id,$lang)
 		{
 			$cat_ancestorlist = ($cat_id != CURRENT_SITE_ID) ? 
 				$GLOBALS['Common_BO']->cats->getCategoryancestorids($cat_id,True) : 
@@ -182,12 +182,12 @@ define('SITEMGR_VIEWABLE_ANONYMOUS',3);
 			return $this->so->getallblocksforarea($area,$cat_ancestorlist,$page_id,$lang);
 		}
 
-		function getcommitableblocks()
+		function &getcommitableblocks()
 		{
 			return $this->so->getallblocks($GLOBALS['Common_BO']->cats->getpermittedcatsWrite(),$GLOBALS['Common_BO']->getstates('Commit'));
 		}
 
-		function getarchivedblocks()
+		function &getarchivedblocks()
 		{
 			return $this->so->getallblocks($GLOBALS['Common_BO']->cats->getpermittedcatsWrite(),$GLOBALS['Common_BO']->getstates('Archive'));
 		}
@@ -196,7 +196,7 @@ define('SITEMGR_VIEWABLE_ANONYMOUS',3);
 			return $this->so->getallversionsforblock($blockid,$lang);
 		}
 
-		function getblock($id,$lang)
+		function &getblock($id,$lang)
 		{
 			//do we need ACL here, since we have ACL when getting the block lists, we could do without it here?
 			return $this->so->getblock($id,$lang);
@@ -219,7 +219,7 @@ define('SITEMGR_VIEWABLE_ANONYMOUS',3);
 
 		//this function retrieves blocks only for a certain scope (site-wide, specific to one category or specific to one page), 
 		//but for all areas.
-		function getblocksforscope($cat_id,$page_id)
+		function &getblocksforscope($cat_id,$page_id)
 		{
 			if ($cat_id && !$GLOBALS['Common_BO']->acl->can_read_category($cat_id))
 			{

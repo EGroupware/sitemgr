@@ -13,6 +13,8 @@
 
 	/* $Id$ */
 
+	require_once(EGW_SERVER_ROOT . '/sitemgr/inc/class.Block_SO.inc.php');
+
 	class Content_SO
 	{
 		var $db;  /* @var $db db */
@@ -131,24 +133,19 @@
 		 * @param int $page_id page-id or 0 for cat- or site-wide blocks
 		 * @return array of block-objects, with only block-id, module-id & -name and content-area set
 		 */
-		function getblocksforscope($cat_id,$page_id)
+		function &getblocksforscope($cat_id,$page_id)
 		{
-			$sql = $this->db->expression($this->blocks_table,"SELECT t1.block_id,t1.module_id,module_name,area FROM $this->blocks_table AS t1,$this->modules_table AS t2 WHERE t1.module_id = t2.module_id AND ",array(
+			$sql = $this->db->expression($this->blocks_table,"SELECT t1.block_id AS id,t1.module_id,module_name,area FROM $this->blocks_table AS t1,$this->modules_table AS t2 WHERE t1.module_id = t2.module_id AND ",array(
 				'cat_id'  => $cat_id,
 				'page_id' => $page_id,
 			),' ORDER BY sort_order');
 
 			$this->db->query($sql,__LINE__,__FILE__);
 
-			$block =& CreateObject('sitemgr.Block_SO',True);
 			$result = array();
-			while ($this->db->next_record())
+			while (($row = $this->db->row(true)))
 			{
-				$block->id = $this->db->f('block_id');
-				$block->module_id = $this->db->f('module_id');
-				$block->module_name = $this->db->f('module_name');
-				$block->area = $this->db->f('area');
-				$result[$block->id] = $block;
+				$result[$row['id']] =& new Block_SO($row);
 			}
 			return $result;
 		}
@@ -164,7 +161,7 @@
 		function getallblocksforarea($area,$cat_list,$page_id,$lang)
 		{
 			$lang = $this->db->quote($lang);
-			$sql = "SELECT t1.block_id, area, cat_id, page_id, t1.module_id, module_name, sort_order, title, viewable".
+			$sql = "SELECT t1.block_id AS id, area, cat_id, page_id, t1.module_id, module_name, sort_order, title, viewable AS view".
 				" FROM $this->blocks_table AS t1".
 				" LEFT JOIN $this->modules_table AS t2 ON t1.module_id=t2.module_id".
 				" LEFT JOIN $this->blocks_lang_table AS t3 ON (t1.block_id=t3.block_id AND t3.lang=$lang) ".
@@ -186,20 +183,10 @@
 
 			$this->db->query($sql,__LINE__,__FILE__);
 
-			$block =& CreateObject('sitemgr.Block_SO',True);
 			$result = array();
-			while ($this->db->next_record())
+			while (($row = $this->db->row(true)))
 			{
-				$block->id = $this->db->f('block_id');
-				$block->area = $this->db->f('area');
-				$block->cat_id = $this->db->f('cat_id');
-				$block->page_id = $this->db->f('page_id');
-				$block->module_id = $this->db->f('module_id');
-				$block->module_name = $this->db->f('module_name');
-				$block->sort_order = $this->db->f('sort_order');
-				$block->title = stripslashes($this->db->f('title'));
-				$block->view = $this->db->f('viewable');
-				$result[$block->id] = $block;
+				$result[$row['id']] =& new Block_SO($row);
 			}
 			return $result;
 		}
@@ -261,10 +248,10 @@
 		 * @param int/array $states state-id's
 		 * @return array of block-objects, without content
 		 */
-		function getallblocks($cat_list,$states)
+		function &getallblocks($cat_list,$states)
 		{
 			$cat_list[] = CURRENT_SITE_ID;
-			$sql = "SELECT COUNT(state) AS cnt,t1.block_id,area,cat_id,page_id,viewable,state FROM $this->blocks_table AS t1,$this->content_table as t2 WHERE ".
+			$sql = "SELECT COUNT(state) AS cnt,t1.block_id AS id,area,cat_id,page_id,viewable AS view,state FROM $this->blocks_table AS t1,$this->content_table as t2 WHERE ".
 				$this->db->expression($this->content,array(
 					't1.block_id=t2.block_id',
 					'cat_id' => $cat_list,
@@ -273,22 +260,13 @@
 
 			$this->db->query($sql,__LINE__,__FILE__);
 
-			$block =& CreateObject('sitemgr.Block_SO',True);
 			$result = array();
-			while ($this->db->next_record())
+			while (($row = $this->db->row(true)))
 			{
-				$id = $this->db->f('block_id');
-				$block->id = $id;
-				$block->area = $this->db->f('area');
-				$block->cat_id = $this->db->f('cat_id');
-				$block->page_id = $this->db->f('page_id');
-				$block->view = $this->db->f('viewable');
-				$block->state = $this->db->f('state');
 				//in cnt we retrieve the numbers of versions that are commitable for a block,
 				//i.e. if there are more than one, it should normally be a prepublished version 
 				//that will replace a preunpublished version
-				$block->cnt =  $this->db->f('cnt');
-				$result[$id] = $block;
+				$result[$row['id']] =& new Block_SO($row);
 			}
 			return $result;
 		}
@@ -302,7 +280,7 @@
 		 * @param boolean $isuser viewer is regular eGW user, not anonymous
 		 * @return array of block-objects, with the latest version-id, but not the content
 		 */
-		function getvisibleblockdefsforarea($area,$cat_list,$page_id,$isadmin,$isuser)
+		function &getvisibleblockdefsforarea($area,$cat_list,$page_id,$isadmin,$isuser)
 		{
 			$viewable[] = SITEMGR_VIEWABLE_EVERBODY;
 			$viewable[] = $isuser ? SITEMGR_VIEWABLE_USER : SITEMGR_VIEWABLE_ANONYMOUS;
@@ -315,7 +293,7 @@
 			}
 			$cat_list[] = CURRENT_SITE_ID;  // always included
 
-			$sql = "SELECT t1.block_id,area,cat_id,page_id,t1.module_id,module_name,state,version_id,sort_order,viewable " . 
+			$sql = "SELECT t1.block_id AS id,area,cat_id,page_id,t1.module_id,module_name,state,version_id AS version,sort_order,viewable AS view " . 
 				"FROM $this->blocks_table AS t1,$this->modules_table AS t2,$this->content_table AS t3 " . 
 				"WHERE t1.module_id = t2.module_id AND t1.block_id=t3.block_id AND ".
 				$this->db->expression($this->blocks_table,array(
@@ -339,22 +317,10 @@
 			
 			$this->db->query($sql,__LINE__,__FILE__);
 
-			$block =& CreateObject('sitemgr.Block_SO',True);
 			$result = array();
-			while ($this->db->next_record())
+			while (($row = $this->db->row(true)))
 			{
-				$id = $this->db->f('block_id');
-				$block->id = $id;
-				$block->area = $this->db->f('area');
-				$block->cat_id = $this->db->f('cat_id');
-				$block->page_id = $this->db->f('page_id');
-				$block->module_id = $this->db->f('module_id');
-				$block->module_name = $this->db->f('module_name');
-				$block->view = $this->db->f('viewable');
-				$block->state = $this->db->f('state');
-				$block->version = $this->db->f('version_id');
-				$block->sort_order = $this->db->f('sort_order');
-				$result[$id] = $block;
+				$result[$row['id']] =& new Block_SO($row);
 			}
 			return $result;
 		}
@@ -429,29 +395,20 @@
 		 * @param string $lang 2-char language id
 		 * @return object/boolean block-object or false if not found
 		 */
-		function getblock($block_id,$lang)
+		function &getblock($block_id,$lang)
 		{
 			$lang = $this->db->quote($lang);
-			$sql = "SELECT area,cat_id,page_id,area,t1.module_id,module_name,sort_order,title,viewable".
+			$sql = "SELECT t1.block_id AS id,area,cat_id,page_id,area,t1.module_id,module_name,sort_order,title,viewable AS view".
 				" FROM $this->blocks_table AS t1".
 				" LEFT JOIN $this->modules_table as t2 ON t1.module_id=t2.module_id".
 				" LEFT JOIN $this->blocks_lang_table AS t3 ON (t1.block_id=t3.block_id AND t3.lang=$lang)".
 				" WHERE t1.block_id=".(int)$block_id;
 			
 			$this->db->query($sql,__LINE__,__FILE__);
-			if ($this->db->next_record())
+
+			if (($row = $this->db->row(true)))
 			{
-				$block =& CreateObject('sitemgr.Block_SO',True);
-				$block->id = $block_id;
-				$block->cat_id = $this->db->f('cat_id');
-				$block->page_id = $this->db->f('page_id');
-				$block->area = $this->db->f('area');
-				$block->module_id = $this->db->f('module_id');
-				$block->module_name = $this->db->f('module_name');
-				$block->sort_order = $this->db->f('sort_order');
-				$block->title = stripslashes($this->db->f('title'));
-				$block->view = $this->db->f('viewable');
-				return $block;
+				return new Block_SO($row);
 			}
 			return false;
 		}
@@ -461,22 +418,17 @@
 		 * @param int $block_id block-id
 		 * @return object/boolean limited(!) block-object or false if not found
 		 */
-		function getblockdef($block_id)
+		function &getblockdef($block_id)
 		{
-			$sql = "SELECT cat_id,page_id,area,t1.module_id,module_name".
+			$sql = "SELECT t1.block_id AS id,cat_id,page_id,area,t1.module_id,module_name".
 				" FROM $this->blocks_table AS t1,$this->modules_table AS t2".
 				" WHERE t1.module_id=t2.module_id AND t1.block_id=".(int)$block_id;
+
 			$this->db->query($sql,__LINE__,__FILE__);
-			if ($this->db->next_record())
+
+			if (($row = $this->db->row(true)))
 			{
-				$block =& CreateObject('sitemgr.Block_SO',True);
-				$block->id = $block_id;
-				$block->cat_id = $this->db->f('cat_id');
-				$block->page_id = $this->db->f('page_id');
-				$block->area = $this->db->f('area');
-				$block->module_id = $this->db->f('module_id');
-				$block->module_name = $this->db->f('module_name');
-				return $block;
+				return new Block_SO($row);
 			}
 			return false;
 		}
