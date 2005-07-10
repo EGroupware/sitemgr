@@ -231,8 +231,8 @@
 			while ($this->db->next_record())
 			{
 				$version['arguments'] = array_merge(
-					unserialize($this->db->f('arguments')),
-					unserialize($this->db->f('arguments_lang'))
+					(array) unserialize($this->db->f('arguments')),
+					(array) unserialize($this->db->f('arguments_lang'))
 				);
 				$version['state'] = $this->db->f('state');
 				$version['id'] = $this->db->f('version_id');
