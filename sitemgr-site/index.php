@@ -11,18 +11,6 @@
 
 	/* $Id$ */
 
-	$GLOBALS['egw_info']['flags'] = array
-	(
-		// currentapp set in config.inc.php
-		'disable_template_class' => True,
-		'currentapp' => 'sitemgr-site',
-		'nosessionverify' => True,
-		'noheader'   => True,
-		'noappheader' => True,
-		'noapi' => True,
-		'nonavbar'   => True
-	);
-
 	if (file_exists('./config.inc.php'))
 	{
 		include('./config.inc.php');
