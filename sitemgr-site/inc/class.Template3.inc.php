@@ -161,6 +161,7 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 			global $objbo;
 
 			$areaname = is_array($vars) ? $vars[1] : $vars;
+
 			$this->permitted_modules = array_keys($this->modulebo->getcascadingmodulepermissions($areaname,$page->cat_id));
 
 			$transformername = $areaname . '_bt';
@@ -184,7 +185,7 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 			}
 			$content = '';
 
-			$blocks = $this->bo->getvisibleblockdefsforarea($areaname,$page->cat_id,$page->id,$objbo->is_admin(),$objbo->isuser);
+			$blocks =& $this->bo->getvisibleblockdefsforarea($areaname,$page->cat_id,$page->id,$objbo->is_admin(),$objbo->isuser);
 			// if we are in the center area, we append special blocks
 			if ($areaname == "center" && $page->block)
 			{
@@ -192,15 +193,14 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 			}
 			if ($blocks)
 			{
-				while (list(,$block) = each($blocks))
+				foreach($blocks as $block)
 				{
 					if (in_array($block->module_id,$this->permitted_modules))
 					{
-						//we maintain an array of modules we have already used, so we do not 
-						//have to create them anew. Since they are copied, before the transformer
-						//is added, we do not have to worry about transformers staying around 
-						//on the transformer chain
-						$moduleobject = $this->getmodule($block->module_name);
+						// we maintain an array of modules we have already used, so we do not 
+						// have to create them anew. 
+						// getmodule returns now a clone of the original module, otherwise PHP5 would use an implicit reference
+						$moduleobject =& $this->getmodule($block->module_name);
 
 						if ($block->id)
 						{
@@ -256,7 +256,7 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 			$moduleid = $this->modulebo->getmoduleid($modulename);
 			if (in_array($moduleid,$this->permitted_modules))
 			{
-				$moduleobject = $this->getmodule($modulename);
+				$moduleobject =& $this->getmodule($modulename);
 				if ($moduleobject)
 				{
 					parse_str($query,$arguments);
@@ -370,18 +370,21 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 			}
 		}
 
-		function getmodule($modulename)
+		/**
+		 * return clone of module $modulename
+		 *
+		 * we have to return a clone, as PHP5 would use an implicte reference otherwise
+		 *
+		 * @param string $modulename
+		 * @return object
+		 */
+		function &getmodule($modulename)
 		{
-			if (!in_array($modulename,array_keys($this->modules)))
+			if (!isset($this->modules[$modulename]))
 			{
-				$moduleobject = $this->modulebo->createmodule($modulename);
-				$this->modules[$modulename] = $moduleobject;
+				$this->modules[$modulename] =& $this->modulebo->createmodule($modulename);
 			}
-			else
-			{
-				$moduleobject = $this->modules[$modulename];
-			}
-			return $moduleobject;
+			return clone($this->modules[$modulename]);
 		}
 
 		function getblocktitlewrapper($block_id)
