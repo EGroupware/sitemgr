@@ -39,7 +39,7 @@
 	 */
 	function sitemgr_get_site(&$anon_account)
 	{
-		global $site_url, $site_id;
+		global $site_url, $site_id, $sitemgr_info;
 
 		$site_url2 = $GLOBALS['egw']->db->db_addslashes(preg_replace('/\/[^\/]*$/','',$_SERVER['PHP_SELF'])) . '/';
 		$site_url3 = ($_SERVER['HTTPS'] ? 'https://' : 'http://') . $_SERVER['SERVER_ADDR'] . $site_url2;
