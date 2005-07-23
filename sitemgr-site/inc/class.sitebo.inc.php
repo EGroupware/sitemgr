@@ -23,7 +23,7 @@
 			$this->pages_bo = &$GLOBALS['Common_BO']->pages;
 			$this->acl = &$GLOBALS['Common_BO']->acl;
 			//$anonymous_user is globally set in config.inc.php
-			$this->isuser = ($GLOBALS['egw_info']['user']['account_lid'] != $GLOBALS['anonymous_user']);
+			$this->isuser = ($GLOBALS['egw_info']['user']['account_lid'] != $GLOBALS['sitemgr_info']['anonymous_user']);
 		}
 
 		function is_admin()

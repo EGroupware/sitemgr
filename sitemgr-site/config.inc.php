@@ -66,6 +66,7 @@
 				die(lang('NO ANONYMOUS USER ACCOUNTS INSTALLED.  NOTIFY THE ADMINISTRATOR.'));
 			}
 			$site_id = $GLOBALS['egw']->db->f('site_id');
+			$sitemgr_info['anonymous_user'] = $anon_account['login'];
 			//echo "<p>sitemgr_get_site('$site_url') site_id=$site_id, anon_account=".print_r($anon_account,true)."</p>\n";
 			return $site_id;
 		}
