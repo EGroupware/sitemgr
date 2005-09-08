@@ -26,6 +26,7 @@
 		</script>
 		<![endif]-->
 		{java_script}
+		{default_css}
 	</head>
 
 

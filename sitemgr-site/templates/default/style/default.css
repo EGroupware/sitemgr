@@ -1,0 +1,55 @@
+.nav-header-subsection { font-weight: bold; }
+.nav-title { font-weight: bold; }
+.nav-edit-icons {}
+.nav-cat-description { font-style: italic; font-weight: normal;}
+.nav-cat-description:before{ content: " " "-" " " ;}
+.nav-page-description { font-style: italic; font-weight: normal;}
+.nav-full-index { margin-top: 10px; }
+.nav-full-index a:before { content: '('; }
+.nav-full-index a:after { content: ')'; }
+/*#navigation-context ul,li
+{
+	margin-left: 0px;
+	padding-left: 0px; 
+}*/
+
+.nav-highlight_current_page a:before { content: '>'; }
+.nav-highlight_current_page a:after { content: '<'; }
+
+#navigation-currentsection .nav-cat-entry ul,li { padding-left: 2em; }
+#navigation-currentsection .nav-page-entry ul,li { padding-left: 2em; }
+
+#navigation-index .nav-cat-entry { font-weight: bold; }
+#navigation-index .nav-cat-entry ul,li { padding-left: 0px; }
+#navigation-index .nav-page-entry ul,li { padding-left: 0px; }
+#navigation-index .depth-2 { margin-left: 15px; }
+#navigation-index .depth-3 { margin-left: 30px; }
+#navigation-index .depth-4 { margin-left: 45px; }
+#navigation-index .depth-5 { margin-left: 60px; }
+#navigation-index li { list-style-type: none; }
+#navigation-index li:before { content: "\B7" " ";}
+
+/*#navigation-index_block .depth-1 li { list-style-type: none; }
+This code would produce 100% complability with old module, but looks ugly in case of cat collaps*/
+#navigation-index_block .depth-2 { margin-left: 15px; }
+#navigation-index_block ul,li { padding-left: 5px; }
+#navigation-index_block .nav-cat-entry.depth-1 {margin-top: 4px; padding-left: 0px;}
+#navigation-index_block .nav-cat-entry.depth-2 a:after { content: ' ...'; }
+
+#navigation-toc .nav-cat-entry ul,li { padding-left: 0px; }
+#navigation-toc .nav-page-entry ul,li { padding-left: 0px; }
+#navigation-toc .depth-2 { margin-left: 15px; }
+#navigation-toc .depth-3 { margin-left: 30px; }
+#navigation-toc .depth-4 { margin-left: 45px; }
+#navigation-toc .depth-5 { margin-left: 60px; }
+#navigation-toc li { list-style-type: none; }
+#navigation-toc li:before { content: "\B7" " ";}
+
+#navigation-toc_block .nav-cat-entry ul,li { padding-left: 0px; }
+#navigation-toc_block .nav-page-entry ul,li { padding-left: 0px; }
+#navigation-toc_block .depth-2 { margin-left: 15px; }
+#navigation-toc_block .depth-3 { margin-left: 30px; }
+#navigation-toc_block .depth-4 { margin-left: 45px; }
+#navigation-toc_block .depth-5 { margin-left: 60px; }
+#navigation-toc_block li { list-style-type: none; }
+#navigation-toc_block li:before { content: "\B7" " ";}

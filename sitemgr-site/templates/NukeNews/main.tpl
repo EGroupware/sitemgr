@@ -16,7 +16,8 @@
 		<META NAME="GENERATOR" CONTENT="eGroupWare Web Site Manager">
 		{editmode_styles}
 		<LINK REL="StyleSheet" HREF="templates/NukeNews/style/style.css" TYPE="text/css">
-		{java_script}		
+		{java_script}
+		{default_css}
 	</head>
 <body bgcolor="#505050" text="#000000" link="#363636" vlink="#363636" alink="#d5ae83">
 <br>

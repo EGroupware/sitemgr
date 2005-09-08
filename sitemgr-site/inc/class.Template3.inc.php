@@ -365,6 +365,8 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 					return $GLOBALS['egw']->common->get_java_script();
 				case 'need_footer':
 					return $GLOBALS['egw_info']['flags']['need_footer'];
+				case 'default_css':
+					return '<link href="templates/default/style/default.css" type="text/css" rel="StyleSheet" />';
 				default:
 					return '{'.$var.'}';	// leave it unchanged, happens eg. with js-code
 			}
