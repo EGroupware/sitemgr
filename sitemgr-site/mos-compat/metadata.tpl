@@ -12,3 +12,4 @@
 		<meta name="language" content="{lang}" />
 		{editmode_styles}
 		{java_script}
+		{default_css}
