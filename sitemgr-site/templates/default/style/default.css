@@ -1,4 +1,5 @@
 .nav-header-subsection { font-weight: bold; }
+.nav-header-parent { font-weight: bold; }
 .nav-title { font-weight: bold; }
 .nav-edit-icons {}
 .nav-cat-description { font-style: italic; font-weight: normal;}
@@ -22,19 +23,24 @@
 #navigation-index .nav-cat-entry { font-weight: bold; }
 #navigation-index .nav-cat-entry ul,li { padding-left: 0px; }
 #navigation-index .nav-page-entry ul,li { padding-left: 0px; }
-#navigation-index .depth-2 { margin-left: 15px; }
-#navigation-index .depth-3 { margin-left: 30px; }
-#navigation-index .depth-4 { margin-left: 45px; }
-#navigation-index .depth-5 { margin-left: 60px; }
+#navigation-index .depth-1 { margin-left: 5px; }
+#navigation-index .depth-2 { margin-left: 20px; }
+#navigation-index .depth-3 { margin-left: 35px; }
+#navigation-index .depth-4 { margin-left: 50px; }
+#navigation-index .depth-5 { margin-left: 65px; }
 #navigation-index li { list-style-type: none; }
 #navigation-index li:before { content: "\B7" " ";}
 
 /*#navigation-index_block .depth-1 li { list-style-type: none; }
 This code would produce 100% complability with old module, but looks ugly in case of cat collaps*/
 #navigation-index_block .depth-2 { margin-left: 15px; }
+#navigation-index_block .depth-3 { margin-left: 30px; }
+#navigation-index_block .depth-4 { margin-left: 45px; }
 #navigation-index_block ul,li { padding-left: 5px; }
-#navigation-index_block .nav-cat-entry.depth-1 {margin-top: 4px; padding-left: 0px;}
+#navigation-index_block .nav-cat-entry.depth-1 {margin-top: 4px; padding-left: 5px;}
 #navigation-index_block .nav-cat-entry.depth-2 a:after { content: ' ...'; }
+#navigation-index_block .nav-cat-entry.depth-3 a:after { content: ' ...'; }
+#navigation-index_block .nav-cat-entry.depth-4 a:after { content: ' ...'; }
 
 #navigation-toc .nav-cat-entry ul,li { padding-left: 0px; }
 #navigation-toc .nav-page-entry ul,li { padding-left: 0px; }
