@@ -41,7 +41,8 @@
 						5 => 'sitetree',
 						6 => 'toc',
 						7 => 'toc_block',
-						8 => lang('custom')
+						8 => 'path',
+// 						9 => lang('custom')
 					)
 				)	
 			);
@@ -92,23 +93,26 @@
 				7 => array( // Toc_block
 					'description' => lang('This module provides a condensed table of contents, meant for side areas')
 					),
-				8 => array( //Custom
-					'description' => lang('This module is a customisable navigation element'),
-					'allingment' => array(
-						'type' => 'select', 
-						'label' => lang('Allignment of navigation elements'),
-						'options' => array(
-							'vertical' => lang('Vertical'),
-							'horizontal' => lang('Horizontal'))
+				8 => array( // Path
+					'description' => lang('This module provides the path to the element currently shown')
 					),
-					'textallign' => array(
-						'type' => 'select',
-						'label' => lang('Text allignment'),
-						'options' => array(
-							'left' => lang('Left'),
-							'center' => lang('Center'),
-							'right' => lang('Right'))
-					)));
+// 				9 => array( //Custom
+// 					'description' => lang('This module is a customisable navigation element'),
+// 					'allingment' => array(
+// 						'type' => 'select', 
+// 						'label' => lang('Allignment of navigation elements'),
+// 						'options' => array(
+// 							'vertical' => lang('Vertical'),
+// 							'horizontal' => lang('Horizontal'))
+// 					),
+// 					'textallign' => array(
+// 						'type' => 'select',
+// 						'label' => lang('Text allignment'),
+// 						'options' => array(
+// 							'left' => lang('Left'),
+// 							'center' => lang('Center'),
+// 							'right' => lang('Right'))))
+					);
 			$this->title = 'Navigation element';
 			$this->description = lang("This module displays any kind of navigation element.");
 		}
@@ -129,11 +133,11 @@
 					div.inactivetab{ display:none; }
 				</style>
 				<script type=\"text/javascript\">
-					var tab = new Tabs(8,'activetab','inactivetab','tab','tabcontent','','','tabpage');
+					var tab = new Tabs('".(string)(count($this->arguments['nav_type']['options']) -1)."',
+					'activetab','inactivetab','tab','tabcontent','','','tabpage');
 					tab.init();
 				</script>",
 			);
-			
 			$this->arguments['nav_type']['params'] = array(
 				'onchange' => 'javascript:tab.display(this.value)'
 			);
@@ -240,6 +244,11 @@
 						'suppress_show_all' => true,
 					));
 					break;
+				case 5 : // Sitetree
+					$out .= "sitetree\">\n";
+					$out .= $this->type_sitetree($arguments,$properties);
+					$out .= "  </div>\n<!-- navigation context ends here -->\n</div>\n";
+					return $out;
 				case 6 : // Toc
 					$out .= "toc\">\n";
 					$arguments = array_merge($arguments, array(
@@ -282,11 +291,16 @@
 						'max_pages_depth' => '0',
 					));
 					break;
-				case 5 : // Sitetree
-					$out .= "sitetree\">\n";
-					$out .= $this->type_sitetree($arguments,$properties);
-					$out .= "  </div>\n<!-- navigation context ends here -->\n</div>\n";
-					return $out;
+				case 8 : // Path
+					$out .= "path\">\n";
+					$arguments = array_merge($arguments, array(
+						'suppress_parent' => true,
+						'suppress_show_all' => true,
+						'path_only' => true,
+						'no_full_index' => true,
+					));
+					break;
+					
 				case 4 : // Navigation
 				default:
 					$out .= "navigation\">\n";
@@ -339,7 +353,7 @@
 					'"><i>'.lang('show all').'</i></a>)'."\n";
 			}
 
-			$cat_tree = array('root');
+			$cat_tree = $cat_tree_data = array('root');
 			foreach($this->objbo->getCatLinks(0,true,true) as $cat_id => $cat)
 			{
 				if(array_key_exists($cat['depth'],$cat_tree))
@@ -347,16 +361,31 @@
 					$pop_depth = count($cat_tree);
 					for($depth=$cat['depth']; $depth < $pop_depth; $depth++)
 					{
-						array_pop($cat_tree); 
+						array_pop(&$cat_tree_data);
+						array_pop(&$cat_tree); 
 					}
 				}
 				array_push(&$cat_tree,$cat_id);
+				array_push(&$cat_tree_data,$cat);
+				
+				if($arguments['path_only'])
+				{
+					if($cat_tree[count($cat_tree) -1] != $this->page->cat_id) continue;
+					unset($cat_tree_data[0]);
+					$pages = $this->objbo->getPageLinks($cat_id,true,true);
+					if($this->page->id) $cat_tree_data[] = $pages[$this->page->id];
+					$out .= $this->encapsulate($arguments,$cat_tree_data,'cat',$cat_id);
+					break;
+				}
 				
 				if($arguments['current_section_only'] && $this->page->cat_id != $cat_id) continue;
 				if((int)$arguments['category_id'] > 0 && (int)$arguments['category_id'] != $cat_id) continue;
 				if($arguments['collapse'] && !in_array($this->page->cat_id,$cat_tree))
 				{
-					if($cat['depth'] == 1) $out .= $this->encapsulate($arguments,array($cat_id => $cat),'cat',$cat_id,$cat['depth']);
+					if($cat['depth'] == 1)
+					{
+						$out .= $this->encapsulate($arguments,array($cat_id => $cat),'cat',$cat_id,$cat['depth']);
+					}
 					continue;
 				}
 				
