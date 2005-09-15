@@ -17,8 +17,29 @@
 	 * If it's possible, we don't use extra functions for different views to reduce code
 	 * There are some predefined views wich are quite commen or are needed for backward compability
 	 *
-	 * The views are customizeable by css. See default.css in folder sitemgr-site/templates/default/style/.
-	 * There is a horde of options in this module. Look at 'custom view' to see them all.
+	 * The views are customizeable by css. See default.css in folder sitemgr-site/templates/default/style/
+	 *
+	 *  There is a horde of options to control the generation engine:
+	 * - category_id
+	 * - current_section_only
+	 * - expand
+	 * - highlight_current_page
+	 * - max_cat_depth -> could be ablolute ('number')  or relative (+number)
+	 * - max_pages_depth -> could be ablolute ('number')  or relative (+number)
+	 * - nav_title
+	 * - no_full_index
+	 * - path_only
+	 * - show_cat_description
+	 * - show_edit_icons
+	 * - show_page_description
+	 * - show_subcats_above
+	 * - showhidden
+	 * - sub_cats
+	 * - suppress_current_cat
+	 * - suppress_cat_link
+	 * - suppress_current_page
+	 * - suppress_parent
+	 * - suppress_show_all
 	 *
 	 * @author Cornelius Weiss<egw@von-und-zu-weiss.de>
 	 * @package sitemgr
