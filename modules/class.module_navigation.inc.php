@@ -74,9 +74,9 @@
 						'type' => 'checkbox',
 						'label' => lang('No link to full index')
 					),
-					'collapse' => array(
+					'expand' => array(
 						'type' => 'checkbox',
-						'label' => lang('Collapse all categories exept current')
+						'label' => lang('Expand current category')
 					)),
 				4 => array( // Navigation
 					'description' => lang("This module displays the root categories in one block each, with pages and subcategories (incl. their pages if activated).")
@@ -237,8 +237,8 @@
 				case 3 : // Index_Block
 					$out .= "index_block\">\n";
 					$arguments = array_merge($arguments, array(
-						'max_cat_depth' => $arguments['collapse'] ? '+1' : $arguments['sub_cats'] ? '2' : '1',
-						'max_pages_depth' => $arguments['collapse'] ? '+0' : '1',
+						'max_cat_depth' => $arguments['sub_cats'] ? '2' : '1',
+						'max_pages_depth' => '1',
 						'showhidden' => false,
 						'suppress_parent' => true,
 						'suppress_show_all' => true,
@@ -356,21 +356,65 @@
 			$cat_tree = $cat_tree_data = array('root');
 			foreach($this->objbo->getCatLinks(0,true,true) as $cat_id => $cat)
 			{
+				// relative cat or pages depth ?
+				if (strpos($arguments['max_cat_depth'],'+') === 0) (int)$arguments['max_cat_depth'] += $cat['depth'];
+				if (strpos($arguments['max_pages_depth'],'+') === 0) (int)$arguments['max_pages_depth'] += $cat['depth'];
+															
 				if(array_key_exists($cat['depth'],$cat_tree))
 				{
 					$pop_depth = count($cat_tree);
 					for($depth=$cat['depth']; $depth < $pop_depth; $depth++)
 					{
-						array_pop(&$cat_tree_data);
-						array_pop(&$cat_tree); 
+						array_pop(&$cat_tree); array_pop(&$cat_tree_data);
 					}
 				}
-				array_push(&$cat_tree,$cat_id);
-				array_push(&$cat_tree_data,$cat);
+				array_push(&$cat_tree,$cat_id); array_push(&$cat_tree_data,$cat);
+
+				if($arguments['expand'] && $cat_id == $this->page->cat_id && $cat['depth'] >= $arguments['max_cat_depth'])
+				{
+					//strip allready displayed contets of cat_tree
+					unset($cat_tree[0]); unset($cat_tree_data[0]);
+					foreach($cat_tree_data as $num => $category)
+					{
+						if($category['depth'] < $arguments['max_cat_depth'])
+						{
+							unset($cat_tree[$num]); unset($cat_tree_data[$num]);
+						}
+						// we need only pages of this cat, but not cat itseve!
+						if($category['depth'] ==  $arguments['max_cat_depth'] && $this->page->cat_id != $cat_tree[$num])
+						{
+							$cat_tree_data[$num]['pages_only'] = true;
+						}
+					}
+					
+					//expand rest
+					$cat_tree = array_reverse($cat_tree); $cat_tree_data = array_reverse($cat_tree_data);
+					$outstack = array($cat_tree[count(&$cat_tree) -1]); $outstack_data = array($cat_tree_data[count(&$cat_tree) -1]);
+					$popcat = array_pop(&$outstack); $popcat_data = array_pop(&$outstack_data);
+					while($popcat)
+					{
+						if(!$popcat_data['pages_only'])
+						{
+							$out .= $this->encapsulate($arguments,array($popcat => $popcat_data),'cat',$popcat,$popcat_data['depth']);
+						}
+						if(array_search($popcat,$cat_tree) !== false)
+						{
+							$pages = $this->objbo->getPageLinks($popcat,$arguments['showhidden'],true);
+							$out .= $this->encapsulate($arguments,$pages,'page',$popcat,$popcat_data['depth'] +1);
+						}
+						$subcats = array_reverse($this->objbo->getCatLinks($popcat,false,true),true);
+						foreach($subcats as $subcat_id => $subcat)
+						{
+							array_push(&$outstack,$subcat_id); array_push(&$outstack_data,$subcat);
+						}
+						$popcat = array_pop(&$outstack); $popcat_data = array_pop(&$outstack_data);
+					}
+					continue;
+				}
 				
 				if($arguments['path_only'])
 				{
-					if($cat_tree[count($cat_tree) -1] != $this->page->cat_id) continue;
+					if($cat_id != $this->page->cat_id) continue;
 					unset($cat_tree_data[0]);
 					$pages = $this->objbo->getPageLinks($cat_id,true,true);
 					if($this->page->id) $cat_tree_data[] = $pages[$this->page->id];
@@ -380,21 +424,6 @@
 				
 				if($arguments['current_section_only'] && $this->page->cat_id != $cat_id) continue;
 				if((int)$arguments['category_id'] > 0 && (int)$arguments['category_id'] != $cat_id) continue;
-				if($arguments['collapse'] && !in_array($this->page->cat_id,$cat_tree))
-				{
-					if($cat['depth'] == 1)
-					{
-						$out .= $this->encapsulate($arguments,array($cat_id => $cat),'cat',$cat_id,$cat['depth']);
-					}
-					continue;
-				}
-				
-				// relative cat or pages depth ?
-				if($this->page->cat_id == $cat_id)
-				{
-					if (strpos($arguments['max_cat_depth'],'+') === 0) (int)$arguments['max_cat_depth'] += $cat['depth'];
-					if (strpos($arguments['max_pages_depth'],'+') === 0) (int)$arguments['max_pages_depth'] += $cat['depth'];
-				}
 				
 				if($cat['depth'] <= $arguments['max_cat_depth'])
 				{
