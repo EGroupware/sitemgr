@@ -38,7 +38,7 @@
 	require(EGW_SERVER_ROOT.'/wiki/lib/messages.php');
 
 	global $pagestore;
-	$pagestore =& CreateObject('wiki.sowiki');
+	$GLOBALS['pagestore'] =& CreateObject('wiki.sowiki');
 
 	global $FlgChr,$Entity;
 	$FlgChr = chr(255);                     // Flag character for parse engine.
@@ -63,12 +63,15 @@
 					'type' => 'textfield',
 					'label' => lang('Wiki startpage')
 				),
-	/*
-				'search' => array(
-					'type' => 'checkbox',
-					'label' => lang('Show searchbox')
-				),
-	*/
+				'title' => array(
+					'type' => 'select',
+					'label' => lang('Show the title of the wiki page'),
+					'options' => array(
+						0 => lang('never'),
+						1 => lang('only on the first page'),
+						2 => lang('on all pages'),
+					)
+				)	
 			);
 			$this->properties = array();
 			$this->title = lang('Wiki');
@@ -98,7 +101,6 @@
 					$lang = '';
 				}
 			}
-
 			$pg = $GLOBALS['pagestore']->page($wikipage,$lang);
 			$pg->read();
 
@@ -114,6 +116,11 @@
 			}
 			$ViewBase .= $this->wikipage_param.'=';
 
-			return parseText($pg->text, $GLOBALS['ParseEngine'], $wikipage);
+			$title = '';
+			if ($arguments['title'] == 2 || $arguments['title'] == 1 && $wikipage == $arguments['startpage'])
+			{
+				$title = '<div class="wiki-title">' . htmlspecialchars($pg->title) . "</div>\n";
+			}
+			return $title . '<div class="wiki-content">' . parseText($pg->text, $GLOBALS['ParseEngine'], $wikipage) . "</div>\n";
 		}
 	}

@@ -241,7 +241,9 @@ no, chooser with preview	sitemgr	de	Nein nur Auswahl mit Vorschau
 not yet translated	sitemgr	de	noch nicht übersetzt
 note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	de	Sie können diese Nachricht auch erhalten, wenn Ihre Einstellungen nicht richtig sind. Zum Beispiel wenn config.inc.php nicht im angegebenen Verzeichnis gefunden wurde.
 number of news items to be displayed on page	sitemgr	de	Anzahl Nachrichten die auf einer Seite angezeigt werden
+on all pages	sitemgr	de	auf allen Seiten
 only gallery	sitemgr	de	Nur Galerie
+only on the first page	sitemgr	de	nur auf der ersten Seite
 or enter the title for a new guestbook	sitemgr	de	oder geben Sie einen Title für das neue Gästebuch ein
 other websites	sitemgr	de	Andere Websites
 overview of all available categories	sitemgr	de	Überblick über alle verfügbaren Kategorien
@@ -306,6 +308,7 @@ show only (in the next field) selected templates	sitemgr	de	Zeige nur die (im nä
 show searchbox	sitemgr	de	Suchfeld anzeigen
 show site index	sitemgr	de	Site Inhaltsverzeichnis anzeigen
 show subcategories	sitemgr	de	Unterkategorien anzeigen
+show the title of the wiki page	sitemgr	de	Titel der Wiki Seite anzeigen
 site	sitemgr	de	Website
 site %1 has been added, you need to %2configure the site%3 now	sitemgr	de	Website %1 wurde zugefügt, sie sollten die %2Website jetzt konfigurieren%3
 site %1 has been updated	sitemgr	de	Website %1 wurde aktualisiert

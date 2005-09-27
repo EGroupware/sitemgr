@@ -66,3 +66,6 @@ This code would produce 100% complability with old module, but looks ugly in cas
 #navigation-path .nav-page-entry ul, li { padding-left: 0px; }
 #navigation-path li { list-style-image:url("../../../images/pix.gif"); float: left; }
 #navigation-path a:before { content: " > "; }
+
+.wiki-title { width: 100%; background: #d0d0d0; font-weight: bold; padding: 2px; font-size: 120%; margin-bottom: 5px; }
+.wiki-content { }

@@ -239,7 +239,9 @@ no, chooser with preview	sitemgr	en	No, chooser with preview
 not yet translated	sitemgr	en	not yet translated
 note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	en	Note that you may get this message if your preferences are incorrect.  For example, if config.inc.php is not found in the directory that you specified.
 number of news items to be displayed on page	sitemgr	en	Number of news items to be displayed on page
+on all pages	sitemgr	en	on all pages
 only gallery	sitemgr	en	Only gallery
+only on the first page	sitemgr	en	only on the first page
 or enter the title for a new guestbook	sitemgr	en	or enter the title for a new guestbook
 other websites	sitemgr	en	Other websites
 overview of all available categories	sitemgr	en	Overview of all available categories
@@ -304,6 +306,7 @@ show only (in the next field) selected templates	sitemgr	en	Show only (in the ne
 show searchbox	sitemgr	en	Show searchbox
 show site index	sitemgr	en	Show Site Index
 show subcategories	sitemgr	en	Show subcategories
+show the title of the wiki page	sitemgr	en	Show the title of the wiki page
 site	sitemgr	en	Site
 site %1 has been added, you need to %2configure the site%3 now	sitemgr	en	Site %1 has been added, you need to %2configure the site%3 now
 site %1 has been updated	sitemgr	en	Site %1 has been updated
