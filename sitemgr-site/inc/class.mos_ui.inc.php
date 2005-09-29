@@ -47,6 +47,14 @@
 	{
 		echo $url;
 	}
+	
+	function mosShowHead()
+	{
+		global $objui,$mosConfig_sitename;
+		echo "\t\t<title>$mosConfig_sitename</title>\n";
+		$objui->t->loadfile(realpath(dirname(__FILE__).'/../mos-compat/metadata.tpl'));
+		echo $objui->t->parse();
+	}
 
 	// this is just to make some templates work, it does nothing actually atm.
 	class mos_database
@@ -111,10 +119,11 @@
 			header('Content-type: text/html; charset='.$GLOBALS['phpgw']->translation->charset());
 
 			// define global $mosConfig vars
-			global $mosConfig_sitename,$mosConfig_live_site,$modConfig_offset,$cur_template;
+			global $mosConfig_sitename,$mosConfig_live_site,$mosConfig_absolute_path,$mosConfig_offset,$cur_template;
 			$mosConfig_sitename = $this->t->get_meta('sitename').': '.$this->t->get_meta('title');
 			$mosConfig_live_site = substr($GLOBALS['sitemgr_info']['site_url'],0,-1);
 			$mosConfig_offset = (int) $GLOBALS['phpgw_info']['user']['preferences']['common']['tz_offset'];
+			$mosConfig_absolute_path = $GLOBALS['sitemgr_info']['site_dir'];
 			$cur_template = $GLOBALS['sitemgr_info']['themesel'];
 			define('_DATE_FORMAT_LC',str_replace(array('d','m','M','Y'),array('%d','%m','%b','%Y'),
 				$GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat']).
@@ -124,6 +133,7 @@
 			define('_SEARCH_BOX',lang('Search').' ...');
 			define( '_ISO','charset='.$GLOBALS['phpgw']->translation->charset());
 			define( '_VALID_MOS',True );
+			define( '_VALID_MYCSSMENU',True );
 			ini_set('include_path',$this->mos_compat_dir.(strtoupper(substr(PHP_OS, 0, 3)) == 'WIN' ? ';' : ':').ini_get('include_path'));
 
 			ob_start();		// else some modules like the redirect wont work
