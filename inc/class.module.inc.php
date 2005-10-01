@@ -80,7 +80,7 @@ class Module
 						//because this array also defines the form element
 						if ($where == 'post') $argument = $key;
 
-						if (isset($values[$argument]))
+						if (isset($values[$argument]) && !$block->addcontents)
 						{
 							$block->arguments[$argument] = $values[$argument];
 						}
@@ -91,7 +91,7 @@ class Module
 		$this->block =& $block;
 	}
 
-	function link($modulevars=array(),$extravars=array())
+	function link($modulevars=array(),$extravars=array(),$addcontent='')
 	{
 		if (is_array($modulevars))
 		{
@@ -115,6 +115,27 @@ class Module
 		elseif ($GLOBALS['page']->index)
 		{
 			$extravars['index'] = 1;
+		}
+		if (is_array($addcontent))
+		{
+			$add_cont = $GLOBALS['egw']->session->appsession('addcontent','sitemgr');
+			$add_counter = is_array($add_cont) ? count($add_cont) : 0;
+			$new_add = array_pop($addcontent);
+			$extravars['addcontent'] = '';
+			while($new_add)
+			{
+				$extravars['addcontent'] .= $add_counter;
+				$add_cont[$add_counter] = $new_add;
+				if($new_add['page']) $extravars['page_name'] = $new_add['page'];
+				
+				$new_add = array_pop($addcontent);
+				if($new_add)
+				{
+					$extravars['addcontent'] .= ',';
+					$add_counter = $add_counter + 1;
+				}
+			}
+			$GLOBALS['egw']->session->appsession('addcontent','sitemgr',$add_cont);
 		}
 		return sitemgr_link($extravars);
 	}
