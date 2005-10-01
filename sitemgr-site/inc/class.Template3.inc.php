@@ -33,6 +33,8 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 			$this->bo = &$GLOBALS['Common_BO']->content;
 			$this->modulebo = &$GLOBALS['Common_BO']->modules;
 			$this->modules = array();
+			$this->addcontent = $GLOBALS['egw']->session->appsession('addcontent','sitemgr');
+			$GLOBALS['egw']->session->appsession('addcontent','sitemgr',false);
 		}
 
 		/* public: setroot(pathname $root)
@@ -155,6 +157,12 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 				$str);
 		}
 
+		/**
+		* processes all blocks for a given contentarea
+		*
+		* @param $vars string contenarea name
+		* @return string html content
+		**/
 		function process_blocks($vars)
 		{
 			global $page;
@@ -186,6 +194,30 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 			$content = '';
 
 			$blocks =& $this->bo->getvisibleblockdefsforarea($areaname,$page->cat_id,$page->id,$objbo->is_admin(),$objbo->isuser);
+// 			_debug_array($blocks);
+			
+			// get addcontent blocks
+			if(is_array($this->addcontent))
+			{
+				foreach($this->addcontent as $num => $add_block)
+				{
+					if (!(in_array((string)$num,explode(',',$_GET['addcontent'])))) continue;
+					if (!(($add_block['area'] == $areaname) || (!$add_block['area'] && $areaname == 'center'))) continue;
+					$add_block['module_id'] = $this->modulebo->getmoduleid($add_block['module_name']);
+					$add_block['addcontents'] = true;
+					if ($add_block['sort_order'])
+					{
+						$blocks[] = (object)$add_block;
+						// FIXME we need to resort here
+					}
+					else
+					{
+						// contentarea gets blanked if no sortorder is given
+						$blocks = array((object)$add_block);
+					}
+				}
+			}
+			
 			// if we are in the center area, we append special blocks
 			if ($areaname == "center" && $page->block)
 			{
@@ -197,11 +229,10 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 				{
 					if (in_array($block->module_id,$this->permitted_modules))
 					{
-						// we maintain an array of modules we have already used, so we do not 
-						// have to create them anew. 
+						// we maintain an array of modules we have already used, so we do not have to create them anew. 
 						// getmodule returns now a clone of the original module, otherwise PHP5 would use an implicit reference
 						$moduleobject =& $this->getmodule($block->module_name);
-
+						
 						if ($block->id)
 						{
 							$block->title = $this->getblocktitlewrapper($block->id);
@@ -228,6 +259,7 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 						}
 
 						$output = $moduleobject->get_output();
+						
 						//process module calls embedded into output
 						$content .= preg_replace_callback(
 							"/\{([[:alnum:]_-]*)\.([[:alnum:]_-]*)(\?([^{ ]+))?\}/",
