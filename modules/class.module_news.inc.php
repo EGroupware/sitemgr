@@ -23,7 +23,15 @@
 					'type' => 'textfield', 
 					'label' => lang('Number of news items to be displayed on page'),
 					'params' => array('size' => 3)
-				)
+				),
+				'layout' => array(
+					'type' => 'select',
+					'label' => lang('Choose news layout'),
+					'options' => array(
+						'complete' => lang('Complete News'),
+						'header' => lang('show only headers containing links for complete news')
+					),
+				),
 			);
 			$this->get = array('item','start');
 			$this->session = array('item','start');
@@ -62,9 +70,10 @@
 				return lang("Application '%1' is not installed !!!<br>Please install it, to be able to use the block.",'news_admin');
 			}
 			$bonews =& CreateObject('news_admin.bonews');
-
+			
+			$arguments['layout'] = $arguments['layout'] ? $arguments['layout'] : 'complete';
 			$this->template = Createobject('phpgwapi.Template',$this->find_template_dir());
-			$this->template->set_file('news','newsblock.tpl');
+			$this->template->set_file('news',$arguments['layout'].'_style.tpl');
 			$this->template->set_block('news','NewsBlock','newsitem');
 			$this->template->set_block('news','RssBlock','rsshandle');
 
@@ -91,7 +100,7 @@
 				$newsitem = $bonews->get_news($item);
 				if ($newsitem && ($newsitem['category'] == $arguments['category']))
 				{
-					$this->render($newsitem);
+					$this->render($newsitem,$arguments['layout']);
 					$link_data['item'] = 0;
 					$this->template->set_var('morelink',
 						'<a href="' . $this->link($link_data) . '">' . lang('More news') . '</a>'
@@ -105,11 +114,12 @@
 				}
 			}
 
-			$newslist = $bonews->get_newslist($arguments['category'],$arguments['start'],'','',$limit,True);
 
+			$newslist = $bonews->get_newslist($arguments['category'],$arguments['start'],'','',$limit,True);
+			
 			while (list(,$newsitem) = @each($newslist))
 			{
-				$this->render($newsitem);
+				$this->render($newsitem,$arguments['layout']);
 			}
 			if ($arguments['start'])
 			{
@@ -128,14 +138,39 @@
 			return $this->template->parse('out','news');
 		}
 
-		function render($newsitem)
+		function render($newsitem,$layout='complete')
 		{
-			$this->template->set_var(array(
-				'news_title' => $newsitem['subject'],
-				'news_submitter' => $GLOBALS['egw']->accounts->id2name($newsitem['submittedby']),
-				'news_date' => $GLOBALS['egw']->common->show_date($newsitem['date']),
-				'news_content' => $newsitem['content']
-			));
+			switch($layout)
+			{
+				case 'header' :
+					$this->template->set_var(array(
+						'news_date' => $arguments['header_show_date'] ? $GLOBALS['egw']->common->show_date($newsitem['date'],'d.m.y') : '',
+						'news_title' => '<a href="'. $this->link(false,false,array( 0 => 
+							array(
+								'module_name' => 'news',
+								'arguments' => array(
+									'layout' => 'complete',
+									'item' => $newsitem['id'],
+									'category' => $newsitem['category'],
+								),
+								'page' => false,
+								'area' => false,
+								'sort_order' => false
+							)
+						)). '">'. $newsitem['subject']. '</a>'
+					));
+					break;
+
+				default:
+				case 'complete' :
+					$this->template->set_var(array(
+						'news_title' => $newsitem['subject'],
+						'news_submitter' => $GLOBALS['egw']->accounts->id2name($newsitem['submittedby']),
+						'news_date' => $GLOBALS['egw']->common->show_date($newsitem['date']),
+						'news_content' => $newsitem['content']
+					));
+					break;
+			}
 			$this->template->parse('newsitem','NewsBlock',True);
 		}
 	}
