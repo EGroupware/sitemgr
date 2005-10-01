@@ -69,3 +69,5 @@ This code would produce 100% complability with old module, but looks ugly in cas
 
 .wiki-title { width: 100%; background: #d0d0d0; font-weight: bold; padding: 2px; font-size: 120%; margin-bottom: 5px; }
 .wiki-content { }
+
+#news_headerstyle_item a { padding-bottom: 5px; }
