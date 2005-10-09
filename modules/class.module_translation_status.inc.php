@@ -55,6 +55,7 @@
 			}
 			krsort($colors);
 
+			$table['.0'] = 'style="font-weight: bold;"';
 			if (empty($details))
 			{
 				$table[] = array(
@@ -87,7 +88,7 @@
 						'details' => '<a href="'.$this->link(array('details'=>$row['lang'])).'" title="'.lang('Show details for the applications').'">('.lang('details').')</a>'
 					);
 				}
-				return $this->html->table($table);
+				return $this->html->table($table,'cellspacing="5"');
 			}
 			$table[] = array(
 				'app'     => lang('Application'),
@@ -106,8 +107,8 @@
 					$max[$row['app_name']] = $row['count'];
 					continue;
 				}
-				$m = $max[$row['app_name']];
-				$percent = sprintf('%0.1lf',100.0 * ($m ? $row['count'] / $m : 1));
+				$m = $max[$row['app_name']] ? $max[$row['app_name']] : $row['count'];
+				$percent = sprintf('%0.1lf',100.0 * $row['count'] / $m);
 				unset($max[$row['app_name']]);
 				foreach($colors as $minimum => $color)
 				{
@@ -125,7 +126,7 @@
 			foreach($max as $app => $m)
 			{
 				$table[] = array(
-					'app' => ($app_name == 'common' ? 'API' : $this->try_lang($app)).' ('.$app_name.')',
+					'app' => ($app == 'common' ? 'API' : $this->try_lang($app)).' ('.$app.')',
 					'percent' => $this->html->progressbar(0,'0.0%','','50px',$color,'8px'),
 					'total'   => '0 / '.$m
 				);
@@ -133,7 +134,7 @@
 			$this->db->query('SELECT lang_name FROM phpgw_languages WHERE lang_id='.$this->db->quote($details),__FILE__,__LINE__);
 			$row = $this->db->row(True);
 			return '<h3>'.lang('Details for language %1 (%2)',$this->try_lang($row['lang_name']),$details)."</h3>\n".
-				$this->html->table($table).
+				$this->html->table($table,'cellspacing="5"').
 				'<a href="'.$this->link().'">('.lang('Back to the list of languages').')</a>';
 		}
 	}
