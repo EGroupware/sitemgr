@@ -63,7 +63,8 @@
 					'total'   => lang('Phrases in total'),
 					'.total'  => 'colspan="2"',
 				);
-				$this->db->query('SELECT lang,lang_name,count( message_id ) AS count FROM phpgw_lang LEFT JOIN phpgw_languages ON lang=lang_id GROUP BY lang,lang_name ORDER BY count DESC,lang');
+//				we use a join with phpgw_lang itself to eliminate additional (obsolete) phrases not in the english langfile
+				$this->db->query("SELECT l.lang,lang_name,count( l.message_id ) AS count FROM phpgw_lang l,phpgw_lang en LEFT JOIN phpgw_languages ON l.lang=lang_id WHERE l.app_name=en.app_name AND l.message_id=en.message_id AND en.lang='en' GROUP BY l.lang,lang_name ORDER BY count DESC,l.lang");
 				while($row = $this->db->row(True))
 				{
 					if (empty($row['lang']) || empty($row['lang_name']))
@@ -93,7 +94,8 @@
 				'percent' => lang('Percentage'),
 				'total'   => lang('Phrases in total')
 			);
-			$this->db->query("SELECT app_name,lang,count( message_id ) AS count,lang,CASE WHEN lang='en' THEN 1 ELSE 0 END AS is_en FROM phpgw_lang WHERE lang IN (".$this->db->quote($details).",'en') GROUP BY app_name,lang,is_en ORDER BY is_en DESC,count DESC,app_name");
+//			we use a join with phpgw_lang itself to eliminate additional (obsolete) phrases not in the english langfile
+			$this->db->query("SELECT l.app_name,l.lang,count( l.message_id ) AS count,l.lang,CASE WHEN l.lang='en' THEN 1 ELSE 0 END AS is_en FROM phpgw_lang l,phpgw_lang en WHERE l.app_name=en.app_name AND l.message_id=en.message_id AND en.lang='en' AND l.lang IN (".$this->db->quote($details).",'en') GROUP BY l.app_name,l.lang,is_en ORDER BY is_en DESC,count DESC,l.app_name");
 
 			while($row = $this->db->row(True))
 			{
@@ -104,7 +106,9 @@
 					$max[$row['app_name']] = $row['count'];
 					continue;
 				}
-				$percent = sprintf('%0.1lf',100.0 * ($max[$row['app_name']] ? $row['count'] / $max[$row['app_name']] : 1));
+				$m = $max[$row['app_name']];
+				$percent = sprintf('%0.1lf',100.0 * ($m ? $row['count'] / $m : 1));
+				unset($max[$row['app_name']]);
 				foreach($colors as $minimum => $color)
 				{
 					if ($percent >= $minimum)
@@ -115,7 +119,15 @@
 				$table[] = array(
 					'app' => ($row['app_name'] == 'common' ? 'API' : $this->try_lang($row['app_name'])).' ('.$row['app_name'].')',
 					'percent' => $this->html->progressbar($percent,$percent.'%','','50px',$color,'8px'),
-					'total'   => $row[count]
+					'total'   => $row[count].' / '.$m
+				);
+			}
+			foreach($max as $app => $m)
+			{
+				$table[] = array(
+					'app' => ($app_name == 'common' ? 'API' : $this->try_lang($app)).' ('.$app_name.')',
+					'percent' => $this->html->progressbar(0,'0.0%','','50px',$color,'8px'),
+					'total'   => '0 / '.$m
 				);
 			}
 			$this->db->query('SELECT lang_name FROM phpgw_languages WHERE lang_id='.$this->db->quote($details),__FILE__,__LINE__);
