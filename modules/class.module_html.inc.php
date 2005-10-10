@@ -24,7 +24,22 @@
 					'i18n' => True,
 					'params' => Array(
 						'style' => 'width:100%; min-width:500px; height:300px',
-						'plugins' => 'UploadImage,ContextMenu,TableOperations,SpellChecker'
+						'plugins' => '
+							theme : "advanced",
+							theme_advanced_toolbar_location : "top",
+							plugins : "filemanager,table,contextmenu,paste,fullscreen,advhr,advimage,advlink,iespell,insertdatetime,searchreplace,flash",
+							theme_advanced_buttons1_add : "separator,search,replace",
+							theme_advanced_buttons2_add : "separator,iespell,insertdate,inserttime,separator,flash",
+							theme_advanced_buttons3_add : "separator,filemanager,fullscreen",
+							theme_advanced_buttons3_add_before : "tablecontrols,separator,advhr",
+							extended_valid_elements : "hr[class|width|size|noshade], a[name|href|target|title|onclick], img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name]",
+							document_base_url : "'. $site_url. '",
+							relative_urls : true,
+							plugin_insertdate_dateFormat : "%Y-%m-%d",
+							plugin_insertdate_timeFormat : "%H:%M:%S",
+							flash_wmode : "transparent",
+							flash_quality : "high",
+							flash_menu : "false"'
 					)
 				)
 			);
