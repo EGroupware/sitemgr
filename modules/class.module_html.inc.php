@@ -23,7 +23,7 @@
 					'large' => True,	// show label above content
 					'i18n' => True,
 					'params' => Array(
-						'style' => 'width:100%; min-width:500px; height:300px',
+						'style' => 'width:100%; min-width:500px; height:280px',
 						'plugins' => '
 							theme : "advanced",
 							theme_advanced_toolbar_location : "top",
@@ -35,8 +35,6 @@
 							extended_valid_elements : "hr[class|width|size|noshade], a[name|href|target|title|onclick], img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name]",
 							document_base_url : "'. $site_url. '",
 							relative_urls : true,
-							plugin_insertdate_dateFormat : "%Y-%m-%d",
-							plugin_insertdate_timeFormat : "%H:%M:%S",
 							flash_wmode : "transparent",
 							flash_quality : "high",
 							flash_menu : "false"'
