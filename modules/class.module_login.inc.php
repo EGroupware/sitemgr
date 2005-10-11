@@ -81,7 +81,7 @@ class module_login extends Module
 	{
 		if($GLOBALS['phpgw_info']['user']['userid'] == $GLOBALS['sitemgr_info'][anonymous_user])
 		{
-			if (empty($arguments['security_redirect'])||(stristr(phpgw_link('/login.php'),'https://'))){
+			if (empty($arguments['security_redirect']) || $_SERVER['HTTPS']){
 				$content = '<form name="login" action="'.phpgw_link('/login.php').'" method="post">';
 				$content .= '<input type="hidden" name="passwd_type" value="text">';
 				$content .= '<input type="hidden" name="logindomain" value="'. $GLOBALS['egw_info']['user']['domain'] .'">';
