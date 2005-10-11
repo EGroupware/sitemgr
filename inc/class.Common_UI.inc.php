@@ -235,6 +235,12 @@
 						lang('Note, this directory has to be writeable by webserver!'),
 					'default'=> $GLOBALS['Common_BO']->sites->current_site['site_dir'] . SEP . 'images'
 				);
+				$upload_url = $GLOBALS['Common_BO']->sites->current_site['upload_url'];
+				$preferences['upload_url'] = array(
+					'title'=>lang('URL of directory for uploads (images etc.)'),
+					'note'=> '',
+					'default'=> $GLOBALS['Common_BO']->sites->current_site['site_url'].'images'. SEP
+				);
 				$preferences['site_languages'] = array(
 					'title'=>lang('Languages the site user can choose from'),
 					'note'=>lang('This should be a comma-separated list of language-codes.'),

@@ -100,7 +100,7 @@
 					array(
 						'site_id', 'site_name', 'site_url', 'site_dir', 'themesel',
 						'site_languages', 'home_page_id', 'anonymous_user','anonymous_passwd',
-						'upload_dir'
+						'upload_dir','upload_url'
 					) as $col
 				)
 				{
@@ -163,6 +163,7 @@
 					'anonymous_user' => $site['anonuser'],
 					'anonymous_passwd' => $site['anonpasswd'],
 					'upload_dir' => $site['upload_dir'],
+					'upload_url' => $site['upload_url'],
 				),array(
 					'site_id' => $site_id
 				),__LINE__,__FILE__);
@@ -182,6 +183,7 @@
 					'site_languages' => $prefs['site_languages'],
 					'home_page_id' => $prefs['home_page_id'],
 					'upload_dir' => $prefs['upload_dir'],
+					'upload_url' => $prefs['upload_url'],
 				),array(
 					'site_id' => $site_id
 				),__LINE__,__FILE__);
