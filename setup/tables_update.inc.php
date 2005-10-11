@@ -808,4 +808,21 @@
 		$GLOBALS['setup_info']['sitemgr']['currentver'] = '1.0.0.002';
 		return $GLOBALS['setup_info']['sitemgr']['currentver'];
 	}
+
+
+	$test[] = '1.0.0.002';
+	function sitemgr_upgrade1_0_0_002()
+	{
+		$GLOBALS['phpgw_setup']->oProc->AlterColumn('phpgw_sitemgr_sites','upload_dir',array(
+			'type' => 'varchar',
+			'precision' => '255'
+		));
+		$GLOBALS['phpgw_setup']->oProc->AddColumn('phpgw_sitemgr_sites','upload_url',array(
+			'type' => 'varchar',
+			'precision' => '255'
+		));
+
+		$GLOBALS['setup_info']['sitemgr']['currentver'] = '1.0.0.003';
+		return $GLOBALS['setup_info']['sitemgr']['currentver'];
+	}
 ?>

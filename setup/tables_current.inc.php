@@ -155,7 +155,8 @@
 				'home_page_id' => array('type' => 'int','precision' => '4'),
 				'anonymous_user' => array('type' => 'varchar','precision' => '50'),
 				'anonymous_passwd' => array('type' => 'varchar','precision' => '50'),
-				'upload_dir' => array('type' => 'varchar','precision' => '50')
+				'upload_dir' => array('type' => 'varchar','precision' => '255'),
+				'upload_url' => array('type' => 'varchar','precision' => '255')
 			),
 			'pk' => array('site_id'),
 			'fk' => array(),
