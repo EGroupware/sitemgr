@@ -18,12 +18,13 @@
 
 	$sitemgr_info = array(
 		// add trailing slash
-		'egw_path'         => '../../',
+//		'egw_path'         => '../../',
+		'egw_path'         => '/home/oscar/cvs/sourceforge/egw-1.0/',
 		'htaccess_rewrite' => False,
 	);
 	// uncomment the next line if sitemgr should use a eGW domain different from the first one defined in your header.inc.php
 	// and of cause change the name accordingly ;-)
-	//$GLOBALS['egw_info']['user']['domain'] = $GLOBALS['egw_info']['server']['default_domain'] = 'other';
+	$GLOBALS['egw_info']['user']['domain'] = $GLOBALS['egw_info']['server']['default_domain'] = 'escomposlinux.org';
 	// in case of auth via LDAP and multiple domains we need to set $GLOBALS['egw_info']['user']['domain']
 
 	/***********************************************************\
