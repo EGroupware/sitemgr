@@ -9,7 +9,6 @@
 1 month	sitemgr	es-es	1 mes
 1 week	sitemgr	es-es	1 semana
 <b>autoregistration is not enabled / configured in the registration app !!!</b><br>you need to do so, to get the autoregistration link working.	sitemgr	es-es	<b>El autorregistro no está activado o configurado en la aplicación de suscripciones</b><br>Necesita hacerlo para que funcione el enlace de suscripciones.
-<b>want more templates?</b><br />just download a %1mambo open source%2 version 4.5 compatible template from %3 and unpack it in your templates directory (%4).	sitemgr	es-es	<b>¿Quiere más plantillas?</b><br />Simplmente descargue una plantilla compatible con %1Mambo Open Source%2 4.5 de %3 y descomprímala en su directorio de plantillas (%4).
 <b>want more templates?</b><br />just download one from the template gallery at %1www.egroupware.org%2 or use a %3mambo open source%4 version 4.5 compatible template eg. from %5. unpack the downloaded template in your templates directory (%6).	sitemgr	es-es	<b>¿Quiere más plantillas?</b><br />Simplemente descargue una de la galería de plantillas de %1www.eGroupWare.org%2 o use una plantilla compatible con versión 4.5 de %3Mambo Open Source%4 de %5. Descomprima la plantilla en su directorio de plantillas (%6).
 a simple picture galery	sitemgr	es-es	Una galería simple de imágenes
 actif	sitemgr	es-es	Actif
@@ -29,6 +28,7 @@ administrators	sitemgr	es-es	administradores
 all categories	sitemgr	es-es	Todas las categorías
 all forums in category %1	sitemgr	es-es	Todos los foros en la categoría %1
 all languages	sitemgr	es-es	todos los idiomas
+allignment of navigation elements	sitemgr	es-es	Alineación de los elementos de navegación
 allow posting of questions	sitemgr	es-es	Permitir el envío de preguntas
 amazon	sitemgr	es-es	Amazon
 amazon server (without www), eg. amazon.com	sitemgr	es-es	Servidor de Amazon (sin www), p. ej. amazon.com
@@ -78,17 +78,18 @@ choose a category	sitemgr	es-es	Elegir una categoría
 choose a format	sitemgr	es-es	Elegir un formato
 choose a guestbook	sitemgr	es-es	Elegir un libro de invitados
 choose language	sitemgr	es-es	Elegir idioma
+choose news layout	sitemgr	es-es	Elegir formato de noticias
 choose template	sitemgr	es-es	Elegir plantilla
 choose the categories to display	sitemgr	es-es	Elegir las categorías a mostrar
-choose the valid html type (note: not all icons are available):	sitemgr	es-es	Elegir el tipo de HTML válido (nota: no todos los iconos están disponibles):
+choose the valid html type (note: not all icons are available):	sitemgr	es-es	Elegir el tipo de HTML VALIDO (nota: no todos los iconos están disponibles):
 choose your site's theme or template.  note that if you changed the above checkbox you need to save before choosing a theme or template.	sitemgr	es-es	Elija el tema o la plantilla de su sitio. Si cambió la casilla de arriba, necesita guardar antes de elegir un tema o plantilla.
-click here to login through a safe connection.	sitemgr	es-es	Pulsar aquí para una sesión por una conexión segura.
-code file	sitemgr	es-es	Fichero del código
-codebase url	sitemgr	es-es	URL del código
+click here to login through a safe connection.	sitemgr	es-es	Pulsar aquí para iniciar la sesión mediante una conexión segura
+code file	sitemgr	es-es	Fichero de código
+codebase url	sitemgr	es-es	URL del código base
 collapse threads	sitemgr	es-es	Contraer conversaciones
-comment	sitemgr	es-es	Comentario
 commit changes	sitemgr	es-es	Subir cambios
 common prefix of the image-name (a number starting with 1 will be appended)	sitemgr	es-es	prefijo común del nombre de imagen (se le añadirá un número contando desde 1)
+complete news	sitemgr	es-es	Completar noticias
 configure module properties	sitemgr	es-es	Configurar las propiedades del módulo
 configure sitemgr	sitemgr	es-es	Configurar el Administrador de sitios web
 configure website	sitemgr	es-es	Configurar sitio web
@@ -103,6 +104,7 @@ copyright	sitemgr	es-es	Derecho de copia
 create new version	sitemgr	es-es	Crear una versión nueva
 css styles	sitemgr	es-es	Estilos CSS
 current section	sitemgr	es-es	Sección actual
+custom	sitemgr	es-es	personalizado
 default	sitemgr	es-es	Predeterminado
 default home page id number	sitemgr	es-es	Número de ID de la página de inicio predeterminada
 define websites	common	es-es	Definir sitios web
@@ -116,7 +118,7 @@ delete version	sitemgr	es-es	Borrar versión
 deleting all data for %1	sitemgr	es-es	Borrar todos los datos de %1
 details for language %1 (%2)	sitemgr	es-es	Detalles para el idioma %1 (%2)
 directory for uploads (images etc.)	sitemgr	es-es	Directorio para subir (imágenes, etc)
-directory is not writeable by webserver. please correct this situation!	sitemgr	es-es	El servidor web no puede escribir en el directorio. Por favor, corrija esta situación.
+directory is not writeable by webserver. please correct this situation!	sitemgr	es-es	El servidor web no tiene permiso de escritura en el directorio. Por favor, corrija esta situación.
 discussions	sitemgr	es-es	Discusiones
 display link to autoregistration below login form?	sitemgr	es-es	¿Mostrar el enlace para registrarse automáticamente debajo del formulario?
 do you realy want to delete the selected categories (including all pages), pages and blocks?	sitemgr	es-es	¿Realmente quiere borrar las categorías (incluyendo todas las páginas), páginas y bloques seleccionados?
@@ -157,13 +159,12 @@ error deleting the element.	sitemgr	es-es	Error al borrar el elemento.
 error writing to the database.	sitemgr	es-es	Error al escribir en la base de datos.
 error writing to the database: %1.	sitemgr	es-es	Error al escribir en la base de datos: %1.
 everybody	sitemgr	es-es	todo el mundo
+expand current category	sitemgr	es-es	Expandir la categoría actual
 file %1 is not readable by the webserver !!!	sitemgr	es-es	¡¡ El servidor web no puede leer fichero %1!!
 file %1 is outside the docroot of the webserver !!!<br>this module does not allow - for security reasons - to open files outside the docroot.	sitemgr	es-es	¡¡El fichero %1 está fuera de la raíz del servidor!!<br>Este módulo NO permite, por motivos de seguridad, abrir ficheros fuera de la raíz del servidor.
 file contents	sitemgr	es-es	Contenido del fichero
 file download	sitemgr	es-es	Descarga del fichero
-file is not world readable	sitemgr	es-es	El fichero no está accesible para todo el mundo
 filename	sitemgr	es-es	Nombre del fichero
-filesystem path of the directory where the images are found (no trailing slash)	sitemgr	es-es	Ruta del directorio a nivel de sistema donde están las imágenes (sin la barra "/" final)
 filesystem path of the directory where xml files are stored	sitemgr	es-es	Ruta del directorio donde se almacenan los ficheros XML
 filesystem path of the image-directory	sitemgr	es-es	Ruta en el sistema de archivos al directorio de imágenes
 filesystem path to sitemgr-site directory	sitemgr	es-es	Ruta en el sistema de archivos para el directorio sitemgr-site
@@ -190,6 +191,7 @@ headlines	sitemgr	es-es	Encabezados
 hello	sitemgr	es-es	Hola
 hello world	sitemgr	es-es	Hola, mundo
 helps you respect html/xhtml standards.	sitemgr	es-es	Ayuda a respetar los estándares HTML/XHTML
+horizontal	sitemgr	es-es	Horizontal
 html frame	sitemgr	es-es	Marco HTML
 html module	sitemgr	es-es	Módulo HTML
 i'm sorry, you do not have write permissions for any site categories.	sitemgr	es-es	Lo siento, no tiene permiso de escritura para ninguna de las categorías del sitio.
@@ -212,7 +214,6 @@ login	sitemgr	es-es	Inicio de sesión
 login name	sitemgr	es-es	Nombre de usuario
 main content	sitemgr	es-es	Contenido principal
 mains	sitemgr	es-es	Principal
-maintainer	sitemgr	es-es	Mantenido por
 manage archived content	sitemgr	es-es	Administrar contenido archivado
 manage categories	sitemgr	es-es	Administrar categorías
 manage categories and pages	sitemgr	es-es	Administrar categorías y páginas
@@ -231,7 +232,6 @@ messages are defined for all site languages.	sitemgr	es-es	Los mensajes están de
 migrating data for %1 to %2	sitemgr	es-es	Migrar datos para %1 a %2
 module %1 is not permitted in this context!	sitemgr	es-es	El módulo %1 no está permitido en este contexto
 module manager	sitemgr	es-es	Administrador de módulos
-module: %1, scope: %2, contentarea: %3	sitemgr	es-es	Módulo: %1, ámbito: %2, área de contenido: %3
 module: %1, scope: %2, contentarea: %3, viewable: %4	sitemgr	es-es	Módulo: %1, ámbito: %2, área de contenido: %3, visible: %4
 more news	sitemgr	es-es	Más noticias
 move block down (increase sort order)	sitemgr	es-es	Mover bloque hacia abajo (incrementar el orden)
@@ -243,6 +243,7 @@ new application	sitemgr	es-es	Nueva aplicación
 new guestbook	sitemgr	es-es	Nuevo libro de invitados
 new sitemgr site	sitemgr	es-es	Nuevo sitio web
 news module	sitemgr	es-es	Módulo de noticias
+no additional arguments required	sitemgr	es-es	No se requieren argumentos adicionales
 no anonymous user accounts installed.  notify the administrator.	sitemgr	es-es	NO HAY INSTALADAS CUENTAS DE USUARIO ANONIMAS. NOTIFIQUELO AL ADMINISTRADOR.
 no content areas found in selected template	sitemgr	es-es	No se encontraron áreas de contenido en la plantilla seleccionada
 no content found	sitemgr	es-es	No se encontró contenido
@@ -264,9 +265,11 @@ no, chooser with preview	sitemgr	es-es	No, selector con vista previa
 not	sitemgr	es-es	no
 not yet translated	sitemgr	es-es	pendiente de traducir
 note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	es-es	Puede que vea este mensaje si sus preferencias son incorrectas. Por ejemplo, si config.inc.php no está en el directorio especificado.
-note, this directory has to be writeable by webserver!	sitemgr	es-es	Nota: este directorio necesita permiso de escritura para el servidor web
+note, this directory has to be writeable by webserver!	sitemgr	es-es	Nota: el servidor web no puede escribir en el directorio
 number of news items to be displayed on page	sitemgr	es-es	Número de elementos de noticias a mostrar en la página
+on all pages	sitemgr	es-es	en todas las páginas
 only gallery	sitemgr	es-es	Sólo galería
+only on the first page	sitemgr	es-es	sólo en la primera página
 or enter the title for a new guestbook	sitemgr	es-es	o introducir el título para un nuevo libro de invitados
 other websites	sitemgr	es-es	Otros sitios web
 overview of all available categories	sitemgr	es-es	Descripción de todas las categorías disponibles
@@ -324,6 +327,7 @@ select a forum	sitemgr	es-es	Seleccionar un foro
 select allowed modules	sitemgr	es-es	Seleccionar los módulos permitidos
 select persons and groups that are entitled to configure the website.	sitemgr	es-es	Seleccionar las personas y grupos que tienen derecho a configurar el sitio web.
 select the templates the user is allowed to see	sitemgr	es-es	Seleccionar las plantillas que el usuario puede ver
+select type of navigation	sitemgr	es-es	Seleccionar tipo de navegación
 selected template %1 does not exist.	sitemgr	es-es	La plantilla seleccionada %1 no existe
 selected theme %1 does not exist.	sitemgr	es-es	El tema seleccionado %1 no existe.
 should the file be viewed in the browser or downloaded	sitemgr	es-es	¿Mostrar el fichero o descargarlo?
@@ -332,13 +336,14 @@ show contents of a directory	sitemgr	es-es	Mostrar el contenido de un directorio
 show contents of a directory with subdirectories	sitemgr	es-es	Mostrar el contenido de un directorio con subdirectorios
 show details for the applications	sitemgr	es-es	Mostrar detalles para las aplicaciones
 show only (in the next field) selected templates	sitemgr	es-es	Mostrar sólo (en el siguiente campo) las plantillas seleccionadas
-show path?	sitemgr	es-es	¿Mostrar la ruta?
+show only headers containing links for complete news	sitemgr	es-es	Mostrar sólo las cabeceras que contengan enlaces para noticias completas
+show path?	sitemgr	es-es	¿Mostrar ruta?
 show searchbox	sitemgr	es-es	Mostrar recuadro de buscar
 show site index	sitemgr	es-es	Mostrar el índice del sitio
 show subcategories	sitemgr	es-es	Mostrar subcategorías
-single file download	sitemgr	es-es	Descarga de un fichero
+show the title of the wiki page	sitemgr	es-es	Mostrar el título de la página del wiki
+single file download	sitemgr	es-es	Descarga de un único fichero
 site	sitemgr	es-es	Sitio
-site %1 has been added	sitemgr	es-es	El sitio %1 ha sido añadido
 site %1 has been added, you need to %2configure the site%3 now	sitemgr	es-es	Se ha añadido el sitio %1, necesita %2configurar el sitio%3 ahora
 site %1 has been updated	sitemgr	es-es	El sitio %1 ha sido actualizado
 site administrators	sitemgr	es-es	Administradores del sitio
@@ -356,7 +361,6 @@ sitemgr setup instructions	sitemgr	es-es	Instrucciones para configurar el Admini
 sitemgr setup page	sitemgr	es-es	Página de configuración del Administrador de sitios
 sitemgr web content manager	common	es-es	Administrador de contenidos del Administrador de sitios web
 sitemgr websites	sitemgr	es-es	Sitios web
-size	sitemgr	es-es	Tamaño
 sort order	sitemgr	es-es	Forma de ordenación
 state	sitemgr	es-es	Estado
 strip html from block content?	sitemgr	es-es	¿Separar HTML del contenido por bloques?
@@ -370,17 +374,15 @@ suppress link to parent category	sitemgr	es-es	Suprimir el enlace a la categoría
 suppress the current page	sitemgr	es-es	Suprime la página actual
 table of contents	sitemgr	es-es	Tabla de contenidos
 template based navigation module	sitemgr	es-es	Plantilla basada en el módulo de navegación
-template chooser and/or gallery	sitemgr	es-es	Selector de plantillas y/o galerías
 template select	sitemgr	es-es	Selección de plantilla
+text allignment	sitemgr	es-es	Alineación del texto
 textarea	sitemgr	es-es	Area de texto
 the category to display, 0 for complete table of contents	sitemgr	es-es	La categoría a mostrar. 0 para toda la tabla de contenidos
-the complete path to the file to be included	sitemgr	es-es	La ruta completa al fichero que hay que incluir
 the complete url or path to a file to be included	sitemgr	es-es	La URL completa o ruta al fichero a incluir
 the config.inc.php file needs to be edited to point to the egroupware directory. copy the config.inc.php.template file to config.inc.php and then edit it.	sitemgr	es-es	El fichero config.inc.php necesita editarse para apuntar al fichero eGW. Copie el fichero de plantilla config.inc.php.template a config.inc.php y luego edítelo.
 the file to be downloaded	sitemgr	es-es	El fichero a descargar
 the filesystem path to your sitemgr-site directory '%1' is probably wrong. go to sitemgr --> define websites and edit/fix the concerned site.	sitemgr	es-es	La ruta local al directorio sitemgr-site del sitio '%1' probablemente es incorrecta. Vaya a la opción Definir sitios web y corrija el sitio adecuado.
 the first directory to think about is sitemgr-link.  if you move this to the parent directory of sitemgr (your egroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  if you don't want this icon, there's no reason to ever bother with the directory.	sitemgr	es-es	El primer directorio en el que hay que pensar es sitemgr-link. Si lo mueve al directorio superior de sitemgr (el fichero raíz de la instalación de egroupware) entonces puede usar setup para instalar la aplicación y todos los que tengan acceso a la aplicación tendrán un icono en su barra de navegación que está enlazada directamente al sitio web público. Si no quiere este icono, no hay razón para preocuparse de este directorio.
-the images' common name	sitemgr	es-es	El nombre común de las imágenes
 the name field cannot contain punctuation or spaces (field modified).	sitemgr	es-es	El campo Nombre no puede contener signos de puntuación ni espacios (campo modificado).
 the page name must be unique.	sitemgr	es-es	El nombre de la página debe ser único
 the page was successfully saved.	sitemgr	es-es	La página se guardó correctamente
@@ -417,28 +419,28 @@ this is only used as an internal name for the website.	sitemgr	es-es	Esto se usa
 this is used chiefly for meta data and the title bar. if you change the site languages below you have to save before being able to set this preference for a new language.	sitemgr	es-es	Esto se usa principalmente para metadatos y la barra de título. Si cambia los idiomas del sitio debajo, tiene que guardarlo antes de poder establecer esta preferencia para un idioma nuevo.
 this is used chiefly for meta data. if you change the site languages below you have to save before being able to set this preference for a new language.	sitemgr	es-es	Esto se usa principalmente para metadatos. Si cambia los idiomas del sitio debajo, tiene que guardarlo antes de poder establecer esta preferencia para un idioma nuevo.
 this module create a link for downloading a file from the vfs	sitemgr	es-es	Este módulo crea un enlace para descargar un fichero desde el Sistema de ficheros virtual
-this module create a link for downloading a file(s) from the vfs	sitemgr	es-es	Este módulo crea un enlace para descargar ficheros del sistema de ficheros virtual.
+this module create a link for downloading a file(s) from the vfs	sitemgr	es-es	Este módulo crea un enlace para descargar ficheros del VFS
 this module demonstrates how handling data stored in xml and building an interacvite interface from it	sitemgr	es-es	Este módulo demuestra cómo manejar los datos almacenados en XML y constuir una interfaz interactiva desde ahí.
 this module displays a login form	sitemgr	es-es	Este módulo muestra un formulario para iniciar la sesión
+this module displays any kind of navigation element.	sitemgr	es-es	Este módulo muestra un formulario de inicio de sesión
 this module displays bookmarks in a javascript based tree	sitemgr	es-es	Este módulo muestra los marcadores en forma de árbol mediante javascript
 this module displays the current month	sitemgr	es-es	Este módulo muestra el mes actual
 this module displays the egw forums on the web site	sitemgr	es-es	Este módulo muestra los foros eGW en el sitio web
 this module displays the root categories in one block each, with pages and subcategories (incl. their pages if activated).	sitemgr	es-es	Este módulo muestra las categorias raíz, una en cada bloque, con páginas y subcategorias (incluyendo sus páginas si están activadas).
 this module displays the root categories, its pages and evtl. subcategories. it is meant for side areas	sitemgr	es-es	Este módulo muestra las categorías raíz, sus páginas y, eventualmente, subcategorías. Para áreas laterales.
-this module includes the contents of a (world readable) file	sitemgr	es-es	Este módulo incluye los contenidos de un fichero al que todo el mundo tiene acceso
-this module includes the contents of a file (readable by the webserver !)	sitemgr	es-es	Este módulo incluye los contenidos de un fichero (que el servidor web pueda leer)
 this module includes the contents of an url or file (readable by the webserver and in its docroot !)	sitemgr	es-es	Este módulo incluye el contenido de una URL o fichero (siempre que lo pueda leer el servidor web y esté dentro de la raíz de los documentos)
+this module is a customisable navigation element	sitemgr	es-es	Este módulo es un elemento de navegacióon personalizable
 this module is a selectbox to change the mode (production, draft or edit) plus a link back to sitemgr and to log out. it is meant for registered users only	sitemgr	es-es	Este módulo es un cuadro de selección para cambiar el modo (producción, borrador o editar) mas un enlace para volver al Administrador de Sitios web y cerrar la sesión. Sólo para usuarios registrados.
 this module is a simple html editor	sitemgr	es-es	Este módulo es un editor HTML sencillo
 this module lets the users choose a template or shows a template gallery	sitemgr	es-es	Este módulo permite a los usuarios elegir una plantilla o muestra una galería de plantillas
 this module lets users choose language	sitemgr	es-es	Este módulo permite a los usuarios elegir idioma
 this module lets you define pages that redirect to another url, if you use it, there should be no other block defined for the page	sitemgr	es-es	Este módulo permite definir páginas que redirigen a otra URL. Si lo usa, no debería haber otro bloque definido para la página.
-this module lets you include an applet into the page.	sitemgr	es-es	Este módulo permite incluir un applet en la página.
-this module lets you show a given url inside an iframe in the page.	sitemgr	es-es	Este módulo permite mostrar una URL dentro de un IFRAME en la página.
+this module lets you include an applet into the page.	sitemgr	es-es	Este módulo le permite incluir un applet en la página
+this module lets you show a given url inside an iframe in the page.	sitemgr	es-es	Este módulo permite mostrar una URL dada dentro de un IFRAME en una página
 this module permits browsing through xml files stored in a directory, and transformed by xslt	sitemgr	es-es	Este módulo permite navegar a través de los ficheros XML almacenados en un directorio, y transformados por XSLT
-this module presents a link back to the sitemgr's administration menu. it is meant for registered users	sitemgr	es-es	Este módulo presenta un enlace para volver al menú de Administración de sitios web. Indicado para usuarios registrados.
 this module provides a complete table of contents, it is automatically used by the toc and category_id get parameters	sitemgr	es-es	Este módulo proporciona una tabla de contenidos completa. Se usa automáticamente por los parámetros GET toc y category_id
 this module provides a condensed table of contents, meant for side areas	sitemgr	es-es	Este módulo proporciona una tabla de contenidos condensada, indicada para áreas laterales
+this module provides the path to the element currently shown	sitemgr	es-es	Este módulo proporciona la ruta al elemento mostrado actualmente
 this module provides the site index, it is automatically used by the index get parameter	sitemgr	es-es	Este módulo proporciona el índice del sitio. Lo usa automáticamente el parámetro GET índice.
 this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	sitemgr	es-es	Este módulo publica noticias la aplicación news_admin en su sitio web. Tenga precaución con las restricciones ACL de news_admin.
 this module show the status / percentage of the translation of egw	sitemgr	es-es	Este módulo muestra el estado o porcentaje de la traducción de eGW
@@ -459,7 +461,7 @@ up to parent	sitemgr	es-es	Subir al directorio superior
 up to table of contents	sitemgr	es-es	Subir a la tabla de contenidos
 update notification	sitemgr	es-es	Notificación de actualizacion
 updating to new category system	sitemgr	es-es	Actualizando a nuevo sistema de categorías
-url pointing to the directory where the images are found (no trailing slash)	sitemgr	es-es	URL que apunta al directorio donde se encuentran las imágenes (sin barra invertida al final)
+url of directory for uploads (images etc.)	sitemgr	es-es	URL o directorio para subir (imágenes, etc)
 url pointing to the image-directory	sitemgr	es-es	URL que apunta al directorio de imágenes
 url to sitemgr-site	sitemgr	es-es	URL al directorio sitemgr-site
 use phpnuke themes instead of templates	sitemgr	es-es	Usar temas de phpNuke en vez de plantillas
@@ -467,6 +469,7 @@ use this module for displaying book ads for the amazon web site	sitemgr	es-es	Us
 use this module for displaying wiki-pages	sitemgr	es-es	Usar este módulo para mostrar páginas de wiki
 user name	sitemgr	es-es	Nombre de usuario
 validator	sitemgr	es-es	Validador
+vertical	sitemgr	es-es	Vertical
 view administrative menu	sitemgr	es-es	Ver menú administrativo
 view full index	sitemgr	es-es	Ver todo el índice
 view generated site	sitemgr	es-es	Ver sitio generado
@@ -479,7 +482,7 @@ web site manager	sitemgr	es-es	Administrador del sitio web
 website	sitemgr	es-es	Sitio web
 week	sitemgr	es-es	semana
 what do you want to do with existing translations of categories and pages for this language?	sitemgr	es-es	¿Qué desea hacer con las traducciones existentes de las categorías y las páginas para este idioma?
-which application should be executed after login?	sitemgr	es-es	¿Qué aplicación debe ejecutarse después de iniciar la sesión?
+which application should be executed after login?	sitemgr	es-es	¿Qué aplicación ejecutar después de iniciar la sesión?
 wiki	sitemgr	es-es	Wiki
 wiki startpage	sitemgr	es-es	Página principal del wiki
 with which view should the module be displayed in the beginning?	sitemgr	es-es	¿Con qué vista se debe mostrar el módulo al principio?
