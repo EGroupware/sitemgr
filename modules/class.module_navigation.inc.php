@@ -140,11 +140,11 @@
 		
 		function get_user_interface()
 		{
-			if(!@is_object($GLOBALS['phpgw']->js))
+			if(!@is_object($GLOBALS['egw']->js))
 			{
-				$GLOBALS['phpgw']->js = CreateObject('phpgwapi.javascript');
+				$GLOBALS['egw']->js =& CreateObject('phpgwapi.javascript');
 			}
-			$GLOBALS['phpgw']->js->validate_file('tabs','tabs');
+			$GLOBALS['egw']->js->validate_file('tabs','tabs');
 				
 			// I know, this is ugly. If you find a better solution for this, please help!
 			$interface[] = array(
@@ -154,7 +154,7 @@
 					div.inactivetab{ display:none; }
 				</style>
 				<script type=\"text/javascript\">
-					var tab = new Tabs('".(string)(count($this->arguments['nav_type']['options']) -1)."',
+					var tab =& new Tabs('".(string)(count($this->arguments['nav_type']['options']) -1)."',
 					'activetab','inactivetab','tab','tabcontent','','','tabpage');
 					tab.init();
 				</script>",
@@ -386,10 +386,10 @@
 					$pop_depth = count($cat_tree);
 					for($depth=$cat['depth']; $depth < $pop_depth; $depth++)
 					{
-						array_pop(&$cat_tree); array_pop(&$cat_tree_data);
+						array_pop($cat_tree); array_pop($cat_tree_data);
 					}
 				}
-				array_push(&$cat_tree,$cat_id); array_push(&$cat_tree_data,$cat);
+				array_push($cat_tree,$cat_id); array_push($cat_tree_data,$cat);
 
 				if($arguments['expand'] && $cat_id == $this->page->cat_id && $cat['depth'] >= $arguments['max_cat_depth'])
 				{
@@ -410,8 +410,8 @@
 					
 					//expand rest
 					$cat_tree = array_reverse($cat_tree); $cat_tree_data = array_reverse($cat_tree_data);
-					$outstack = array($cat_tree[count(&$cat_tree) -1]); $outstack_data = array($cat_tree_data[count(&$cat_tree) -1]);
-					$popcat = array_pop(&$outstack); $popcat_data = array_pop(&$outstack_data);
+					$outstack = array($cat_tree[count($cat_tree) -1]); $outstack_data = array($cat_tree_data[count($cat_tree) -1]);
+					$popcat = array_pop($outstack); $popcat_data = array_pop($outstack_data);
 					while($popcat)
 					{
 						if(!$popcat_data['pages_only'])
@@ -426,9 +426,9 @@
 						$subcats = array_reverse($this->objbo->getCatLinks($popcat,false,true),true);
 						foreach($subcats as $subcat_id => $subcat)
 						{
-							array_push(&$outstack,$subcat_id); array_push(&$outstack_data,$subcat);
+							array_push($outstack,$subcat_id); array_push($outstack_data,$subcat);
 						}
-						$popcat = array_pop(&$outstack); $popcat_data = array_pop(&$outstack_data);
+						$popcat = array_pop($outstack); $popcat_data = array_pop($outstack_data);
 					}
 					continue;
 				}
