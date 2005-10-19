@@ -1,3 +1,7 @@
+/*--------------------------------*/
+/*| styles for navigation module |*/
+/*--------------------------------*/
+
 .nav-header-subsection { font-weight: bold; }
 .nav-header-parent { font-weight: bold; }
 .nav-title { font-weight: bold; }
@@ -8,13 +12,6 @@
 .nav-full-index { margin-top: 10px; }
 .nav-full-index a:before { content: '('; }
 .nav-full-index a:after { content: ')'; }
-
-/*#navigation-context li
-{
-	margin-left: 0px;
-	padding-left: 0px; 
-	padding-left: 5px;
-}*/
 
 .nav-highlight_current_page a:before { content: '>'; }
 .nav-highlight_current_page a:after { content: '<'; }
@@ -67,7 +64,20 @@ This code would produce 100% complability with old module, but looks ugly in cas
 #navigation-path li { list-style-image:url("../../../images/pix.gif"); float: left; }
 #navigation-path a:before { content: " > "; }
 
+/*--------------------------*/
+/*| styles for wiki module |*/
+/*--------------------------*/
 .wiki-title { width: 100%; background: #d0d0d0; font-weight: bold; padding: 2px; font-size: 120%; margin-bottom: 5px; }
 .wiki-content { }
 
-#news_headerstyle_item a { padding-bottom: 5px; }
+
+/*--------------------------*/
+/*| styles for news module |*/
+/*--------------------------*/
+#news_headerstyle_item a { text-align:left; }
+
+
+#news_completestyle_item .news_title { font-weight: bold; text-align:left; }
+#news_completestyle_item .news_submitter { font-style: italic; text-align:left;}
+#news_completestyle_item .news_date { font-style: italic; text-align:left; }
+#news_completestyle_item .news_content { text-align:left; }

@@ -1,27 +1,22 @@
 <!-- BEGIN NewsBlock -->
-<div align="left">
-<table width="95%" border="0" cellspacing="0" cellpadding="0">
+<div id ="news_completestyle_item">
+<table>
 <tr>
-	<td height="23" width="432">
-		<b>
-				{news_title}
-		</b>
+	<td colspan="2" class="news_title">
+		{news_title}
 	</td>
 </tr>
 <tr> 
-	<td height="23"> 
-		<table width="100%" border="0" cellspacing="0" cellpadding="0">
-			<tr> 
-				<td> 
-					<p>
-						<i>Submitted by '{news_submitter}' {news_date}</i>
-						<br>
-						<br>
-							{news_content}
-					</p>
-				</td>
-			</tr>
-		</table>
+	<td class="news_submitter">
+		Submitted by '{news_submitter}'
+	</td>
+	<td class="news_date">
+		 {news_date}
+	</td>
+</tr>
+<tr>
+	<td colspan="2" class="news_content">
+		{news_content}
 	</td>
 </tr>
 </table>

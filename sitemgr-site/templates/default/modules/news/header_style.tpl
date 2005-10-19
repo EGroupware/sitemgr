@@ -1,10 +1,10 @@
 <!-- BEGIN NewsBlock -->
-<table width="95%" border="0" cellspacing="0" cellpadding="0" id="news_headerstyle_item">
+<table id="news_headerstyle_item">
 <tr>
-	<td>
+	<td class="news_date">
 		{news_date}
 	</td>
-	<td>
+	<td class="news_title">
 		{news_title}
 	</td>
 </tr>
