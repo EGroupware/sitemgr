@@ -1,0 +1,112 @@
+%1 content manager	sitemgr	no	%1 innholdsadministrator
+%1 module manager	sitemgr	no	%1 moduladministrator
+'%1' is no valid sitemgr-site directory !!!	sitemgr	no	'%1' er ikke et gyldig sitemgr-site bibliotek !
+(do not put spaces or punctuation in the name field.)	sitemgr	no	(
+a simple picture galery	sitemgr	no	Et enkelt bildegalleri
+add a category	sitemgr	no	Legg til en kategori
+add a new application	sitemgr	no	Legg til en ny applikation
+add a new guestbook	sitemgr	no	Legg til en ny gjestebok
+add block ...	sitemgr	no	Legg til blokk...
+add block to content area %1	sitemgr	no	Legg til blokk til innholdsområde %1
+add category	sitemgr	no	Legg til kategori
+add new page to this category	sitemgr	no	Legg til en ny side til denne kategori
+add page	sitemgr	no	Legg til side
+add page to category	sitemgr	no	Legg side til kategori
+add website	sitemgr	no	Legg til nettsted
+administration	sitemgr	no	Administrasjon
+administrative menu	sitemgr	no	Administrasjonsmeny
+administrators	sitemgr	no	administratorer
+all categories	sitemgr	no	Alle kategorier
+all forums in category %1	sitemgr	no	Alle forum i kategorien %1
+all languages	sitemgr	no	alle språk
+allow posting of questions	sitemgr	no	Tillate posting av spørsmål
+amazon	sitemgr	no	Amazon
+amazon server (without www), eg. amazon.com	sitemgr	no	Amazon server (uten www), f.eks. amazone.com
+an application directory	sitemgr	no	En programmappe
+anonymous	sitemgr	no	anonym
+anonymous user login domain	sitemgr	no	Anonym brukers domeneinnlogging
+anonymous user's password	sitemgr	no	Anonym brukers adgangskode
+anonymous user's username	sitemgr	no	Anonym brukers brukernavn
+application	sitemgr	no	Program
+application '%1' is not installed !!!<br>please install it, to be able to use the block.	sitemgr	no	Program '%1' er ikke installert ! <br> Dette må installeres for å kunne benytte blokk.
+application sitemgr_module_guestbook must be installed as a egroupware application for this module to run	sitemgr	no	Programmet sitemgr_module_guestbook må være installert som en eGrouwareapplikasjon for at denne modulen skal skunne benyttes.
+apply permissions also to subcategories?	sitemgr	no	Anvende rettighetene også til underkategorier?
+archived	sitemgr	no	arkivert
+archived content	sitemgr	no	Arkivert innhold
+are contributors allowed to define new guestbooks?	sitemgr	no	Skal bidragsytere kunne opprette gjestebøker
+are you sure you want to delete site %1 and all its content? you cannot retrieve it if you continue.	sitemgr	no	Ønsker du å slette nettstedet %1 og alt innhold.  Det kan ikke gjenskapes om du fortsetter
+as	common	no	som
+attempt to edit non-editable block	sitemgr	no	Forsøk på å redigere en ikke redigerbar blokk
+automatic index	sitemgr	no	Automatisk indeks
+back to module manager	sitemgr	no	Tilbake til moduladministrasjon
+back to the list of languages	sitemgr	no	Tilbake til språklisten
+basic settings	sitemgr	no	Grunninnstillinger
+block not found.	sitemgr	no	Blokk ikke funnet.
+block reloaded	sitemgr	no	Blokk lastet på nytt
+block returned no content.	sitemgr	no	Blokk returnerte ikke noe innhold.
+block saved	sitemgr	no	Blokk lagret
+bookmarks	sitemgr	no	Bokmerker
+buy at %1	sitemgr	no	Kjøp hos %1
+calendar	sitemgr	no	Kalender
+cancel the delete	sitemgr	no	Annullere slettingen
+cannot move page until it has been saved.	sitemgr	no	Siden kan ikke flyttes før den er blitt lagret
+category	sitemgr	no	Kategori
+category description	sitemgr	no	Kategoribeskrivelse
+category manager	sitemgr	no	Kategoriadministrator
+category name	sitemgr	no	Kategorinavn
+category saved	sitemgr	no	Kategori lagret
+changes saved.	sitemgr	no	Endringer ble lagret.
+check here after every upgrade	sitemgr	no	avkryss her efter hver oppgdatering
+choose a category	sitemgr	no	Velg en kategori
+choose a guestbook	sitemgr	no	Velg en gjestebok
+choose language	sitemgr	no	Velg språk
+choose template	sitemgr	no	Velg en mal
+choose the categories to display	sitemgr	no	Velg kategoriene som skal vises
+configure sitemgr	sitemgr	no	Konfigurere Nettstedsadm.
+configure website	sitemgr	no	Konfigurere nettsted
+contact the administrator.	sitemgr	no	Kontakt systemadministratoren
+content areas	sitemgr	no	Innholdsområder
+content blocks	sitemgr	no	Innholdsblokker
+content blocks for category	sitemgr	no	Innholdsblokker i kategorier
+content manager	sitemgr	no	Innholdsansvarlig
+contentarea	sitemgr	no	Innholdsområde
+copyright	sitemgr	no	Copyright
+create new version	sitemgr	no	Oprett en ny version
+current section	sitemgr	no	Nåværende sekjson
+default	sitemgr	no	Standard
+define websites	common	no	Definer nettsteder
+delete block	sitemgr	no	Slette blokk
+delete category	sitemgr	no	Slette kategori
+delete page	sitemgr	no	Slette side
+delete this application	sitemgr	no	Slette dette program
+delete this block	sitemgr	no	Slette denne blokken
+delete this guestbook	sitemgr	no	Slette denne gjesteboken
+delete version	sitemgr	no	Slette versjon
+deleting all data for %1	sitemgr	no	Sletter alle data fra %1
+details for language %1 (%2)	sitemgr	no	Sletter for språk %1(%2)
+discussions	sitemgr	no	Diskusjoner
+documentation	sitemgr	no	Dokumentasjon
+don't have an account?	sitemgr	no	Har du ingen konto?
+done	sitemgr	no	Utført
+download as zip-archiv	sitemgr	no	Laste ned som ZIP-arkiv
+downloaded	sitemgr	no	Lastet ned
+draft	sitemgr	no	Kladd
+draft mode	sitemgr	no	Kladdemodus
+edit categories and permissions	common	no	Endre kategorier og tillatelser
+edit category	sitemgr	no	Endre kategori
+edit individual pages	common	no	Endre individuelle sider
+edit mode	sitemgr	no	Endre modus
+edit page	sitemgr	no	Endre side
+edit site	sitemgr	no	Endre nettsted
+edit site header and footer	common	no	Endre nettstedet topp og ende
+edit this block	sitemgr	no	Endre denne blokken
+edit website	sitemgr	no	Endret nettsted
+egw users	sitemgr	no	eGroupware brukere
+element successfully deleted.	sitemgr	no	Elementet ble slettet
+enter a name	sitemgr	no	Registrer et navn
+sitemgr	common	no	Nettstedsadministrasjon
+sitemgr manual	sitemgr	no	Nettstedsmanual
+state	sitemgr	no	Status
+your calendar	sitemgr	no	Din kalender
+your comment	sitemgr	no	Dine kommentarer
+your name	sitemgr	no	Ditt navn
