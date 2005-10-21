@@ -1,7 +1,9 @@
 %1 content manager	sitemgr	no	%1 innholdsadministrator
 %1 module manager	sitemgr	no	%1 moduladministrator
 '%1' is no valid sitemgr-site directory !!!	sitemgr	no	'%1' er ikke et gyldig sitemgr-site bibliotek !
-(do not put spaces or punctuation in the name field.)	sitemgr	no	(
+(do not put spaces or punctuation in the name field.)	sitemgr	no	(Ikke benytte blank eller punktum i navnfeltet.)
+<b>autoregistration is not enabled / configured in the registration app !!!</b><br>you need to do so, to get the autoregistration link working.	sitemgr	no	<b>Autoregistreing er ikke aktivert / konfigurert i registreringsprogrammet !</b> Dette må gjøres for at autoregistreringslenken skal fungere.
+<b>want more templates?</b><br />just download one from the template gallery at %1www.egroupware.org%2 or use a %3mambo open source%4 version 4.5 compatible template eg. from %5. unpack the downloaded template in your templates directory (%6).	sitemgr	no	<b>Ønsker du flere maler?</b><br />Dette kan lastes ned fra vårt malgalleri på %1www.eGroupWare.org%2 eller bruk en %3Mambo Open Source%4 versjon 4.5 kompatibel mal.
 a simple picture galery	sitemgr	no	Et enkelt bildegalleri
 add a category	sitemgr	no	Legg til en kategori
 add a new application	sitemgr	no	Legg til en ny applikation
@@ -35,9 +37,13 @@ archived	sitemgr	no	arkivert
 archived content	sitemgr	no	Arkivert innhold
 are contributors allowed to define new guestbooks?	sitemgr	no	Skal bidragsytere kunne opprette gjestebøker
 are you sure you want to delete site %1 and all its content? you cannot retrieve it if you continue.	sitemgr	no	Ønsker du å slette nettstedet %1 og alt innhold.  Det kan ikke gjenskapes om du fortsetter
+are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	no	Ønsker du virkelig å slette denne kategorien %1 og alle tilknyttede sider? Sidene kan ikke gjenskapes om du fortsetter.
 as	common	no	som
+asin[=title] pairs (title is optional)	sitemgr	no	ASIN[=Tittel] par (Tittel er ikke nødvendig)
+attempt to access information outside current website	sitemgr	no	Forsøk på å få adgang til informasjon utenfor gjeldende nettsted.
 attempt to edit non-editable block	sitemgr	no	Forsøk på å redigere en ikke redigerbar blokk
 automatic index	sitemgr	no	Automatisk indeks
+automatically generated notification	sitemgr	no	Automatisk generert melding
 back to module manager	sitemgr	no	Tilbake til moduladministrasjon
 back to the list of languages	sitemgr	no	Tilbake til språklisten
 basic settings	sitemgr	no	Grunninnstillinger
@@ -62,6 +68,8 @@ choose a guestbook	sitemgr	no	Velg en gjestebok
 choose language	sitemgr	no	Velg språk
 choose template	sitemgr	no	Velg en mal
 choose the categories to display	sitemgr	no	Velg kategoriene som skal vises
+choose your site's theme or template.  note that if you changed the above checkbox you need to save before choosing a theme or template.	sitemgr	no	Velg din sides tema eller mal. Dersom du endret i sjekkboks må du lagre før du velger et tema eller en mal.
+commit changes	sitemgr	no	Lagre endringene
 configure sitemgr	sitemgr	no	Konfigurere Nettstedsadm.
 configure website	sitemgr	no	Konfigurere nettsted
 contact the administrator.	sitemgr	no	Kontakt systemadministratoren
@@ -74,6 +82,7 @@ copyright	sitemgr	no	Copyright
 create new version	sitemgr	no	Oprett en ny version
 current section	sitemgr	no	Nåværende sekjson
 default	sitemgr	no	Standard
+default home page id number	sitemgr	no	Standard hjemmesides identnummer
 define websites	common	no	Definer nettsteder
 delete block	sitemgr	no	Slette blokk
 delete category	sitemgr	no	Slette kategori
@@ -85,6 +94,10 @@ delete version	sitemgr	no	Slette versjon
 deleting all data for %1	sitemgr	no	Sletter alle data fra %1
 details for language %1 (%2)	sitemgr	no	Sletter for språk %1(%2)
 discussions	sitemgr	no	Diskusjoner
+display link to autoregistration below login form?	sitemgr	no	Vise lenke til autoregistrering under pålogginsbildet ?
+do you realy want to delete this block?	sitemgr	no	Ønsker du å slette denne blokken ?
+do you realy want to delete this page?	sitemgr	no	Ønsker du å slette denne siden ?
+do you want to delete them?	sitemgr	no	Ønsker du å slette dem ?
 documentation	sitemgr	no	Dokumentasjon
 don't have an account?	sitemgr	no	Har du ingen konto?
 done	sitemgr	no	Utført
@@ -104,9 +117,168 @@ edit website	sitemgr	no	Endret nettsted
 egw users	sitemgr	no	eGroupware brukere
 element successfully deleted.	sitemgr	no	Elementet ble slettet
 enter a name	sitemgr	no	Registrer et navn
+enter the block content here	sitemgr	no	Registrer blokkinholdet her
+enter the email to be notified about changes of the website.	sitemgr	no	Registrer din e-mailadresse for å få meldinger om endringer av nettstedet.
+enter the email to be notified about changes of the website:	sitemgr	no	Registrer din e-mailadresse for å få meldinger om endringer av nettstedet:
+entry duplicated.	sitemgr	no	Forekomst dublisert
+entry saved.	sitemgr	no	Forekomst lagret
+error deleting the element.	sitemgr	no	Feil ved sletting av elementet.
+error writing to the database.	sitemgr	no	Feil ved skriving til database
+error writing to the database: %1.	sitemgr	no	Feil ved skriving til database: %1
+everybody	sitemgr	no	alle
+file %1 is not readable by the webserver !!!	sitemgr	no	Filen %1 er ikke lesbar av nettstedsvert !
+file contents	sitemgr	no	Filinnhold
+file download	sitemgr	no	Nedlasting av fil
+following new modules registed: %1	sitemgr	no	Følgende nye moduler registrert : %1
+footer editor	sitemgr	no	Sidefotsredigering
+forum	sitemgr	no	Forum
+galerie	sitemgr	no	Galleri
+gallery plus chooser	sitemgr	no	Galleri + velger
+gallery plus chooser and download	sitemgr	no	Galleri + velger + nedlasting
+gallery plus download	sitemgr	no	Galleri + nedlasting
+go back to page manager	sitemgr	no	Gå tilbake til Sideadministrasjon
+go back to the category manager.	sitemgr	no	Gå tilbake til Kategoriadministrasjon
+go to	sitemgr	no	Gå til
+go to page manager	sitemgr	no	Gå til Sideadministrasjon
+google	sitemgr	no	Google
+google search	sitemgr	no	Google søk
+group access permissions	sitemgr	no	Gruppetillatelser
+group name	sitemgr	no	Gruppenavn
+header editor	sitemgr	no	Sidehoderedigering
+headlines	sitemgr	no	Overskrifter
+hello	sitemgr	no	Hei
+hello world	sitemgr	no	Hei verden
+html module	sitemgr	no	HTML modul
+image type	sitemgr	no	bildetype
+implies read permission	sitemgr	no	impliserer lesetillatelse
+index	sitemgr	no	Indeks
+knowledge base	sitemgr	no	Kunnskapsbase
+languages the site user can choose from	sitemgr	no	Språk nettstedets brukere kan velge fra
+last entries to the guestbook	sitemgr	no	Siste registrering i gjestebok
+latest reply	sitemgr	no	Siste svar
+login	sitemgr	no	Login
+login name	sitemgr	no	Login navn
+main content	sitemgr	no	Hovedinnhold
+mains	sitemgr	no	Hoved
+manage archived content	sitemgr	no	Administrere arkivert innhold
+manage categories	sitemgr	no	Administrere kategorier
+manage categories and pages	sitemgr	no	Administrere kategorier og sider
+manage category wide content	sitemgr	no	Administrere globale kategoriers innhold
+manage category wide module properties	sitemgr	no	Administrere globale modulers innstillinger
+manage content	sitemgr	no	Administrer innhold
+manage modules	sitemgr	no	Administrer moduler
+manage page specific content	sitemgr	no	Administrere sidespesifikt innhold
+manage pages	common	no	Administrer sider
+manage site content	sitemgr	no	Administrer nettstedet innhold
+manage site-wide content	sitemgr	no	Administrere nettstedets globale innhold
+manage site-wide module properties	sitemgr	no	Administrere nettstedets globale modulinnstillinger
+manage translations	sitemgr	no	Administrere oversettelser
+master list of permitted modules	sitemgr	no	Hovedliste over tillatte moduler
+messages are defined for all site languages.	sitemgr	no	Meldinger er definert for alle nettstedets språk
+migrating data for %1 to %2	sitemgr	no	Migrere data fra %1 til %2
+module %1 is not permitted in this context!	sitemgr	no	Modul %1 er ikke tillatt i denne sammenhæng!
+module manager	sitemgr	no	Moduladministrasjon
+more news	sitemgr	no	Flere nyheter
+move block down (increase sort order)	sitemgr	no	Flytt blokk ned (
+move block up (decrease sort order)	sitemgr	no	Flytt blokk opp (
+move to	sitemgr	no	Flytt til
+name	sitemgr	no	Navn
+name has been translated to lower case	sitemgr	no	Navnet ble endret til små bokstaver
+new application	sitemgr	no	Nytt program
+new guestbook	sitemgr	no	Ny gjestebok
+new sitemgr site	sitemgr	no	Ny sitemgr nettsted
+news module	sitemgr	no	Nyhetsmodul
+no groups defined.	sitemgr	no	Ingen grupper er definert
+no link to full index	sitemgr	no	Ingen lenke til full innholdsfortegnelse
+page	sitemgr	no	Side
+page content	sitemgr	no	Sideinnhold
+page manager	sitemgr	no	Sideadministrator
+page name	sitemgr	no	Sidenavn
+page saved	sitemgr	no	Side lagret
+page saved.	sitemgr	no	Side lagret.
+page subtitle	sitemgr	no	Sidens undertittel
+page title	sitemgr	no	Siden tittel
+pages	sitemgr	no	Sider
+pages:	sitemgr	no	Sider:
+password	sitemgr	no	Passord
+percentage	sitemgr	no	Prosent
+phrases in total	sitemgr	no	Fraser totalt
+please enter a name for that site !	sitemgr	no	Registrer et navn for nettstedet
+post a message to this thread	sitemgr	no	Post en melding i denne tråden
+previous	sitemgr	no	Forrige
+read permission	sitemgr	no	Lesetillatelse
+redirection	sitemgr	no	Redirigering
+refresh	sitemgr	no	Oppfrisk
+register for one now.	sitemgr	no	Registrer for en nå.
+register new modules	sitemgr	no	Registrer nye moduler
+reload	sitemgr	no	Last på nytt
+replies	sitemgr	no	Svar
+required fields	sitemgr	no	Nødvendige felter
+reset	sitemgr	no	Tilbakestill
+return to forums	sitemgr	no	Returner til forumet
+return to main menu.	sitemgr	no	Returner til hovedmeny
+return to message list	sitemgr	no	Returner til meldingslisten
+save	sitemgr	no	Lagre
+save block	sitemgr	no	Lagre blokk
+saved	sitemgr	no	Lagret
+select a category	sitemgr	no	Velg en kategori
+select a forum	sitemgr	no	Velg et forum
+select allowed modules	sitemgr	no	Velg tillatte moduler
+site	sitemgr	no	Nettsted
+site %1 has been updated	sitemgr	no	Nettsted %1 ble oppdatert
+site administrators	sitemgr	no	Nettstedsadministratorer
+site description	sitemgr	no	Nettstedsbeskrivelse
+site index	sitemgr	no	Nettstedsindeks
+site name	sitemgr	no	Nettstedsnavn
+site setup	common	no	Nettstedsoppsett
 sitemgr	common	no	Nettstedsadministrasjon
 sitemgr manual	sitemgr	no	Nettstedsmanual
+sort order	sitemgr	no	Sortering
 state	sitemgr	no	Status
+subcategories	sitemgr	no	Underkategorier
+subsections:	sitemgr	no	Underseksjoner:
+subtext for image %1	sitemgr	no	Undertekst for bilde %1
+subtitle	sitemgr	no	Undertittel
+summary of one forum	sitemgr	no	Sum av et forum
+table of contents	sitemgr	no	Innholdsfortegnelse
+template based navigation module	sitemgr	no	Malbasert navigasjonsmodul
+template select	sitemgr	no	Velg mal
+textarea	sitemgr	no	Tekstområde
+the file to be downloaded	sitemgr	no	Filen som skal lastes ned
+the whole page	sitemgr	no	Hele siden
+theme or template select	sitemgr	no	Valg av tema eller mal
+there are %1 elements in the list.	sitemgr	no	Det er %1 elemeter i listen
+there are no categories	sitemgr	no	Det er ingen kategorier
+there are no forums in this category	sitemgr	no	Det er ingen forum i denne kategorien
+there are no pages in this section	sitemgr	no	Det er ingen sider i denne seksjonen
+there are no properties defined for this module	sitemgr	no	Det er ingen innstilinger definert for denne modul
+there are no sections available to you.	sitemgr	no	Det er ingen seksjoner tilgjengelig for deg.
+this site	sitemgr	no	dette nettstedet
+title	sitemgr	no	Tittel
+topic	sitemgr	no	Emne
+translate	sitemgr	no	Oversett
+translate category	sitemgr	no	Oversett kategori
+translate page	sitemgr	no	Oversett side
+translation status	sitemgr	no	Status for oversettelse
+unsubscribe	sitemgr	no	Si opp abbonement
+user name	sitemgr	no	Brukernavn
+view administrative menu	sitemgr	no	Vis administrativ meny
+view full index	sitemgr	no	Vis full innholdsfortegnelse
+view generated site	sitemgr	no	Vis generert nettsted
+view template on this site	sitemgr	no	Vis mal for dette nettstedet
+view threads	sitemgr	no	Vis tråder
+viewed	sitemgr	no	vist
+website	sitemgr	no	Nettsted
+week	sitemgr	no	uke
+wiki	sitemgr	no	Wiki
+wiki startpage	sitemgr	no	Wiki startside
+write permission	sitemgr	no	Skrivetillatelser
+you are not entitled to edit block %1	sitemgr	no	Du har ikke adgang til å redigere blokken %1
+you did not choose a module.	sitemgr	no	Du valgte ikke en modul
+you don't have permission to write in the category	sitemgr	no	Du har ikke skrive rettigheter i denne kategori
+you failed to fill in one or more required fields.	sitemgr	no	Du har ikke registrert alle påkrevede felt
+you must be an admin to edit categories.	sitemgr	no	Du skal være en systemadministrator for å kunne redigere denne kategori.
+you must be an admin to manage module properties.	sitemgr	no	Du skal være en systemadministrator for å kunne redigere modulers innstillinger.
 your calendar	sitemgr	no	Din kalender
 your comment	sitemgr	no	Dine kommentarer
 your name	sitemgr	no	Ditt navn
