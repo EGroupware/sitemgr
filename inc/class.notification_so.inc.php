@@ -18,7 +18,7 @@
 		function notification_so()
 		{
 			$this->db = clone($GLOBALS['egw']->db);
-			$this->db->app = 'sitemgr_module_notify';  // as we run as sitemgr !
+			$this->db->set_app('sitemgr');
 			$this->notifications_table = 'phpgw_sitemgr_notifications';
 			$this->messages_table = 'phpgw_sitemgr_notify_messages';
 		}
@@ -95,28 +95,16 @@
 			$account=$GLOBALS['egw']->accounts->name2id(
 				$GLOBALS['Common_BO']->sites->current_site['anonymous_user']);
 				
-			$memberships = $GLOBALS['egw']->accounts->membership($account);
-			
-			$sql = 'SELECT acl_rights FROM phpgw_acl WHERE acl_location=\'L'.$cat_id.
-				'\' and acl_account in ('.$account;
-				
-			if (is_array($memberships))
+			if ($account == $GLOBALS['egw_info']['user']['account_id'])
 			{
-				foreach($memberships as $group)
-				{
-					$sql .= ','.$group['account_id'];
-				}
+				$acl =& $GLOBALS['egw']->acl;
 			}
-			$sql .= ')';
-			
-			$this->db->query($sql,__LINE__,__FILE__);
-			$permission = 0;
-			while ($this->db->next_record())
+			else
 			{
-				$permission = $permission | $this->db->f('acl_rights');
-//echo __FILE__.__LINE__."Anonymous permissions: |$permission|<BR>";        
+				$acl =& CreateObject('phpgwapi.acl',$account);
+				$acl->read_repository();
 			}
-			return $permission;
+			return $acl->get_rights('L'.$cat_id,'sitemgr');
 		}
 	}
 

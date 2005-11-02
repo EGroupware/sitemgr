@@ -13,68 +13,45 @@
 
 class ACL_SO
 {
-	var $db;
-	var $acl;
-	var $acct;
-
-	function ACL_SO()
-	{
-		$this->db = clone($GLOBALS['egw']->db);
-		$this->acl =& CreateObject('phpgwapi.acl');
-		$this->acct =& CreateObject('phpgwapi.accounts');
-	}
-
+	/**
+	 * Get rights for location, including the rights by group-membership
+	 *
+	 * @param string $location
+	 * @return int
+	 */
 	function get_permission($location)
 	{
-		$memberships = $this->acct->membership($this->acl->logged_in_user);
-		$sql = 'SELECT acl_rights FROM phpgw_acl WHERE acl_location=\''.$location.
-			'\' and acl_account in ('.$GLOBALS['egw_info']['user']['account_id'];
-		if (is_array($memberships))
-		{
-			foreach($memberships as $group)
-			{
-				$sql .= ','.$group['account_id'];
-			}
-		}
-		$sql .= ')';
-		$this->db->query($sql,__LINE__,__FILE__);
-		$permission = 0;
-		while ($this->db->next_record())
-		{
-			$permission = $permission | $this->db->f('acl_rights');
-		}
-		return $permission;
+		return $GLOBALS['egw']->acl->get_rights($location,'sitemgr');
 	}
 
+	/**
+	 * Get rights for location and a specified account
+	 *
+	 * @param int $account_id
+	 * @param string $location
+	 * @return int
+	 */
 	function get_rights($account_id, $location)
 	{
-		$sql = 'select acl_rights from phpgw_acl where acl_appname=\'sitemgr\' and acl_location=\''.$location.'\' and acl_account=\''.$account_id.'\'';
-		$this->db->query($sql,__LINE__,__FILE__);
-		if ($this->db->next_record())
-		{
-			return $this->db->f('acl_rights');
-		}
-		else
-		{
-			return 0;
-		}
+		return $GLOBALS['egw']->acl->get_specific_rights_for_account($account_id,$location,'sitemgr');
 	}
 
+	/**
+	 * copy all rights from one location to an other one
+	 *
+	 * @param string $fromlocation 
+	 * @param string $tolocation
+	 */
 	function copy_rights($fromlocation,$tolocation)
 	{
-		$sql = 'select acl_account,acl_rights from phpgw_acl where acl_appname=\'sitemgr\' and acl_location=\''.$fromlocation.'\'';
-		$this->db->query($sql,__LINE__,__FILE__);
-		while ($this->db->next_record())
+		foreach($GLOBALS['egw']->acl->get_all_rights($fromlocation,'sitemgr') as $account_id => $right)
 		{
-			$this->acl->add_repository('sitemgr',$tolocation,$this->db->f('acl_account'),$this->db->f('acl_rights'));
+			$this->add_repository('sitemgr',$tolocation,$account_id,$right);
 		}
 	}
 
 	function remove_location($location)
 	{
-		$sql = 'delete from phpgw_acl where acl_appname=\'sitemgr\' and acl_location=\''.
-			$location.'\'';
-		$this->db->query($sql,__LINE__,__FILE__);
+		$GLOBALS['egw']->acl->delete_repository('sitemgr', $location,false);
 	}
 }
-?>
