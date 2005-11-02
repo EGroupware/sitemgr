@@ -288,8 +288,8 @@
 				{
 					$selectlist .= ' selected="1"';
 				}
-				$selectlist .= '>' . $account['account_firstname'] . ' ' . $account['account_lastname']
-										. ' [ ' . $account['account_lid'] . ' ]' . '</option>' . "\n";
+				$selectlist .= '>' . $GLOBALS['egw']->common->display_fullname($account['account_lid'],
+					$account['account_firstname'],$account['account_lastname']) . '</option>' . "\n";
 			}
 			return $selectlist;
 		}
