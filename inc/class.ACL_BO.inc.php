@@ -15,16 +15,13 @@ define('SITEMGR_ACL_IS_ADMIN',1);
 
 	class ACL_BO
 	{
+		var $acct;
 		var $acl;
-		var $acl_so;
-		var $logged_in_user;
 
 		function ACL_BO()
 		{
-			$this->logged_in_user = $GLOBALS['egw_info']['user']['account_id'];
-			$this->acct =& CreateObject('phpgwapi.accounts',$this->logged_in_user);
-			$this->acl =& CreateObject('phpgwapi.acl',$this->logged_in_user);
-			$this->acl_so =& CreateObject('sitemgr.ACL_SO');
+			$this->acct =& $GLOBALS['egw']->accounts;
+			$this->acl  =& $GLOBALS['egw']->acl;
 		}
 
 		function is_admin($site_id=False)
@@ -33,7 +30,7 @@ define('SITEMGR_ACL_IS_ADMIN',1);
 			{
 				$site_id = CURRENT_SITE_ID;
 			}
-			return $this->acl_so->get_permission('L'.$site_id) & SITEMGR_ACL_IS_ADMIN;
+			return $this->acl->get_rights('L'.$site_id) & SITEMGR_ACL_IS_ADMIN;
 		}
 
 		function set_adminlist($site_id,$account_list)
@@ -48,13 +45,17 @@ define('SITEMGR_ACL_IS_ADMIN',1);
 		function remove_location($category_id)
 		{
 			// Used when a category_id is deleted
-			$this->acl_so->remove_location('L'.$category_id);
+			$this->acl->delete_repository('sitemgr','L'.$category_id,false);
 		}
 
 		function copy_permissions($fromcat,$tocat)
 		{
 			$this->remove_location($tocat);
-			$this->acl_so->copy_rights('L'.$fromcat,'L'.$tocat);
+			
+			foreach($this->acl->get_all_rights('L'.$fromcat,'sitemgr') as $account_id => $right)
+			{
+				$this->add_repository('sitemgr','L'.$tocat,$account_id,$right);
+			}
 		}
 
 		function grant_permissions($user, $category_id, $can_read, $can_write)
@@ -89,26 +90,12 @@ define('SITEMGR_ACL_IS_ADMIN',1);
 			return $this->get_permission_list($category_id, 'groups');
 		}
 
-		function get_permission_list($category_id, $acct_type='')
+		function get_permission_list($category_id, $acct_type='both')
 		{
-			/* 
-				 Though this is not the place for making database lookups, particularly
-				 ones that look for things in the phpgwapi tables, the stupid get_rights
-				 and get_specific_rights and other lookup functions DON'T WORK.
-			*/
-			$users = $GLOBALS['egw']->accounts->get_list($acct_type);
-
 			$permissions = Array();
-
-			reset($users);
-			while(list($k,$v) = each($users))
+			foreach($this->acct->get_list($acct_type) as $user)
 			{
-				$account_id = $v['account_id'];
-				//unset($this->acl);
-				//$this->acl =& CreateObject('phpgwapi.acl',$account_id);
-				//$rights = $this->acl->get_specific_rights('L'.$category_id,'sitemgr');
-				$rights = $this->acl_so->get_rights($account_id, 'L'.$category_id);
-				$permissions[$account_id] = $rights;
+				$permissions[$user['account_id']] = $this->acl->get_specific_rights_for_account($user['account_id'],'L'.$category_id,'sitemgr');
 			}
 			return $permissions;
 		}
@@ -117,34 +104,25 @@ define('SITEMGR_ACL_IS_ADMIN',1);
 		//everybody can read it, only admins can write it. 
 		function can_read_category($category_id)
 		{
-			if ($this->is_admin() || ($category_id == CURRENT_SITE_ID))
+			if ($category_id == CURRENT_SITE_ID)
 			{
-				return true;
+				return $this->is_admin();
 			}
 			else
 			{
-				//$this->acl =& CreateObject('phpgwapi.acl',$this->logged_in_user);
-				//return ($this->acl->get_rights('L'.$category_id,'sitemgr') & EGW_ACL_READ);
-				return ($this->acl_so->get_permission('L'.$category_id) & EGW_ACL_READ);
+				return $this->acl->get_rights('L'.$category_id,'sitemgr') & EGW_ACL_READ;
 			}
 		}
 
 		function can_write_category($category_id)
 		{
-			if ($this->is_admin())
+			if ($category_id == CURRENT_SITE_ID)
 			{
-				return true;
-			}
-			elseif ($category_id != CURRENT_SITE_ID)
-			{
-				//$this->acl =& CreateObject('phpgwapi.acl',$this->logged_in_user);
-				//return ($this->acl->get_rights($account_id,'L'.$category_id) & EGW_ACL_ADD);
-				// if category_id = 0, we are in site-wide scope, and only admin can add content
-				return $this->acl_so->get_permission('L'.$category_id) & EGW_ACL_ADD;
+				return $this->is_admin();
 			}
 			else
 			{
-				return False;
+				return $this->acl->get_rights('L'.$category_id,'sitemgr') & EGW_ACL_ADD;
 			}
 		}
 
@@ -160,14 +138,12 @@ define('SITEMGR_ACL_IS_ADMIN',1);
 
 		function get_simple_list($acct_type='')
 		{
-			$full_details = $this->acct->get_list($acct_type);
-			reset($full_details);
-			$group=array();
-			while(list($k,$v) = each($full_details))
+			$accounts=array();
+			foreach($this->acct->get_list($acct_type) as $data)
 			{
-				$group['i'.$v['account_id']] = array();
+				$accounts['i'.$data['account_id']] = array();
 			}
-			return $group;
+			return $accounts;
 		}
 				
 		function get_simple_user_list()
