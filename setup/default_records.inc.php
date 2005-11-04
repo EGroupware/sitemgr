@@ -12,7 +12,7 @@
 
 	/* $Id$ */
 	$oProc->query("INSERT INTO {$GLOBALS['egw_setup']->cats_table} (cat_parent,cat_owner,cat_access,cat_appname,cat_name,cat_description,last_mod) VALUES (0,-1,'public','sitemgr','Default Website','This website has been added by setup',".time().")");
-	$site_id = $oProc->m_odb->get_last_insert_id('{$GLOBALS['egw_setup']->cats_table}','cat_id');
+	$site_id = $oProc->m_odb->get_last_insert_id($GLOBALS['egw_setup']->cats_table,'cat_id');
 	$oProc->query("UPDATE {$GLOBALS['egw_setup']->cats_table} SET cat_main = $site_id WHERE cat_id = $site_id",__LINE__,__FILE__);
 
 	$oProc->query("SELECT config_value FROM {$GLOBALS['egw_setup']->config_table} WHERE config_name='webserver_url'");
@@ -105,7 +105,7 @@
 		$parent = substr($name,0,4) == 'sub-' ? $cats[substr($name,4)] : $site_id;
 		$level  = substr($name,0,4) == 'sub-' ? 2 : 1;
 		$oProc->query("INSERT INTO {$GLOBALS['egw_setup']->cats_table} (cat_main,cat_parent,cat_level,cat_owner,cat_access,cat_appname,cat_name,cat_description,cat_data,last_mod) VALUES ($site_id,$parent,$level,-1,'public','sitemgr','$name','$descr','0',".time().")");
-		$cat_id = $cats[$name] = $oProc->m_odb->get_last_insert_id('{$GLOBALS['egw_setup']->cats_table}','cat_id');
+		$cat_id = $cats[$name] = $oProc->m_odb->get_last_insert_id($GLOBALS['egw_setup']->cats_table,'cat_id');
 		$oProc->query("INSERT INTO phpgw_sitemgr_categories_lang (cat_id,lang,name,description) VALUES ($cat_id,'en','$name','$descr')");
 		$oProc->query("INSERT INTO phpgw_sitemgr_categories_state (cat_id,state) VALUES ($cat_id,2)");
 		foreach(array($admingroup => 3,$defaultgroup => 1,$anonymous => 1) as $account => $rights)
