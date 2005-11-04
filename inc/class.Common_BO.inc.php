@@ -82,7 +82,7 @@
 
 		function getlangname($lang)
 		{
-			$GLOBALS['egw']->db->query("select lang_name from phpgw_languages where lang_id = '$lang'",__LINE__,__FILE__);
+			$GLOBALS['egw']->db->query("select lang_name from egw_languages where lang_id = '$lang'",__LINE__,__FILE__);
 			$GLOBALS['egw']->db->next_record();
 			return $GLOBALS['egw']->db->f('lang_name');
 		}

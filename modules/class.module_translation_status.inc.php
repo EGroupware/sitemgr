@@ -64,8 +64,8 @@
 					'total'   => lang('Phrases in total'),
 					'.total'  => 'colspan="2"',
 				);
-//				we use a join with phpgw_lang itself to eliminate additional (obsolete) phrases not in the english langfile
-				$this->db->query("SELECT l.lang,lang_name,count( l.message_id ) AS count FROM phpgw_lang l,phpgw_lang en LEFT JOIN phpgw_languages ON l.lang=lang_id WHERE l.app_name=en.app_name AND l.message_id=en.message_id AND en.lang='en' GROUP BY l.lang,lang_name ORDER BY count DESC,l.lang");
+//				we use a join with egw_lang itself to eliminate additional (obsolete) phrases not in the english langfile
+				$this->db->query("SELECT l.lang,lang_name,count( l.message_id ) AS count FROM egw_lang l,egw_lang en LEFT JOIN egw_languages ON l.lang=lang_id WHERE l.app_name=en.app_name AND l.message_id=en.message_id AND en.lang='en' GROUP BY l.lang,lang_name ORDER BY count DESC,l.lang");
 				while($row = $this->db->row(True))
 				{
 					if (empty($row['lang']) || empty($row['lang_name']))
@@ -96,7 +96,7 @@
 				'total'   => lang('Phrases in total')
 			);
 //			we use a join with phpgw_lang itself to eliminate additional (obsolete) phrases not in the english langfile
-			$this->db->query("SELECT l.app_name,l.lang,count( l.message_id ) AS count,l.lang,CASE WHEN l.lang='en' THEN 1 ELSE 0 END AS is_en FROM phpgw_lang l,phpgw_lang en WHERE l.app_name=en.app_name AND l.message_id=en.message_id AND en.lang='en' AND l.lang IN (".$this->db->quote($details).",'en') GROUP BY l.app_name,l.lang,is_en ORDER BY is_en DESC,count DESC,l.app_name");
+			$this->db->query("SELECT l.app_name,l.lang,count( l.message_id ) AS count,l.lang,CASE WHEN l.lang='en' THEN 1 ELSE 0 END AS is_en FROM egw_lang l,egw_lang en WHERE l.app_name=en.app_name AND l.message_id=en.message_id AND en.lang='en' AND l.lang IN (".$this->db->quote($details).",'en') GROUP BY l.app_name,l.lang,is_en ORDER BY is_en DESC,count DESC,l.app_name");
 
 			while($row = $this->db->row(True))
 			{
@@ -131,7 +131,7 @@
 					'total'   => '0 / '.$m
 				);
 			}
-			$this->db->query('SELECT lang_name FROM phpgw_languages WHERE lang_id='.$this->db->quote($details),__FILE__,__LINE__);
+			$this->db->query('SELECT lang_name FROM egw_languages WHERE lang_id='.$this->db->quote($details),__FILE__,__LINE__);
 			$row = $this->db->row(True);
 			return '<h3>'.lang('Details for language %1 (%2)',$this->try_lang($row['lang_name']),$details)."</h3>\n".
 				$this->html->table($table,'cellspacing="5"').
