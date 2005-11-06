@@ -16,12 +16,12 @@ class edit_transform
 {
 	function edit_transform()
 	{
-		if (!is_object($GLOBALS['phpgw']->html))
+		if (!is_object($GLOBALS['egw']->html))
 		{
-			$GLOBALS['phpgw']->html = CreateObject('phpgwapi.html');
+			$GLOBALS['egw']->html =& CreateObject('phpgwapi.html');
 		}
 		$this->modulebo = &$GLOBALS['Common_BO']->modules;
-		$this->content_ui = CreateObject('sitemgr.Content_UI');
+		$this->content_ui =& CreateObject('sitemgr.Content_UI');
 	}
 
 	function apply_transform($title,$content,$block)
@@ -50,7 +50,7 @@ class edit_transform
 	function area_transform($contentarea,$content,$page)
 	{
 		$frame = '<div class="editContentarea"><div class="editIcons">';
-		//$frame .= $GLOBALS['phpgw']->html->image('sitemgr','question.button',
+		//$frame .= $GLOBALS['egw']->html->image('sitemgr','question.button',
 		//	lang('Contentarea').': '.$contentarea);
 		$frame .= '<span class="editIconText" title="'.lang('Contentarea').': '.$contentarea.'">'.$contentarea."</span>\n";
 
@@ -68,7 +68,7 @@ class edit_transform
 
 		if ($permittedmodules)
 		{
-			$frame .= ' <select onchange="if (this.value > 0) window.open(\''.$GLOBALS['phpgw']->link('/index.php',$link_data).'&area='.$contentarea.'&add_block=\'+this.value,\'editwindow\',\'width=800,height=600,scrollbars=yes,resizable=yes\')">' .
+			$frame .= ' <select onchange="if (this.value > 0) window.open(\''.$GLOBALS['egw']->link('/index.php',$link_data).'&area='.$contentarea.'&add_block=\'+this.value,\'editwindow\',\'width=800,height=600,scrollbars=yes,resizable=yes\')">' .
 				'<option value="0">'.lang('Add block ...').'</option>'.
 				$this->content_ui->inputmoduleselect($permittedmodules) .
 				'</select>';
