@@ -11,13 +11,13 @@
 
 	/* $Id$ */
 
-	$GLOBALS['egw_info']['flags'] = array
-	(
+	$GLOBALS['egw_info'] = array(
+		'flags' = array(
 			'currentapp' => 'sitemgr',
 			'noheader'   => True,
 			'nonavbar'   => True,
 			'noapi'      => False
-	);
+	));
 	include('../header.inc.php');
 	
 	$CommonUI =& CreateObject('sitemgr.Common_UI');

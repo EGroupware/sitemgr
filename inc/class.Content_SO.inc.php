@@ -31,7 +31,7 @@
 			foreach(array('content','content_lang','blocks','blocks_lang','modules','modules_lang') as $name)
 			{
 				$var = $name.'_table';
-				$this->$var = 'phpgw_sitemgr_'.$name; // only reference to the db-prefix
+				$this->$var = 'egw_sitemgr_'.$name; // only reference to the db-prefix
 			}
 		}
 

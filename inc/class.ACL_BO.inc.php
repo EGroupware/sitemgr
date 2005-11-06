@@ -11,7 +11,7 @@
 
 	/* $Id$ */
 
-define('SITEMGR_ACL_IS_ADMIN',1);
+	define('SITEMGR_ACL_IS_ADMIN',1);
 
 	class ACL_BO
 	{
@@ -24,13 +24,21 @@ define('SITEMGR_ACL_IS_ADMIN',1);
 			$this->acl  =& $GLOBALS['egw']->acl;
 		}
 
-		function is_admin($site_id=False)
+		/**
+		 * Checks if user is admin of the specified site
+		 *
+		 * @param int $site_id=0 id of the site, default to current site
+		 * @return boolean
+		 */
+		function is_admin($site_id=0)
 		{
-			if (!$site_id)
-			{
-				$site_id = CURRENT_SITE_ID;
-			}
-			return $this->acl->get_rights('L'.$site_id) & SITEMGR_ACL_IS_ADMIN;
+			static $cache;
+			
+			if (!$site_id) $site_id = CURRENT_SITE_ID;
+			
+			if (isset($cache[$site_id])) return $cache[$site_id];
+			
+			return $cache[$site_id] = !!($this->acl->get_rights('L'.$site_id,'sitemgr') & SITEMGR_ACL_IS_ADMIN);
 		}
 
 		function set_adminlist($site_id,$account_list)
@@ -92,38 +100,67 @@ define('SITEMGR_ACL_IS_ADMIN',1);
 
 		function get_permission_list($category_id, $acct_type='both')
 		{
+			static $cache;
+			
+			if (isset($cache[$category_id.'-'.$acct_type])) return $cache[$category_id.'-'.$acct_type];
+
 			$permissions = Array();
 			foreach($this->acct->get_list($acct_type) as $user)
 			{
 				$permissions[$user['account_id']] = $this->acl->get_specific_rights_for_account($user['account_id'],'L'.$category_id,'sitemgr');
 			}
-			return $permissions;
+			return $cache[$category_id.'-'.$acct_type] = $permissions;
 		}
 
-		//at this moment there are only implicit permissions for the toplevel site_category, is this a problem?
-		//everybody can read it, only admins can write it. 
+		/**
+		 * retrives the ACL for a given category
+		 *
+		 * for the toplevel site_category, there is only an implicit ACL: everybody can read it, site-Admins can change it
+		 *
+		 * @param int $category_id
+		 * @return int EGW_ACL_READ | EGW_ACL_ADD depending on the rights
+		 */
+		function category_acl($category_id)
+		{
+			static $cache;
+			
+			if (isset($cache[$category_id])) return $cache[$category_id];
+			
+			if ($category_id == CURRENT_SITE_ID)
+			{
+				$cache[$category_id] = $this->is_admin() ? EGW_ACL_READ | EGW_ACL_ADD : 0;
+			}
+			else
+			{
+				$cache[$category_id] = $this->acl->get_rights('L'.$category_id,'sitemgr');
+			}
+			return $cache[$category_id];
+		}
+			
+		/**
+		 * checks if user can read a given category
+		 *
+		 * for the toplevel site_category, there is only an implicit ACL: everybody can read it, site-Admins can change it
+		 *
+		 * @param int $category_id
+		 * @return boolean
+		 */
 		function can_read_category($category_id)
 		{
-			if ($category_id == CURRENT_SITE_ID)
-			{
-				return $this->is_admin();
-			}
-			else
-			{
-				return $this->acl->get_rights('L'.$category_id,'sitemgr') & EGW_ACL_READ;
-			}
+			return !!($this->category_acl($category_id) & EGW_ACL_READ);
 		}
 
+		/**
+		 * checks if user can write / change a given category
+		 *
+		 * for the toplevel site_category, there is only an implicit ACL: everybody can read it, site-Admins can change it
+		 *
+		 * @param int $category_id
+		 * @return boolean
+		 */
 		function can_write_category($category_id)
 		{
-			if ($category_id == CURRENT_SITE_ID)
-			{
-				return $this->is_admin();
-			}
-			else
-			{
-				return $this->acl->get_rights('L'.$category_id,'sitemgr') & EGW_ACL_ADD;
-			}
+			return !!($this->category_acl($category_id) & EGW_ACL_ADD);
 		}
 
 		function get_group_list()

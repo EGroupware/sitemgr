@@ -23,8 +23,8 @@
 			$this->cats =& CreateObject('phpgwapi.categories',-1,'sitemgr');
 			$this->db = clone($GLOBALS['egw']->db);
 			$this->db->set_app('sitemgr');
-			$this->state_table = 'phpgw_sitemgr_categories_state';
-			$this->lang_table = 'phpgw_sitemgr_categories_lang';
+			$this->state_table = 'egw_sitemgr_categories_state';
+			$this->lang_table = 'egw_sitemgr_categories_lang';
 		}
 
 		function isactive($cat_id,$states=false)

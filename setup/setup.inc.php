@@ -13,9 +13,9 @@
 
 	$setup_info['sitemgr']['name']      = 'sitemgr';
 	$setup_info['sitemgr']['title']     = 'SiteMgr Web Content Management';
-	$setup_info['sitemgr']['version']   = '1.0.0.003';
+	$setup_info['sitemgr']['version']   = '1.0.1.001';
 	$setup_info['sitemgr']['app_order'] = 14;
-	$setup_info['sitemgr']['tables']    = array('phpgw_sitemgr_pages','phpgw_sitemgr_pages_lang','phpgw_sitemgr_categories_state','phpgw_sitemgr_categories_lang','phpgw_sitemgr_modules','phpgw_sitemgr_blocks','phpgw_sitemgr_blocks_lang','phpgw_sitemgr_content','phpgw_sitemgr_content_lang','phpgw_sitemgr_active_modules','phpgw_sitemgr_properties','phpgw_sitemgr_sites','phpgw_sitemgr_notifications','phpgw_sitemgr_notify_messages');
+	$setup_info['sitemgr']['tables']    = array('egw_sitemgr_pages','egw_sitemgr_pages_lang','egw_sitemgr_categories_state','egw_sitemgr_categories_lang','egw_sitemgr_modules','egw_sitemgr_blocks','egw_sitemgr_blocks_lang','egw_sitemgr_content','egw_sitemgr_content_lang','egw_sitemgr_active_modules','egw_sitemgr_properties','egw_sitemgr_sites','egw_sitemgr_notifications','egw_sitemgr_notify_messages');
 	$setup_info['sitemgr']['enable']    = 1;
 	$setup_info['sitemgr']['author'] = 'Michael Totschnig and others';
 	$setup_info['sitemgr']['maintainer'] = array(
@@ -57,11 +57,11 @@ Arijit Ghosh (arijitg -AT- uci.edu)');
 	/* Dependencies for this app to work */
 	$setup_info['sitemgr']['depends'][] = array(
 		'appname'  => 'phpgwapi',
-		'versions' => Array('1.0.1')
+		'versions' => Array('1.0.1','1.2')
 	);
 	$setup_info['sitemgr']['depends'][] = array(
 		'appname'  => 'etemplate',
-		'versions' => Array('1.0.0','1.0.1')
+		'versions' => Array('1.0.0','1.0.1','1.2')
 	);
 
 

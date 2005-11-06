@@ -143,7 +143,7 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 				$str);
 			//{?page_id=4} is a shortcut for calling the link functions
 			$str = preg_replace_callback(
-				"/\{\?((sitemgr|phpgw):)?([^{ ]*)\}/",
+				"/\{\?((sitemgr|egw|phpgw):)?([^{ ]*)\}/",
 				array($this,'make_link'),
 				$str);
 			$str = preg_replace_callback(
@@ -186,7 +186,7 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 			//compatibility with former sideblocks template
 			elseif (($areaname == "left" || $areaname == "right") && file_exists($this->root . SEP . 'sideblock.tpl'))
 			{
-				$t = Createobject('phpgwapi.Template');
+				$t =& Createobject('phpgwapi.Template');
 				$t->set_root($this->root);
 				$t->set_file('SideBlock','sideblock.tpl');
 				$transformer =& new sideblock_transform($t);
@@ -250,10 +250,9 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 						{
 							$moduleobject->add_transformer($transformer);
 						}
-						if ($GLOBALS['sitemgr_info']['mode'] == 'Edit' &&
-							$block->id &&
-							$GLOBALS['Common_BO']->acl->can_write_category($block->cat_id) &&
-							is_object($this->edit_transformer))
+						if ($GLOBALS['sitemgr_info']['mode'] == 'Edit' && 
+							$block->id && is_object($this->edit_transformer) &&
+							$GLOBALS['Common_BO']->acl->can_write_category($block->cat_id))
 						{
 							$moduleobject->add_transformer($this->edit_transformer);
 						}
@@ -313,6 +312,7 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 		{
 			switch($vars[2])
 			{
+				case 'egw':
 				case 'phpgw':
 					$params=explode(',',$vars[3]);
 					switch(count($params))

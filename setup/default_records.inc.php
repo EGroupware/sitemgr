@@ -11,6 +11,8 @@
 	\**************************************************************************/
 
 	/* $Id$ */
+	
+	$sitemgr_table_prefix = 'egw_sitemgr';
 	$oProc->query("INSERT INTO {$GLOBALS['egw_setup']->cats_table} (cat_parent,cat_owner,cat_access,cat_appname,cat_name,cat_description,last_mod) VALUES (0,-1,'public','sitemgr','Default Website','This website has been added by setup',".time().")");
 	$site_id = $oProc->m_odb->get_last_insert_id($GLOBALS['egw_setup']->cats_table,'cat_id');
 	$oProc->query("UPDATE {$GLOBALS['egw_setup']->cats_table} SET cat_main = $site_id WHERE cat_id = $site_id",__LINE__,__FILE__);
@@ -19,7 +21,7 @@
 	$oProc->next_record();
 	$siteurl = $oProc->f('config_value') . '/sitemgr/sitemgr-site/';	// url always uses slashes, dont use SEP!!!
 	$sitedir = $GLOBALS['egw_setup']->db->db_addslashes(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'sitemgr-site');
-	$oProc->query("INSERT INTO phpgw_sitemgr_sites (site_id,site_name,site_url,site_dir,themesel,site_languages,home_page_id,anonymous_user,anonymous_passwd) VALUES ($site_id,'Default Website','$siteurl','$sitedir','idots','en,de',0,'anonymous','anonymous')");
+	$oProc->query("INSERT INTO {$sitemgr_table_prefix}_sites (site_id,site_name,site_url,site_dir,themesel,site_languages,home_page_id,anonymous_user,anonymous_passwd) VALUES ($site_id,'Default Website','$siteurl','$sitedir','idots','en,de',0,'anonymous','anonymous')");
 
 	// give Admins group rights vor sitemgr and for the created default-site
 	$admingroup = $GLOBALS['egw_setup']->add_account('Admins','Admin','Group',False,False);
@@ -79,13 +81,13 @@
 					{
 						$description = '';
 					}
-					$oProc->query("INSERT INTO phpgw_sitemgr_modules (module_name,description) VALUES ('$module','$description')",__LINE__,__FILE__);
-					$id = $module_id[$module] = $oProc->m_odb->get_last_insert_id('phpgw_sitemgr_modules','module_id');
+					$oProc->query("INSERT INTO {$sitemgr_table_prefix}_modules (module_name,description) VALUES ('$module','$description')",__LINE__,__FILE__);
+					$id = $module_id[$module] = $oProc->m_odb->get_last_insert_id($sitemgr_table_prefix.'_modules','module_id');
 					if (isset($areas[$module]))
 					{
 						foreach($areas[$module] as $area)
 						{
-							$oProc->query("INSERT INTO phpgw_sitemgr_active_modules (area,cat_id,module_id) VALUES ('$area',$site_id,$id)",__LINE__,__FILE__);
+							$oProc->query("INSERT INTO {$sitemgr_table_prefix}_active_modules (area,cat_id,module_id) VALUES ('$area',$site_id,$id)",__LINE__,__FILE__);
 						}
 					}
 				}
@@ -106,8 +108,8 @@
 		$level  = substr($name,0,4) == 'sub-' ? 2 : 1;
 		$oProc->query("INSERT INTO {$GLOBALS['egw_setup']->cats_table} (cat_main,cat_parent,cat_level,cat_owner,cat_access,cat_appname,cat_name,cat_description,cat_data,last_mod) VALUES ($site_id,$parent,$level,-1,'public','sitemgr','$name','$descr','0',".time().")");
 		$cat_id = $cats[$name] = $oProc->m_odb->get_last_insert_id($GLOBALS['egw_setup']->cats_table,'cat_id');
-		$oProc->query("INSERT INTO phpgw_sitemgr_categories_lang (cat_id,lang,name,description) VALUES ($cat_id,'en','$name','$descr')");
-		$oProc->query("INSERT INTO phpgw_sitemgr_categories_state (cat_id,state) VALUES ($cat_id,2)");
+		$oProc->query("INSERT INTO {$sitemgr_table_prefix}_categories_lang (cat_id,lang,name,description) VALUES ($cat_id,'en','$name','$descr')");
+		$oProc->query("INSERT INTO {$sitemgr_table_prefix}_categories_state (cat_id,state) VALUES ($cat_id,2)");
 		foreach(array($admingroup => 3,$defaultgroup => 1,$anonymous => 1) as $account => $rights)
 		{
 			$GLOBALS['egw_setup']->add_acl('sitemgr',"L$cat_id",$account,$rights);
@@ -118,9 +120,9 @@
 	)) as $name => $data)
 	{
 		list($cat_id,$title,$subtitle) = $data;
-		$oProc->query("INSERT INTO phpgw_sitemgr_pages (cat_id,sort_order,hide_page,name,state) VALUES ($cat_id,0,0,'$name',2)");
-		$page_id = $pages[$name] = $oProc->m_odb->get_last_insert_id('phpgw_sitemgr_pages','page_id');
-		$oProc->query("INSERT INTO phpgw_sitemgr_pages_lang (page_id,lang,title,subtitle) VALUES ($page_id,'en','$title','$subtitle')");
+		$oProc->query("INSERT INTO {$sitemgr_table_prefix}_pages (cat_id,sort_order,hide_page,name,state) VALUES ($cat_id,0,0,'$name',2)");
+		$page_id = $pages[$name] = $oProc->m_odb->get_last_insert_id($sitemgr_table_prefix.'_pages','page_id');
+		$oProc->query("INSERT INTO {$sitemgr_table_prefix}_pages_lang (page_id,lang,title,subtitle) VALUES ($page_id,'en','$title','$subtitle')");
 		// please note: this pages have no own content so far, we add it in the following paragraph
 	}
 
@@ -144,14 +146,14 @@
 	{
 		list($module,$area,$cat_id,$page_id,$visible,$title_en,$content_en,$content) = $block;
 		if (!$module) continue;
-		$oProc->query("INSERT INTO phpgw_sitemgr_blocks (area,cat_id,page_id,module_id,sort_order,viewable) VALUES ('$area',$cat_id,$page_id,$module,$order,$visible)",__LINE__,__FILE__);
-		$block_id = $oProc->m_odb->get_last_insert_id('phpgw_sitemgr_blocks','block_id');
-		$oProc->query("INSERT INTO phpgw_sitemgr_blocks_lang (block_id,lang,title) VALUES ($block_id,'en','$title_en')",__LINE__,__FILE__);
-		$oProc->query("INSERT INTO phpgw_sitemgr_content (block_id,arguments,state) VALUES ($block_id,".($content ? "'$content'" : 'NULL').",2)",__LINE__,__FILE__);
-		$version_id = $oProc->m_odb->get_last_insert_id('phpgw_sitemgr_content','version_id');
+		$oProc->query("INSERT INTO {$sitemgr_table_prefix}_blocks (area,cat_id,page_id,module_id,sort_order,viewable) VALUES ('$area',$cat_id,$page_id,$module,$order,$visible)",__LINE__,__FILE__);
+		$block_id = $oProc->m_odb->get_last_insert_id($sitemgr_table_prefix.'_blocks','block_id');
+		$oProc->query("INSERT INTO {$sitemgr_table_prefix}_blocks_lang (block_id,lang,title) VALUES ($block_id,'en','$title_en')",__LINE__,__FILE__);
+		$oProc->query("INSERT INTO {$sitemgr_table_prefix}_content (block_id,arguments,state) VALUES ($block_id,".($content ? "'$content'" : 'NULL').",2)",__LINE__,__FILE__);
+		$version_id = $oProc->m_odb->get_last_insert_id($sitemgr_table_prefix.'_content','version_id');
 		if ($content_en)
 		{
-			$oProc->query("INSERT INTO phpgw_sitemgr_content_lang (version_id,lang,arguments_lang) VALUES ($version_id,'en','".$GLOBALS['egw_setup']->db->db_addslashes($content_en)."')",__LINE__,__FILE__);
+			$oProc->query("INSERT INTO {$sitemgr_table_prefix}_content_lang (version_id,lang,arguments_lang) VALUES ($version_id,'en','".$GLOBALS['egw_setup']->db->db_addslashes($content_en)."')",__LINE__,__FILE__);
 		}
 	}
 	//echo "SiteMgr demo site installed<br>";

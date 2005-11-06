@@ -14,12 +14,12 @@
 	$test[] = '0.9.13.001';
 	function sitemgr_upgrade0_9_13_001()
 	{
-		global $setup_info,$phpgw_setup;
+		global $setup_info,$GLOBALS['egw_setup'];
 		$setup_info['sitemgr']['currentver'] = '0.9.14.001';
 
-		$phpgw_setup->oProc->AddColumn('phpgw_sitemgr_pages',
+		$GLOBALS['egw_setup']->oProc->AddColumn('phpgw_sitemgr_pages',
 			'sort_order',array('type'=>int, 'precision'=>4));
-		$phpgw_setup->oProc->AddColumn('phpgw_sitemgr_categories',
+		$GLOBALS['egw_setup']->oProc->AddColumn('phpgw_sitemgr_categories',
 			'sort_order',array('type'=>int, 'precision'=>4));
 
 		return $setup_info['sitemgr']['currentver'];
@@ -28,12 +28,12 @@
 	$test[] = '0.9.14.001';
 	function sitemgr_upgrade0_9_14_001()
 	{
-		global $setup_info,$phpgw_setup;
+		global $setup_info,$GLOBALS['egw_setup'];
 		$setup_info['sitemgr']['currentver'] = '0.9.14.002';
 
-		$phpgw_setup->oProc->AddColumn('phpgw_sitemgr_pages',
+		$GLOBALS['egw_setup']->oProc->AddColumn('phpgw_sitemgr_pages',
 			'hide_page',array('type'=>int, 'precision'=>4));
-		$phpgw_setup->oProc->AddColumn('phpgw_sitemgr_categories',
+		$GLOBALS['egw_setup']->oProc->AddColumn('phpgw_sitemgr_categories',
 			'parent',array('type'=>int, 'precision'=>4));
 
 		return $setup_info['sitemgr']['currentver'];
@@ -54,7 +54,7 @@
 		* old_cat_id = 2, new_cat_id = 3 --> update all pages  *
 		*  now all old_cat_id 5 pages are cat_id 3....         *
 		\******************************************************/
-		global $setup_info,$phpgw_setup;
+		global $setup_info,$GLOBALS['egw_setup'];
 		$setup_info['sitemgr']['currentver'] = '0.9.14.003';
 
 		//$cat_db_so =& CreateObject('sitemgr.Categories_db_SO');
@@ -62,7 +62,7 @@
 		//$cat_db_so->convert_to_phpgwapi();
 
 		// Finally, delete the categories table
-		//$phpgw_setup->oProc->DropTable('phpgw_sitemgr_categories');
+		//$GLOBALS['egw_setup']->oProc->DropTable('phpgw_sitemgr_categories');
 		
 		// Turns out that convert_to_phpgwapi() must be run under 
 		// the normal phpgw environment and not the setup env.
@@ -75,7 +75,7 @@
 	$test[] = '0.9.14.003';
 	function sitemgr_upgrade0_9_14_003()
 	{
-		global $setup_info,$phpgw_setup;
+		global $setup_info,$GLOBALS['egw_setup'];
 		$setup_info['sitemgr']['currentver'] = '0.9.14.004';
 
 		if (file_exists(EGW_SERVER_ROOT .'/sitemgr/setup/sitemgr_sitelang'))
@@ -94,9 +94,9 @@
 
 		//echo 'Updating sitemgr to a multilingual architecture with existing site language ' . $lang;
 
-		$db2 = $phpgw_setup->db;
+		$db2 = $GLOBALS['egw_setup']->db;
 
-		$GLOBALS['phpgw_setup']->oProc->CreateTable('phpgw_sitemgr_pages_lang',
+		$GLOBALS['egw_setup']->oProc->CreateTable('phpgw_sitemgr_pages_lang',
 			array(
 				'fd' => array(
 					'page_id' => array('type' => 'auto', 'nullable' => false),
@@ -113,7 +113,7 @@
 				'uc' => array()
 			)
 		);
-		$GLOBALS['phpgw_setup']->oProc->CreateTable(
+		$GLOBALS['egw_setup']->oProc->CreateTable(
 			'phpgw_sitemgr_categories_lang',
 			array(
 				'fd' => array(
@@ -130,22 +130,22 @@
 				'uc' => array()
 			)
 		);
-		$GLOBALS['phpgw_setup']->oProc->query("select * from phpgw_categories where cat_appname='sitemgr'");
-		while($GLOBALS['phpgw_setup']->oProc->next_record())
+		$GLOBALS['egw_setup']->oProc->query("select * from {$GLOBALS['egw_setup']->cats_table} where cat_appname='sitemgr'");
+		while($GLOBALS['egw_setup']->oProc->next_record())
 		{
-			$cat_id = $GLOBALS['phpgw_setup']->oProc->f('cat_id');
-			$name = $GLOBALS['phpgw_setup']->oProc->f('cat_name');
-			$description = $GLOBALS['phpgw_setup']->oProc->f('cat_description');
+			$cat_id = $GLOBALS['egw_setup']->oProc->f('cat_id');
+			$name = $GLOBALS['egw_setup']->oProc->f('cat_name');
+			$description = $GLOBALS['egw_setup']->oProc->f('cat_description');
 			$db2->query("INSERT INTO phpgw_sitemgr_categories_lang (cat_id, lang, name, description) VALUES ($cat_id, '$lang', '$name', '$description')");
 		}
 
-		$GLOBALS['phpgw_setup']->oProc->query("select * from phpgw_sitemgr_pages");
-		while($GLOBALS['phpgw_setup']->oProc->next_record())
+		$GLOBALS['egw_setup']->oProc->query("select * from phpgw_sitemgr_pages");
+		while($GLOBALS['egw_setup']->oProc->next_record())
 		{
-			$page_id = $GLOBALS['phpgw_setup']->oProc->f('page_id');
-			$title = $GLOBALS['phpgw_setup']->oProc->f('title');
-			$subtitle = $GLOBALS['phpgw_setup']->oProc->f('subtitle');
-			$content =  $GLOBALS['phpgw_setup']->oProc->f('content');
+			$page_id = $GLOBALS['egw_setup']->oProc->f('page_id');
+			$title = $GLOBALS['egw_setup']->oProc->f('title');
+			$subtitle = $GLOBALS['egw_setup']->oProc->f('subtitle');
+			$content =  $GLOBALS['egw_setup']->oProc->f('content');
 					
 			$db2->query("INSERT INTO phpgw_sitemgr_pages_lang (page_id, lang, title, subtitle, content) VALUES ($page_id, '$lang', '$title', '$subtitle', '$content')");
 		}
@@ -165,7 +165,7 @@
 			'ix' => array('cat_id'),
 			'uc' => array()
 		);
-		$GLOBALS['phpgw_setup']->oProc->DropColumn('phpgw_sitemgr_pages',
+		$GLOBALS['egw_setup']->oProc->DropColumn('phpgw_sitemgr_pages',
 			$newtbldef,'title');
 		$newtbldef = array(
 			'fd' => array(
@@ -181,7 +181,7 @@
 			'ix' => array('cat_id'),
 			'uc' => array()
 		);
-		$GLOBALS['phpgw_setup']->oProc->DropColumn('phpgw_sitemgr_pages',
+		$GLOBALS['egw_setup']->oProc->DropColumn('phpgw_sitemgr_pages',
 			$newtbldef,'subtitle');
 		$newtbldef = array(
 			'fd' => array(
@@ -196,7 +196,7 @@
 			'ix' => array('cat_id'),
 			'uc' => array()
 		);
-		$GLOBALS['phpgw_setup']->oProc->DropColumn('phpgw_sitemgr_pages',
+		$GLOBALS['egw_setup']->oProc->DropColumn('phpgw_sitemgr_pages',
 			$newtbldef,'content');
 
 		// try to set the sitelanguages preference. 
@@ -227,10 +227,10 @@
 	$test[] = '0.9.14.004';
 	function sitemgr_upgrade0_9_14_004()
 	{
-		global $setup_info,$phpgw_setup;
+		global $setup_info,$GLOBALS['egw_setup'];
 		$setup_info['sitemgr']['currentver'] = '0.9.14.005';
 
-		$phpgw_setup->oProc->RenameColumn('phpgw_sitemgr_blocks', 'position', 'pos');
+		$GLOBALS['egw_setup']->oProc->RenameColumn('phpgw_sitemgr_blocks', 'position', 'pos');
 
 		return $setup_info['sitemgr']['currentver'];                             
 	}
@@ -238,14 +238,14 @@
 	$test[] = '0.9.14.005';
 	function sitemgr_upgrade0_9_14_005()
 	{
-		global $setup_info,$phpgw_setup;
+		global $setup_info,$GLOBALS['egw_setup'];
 		$setup_info['sitemgr']['currentver'] = '0.9.14.006';
 
-		$phpgw_setup->oProc->AddColumn('phpgw_sitemgr_blocks',
+		$GLOBALS['egw_setup']->oProc->AddColumn('phpgw_sitemgr_blocks',
 			'description', array('type' => 'varchar', 'precision' => 256));
-		$phpgw_setup->oProc->AddColumn('phpgw_sitemgr_blocks',
+		$GLOBALS['egw_setup']->oProc->AddColumn('phpgw_sitemgr_blocks',
 			'view', array('type' => 'int', 'precision' => 4));
-		$phpgw_setup->oProc->AddColumn('phpgw_sitemgr_blocks',
+		$GLOBALS['egw_setup']->oProc->AddColumn('phpgw_sitemgr_blocks',
 			'actif', array('type' => 'int', 'precision' => 2));
 		return $setup_info['sitemgr']['currentver'];
 	}
@@ -253,11 +253,11 @@
 	$test[] = '0.9.14.006';
 	function sitemgr_upgrade0_9_14_006()
 	{
-		global $setup_info,$phpgw_setup;
+		global $setup_info,$GLOBALS['egw_setup'];
 		$setup_info['sitemgr']['currentver'] = '0.9.15.001';
 
-		$phpgw_setup->oProc->DropTable('phpgw_sitemgr_blocks');
-		$phpgw_setup->oProc->CreateTable('phpgw_sitemgr_modules',array(
+		$GLOBALS['egw_setup']->oProc->DropTable('phpgw_sitemgr_blocks');
+		$GLOBALS['egw_setup']->oProc->CreateTable('phpgw_sitemgr_modules',array(
 			'fd' => array(
 				'module_id' => array('type' => 'auto', 'precision' => 4, 'nullable' => false),
 				'app_name' => array('type' => 'varchar', 'precision' => 25),
@@ -269,7 +269,7 @@
 			'ix' => array(),
 			'uc' => array()
 		));
-		$phpgw_setup->oProc->CreateTable('phpgw_sitemgr_content',array(
+		$GLOBALS['egw_setup']->oProc->CreateTable('phpgw_sitemgr_content',array(
 			'fd' => array(
 				'block_id' => array('type' => 'auto', 'nullable' => false),
 				'area' => array('type' => 'varchar', 'precision' => 50),
@@ -287,7 +287,7 @@
 			'ix' => array(),
 			'uc' => array()
 		));
-		$phpgw_setup->oProc->CreateTable('phpgw_sitemgr_content_lang',array(
+		$GLOBALS['egw_setup']->oProc->CreateTable('phpgw_sitemgr_content_lang',array(
 			'fd' => array(
 				'block_id' => array('type' => 'auto', 'nullable' => false),
 				'lang' => array('type' => 'varchar', 'precision' => 2, 'nullable' => false),
@@ -299,7 +299,7 @@
 			'ix' => array(),
 			'uc' => array()
 		));
-		$phpgw_setup->oProc->CreateTable('phpgw_sitemgr_active_modules',array(
+		$GLOBALS['egw_setup']->oProc->CreateTable('phpgw_sitemgr_active_modules',array(
 			'fd' => array(
 				// area __PAGE__ stands for master list
 				'area' => array('type' => 'varchar', 'precision' => 50, 'nullable' => false),
@@ -312,7 +312,7 @@
 			'ix' => array(),
 			'uc' => array()
 		));
-		$phpgw_setup->oProc->CreateTable('phpgw_sitemgr_properties',array(
+		$GLOBALS['egw_setup']->oProc->CreateTable('phpgw_sitemgr_properties',array(
 			'fd' => array(
 				// area __PAGE__ stands for all areas
 				'area' => array('type' => 'varchar', 'precision' => 50, 'nullable' => false),
@@ -329,9 +329,9 @@
 
 		//we register some standard modules so that the default site template works
 		// but only if we running a real update
-		if (!$phpgw_setup->oProc->m_bDeltaOnly)
+		if (!$GLOBALS['egw_setup']->oProc->m_bDeltaOnly)
 		{
-		$db2 = $phpgw_setup->db;
+		$db2 = $GLOBALS['egw_setup']->db;
 			foreach (array('index','toc','html') as $module)
 			{
 				$db2->query("INSERT INTO phpgw_sitemgr_modules (app_name,module_name) VALUES ('sitemgr','$module')",__LINE__,__FILE__);
@@ -340,13 +340,13 @@
 			}
 		}
 		//now to the difficult part: we try to put the old content field of phpgw_sitemgr_pages into the new phpgw_sitemgr_content table
-		$db3 = $phpgw_setup->db;
-		$GLOBALS['phpgw_setup']->oProc->query("select * from phpgw_sitemgr_pages",__LINE__,__FILE__);
+		$db3 = $GLOBALS['egw_setup']->db;
+		$GLOBALS['egw_setup']->oProc->query("select * from phpgw_sitemgr_pages",__LINE__,__FILE__);
 		$emptyarray = serialize(array());
-		while($GLOBALS['phpgw_setup']->oProc->next_record())
+		while($GLOBALS['egw_setup']->oProc->next_record())
 		{
-			$page_id = $GLOBALS['phpgw_setup']->oProc->f('page_id');
-			$cat_id = $GLOBALS['phpgw_setup']->oProc->f('cat_id');
+			$page_id = $GLOBALS['egw_setup']->oProc->f('page_id');
+			$cat_id = $GLOBALS['egw_setup']->oProc->f('cat_id');
 			//module_id is still the id of html module since it is the last inserted above
 			$db2->query("INSERT INTO phpgw_sitemgr_content (area,cat_id,page_id,module_id,arguments,sort_order,view,actif) VALUES ('CENTER',$cat_id,$page_id,$module_id,'$emptyarray',0,0,1)",__LINE__,__FILE__);
 			$block_id = $db2->get_last_insert_id('phpgw_sitemgr_content','block_id');
@@ -371,17 +371,17 @@
 			'ix' => array(),
 			'uc' => array()
 		);
-		$GLOBALS['phpgw_setup']->oProc->DropColumn('phpgw_sitemgr_pages_lang',$newtbldef,'content');
+		$GLOBALS['egw_setup']->oProc->DropColumn('phpgw_sitemgr_pages_lang',$newtbldef,'content');
 		return $setup_info['sitemgr']['currentver'];
 	}
 
 	$test[] = '0.9.15.001';
 	function sitemgr_upgrade0_9_15_001()
 	{
-		global $setup_info,$phpgw_setup;
+		global $setup_info,$GLOBALS['egw_setup'];
 		$setup_info['sitemgr']['currentver'] = '0.9.15.002';
 
-		$phpgw_setup->oProc->RenameColumn('phpgw_sitemgr_content', 'view', 'viewable');
+		$GLOBALS['egw_setup']->oProc->RenameColumn('phpgw_sitemgr_content', 'view', 'viewable');
 
 		return $setup_info['sitemgr']['currentver'];                             
 	}
@@ -389,7 +389,7 @@
 	$test[] = '0.9.15.002';
 	function sitemgr_upgrade0_9_15_002()
 	{
-		global $setup_info,$phpgw_setup;
+		global $setup_info,$GLOBALS['egw_setup'];
 		$setup_info['sitemgr']['currentver'] = '0.9.15.003';
 
 		$newtbldef = array(
@@ -404,7 +404,7 @@
 			'uc' => array()
 		);
 
-		$phpgw_setup->oProc->DropColumn('phpgw_sitemgr_modules',$newtbldef,'app_name');
+		$GLOBALS['egw_setup']->oProc->DropColumn('phpgw_sitemgr_modules',$newtbldef,'app_name');
 
 		return $setup_info['sitemgr']['currentver'];                             
 	}
@@ -412,10 +412,10 @@
 	$test[] = '0.9.15.003';
 	function sitemgr_upgrade0_9_15_003()
 	{
-		global $setup_info,$phpgw_setup;
+		global $setup_info,$GLOBALS['egw_setup'];
 		$setup_info['sitemgr']['currentver'] = '0.9.15.004';
 
-		$phpgw_setup->oProc->createtable('phpgw_sitemgr_sites',array(
+		$GLOBALS['egw_setup']->oProc->createtable('phpgw_sitemgr_sites',array(
 			'fd' => array(
 				'site_id' => array('type' => 'int', 'precision' => 4, 'nullable' => false),
 				'site_name' => array('type' => 'varchar', 'precision' => 255),
@@ -433,18 +433,18 @@
 			'uc' => array()
 		));
 
-		$db2 = $phpgw_setup->db;
+		$db2 = $GLOBALS['egw_setup']->db;
 
 		//Create default site and hang all existing categories into it
-		$phpgw_setup->oProc->query("INSERT INTO phpgw_categories (cat_parent,cat_owner,cat_access,cat_appname,cat_name,cat_description,last_mod) VALUES (0,-1,'public','sitemgr','Default Website','This website has been added by setup',0)");
+		$GLOBALS['egw_setup']->oProc->query("INSERT INTO {$GLOBALS['egw_setup']->cats_table} (cat_parent,cat_owner,cat_access,cat_appname,cat_name,cat_description,last_mod) VALUES (0,-1,'public','sitemgr','Default Website','This website has been added by setup',0)");
 
-		$phpgw_setup->oProc->query("SELECT cat_id FROM phpgw_categories WHERE cat_name='Default Website' AND cat_appname='sitemgr'");
-		if ($phpgw_setup->oProc->next_record())
+		$GLOBALS['egw_setup']->oProc->query("SELECT cat_id FROM {$GLOBALS['egw_setup']->cats_table} WHERE cat_name='Default Website' AND cat_appname='sitemgr'");
+		if ($GLOBALS['egw_setup']->oProc->next_record())
 		{
-			$site_id = $phpgw_setup->oProc->f('cat_id');
-			$db2->query("UPDATE phpgw_categories SET cat_main = $site_id WHERE cat_appname = 'sitemgr'",__LINE__,__FILE__);
-			$db2->query("UPDATE phpgw_categories SET cat_parent = $site_id WHERE cat_appname = 'sitemgr' AND cat_parent = 0 AND cat_id != $site_id",__LINE__,__FILE__);
-			$db2->query("UPDATE phpgw_categories SET cat_level = cat_level +1 WHERE cat_appname = 'sitemgr' AND cat_id != $site_id",__LINE__,__FILE__);
+			$site_id = $GLOBALS['egw_setup']->oProc->f('cat_id');
+			$db2->query("UPDATE {$GLOBALS['egw_setup']->cats_table} SET cat_main = $site_id WHERE cat_appname = 'sitemgr'",__LINE__,__FILE__);
+			$db2->query("UPDATE {$GLOBALS['egw_setup']->cats_table} SET cat_parent = $site_id WHERE cat_appname = 'sitemgr' AND cat_parent = 0 AND cat_id != $site_id",__LINE__,__FILE__);
+			$db2->query("UPDATE {$GLOBALS['egw_setup']->cats_table} SET cat_level = cat_level +1 WHERE cat_appname = 'sitemgr' AND cat_id != $site_id",__LINE__,__FILE__);
 			$db2->query("INSERT INTO phpgw_sitemgr_sites (site_id,site_name)  VALUES ($site_id,'Default Website')");
 		}
 
@@ -460,17 +460,17 @@
 		);
 		foreach ($oldtonew as $old => $new)
 		{
-			$phpgw_setup->oProc->query("SELECT value from phpgw_sitemgr_preferences WHERE name = '$old'");
-			if ($phpgw_setup->oProc->next_record())
+			$GLOBALS['egw_setup']->oProc->query("SELECT value from phpgw_sitemgr_preferences WHERE name = '$old'");
+			if ($GLOBALS['egw_setup']->oProc->next_record())
 			{
-				$value = $phpgw_setup->oProc->f('value');
+				$value = $GLOBALS['egw_setup']->oProc->f('value');
 				$db2->query("UPDATE phpgw_sitemgr_sites SET $new = '$value' WHERE site_id = $site_id");
 			}
 		}
 
 		//site names and headers
-		$phpgw_setup->oProc->query("SELECT site_languages from phpgw_sitemgr_sites");
-		if ($phpgw_setup->oProc->next_record())
+		$GLOBALS['egw_setup']->oProc->query("SELECT site_languages from phpgw_sitemgr_sites");
+		if ($GLOBALS['egw_setup']->oProc->next_record())
 		{
 			$sitelanguages = $db2->f('site_languages');
 			$sitelanguages = explode(',',$sitelanguages);
@@ -509,7 +509,7 @@
 				}
 			}
 		}
-		$phpgw_setup->oProc->DropTable('phpgw_sitemgr_preferences');
+		$GLOBALS['egw_setup']->oProc->DropTable('phpgw_sitemgr_preferences');
 
 		return $setup_info['sitemgr']['currentver'];
 	}
@@ -517,18 +517,18 @@
 	$test[] = '0.9.15.004';
 	function sitemgr_upgrade0_9_15_004()
 	{
-		global $setup_info,$phpgw_setup;
+		global $setup_info,$GLOBALS['egw_setup'];
 		$setup_info['sitemgr']['currentver'] = '0.9.15.005';
-		$db2 = $phpgw_setup->db;
-		$db3 = $phpgw_setup->db;
+		$db2 = $GLOBALS['egw_setup']->db;
+		$db3 = $GLOBALS['egw_setup']->db;
 
 		//Create the field state for pages and categories and give all existing pages and categories published state (2)
-		$phpgw_setup->oProc->AddColumn('phpgw_sitemgr_pages',
+		$GLOBALS['egw_setup']->oProc->AddColumn('phpgw_sitemgr_pages',
 			'state',array('type'=>int, 'precision'=>2));
 	
-		$phpgw_setup->oProc->query("UPDATE phpgw_sitemgr_pages SET state = 2");
+		$GLOBALS['egw_setup']->oProc->query("UPDATE phpgw_sitemgr_pages SET state = 2");
 
-		$phpgw_setup->oProc->CreateTable('phpgw_sitemgr_categories_state',array(
+		$GLOBALS['egw_setup']->oProc->CreateTable('phpgw_sitemgr_categories_state',array(
 			'fd' => array(
 				'cat_id' => array('type' => 'int', 'precision' => 4, 'nullable' => false),
 				'state' => array('type' => 'int', 'precision' => 2)
@@ -539,18 +539,18 @@
 			'uc' => array()
 		));
 
-		$GLOBALS['phpgw_setup']->oProc->query("select cat_id from phpgw_categories where cat_appname='sitemgr' AND cat_level > 0");
-		while($GLOBALS['phpgw_setup']->oProc->next_record())
+		$GLOBALS['egw_setup']->oProc->query("select cat_id from {$GLOBALS['egw_setup']->cats_table} where cat_appname='sitemgr' AND cat_level > 0");
+		while($GLOBALS['egw_setup']->oProc->next_record())
 		{
-			$cat_id = $GLOBALS['phpgw_setup']->oProc->f('cat_id');
+			$cat_id = $GLOBALS['egw_setup']->oProc->f('cat_id');
 			$db2->query("INSERT INTO phpgw_sitemgr_categories_state (cat_id,state) VALUES ($cat_id,2)");
 		}
 
 		//rename table content blocks and table content_lang blocks_lang
 		//and add the new tables content and content_lang
-		$GLOBALS['phpgw_setup']->oProc->RenameTable('phpgw_sitemgr_content','phpgw_sitemgr_blocks');
-		$GLOBALS['phpgw_setup']->oProc->RenameTable('phpgw_sitemgr_content_lang','phpgw_sitemgr_blocks_lang');
-		$GLOBALS['phpgw_setup']->oProc->CreateTable('phpgw_sitemgr_content',array(
+		$GLOBALS['egw_setup']->oProc->RenameTable('phpgw_sitemgr_content','phpgw_sitemgr_blocks');
+		$GLOBALS['egw_setup']->oProc->RenameTable('phpgw_sitemgr_content_lang','phpgw_sitemgr_blocks_lang');
+		$GLOBALS['egw_setup']->oProc->CreateTable('phpgw_sitemgr_content',array(
 			'fd' => array(
 				'version_id' => array('type' => 'auto', 'nullable' => false),
 				'block_id' => array('type' => 'int', 'precision' => 4, 'nullable' => false),
@@ -562,7 +562,7 @@
 			'ix' => array(),
 			'uc' => array()
 		));
-		$GLOBALS['phpgw_setup']->oProc->CreateTable('phpgw_sitemgr_content_lang',array(
+		$GLOBALS['egw_setup']->oProc->CreateTable('phpgw_sitemgr_content_lang',array(
 			'fd' => array(
 				'version_id' => array('type' => 'int', 'precision' => 4, 'nullable' => false),
 				'lang' => array('type' => 'varchar', 'precision' => 2, 'nullable' => false),
@@ -575,12 +575,12 @@
 		));
 
 		//create rows in the new content tables from old content tables (where state=0(Draft) when inactive, state=2(Published) when active)
-		$GLOBALS['phpgw_setup']->oProc->query("SELECT block_id,arguments,actif FROM phpgw_sitemgr_blocks");
-		while ($GLOBALS['phpgw_setup']->oProc->next_record())
+		$GLOBALS['egw_setup']->oProc->query("SELECT block_id,arguments,actif FROM phpgw_sitemgr_blocks");
+		while ($GLOBALS['egw_setup']->oProc->next_record())
 		{
-			$block_id = $GLOBALS['phpgw_setup']->oProc->f('block_id');
-			$arguments = $GLOBALS['phpgw_setup']->oProc->f('arguments');
-			$state = $GLOBALS['phpgw_setup']->oProc->f('actif') ? 0 : 2;
+			$block_id = $GLOBALS['egw_setup']->oProc->f('block_id');
+			$arguments = $GLOBALS['egw_setup']->oProc->f('arguments');
+			$state = $GLOBALS['egw_setup']->oProc->f('actif') ? 0 : 2;
 			$db2->query("INSERT INTO phpgw_sitemgr_content (block_id,arguments,state) VALUES ($block_id,'$arguments',$state)");
 			$version_id = $db2->get_last_insert_id('phpgw_sitemgr_content','version_id');
 			$db2->query("SELECT lang,arguments_lang  FROM phpgw_sitemgr_blocks_lang WHERE block_id = $block_id");
@@ -610,7 +610,7 @@
 			'ix' => array(),
 			'uc' => array()
 		);
-		$phpgw_setup->oProc->DropColumn('phpgw_sitemgr_blocks',$newtbldef,'arguments');
+		$GLOBALS['egw_setup']->oProc->DropColumn('phpgw_sitemgr_blocks',$newtbldef,'arguments');
 		$newtbldef = array(
 			'fd' => array(
 				'block_id' => array('type' => 'auto', 'nullable' => false),
@@ -626,7 +626,7 @@
 			'ix' => array(),
 			'uc' => array()
 		);
-		$phpgw_setup->oProc->DropColumn('phpgw_sitemgr_blocks',$newtbldef,'actif');
+		$GLOBALS['egw_setup']->oProc->DropColumn('phpgw_sitemgr_blocks',$newtbldef,'actif');
 		$newtbldef = array(
 			'fd' => array(
 				'block_id' => array('type' => 'auto', 'nullable' => false),
@@ -638,7 +638,7 @@
 			'ix' => array(),
 			'uc' => array()
 		);
-		$phpgw_setup->oProc->DropColumn('phpgw_sitemgr_blocks_lang',$newtbldef,'arguments_lang');
+		$GLOBALS['egw_setup']->oProc->DropColumn('phpgw_sitemgr_blocks_lang',$newtbldef,'arguments_lang');
 		return $setup_info['sitemgr']['currentver'];
 	}
 
@@ -654,7 +654,7 @@
 			'phpgw_sitemgr_content_lang',
 		) as $table)
 		{
-			$GLOBALS['phpgw_setup']->oProc->AlterColumn($table,'lang',array(
+			$GLOBALS['egw_setup']->oProc->AlterColumn($table,'lang',array(
 				'type' => 'varchar',
 				'precision' => '5',
 				'nullable' => False
@@ -669,7 +669,7 @@
 	function sitemgr_upgrade0_9_15_006()
 	{
 		// add column for index-pages
-		$GLOBALS['phpgw_setup']->oProc->AddColumn('phpgw_sitemgr_categories_state','index_page_id',array(
+		$GLOBALS['egw_setup']->oProc->AddColumn('phpgw_sitemgr_categories_state','index_page_id',array(
 			'type' => 'int',
 			'precision' => '4',
 			'default' => '0'
@@ -684,7 +684,7 @@
 	$test[] = '0.9.15.007';
 	function sitemgr_upgrade0_9_15_007()
 	{
-		$GLOBALS['phpgw_setup']->oProc->RefreshTable('phpgw_sitemgr_pages',array(
+		$GLOBALS['egw_setup']->oProc->RefreshTable('phpgw_sitemgr_pages',array(
 			'fd' => array(
 				'page_id' => array('type' => 'auto','nullable' => False),
 				'cat_id' => array('type' => 'int','precision' => '4'),
@@ -707,7 +707,7 @@
 	$test[] = '0.9.15.008';
 	function sitemgr_upgrade0_9_15_008()
 	{
-		$GLOBALS['phpgw_setup']->oProc->RefreshTable('phpgw_sitemgr_categories_state',array(
+		$GLOBALS['egw_setup']->oProc->RefreshTable('phpgw_sitemgr_categories_state',array(
 			'fd' => array(
 				'cat_id' => array('type' => 'int','precision' => '4','nullable' => False),
 				'state' => array('type' => 'int','precision' => '2'),
@@ -727,7 +727,7 @@
 	$test[] = '0.9.15.009';
 	function sitemgr_upgrade0_9_15_009()
 	{
-		$GLOBALS['phpgw_setup']->oProc->RefreshTable('phpgw_sitemgr_sites',array(
+		$GLOBALS['egw_setup']->oProc->RefreshTable('phpgw_sitemgr_sites',array(
 			'fd' => array(
 				'site_id' => array('type' => 'int','precision' => '4','nullable' => False),
 				'site_name' => array('type' => 'varchar','precision' => '255'),
@@ -754,7 +754,7 @@
 	$test[] = '0.9.15.010';
 	function sitemgr_upgrade0_9_15_010()
 	{
-		$GLOBALS['phpgw_setup']->oProc->UpdateSequence('phpgw_sitemgr_pages','page_id');
+		$GLOBALS['egw_setup']->oProc->UpdateSequence('phpgw_sitemgr_pages','page_id');
 
 		$GLOBALS['setup_info']['sitemgr']['currentver'] = '1.0.0';
 		return $GLOBALS['setup_info']['sitemgr']['currentver'];
@@ -763,7 +763,7 @@
 	$test[] = '1.0.0';
 	function sitemgr_upgrade1_0_0()
 	{
-		$GLOBALS['phpgw_setup']->oProc->CreateTable('phpgw_sitemgr_notifications',array(
+		$GLOBALS['egw_setup']->oProc->CreateTable('phpgw_sitemgr_notifications',array(
 			'fd' => array(
 				'notification_id' => array('type' => 'auto','nullable' => False),
 				'site_id' => array('type' => 'int','precision' => '4','nullable' => False),
@@ -777,7 +777,7 @@
 			'uc' => array()
 		));
 
-		$GLOBALS['phpgw_setup']->oProc->CreateTable('phpgw_sitemgr_notify_messages',array(
+		$GLOBALS['egw_setup']->oProc->CreateTable('phpgw_sitemgr_notify_messages',array(
 			'fd' => array(
 				'message_id' => array('type' => 'auto','nullable' => False),
 				'site_id' => array('type' => 'int','precision' => '4','nullable' => False),
@@ -796,11 +796,10 @@
 	}
 
 
-
 	$test[] = '1.0.0.001';
 	function sitemgr_upgrade1_0_0_001()
 	{
-		$GLOBALS['phpgw_setup']->oProc->AddColumn('phpgw_sitemgr_sites','upload_dir',array(
+		$GLOBALS['egw_setup']->oProc->AddColumn('phpgw_sitemgr_sites','upload_dir',array(
 			'type' => 'varchar',
 			'precision' => '50'
 		));
@@ -813,16 +812,29 @@
 	$test[] = '1.0.0.002';
 	function sitemgr_upgrade1_0_0_002()
 	{
-		$GLOBALS['phpgw_setup']->oProc->AlterColumn('phpgw_sitemgr_sites','upload_dir',array(
+		$GLOBALS['egw_setup']->oProc->AlterColumn('phpgw_sitemgr_sites','upload_dir',array(
 			'type' => 'varchar',
 			'precision' => '255'
 		));
-		$GLOBALS['phpgw_setup']->oProc->AddColumn('phpgw_sitemgr_sites','upload_url',array(
+		$GLOBALS['egw_setup']->oProc->AddColumn('phpgw_sitemgr_sites','upload_url',array(
 			'type' => 'varchar',
 			'precision' => '255'
 		));
 
 		$GLOBALS['setup_info']['sitemgr']['currentver'] = '1.0.0.003';
+		return $GLOBALS['setup_info']['sitemgr']['currentver'];
+	}
+
+
+	$test[] = '1.0.0.003';
+	function sitemgr_upgrade1_0_0_003()
+	{
+		foreach(array('phpgw_sitemgr_pages','phpgw_sitemgr_pages_lang','phpgw_sitemgr_categories_state','phpgw_sitemgr_categories_lang','phpgw_sitemgr_modules','phpgw_sitemgr_blocks','phpgw_sitemgr_blocks_lang','phpgw_sitemgr_content','phpgw_sitemgr_content_lang','phpgw_sitemgr_active_modules','phpgw_sitemgr_properties','phpgw_sitemgr_sites','phpgw_sitemgr_notifications','phpgw_sitemgr_notify_messages') as $table)
+		{
+			$GLOBALS['egw_setup']->oProc->RenameTable($table,str_replace('phpgw_sitemgr','egw_sitemgr',$table));
+		}
+
+		$GLOBALS['setup_info']['sitemgr']['currentver'] = '1.0.1.001';
 		return $GLOBALS['setup_info']['sitemgr']['currentver'];
 	}
 ?>

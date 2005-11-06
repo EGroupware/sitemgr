@@ -19,7 +19,7 @@
 		{
 			$this->db = clone($GLOBALS['egw']->db);
 			$this->db->app = 'sitemgr_module_notify';  // as we run as sitemgr !
-			$this->messages_table = 'phpgw_sitemgr_notify_messages';
+			$this->messages_table = 'egw_sitemgr_notify_messages';
 		}
 
 		function list_languages($site_id)

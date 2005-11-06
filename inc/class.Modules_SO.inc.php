@@ -24,7 +24,7 @@
 			foreach(array('properties','modules','active_modules') as $name)
 			{
 				$var = $name.'_table';
-				$this->$var = 'phpgw_sitemgr_'.$name;	// only reference to the db-prefix
+				$this->$var = 'egw_sitemgr_'.$name;	// only reference to the db-prefix
 			}
 		}
 
@@ -155,8 +155,8 @@
 
 		function getpermittedmodules($contentarea,$cat_id)
 		{
-			$this->db->query("SELECT * from phpgw_sitemgr_modules AS t1".
-				" LEFT JOIN phpgw_sitemgr_active_modules AS t2 ON t1.module_id=t2.module_id".
+			$this->db->query("SELECT * from $this->modules_table AS t1".
+				" LEFT JOIN $this->active_modules_table AS t2 ON t1.module_id=t2.module_id".
 				" WHERE ".$this->db->expression($this->active_modules_table,array(
 					'area'	=> $contentarea,
 					'cat_id'=> $cat_id,

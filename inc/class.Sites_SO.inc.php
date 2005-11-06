@@ -15,7 +15,7 @@
 	class Sites_SO
 	{
 		var $db;
-		var $sites_table = 'phpgw_sitemgr_sites';	// only reference to the db-prefix
+		var $sites_table = 'egw_sitemgr_sites';	// only reference to the db-prefix
 		
 		function Sites_SO()
 		{

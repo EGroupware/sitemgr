@@ -19,8 +19,8 @@
 		{
 			$this->db = clone($GLOBALS['egw']->db);
 			$this->db->set_app('sitemgr');
-			$this->notifications_table = 'phpgw_sitemgr_notifications';
-			$this->messages_table = 'phpgw_sitemgr_notify_messages';
+			$this->notifications_table = 'egw_sitemgr_notifications';
+			$this->messages_table = 'egw_sitemgr_notify_messages';
 		}
 
 		function create_notification($email,$all_langs)
