@@ -170,6 +170,8 @@
 				{
 					$site['url'] .= '/';
 				}
+				$site['anonuser'] = $GLOBALS['egw']->accounts->id2name($site['anonuser']);
+
 				if (!$site['name'])
 				{
 					$GLOBALS['egw']->template->set_var('message','<font color="red">'.lang('Please enter a name for that site !').'</font>');
@@ -215,7 +217,7 @@
 					'site_url' => $site['url'] ? $site['url'] : $GLOBALS['egw_info']['server']['webserver_url'] . '/sitemgr/sitemgr-site/',
 					'anonymous_user' => $site['anonuser'] ? $site['anonuser'] : 'anonymous',
 					'anonymous_passwd' => $site['anonpasswd'] ? $site['anonpasswd'] : 'anonymous',
-					'adminlist' => is_array($site['adminlist']) ? $site['adminlist'] : '',
+					'adminlist' => is_array($site['adminlist']) ? $site['adminlist'] : array($GLOBALS['egw']->accounts->name2id('Admins')),
 				);
 			}
 			$GLOBALS['egw']->template->set_var('title_sites',$site_id ? lang('Edit Website') : lang('Add Website'));
@@ -244,21 +246,19 @@
 			$GLOBALS['egw']->template->set_var('lang_done',lang('Cancel'));
 			$GLOBALS['egw']->template->set_var('lang_delete',lang('Delete'));
 
-			$GLOBALS['egw']->template->set_var(array(
-				'site_name' => $site['site_name'],
-				'site_dir' => $site['site_dir'],
-				'site_url' => $site['site_url'],
-				'site_anonuser' => $site['anonymous_user'],
-				'site_anonpasswd' => $site['anonymous_passwd']
-			));
-			$GLOBALS['egw']->template->set_var('site_adminlist',$this->adminselectlist($site_id,$site['adminlist']));
-			$GLOBALS['egw']->template->set_var('site_id',$site_id);
+			$GLOBALS['egw']->template->set_var($site);
 
+			if (!is_object($GLOBALS['egw']->uiaccountsel))
+			{
+				$GLOBALS['egw']->uiaccountsel =& CreateObject('phpgwapi.uiaccountsel');
+			}
 			$GLOBALS['egw']->template->set_var(array(
-				'th'      => $GLOBALS['egw_info']['theme']['th_bg'],
-				'row_on'  => $GLOBALS['egw_info']['theme']['row_on'],
-				'row_off' => $GLOBALS['egw_info']['theme']['row_off']
+				'site_anonuser'  => $GLOBALS['egw']->uiaccountsel->selection('site[anonuser]','anonuser',
+					$GLOBALS['egw']->accounts->name2id($site['anonymous_user'])),
+				'site_adminlist' => $GLOBALS['egw']->uiaccountsel->selection('site[adminlist]','adminlist',
+					$this->adminlist($site_id,$site['adminlist']),'both',5),
 			));
+
 			if ($site_id)
 			{
 				$GLOBALS['egw']->template->parse('edithandle','edit');
@@ -274,24 +274,28 @@
 
 		}
 
-		function adminselectlist($site_id,$admins='')
+		function adminlist($site_id,$admins='')
 		{
-			$accounts = $GLOBALS['egw']->accounts->get_list();
-			$admin_list = $this->bo->get_adminlist($site_id);
-
-			foreach($accounts as $account)
+			if (!$admins) $admins = array();
+			
+			if (!$site_id)
 			{
-				$selectlist .= '<option value="' . $account['account_id'] . '"';
- 				if($admins && in_array($account['account_id'],$admins) ||
- 				   !$admins && ($admin_list[$account['account_id']] == SITEMGR_ACL_IS_ADMIN ||
-					 !$site_id && $account['account_lid'] == 'Admins'))
+				if (($admin_grp = $GLOBALS['egw']->accounts->name2id('Admins')) && !in_array($admin_grp,$admins))
 				{
-					$selectlist .= ' selected="1"';
+					$admins[] = $admin_grp;
 				}
-				$selectlist .= '>' . $GLOBALS['egw']->common->display_fullname($account['account_lid'],
-					$account['account_firstname'],$account['account_lastname']) . '</option>' . "\n";
 			}
-			return $selectlist;
+			else
+			{
+				foreach($this->bo->get_adminlist($site_id) as $account_id => $rights)
+				{
+					if ($rights == SITEMGR_ACL_IS_ADMIN && !in_array($account_id,$admins))
+					{
+						$admins[] = $account_id;
+					}
+				}
+			}
+			return $admins;
 		}
 
 		function delete()
