@@ -12,7 +12,7 @@
 	/* $Id$ */
 
 	$GLOBALS['egw_info'] = array(
-		'flags' = array(
+		'flags' => array(
 			'currentapp' => 'sitemgr',
 			'noheader'   => True,
 			'nonavbar'   => True,
