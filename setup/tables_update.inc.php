@@ -14,7 +14,7 @@
 	$test[] = '0.9.13.001';
 	function sitemgr_upgrade0_9_13_001()
 	{
-		global $setup_info,$GLOBALS['egw_setup'];
+		global $setup_info;
 		$setup_info['sitemgr']['currentver'] = '0.9.14.001';
 
 		$GLOBALS['egw_setup']->oProc->AddColumn('phpgw_sitemgr_pages',
@@ -28,7 +28,7 @@
 	$test[] = '0.9.14.001';
 	function sitemgr_upgrade0_9_14_001()
 	{
-		global $setup_info,$GLOBALS['egw_setup'];
+		global $setup_info;
 		$setup_info['sitemgr']['currentver'] = '0.9.14.002';
 
 		$GLOBALS['egw_setup']->oProc->AddColumn('phpgw_sitemgr_pages',
@@ -54,7 +54,7 @@
 		* old_cat_id = 2, new_cat_id = 3 --> update all pages  *
 		*  now all old_cat_id 5 pages are cat_id 3....         *
 		\******************************************************/
-		global $setup_info,$GLOBALS['egw_setup'];
+		global $setup_info;
 		$setup_info['sitemgr']['currentver'] = '0.9.14.003';
 
 		//$cat_db_so =& CreateObject('sitemgr.Categories_db_SO');
@@ -75,7 +75,7 @@
 	$test[] = '0.9.14.003';
 	function sitemgr_upgrade0_9_14_003()
 	{
-		global $setup_info,$GLOBALS['egw_setup'];
+		global $setup_info;
 		$setup_info['sitemgr']['currentver'] = '0.9.14.004';
 
 		if (file_exists(EGW_SERVER_ROOT .'/sitemgr/setup/sitemgr_sitelang'))
@@ -227,7 +227,7 @@
 	$test[] = '0.9.14.004';
 	function sitemgr_upgrade0_9_14_004()
 	{
-		global $setup_info,$GLOBALS['egw_setup'];
+		global $setup_info;
 		$setup_info['sitemgr']['currentver'] = '0.9.14.005';
 
 		$GLOBALS['egw_setup']->oProc->RenameColumn('phpgw_sitemgr_blocks', 'position', 'pos');
@@ -238,7 +238,7 @@
 	$test[] = '0.9.14.005';
 	function sitemgr_upgrade0_9_14_005()
 	{
-		global $setup_info,$GLOBALS['egw_setup'];
+		global $setup_info;
 		$setup_info['sitemgr']['currentver'] = '0.9.14.006';
 
 		$GLOBALS['egw_setup']->oProc->AddColumn('phpgw_sitemgr_blocks',
@@ -253,7 +253,7 @@
 	$test[] = '0.9.14.006';
 	function sitemgr_upgrade0_9_14_006()
 	{
-		global $setup_info,$GLOBALS['egw_setup'];
+		global $setup_info;
 		$setup_info['sitemgr']['currentver'] = '0.9.15.001';
 
 		$GLOBALS['egw_setup']->oProc->DropTable('phpgw_sitemgr_blocks');
@@ -378,7 +378,7 @@
 	$test[] = '0.9.15.001';
 	function sitemgr_upgrade0_9_15_001()
 	{
-		global $setup_info,$GLOBALS['egw_setup'];
+		global $setup_info;
 		$setup_info['sitemgr']['currentver'] = '0.9.15.002';
 
 		$GLOBALS['egw_setup']->oProc->RenameColumn('phpgw_sitemgr_content', 'view', 'viewable');
@@ -389,7 +389,7 @@
 	$test[] = '0.9.15.002';
 	function sitemgr_upgrade0_9_15_002()
 	{
-		global $setup_info,$GLOBALS['egw_setup'];
+		global $setup_info;
 		$setup_info['sitemgr']['currentver'] = '0.9.15.003';
 
 		$newtbldef = array(
@@ -412,7 +412,7 @@
 	$test[] = '0.9.15.003';
 	function sitemgr_upgrade0_9_15_003()
 	{
-		global $setup_info,$GLOBALS['egw_setup'];
+		global $setup_info;
 		$setup_info['sitemgr']['currentver'] = '0.9.15.004';
 
 		$GLOBALS['egw_setup']->oProc->createtable('phpgw_sitemgr_sites',array(
@@ -517,7 +517,7 @@
 	$test[] = '0.9.15.004';
 	function sitemgr_upgrade0_9_15_004()
 	{
-		global $setup_info,$GLOBALS['egw_setup'];
+		global $setup_info;
 		$setup_info['sitemgr']['currentver'] = '0.9.15.005';
 		$db2 = $GLOBALS['egw_setup']->db;
 		$db3 = $GLOBALS['egw_setup']->db;
