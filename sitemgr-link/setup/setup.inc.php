@@ -13,7 +13,7 @@
 
 	$setup_info['sitemgr-link']['name']      = 'sitemgr-link';
 	$setup_info['sitemgr-link']['title']     = 'SiteMgr Public Web Site';
-	$setup_info['sitemgr-link']['version']   = '1.0.0';
+	$setup_info['sitemgr-link']['version']   = '1.2';
 	$setup_info['sitemgr-link']['app_order'] = 9;
 	$setup_info['sitemgr-link']['tables']    = array();
 	$setup_info['sitemgr-link']['enable']    = 1;
@@ -21,10 +21,10 @@
 	/* Dependencies for this app to work */
 	$setup_info['sitemgr-link']['depends'][] = array(
 		'appname'  => 'phpgwapi',
-		'versions' => Array('0.9.14','0.9.15','1.0.0','1.0.1')
+		'versions' => Array('0.9.14','0.9.15','1.0.0','1.0.1','1.2')
 	);
 	$setup_info['sitemgr-link']['depends'][] = array(
 		'appname' => 'sitemgr',
-		'versions' => array('1.0.0')
+		'versions' => array('1.0.0','1.0.1','1.2')
 	);
 ?>

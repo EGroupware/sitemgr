@@ -47,17 +47,18 @@
 		'currentsection' => array('left','right'),
 		'download' => array('__PAGE__'),
 		'filecontents' => array('left','right','header','footer','__PAGE__'),
+		'frame' => array('__PAGE__'),
 		'google' => array('left','right'),
 		'html' => array('left','right','header','footer','__PAGE__'),
-		'index_block' => array('left','right'),
-		'index' => array('__PAGE__'),
 		'lang_block' => array('left','right'),
 		'login' => array('left','right'),
+		'navigation' => array('left','right','__PAGE__'),
+		'news' => array('left','right','__PAGE__'),
+		'notify' => array('left','right'),
+		'phpbrain' => array('__PAGE__'),
 		'redirect' => array('__PAGE__'),
-		'sitetree' => array('left','right','__PAGE__'),
 		'template' => array('left','right','__PAGE__'),
-		'toc_block' => array('left','right'),
-		'toc' => array('__PAGE__'),
+		'validator' => array('footer'),
 		'wiki' => array('__PAGE__'),
 	);
 	$dir = dir(EGW_SERVER_ROOT);
@@ -128,32 +129,38 @@
 
 	// set up some site- and page-wide content
 	$visibility = array('all' => 0,'user' => 1,'admin' => 2,'anon' => 3);
-	$blocks = array(
-		array($module_id['index_block'],'left',$site_id,0,$visibility['all'],'Root Site Index',NULL,'a:1:{s:8:"sub_cats";s:2:"on";}'),
-		array($module_id['template'],'left',$site_id,0,$visibility['all'],'Choose template',NULL,'a:2:{s:4:"show";s:1:"8";s:3:"zip";s:3:"zip";}'),
-		array($module_id['currentsection'],'right',$site_id,0,$visibility['all'],'Current Section'),
+	foreach(array(
+		array($module_id['navigation'],'left',$site_id,0,$visibility['all'],'Root Site Index',NULL,
+			array('sub_cats' => 'on', 'nav_type' => 3)),
+		array($module_id['template'],'left',$site_id,0,$visibility['all'],'Choose template',NULL,
+			array('show' => 8, 'zip' => 'zip')),
+		array($module_id['navigation'],'right',$site_id,0,$visibility['all'],'Current Section',NULL,
+			array('nav_type' => 1)),
 		array($module_id['administration'],'right',$site_id,0,$visibility['admin'],'Administration'),
 		array($module_id['lang_block'],'right',$site_id,0,$visibility['all'],'Select language'),
 		array($module_id['calendar'],'right',$site_id,0,$visibility['user'],'Calendar'),
 		array($module_id['goggle'],'right',$site_id,0,$visibility['all'],'Goggle'),
 		array($module_id['login'],'right',$site_id,0,$visibility['anon'],'Login'),
-		array($module_id['amazon'],'right',$site_id,0,$visibility['all'],False,'Amazon.com','a:1:{s:6:"search";s:1:"1";}'),
-		array($module_id['html'],'header',$site_id,0,$visibility['all'],'HTML Module','a:1:{s:11:"htmlcontent";s:21:"<h1>SiteMgr Demo</h1>";}'),
-		array($module_id['html'],'footer',$site_id,0,$visibility['all'],'HTML Module','a:1:{s:11:"htmlcontent";s:253:"Powered by eGroupWare\'s <b>SiteMgr</b>. Please visit our Homepage <a href="http://www.egroupware.org" target="_blank">www.eGroupWare.org</a> and our <a href="http://www.sourceforge.net/projects/egroupware/" target="_blank">Sourceforge Project page</a>.";}'),
-		array($module_id['html'],'center',$cats['sample'],$pages['sample-page'],$visibility['all'],'HTML Module','a:1:{s:11:"htmlcontent";s:35:"some sample <b>HTML</b> content ...";}'),
-	);
-	foreach($blocks as $order => $block)
+		array($module_id['amazon'],'right',$site_id,0,$visibility['all'],False,'Amazon.com',array('search' => 1)),
+		array($module_id['html'],'header',$site_id,0,$visibility['all'],'HTML Module',
+			array('htmlcontent' => '<h1>SiteMgr Demo</h1>')),
+		array($module_id['html'],'footer',$site_id,0,$visibility['all'],'HTML Module',
+			array('htmlcontent' => 'Powered by eGroupWare\'s <b>SiteMgr</b>. Please visit our Homepage <a href="http://www.egroupware.org" target="_blank">www.eGroupWare.org</a> and our <a href="http://www.sourceforge.net/projects/egroupware/" target="_blank">Sourceforge Project page</a>.')),
+		array($module_id['html'],'center',$cats['sample'],$pages['sample-page'],$visibility['all'],'HTML Module',
+			array('htmlcontent' => 'some sample <b>HTML</b> content ...')),
+	) as $order => $block)
 	{
 		list($module,$area,$cat_id,$page_id,$visible,$title_en,$content_en,$content) = $block;
 		if (!$module) continue;
 		$oProc->query("INSERT INTO {$sitemgr_table_prefix}_blocks (area,cat_id,page_id,module_id,sort_order,viewable) VALUES ('$area',$cat_id,$page_id,$module,$order,$visible)",__LINE__,__FILE__);
 		$block_id = $oProc->m_odb->get_last_insert_id($sitemgr_table_prefix.'_blocks','block_id');
 		$oProc->query("INSERT INTO {$sitemgr_table_prefix}_blocks_lang (block_id,lang,title) VALUES ($block_id,'en','$title_en')",__LINE__,__FILE__);
-		$oProc->query("INSERT INTO {$sitemgr_table_prefix}_content (block_id,arguments,state) VALUES ($block_id,".($content ? "'$content'" : 'NULL').",2)",__LINE__,__FILE__);
+		$oProc->query("INSERT INTO {$sitemgr_table_prefix}_content (block_id,arguments,state) VALUES ($block_id,".
+			($content ? $GLOBALS['egw_setup']->db->quote(serialize($content)) : 'NULL').",2)",__LINE__,__FILE__);
 		$version_id = $oProc->m_odb->get_last_insert_id($sitemgr_table_prefix.'_content','version_id');
 		if ($content_en)
 		{
-			$oProc->query("INSERT INTO {$sitemgr_table_prefix}_content_lang (version_id,lang,arguments_lang) VALUES ($version_id,'en','".$GLOBALS['egw_setup']->db->db_addslashes($content_en)."')",__LINE__,__FILE__);
+			$oProc->query("INSERT INTO {$sitemgr_table_prefix}_content_lang (version_id,lang,arguments_lang) VALUES ($version_id,'en','".$GLOBALS['egw_setup']->db->db_addslashes(serialize($content_en))."')",__LINE__,__FILE__);
 		}
 	}
 	//echo "SiteMgr demo site installed<br>";
@@ -214,9 +221,9 @@
 		}
 	}
 
-	if (file_exists($sitemgr_link_setup = EGW_SERVER_ROOT.'/sitemgr-link/setup/setup.inc.php'))
+	if (file_exists(EGW_SERVER_ROOT.'/sitemgr-link/setup/setup.inc.php'))
 	{
-		include($sitemgr_link_setup);
+		include(EGW_SERVER_ROOT.'/sitemgr-link/setup/setup.inc.php');
 		$GLOBALS['setup_info']['sitemgr-link'] = $setup_info['sitemgr-link'];
 		$GLOBALS['egw_setup']->register_app('sitemgr-link');
 		echo "sitemgr-link installed\n";

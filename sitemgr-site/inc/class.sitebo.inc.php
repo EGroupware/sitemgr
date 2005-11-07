@@ -86,11 +86,12 @@
 			$page->subtitle = '';
 			$page->index = True;
 			$page->block =& CreateObject('sitemgr.Block_SO',True);
-			$page->block->module_name = 'index';
-			$page->block->module_id = $GLOBALS['Common_BO']->modules->getmoduleid('index');
+			$page->block->module_name = 'navigation';
+			$page->block->arguments = array('nav_type' => 2);		// former index
+			$page->block->module_id = $GLOBALS['Common_BO']->modules->getmoduleid('navigation');
 			$page->block->view = SITEMGR_VIEWABLE_EVERBODY;
 			$page->block->status = SITEMGR_STATE_PUBLISH;
-			$page->cat_id = $GLOBALS['Common_BO']->current_site['site_id'];
+			$page->cat_id = CURRENT_SITE_ID;
 			return true;
 		}
 
@@ -148,9 +149,9 @@
 			$page->toc = True;
 			$page->cat_id = $category_id ? $category_id : CURRENT_SITE_ID;
 			$page->block =& CreateObject('sitemgr.Block_SO',True);
-			$page->block->module_name = 'toc';
-			$page->block->arguments = array('category_id' => $category_id);
-			$page->block->module_id = $GLOBALS['Common_BO']->modules->getmoduleid('toc');
+			$page->block->module_name = 'navigation';
+			$page->block->arguments = array('category_id' => $category_id,'nav_type' => 6);		// former toc
+			$page->block->module_id = $GLOBALS['Common_BO']->modules->getmoduleid('navigation');
 			$page->block->view = SITEMGR_VIEWABLE_EVERBODY;
 			$page->block->state = SITEMGR_STATE_PUBLISH;
 			return true;
