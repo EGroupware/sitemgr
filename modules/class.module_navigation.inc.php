@@ -490,6 +490,7 @@
 		{
 			$out  = "    <div class=\"nav-".$type."-entry depth-".$depth."\">\n";
 			$out .= "      <ul>\n";
+			if (is_array($data))
 			foreach($data as $id => $entry)
 			{
 				if($arguments['highlight_current_page'] && $id == $this->page->id && $type == 'page')
@@ -612,7 +613,7 @@
 				
 				function remove(catid)
 				{
-					var now =& new Date();
+					var now = new Date();
 					document.cookie = 'block[" . $this->block->id . "][menutree][' + catid + ']=; expires=' + now.toGMTString();
 				}
 				
@@ -624,7 +625,7 @@
 					}
 					else //we're helpless
 					{
-					return 
+						return;
 					}
 				
 					if (styleObj.style.display == 'none')
@@ -660,7 +661,7 @@
 		
 		function showcat($cats)
 		{
-			while(list($cat_id,$cat) = each($cats))
+			foreach($cats as $cat_id => $cat)
 			{
 				$status = in_array($cat_id,$this->expandedcats);
 				$childrenandself = array_keys($GLOBALS['objbo']->getCatLinks($cat_id));
@@ -689,7 +690,8 @@
 						'" border="0" cellspacing="0" cellpadding="0" width="100%" id="'.
 						$cat_id .
 						'">';
-					while(list($page_id,$page) = @each($pages))
+					if (is_array($pages))
+					foreach($pages as $page_id => $page)
 					{
 						//we abuse the subtitle in a nonstandard way: we want it to serve as a *short title* that is displayed
 						//in the tree menu, so that we can have long titles on the page that would not be nice in the tree menu
