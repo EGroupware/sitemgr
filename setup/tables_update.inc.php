@@ -850,18 +850,20 @@
 		
 		// get the module_id of all navigation modules and remove the old modules
 		$db->select('egw_sitemgr_modules','module_id,module_name',array('module_name' => array_keys($modules2nav_type)),__LINE__,__FILE__);
-		$module2id = array();
+		$id2module = $old_modules = array();
 		while(($row = $db->row(true)))
 		{
-			$module2id[$row['module_name']] = $row['module_id'];
+			$id2module[$row['module_id']] = $row['module_name'];
+			if ($row['module_name'] != 'navigation')
+			{
+				$old_modules[] = $row['module_id'];
+			}
 		}
-		$old_modules = $module2id;
-		unset($old_modules['navigation']);
 		$db->delete('egw_sitemgr_modules',array('module_id' => $old_modules),__LINE__,__FILE__);
 		
 		// check if navigation is already registered, if not register it
 		
-		if (!($navigation_id = $module2id['navigation']))	
+		if (!($navigation_id = array_search('navigation',$id2module)))	
 		{
 			if (ereg('\$this->description = lang\(\'([^'."\n".']*)\'\);',implode("\n",file(EGW_SERVER_ROOT.'/sitemgr/modules/class.module_navigation.inc.php')),$parts))
 			{
@@ -871,7 +873,7 @@
 				'module_name' => 'navigation',
 				'module_description' => $description,
 			),false,__LINE__,__FILE__);
-			$navigation_id = $module2id['navigation'] = $db->get_last_insert_id('egw_sitemgr_modules','module_id');
+			$navigation_id = $db->get_last_insert_id('egw_sitemgr_modules','module_id');
 		}
 		// add navigation to all contentareas, which allowed any for the old modules before and remove the old modules
 		$db->select('egw_sitemgr_active_modules','DISTINCT cat_id,area',array('module_id' => $old_modules),__LINE__,__FILE__);
@@ -883,13 +885,12 @@
 		$db->delete('egw_sitemgr_active_modules',array('module_id' => $old_modules),__LINE__,__FILE__);
 		
 		// replace old modules in the blocks with the navigation module
-		$db->select('egw_sitemgr_blocks','block_id,module_id',array('module_id' => $module2id),__LINE__,__FILE__);
+		$db->select('egw_sitemgr_blocks','block_id,module_id',array('module_id' => array_keys($id2module)),__LINE__,__FILE__);
 		$block_id2module_id = array();
 		while (($row = $db->row(true)))
 		{
 			$block_id2module_id[$row['block_id']] = $row['module_id'];
 		}
-		$id2module = array_flip($module2id);
 		$db->select('egw_sitemgr_content','version_id,block_id,arguments',array('block_id' => array_keys($block_id2module_id)),__LINE__,__FILE__);
 		while (($row = $db->row(true)))
 		{
