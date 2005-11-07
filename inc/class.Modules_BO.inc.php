@@ -102,7 +102,13 @@
 							$moduleobject =& $this->createmodule($modulename);
 							if ($moduleobject)
 							{
-								if ($this->so->registermodule($modulename,$moduleobject->description))
+								$description = '';
+								// we grab the description direct from the module source, as we need the untranslated one
+								if (ereg('\$this->description = lang\(\'([^'."\n".']*)\'\);',implode("\n",file($moddir.'/'.$file)),$parts))
+								{
+									$description = str_replace("\\'","'",$parts[1]);
+								}
+								if ($this->so->registermodule($modulename,$description ? $description : $moduleobject->description))
 								{
 									$new_modules[$modulename] = $modulename.': '.$moduleobject->description;
 								}

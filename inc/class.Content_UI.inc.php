@@ -552,7 +552,7 @@
 			$returnValue = '';
 			foreach($modules as $id => $module)
 			{ 
-				$returnValue.='<option title="' . $module['description'] . '" value="'.$id.'">'.
+				$returnValue.='<option title="' . lang($module['description']) . '" value="'.$id.'">'.
 					$module['module_name'].'</option>'."\n";
 			}
 			return $returnValue;
@@ -629,8 +629,8 @@
 			//TODO: so that we do not create the same module object twice
 			$moduleobject =& $this->modulebo->createmodule($block->module_name);
 			$this->t->set_var(array(
-				'moduleinfo' => ($block->module_name),
-				'description' => $moduleobject->description,
+				'moduleinfo' => $block->module_name,
+				'description' => lang($moduleobject->description),
 				'savelang' => $this->langselect
 			));
 
