@@ -1,9 +1,8 @@
 <?php
-
 /**************************************************************************\
 * eGroupWare SiteMgr - Web Content Management                              *
 * Module : download                                                        *
-* Author : Cornelius Weiß <egw@von-und-zu-weiss.de>                        *
+* Author : Cornelius Weiss <egw@von-und-zu-weiss.de>                        *
 *          based on an old SiteMgr module                                  *
 * http://www.egroupware.org                                                *
 * --------------------------------------------                             *
@@ -12,6 +11,8 @@
 *  Free Software Foundation; either version 2 of the License, or (at your  *
 *  option) any later version.                                              *
 \**************************************************************************/
+
+/* $Id$ */
 
 class module_download extends Module 
 {
