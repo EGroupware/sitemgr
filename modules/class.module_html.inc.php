@@ -27,8 +27,10 @@
 						'plugins' => '
 							theme : "advanced",
 							theme_advanced_toolbar_location : "top",
+							theme_advanced_toolbar_align : "left",
+							theme_advanced_disable : "styleselect",
 							plugins : "filemanager,table,contextmenu,paste,fullscreen,advhr,advimage,advlink,iespell,insertdatetime,searchreplace,flash",
-							theme_advanced_buttons1_add : "separator,search,replace",
+							theme_advanced_buttons1_add : "fontselect,fontsizeselect,separator,search,replace",
 							theme_advanced_buttons2_add : "separator,iespell,insertdate,inserttime,separator,flash",
 							theme_advanced_buttons3_add : "separator,filemanager,fullscreen",
 							theme_advanced_buttons3_add_before : "tablecontrols,separator,advhr",
