@@ -11,8 +11,6 @@
 
 	/* $Id$ */
 
-	include('./config.inc.php');
-
 	$site_id=0;
 	/**
 	 * Determine the site from the URL ($_SERVER['PHP_SELF'])
@@ -67,6 +65,8 @@
 			'currentapp' => 'sitemgr-link',
 			'autocreate_session_callback' => 'sitemgr_get_site',
 	));
+
+	include('./config.inc.php');
 
 	// do we use a different domain and are already loged in?
 	if (isset($GLOBALS['egw_info']['server']['default_domain']) && (isset($_GET['domain']) || isset($_COOKIE['domain'])))
