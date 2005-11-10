@@ -330,7 +330,7 @@ select the templates the user is allowed to see	sitemgr	es-es	Seleccionar las pl
 select type of navigation	sitemgr	es-es	Seleccionar tipo de navegación
 selected template %1 does not exist.	sitemgr	es-es	La plantilla seleccionada %1 no existe
 selected theme %1 does not exist.	sitemgr	es-es	El tema seleccionado %1 no existe.
-should the file be viewed in the browser or downloaded	sitemgr	es-es	¿Mostrar el fichero o descargarlo?
+should the file be viewed in the browser or downloaded	sitemgr	es-es	¿Ver el fichero en el navegador o descargarlo?
 show a template-gallery (thumbnail and informations)	sitemgr	es-es	Mostrar una galería de plantillas (diapositiva e información)
 show contents of a directory	sitemgr	es-es	Mostrar el contenido de un directorio
 show contents of a directory with subdirectories	sitemgr	es-es	Mostrar el contenido de un directorio con subdirectorios
@@ -361,7 +361,7 @@ sitemgr setup instructions	sitemgr	es-es	Instrucciones para configurar el Admini
 sitemgr setup page	sitemgr	es-es	Página de configuración del Administrador de sitios
 sitemgr web content manager	common	es-es	Administrador de contenidos del Administrador de sitios web
 sitemgr websites	sitemgr	es-es	Sitios web
-sort order	sitemgr	es-es	Forma de ordenación
+sort order	sitemgr	es-es	Orden en la página
 state	sitemgr	es-es	Estado
 strip html from block content?	sitemgr	es-es	¿Separar HTML del contenido por bloques?
 subcategories	sitemgr	es-es	Subcategorías
