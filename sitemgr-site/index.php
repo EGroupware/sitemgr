@@ -69,10 +69,14 @@
 	include('./config.inc.php');
 
 	// do we use a different domain and are already loged in?
-	if (isset($GLOBALS['egw_info']['server']['default_domain']) && (isset($_GET['domain']) || isset($_COOKIE['domain'])))
+	if (isset($GLOBALS['egw_info']['server']['default_domain']) && 
+		$_REQUEST['domain'] != $GLOBALS['egw_info']['server']['default_domain'])
 	{
 		// force our default domain
-		$_GET['domain'] = $GLOBALS['egw_info']['server']['default_domain'];
+		$_GET['domain'] = $_COOKIE['domain'] = $_REQUEST['domain'] = $GLOBALS['egw_info']['server']['default_domain'];
+		unset($_GET['sessionid']);
+		unset($_COOKIE['sessionid']);
+		unset($_REQUEST['sessionid']);
 	}
 	if (!file_exists($sitemgr_info['egw_path'] . 'header.inc.php'))
 	{
