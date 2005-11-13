@@ -21,6 +21,7 @@ administrative menu	sitemgr	sl	Administrativni meni
 administrators	sitemgr	sl	Administratorji
 all categories	sitemgr	sl	Vse kategorije
 all forums in category %1	sitemgr	sl	Vsi forumi v kategoriji %1
+all languages	sitemgr	sl	vsi jeziki
 allow posting of questions	sitemgr	sl	Dovoli objavljanje vprašanj
 amazon	sitemgr	sl	Amazon
 amazon server (without www), eg. amazon.com	sitemgr	sl	Amazon strežnik (brez www), npr. amazon.com
@@ -42,7 +43,8 @@ as	common	sl	kot
 asin[=title] pairs (title is optional)	sitemgr	sl	ASIN[=naslov] pari (naslov ni obvezen)
 attempt to access information outside current website	sitemgr	sl	Poizkus dostopa do informacij izven trenutne spletne strani
 attempt to edit non-editable block	sitemgr	sl	Poizkus urejanja ne-urejevalnega bloka
-automatic index	sitemgr	sl	Avtomatično kazalo
+automatic index	sitemgr	sl	Samodejno kazalo
+automatically generated notification	sitemgr	sl	Samodejno generirano sporočilo
 back to module manager	sitemgr	sl	Nazaj na upravljalca modulov
 back to the list of languages	sitemgr	sl	Nazaj na seznam jezikov
 basic settings	sitemgr	sl	Osnovne nastavitve
@@ -126,11 +128,20 @@ edit site	sitemgr	sl	Uredi spletišče
 edit site header and footer	common	sl	Uredi glavo in nogo spletišča
 edit this block	sitemgr	sl	Uredi ta blok
 edit website	sitemgr	sl	Uredi spletišče
+egw users	sitemgr	sl	egw uporabniki
+element successfully deleted.	sitemgr	sl	Element uspešno zbrisan.
 enter a name	sitemgr	sl	Vnesite ime
 enter the block content here	sitemgr	sl	Vnesite vsebino bloka tukaj
+enter the email to be notified about changes of the website.	sitemgr	sl	Vpiši svoj elektronski naslov, na katerega boš obveščen o vseh spremembah na spletni strani.
+enter the email to be notified about changes of the website:	sitemgr	sl	Vpiši svoj elektronski naslov, na katerega boš obveščen o vseh spremembah na spletni strani:
 enter the page content here	sitemgr	sl	Vnesite vsebino strani tukaj
 enterprise knowledge articles repository	sitemgr	sl	Zbirka člankov skupnih znanj
+entry duplicated.	sitemgr	sl	Vnos podvojen.
+entry saved.	sitemgr	sl	Vnos shranjen.
 error accessing page	common	sl	Napaka pri dostopu do strani
+error deleting the element.	sitemgr	sl	Napaka pri brisanju elementa.
+error writing to the database.	sitemgr	sl	Napaka pri pisanju v podatkovno bazo.
+error writing to the database: %1.	sitemgr	sl	Napaka pri pisanju v podatkovno bazo: %1.
 everybody	sitemgr	sl	vsi
 file	sitemgr	sl	Datoteka
 file %1 is not readable by the webserver !!!	sitemgr	sl	Datoteka %1 ni berljiva z internetnim strežnikom.
@@ -198,6 +209,7 @@ manage site-wide content	sitemgr	sl	Upravljaj vsebino celotnega spletišča
 manage site-wide module properties	sitemgr	sl	Upravljaj nastavitve lastnosti modulov za celotno spletišče
 manage translations	sitemgr	sl	Upravljaj prevode
 master list of permitted modules	sitemgr	sl	Glavni list dovoljenih modulov
+messages are defined for all site languages.	sitemgr	sl	Sporočila so definirana za vse jezike.
 migrating data for %1 to %2	sitemgr	sl	Prenašam podatke za %1 v %2
 module %1 is not permitted in this context!	sitemgr	sl	Modul %1 v tem kontekstu ni dovoljen.
 module manager	sitemgr	sl	Upravljalec modulov
@@ -330,11 +342,11 @@ suppress link to index (show all)	sitemgr	sl	Skrči povezavo na indeks (prikaži
 suppress link to parent category	sitemgr	sl	Skrči povezavo do nadrejene kategorije
 suppress the current page	sitemgr	sl	Skrči trenutno stran
 table of contents	sitemgr	sl	Kazalo
+template based navigation module	sitemgr	sl	Podloge temeljijo na navigacijskih modulih
 template select	sitemgr	sl	Izbor predloge
 textarea	sitemgr	sl	Območje besedila
 the category to display, 0 for complete table of contents	sitemgr	sl	Kategorija za prikaz, 0 za popolno kazalo
 the complete url or path to a file to be included	sitemgr	sl	Celoten URL ali pot do datoteke za vključitev
-the config.inc.php file needs to be edited to point to the egroupware directory. copy the config.inc.php.template file to config.inc.php and then edit it.	sitemgr	sl	Datpteka config.inc.php mora biti popravljena, da kaže na začetno eGroupWare mapo. Prekopirajte datoteko config.inc.php.template v config.inc.php in jo nato popravite.
 the config.inc.php file needs to be edited to point to the egroupware directory. copy the config.inc.php.template file to config.inc.php and then edit it.	sitemgr	sl	config.inc.php datoteko je potrebno urediti, da bo kazala na egroupWare mapo. Skopirajte config.inc.php.template datoteko v config.inc.php in jo uredite.
 the file to be downloaded	sitemgr	sl	Datoteka za prenos
 the filesystem path to your sitemgr-site directory '%1' is probably wrong. go to sitemgr --> define websites and edit/fix the concerned site.	sitemgr	sl	Pot do vaše mape Upravljalca spletišč '%1' je najverjetneje napačna. Pojdite na Upravljalec spletišč --> Določi spletišča in uredite to stran
@@ -350,9 +362,11 @@ the url can be relative or absolute.  name must end in a slash.	sitemgr	sl	URL j
 the url must be absolute and end in a slash, for example http://mydomain.com/mysite/	sitemgr	sl	URL mora biti absoluten in se končati s poševnico, npr. http://domena.si/mojastran/
 the url to redirect to	sitemgr	sl	URL za preusmeritev
 the web	sitemgr	sl	Splet
+the website has changed. too see the change, follow this url: $url.	sitemgr	sl	Spletna stran je bila spremenjena. V kolikor želite videti spremembe, poglejte naslednji URL: $URL
 the whole page	sitemgr	sl	Celotna stran
 the xml files' common name	sitemgr	sl	Splošno ime za XML datoteke
 theme or template select	sitemgr	sl	Izbira teme ali predloge
+there are %1 elements in the list.	sitemgr	sl	Tu ni %1 elementov na seznamu.
 there are no categories	sitemgr	sl	Ni kategorij.
 there are no forums in this category	sitemgr	sl	V tej kategoriji ni forumov.
 there are no pages in this section	sitemgr	sl	V tem razdelku ni podrejenih strani.
@@ -361,6 +375,7 @@ there are no sections available to you.	sitemgr	sl	Na voljo ni nobenega oddelka.
 there are two subdirectories off of your sitemgr directory that you should move before you do anything else.  you don't <i>have</i> to move either of these directories, although you will probably want to.	sitemgr	sl	Obstajata dve podmapi v vaši mapi sitemgr, ki ju je potrebno preden naredite karkoli drugega. Ni ju <i>potrebno</i> premakniti, vendar boste to verjetno želeli.
 there can only be one version in (pre(un))published state, with the one exeption that one prepublished version can coexist with one preunpublished version	sitemgr	sl	V stanju predobjavljeno ali predodstranjeno je lahko le ena različica, lahko pa obstajata obe hkrati.
 there is no website configured for url %1.  notify the administrator.	sitemgr	sl	NOBENA SPLETNA STRAN NI NASTAVLJENA ZA URL %1. OBVESTITE ADMINISTRATORJA.
+there is nothing to list.	sitemgr	sl	Tu ni nič za pregledati.
 there was an error accessing the requested page. either you do not have permission to view this page, or the page does not exist.	common	sl	Napaka pri dostopanju do zahtevane strani. Lahko nimate dovoljenja za ogled strani ali pa ne obstaja.
 there was an error writing to the database.	sitemgr	sl	Pri pisanju v podatkovno bazo je prišlo napaka.
 this block displays a javascript based tree menu	sitemgr	sl	Ta blok prikaže drevesni meni, ki je baziran na javascriptu
@@ -378,6 +393,7 @@ this module displays bookmarks in a javascript based tree	sitemgr	sl	Ta modul pr
 this module displays the current month	sitemgr	sl	Ta modul prikaže trenutni mesec
 this module displays the egw forums on the web site	sitemgr	sl	Ta modul na spletišču prikaže eGroupWare forume.
 this module displays the phpgw forums on the web site	sitemgr	sl	Ta modul prikaže phpgw forume na spletni strani
+this module displays the root categories in one block each, with pages and subcategories (incl. their pages if activated).	sitemgr	sl	Ta modul prikaže korenske kategorije, vsako v enem bloku z stranmi in podkategorijami (vsebuje njihove strani, če so aktivirane.
 this module displays the root categories, its pages and evtl. subcategories. it is meant for side areas	sitemgr	sl	Ta modul prikaže korenske kageforije, njihove strani in morebitne podkategorije. Namenjen je  stranskim področjem.
 this module includes the contents of an url or file (readable by the webserver and in its docroot !)	sitemgr	sl	Ta modul vsebuje vsebino URL ali datoteke (lahko jo bere spletni strežnik ali njegov docroot!)
 this module is a selectbox to change the mode (production, draft or edit) plus a link back to sitemgr and to log out. it is meant for registered users only	sitemgr	sl	Ta modul je izbirni seznam za spremembo načina prikaza (produkcijski, osnutek ali urejanje), ter povezava nazaj v Upravljalca spletišča in za odjavo. Namenjen je le prijavljenim uporabnikom.
@@ -403,8 +419,10 @@ translate page	sitemgr	sl	Prevedi stran
 translate site-wide content blocks	sitemgr	sl	Prevedi vsebinske bloke po celotnem strežniku
 translation manager	sitemgr	sl	Upravljalec prevajanja
 translation status	sitemgr	sl	Stanje prevajanja
+unsubscribe	sitemgr	sl	Odjavi
 up to parent	sitemgr	sl	Nadrejena stran
 up to table of contents	sitemgr	sl	Kazalo
+update notification	sitemgr	sl	Posodobi Objavo
 updating to new category system	sitemgr	sl	Nadgrajujem na nov sistem kategorij
 url pointing to the image-directory	sitemgr	sl	URL ki kaže na mapo s slikami
 url to sitemgr-site	sitemgr	sl	URL do strani Upravljalca strani
