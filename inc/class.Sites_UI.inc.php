@@ -154,6 +154,7 @@
 			}
 
 			$site_id = get_var('site_id',array('POST','GET'));
+			if(!is_numeric($site_id)) $site_id = false;
 			
 			$GLOBALS['egw']->template->set_file(array('form' => 'site_form.tpl'));
 			$GLOBALS['egw']->template->set_block('form','add','addhandle');
@@ -180,7 +181,7 @@
 				{
 					$GLOBALS['egw']->template->set_var('message','<font color="red">'.lang("'%1' is no valid sitemgr-site directory !!!",$site['dir']).'</font>');
 				}
-				elseif ($site_id)
+				elseif (!empty($site_id))
 				{
 					$this->bo->update($site_id,$site);
 					$GLOBALS['egw']->template->set_var('message',lang('Site %1 has been updated',$site['_name']));
