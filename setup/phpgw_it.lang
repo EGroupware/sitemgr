@@ -2,6 +2,12 @@
 %1 module manager	sitemgr	it	Gestione moduli %1
 '%1' is no valid sitemgr-site directory !!!	sitemgr	it	'%1' non è una directory  di sito valida per sitemgr !!!
 (do not put spaces or punctuation in the name field.)	sitemgr	it	(Non mettere spazi o punteggiatura nel campo Nome.)
+(leave blank to allow insecure logins)	sitemgr	it	(lascia vuoto per permettere login insicuri)
+(only used in case of single file)	sitemgr	it	(usato solo in caso di singolo file)
+1 day	sitemgr	it	1 Giorno
+1 hour	sitemgr	it	1 Ora
+1 month	sitemgr	it	1 Mese
+1 week	sitemgr	it	1 Settimana
 <b>autoregistration is not enabled / configured in the registration app !!!</b><br>you need to do so, to get the autoregistration link working.	sitemgr	it	<b>L'autoregistrazione non è abilitata / configurata nell'applicazione Registrazione !!!</b><br>Devi farlo, perché il link autoregistrazione funzioni.
 <b>want more templates?</b><br />just download one from the template gallery at %1www.egroupware.org%2 or use a %3mambo open source%4 version 4.5 compatible template eg. from %5. unpack the downloaded template in your templates directory (%6).	sitemgr	it	<b>Vuoi altri template?</b><br />Basta scaricarli dalla galleria dei template a %1www.eGroupWare.org%2 o utilizza un template compatibile con %3Mambo Open Source%4 Version 4.5 es. da %5. Scompatta il template scaricato nella tua directory dei template (%6).
 a simple picture galery	sitemgr	it	Una semplice galleria di immagini
@@ -22,6 +28,7 @@ administrators	sitemgr	it	amministratori
 all categories	sitemgr	it	Tutte le categorie
 all forums in category %1	sitemgr	it	Tutti i forum nella categoria %1
 all languages	sitemgr	it	tutte le lingue
+allignment of navigation elements	sitemgr	it	Allineamento degli elementi di navigazione
 allow posting of questions	sitemgr	it	Consenti di porre domande
 amazon	sitemgr	it	Amazon
 amazon server (without www), eg. amazon.com	sitemgr	it	Server Amazon (senza www), es. amazon.com
@@ -30,16 +37,29 @@ anonymous	sitemgr	it	anonimo
 anonymous user login domain	sitemgr	it	Dominio di login utente anonimo
 anonymous user's password	sitemgr	it	Password utente anonimo
 anonymous user's username	sitemgr	it	Nomeutente utente anonimo
+applet	sitemgr	it	Applet
 application	sitemgr	it	Applicazione
 application '%1' is not installed !!!<br>please install it, to be able to use the block.	sitemgr	it	L'Applicazione '%1' non è installata !!!<br>Per favore installala, per potere usare il blocco.
+application sitemgr_module_guestbook must be installed as a egroupware application for this module to run	sitemgr	it	L'applicazione sitemgr_module_guestbook deve essere installata come applicazione eGroupWare perché questo modulo funzioni
+apply permissions also to subcategories?	sitemgr	it	Applica i permessi anche alle sottocategorie?
 archived	sitemgr	it	archiviato
 archived content	sitemgr	it	Contenuto archiviato
+are you sure you want to delete site %1 and all its content? you cannot retrieve it if you continue.	sitemgr	it	Vuoi davvero concellare il sito %1 e tutto il suo contenuto? Non potrai recuperarlo se continui.
 as	common	it	come
+attempt to access information outside current website	sitemgr	it	Tentativo di accedere a informazioni esterne al sito web corrente
+attempt to edit non-editable block	sitemgr	it	Tentativo di modificare un blocco non-modificabile
 automatic index	sitemgr	it	Indice automatico
 automatically generated notification	sitemgr	it	Notifica generata automaticamente
 back to module manager	sitemgr	it	Indietro a gestione modulo
 back to the list of languages	sitemgr	it	Indietro a elenco lingue
 basic settings	sitemgr	it	Impostazioni di base
+block not found.	sitemgr	it	Blocco non trovato.
+block reloaded	sitemgr	it	Blocco ricaricato
+block returned no content.	sitemgr	it	Il blocco non ha restituito nessun contenuto.
+block saved	sitemgr	it	Blocco salvato
+bookmarks	sitemgr	it	Segnalibri
+buy at %1	sitemgr	it	Compra a %1
+calendar	sitemgr	it	Agenda
 cancel the delete	sitemgr	it	Annulla la cancellazione
 category	sitemgr	it	Categoria
 category description	sitemgr	it	Descrizione Categoria
