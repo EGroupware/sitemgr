@@ -68,7 +68,7 @@
 					'.total'  => 'colspan="2"',
 				);
 //				we use a join with egw_lang itself to eliminate additional (obsolete) phrases not in the english langfile
-				$this->db->query("SELECT l.lang,lang_name,count( l.message_id ) AS count FROM $this->lang_table l,$this->lang_table en LEFT JOIN $this->languages_table ON l.lang=lang_id WHERE l.app_name=en.app_name AND l.message_id=en.message_id AND en.lang='en' GROUP BY l.lang,lang_name ORDER BY count DESC,l.lang");
+				$this->db->query("SELECT l.lang,lang_name,count( l.message_id ) AS count FROM $this->lang_table en,$this->lang_table l LEFT JOIN $this->languages_table ON l.lang=lang_id WHERE en.lang='en' AND l.app_name=en.app_name AND l.message_id=en.message_id GROUP BY l.lang,lang_name ORDER BY count DESC,l.lang");
 				while($row = $this->db->row(True))
 				{
 					if (empty($row['lang']) || empty($row['lang_name']))
