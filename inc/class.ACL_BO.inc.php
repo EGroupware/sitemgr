@@ -160,6 +160,10 @@
 		 */
 		function can_write_category($category_id)
 		{
+			if ($this->is_admin())
+			{
+				return true;
+			}
 			return !!($this->category_acl($category_id) & EGW_ACL_ADD);
 		}
 
