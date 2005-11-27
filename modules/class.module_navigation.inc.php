@@ -295,8 +295,8 @@
 						$arguments = array_merge($arguments, array(
 							'nav_title' => lang('Pages:'),
 							'suppress_current_cat' => true,
-							'max_cat_depth' => '1',
-							'max_pages_depth' => '1',
+							'max_cat_depth' => '+0',
+							'max_pages_depth' => '+0',
 							'show_page_description' => true,
 							'show_subcats_above' => true,
 						));
@@ -332,11 +332,11 @@
 				
 			$this->objbo =& $GLOBALS['objbo'];
 			$this->page =& $GLOBALS['page'];
+			$this->category =& $this->objbo->getcatwrapper($this->page->cat_id);
 			
 			if (!$arguments['suppress_parent'])
 			{
-				$category = $this->objbo->getcatwrapper($this->page->cat_id);
-				$parent = $category->parent;
+				$parent = $this->category->parent;
 				if ($parent && $parent != CURRENT_SITE_ID) // do we have a parent?
 				{
 					$p = $this->objbo->getcatwrapper($parent);
@@ -373,14 +373,14 @@
 				$out .= ' (<a href="'.sitemgr_link2('/index.php','category_id='.$this->page->cat_id).
 					'"><i>'.lang('show all').'</i></a>)'."\n";
 			}
-
+			
+			// relative cat or pages depth ?
+			if (strpos($arguments['max_cat_depth'],'+') === 0) (int)$arguments['max_cat_depth'] += $this->category->depth;
+			if (strpos($arguments['max_pages_depth'],'+') === 0) (int)$arguments['max_pages_depth'] += $this->category->depth;
+			
 			$cat_tree = $cat_tree_data = array('root');
 			foreach($this->objbo->getCatLinks(0,true,true) as $cat_id => $cat)
 			{
-				// relative cat or pages depth ?
-				if (strpos($arguments['max_cat_depth'],'+') === 0) (int)$arguments['max_cat_depth'] += $cat['depth'];
-				if (strpos($arguments['max_pages_depth'],'+') === 0) (int)$arguments['max_pages_depth'] += $cat['depth'];
-															
 				if(array_key_exists($cat['depth'],$cat_tree))
 				{
 					$pop_depth = count($cat_tree);
