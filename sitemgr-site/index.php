@@ -55,7 +55,7 @@
 			//echo "<p>sitemgr_get_site('$site_url') site_id=$site_id, anon_account=".print_r($anon_account,true)."</p>\n";
 			return $site_id;
 		}
-		die(lang('THERE IS NO WEBSITE CONFIGURED FOR URL %1.  NOTIFY THE ADMINISTRATOR.',$site_url));
+		die(lang('THERE IS NO WEBSITE CONFIGURED FOR URL %1.  NOTIFY THE ADMINISTRATOR.',$site_url.' ('.$GLOBALS['egw_info']['server']['default_domain'].')'));
 	}
 
 	$GLOBALS['egw_info'] = array(
@@ -70,7 +70,7 @@
 
 	// do we use a different domain and are already loged in?
 	if (isset($GLOBALS['egw_info']['server']['default_domain']) && 
-		$_REQUEST['domain'] != $GLOBALS['egw_info']['server']['default_domain'])
+		@$_REQUEST['domain'] != $GLOBALS['egw_info']['server']['default_domain'])
 	{
 		// force our default domain
 		$_GET['domain'] = $_COOKIE['domain'] = $_REQUEST['domain'] = $GLOBALS['egw_info']['server']['default_domain'];
