@@ -32,7 +32,7 @@
 							plugins : "filemanager,table,contextmenu,paste,fullscreen,advhr,advimage,advlink,iespell,insertdatetime,searchreplace,flash",
 							theme_advanced_buttons1_add : "fontselect,fontsizeselect,separator,search,replace",
 							theme_advanced_buttons2_add : "separator,iespell,insertdate,inserttime,separator,flash",
-							theme_advanced_buttons3_add : "separator,filemanager,fullscreen",
+							theme_advanced_buttons3_add : "separator,filemanager,fullscreen,separator,forecolor,backcolor",
 							theme_advanced_buttons3_add_before : "tablecontrols,separator,advhr",
 							extended_valid_elements : "hr[class|width|size|noshade], a[name|href|target|title|onclick], img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name],font[*]",
 							flash_wmode : "transparent",
