@@ -327,7 +327,7 @@
 
 		function saveCategoryPermsfromparent($cat_id)
 		{
-			$cat=$this->getCategory($cat_id);
+			$cat=$this->getCategory($cat_id,false,true);
 			$parent=$cat->parent;
 			if ($parent)
 			{

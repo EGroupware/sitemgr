@@ -62,7 +62,7 @@
 			
 			foreach($this->acl->get_all_rights('L'.$fromcat,'sitemgr') as $account_id => $right)
 			{
-				$this->add_repository('sitemgr','L'.$tocat,$account_id,$right);
+				$this->acl->add_repository('sitemgr','L'.$tocat,$account_id,$right);
 			}
 		}
 
