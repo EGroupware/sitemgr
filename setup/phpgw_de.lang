@@ -4,10 +4,10 @@
 (do not put spaces or punctuation in the name field.)	sitemgr	de	(Im Namensfeld sind keine Leer- oder Satzzeichen erlaubt.)
 (leave blank to allow insecure logins)	sitemgr	de	(leer lassen um unsichere Anmeldungen zu erlauben)
 (only used in case of single file)	sitemgr	de	(nur für eine einzige Datei verwendet)
-1 day	sitemgr	de	1 Tag
-1 hour	sitemgr	de	1 Stunde
-1 month	sitemgr	de	1 Monat
-1 week	sitemgr	de	1 Woche
+1 day	common	de	Den ganzen Tag
+1 hour	common	de	Für eine Stunde
+1 month	common	de	Für einen Monat
+1 week	common	de	Für eine Woche
 <b>autoregistration is not enabled / configured in the registration app !!!</b><br>you need to do so, to get the autoregistration link working.	sitemgr	de	<b>Autoregistrierung ist nicht eingeschaltet oder konfiguriert in der Anwendung Registrierung !!!</b><br>Sie müssen das machen, damit der Link zur Autoregistrierung funktioniert.
 <b>want more templates?</b><br />just download one from the template gallery at %1www.egroupware.org%2 or use a %3mambo open source%4 version 4.5 compatible template eg. from %5. unpack the downloaded template in your templates directory (%6).	sitemgr	de	<b>Suchen sie weitere Designvorlagen?</b><br />Laden Sie einfach eine von der Galerie auf %1www.eGroupWare.org%2 oder verwenden Sie ein %3Mambo Open Source%4 Version 4.5 kompatibles Template zB. von %5. Entpacken Sie die heruntergeladene Designvorlage in Ihrem Templateverzeichnis (%6).
 a simple picture galery	sitemgr	de	Eine einfache Bilder Gallerie
@@ -172,7 +172,7 @@ filesystem path to sitemgr-site directory	sitemgr	de	Dateisystem Pfad zum sitemg
 fill in permissions from parent category? if you check this, below values will be ignored	sitemgr	de	Zugriffsrechte der Eltern-Kategorie übernehmen? Wenn das angekreutzt ist, werden die folgenden Werte ignoriert
 following new modules registed: %1	sitemgr	de	Folgende neue Module wurden registriert: %1
 footer editor	sitemgr	de	Fußzeilen Editor
-forever	sitemgr	de	Für immer
+forever	common	de	Für immer
 forum	sitemgr	de	Forum
 full path of the xslt file that should be applied to the xml files	sitemgr	de	Der komplette Pfad zur XSLT Datei welche angewendet wird für die XML Dateien
 galerie	sitemgr	de	Galerie
@@ -263,7 +263,7 @@ no users defined.	sitemgr	de	Keine Benutzer definiert.
 no websites defined	sitemgr	de	Keine Website definiert
 no, chooser only (for side-areas)	sitemgr	de	Nein nur Auswahl (für Seitenbereiche)
 no, chooser with preview	sitemgr	de	Nein nur Auswahl mit Vorschau
-not	sitemgr	de	nicht
+not	common	de	Niemals
 not yet translated	sitemgr	de	noch nicht übersetzt
 note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	de	Sie können diese Nachricht auch erhalten, wenn Ihre Einstellungen nicht richtig sind. Zum Beispiel wenn config.inc.php nicht im angegebenen Verzeichnis gefunden wurde.
 note, this directory has to be writeable by webserver!	sitemgr	de	Bitte beachten, dieses Verzeichnis muß vom Webserver beschreibbar sein!
@@ -310,7 +310,7 @@ refresh	sitemgr	de	Aktualisieren
 register for one now.	sitemgr	de	Hier können Sie sich registrieren.
 register new modules	sitemgr	de	Neue Module registrieren
 reload	sitemgr	de	Nachladen
-remember me	sitemgr	de	Automatisch wieder anmelden
+remember me	common	de	Automatisch anmelden
 replies	sitemgr	de	Antworten
 required fields	sitemgr	de	Benötigte Felder
 reset	sitemgr	de	Zurücksetzen

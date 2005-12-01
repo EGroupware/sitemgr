@@ -4,10 +4,10 @@
 (do not put spaces or punctuation in the name field.)	sitemgr	en	(Do not put spaces or punctuation in the Name field.)
 (leave blank to allow insecure logins)	sitemgr	en	(leave blank to allow insecure logins)
 (only used in case of single file)	sitemgr	en	(only used in case of single file)
-1 day	sitemgr	en	1 Day
-1 hour	sitemgr	en	1 Hour
-1 month	sitemgr	en	1 Month
-1 week	sitemgr	en	1 Week
+1 day	common	en	1 Day
+1 hour	common	en	1 Hour
+1 month	common	en	1 Month
+1 week	common	en	1 Week
 <b>autoregistration is not enabled / configured in the registration app !!!</b><br>you need to do so, to get the autoregistration link working.	sitemgr	en	<b>Autoregistration is not enabled / configured in the registration app !!!</b><br>You need to do so, to get the autoregistration link working.
 <b>want more templates?</b><br />just download one from the template gallery at %1www.egroupware.org%2 or use a %3mambo open source%4 version 4.5 compatible template eg. from %5. unpack the downloaded template in your templates directory (%6).	sitemgr	en	<b>Want more templates?</b><br />Just download one from the template gallery at %1www.eGroupWare.org%2 or use a %3Mambo Open Source%4 Version 4.5 compatible template eg. from %5. Unpack the downloaded template in your templates directory (%6).
 a simple picture galery	sitemgr	en	A simple picture galery
@@ -172,7 +172,7 @@ filesystem path to sitemgr-site directory	sitemgr	en	Filesystem path to sitemgr-
 fill in permissions from parent category? if you check this, below values will be ignored	sitemgr	en	Fill in permissions from parent category? If you check this, below values will be ignored
 following new modules registed: %1	sitemgr	en	Following new modules registed: %1
 footer editor	sitemgr	en	Footer Editor
-forever	sitemgr	en	Forever
+forever	common	en	Forever
 forum	sitemgr	en	Forum
 full path of the xslt file that should be applied to the xml files	sitemgr	en	Full path of the XSLT file that should be applied to the XML files
 galerie	sitemgr	en	Galerie
@@ -263,7 +263,7 @@ no users defined.	sitemgr	en	No users defined.
 no websites defined	sitemgr	en	No websites defined
 no, chooser only (for side-areas)	sitemgr	en	No, chooser only (for side-areas)
 no, chooser with preview	sitemgr	en	No, chooser with preview
-not	sitemgr	en	not
+not	common	en	not
 not yet translated	sitemgr	en	not yet translated
 note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	en	Note that you may get this message if your preferences are incorrect.  For example, if config.inc.php is not found in the directory that you specified.
 note, this directory has to be writeable by webserver!	sitemgr	en	Note, this directory has to be writeable by webserver!
@@ -310,7 +310,7 @@ refresh	sitemgr	en	Refresh
 register for one now.	sitemgr	en	Register for one now.
 register new modules	sitemgr	en	Register new modules
 reload	sitemgr	en	Reload
-remember me	sitemgr	en	remember me
+remember me	common	en	remember me
 replies	sitemgr	en	Replies
 required fields	sitemgr	en	Required Fields
 reset	sitemgr	en	Reset
