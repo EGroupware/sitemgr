@@ -1,7 +1,7 @@
 <?php
 	/**************************************************************************\
-	* eGroupWare - Notes                                                     *
-	* http://www.egroupware.org                                              *
+	* eGroupWare - Sitemgr guestbook                                           *
+	* http://www.egroupware.org                                                *
 	* --------------------------------------------                             *
 	*  This program is free software; you can redistribute it and/or modify it *
 	*  under the terms of the GNU General Public License as published by the   *
@@ -20,7 +20,7 @@
 	);
 	$setup_info['sitemgr_module_guestbook']['enable']    = 1;
 
-	/* Dependacies for this app to work */
+	/* Dependencies for this app to work */
 	$setup_info['sitemgr_module_guestbook']['depends'][] = array(
 		'appname'  => 'sitemgr',
 		'versions' => Array('1.0.0','1.0.1')
