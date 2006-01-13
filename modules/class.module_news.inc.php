@@ -94,7 +94,8 @@
 			// i have no idea why :( 
 			// so i added trim
 			// lkneschke 2004-02-24
-			$item = trim($arguments['item']);
+			$item = $arguments['item'] ? $arguments['item'] : $_GET['item'];
+			trim($item);
 			if ($item)
 			{
 				$newsitem = $bonews->get_news($item);
