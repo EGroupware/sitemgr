@@ -36,6 +36,7 @@
 	 * - showhidden
 	 * - sub_cats
 	 * - suppress_current_cat
+	 * - suppress_main_cats
 	 * - suppress_cat_link
 	 * - suppress_current_page
 	 * - suppress_parent
@@ -63,7 +64,7 @@
 						6 => 'toc',
 						7 => 'toc_block',
 						8 => 'path',
-// 						9 => lang('custom')
+						9 => lang('custom')
 					)
 				)	
 			);
@@ -117,23 +118,63 @@
 				8 => array( // Path
 					'description' => lang('This module provides the path to the element currently shown')
 					),
-// 				9 => array( //Custom
-// 					'description' => lang('This module is a customisable navigation element'),
-// 					'allingment' => array(
-// 						'type' => 'select', 
-// 						'label' => lang('Allignment of navigation elements'),
-// 						'options' => array(
-// 							'vertical' => lang('Vertical'),
-// 							'horizontal' => lang('Horizontal'))
-// 					),
-// 					'textallign' => array(
-// 						'type' => 'select',
-// 						'label' => lang('Text allignment'),
-// 						'options' => array(
-// 							'left' => lang('Left'),
-// 							'center' => lang('Center'),
-// 							'right' => lang('Right'))))
-					);
+				9 => array( //Custom
+					'description' => lang('This module is a customisable navigation element'),
+					'allingment' => array(
+						'type' => 'select',
+						'label' => lang('Allignment of navigation elements'),
+						'options' => array(
+							'vertical' => lang('Vertical'),
+							'horizontal' => lang('Horizontal'))
+					),
+					'textallign' => array(
+						'type' => 'select',
+						'label' => lang('Text allignment'),
+						'options' => array(
+							'left' => lang('Left'),
+							'center' => lang('Center'),
+							'right' => lang('Right'))),
+					'max_cat_depth' => array(
+						'type' => 'textfield',
+						'label' => lang('Maximal category depth to be shown'),
+					),
+					'max_pages_depth' => array(
+						'type' => 'textfield',
+						'label' => lang('Maximal page depth to be shown'),
+					),
+					'sub_cats' => array(
+						'type' => 'checkbox',
+						'label' => lang('Show subcategories')
+					),
+					'expand' => array(
+						'type' => 'checkbox',
+						'label' => lang('Expand current category'),
+					),
+					'current_section_only' => array(
+						'type' => 'checkbox',
+						'label' => lang('Show current section only')
+					),
+					'suppress_parent' => array(
+						'type' => 'checkbox',
+						'label' => lang('Suppress link to parent category')
+					),
+					'suppress_current_cat' => array(
+						'type' => 'checkbox',
+						'label' => lang('Suppress the current category')
+					),
+					'suppress_main_cats' => array(
+						'type' => 'checkbox',
+						'label' => lang('Suppress main categories')
+					),
+					'suppress_show_all' => array(
+						'type' => 'checkbox',
+						'label' => lang('Suppress link to index (show all)')
+					),
+					'no_full_index' => array(
+						'type' => 'checkbox',
+						'label' => lang('No link to full index')
+					),
+				));
 			$this->title = 'Navigation element';
 			$this->description = lang("This module displays any kind of navigation element.");
 		}
@@ -322,6 +363,12 @@
 					));
 					break;
 					
+				case 9 : // Custom
+					$out .= "custrom\" ";
+					$out .= "class=\"allingment-". $arguments['allingment']."\" ";
+					$out .= "class=\"textallign-". $arguments['textallign']."\"";
+					$out .= ">\n";
+					break;
 				case 4 : // Navigation
 				default:
 					$out .= "navigation\">\n";
@@ -414,7 +461,7 @@
 					$popcat = array_pop($outstack); $popcat_data = array_pop($outstack_data);
 					while($popcat)
 					{
-						if(!$popcat_data['pages_only'])
+						if(!$popcat_data['pages_only'] && !($arguments['suppress_main_cats'] && $popcat_data['depth'] == 1))
 						{
 							$out .= $this->encapsulate($arguments,array($popcat => $popcat_data),'cat',$popcat,$popcat_data['depth']);
 						}
@@ -443,12 +490,14 @@
 					break;
 				}
 				
-				if($arguments['current_section_only'] && $this->page->cat_id != $cat_id) continue;
+// 				if($arguments['current_section_only'] && $this->page->cat_id != $cat_id) continue;
+ 				if($arguments['current_section_only'] && array_search($this->page->cat_id,$cat_tree) === false) continue;
 				if((int)$arguments['category_id'] > 0 && (int)$arguments['category_id'] != $cat_id) continue;
-				
+//  				_debug_array($cat_tree);
 				if($cat['depth'] <= $arguments['max_cat_depth'])
 				{
-					if(!($arguments['suppress_current_cat'] && $this->page->cat_id == $cat_id))
+					if(!($arguments['suppress_current_cat'] && $this->page->cat_id == $cat_id) && 
+						!($arguments['suppress_main_cats'] && $cat['depth'] == 1))
 					{
 						if($arguments['suppress_cat_link'])
 						{
@@ -456,14 +505,14 @@
 						}
 						$out .= $this->encapsulate($arguments,array($cat_id => $cat),'cat',$cat_id,$cat['depth']);
 					}
-					
+				}
 					if($cat['depth'] <= $arguments['max_pages_depth'])
-					{ 
+					{
 						$pages = $this->objbo->getPageLinks($cat_id,$arguments['showhidden'],true);
 						if($arguments['suppress_current_page']) unset($pages[$this->page->id]);
 						$out .= $this->encapsulate($arguments,$pages,'page',$cat_id,$cat['depth'] +1);
 					}
-				}
+				
 			}
 			if (!$arguments['no_full_index'])
 			{
