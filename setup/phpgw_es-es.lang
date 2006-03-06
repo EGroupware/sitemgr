@@ -4,10 +4,10 @@
 (do not put spaces or punctuation in the name field.)	sitemgr	es-es	(No ponga espacios ni signos de puntuación en el campo Nombre)
 (leave blank to allow insecure logins)	sitemgr	es-es	(dejar en blanco para permitir sesiones inseguras)
 (only used in case of single file)	sitemgr	es-es	(sólo se usa para un único fichero)
-1 day	sitemgr	es-es	1 día
-1 hour	sitemgr	es-es	1 hora
-1 month	sitemgr	es-es	1 mes
-1 week	sitemgr	es-es	1 semana
+1 day	common	es-es	1 día
+1 hour	common	es-es	1 hora
+1 month	common	es-es	1 mes
+1 week	common	es-es	1 semana
 <b>autoregistration is not enabled / configured in the registration app !!!</b><br>you need to do so, to get the autoregistration link working.	sitemgr	es-es	<b>El autorregistro no está activado o configurado en la aplicación de suscripciones</b><br>Necesita hacerlo para que funcione el enlace de suscripciones.
 <b>want more templates?</b><br />just download one from the template gallery at %1www.egroupware.org%2 or use a %3mambo open source%4 version 4.5 compatible template eg. from %5. unpack the downloaded template in your templates directory (%6).	sitemgr	es-es	<b>¿Quiere más plantillas?</b><br />Simplemente descargue una de la galería de plantillas de %1www.eGroupWare.org%2 o use una plantilla compatible con versión 4.5 de %3Mambo Open Source%4 de %5. Descomprima la plantilla en su directorio de plantillas (%6).
 a simple picture galery	sitemgr	es-es	Una galería simple de imágenes
@@ -172,7 +172,7 @@ filesystem path to sitemgr-site directory	sitemgr	es-es	Ruta en el sistema de ar
 fill in permissions from parent category? if you check this, below values will be ignored	sitemgr	es-es	¿Rellenar permisos con los de la categoría superior? Si marca esto, se ignorarán los valores de debajo.
 following new modules registed: %1	sitemgr	es-es	Siguientes módulos nuevos registrados: %1
 footer editor	sitemgr	es-es	Editor de pies de página
-forever	sitemgr	es-es	Para siempre
+forever	common	es-es	Para siempre
 forum	sitemgr	es-es	Foros
 full path of the xslt file that should be applied to the xml files	sitemgr	es-es	Ruta completa del fichero XSLT que hay que aplicar a los ficheros XML
 galerie	sitemgr	es-es	Galería
@@ -229,6 +229,8 @@ manage site-wide content	sitemgr	es-es	Administrar el contenido de todo el stio
 manage site-wide module properties	sitemgr	es-es	Administrar las propiedades de todo el sitio
 manage translations	sitemgr	es-es	Administrar traducciones
 master list of permitted modules	sitemgr	es-es	Lista principal de módulos permitidos
+maximal category depth to be shown	sitemgr	es-es	Profundidad máxima de categoría a mostrar
+maximal page depth to be shown	sitemgr	es-es	Profundidad máxima de página a mostrar
 messages are defined for all site languages.	sitemgr	es-es	Los mensajes están definidos para todos idiomas del sitio.
 migrating data for %1 to %2	sitemgr	es-es	Migrar datos para %1 a %2
 module %1 is not permitted in this context!	sitemgr	es-es	El módulo %1 no está permitido en este contexto
@@ -263,7 +265,7 @@ no users defined.	sitemgr	es-es	No hay usuarios definidos
 no websites defined	sitemgr	es-es	No hay sitios web definidos
 no, chooser only (for side-areas)	sitemgr	es-es	No, sólo el selector (para áreas laterales)
 no, chooser with preview	sitemgr	es-es	No, selector con vista previa
-not	sitemgr	es-es	no
+not	common	es-es	no
 not yet translated	sitemgr	es-es	pendiente de traducir
 note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	es-es	Puede que vea este mensaje si sus preferencias son incorrectas. Por ejemplo, si config.inc.php no está en el directorio especificado.
 note, this directory has to be writeable by webserver!	sitemgr	es-es	Nota: el servidor web no puede escribir en el directorio
@@ -310,7 +312,7 @@ refresh	sitemgr	es-es	Refrescar
 register for one now.	sitemgr	es-es	Registrar por uno ahora
 register new modules	sitemgr	es-es	Registrar módulos nuevos
 reload	sitemgr	es-es	Recargar
-remember me	sitemgr	es-es	recordarme
+remember me	common	es-es	recordarme
 replies	sitemgr	es-es	Respuestas
 required fields	sitemgr	es-es	Campos requeridos
 reset	sitemgr	es-es	Restaurar
@@ -335,6 +337,7 @@ should the file be viewed in the browser or downloaded	sitemgr	es-es	¿Ver el fic
 show a template-gallery (thumbnail and informations)	sitemgr	es-es	Mostrar una galería de plantillas (diapositiva e información)
 show contents of a directory	sitemgr	es-es	Mostrar el contenido de un directorio
 show contents of a directory with subdirectories	sitemgr	es-es	Mostrar el contenido de un directorio con subdirectorios
+show current section only	sitemgr	es-es	Mostrar sólo la sección actual
 show details for the applications	sitemgr	es-es	Mostrar detalles para las aplicaciones
 show only (in the next field) selected templates	sitemgr	es-es	Mostrar sólo (en el siguiente campo) las plantillas seleccionadas
 show only headers containing links for complete news	sitemgr	es-es	Mostrar sólo las cabeceras que contengan enlaces para noticias completas
@@ -372,6 +375,8 @@ subtitle	sitemgr	es-es	Subtítulo
 summary of one forum	sitemgr	es-es	Resumen de un foro
 suppress link to index (show all)	sitemgr	es-es	Suprimir el enlace al índice (mostrar todo)
 suppress link to parent category	sitemgr	es-es	Suprimir el enlace a la categoría superior
+suppress main categories	sitemgr	es-es	Suprimir las categorías principales
+suppress the current category	sitemgr	es-es	Suprimir la categoría principal
 suppress the current page	sitemgr	es-es	Suprime la página actual
 table of contents	sitemgr	es-es	Tabla de contenidos
 template based navigation module	sitemgr	es-es	Plantilla basada en el módulo de navegación
