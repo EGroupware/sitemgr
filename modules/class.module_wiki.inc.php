@@ -18,7 +18,7 @@
 	// The module is a hack / big mess until wiki gets rewriten in an objectoriented way ;-)
 
 	global $ParseEngine,$DisplayEngine,$ViewMacroEngine;
-	global $UpperPtn,$LowerPtn,$AlphaPtn,$LinkPtn,$UrlPtn,$InterwikiPtn,$MaxNesting,$MaxHeading;
+	global $UpperPtn,$LowerPtn,$AlphaPtn,$LinkPtn,$UrlPtn,$InterwikiPtn,$MaxNesting,$MaxHeading,$MinEntries,$DayLimit;
 
 	require(EGW_SERVER_ROOT.'/wiki/lib/defaults.php');
 
