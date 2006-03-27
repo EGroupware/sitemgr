@@ -1,11 +1,4 @@
-<style>
-	.listBox
-	{
-		background-color: #EEEEEE;
-	}
-</style>
 {message}
-{links_nav}
 {search_tpl}
 <table width=100% style='border:1px solid black;'>
 	{browse_cats}
@@ -31,8 +24,8 @@
 				<tr>
 					<td width=65% valign=top style="padding-right:30px;">
 						<table width=100% cellspacing=0 cellpadding=0>
-							<tr>
-								<td class=divSideboxHeader align=center><b>{lang_articles}</b></td>
+							<tr class={tr_class}>
+								<td align=center><b>{lang_articles}</b></td>
 							</tr>
 							<tr>
 								<td style='padding: 0 10px 0 10px' align=center>
@@ -49,7 +42,7 @@
 								<td>
 									<!-- BEGIN articles_block -->
 									<i class=kbnum>({art_num}) </i><a href="{art_href}">{art_title}</a><br>
-									<div>Last Modified {art_date} - {img_stars} {attachment}</div>
+									<div>{lang_last_modified}: {art_date} - {img_stars} {attachment}</div>
 									<div style='font-size:80%;color:green'>{art_category}</div>
 									{art_topic}<br><br>
 									<!-- END articles_block -->
@@ -59,11 +52,11 @@
 					</td>
 					<td width=35% valign=top>
 						<table width=100% border=0 cellspacing=0 cellpadding=0>
-							<tr>
-								<td colspan=2 align=center class=divSideboxHeader style="font-weight:bold">{lang_latest}</td>
+							<tr class={tr_class}>
+								<td colspan=2 align=center style="font-weight:bold">{lang_latest}</td>
 							</tr>
 							<!-- BEGIN articles_latest_block -->
-							<tr class=listBox>
+							<tr style="background-color:{bg_lists}">
 								<td valign=top width=1%>{line_num}.&nbsp;&nbsp;</td>
 								<td>
 									<a href="{art_href}">{art_title} </a><span style='font-size: 80%'>({art_date})</span><br>
@@ -72,12 +65,12 @@
 							</tr>
 							<!-- END articles_latest_block -->
 							<tr><td colspan=2>&nbsp;</td></tr>
-							<tr>
-								<td class=divSideboxHeader colspan=2 align=center style="font-weight:bold">{lang_most_viewed}</td>
+							<tr class={tr_class}>
+								<td colspan=2 align=center style="font-weight:bold">{lang_most_viewed}</td>
 							</tr>
 							<tr>
 							<!-- BEGIN articles_mostviewed_block -->
-							<tr class=listBox>
+							<tr style="background-color:{bg_lists}">
 								<td valign=top width=1%>{line_num}.&nbsp;&nbsp;</td>
 								<td>
 									<a href="{art_href}">{art_title} </a><span style='font-size: 80%'>({art_views} {lang_views})</span><br>
@@ -87,12 +80,12 @@
 							<!-- END articles_mostviewed_block -->
 							<tr><td colspan=2>&nbsp;</td></tr>
 							</tr>
-							<tr>
-								<td class=divSideboxHeader colspan=2 align=center style="font-weight:bold">{lang_unanswered}</td>
+							<tr class={tr_class}>
+								<td colspan=2 align=center style="font-weight:bold">{lang_unanswered}</td>
 							</tr>
 							<tr>
 							<!-- BEGIN unanswered_questions_block -->
-							<tr class=listBox>
+							<tr style="background-color:{bg_lists}">
 								<td valign=top width=1%>&bull;&nbsp;&nbsp;</td>
 								<td>
 									<a href="{art_href}">{art_title}</a> ({who})<br>
