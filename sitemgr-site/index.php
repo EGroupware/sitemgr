@@ -16,7 +16,7 @@
 	 * Determine the site from the URL ($_SERVER['PHP_SELF'])
 	 * 
 	 * @param array &$anon_account anon account_info with keys 'user', 'passwd' and optional 'passwd_type'
-	 * @return int site_id or dies if not site defined for the URL
+	 * @return boolean true if a site is found or dies if not site defined for the URL
 	 */
 	function sitemgr_get_site(&$anon_account)
 	{
@@ -53,7 +53,7 @@
 			}
 			$site_id = $GLOBALS['egw']->db->f('site_id');
 			//echo "<p>sitemgr_get_site('$site_url') site_id=$site_id, anon_account=".print_r($anon_account,true)."</p>\n";
-			return $site_id;
+			return true;
 		}
 		die(lang('THERE IS NO WEBSITE CONFIGURED FOR URL %1.  NOTIFY THE ADMINISTRATOR.',$site_url.' ('.$GLOBALS['egw_info']['server']['default_domain'].')'));
 	}
