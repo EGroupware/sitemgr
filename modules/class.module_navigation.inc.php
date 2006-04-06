@@ -559,7 +559,7 @@
 					$out .= "</span>\n";
 				}
 // 				_debug_array($entry);
-				if(($arguments['show_cat_description'] && $type == 'cat') || ($arguments['show_cat_description'] && $type == 'page'))
+				if(($arguments['show_cat_description'] && $type == 'cat') || ($arguments['show_page_description'] && $type == 'page'))
 				{
 					$out .= "<span class=\"nav-".$type."-description\">";
 					$out .= $type =='cat' ? $entry['description'] : $entry['subtitle'];
