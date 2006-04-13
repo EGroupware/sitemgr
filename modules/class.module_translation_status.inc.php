@@ -49,6 +49,47 @@
 		function get_content(&$arguments,$properties)
 		{
 			$details = $arguments['details'];
+			//echo "<p>translation status for lang='$details'</p>\n";
+
+			$lang_ctimes = unserialize($GLOBALS['egw_info']['server']['lang_ctimes']);
+			$lastest = 0;
+			foreach($lang_ctimes as $lang => $ctimes)
+			{
+				if ($lastest < ($l = max($ctimes))) $lastest = $l;
+			}
+			//echo "<p>latest lang modification = $lastest = ".date('Y-m-d H:i',$lastest)."</p>\n";
+			
+			$cache_file = $GLOBALS['egw_info']['server']['temp_dir'].'/translation_status.cache';
+			$ctime_cache = @filectime($cache_file);
+			//echo "<p>cache file = '$cache_file', filectime = $ctime_cache = ".date('Y-m-d H:i',$ctime_cache)."</p>\n";
+			
+			$cache = array();
+			if (file_exists($cache_file) && (int) $ctime_cache > $lastest)
+			{
+				$cache = unserialize(file_get_contents($cache_file));
+			}
+			if (!$cache || !isset($cache[$details]))	// requested details are not in the cache ==> query the database
+			{
+				$cache[$details] = array();
+				if (!$details)
+				{
+					// we use a join with egw_lang itself to eliminate additional (obsolete) phrases not in the english langfile
+					$this->db->query("SELECT l.lang,lang_name,count( l.message_id ) AS count FROM $this->lang_table en,$this->lang_table l LEFT JOIN $this->languages_table ON l.lang=lang_id WHERE en.lang='en' AND l.app_name=en.app_name AND l.message_id=en.message_id GROUP BY l.lang,lang_name ORDER BY count DESC,l.lang");
+				}
+				else
+				{
+					// we use a join with egw_lang itself to eliminate additional (obsolete) phrases not in the english langfile
+					$this->db->query("SELECT l.app_name,l.lang,count( l.message_id ) AS count,l.lang,CASE WHEN l.lang='en' THEN 1 ELSE 0 END AS is_en FROM $this->lang_table l,$this->lang_table en WHERE l.app_name=en.app_name AND l.message_id=en.message_id AND en.lang='en' AND l.lang IN (".$this->db->quote($details).",'en') GROUP BY l.app_name,l.lang,is_en ORDER BY is_en DESC,count DESC,l.app_name");
+				}
+				while($row = $this->db->row(True))
+				{
+					$cache[$details][] = $row;
+				}
+				//echo "read details for '$details'"; _debug_array($cache[$details]);
+				$c = fopen($cache_file,'w');
+				fputs($c,serialize($cache));
+				fclose($c);
+			}
 
 			$colors = array();
 			foreach(split(', ?',$arguments['colors']) as $value)
@@ -67,9 +108,7 @@
 					'total'   => lang('Phrases in total'),
 					'.total'  => 'colspan="2"',
 				);
-//				we use a join with egw_lang itself to eliminate additional (obsolete) phrases not in the english langfile
-				$this->db->query("SELECT l.lang,lang_name,count( l.message_id ) AS count FROM $this->lang_table en,$this->lang_table l LEFT JOIN $this->languages_table ON l.lang=lang_id WHERE en.lang='en' AND l.app_name=en.app_name AND l.message_id=en.message_id GROUP BY l.lang,lang_name ORDER BY count DESC,l.lang");
-				while($row = $this->db->row(True))
+				foreach($cache[$details] as $row)
 				{
 					if (empty($row['lang']) || empty($row['lang_name']))
 					{
@@ -98,10 +137,9 @@
 				'percent' => lang('Percentage'),
 				'total'   => lang('Phrases in total')
 			);
-//			we use a join with egw_lang itself to eliminate additional (obsolete) phrases not in the english langfile
-			$this->db->query("SELECT l.app_name,l.lang,count( l.message_id ) AS count,l.lang,CASE WHEN l.lang='en' THEN 1 ELSE 0 END AS is_en FROM $this->lang_table l,$this->lang_table en WHERE l.app_name=en.app_name AND l.message_id=en.message_id AND en.lang='en' AND l.lang IN (".$this->db->quote($details).",'en') GROUP BY l.app_name,l.lang,is_en ORDER BY is_en DESC,count DESC,l.app_name");
 
-			while($row = $this->db->row(True))
+			$max = array();
+			foreach($cache[$details] as $row)
 			{
 				if (empty($row['app_name'])) continue;
 
