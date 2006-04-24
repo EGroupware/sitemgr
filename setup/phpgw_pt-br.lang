@@ -229,6 +229,8 @@ manage site-wide content	sitemgr	pt-br	Gerenciar Conteúdo do Site
 manage site-wide module properties	sitemgr	pt-br	Gerenciar propriedades de módulos do Site
 manage translations	sitemgr	pt-br	Gerenciar Traduções
 master list of permitted modules	sitemgr	pt-br	Lista principal de módulos permitidos
+maximal category depth to be shown	sitemgr	pt-br	Máximo de sub categorias a serem exibidas
+maximal page depth to be shown	sitemgr	pt-br	Máximo de sub páginas a serem exibidas
 messages are defined for all site languages.	sitemgr	pt-br	Mensagens são definidas para todos os sites de idiomas.
 migrating data for %1 to %2	sitemgr	pt-br	Migrando dados de %1 para %2
 module %1 is not permitted in this context!	sitemgr	pt-br	Módulo %1 não é permitido neste contexto!
@@ -335,6 +337,7 @@ should the file be viewed in the browser or downloaded	sitemgr	pt-br	O arquivo d
 show a template-gallery (thumbnail and informations)	sitemgr	pt-br	Exibir a galeria de modelos (foto reduzida e informações)
 show contents of a directory	sitemgr	pt-br	Exibir conteúdo de um diretório
 show contents of a directory with subdirectories	sitemgr	pt-br	Exibir conteúdo de um diretório com sub-diretórios
+show current section only	sitemgr	pt-br	Exibir somente seção atual
 show details for the applications	sitemgr	pt-br	Exibir detalhes para os aplicativos
 show only (in the next field) selected templates	sitemgr	pt-br	Exibir apenas modelos selecionados (no próximo campo)
 show only headers containing links for complete news	sitemgr	pt-br	Exibir apenas cabeçalhos contendo links para notícias completas
@@ -372,6 +375,8 @@ subtitle	sitemgr	pt-br	Subtítulo
 summary of one forum	sitemgr	pt-br	Sumário de um fórum
 suppress link to index (show all)	sitemgr	pt-br	Suprimir link para índice (exibir tudo)
 suppress link to parent category	sitemgr	pt-br	Suprimir link para categoria principal
+suppress main categories	sitemgr	pt-br	Suprimir categorias principais
+suppress the current category	sitemgr	pt-br	Suprimir a categoria atual
 suppress the current page	sitemgr	pt-br	Suprimir a página atual
 table of contents	sitemgr	pt-br	ïndice
 template based navigation module	sitemgr	pt-br	Módulo de navegação baseado em Modelo
