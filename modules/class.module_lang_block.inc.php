@@ -15,7 +15,17 @@
 	{
 		function module_lang_block()
 		{
-			$this->arguments = array();
+			$this->arguments = array( 
+				'layout' => array(
+                                        'type' => 'select',
+                                        'label' => lang('Select layout for lang selection'),
+                                        'options' => array(
+                                                'plain' => lang('Plain selectbox'),
+                                                'flags' => lang('Flag symbols'),
+					),
+				),
+			);
+ 
 			$this->properties = array();
 			$this->title = lang('Choose language');
 			$this->description = lang('This module lets users choose language');
@@ -25,20 +35,37 @@
 		{
 			if ($GLOBALS['sitemgr_info']['sitelanguages'])
 			{
-				$content = '<form name="langselect" method="post" action="">';
-				$content .= '<select onChange="location.href=this.value" name="language">';
-				foreach ($GLOBALS['sitemgr_info']['sitelanguages'] as $lang)
+				if ($arguments['layout'] == 'flags')
 				{
-					$selected='';
-					if ($lang == $GLOBALS['sitemgr_info']['userlang'])
-					{                                                 
-						$selected = 'selected="1" ';
-					}                                          
-					$content .= '<option ' . $selected . 'value="' . str_replace('&','&amp;',$this->link(array(),array('lang'=>$lang))) . '">'.$GLOBALS['Common_BO']->getlangname($lang) . '</option>';
+					$content = '
+						<div id="langsel_flags">
+					 		<ul>';
+					foreach ($GLOBALS['sitemgr_info']['sitelanguages'] as $lang)
+                                        {
+						$content .= '
+								<li><a href="#." onClick="location.href=\''. str_replace('&','&amp;',$this->link(array(),array('lang'=>$lang))) . '\' ">'. '<img src="images/'. $lang. '.gif" width="32px" height="20px">'. '</a></li>';
+					}
+					$content .= '
+							</ul>
+						</div>';
 				}
-				$content .= '</select>';
-				$content .= '</form>';
-				
+				else
+				{
+					$content = '<form name="langselect" method="post" action="">';
+					$content .= '<select onChange="location.href=this.value" name="language">';
+					foreach ($GLOBALS['sitemgr_info']['sitelanguages'] as $lang)
+					{
+						$selected='';
+						if ($lang == $GLOBALS['sitemgr_info']['userlang'])
+						{                                                 
+							$selected = 'selected="1" ';
+						}                                          
+						$content .= '<option ' . $selected . 'value="' . str_replace('&','&amp;',$this->link(array(),array('lang'=>$lang))) . '">'.$GLOBALS['Common_BO']->getlangname($lang) . '</option>';
+					}
+					$content .= '</select>';
+					$content .= '</form>';
+				}
+			
 				return $content;
 			}
 			return lang('No sitelanguages configured');
