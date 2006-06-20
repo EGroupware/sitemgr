@@ -28,6 +28,7 @@
 	 * - max_pages_depth -> could be ablolute ('number')  or relative (+number)
 	 * - nav_title
 	 * - no_full_index
+	 * - page_link_text {0 = title; 1 = subtitle }
 	 * - path_only
 	 * - show_cat_description
 	 * - show_edit_icons
@@ -48,6 +49,9 @@
 	 */
 	class module_navigation extends Module
 	{
+		var $lastcatdepth = 0;
+		var $lastpagedepth = 0;
+		
 		function module_navigation()
 		{
 			$this->arguments = array(
@@ -99,6 +103,13 @@
 					'expand' => array(
 						'type' => 'checkbox',
 						'label' => lang('Expand current category')
+					),
+					'page_link_text' => array(
+						'type' => 'select',
+						'label' => lang('Text of page links'),
+						'options' => array(
+							0 => lang('Title'),
+							1 => lang('Subtitle'))
 					)),
 				4 => array( // Navigation
 					'description' => lang("This module displays the root categories in one block each, with pages and subcategories (incl. their pages if activated).")
@@ -426,7 +437,9 @@
 			if (strpos($arguments['max_pages_depth'],'+') === 0) (int)$arguments['max_pages_depth'] += $this->category->depth;
 			
 			$cat_tree = $cat_tree_data = array('root');
-			foreach($this->objbo->getCatLinks(0,true,true) as $cat_id => $cat)
+			
+			$this->lastcatdepth = 0; // indicate start of first cat block!
+			foreach(($this->objbo->getCatLinks(0,true,true) + array( 0 => array('depth' => 0))) as $cat_id => $cat)
 			{
 				if(array_key_exists($cat['depth'],$cat_tree))
 				{
@@ -506,12 +519,12 @@
 						$out .= $this->encapsulate($arguments,array($cat_id => $cat),'cat',$cat_id,$cat['depth']);
 					}
 				}
-					if($cat['depth'] <= $arguments['max_pages_depth'])
-					{
-						$pages = $this->objbo->getPageLinks($cat_id,$arguments['showhidden'],true);
-						if($arguments['suppress_current_page']) unset($pages[$this->page->id]);
-						$out .= $this->encapsulate($arguments,$pages,'page',$cat_id,$cat['depth'] +1);
-					}
+				if($cat['depth'] <= $arguments['max_pages_depth'] && $cat['depth'] != 0)
+				{
+					$pages = $this->objbo->getPageLinks($cat_id,$arguments['showhidden'],true);
+					if($arguments['suppress_current_page']) unset($pages[$this->page->id]);
+					$out .= $this->encapsulate($arguments,$pages,'page',$cat_id,$cat['depth'] +1);
+				}
 				
 			}
 			if (!$arguments['no_full_index'])
@@ -537,11 +550,41 @@
 		 */
 		function encapsulate($arguments,$data,$type,$cat_id,$depth=1)
 		{
-			$out  = "    <div class=\"nav-".$type."-entry depth-".$depth."\">\n";
+			$out = '';
+			
+			// do we have to start or finish a block?
+			if ($type == 'cat')
+			{
+				// finish old block
+				if ($this->lastcatdepth >= $depth)
+				{
+					while($this->lastcatdepth != $depth - 1 && $this->lastcatdepth != 0)
+					{
+						$out .= "  </div>\n";
+						//$out .= "  <!-- NAV CAT BLOCK OF DEPTH ". $this->lastcatdepth. " ENDS HERE-->\n";
+						$this->lastcatdepth--;
+					}
+				}
+				$this->lastcatdepth = $depth;
+				
+				// marker to end last block
+				if ($depth == 0) return $out;
+				
+				//$out .= "  <!-- NAV CAT BLOCK OF DEPTH ". $depth. " STARTS HERE-->\n";
+				$out .= "  <div class=\"nav-cat-block blockdepth-".$depth."\">\n";
+			}
+			
+			$out .= "    <div class=\"nav-".$type."-entry depth-".$depth."\">\n";
 			$out .= "      <ul>\n";
 			if (is_array($data))
 			foreach($data as $id => $entry)
 			{
+				if (($arguments['page_link_text'] == 1 )&& $type == 'page')
+				{
+					preg_match('/href="([^"]+)"/i',$entry['link'],$matches);
+					$entry['link'] = '<a href="'. $matches[1]. '">'. $entry['subtitle']. '</a>';
+				}
+
 				if($arguments['highlight_current_page'] && $id == $this->page->id && $type == 'page')
 				{
 					$entry['link'] = "<div class=\"nav-highlight_current_page\">".$entry['link'].'</div>';
@@ -558,7 +601,7 @@
 						$this->objbo->getEditIconsPage($id,$cat_id);
 					$out .= "</span>\n";
 				}
-// 				_debug_array($entry);
+ 				
 				if(($arguments['show_cat_description'] && $type == 'cat') || ($arguments['show_page_description'] && $type == 'page'))
 				{
 					$out .= "<span class=\"nav-".$type."-description\">";
@@ -573,6 +616,7 @@
 			return $out;
 		}
 		
+
 		function type_navigation(&$arguments,$properties)
 		{
 			global $objbo,$page;
