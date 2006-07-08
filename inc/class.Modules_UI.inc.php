@@ -98,8 +98,8 @@
 							lang('Master list of permitted modules') :
 							lang('List of permitted modules specific to content area %1',$contentarea),
 						'contentarea' => $contentarea,
-						'selectmodules' => $this->inputmoduleselect(array_keys($permittedmodulesconfigured)),
-						'configuremodules' => $this->inputmoduleconfigure($permittedmodulescascading),
+						'selectmodules' => $this->moduleselect($this->modules,array_keys($permittedmodulesconfigured),'inputmodules',6),
+						'configuremodules' => $this->moduleselect($permittedmodulescascading,false,'inputmodule_id',-8),
 						'error' => ($contentarea == $inputarea && $this->errormsg) ? $this->errormsg : '',
 					));
 					$this->t->parse('CBlock','Contentarea', true);
@@ -182,8 +182,8 @@
 					)
 				);
 				$editormoduleelements = $moduleobject->properties ? $moduleobject->get_admin_interface() : False;
-				$interface = array_merge($editorstandardelements,$editormoduleelements);
-				while (list(,$element) = each($interface))
+				$interface = array_merge($editorstandardelements,(array)$editormoduleelements);
+				while (list(,$element) = @each($interface))
 				{
 					$this->t->set_var(Array(
 						'label' => $element['label'],
@@ -225,27 +225,28 @@
 			$this->common_ui->DisplayFooter();
 		}
 
-		function inputmoduleselect($permitted)
+		function moduleselect($modules,$selected,$name,$multiple=0)
 		{
-			$returnValue = '';
-			reset($this->modules);
-			while (list($id,$module) = @each($this->modules))
-			{ 
-				$selected = (in_array($id,$permitted)) ? $selected = 'selected="selected" ' : '';
-				$returnValue.='<option title="' . lang($module['description']) . '" ' . $selected . 'value="' .$id . '">' .
-					$module['module_name'].'</option>'."\n";
+			$options = array();
+			foreach($modules as $id => $module)
+			{
+				$options[$id] = array(
+					'label' => $module['module_name'],
+					'title' => $module['description'],
+				);
 			}
-			return $returnValue;
-		}
-
-		function inputmoduleconfigure($permitted)
-		{
-			$returnValue = '';
-			while (list($id,$module) = @each($permitted))
-			{ 
-				$returnValue.='<option title="' . lang($module['description']) . '" value="'.$id.'">'.
-					$module['module_name'].'</option>'."\n";
+			if ($multiple <= 0)
+			{
+				static $label_sort;
+				if (!isset($label_sort)) $label_sort = create_function('$a,$b', 'return strcasecmp($a["label"],$b["label"]);');
+				uasort($options,$label_sort);
 			}
-			return $returnValue;
+			if (!is_object($GLOBALS['egw']->html))
+			{
+				$GLOBALS['egw']->html =& CreateObject('phpgwapi.html');
+			}
+			$method = $multiple > 0 ? 'checkbox_multiselect' : 'select';
+			return $GLOBALS['egw']->html->$method($name,$selected,$options,true,
+				$multiple < 0 ? ' style="width: 100%"' : '',$multiple);
 		}
 	}
