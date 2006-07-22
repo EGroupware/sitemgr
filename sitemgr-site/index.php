@@ -89,20 +89,15 @@
 	{
 		sitemgr_get_site($anon_account);
 	}
-	else
-	{	
-		if($GLOBALS['egw_info']['server']['allow_cookie_auth'])
-		{
-			$eGW_remember = unserialize(stripslashes($_COOKIE['eGW_remember']));
-			if($eGW_remember['login'] && $eGW_remember['passwd'] && $eGW_remember['passwd_type'])
-			{
-				// switch to current website. This is needed to let contributers work on currentsite
-				$GLOBALS['egw_info']['user']['preferences']['sitemgr']['currentsite'] = $GLOBALS['egw']->db->f('site_id');
-				$GLOBALS['egw']->preferences->change('sitemgr','currentsite', $GLOBALS['egw']->db->f('site_id'));
-				$GLOBALS['egw']->preferences->save_repository(True);
-			}
-		}
+	
+	// switch to current website. 
+	if ($GLOBALS['egw_info']['user']['preferences']['sitemgr']['currentsite'] != $site_id)
+	{
+		$GLOBALS['egw_info']['user']['preferences']['sitemgr']['currentsite'] = $site_id;
+		$GLOBALS['egw']->preferences->change('sitemgr','currentsite', $site_id);
+		$GLOBALS['egw']->preferences->save_repository(True);
 	}
+
 	if($GLOBALS['egw_info']['server']['usecookies'] && $_COOKIE['sessionid'] != $GLOBALS['egw_info']['user']['sessionid'])
 	{
 		// happens if eGW runs on cookies and sitemgr has to use an URL to forward the session to the other site/domain
