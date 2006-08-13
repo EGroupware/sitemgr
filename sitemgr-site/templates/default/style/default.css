@@ -89,3 +89,10 @@ This code would produce 100% complability with old module, but looks ugly in cas
 #langsel_flags ul { display:inline; margin:0; padding:0px 0px 0 0px; list-style:none; }
 #langsel_flags li { float:left; margin:0 2px 0 0; padding:0 0px 0 0px; }
 
+/*-----------------------------------------------*/
+/*| styles for printing (eg. eTemplate modules) |*/
+/*-----------------------------------------------*/
+
+@media screen {	.onlyPrint { display: none; } }
+@media print  {	.noPrint { display: none; } }
+
