@@ -362,6 +362,7 @@ sitemgr setup instructions	sitemgr	de	SiteMgr Setup Informationen
 sitemgr setup page	sitemgr	de	SiteMgr Setup Seite
 sitemgr web content manager	common	de	SiteMgr Contentmanagement
 sitemgr websites	sitemgr	de	SiteMgr Websites
+sitemgr-link	common	de	Website
 sort order	sitemgr	de	Sortierreihenfolge
 state	sitemgr	de	Zustand
 strip html from block content?	sitemgr	de	Entferne HTML aus dem Block Content
