@@ -62,13 +62,19 @@
 			$obj = false;
 			$classname = 'module_' . $modulename;
 			list($app) = explode('_',$modulename);
+			$files = array();
 	
-			if (@file_exists($file = EGW_INCLUDE_ROOT.'/sitemgr/modules/class.'.$classname.'.inc.php') ||
-				@file_exists($file = EGW_INCLUDE_ROOT.'/'.$app.'/sitemgr/class.'.$classname.'.inc.php'))
+			if (@file_exists($file = $files[] = EGW_INCLUDE_ROOT.'/'.$app.'/sitemgr/class.'.$classname.'.inc.php') ||
+				@file_exists($file = $files[] = EGW_INCLUDE_ROOT.'/'.$modulename.'/sitemgr/class.'.$classname.'.inc.php') ||
+				@file_exists($file = $files[] = EGW_INCLUDE_ROOT.'/sitemgr/modules/class.'.$classname.'.inc.php'))
 			{
 				include_once($file);
 				
 				$obj =& new $classname;
+			}
+			else
+			{
+				die(lang("Module '%1' not found in: %2! --> exiting",$modulename,implode(', ',$files)));
 			}
 			return $obj;
 		}

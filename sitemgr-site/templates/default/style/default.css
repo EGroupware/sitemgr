@@ -74,6 +74,7 @@ This code would produce 100% complability with old module, but looks ugly in cas
 /*--------------------------*/
 /*| styles for news module |*/
 /*--------------------------*/
+/*
 #news_headerstyle_item a { text-align:left; }
 
 
@@ -81,6 +82,23 @@ This code would produce 100% complability with old module, but looks ugly in cas
 #news_completestyle_item .news_submitter { font-style: italic; text-align:left;}
 #news_completestyle_item .news_date { font-style: italic; text-align:left; }
 #news_completestyle_item .news_content { text-align:left; }
+*/
+/*------------------------------------*/
+/*| styles for the news_admin module |*/
+/*------------------------------------*/
+
+.news_items { text-aling: left; }
+.news_item { }
+.news_date { font-style: italic; display: inline; }
+.news_title { display: inline; }
+.news_headline { font-weight: bold; font-size: 120%; margin-top: 5px; }
+.news_submitted { font-style: italic; }
+.news_teaser { font-weight: bold; }
+.news_teaser_more { }
+/* read more link in a new line .news_teaser_more a { display: block; } */
+.news_content {  }
+.news_more_news { margin-top: 5px; }
+.news_rss { margin-top: 5px; }
 
 /*--------------------------------*/
 /*| styles for lang_block module |*/

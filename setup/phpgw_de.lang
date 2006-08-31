@@ -79,7 +79,6 @@ choose a category	sitemgr	de	Wählen Sie eine Kategorie
 choose a format	sitemgr	de	Wählen Sie ein Format
 choose a guestbook	sitemgr	de	Wählen Sie ein Gästebuch
 choose language	sitemgr	de	Sprachauswahl
-choose news layout	sitemgr	de	Wählen Sie das Layout für Nachrichten
 choose template	sitemgr	de	Designvorlage auswählen
 choose the categories to display	sitemgr	de	Wählen Sie die anzuzeigende Kategorie aus
 choose the valid html type (note: not all icons are available):	sitemgr	de	Wählen Sie den gültigen HTML Typ (bitte beachten: nicht für alle sind Icons verfügbar)
@@ -90,7 +89,6 @@ codebase url	sitemgr	de	Programmcode Basis URL
 collapse threads	sitemgr	de	Threads kolabieren
 commit changes	sitemgr	de	Änderungen übernehmen
 common prefix of the image-name (a number starting with 1 will be appended)	sitemgr	de	Gemeinsammer Namensbestandteil der Bilder (eine Nummer, beginnend mit 1, wird angehangen)
-complete news	sitemgr	de	Komplette Nachrichten
 configure module properties	sitemgr	de	Modul Eigenschaften konfigurieren
 configure sitemgr	sitemgr	de	SiteMgr konfigurieren
 configure website	sitemgr	de	Website konfigurieren
@@ -126,7 +124,6 @@ do you realy want to delete the selected categories (including all pages), pages
 do you realy want to delete this block?	sitemgr	de	Wollen Sie diesen Block wirklich löschen?
 do you realy want to delete this page?	sitemgr	de	Wollen Sie diese Seite wirklich löschen?
 do you want to delete them?	sitemgr	de	Möchten Sie sie löschen?
-do you want to publish a rss feed for this news category	sitemgr	de	Wollen sie einen RSS feed für diese News Kategorie veröffentlichen
 documentation	sitemgr	de	Dokumentation
 domain-name (offical dns-name eg. www.egroupware.org) if you want to give the user a choice between searching this site or the whole web. leaving it empty allows to search the web only.	sitemgr	de	Domainname (offizieller DNS-Name zB. www.eGroupWare.org), falls Sie dem Benutzer die Wahl geben wollen zwischen einer Suche auf dieser Website oder dem gesamten Web. Wenn sie das Feld leer lassen wird immer das gesamte Web durchsucht.
 don't have an account?	sitemgr	de	Sie haben keinen Benutzerkonto?
@@ -234,7 +231,6 @@ migrating data for %1 to %2	sitemgr	de	Daten für %1 werden nach %2 übertragen
 module %1 is not permitted in this context!	sitemgr	de	Module %1 ist in diesem Kontext nicht erlaubt!
 module manager	sitemgr	de	Module verwalten
 module: %1, scope: %2, contentarea: %3, viewable: %4	sitemgr	de	Modul: %1, Anwendungsbereich: %2, Inhaltsbereich: %3, Sichtbar für: %4
-more news	sitemgr	de	Mehr Nachrichten
 move block down (increase sort order)	sitemgr	de	Block nach unten verschieben (Sortierreihenfolge erhöhen)
 move block up (decrease sort order)	sitemgr	de	Block nach oben verschieben (Sortierreihenfolge verringern)
 move to	sitemgr	de	Verschieben nach
@@ -243,14 +239,12 @@ name has been translated to lower case	sitemgr	de	Der Name wurde in Kleinbuchsta
 new application	sitemgr	de	Neue Applikation
 new guestbook	sitemgr	de	Neues Gästebuch
 new sitemgr site	sitemgr	de	Neue SiteMgr Website
-news module	sitemgr	de	Nachrichten Modul
 no additional arguments required	sitemgr	de	Kein zusätzlicher Parameter benötigt
 no anonymous user accounts installed.  notify the administrator.	sitemgr	de	KEINE ANONYME BENUTZERKENNUNG INSTALLIERT. BENACHRICHTIGEN SIE DEN ADMINISTRATOR.
 no content areas found in selected template	sitemgr	de	Keine Inhaltsbereich in der ausgewählten Designvorlage gefunden.
 no content found	sitemgr	de	Kein Inhalt gefunden
 no groups defined.	sitemgr	de	Keine Gruppen definiert.
 no link to full index	sitemgr	de	Kein Link auf den Gesamtindex
-no matching news item	sitemgr	de	Keine zutreffenden Nachrichten
 no modules permitted for this content area/category	sitemgr	de	Für diesen Inhaltsbereich / Kategorie sind keine Module erlaubt
 no new modules found !!!	sitemgr	de	Keine neuen Module gefunden !!!
 no options available.	sitemgr	de	Keine Optionen verfügbar.
@@ -267,7 +261,6 @@ not	common	de	Niemals
 not yet translated	sitemgr	de	noch nicht übersetzt
 note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	de	Sie können diese Nachricht auch erhalten, wenn Ihre Einstellungen nicht richtig sind. Zum Beispiel wenn config.inc.php nicht im angegebenen Verzeichnis gefunden wurde.
 note, this directory has to be writeable by webserver!	sitemgr	de	Bitte beachten, dieses Verzeichnis muß vom Webserver beschreibbar sein!
-number of news items to be displayed on page	sitemgr	de	Anzahl Nachrichten die auf einer Seite angezeigt werden
 on all pages	sitemgr	de	auf allen Seiten
 only gallery	sitemgr	de	Nur Galerie
 only on the first page	sitemgr	de	nur auf der ersten Seite
@@ -337,7 +330,6 @@ show contents of a directory	sitemgr	de	Zeigt den Inhalt eines Verzeichnisses
 show contents of a directory with subdirectories	sitemgr	de	Zeigt den Inhalt eines Verzeichnisses mit Unterverzeichnissen
 show details for the applications	sitemgr	de	Zeite Details über die einzelnen Anwendungen
 show only (in the next field) selected templates	sitemgr	de	Zeige nur die (im nächsten Feld) ausgewählten Designvorlagen
-show only headers containing links for complete news	sitemgr	de	Zeige nur die Schlagzeilen mit Verweisen auf die komplette Nachricht
 show path?	sitemgr	de	Pfad anzeigen?
 show searchbox	sitemgr	de	Suchfeld anzeigen
 show site index	sitemgr	de	Site Inhaltsverzeichnis anzeigen
@@ -444,7 +436,6 @@ this module provides a complete table of contents, it is automatically used by t
 this module provides a condensed table of contents, meant for side areas	sitemgr	de	Dieses Modul liefert ein verdichtetes Inhaltsverzeichnis, gedacht für die Seitenspalten
 this module provides the path to the element currently shown	sitemgr	de	Dieses Module liefert einen Pfad zu der gerade gezeigen Seite.
 this module provides the site index, it is automatically used by the index get parameter	sitemgr	de	Dieses Modul stellt einen Seiten Index zur Verfügung. Es wird automatisch durch den Index GET parameter erstellt.
-this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	sitemgr	de	Dieses Modul publiziert Inhalt der Nachrichten Anwendung auf Ihrer Website. Bitte beachten Sie die Restriktionen der ACL Nachrichten Anwendung.
 this module show the status / percentage of the translation of egw	sitemgr	de	Diese Module zeit den prozentualen Status der Übersetzungen von eGW
 this must be an absolute directory location.  <b>no trailing slash</b>.	sitemgr	de	Hier muss der Adsolute Pfad zu Verzeichniss angegeben werden. Zum Beispiel: /var/www/html/Ihre_Firma/sitemgr_site. <b>Keinen "/" am Ende des Pfades angeben!</b>
 this should be a comma-separated list of language-codes.	sitemgr	de	Geben Sie hier eine durch Kommatas unterteilte Liste der Sprachen ein. Zum Beispiel: en, de, fr

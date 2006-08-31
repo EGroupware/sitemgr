@@ -79,7 +79,6 @@ choose a category	sitemgr	en	Choose a category
 choose a format	sitemgr	en	Choose a format
 choose a guestbook	sitemgr	en	Choose a guestbook
 choose language	sitemgr	en	Choose language
-choose news layout	sitemgr	en	Choose news layout
 choose template	sitemgr	en	Choose template
 choose the categories to display	sitemgr	en	Choose the categories to display
 choose the valid html type (note: not all icons are available):	sitemgr	en	Choose the VALID HTML type (note: not all icons are available):
@@ -90,7 +89,6 @@ codebase url	sitemgr	en	Codebase URL
 collapse threads	sitemgr	en	Collapse Threads
 commit changes	sitemgr	en	Commit changes
 common prefix of the image-name (a number starting with 1 will be appended)	sitemgr	en	common prefix of the image-name (a number starting with 1 will be appended)
-complete news	sitemgr	en	Complete News
 configure module properties	sitemgr	en	Configure module properties
 configure sitemgr	sitemgr	en	Configure SiteMgr
 configure website	sitemgr	en	Configure Website
@@ -126,7 +124,6 @@ do you realy want to delete the selected categories (including all pages), pages
 do you realy want to delete this block?	sitemgr	en	Do you realy want to delete this block?
 do you realy want to delete this page?	sitemgr	en	Do you realy want to delete this page?
 do you want to delete them?	sitemgr	en	Do you want to delete them?
-do you want to publish a rss feed for this news category	sitemgr	en	Do you want to publish a RSS feed for this news category
 documentation	sitemgr	en	Documentation
 domain-name (offical dns-name eg. www.egroupware.org) if you want to give the user a choice between searching this site or the whole web. leaving it empty allows to search the web only.	sitemgr	en	Domain-name (offical DNS-name eg. www.eGroupWare.org) if you want to give the user a choice between searching this site or the whole web. Leaving it empty allows to search the web only.
 don't have an account?	sitemgr	en	Don't have an account?
@@ -234,7 +231,6 @@ migrating data for %1 to %2	sitemgr	en	Migrating data for %1 to %2
 module %1 is not permitted in this context!	sitemgr	en	Module %1 is not permitted in this context!
 module manager	sitemgr	en	Module manager
 module: %1, scope: %2, contentarea: %3, viewable: %4	sitemgr	en	Module: %1, Scope: %2, Contentarea: %3, Viewable: %4
-more news	sitemgr	en	More news
 move block down (increase sort order)	sitemgr	en	Move block down (increase sort order)
 move block up (decrease sort order)	sitemgr	en	Move block up (decrease sort order)
 move to	sitemgr	en	Move to
@@ -243,14 +239,12 @@ name has been translated to lower case	sitemgr	en	Name has been translated to lo
 new application	sitemgr	en	New application
 new guestbook	sitemgr	en	New guestbook
 new sitemgr site	sitemgr	en	New sitemgr site
-news module	sitemgr	en	News module
 no additional arguments required	sitemgr	en	No additional arguments required
 no anonymous user accounts installed.  notify the administrator.	sitemgr	en	NO ANONYMOUS USER ACCOUNTS INSTALLED.  NOTIFY THE ADMINISTRATOR.
 no content areas found in selected template	sitemgr	en	No content areas found in selected template
 no content found	sitemgr	en	No content found
 no groups defined.	sitemgr	en	No groups defined.
 no link to full index	sitemgr	en	No link to full index
-no matching news item	sitemgr	en	No matching news item
 no modules permitted for this content area/category	sitemgr	en	No modules permitted for this content area/category
 no new modules found !!!	sitemgr	en	No new modules found !!!
 no options available.	sitemgr	en	No options available.
@@ -267,7 +261,6 @@ not	common	en	not
 not yet translated	sitemgr	en	not yet translated
 note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	en	Note that you may get this message if your preferences are incorrect.  For example, if config.inc.php is not found in the directory that you specified.
 note, this directory has to be writeable by webserver!	sitemgr	en	Note, this directory has to be writeable by webserver!
-number of news items to be displayed on page	sitemgr	en	Number of news items to be displayed on page
 on all pages	sitemgr	en	on all pages
 only gallery	sitemgr	en	Only gallery
 only on the first page	sitemgr	en	only on the first page
@@ -337,7 +330,6 @@ show contents of a directory	sitemgr	en	Show contents of a directory
 show contents of a directory with subdirectories	sitemgr	en	Show contents of a directory with subdirectories
 show details for the applications	sitemgr	en	Show details for the applications
 show only (in the next field) selected templates	sitemgr	en	Show only (in the next field) selected templates
-show only headers containing links for complete news	sitemgr	en	show only headers containing links for complete news
 show path?	sitemgr	en	show path?
 show searchbox	sitemgr	en	Show searchbox
 show site index	sitemgr	en	Show Site Index
@@ -444,7 +436,6 @@ this module provides a complete table of contents, it is automatically used by t
 this module provides a condensed table of contents, meant for side areas	sitemgr	en	This module provides a condensed table of contents, meant for side areas
 this module provides the path to the element currently shown	sitemgr	en	This module provides the path to the element currently shown
 this module provides the site index, it is automatically used by the index get parameter	sitemgr	en	This module provides the site index, it is automatically used by the index GET parameter
-this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	sitemgr	en	This module publishes news from the news_admin application on your website. Be aware of news_admin's ACL restrictions.
 this module show the status / percentage of the translation of egw	sitemgr	en	This module show the status / percentage of the translation of eGW
 this must be an absolute directory location.  <b>no trailing slash</b>.	sitemgr	en	This must be an absolute directory location.  <b>No trailing slash</b>.
 this should be a comma-separated list of language-codes.	sitemgr	en	This should be a comma-separated list of language-codes.

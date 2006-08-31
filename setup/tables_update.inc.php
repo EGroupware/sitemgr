@@ -908,5 +908,16 @@
 
 		$GLOBALS['setup_info']['sitemgr']['currentver'] = '1.2';
 		return $GLOBALS['setup_info']['sitemgr']['currentver'];
-	}	
+	}
+	
+	$test[] = '1.2';
+	function sitemgr_upgrade1_2()
+	{
+		// replace news module with news_admin module
+		$GLOBALS['egw_setup']->db->update('egw_sitemgr_modules',array('module_name' => 'news_admin'),array('module_name' => 'news'),__LINE__,__FILE__);
+		
+		$GLOBALS['setup_info']['sitemgr']['currentver'] = '1.3.001';
+		return $GLOBALS['setup_info']['sitemgr']['currentver'];
+	}
+
 ?>
