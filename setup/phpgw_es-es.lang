@@ -79,7 +79,6 @@ choose a category	sitemgr	es-es	Elegir una categoría
 choose a format	sitemgr	es-es	Elegir un formato
 choose a guestbook	sitemgr	es-es	Elegir un libro de invitados
 choose language	sitemgr	es-es	Elegir idioma
-choose news layout	sitemgr	es-es	Elegir formato de noticias
 choose template	sitemgr	es-es	Elegir plantilla
 choose the categories to display	sitemgr	es-es	Elegir las categorías a mostrar
 choose the valid html type (note: not all icons are available):	sitemgr	es-es	Elegir el tipo de HTML VALIDO (nota: no todos los iconos están disponibles):
@@ -90,7 +89,6 @@ codebase url	sitemgr	es-es	URL del código base
 collapse threads	sitemgr	es-es	Contraer conversaciones
 commit changes	sitemgr	es-es	Subir cambios
 common prefix of the image-name (a number starting with 1 will be appended)	sitemgr	es-es	prefijo común del nombre de imagen (se le añadirá un número contando desde 1)
-complete news	sitemgr	es-es	Completar noticias
 configure module properties	sitemgr	es-es	Configurar las propiedades del módulo
 configure sitemgr	sitemgr	es-es	Configurar el Administrador de sitios web
 configure website	sitemgr	es-es	Configurar sitio web
@@ -126,7 +124,6 @@ do you realy want to delete the selected categories (including all pages), pages
 do you realy want to delete this block?	sitemgr	es-es	¿Realmente desea borrar este bloque?
 do you realy want to delete this page?	sitemgr	es-es	¿Realmente desea borrar esta página?
 do you want to delete them?	sitemgr	es-es	¿Desea borrarlos?
-do you want to publish a rss feed for this news category	sitemgr	es-es	¿Desea publicar un contenido RSS para esta categoría de noticias?
 documentation	sitemgr	es-es	Documentación
 domain-name (offical dns-name eg. www.egroupware.org) if you want to give the user a choice between searching this site or the whole web. leaving it empty allows to search the web only.	sitemgr	es-es	Nombre del dominio (nombre DNS oficial, p. ej. www.eGroupWare.org) si desea dar al usuario una opción entre buscar en este sitio o toda la web. Dejarlo en blanco permite buscar sólo en la web.
 don't have an account?	sitemgr	es-es	¿No tiene una cuenta?
@@ -229,14 +226,11 @@ manage site-wide content	sitemgr	es-es	Administrar el contenido de todo el stio
 manage site-wide module properties	sitemgr	es-es	Administrar las propiedades de todo el sitio
 manage translations	sitemgr	es-es	Administrar traducciones
 master list of permitted modules	sitemgr	es-es	Lista principal de módulos permitidos
-maximal category depth to be shown	sitemgr	es-es	Profundidad máxima de categoría a mostrar
-maximal page depth to be shown	sitemgr	es-es	Profundidad máxima de página a mostrar
 messages are defined for all site languages.	sitemgr	es-es	Los mensajes están definidos para todos idiomas del sitio.
 migrating data for %1 to %2	sitemgr	es-es	Migrar datos para %1 a %2
 module %1 is not permitted in this context!	sitemgr	es-es	El módulo %1 no está permitido en este contexto
 module manager	sitemgr	es-es	Administrador de módulos
 module: %1, scope: %2, contentarea: %3, viewable: %4	sitemgr	es-es	Módulo: %1, ámbito: %2, área de contenido: %3, visible: %4
-more news	sitemgr	es-es	Más noticias
 move block down (increase sort order)	sitemgr	es-es	Mover bloque hacia abajo (incrementar el orden)
 move block up (decrease sort order)	sitemgr	es-es	Mover bloque hacia arriba (decrementar el orden)
 move to	sitemgr	es-es	Mover a
@@ -245,14 +239,12 @@ name has been translated to lower case	sitemgr	es-es	El nombre se ha traducido e
 new application	sitemgr	es-es	Nueva aplicación
 new guestbook	sitemgr	es-es	Nuevo libro de invitados
 new sitemgr site	sitemgr	es-es	Nuevo sitio web
-news module	sitemgr	es-es	Módulo de noticias
 no additional arguments required	sitemgr	es-es	No se requieren argumentos adicionales
 no anonymous user accounts installed.  notify the administrator.	sitemgr	es-es	NO HAY INSTALADAS CUENTAS DE USUARIO ANONIMAS. NOTIFIQUELO AL ADMINISTRADOR.
 no content areas found in selected template	sitemgr	es-es	No se encontraron áreas de contenido en la plantilla seleccionada
 no content found	sitemgr	es-es	No se encontró contenido
 no groups defined.	sitemgr	es-es	No hay grupos definidos.
 no link to full index	sitemgr	es-es	No hay enlace al índice completo
-no matching news item	sitemgr	es-es	No coincide ningún elemento de noticias
 no modules permitted for this content area/category	sitemgr	es-es	No se permiten módulos para este área o categoría
 no new modules found !!!	sitemgr	es-es	No se encontraron módulos nuevos
 no options available.	sitemgr	es-es	No hay opciones disponibles
@@ -269,7 +261,6 @@ not	common	es-es	no
 not yet translated	sitemgr	es-es	pendiente de traducir
 note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	es-es	Puede que vea este mensaje si sus preferencias son incorrectas. Por ejemplo, si config.inc.php no está en el directorio especificado.
 note, this directory has to be writeable by webserver!	sitemgr	es-es	Nota: el servidor web no puede escribir en el directorio
-number of news items to be displayed on page	sitemgr	es-es	Número de elementos de noticias a mostrar en la página
 on all pages	sitemgr	es-es	en todas las páginas
 only gallery	sitemgr	es-es	Sólo galería
 only on the first page	sitemgr	es-es	sólo en la primera página
@@ -337,10 +328,8 @@ should the file be viewed in the browser or downloaded	sitemgr	es-es	¿Ver el fic
 show a template-gallery (thumbnail and informations)	sitemgr	es-es	Mostrar una galería de plantillas (diapositiva e información)
 show contents of a directory	sitemgr	es-es	Mostrar el contenido de un directorio
 show contents of a directory with subdirectories	sitemgr	es-es	Mostrar el contenido de un directorio con subdirectorios
-show current section only	sitemgr	es-es	Mostrar sólo la sección actual
 show details for the applications	sitemgr	es-es	Mostrar detalles para las aplicaciones
 show only (in the next field) selected templates	sitemgr	es-es	Mostrar sólo (en el siguiente campo) las plantillas seleccionadas
-show only headers containing links for complete news	sitemgr	es-es	Mostrar sólo las cabeceras que contengan enlaces para noticias completas
 show path?	sitemgr	es-es	¿Mostrar ruta?
 show searchbox	sitemgr	es-es	Mostrar recuadro de buscar
 show site index	sitemgr	es-es	Mostrar el índice del sitio
@@ -365,6 +354,7 @@ sitemgr setup instructions	sitemgr	es-es	Instrucciones para configurar el Admini
 sitemgr setup page	sitemgr	es-es	Página de configuración del Administrador de sitios
 sitemgr web content manager	common	es-es	Administrador de contenidos del Administrador de sitios web
 sitemgr websites	sitemgr	es-es	Sitios web
+sitemgr-link	common	es-es	Sitio web
 sort order	sitemgr	es-es	Orden en la página
 state	sitemgr	es-es	Estado
 strip html from block content?	sitemgr	es-es	¿Separar HTML del contenido por bloques?
@@ -375,8 +365,6 @@ subtitle	sitemgr	es-es	Subtítulo
 summary of one forum	sitemgr	es-es	Resumen de un foro
 suppress link to index (show all)	sitemgr	es-es	Suprimir el enlace al índice (mostrar todo)
 suppress link to parent category	sitemgr	es-es	Suprimir el enlace a la categoría superior
-suppress main categories	sitemgr	es-es	Suprimir las categorías principales
-suppress the current category	sitemgr	es-es	Suprimir la categoría principal
 suppress the current page	sitemgr	es-es	Suprime la página actual
 table of contents	sitemgr	es-es	Tabla de contenidos
 template based navigation module	sitemgr	es-es	Plantilla basada en el módulo de navegación
@@ -448,7 +436,6 @@ this module provides a complete table of contents, it is automatically used by t
 this module provides a condensed table of contents, meant for side areas	sitemgr	es-es	Este módulo proporciona una tabla de contenidos condensada, indicada para áreas laterales
 this module provides the path to the element currently shown	sitemgr	es-es	Este módulo proporciona la ruta al elemento mostrado actualmente
 this module provides the site index, it is automatically used by the index get parameter	sitemgr	es-es	Este módulo proporciona el índice del sitio. Lo usa automáticamente el parámetro GET índice.
-this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	sitemgr	es-es	Este módulo publica las noticias de la aplicación news_admin en su sitio web. Tenga precaución con las restricciones ACL de news_admin.
 this module show the status / percentage of the translation of egw	sitemgr	es-es	Este módulo muestra el estado o porcentaje de la traducción de eGW
 this must be an absolute directory location.  <b>no trailing slash</b>.	sitemgr	es-es	Esto debe ser una ruta de directorio absoluta. <b>Sin barra invertida al final</b>.
 this should be a comma-separated list of language-codes.	sitemgr	es-es	Esto debe ser una lista de códigos de idioma separada por comas.
