@@ -14,24 +14,16 @@
 
 	function mosCountModules($contentarea)
 	{
-		global $objui,$mos_content_cache;
+		global $objui;
 
-		if (!isset($mos_content_cache[$contentarea]))
-		{
-			 $mos_content_cache[$contentarea] = $objui->t->process_blocks($contentarea);
-		}
-		return (int)!empty($mos_content_cache[$contentarea]);
+		return (int)!!$objui->t->process_blocks($contentarea);
 	}
 
 	function mosLoadModules($contentarea)
 	{
-		global $objui,$mos_content_cache;
+		global $objui;
 
-		if (!isset($mos_content_cache[$contentarea]))
-		{
-			 $mos_content_cache[$contentarea] = $objui->t->process_blocks($contentarea);
-		}
-		echo $mos_content_cache[$contentarea];
+		echo $objui->t->process_blocks($contentarea);
 	}
 
 	function mosLoadComponent($component)
@@ -51,6 +43,9 @@
 	function mosShowHead()
 	{
 		global $objui,$mosConfig_sitename;
+
+		$objui->t->process_blocks('center');	// we need to render the center area now, to get all javascript included
+
 		echo "\t\t<title>$mosConfig_sitename</title>\n";
 		$objui->t->loadfile(realpath(dirname(__FILE__).'/../mos-compat/metadata.tpl'));
 		echo $objui->t->parse();

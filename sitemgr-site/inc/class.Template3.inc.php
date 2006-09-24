@@ -167,9 +167,13 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 		{
 			global $page;
 			global $objbo;
+			static $cache;
 
 			$areaname = is_array($vars) ? $vars[1] : $vars;
-
+			if (is_array($cache) && isset($cache[$areaname]))
+			{
+				return $cache[$areaname];
+			}
 			$this->permitted_modules = array_keys($this->modulebo->getcascadingmodulepermissions($areaname,$page->cat_id));
 
 			$transformername = $areaname . '_bt';
@@ -277,7 +281,7 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 			{
 				return $this->edit_transformer->area_transform($areaname,$content,$page);
 			}
-			return $content;
+			return $cache[$areaname] = $content;
 		}
 
 		function exec_module($vars)
