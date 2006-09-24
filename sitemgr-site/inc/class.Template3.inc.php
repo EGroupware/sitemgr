@@ -35,6 +35,41 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 			$this->modules = array();
 			$this->addcontent = $GLOBALS['egw']->session->appsession('addcontent','sitemgr');
 			$GLOBALS['egw']->session->appsession('addcontent','sitemgr',false);
+
+			switch ($GLOBALS['sitemgr_info']['mode'])
+			{
+			case 'Draft':
+				$transformerfile = $this->root . SEP . 'draft_transform.inc.php';
+				if (!file_exists($transformerfile))
+				{
+					$transformerfile = $this->root . '/../default/draft_transform.inc.php';
+				}
+				if (file_exists($transformerfile))
+				{
+					include_once($transformerfile);
+					if (class_exists('draft_transform'))
+					{
+						$this->draft_transformer =& new draft_transform();
+					}
+				}
+				break;
+
+			case 'Edit':
+				$transformerfile = $this->root . SEP . 'edit_transform.inc.php';
+				if (!file_exists($transformerfile))
+				{
+					$transformerfile = $this->root . '/../default/edit_transform.inc.php';
+				}
+				if (file_exists($transformerfile))
+				{
+					include_once($transformerfile);
+					if (class_exists('edit_transform'))
+					{
+						$this->edit_transformer =& new edit_transform();
+					}
+				}
+				break;
+			}
 		}
 
 		/* public: setroot(pathname $root)
@@ -98,38 +133,6 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 
 		function parse()
 		{
-			if ($GLOBALS['sitemgr_info']['mode'] == 'Draft')
-			{
-				$transformerfile = $this->root . SEP . 'draft_transform.inc.php';
-				if (!file_exists($transformerfile))
-				{
-					$transformerfile = $this->root . '/../default/draft_transform.inc.php';
-				}
-				if (file_exists($transformerfile))
-				{
-					include_once($transformerfile);
-					if (class_exists('draft_transform'))
-					{
-						$this->draft_transformer =& new draft_transform();
-					}
-				}
-			}
-			elseif ($GLOBALS['sitemgr_info']['mode'] == 'Edit')
-			{
-				$transformerfile = $this->root . SEP . 'edit_transform.inc.php';
-				if (!file_exists($transformerfile))
-				{
-					$transformerfile = $this->root . '/../default/edit_transform.inc.php';
-				}
-				if (file_exists($transformerfile))
-				{
-					include_once($transformerfile);
-					if (class_exists('edit_transform'))
-					{
-						$this->edit_transformer =& new edit_transform();
-					}
-				}
-			}
 			//get block content for contentareas
 			$str = preg_replace_callback(
 				"/\{contentarea:([^{ ]+)\}/",
@@ -279,7 +282,7 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 				is_object($this->edit_transformer) &&
 				method_exists($this->edit_transformer,'area_transform'))
 			{
-				return $this->edit_transformer->area_transform($areaname,$content,$page);
+				return $cache[$areaname] = $this->edit_transformer->area_transform($areaname,$content,$page);
 			}
 			return $cache[$areaname] = $content;
 		}
