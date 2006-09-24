@@ -100,10 +100,10 @@
 
 	if($GLOBALS['egw_info']['server']['usecookies'] && $_COOKIE['sessionid'] != $GLOBALS['egw_info']['user']['sessionid'])
 	{
-		// happens if eGW runs on cookies and sitemgr has to use an URL to forward the session to the other site/domain
-		$GLOBALS['egw']->session->phpgw_setcookie('sessionid',$GLOBALS['egw_info']['user']['sessionid']);
-		$GLOBALS['egw']->session->phpgw_setcookie('kp3',$GLOBALS['egw_info']['user']['kp3']);
-		$GLOBALS['egw']->session->phpgw_setcookie('domain',$GLOBALS['egw_info']['user']['domain']);
+		// we dont sue session::egw_setcookie() as it would set the domain and path of the eGW install and not the one from sitemgr
+		setcookie('sessionid',$GLOBALS['egw_info']['user']['sessionid'],0,'/',$_SERVER['SERVER_NAME']);
+		setcookie('kp3',$GLOBALS['egw_info']['user']['kp3'],0,'/',$_SERVER['SERVER_NAME']);
+		setcookie('domain',$GLOBALS['egw_info']['user']['domain'],0,'/',$_SERVER['SERVER_NAME']);
 	}
 	include('./functions.inc.php');
 
