@@ -100,10 +100,11 @@
 
 	if($GLOBALS['egw_info']['server']['usecookies'] && $_COOKIE['sessionid'] != $GLOBALS['egw_info']['user']['sessionid'])
 	{
+		if (count(explode('.',$domain = $_SERVER['SERVER_NAME'])) <= 1) $domain = '';
 		// we dont sue session::egw_setcookie() as it would set the domain and path of the eGW install and not the one from sitemgr
-		setcookie('sessionid',$GLOBALS['egw_info']['user']['sessionid'],0,'/',$_SERVER['SERVER_NAME']);
-		setcookie('kp3',$GLOBALS['egw_info']['user']['kp3'],0,'/',$_SERVER['SERVER_NAME']);
-		setcookie('domain',$GLOBALS['egw_info']['user']['domain'],0,'/',$_SERVER['SERVER_NAME']);
+		setcookie('sessionid',$GLOBALS['egw_info']['user']['sessionid'],0,'/',$domain);
+		setcookie('kp3',$GLOBALS['egw_info']['user']['kp3'],0,'/',$domain);
+		setcookie('domain',$GLOBALS['egw_info']['user']['domain'],0,'/',$domain);
 	}
 	include('./functions.inc.php');
 
