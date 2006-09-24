@@ -69,7 +69,8 @@
 						6 => 'toc',
 						7 => 'toc_block',
 						8 => 'path',
-						9 => lang('custom')
+						9 => lang('custom'),
+					   10 => 'tabs',
 					)
 				)	
 			);
@@ -189,6 +190,23 @@
 					'no_full_index' => array(
 						'type' => 'checkbox',
 						'label' => lang('No link to full index')
+					),
+				),
+			   10 => array( // tabs
+					'description' => lang('This module provides tabs'),
+					'tab_names' => array(
+						'type' => 'textfield',
+						'label' => lang('Name of the tabs (comma seperated)'),
+					),
+					'tab_links' => array(
+						'type' => 'textfield',
+						'label' => lang('Links for the tabs (comma seperated)'),
+					),
+					'tab_active' => array(
+						'type' => 'textfield',
+						'label' => lang('When is a tab activated?').
+							lang('Seperate Cats / Pages of one tab by :').
+							lang('cats are numeric, pages strings'),
 					),
 				));
 			$this->title = 'Navigation element';
@@ -385,6 +403,11 @@
 					$out .= "class=\"textallign-". $arguments['textallign']."\"";
 					$out .= ">\n";
 					break;
+				case 10 : // tabs
+					$out .= "tabs\">\n";
+					$out .= $this->type_tabs($arguments,$properties);
+					$out .= "  </div>\n<!-- navigation context ends here -->\n</div>\n";
+					return $out;
 				case 4 : // Navigation
 				default:
 					$out .= "navigation\">\n";
@@ -760,6 +783,35 @@
 				$content .= '<br><a href="'.sitemgr_link('toc=1').'"><font size="1">(' . lang('Table of contents') . ')</font></a>';
 			}
 			return $content;
+		}
+		
+		/**
+		 * provides tabs like on egroupware.org
+		 *
+		 * @param array $_arguments
+		 * @param array $_properties
+		 */
+		function type_tabs($_arguments,$_properties)
+		{
+			$out = "    <ul>\n";
+			$tab_names = explode(',',$_arguments['tab_names']);
+			$tab_links = explode(',',$_arguments['tab_links']);
+			foreach (explode(',',$_arguments['tab_active']) as $num => $active)
+			{
+				
+				$current = false;
+				foreach (explode(':',$active) as $item)
+				{
+					if (!is_numeric($item) && $GLOBALS['page']->name == $item) $current = true;
+					elseif($GLOBALS['page']->cat_id == $item) $current = true;
+					
+					if ($current) break;
+				}
+				$out .= '      <li'. ($current ? ' id="current"' : ''). '>';
+				$out .= '<a href="'. $tab_links[$num]. '">'. $tab_names[$num]. '</a></li>'."\n";
+			}
+			$out .= "    </ul>\n";
+			return $out;
 		}
 		
 		function showcat($cats)
