@@ -24,6 +24,7 @@
 	 * - current_section_only
 	 * - expand
 	 * - highlight_current_page
+	 * - main_cats_to_include
 	 * - max_cat_depth -> could be ablolute ('number')  or relative (+number)
 	 * - max_pages_depth -> could be ablolute ('number')  or relative (+number)
 	 * - nav_title
@@ -110,6 +111,10 @@
 						'options' => array(
 							0 => lang('Title'),
 							1 => lang('Subtitle'))
+					),
+					'main_cats_to_include' => array(
+						'type' => 'textfield',
+						'label' => lang('Which main categories schuld be included (comma seperated list, empty for all)'),
 					)),
 				4 => array( // Navigation
 					'description' => lang("This module displays the root categories in one block each, with pages and subcategories (incl. their pages if activated).")
@@ -503,10 +508,15 @@
 					break;
 				}
 				
-// 				if($arguments['current_section_only'] && $this->page->cat_id != $cat_id) continue;
  				if($arguments['current_section_only'] && array_search($this->page->cat_id,$cat_tree) === false) continue;
 				if((int)$arguments['category_id'] > 0 && (int)$arguments['category_id'] != $cat_id) continue;
-//  				_debug_array($cat_tree);
+				if(! empty($arguments['main_cats_to_include'])) {
+					$main_cats_to_include = explode(',',$arguments['main_cats_to_include']);
+					$test = array_intersect($main_cats_to_include,$cat_tree);
+					if (empty($test)) continue;
+				}
+				
+//  			_debug_array($cat_tree);
 				if($cat['depth'] <= $arguments['max_cat_depth'])
 				{
 					if(!($arguments['suppress_current_cat'] && $this->page->cat_id == $cat_id) && 
