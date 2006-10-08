@@ -229,7 +229,7 @@
 					div.inactivetab{ display:none; }
 				</style>
 				<script type=\"text/javascript\">
-					var tab = new Tabs('".(string)(count($this->arguments['nav_type']['options']) -1)."',
+					var tab = new Tabs(".(string)(count($this->arguments['nav_type']['options']) -1).",
 					'activetab','inactivetab','tab','tabcontent','','','tabpage');
 					tab.init();
 				</script>",
