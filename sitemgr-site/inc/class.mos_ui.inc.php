@@ -15,14 +15,21 @@
 	function mosCountModules($contentarea)
 	{
 		global $objui;
-
-		return (int)!!$objui->t->process_blocks($contentarea);
+		return (int)$objui->t->count_blocks($contentarea);
+		
 	}
 
-	function mosLoadModules($contentarea)
+	/**
+	 * http://help.joomla.org/content/view/1565/155/
+	 *
+	 * @param unknown_type $contentarea
+	 * @param unknown_type $_style
+	 */
+	function mosLoadModules($contentarea,$_style=0)
 	{
 		global $objui;
-
+		global $mos_style;
+		$mos_style = $_style;
 		echo $objui->t->process_blocks($contentarea);
 	}
 
@@ -43,8 +50,6 @@
 	function mosShowHead()
 	{
 		global $objui,$mosConfig_sitename;
-
-		$objui->t->process_blocks('center');	// we need to render the center area now, to get all javascript included
 
 		echo "\t\t<title>$mosConfig_sitename</title>\n";
 		$objui->t->loadfile(realpath(dirname(__FILE__).'/../mos-compat/metadata.tpl'));
@@ -133,7 +138,11 @@
 
 			ob_start();		// else some modules like the redirect wont work
 			include($this->templateroot.'/index.php');
-			ob_end_flush();
+			$website = ob_get_contents();
+			ob_clean();
+			// regenerate header (e.g. js includes)
+			$objui->t->loadfile(realpath(dirname(__FILE__).'/../mos-compat/metadata.tpl'));
+			echo preg_replace('@<!-- metadata.tpl starts here -->.*?<!-- metadata.tpl ends here -->@si',$objui->t->parse(),$website);
 		}
 	}
 ?>

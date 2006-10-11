@@ -160,10 +160,26 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 				$str);
 		}
 
+		function count_blocks($vars) {
+			global $page;
+			global $objbo;
+			static $cache;
+			
+			$areaname = is_array($vars) ? $vars[1] : $vars;
+			if (is_array($cache) && isset($cache[$areaname]))
+			{
+				return $cache[$areaname];
+			}
+			
+			$blocks =& $this->bo->getvisibleblockdefsforarea($areaname,$page->cat_id,$page->id,$objbo->is_admin(),$objbo->isuser);
+			return count($blocks);
+		}
+		
 		/**
 		* processes all blocks for a given contentarea
 		*
 		* @param $vars string contenarea name
+		* @param $_mos_style
 		* @return string html content
 		**/
 		function process_blocks($vars)

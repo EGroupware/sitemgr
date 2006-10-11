@@ -10,26 +10,26 @@
 	*  option) any later version.                                              *
 	\**************************************************************************/
 
-	/* $Id$ */
+	/* $Id: left_bt.inc.php 13831 2004-02-22 01:46:27Z ralfbecker $ */
 
-class left_bt {
-	function apply_transform($title,$content) {
+class center_bt {
+	function apply_transform($title,$content,$block) {
 		global $mos_style;
 		switch ($mos_style) {
 			case -1: // raw
 				return $content;
 			case -3: // extra divs
 				return 
-					"<div class=\"module\">\n".
-					"	<div class=\"leftmodule_title\">\n".
+					"<div class=\"module\">".
+					"	<div class=\"centermodule_title\">".
 					"		$title\n".
-					"	</div>\n".
-					"	<div class=\"leftmodule_content\">\n".
+					"	</div>".
+					"	<div class=\"centermodule_content\">".
 					"		$content\n".
-					"	</div>\n".
-					"	<div class=\"leftmodule_close\">\n".
-					"	</div>\n".
-					"</div>\n";
+					"	</div>".
+					"	<div class=\"centermodule_close\">".
+					"	</div>".
+					"</div>";
 			case -2: // XHTML
 			case  1: // horizontal
 			case  0: // normal

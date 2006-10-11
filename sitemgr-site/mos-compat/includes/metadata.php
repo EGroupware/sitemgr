@@ -14,6 +14,5 @@
 
 	// This file echos the sites metadata
 	global $objui;
-	$objui->t->process_blocks('center');	// we need to render the center area now, to get all javascript included
 	$objui->t->loadfile(realpath(dirname(__FILE__).'/../metadata.tpl'));
 	echo $objui->t->parse();

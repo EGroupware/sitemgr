@@ -27,7 +27,9 @@ define('SITEMGR_VIEWABLE_ANONYMOUS',3);
 	class Content_BO
 	{
 		var $so;
-
+		var $blockcach;
+		var $blockdefcach;
+		
 		function Content_BO()
 		{
 			$this->so =& CreateObject('sitemgr.Content_SO', true);
@@ -171,7 +173,9 @@ define('SITEMGR_VIEWABLE_ANONYMOUS',3);
 			$cat_ancestorlist = ($cat_id != CURRENT_SITE_ID) ? 
 				$GLOBALS['Common_BO']->cats->getCategoryancestorids($cat_id,True) : 
 				False;
-			return $this->so->getvisibleblockdefsforarea($area,$cat_ancestorlist,$page_id,$isadmin,$isuser);
+			return !isset($this->blockdefcach['all'][$area][$cat_id][$page_id][$isadmin][$isuser]) ?
+				($this->blockdefcach['all'][$area][$cat_id][$page_id][$isadmin][$isuser] = $this->so->getvisibleblockdefsforarea($area,$cat_ancestorlist,$page_id,$isadmin,$isuser)) :
+				$this->blockdefcach['all'][$area][$cat_id][$page_id][$isadmin][$isuser];
 		}
 
 		function &getallblocksforarea($area,$cat_id,$page_id,$lang)
@@ -179,7 +183,9 @@ define('SITEMGR_VIEWABLE_ANONYMOUS',3);
 			$cat_ancestorlist = ($cat_id != CURRENT_SITE_ID) ? 
 				$GLOBALS['Common_BO']->cats->getCategoryancestorids($cat_id,True) : 
 				False;
-			return $this->so->getallblocksforarea($area,$cat_ancestorlist,$page_id,$lang);
+			return !isset($this->blockcach['all'][$area][$cat_id][$page_id][$lang]) ? 
+				($this->blockcach['all'][$area][$cat_id][$page_id][$lang] = $this->so->getallblocksforarea($area,$cat_ancestorlist,$page_id,$lang)) : 
+				$this->blockcach['all'][$area][$cat_id][$page_id][$lang];
 		}
 
 		function &getcommitableblocks()

@@ -1,3 +1,4 @@
+	<!-- metadata.tpl starts here -->
 		<meta http-equiv="expires" content="0" />
 		<meta name="RESOURCE-TYPE" content="DOCUMENT" />
 		<meta name="DISTRIBUTION" content="GLOBAL" />
@@ -13,3 +14,4 @@
 		{editmode_styles}
 		{java_script}
 		{default_css}
+	<!-- metadata.tpl ends here -->

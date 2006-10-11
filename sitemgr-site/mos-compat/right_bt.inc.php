@@ -12,21 +12,41 @@
 
 	/* $Id$ */
 
-class right_bt
-{
-	function apply_transform($title,$content)
-	{
-		return
-'<table class="moduletable">
-	<tr>
-		<th>'.$title.'</th>
-	</tr>
-	<tr>
-		<td>
-			'.$content.'
-		</td>
-	</tr>
-</table>
-';
+class right_bt {
+
+	function apply_transform($title,$content,$block) {
+		global $mos_style;
+		switch ($mos_style) {
+			case -1: // raw
+				return $content;
+			case -3: // extra divs
+				return 
+					"<div class=\"module\">".
+					"	<div class=\"rightmodule_title\">".
+					"		$title\n".
+					"	</div>".
+					"	<div class=\"rightmodule_content\">".
+					"		$content\n".
+					"	</div>".
+					"	<div class=\"rightmodule_close\">".
+					"	</div>".
+					"</div>";
+			case -2: // XHTML
+			case  1: // horizontal
+			case  0: // normal
+			default: 
+				return
+					"<table class=\"moduletable\">\n".
+					"	<tr>\n".
+					"		<th>$title</th>\n".
+					"	</tr>\n".
+					"	<tr>\n".
+					"		<td>\n".
+					"			$content\n".
+					"		</td>\n".
+					"	</tr>\n".
+					"</table>\n";
+		}
+		
 	}
 }
