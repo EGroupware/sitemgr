@@ -41,11 +41,12 @@
 			
 			if($GLOBALS['egw_info']['server']['allow_cookie_auth'])
 			{
-				$eGW_remember = unserialize(stripslashes($_COOKIE['eGW_remember']));
-				if($eGW_remember['login'] && $eGW_remember['passwd'] && $eGW_remember['passwd_type'])
-				{
-					$anon_account = $eGW_remember;
-				}
+				$eGW_remember = explode('::::',stripslashes($_COOKIE['eGW_remember']));
+				$anon_account = array(
+					'login' => $eGW_remember[0],
+					'passwd' => $eGW_remember[1],
+					'passwd_type' => $eGW_remember[2],
+				);
 			}
 			if (!$anon_account['login'])
 			{
