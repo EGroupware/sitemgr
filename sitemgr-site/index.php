@@ -47,7 +47,7 @@
 					$anon_account = array(
 						'login' => $eGW_remember[0],
 						'passwd' => $eGW_remember[1],
-						'passwd_type => $eGW_remember[2],
+						'passwd_type' => $eGW_remember[2],
 					);
 				}
 			}
