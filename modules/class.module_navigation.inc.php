@@ -133,8 +133,11 @@
 					'description' => lang('This module provides a condensed table of contents, meant for side areas')
 					),
 				8 => array( // Path
-					'description' => lang('This module provides the path to the element currently shown')
-					),
+					'description' => lang('This module provides the path to the element currently shown'),
+					'no_show_sep' => array(
+						'type' => 'checkbox',
+						'label'=> lang('Don\'t use egroupware css ">" separator (for templates that uses images/simbols for lists)')
+					)),
 				9 => array( //Custom
 					'description' => lang('This module is a customisable navigation element'),
 					'allingment' => array(
@@ -388,7 +391,14 @@
 					));
 					break;
 				case 8 : // Path
-					$out .= "path\">\n";
+					if(!$arguments['no_show_sep'])
+					{
+						$out .= "path\">\n";	
+					}
+					else
+					{
+						$out .= "path-nosep\">\n";
+					}
 					$arguments = array_merge($arguments, array(
 						'suppress_parent' => true,
 						'suppress_show_all' => true,

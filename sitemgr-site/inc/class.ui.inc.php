@@ -52,6 +52,13 @@
 			$this->generatePage();
 		}
 
+		function displaySearch($search_result)
+		{
+			global $objbo;
+			$objbo->loadSearchResult($search_result);
+			$this->generatePage();
+		}
+
 		function generatePage()
 		{
 			// add a content-type header to overwrite an existing default charset in apache (AddDefaultCharset directiv)

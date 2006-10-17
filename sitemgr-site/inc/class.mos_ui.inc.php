@@ -56,6 +56,69 @@
 		echo $objui->t->parse();
 	}
 
+	function mosPathWay()
+	{
+		global $objui;
+		
+		$module_navigation_path = array('','navigation','nav_type=8&no_show_sep=on');
+		
+		echo $objui->t->exec_module($module_navigation_path);
+	}
+	
+	/**
+	* Returns current date according to current local and time offset
+	* @param string format optional format for strftime
+	* @returns current date
+	*/
+	function mosCurrentDate( $format="" ) {
+		
+		if (!is_object($GLOBALS['egw']->datetime))
+		{
+			$GLOBALS['egw']->datetime =& CreateObject('phpgwapi.datetime');
+		}
+		$tz_offset_s = $GLOBALS['egw']->datetime->tz_offset;
+
+		if ($format=="") {
+			$format = _DATE_FORMAT_LC;
+		}
+		$date = strftime( $format, time() + ($tz_offset_s) );
+		return $date;
+	}
+
+	function mosMainBody()
+	{ 
+		global $mosConfig_live_site;
+		global $objui;
+		 
+		// message passed via the url
+		$mosmsg = strval($_GET['mosmsg']);
+		$popMessages = false;
+		
+		// Browser Check
+		$browserCheck = 0;
+		if ( isset( $_SERVER['HTTP_USER_AGENT'] ) && isset( $_SERVER['HTTP_REFERER'] ) && strpos($_SERVER['HTTP_REFERER'], $mosConfig_live_site) !== false ) {
+			$browserCheck = 1;
+		}
+
+		// limit mosmsg to 150 characters
+		if ( strlen( $mosmsg ) > 150 ) {
+			$mosmsg = substr( $mosmsg, 0, 150 );
+		}
+		
+		// mosmsg outputed within html
+		if ($mosmsg && !$popMessages && $browserCheck) {
+			echo "\n<div class=\"message\">$mosmsg</div>";
+		}
+	
+		// mosmsg outputed in JS Popup
+		if ($mosmsg && $popMessages && $browserCheck) {
+			echo "\n<script language=\"javascript\">alert('$mosmsg');</script>";
+		}
+		
+		// load the center module
+		mosLoadModules('center');
+	}
+
 	// this is just to make some templates work, it does nothing actually atm.
 	class mos_database
 	{
@@ -110,9 +173,17 @@
 			$this->generatePage();
 		}
 
+		function displaySearch($search_result)
+		{
+			global $objbo;
+			$objbo->loadSearchResult($search_result);
+			$this->generatePage();
+		}
+		
 		function generatePage()
 		{
 			global $database;
+			global $objui;
 			$database =& new mos_database;
 
 			// add a content-type header to overwrite an existing default charset in apache (AddDefaultCharset directiv)

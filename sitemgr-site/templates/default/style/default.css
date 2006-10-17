@@ -64,6 +64,10 @@ This code would produce 100% complability with old module, but looks ugly in cas
 #navigation-path li { list-style-image:url("../../../images/pix.gif"); float: left; }
 #navigation-path a:before { content: " > "; }
 
+#navigation-path-nosep .nav-cat-entry ul, li { padding-left: 0px; }
+#navigation-path-nosep .nav-page-entry ul, li { padding-left: 0px; }
+#navigation-path-nosep li { list-style-image:url("../../../images/pix.gif"); float: left; }
+
 /*--------------------------*/
 /*| styles for wiki module |*/
 /*--------------------------*/

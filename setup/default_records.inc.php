@@ -60,6 +60,8 @@
 		'template' => array('left','right','__PAGE__'),
 		'validator' => array('footer'),
 		'wiki' => array('__PAGE__'),
+		'search' => array('left','right','header','footer','__PAGE__'),
+		'searchshow'=> array('__PAGE__'),
 	);
 	$dir = dir(EGW_SERVER_ROOT);
 	while(($app = $dir->read()))

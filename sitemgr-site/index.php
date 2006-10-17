@@ -164,7 +164,13 @@
 	$category_id = $_GET['category_id'];
 	$toc = $_GET['toc'];
 	$index = $_GET['index'];
-
+	
+	$search_content = $_POST['searchword'];
+	if (!$search_content)
+	{
+		$search_content = $_GET['searchword'];
+	}
+	
 	if ($page_name && $page_name != 'index.php')
 	{
 		$objui->displayPageByName($page_name);
@@ -196,6 +202,12 @@
 	elseif (isset($toc))
 	{
 		$objui->displayTOC();
+	}
+	elseif ($search_content)
+	{
+		$searchobj =& CreateObject('sitemgr.search_bo');
+		$search_result = $searchobj->search($search_content);
+		$objui->displaySearch($search_result);
 	}
 	else
 	{
