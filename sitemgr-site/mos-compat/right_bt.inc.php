@@ -22,11 +22,15 @@ class right_bt {
 			case -3: // extra divs
 				return 
 					"<div class=\"module\">".
-					"	<div class=\"rightmodule_title\">".
-					"		$title\n".
+					"	<div class=\"rightmodule_open\">".
+					"		<div class=\"rightmodule_title\">".
+					"			$title\n".
+					"		</div>".
 					"	</div>".
-					"	<div class=\"rightmodule_content\">".
-					"		$content\n".
+					"	<div class =\"rightmodule_main\">".
+					"		<div class=\"rightmodule_content\">".
+					"			$content\n".
+					"		</div>".
 					"	</div>".
 					"	<div class=\"rightmodule_close\">".
 					"	</div>".

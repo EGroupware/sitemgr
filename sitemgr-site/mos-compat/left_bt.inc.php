@@ -20,16 +20,20 @@ class left_bt {
 				return $content;
 			case -3: // extra divs
 				return 
-					"<div class=\"module\">\n".
-					"	<div class=\"leftmodule_title\">\n".
-					"		$title\n".
-					"	</div>\n".
-					"	<div class=\"leftmodule_content\">\n".
-					"		$content\n".
-					"	</div>\n".
-					"	<div class=\"leftmodule_close\">\n".
-					"	</div>\n".
-					"</div>\n";
+					"<div class=\"module\">".
+					"	<div class=\"leftmodule_open\">".
+					"		<div class=\"leftmodule_title\">".
+					"			$title\n".
+					"		</div>".
+					"	</div>".
+					"	<div class =\"leftmodule_main\">".
+					"		<div class=\"leftmodule_content\">".
+					"			$content\n".
+					"		</div>".
+					"	</div>".
+					"	<div class=\"leftmodule_close\">".
+					"	</div>".
+					"</div>";
 			case -2: // XHTML
 			case  1: // horizontal
 			case  0: // normal

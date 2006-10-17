@@ -21,11 +21,15 @@ class center_bt {
 			case -3: // extra divs
 				return 
 					"<div class=\"module\">".
-					"	<div class=\"centermodule_title\">".
-					"		$title\n".
+					"	<div class=\"centermodule_open\">".
+					"		<div class=\"centermodule_title\">".
+					"			$title\n".
+					"		</div>".
 					"	</div>".
-					"	<div class=\"centermodule_content\">".
-					"		$content\n".
+					"	<div class =\"centermodule_main\">".
+					"		<div class=\"centermodule_content\">".
+					"			$content\n".
+					"		</div>".
 					"	</div>".
 					"	<div class=\"centermodule_close\">".
 					"	</div>".
