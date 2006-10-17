@@ -37,16 +37,21 @@
 				'passwd' => $GLOBALS['egw']->db->f('anonymous_passwd'),
 				'passwd_type' => 'text',
 			);
+
 			$sitemgr_info['anonymous_user'] = $anon_account['login'];
 			
 			if($GLOBALS['egw_info']['server']['allow_cookie_auth'])
 			{
 				$eGW_remember = explode('::::',stripslashes($_COOKIE['eGW_remember']));
-				$anon_account = array(
-					'login' => $eGW_remember[0],
-					'passwd' => $eGW_remember[1],
-					'passwd_type' => $eGW_remember[2],
-				);
+
+				if (count($eGW_remember) == 3 && $GLOBALS['egw']->accounts->name2id($eGW_remember[0],'account_lid','u'))
+				{
+					$anon_account = array(
+						'login' => $eGW_remember[0],
+						'passwd' => $eGW_remember[1],
+						'passwd_type' => $eGW_remember[2],
+					);
+				}
 			}
 			if (!$anon_account['login'])
 			{
