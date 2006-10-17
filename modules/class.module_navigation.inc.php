@@ -140,14 +140,14 @@
 					)),
 				9 => array( //Custom
 					'description' => lang('This module is a customisable navigation element'),
-					'allingment' => array(
+					'alignment' => array(
 						'type' => 'select',
 						'label' => lang('Allignment of navigation elements'),
 						'options' => array(
 							'vertical' => lang('Vertical'),
 							'horizontal' => lang('Horizontal'))
 					),
-					'textallign' => array(
+					'textalign' => array(
 						'type' => 'select',
 						'label' => lang('Text allignment'),
 						'options' => array(
@@ -408,9 +408,9 @@
 					break;
 					
 				case 9 : // Custom
-					$out .= "custrom\" ";
-					$out .= "class=\"allingment-". $arguments['allingment']."\" ";
-					$out .= "class=\"textallign-". $arguments['textallign']."\"";
+					$out .= "custom\" ";
+					$out .= "class=\"alignment-". $arguments['alignment']."\" ";
+					$out .= "class=\"textalign-". $arguments['textalign']."\"";
 					$out .= ">\n";
 					break;
 				case 10 : // tabs
