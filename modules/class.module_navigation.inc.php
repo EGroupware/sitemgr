@@ -614,7 +614,7 @@
 				if ($depth == 0) return $out;
 				
 				//$out .= "  <!-- NAV CAT BLOCK OF DEPTH ". $depth. " STARTS HERE-->\n";
-				$out .= "  <div class=\"nav-cat-block blockdepth-".$depth."\">\n";
+				$out .= "  <div class=\"nav-cat-block blockdepth-".$depth. ($this->page->cat_id == $cat_id ? ' active' : ' inactive'). "\">\n";
 			}
 			
 			$out .= "    <div class=\"nav-".$type."-entry depth-".$depth."\">\n";
