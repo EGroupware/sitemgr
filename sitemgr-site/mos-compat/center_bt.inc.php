@@ -20,25 +20,27 @@ class center_bt {
 				return $content;
 			case -3: // extra divs
 				return 
-					"<div class=\"module\">".
-					"	<div class=\"centermodule_open\">".
-					"		<div class=\"centermodule_title\">".
+					"\n".
+					"<div class=\"module\">\n".
+					"	<div class=\"centermodule_open\">\n".
+					"		<div class=\"centermodule_title\">\n".
 					"			$title\n".
-					"		</div>".
-					"	</div>".
-					"	<div class =\"centermodule_main\">".
-					"		<div class=\"centermodule_content\">".
+					"		</div>\n".
+					"	</div>\n".
+					"	<div class =\"centermodule_main\">\n".
+					"		<div class=\"centermodule_content\">\n".
 					"			$content\n".
-					"		</div>".
-					"	</div>".
-					"	<div class=\"centermodule_close\">".
-					"	</div>".
-					"</div>";
+					"		</div>\n".
+					"	</div>\n".
+					"	<div class=\"centermodule_close\">\n".
+					"	</div>\n".
+					"</div>\n";
 			case -2: // XHTML
 			case  1: // horizontal
 			case  0: // normal
 			default: 
 				return
+					"\n".
 					"<table class=\"moduletable\">\n".
 					"	<tr>\n".
 					"		<th>$title</th>\n".

@@ -21,25 +21,27 @@ class right_bt {
 				return $content;
 			case -3: // extra divs
 				return 
-					"<div class=\"module\">".
-					"	<div class=\"rightmodule_open\">".
-					"		<div class=\"rightmodule_title\">".
+					"\n".
+					"<div class=\"module\">\n".
+					"	<div class=\"rightmodule_open\">\n".
+					"		<div class=\"rightmodule_title\">\n".
 					"			$title\n".
-					"		</div>".
-					"	</div>".
-					"	<div class =\"rightmodule_main\">".
-					"		<div class=\"rightmodule_content\">".
+					"		</div>\n".
+					"	</div>\n".
+					"	<div class =\"rightmodule_main\">\n".
+					"		<div class=\"rightmodule_content\">\n".
 					"			$content\n".
-					"		</div>".
-					"	</div>".
-					"	<div class=\"rightmodule_close\">".
-					"	</div>".
-					"</div>";
+					"		</div>\n".
+					"	</div>\n".
+					"	<div class=\"rightmodule_close\">\n".
+					"	</div>\n".
+					"</div>\n";
 			case -2: // XHTML
 			case  1: // horizontal
 			case  0: // normal
 			default: 
 				return
+					"\n".
 					"<table class=\"moduletable\">\n".
 					"	<tr>\n".
 					"		<th>$title</th>\n".
