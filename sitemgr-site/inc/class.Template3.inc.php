@@ -168,11 +168,14 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 			$areaname = is_array($vars) ? $vars[1] : $vars;
 			if (is_array($cache) && isset($cache[$areaname]))
 			{
-				return $cache[$areaname];
+				$blocks =& $cache[$areaname];
 			}
-			
-			$blocks =& $this->bo->getvisibleblockdefsforarea($areaname,$page->cat_id,$page->id,$objbo->is_admin(),$objbo->isuser);
-			return count($blocks);
+			else 
+			{
+				$blocks =& $this->bo->getvisibleblockdefsforarea($areaname,$page->cat_id,$page->id,$objbo->is_admin(),$objbo->isuser);
+			}
+			$n_blks = count($blocks);
+			return $GLOBALS['sitemgr_info']['mode'] == 'Edit' ? ( ($n_blks) < 1 ? 1 : $n_blks ) : $n_blks;
 		}
 		
 		/**
