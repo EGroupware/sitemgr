@@ -52,10 +52,10 @@
 			$this->generatePage();
 		}
 
-		function displaySearch($search_result)
+		function displaySearch($search_result,$lang,$mode,$options)
 		{
 			global $objbo;
-			$objbo->loadSearchResult($search_result);
+			$objbo->loadSearchResult($search_result,$lang,$mode,$options);
 			$this->generatePage();
 		}
 

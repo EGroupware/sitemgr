@@ -205,9 +205,14 @@
 	}
 	elseif ($search_content)
 	{
-		$searchobj =& CreateObject('sitemgr.search_bo');
-		$search_result = $searchobj->search($search_content);
-		$objui->displaySearch($search_result);
+		// Make compatibility with mos search boxes, if not lang, mode and view option, default all languages 
+		// any words mode and view options advgoogle
+		$search_lang = $_POST['search_lang'] ? $_POST['search_lang'] : "all";
+		$search_mode = $_POST['search_mode'] ? $_POST['search_mode'] : "any";
+		$search_options = $_POST['search_options'] ? $_POST['search_options'] : "advgoogle";
+		$search_ui =& CreateObject('sitemgr.search_ui');
+		$search_result = $search_ui->search($search_content,$search_lang,$search_mode,$search_options);
+		$objui->displaySearch($search_result,$search_lang,$search_mode,$search_options);
 	}
 	else
 	{

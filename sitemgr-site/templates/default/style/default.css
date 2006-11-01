@@ -118,3 +118,12 @@ This code would produce 100% complability with old module, but looks ugly in cas
 @media screen {	.onlyPrint { display: none; } }
 @media print  {	.noPrint { display: none; } }
 
+/*-----------------------------------------------*/
+/*| styles for search module                    |*/
+/*-----------------------------------------------*/
+.search_results {
+    border: 1px solid #000000;
+    padding: 5px 5px 5px 5px;
+}
+.highlight { font-family: Verdana; color: red; font-weight: bold; }
+/*-----------------------------------------------*/

@@ -95,24 +95,22 @@
 			return true;
 		}
 		
-		function loadSearchResult($search_result)
+		function loadSearchResult($search_result,$lang,$mode,$options)
 		{
 			global $page;
-			$matches = $search_result['matches'];
-			if ($matches != 0)
-			{
-				$page->title = $matches." ".lang('matches founds for : ').$search_result['search'];
-			}
-			else
-			{
-				$page->title = lang('Sorry, no content for : ').$search_result['search'];
-			}
+			$page->title = lang('search');
 			$page->subtitle = '';
 			$page->index = True;
 			$page->block =& CreateObject('sitemgr.Block_SO',True);
-			$page->block->module_name = 'searchshow';
-			$page->block->arguments = array('search_result' => $search_result);
-			$page->block->module_id = $GLOBALS['Common_BO']->modules->getmoduleid('searchshow');
+			$page->block->module_name = 'search';
+			$page->block->arguments = array(
+					'search_result'=> $search_result, 
+					'show_results' => true, 
+					'lang'         => $lang, 
+					'mode'         => $mode,
+					'options'      => $options,
+					);
+			$page->block->module_id = $GLOBALS['Common_BO']->modules->getmoduleid('search');
 			$page->block->view = SITEMGR_VIEWABLE_EVERBODY;
 			$page->block->status = SITEMGR_STATE_PUBLISH;
 			$page->cat_id = CURRENT_SITE_ID;

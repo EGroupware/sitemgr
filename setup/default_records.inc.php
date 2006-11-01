@@ -61,7 +61,6 @@
 		'validator' => array('footer'),
 		'wiki' => array('__PAGE__'),
 		'search' => array('left','right','header','footer','__PAGE__'),
-		'searchshow'=> array('__PAGE__'),
 	);
 	$dir = dir(EGW_SERVER_ROOT);
 	while(($app = $dir->read()))
@@ -234,4 +233,5 @@
 	{
 		echo "sitemgr-link NOT installed, you need to copy it from egroupware/sitemgr/sitemgr-link to egroupware/sitemgr-link and install it manually !!!";
 	}
-
+	
+	

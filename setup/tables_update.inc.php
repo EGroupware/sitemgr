@@ -920,4 +920,31 @@
 		return $GLOBALS['setup_info']['sitemgr']['currentver'];
 	}
 
+	$test[] = '1.3.001';
+	function sitemgr_upgrade1_3_001()
+	{
+		$db = clone($GLOBALS['egw_setup']->db);
+		$db->set_app('sitemgr');
+		
+		// insert the search module into the module table
+		$db->insert('egw_sitemgr_modules',array(
+			'module_name' => 'search',
+			'description' => 'This module search throw the content (Page title/description and html content)',
+		),false,__LINE__,__FILE__);
+		$search_id = $db->get_last_insert_id('egw_sitemgr_modules','module_id');		
+
+		// insert in the active_module table the search module (all areas are permited)
+		foreach(array('left','right','header','footer','__PAGE__') as $area)
+		{
+			$db->insert('egw_sitemgr_active_modules',array(
+				'area' => $area,
+				'cat_id' => 2,
+				'module_id' => $search_id,
+			),false,__LINE__,__FILE__);			
+		}		
+
+		$GLOBALS['setup_info']['sitemgr']['currentver'] = '1.3.002';
+		return $GLOBALS['setup_info']['sitemgr']['currentver'];
+	}
+	
 ?>
