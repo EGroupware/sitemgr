@@ -91,6 +91,10 @@
 
 	include($sitemgr_info['egw_path'] . 'header.inc.php');
 
+	if ($sitemgr_info['webserver_url'])
+	{
+		$GLOBALS['egw_info']['server']['webserver_url'] = $sitemgr_info['webserver_url'];
+	}
 	if (!$site_id)
 	{
 		sitemgr_get_site($anon_account);
