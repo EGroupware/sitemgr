@@ -16,7 +16,7 @@
 	* to run in a differen directory/URL as sitemgr/sitemgr-site.  *
 	\**************************************************************/
 
-	$sitemgr_info = array(
+	$GLOBALS['sitemgr_info'] = array(
 		// add trailing slash
 		'egw_path'         => '../../',
 		'htaccess_rewrite' => False,
