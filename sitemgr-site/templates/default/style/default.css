@@ -91,11 +91,11 @@ This code would produce 100% complability with old module, but looks ugly in cas
 /*| styles for the news_admin module |*/
 /*------------------------------------*/
 
-.news_items { text-aling: left; }
-.news_item { }
+.news_items { text-align: left; }
+.news_item { margin-top: 5px; }
 .news_date { font-style: italic; display: inline; }
 .news_title { display: inline; }
-.news_headline { font-weight: bold; font-size: 120%; margin-top: 5px; }
+.news_headline { font-weight: bold; font-size: 120%; }
 .news_submitted { font-style: italic; }
 .news_teaser { font-weight: bold; }
 .news_teaser_more { }
