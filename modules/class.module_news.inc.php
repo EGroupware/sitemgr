@@ -82,7 +82,7 @@
 			if ($arguments['rsslink'])
 			{
 				$this->template->set_var('rsslink',
-					$GLOBALS['egw_info']['server']['webserver_url'] . '/news_admin/website/export.php?cat_id=' . $arguments['category']);
+					$GLOBALS['egw_info']['server']['webserver_url'] . '/news_admin/website/export.php?cat_id=' . $arguments['category'] . '&domain=' . $GLOBALS['egw_info']['user']['domain']);
 				$this->template->parse('rsshandle','RssBlock');
 			}
 			else
