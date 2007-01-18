@@ -319,10 +319,15 @@ class Module
 				{
 					$GLOBALS['egw']->html =& CreateObject('phpgwapi.html');
 				}
-// 				return $GLOBALS['egw']->html->htmlarea($elementname,$default,$input['params']['style'],false,$input['params']['plugins']);
-				return $GLOBALS['egw']->html->tinymce($elementname,$default,$input['params']['style'],$input['params']['plugins']);
-
-// 				$GLOBALS['Common_BO']->sites->current_site['site_url']
+				if ($GLOBALS['Common_BO']->sites->current_site['upload_url'])
+				{
+					$upload_dir = $GLOBALS['Common_BO']->sites->current_site['upload_url'];
+				}
+				else
+				{
+					$upload_dir = $GLOBALS['Common_BO']->sites->current_site['site_url'];
+				}
+				return $GLOBALS['egw']->html->fckEditor($elementname,$default,'advanced',null,'400px','100%',$upload_dir);
 			case 'textarea':
 				return '<textarea ' . $inputdef . '>' . $default . '</textarea>';
 			case 'textfield':
