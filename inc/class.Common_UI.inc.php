@@ -226,20 +226,20 @@
 				);
 				$upload_dir = $GLOBALS['Common_BO']->sites->current_site['upload_dir'];
 				$preferences['upload_dir'] = array(
-					'title'=>lang('Directory for uploads (images etc.)'),
+					'title'=>lang('Directory for uploads (images etc.), append a final slash'),
 					'note'=> $GLOBALS['Common_BO']->sites->current_site['upload_dir'] ? 
 						(
 							is_writeable($upload_dir) ? '' : 
 							lang('Directory is not writeable by webserver. Please correct this situation!')
 						) :
 						lang('Note, this directory has to be writeable by webserver!'),
-					'default'=> $GLOBALS['Common_BO']->sites->current_site['site_dir'] . SEP . 'images' .SEP
+					'default'=> $GLOBALS['Common_BO']->sites->current_site['site_dir']
 				);
 				$upload_url = $GLOBALS['Common_BO']->sites->current_site['upload_url'];
 				$preferences['upload_url'] = array(
-					'title'=>lang('URL of directory for uploads (images etc.)'),
-					'note'=> '',
-					'default'=> $GLOBALS['Common_BO']->sites->current_site['site_url'].'images'
+					'title'=>lang('URL for uploads (images etc.)'),
+					'note'=> lang('Final url, not append an end slash. Ex: ').$GLOBALS['Common_BO']->sites->current_site['site_url'].'images',
+					'default'=> $GLOBALS['Common_BO']->sites->current_site['site_url']
 				);
 				$preferences['site_languages'] = array(
 					'title'=>lang('Languages the site user can choose from'),
