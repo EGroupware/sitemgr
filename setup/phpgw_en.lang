@@ -116,8 +116,7 @@ delete this guestbook	sitemgr	en	Delete this guestbook
 delete version	sitemgr	en	Delete Version
 deleting all data for %1	sitemgr	en	Deleting all data for %1
 details for language %1 (%2)	sitemgr	en	Details for language %1 (%2)
-directory for uploads (images etc.)	sitemgr	en	Directory for uploads (images etc.)
-directory is not writeable by webserver. please correct this situation!	sitemgr	en	Directory is not writeable by webserver. Please correct this situation!
+directory is not writable by the webserver --> disabling upload	sitemgr	en	Directory is NOT writable by the webserver --> disabling upload
 discussions	sitemgr	en	Discussions
 display link to autoregistration below login form?	sitemgr	en	Display link to autoregistration below login form?
 do you realy want to delete the selected categories (including all pages), pages and blocks?	sitemgr	en	Do you realy want to delete the selected Categories (including all pages), Pages and Blocks?
@@ -260,7 +259,6 @@ no, chooser with preview	sitemgr	en	No, chooser with preview
 not	common	en	not
 not yet translated	sitemgr	en	not yet translated
 note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	en	Note that you may get this message if your preferences are incorrect.  For example, if config.inc.php is not found in the directory that you specified.
-note, this directory has to be writeable by webserver!	sitemgr	en	Note, this directory has to be writeable by webserver!
 on all pages	sitemgr	en	on all pages
 only gallery	sitemgr	en	Only gallery
 only on the first page	sitemgr	en	only on the first page
@@ -454,8 +452,6 @@ up to parent	sitemgr	en	Up to parent
 up to table of contents	sitemgr	en	Up to table of contents
 update notification	sitemgr	en	Update Notification
 updating to new category system	sitemgr	en	Updating to new category system
-url of directory for uploads (images etc.)	sitemgr	en	URL of directory for uploads (images etc.)
-url pointing to the image-directory	sitemgr	en	URL pointing to the image-directory
 url to sitemgr-site	sitemgr	en	URL to sitemgr-site
 use phpnuke themes instead of templates	sitemgr	en	Use phpNuke themes instead of templates
 use this module for displaying book ads for the amazon web site	sitemgr	en	Use this module for displaying book ads for the amazon web site

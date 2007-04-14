@@ -116,8 +116,7 @@ delete this guestbook	sitemgr	de	Diese Gästebuch löschen
 delete version	sitemgr	de	Version löschen
 deleting all data for %1	sitemgr	de	Alle Daten für %1 werden gelöscht
 details for language %1 (%2)	sitemgr	de	Details für die Sprache %1 (%2)
-directory for uploads (images etc.)	sitemgr	de	Verzeichnis zum Hochladen (Bild usw.)
-directory is not writeable by webserver. please correct this situation!	sitemgr	de	Das Verzeichnis ist vom Webserver nicht beschreibbar. Bitte korregieren Sie das!
+directory is not writable by the webserver --> disabling upload	sitemgr	de	Verzeichnis ist NICHT vom Webserver beschreibbar --> schalte Upload aus
 discussions	sitemgr	de	Diskussionen
 display link to autoregistration below login form?	sitemgr	de	Link auf Autoregistrierung unterhalb des Login anzeigen?
 do you realy want to delete the selected categories (including all pages), pages and blocks?	sitemgr	de	Wollen Sie die ausgewählten Kategorien (einschließlich aller Seiten), Seiten und Blöcke wirklich löschen?
@@ -260,7 +259,6 @@ no, chooser with preview	sitemgr	de	Nein nur Auswahl mit Vorschau
 not	common	de	Niemals
 not yet translated	sitemgr	de	noch nicht übersetzt
 note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	de	Sie können diese Nachricht auch erhalten, wenn Ihre Einstellungen nicht richtig sind. Zum Beispiel wenn config.inc.php nicht im angegebenen Verzeichnis gefunden wurde.
-note, this directory has to be writeable by webserver!	sitemgr	de	Bitte beachten, dieses Verzeichnis muß vom Webserver beschreibbar sein!
 on all pages	sitemgr	de	auf allen Seiten
 only gallery	sitemgr	de	Nur Galerie
 only on the first page	sitemgr	de	nur auf der ersten Seite
@@ -454,8 +452,6 @@ up to parent	sitemgr	de	Zur übergeordneten Ebene wechseln
 up to table of contents	sitemgr	de	Zum Inhaltsverzeichnis wechseln
 update notification	sitemgr	de	Benachrichtigungen aktualisieren
 updating to new category system	sitemgr	de	Update zum neuen Kategorie System
-url of directory for uploads (images etc.)	sitemgr	de	Webadresse der Verzeichnisses zum Hochladen (Bilder usw.)
-url pointing to the image-directory	sitemgr	de	Webadresse zum Ordner der Bilder
 url to sitemgr-site	sitemgr	de	Webadresse zur sitemgr-site
 use phpnuke themes instead of templates	sitemgr	de	Benutze phpNuke Themen anstelle von Designvorlagen
 use this module for displaying book ads for the amazon web site	sitemgr	de	Benutzen sie dieses Modul zum Anzeigen für Bücher der Amazon Website
