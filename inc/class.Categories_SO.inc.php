@@ -14,7 +14,17 @@
 
 	class Categories_SO
 	{
+		/**
+		 * Instance of the categories class
+		 *
+		 * @var categories
+		 */
 		var $cats;
+		/**
+		 * Instance of the db-class
+		 *
+		 * @var egw_db
+		 */
 		var $db;
 		var $site_id;
 		
