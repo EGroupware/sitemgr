@@ -319,15 +319,10 @@ class Module
 				{
 					$GLOBALS['egw']->html =& CreateObject('phpgwapi.html');
 				}
-				if ($GLOBALS['Common_BO']->sites->current_site['upload_url'])
-				{
-					$upload_dir = $GLOBALS['Common_BO']->sites->current_site['upload_url'];
-				}
-				else
-				{
-					$upload_dir = $GLOBALS['Common_BO']->sites->current_site['site_url'];
-				}
-				return $GLOBALS['egw']->html->fckEditor($elementname,$default,'advanced',null,'400px','100%',$upload_dir);
+				return $GLOBALS['egw']->html->fckEditor($elementname,$default,
+					$GLOBALS['egw_info']['user']['preferences']['sitemgr']['rtfEditorFeatures'],	// default is extended
+					null,'300px','100%',	// 300px to fit in the popup, one can use fitWindow to expand it
+					$GLOBALS['Common_BO']->sites->current_site['upload_dir']);
 			case 'textarea':
 				return '<textarea ' . $inputdef . '>' . $default . '</textarea>';
 			case 'textfield':

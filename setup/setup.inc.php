@@ -53,6 +53,7 @@ Arijit Ghosh (arijitg -AT- uci.edu)');
 	$setup_info['sitemgr']['hooks'][] = 'about';
 	$setup_info['sitemgr']['hooks'][] = 'admin';
 	$setup_info['sitemgr']['hooks'][] = 'sidebox_menu';
+	$setup_info['sitemgr']['hooks'][] = 'settings';
 
 	/* Dependencies for this app to work */
 	$setup_info['sitemgr']['depends'][] = array(

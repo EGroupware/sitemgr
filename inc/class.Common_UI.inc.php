@@ -224,22 +224,11 @@
 					'below' => '<iframe name="TemplateInfo" width="100%" height="180" src="'.$theme_info.($theme ? $theme : 'idots').'" frameborder="0" scrolling="auto"></iframe>',
 					'default'=>'idots'
 				);
-				$upload_dir = $GLOBALS['Common_BO']->sites->current_site['upload_dir'];
 				$preferences['upload_dir'] = array(
-					'title'=>lang('Directory for uploads (images etc.), append a final slash'),
-					'note'=> $GLOBALS['Common_BO']->sites->current_site['upload_dir'] ? 
-						(
-							is_writeable($upload_dir) ? '' : 
-							lang('Directory is not writeable by webserver. Please correct this situation!')
-						) :
-						lang('Note, this directory has to be writeable by webserver!'),
-					'default'=> $GLOBALS['Common_BO']->sites->current_site['site_dir']
-				);
-				$upload_url = $GLOBALS['Common_BO']->sites->current_site['upload_url'];
-				$preferences['upload_url'] = array(
-					'title'=>lang('URL for uploads (images etc.)'),
-					'note'=> lang('Final url, not append an end slash. Ex: ').$GLOBALS['Common_BO']->sites->current_site['site_url'].'images',
-					'default'=> $GLOBALS['Common_BO']->sites->current_site['site_url']
+					'title'=>lang('Image directory relative to document root (use / !), example:').' /images',
+					'note'=> lang('An existing AND by the webserver readable directory enables the image browser and upload.').'<br />'.
+						lang('Upload requires the directory to be writable by the webserver!').
+						$this->check_upload_dir($GLOBALS['Common_BO']->sites->current_site['upload_dir']),
 				);
 				$preferences['site_languages'] = array(
 					'title'=>lang('Languages the site user can choose from'),
@@ -299,6 +288,22 @@
 				echo lang("You must be an administrator to setup the Site Manager.") . "<br><br>";
 			}
 			$this->DisplayFooter();
+		}
+		
+		function check_upload_dir($dir)
+		{
+			if ($dir)
+			{
+				if (!is_dir($_SERVER['DOCUMENT_ROOT'].$dir) || !file_exists($_SERVER['DOCUMENT_ROOT'].$dir.'/.'))
+				{
+					$msg = lang('Directory does not exist, is not readable by the webserver or is not relative to the document root!');
+				}
+				elseif(!is_writable($_SERVER['DOCUMENT_ROOT'].$dir))
+				{
+					$msg = lang('Directory is NOT writable by the webserver --> disabling upload');
+				}
+			}
+			return $msg ? '<br /><font color="red">'.$msg.'</font>'  : '';
 		}
 
 		function inputText($name='',$size=40,$default='')
