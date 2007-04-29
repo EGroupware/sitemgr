@@ -209,7 +209,7 @@
 				);
 				$theme = $GLOBALS['Common_BO']->sites->current_site['default_theme'];
 				$theme_info = $GLOBALS['egw']->link('/sitemgr/theme_info.php');
-				$theme_info .= (strstr($theme_info,'?') ? '&' : '?').'theme=';
+				$theme_info .= (strpos($theme_info,'?') !== false ? '&' : '?').'theme=';
 				$preferences['default_theme'] = array(
 					'title'=>lang('Template select'),
 					'note'=>lang('Choose your site\'s theme or template.  Note that if you changed the above checkbox you need to save before choosing a theme or template.').'<br /><br />'.
