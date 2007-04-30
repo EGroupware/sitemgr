@@ -947,4 +947,10 @@
 		return $GLOBALS['setup_info']['sitemgr']['currentver'];
 	}
 	
+
+	$test[] = '1.3.002';
+	function sitemgr_upgrade1_3_002()
+	{
+		return $GLOBALS['setup_info']['sitemgr']['currentver'] = '1.4';
+	}
 ?>
