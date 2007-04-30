@@ -13,7 +13,7 @@
 
 	$setup_info['sitemgr']['name']      = 'sitemgr';
 	$setup_info['sitemgr']['title']     = 'SiteMgr Web Content Management';
-	$setup_info['sitemgr']['version']   = '1.3.002';
+	$setup_info['sitemgr']['version']   = '1.4';
 	$setup_info['sitemgr']['app_order'] = 14;
 	$setup_info['sitemgr']['tables']    = array('egw_sitemgr_pages','egw_sitemgr_pages_lang','egw_sitemgr_categories_state','egw_sitemgr_categories_lang','egw_sitemgr_modules','egw_sitemgr_blocks','egw_sitemgr_blocks_lang','egw_sitemgr_content','egw_sitemgr_content_lang','egw_sitemgr_active_modules','egw_sitemgr_properties','egw_sitemgr_sites','egw_sitemgr_notifications','egw_sitemgr_notify_messages');
 	$setup_info['sitemgr']['enable']    = 1;
@@ -58,11 +58,11 @@ Arijit Ghosh (arijitg -AT- uci.edu)');
 	/* Dependencies for this app to work */
 	$setup_info['sitemgr']['depends'][] = array(
 		'appname'  => 'phpgwapi',
-		'versions' => Array('1.0.1','1.2','1.3')
+		'versions' => Array('1.3','1.4','1.5')
 	);
 	$setup_info['sitemgr']['depends'][] = array(
 		'appname'  => 'etemplate',
-		'versions' => Array('1.0.0','1.0.1','1.2','1.3')
+		'versions' => Array('1.3','1.4','1.5')
 	);
 
 
