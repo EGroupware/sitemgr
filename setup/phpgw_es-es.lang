@@ -116,8 +116,7 @@ delete this guestbook	sitemgr	es-es	Borrar este libro de invitados
 delete version	sitemgr	es-es	Borrar versión
 deleting all data for %1	sitemgr	es-es	Borrar todos los datos de %1
 details for language %1 (%2)	sitemgr	es-es	Detalles para el idioma %1 (%2)
-directory for uploads (images etc.)	sitemgr	es-es	Directorio para subir (imágenes, etc)
-directory is not writeable by webserver. please correct this situation!	sitemgr	es-es	El servidor web no tiene permiso de escritura en el directorio. Por favor, corrija esta situación.
+directory is not writable by the webserver --> disabling upload	sitemgr	es-es	El directorio NO tiene permiso de escritura para el servidor web -> se desactiva poder subir ficheros
 discussions	sitemgr	es-es	Discusiones
 display link to autoregistration below login form?	sitemgr	es-es	¿Mostrar el enlace para registrarse automáticamente debajo del formulario?
 do you realy want to delete the selected categories (including all pages), pages and blocks?	sitemgr	es-es	¿Realmente quiere borrar las categorías (incluyendo todas las páginas), páginas y bloques seleccionados?
@@ -260,7 +259,6 @@ no, chooser with preview	sitemgr	es-es	No, selector con vista previa
 not	common	es-es	no
 not yet translated	sitemgr	es-es	pendiente de traducir
 note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	es-es	Puede que vea este mensaje si sus preferencias son incorrectas. Por ejemplo, si config.inc.php no está en el directorio especificado.
-note, this directory has to be writeable by webserver!	sitemgr	es-es	Nota: el servidor web no puede escribir en el directorio
 on all pages	sitemgr	es-es	en todas las páginas
 only gallery	sitemgr	es-es	Sólo galería
 only on the first page	sitemgr	es-es	sólo en la primera página
@@ -454,8 +452,6 @@ up to parent	sitemgr	es-es	Subir al directorio superior
 up to table of contents	sitemgr	es-es	Subir a la tabla de contenidos
 update notification	sitemgr	es-es	Notificación de actualizacion
 updating to new category system	sitemgr	es-es	Actualizando a nuevo sistema de categorías
-url of directory for uploads (images etc.)	sitemgr	es-es	URL o directorio para subir (imágenes, etc)
-url pointing to the image-directory	sitemgr	es-es	URL que apunta al directorio de imágenes
 url to sitemgr-site	sitemgr	es-es	URL al directorio sitemgr-site
 use phpnuke themes instead of templates	sitemgr	es-es	Usar temas de phpNuke en vez de plantillas
 use this module for displaying book ads for the amazon web site	sitemgr	es-es	Usar este módulo para mostrar publicidad de libros de amazon
