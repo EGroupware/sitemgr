@@ -79,7 +79,6 @@ choose a category	sitemgr	pt-br	Escolha uma categoria
 choose a format	sitemgr	pt-br	Escolha um formato
 choose a guestbook	sitemgr	pt-br	Escolha um livro de visitas
 choose language	sitemgr	pt-br	Escolha um idioma
-choose news layout	sitemgr	pt-br	Escolha layout de notícias
 choose template	sitemgr	pt-br	Escolha o modelo
 choose the categories to display	sitemgr	pt-br	Escolha as categorias a serem publicadas
 choose the valid html type (note: not all icons are available):	sitemgr	pt-br	Escolha o tipo HTML VÁLIDO (nota: nem todos os ícones estão disponíveis):
@@ -90,7 +89,6 @@ codebase url	sitemgr	pt-br	Linha base da URL
 collapse threads	sitemgr	pt-br	Remover seqüências
 commit changes	sitemgr	pt-br	Finalizar mudanças
 common prefix of the image-name (a number starting with 1 will be appended)	sitemgr	pt-br	Prefixo comum para nomes de imagens (um número será adicionado a partir de 1)
-complete news	sitemgr	pt-br	Notícias completas
 configure module properties	sitemgr	pt-br	Configurar propriedades dos módulos
 configure sitemgr	sitemgr	pt-br	Configurar  Gerenciador de Sites
 configure website	sitemgr	pt-br	Configurar Site Web
@@ -118,15 +116,13 @@ delete this guestbook	sitemgr	pt-br	Remover este livro de visitas
 delete version	sitemgr	pt-br	Remover Versão
 deleting all data for %1	sitemgr	pt-br	Remover todo o período desde %1
 details for language %1 (%2)	sitemgr	pt-br	Detalhes para o idioma %1 (%2)
-directory for uploads (images etc.)	sitemgr	pt-br	Diretório para carregamentos (imagens, etc.)
-directory is not writeable by webserver. please correct this situation!	sitemgr	pt-br	O servidor web não tem permissão para gravar no diretório. Por favor, corrija esta situação.
+directory is not writable by the webserver --> disabling upload	sitemgr	pt-br	O servidor web NÃO tem permissão de escrita no diretório --> desabilitando upload
 discussions	sitemgr	pt-br	Discussões
 display link to autoregistration below login form?	sitemgr	pt-br	Mostrar olink  para auto-registro no formulário de login?
 do you realy want to delete the selected categories (including all pages), pages and blocks?	sitemgr	pt-br	Realmente deseja remover a categoria selecionada (incluindo todas as páginas), páginas e blocos ?
 do you realy want to delete this block?	sitemgr	pt-br	Realmente deseja apagar este bloco?
 do you realy want to delete this page?	sitemgr	pt-br	Realmente deseja apagar  esta página?
 do you want to delete them?	sitemgr	pt-br	Realmente deseja apagá-los?
-do you want to publish a rss feed for this news category	sitemgr	pt-br	Deseja publicar conteúdo RSS para esta categoria notícias.
 documentation	sitemgr	pt-br	Documentação
 domain-name (offical dns-name eg. www.egroupware.org) if you want to give the user a choice between searching this site or the whole web. leaving it empty allows to search the web only.	sitemgr	pt-br	Nome do domínio (nome do DNS oficial, ex. www.eGroupWare.org), se você quiser dar ao usuário a opção entre procurar nesta página ou na Internet toda. Deixar esse campo vazio, permitirá a procura em toda a web.
 don't have an account?	sitemgr	pt-br	Não possui uma conta de acesso?
@@ -229,14 +225,11 @@ manage site-wide content	sitemgr	pt-br	Gerenciar Conteúdo do Site
 manage site-wide module properties	sitemgr	pt-br	Gerenciar propriedades de módulos do Site
 manage translations	sitemgr	pt-br	Gerenciar Traduções
 master list of permitted modules	sitemgr	pt-br	Lista principal de módulos permitidos
-maximal category depth to be shown	sitemgr	pt-br	Máximo de sub categorias a serem exibidas
-maximal page depth to be shown	sitemgr	pt-br	Máximo de sub páginas a serem exibidas
 messages are defined for all site languages.	sitemgr	pt-br	Mensagens são definidas para todos os sites de idiomas.
 migrating data for %1 to %2	sitemgr	pt-br	Migrando dados de %1 para %2
 module %1 is not permitted in this context!	sitemgr	pt-br	Módulo %1 não é permitido neste contexto!
 module manager	sitemgr	pt-br	Gerenciador de Módulo
 module: %1, scope: %2, contentarea: %3, viewable: %4	sitemgr	pt-br	Módulo: %1, Escopo: %2, Área de conteúdo: %3, Visibilidade: %4
-more news	sitemgr	pt-br	Mais Notícias
 move block down (increase sort order)	sitemgr	pt-br	Mover bloco para baixo (classificação ascendente)
 move block up (decrease sort order)	sitemgr	pt-br	Mover bloco para baixo (classificação descrecente)
 move to	sitemgr	pt-br	Mover para
@@ -245,14 +238,12 @@ name has been translated to lower case	sitemgr	pt-br	O nome foi traduzido para m
 new application	sitemgr	pt-br	Novo aplicativo
 new guestbook	sitemgr	pt-br	Novo livro de visitas
 new sitemgr site	sitemgr	pt-br	Nova Página do Gerenciador de Sites
-news module	sitemgr	pt-br	Módulo de Notícias
 no additional arguments required	sitemgr	pt-br	Nenhum argumento adicional requerido
 no anonymous user accounts installed.  notify the administrator.	sitemgr	pt-br	NÃO EXISTE UMA CONTA DE ACESSO ANÔNIMO INSTALADA. NOTIFIQUE O ADMINISTRADOR.
 no content areas found in selected template	sitemgr	pt-br	Não existe áreas de conteúdo no modelo selecionado
 no content found	sitemgr	pt-br	Nenhum conteúdo encontrado
 no groups defined.	sitemgr	pt-br	Não há grupos definidos
 no link to full index	sitemgr	pt-br	Não há link para um index completo
-no matching news item	sitemgr	pt-br	Nenhuma notícia encontrada
 no modules permitted for this content area/category	sitemgr	pt-br	Não há módulos autorizados para este conteúdo, área/categoria
 no new modules found !!!	sitemgr	pt-br	nenhum módulo novo encontrado!!!
 no options available.	sitemgr	pt-br	Nenhuma opção disponível
@@ -268,8 +259,6 @@ no, chooser with preview	sitemgr	pt-br	Nenhum. Selecionador com visualização
 not	common	pt-br	não
 not yet translated	sitemgr	pt-br	ainda não traduzido
 note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	pt-br	Note que você pode receber essa mensagem se suas preferências estiverem incorretas. Por exemplo: Se o arquivo config.inc.php não for encontrado no diretório que foi especificado.
-note, this directory has to be writeable by webserver!	sitemgr	pt-br	Atenção, o servidor web precisa de permissão para gravar neste diretório!
-number of news items to be displayed on page	sitemgr	pt-br	Número de notícias que serão mostradas na página
 on all pages	sitemgr	pt-br	em todas as páginas
 only gallery	sitemgr	pt-br	Apenas galeria
 only on the first page	sitemgr	pt-br	apenas na primeira página
@@ -337,10 +326,8 @@ should the file be viewed in the browser or downloaded	sitemgr	pt-br	O arquivo d
 show a template-gallery (thumbnail and informations)	sitemgr	pt-br	Exibir a galeria de modelos (foto reduzida e informações)
 show contents of a directory	sitemgr	pt-br	Exibir conteúdo de um diretório
 show contents of a directory with subdirectories	sitemgr	pt-br	Exibir conteúdo de um diretório com sub-diretórios
-show current section only	sitemgr	pt-br	Exibir somente seção atual
 show details for the applications	sitemgr	pt-br	Exibir detalhes para os aplicativos
 show only (in the next field) selected templates	sitemgr	pt-br	Exibir apenas modelos selecionados (no próximo campo)
-show only headers containing links for complete news	sitemgr	pt-br	Exibir apenas cabeçalhos contendo links para notícias completas
 show path?	sitemgr	pt-br	Exibir caminho?
 show searchbox	sitemgr	pt-br	Exibir campo de busca
 show site index	sitemgr	pt-br	Exibir Index do site
@@ -365,6 +352,7 @@ sitemgr setup instructions	sitemgr	pt-br	Instruções de Configuração do  Gerencia
 sitemgr setup page	sitemgr	pt-br	Página de Configuração do Gerenciador de Sites
 sitemgr web content manager	common	pt-br	Gerenciador de Conteúdo Web do Gerenciador de Sites
 sitemgr websites	sitemgr	pt-br	Site do Gerenciador de Sites
+sitemgr-link	common	pt-br	Website
 sort order	sitemgr	pt-br	Ordem de classificação
 state	sitemgr	pt-br	Estado
 strip html from block content?	sitemgr	pt-br	Remover HTML do conteúdo do bloco?
@@ -375,8 +363,6 @@ subtitle	sitemgr	pt-br	Subtítulo
 summary of one forum	sitemgr	pt-br	Sumário de um fórum
 suppress link to index (show all)	sitemgr	pt-br	Suprimir link para índice (exibir tudo)
 suppress link to parent category	sitemgr	pt-br	Suprimir link para categoria principal
-suppress main categories	sitemgr	pt-br	Suprimir categorias principais
-suppress the current category	sitemgr	pt-br	Suprimir a categoria atual
 suppress the current page	sitemgr	pt-br	Suprimir a página atual
 table of contents	sitemgr	pt-br	ïndice
 template based navigation module	sitemgr	pt-br	Módulo de navegação baseado em Modelo
@@ -448,7 +434,6 @@ this module provides a complete table of contents, it is automatically used by t
 this module provides a condensed table of contents, meant for side areas	sitemgr	pt-br	Este módulo fornece um índice condensado, é indicado para áreas laterais
 this module provides the path to the element currently shown	sitemgr	pt-br	Este módulo fornece o caminho para o elemento atualmente exibido.
 this module provides the site index, it is automatically used by the index get parameter	sitemgr	pt-br	Este módulo fornece o índice do local, ele é usado automaticamente pelos parâmetros de índice.
-this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	sitemgr	pt-br	Este módulo publica as notícias do aplicativo do Boletim Interno em seu website.  Esteja ciente das limitações de controle de acesso do Boletim Interno.
 this module show the status / percentage of the translation of egw	sitemgr	pt-br	Este módulo exibe o status / porcentagem da tradução do eGroupware/
 this must be an absolute directory location.  <b>no trailing slash</b>.	sitemgr	pt-br	Esta deve ser um caminho absoluto do diretório.  < b>Não finaliza com Barra</b >.
 this should be a comma-separated list of language-codes.	sitemgr	pt-br	Esta deve ser uma lista separada por vírgulas dos códigos de idioma.
@@ -467,8 +452,6 @@ up to parent	sitemgr	pt-br	Subir até o principal
 up to table of contents	sitemgr	pt-br	Subir até o Índice
 update notification	sitemgr	pt-br	Atualizar notificação
 updating to new category system	sitemgr	pt-br	Atualizando para uma nova categoria no sistema.
-url of directory for uploads (images etc.)	sitemgr	pt-br	URL do diretório para carregamentos (images, etc)
-url pointing to the image-directory	sitemgr	pt-br	URL que aponta o diretório de imagens
 url to sitemgr-site	sitemgr	pt-br	URL para a página do Gerenciador de Sites
 use phpnuke themes instead of templates	sitemgr	pt-br	Use os temas do phpNuke no lugar de modelos
 use this module for displaying book ads for the amazon web site	sitemgr	pt-br	Use este módulo para incluír anúncios de livros da Amazon
