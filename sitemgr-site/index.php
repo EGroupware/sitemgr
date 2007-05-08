@@ -168,13 +168,22 @@
 	$category_id = $_GET['category_id'];
 	$toc = $_GET['toc'];
 	$index = $_GET['index'];
+	$search_content = $_POST['searchword'] ? $_POST['searchword'] : $_GET['searchword'];
 	
-	$search_content = $_POST['searchword'];
-	if (!$search_content)
+	// Check for explicit modules calls
+	if ($_GET['module'])
 	{
-		$search_content = $_GET['searchword'];
+		// Check for RSS feed in news_admin
+		// temporary hack. this should be extendet to a generalized 
+		// moduel call which gets executed before "nomal" sitemgr operations
+		if ($_GET['module']=='news_admin')
+		{
+			include($GLOBALS['sitemgr_info']['egw_path'] . 'news_admin/website/export.php');
+			// No more stuff in the generated xml
+			$GLOBALS['egw']->common->egw_exit();
+		}
 	}
-	
+
 	if ($page_name && $page_name != 'index.php')
 	{
 		$objui->displayPageByName($page_name);
