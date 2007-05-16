@@ -4,10 +4,10 @@
 (do not put spaces or punctuation in the name field.)	sitemgr	zh-tw	(在名稱中請不要放入空白或是其他符號)
 (leave blank to allow insecure logins)	sitemgr	zh-tw	（保留空白來允許透過不安全環境登入）
 (only used in case of single file)	sitemgr	zh-tw	（只使用於單一檔案的情況）
-1 day	sitemgr	zh-tw	1 天
-1 hour	sitemgr	zh-tw	1 小時
-1 month	sitemgr	zh-tw	1 個月
-1 week	sitemgr	zh-tw	1 星期
+1 day	common	zh-tw	1 天
+1 hour	common	zh-tw	1 小時
+1 month	common	zh-tw	1 個月
+1 week	common	zh-tw	1 星期
 <b>autoregistration is not enabled / configured in the registration app !!!</b><br>you need to do so, to get the autoregistration link working.	sitemgr	zh-tw	<b>註冊系統並未啟動 / 請在註冊管理中設定！</b>
 <b>want more templates?</b><br />just download one from the template gallery at %1www.egroupware.org%2 or use a %3mambo open source%4 version 4.5 compatible template eg. from %5. unpack the downloaded template in your templates directory (%6).	sitemgr	zh-tw	<b>想要找尋更多的樣板嗎？</b><br />您可以在%1www.eGroupWare.org%2下載或是使用%3Mambo Open Source%4版本4.5的樣板，例如從 %5。解壓縮下載的樣板後放到樣板資料夾中 (%6)。
 a simple picture galery	sitemgr	zh-tw	一個簡單的圖庫
@@ -79,7 +79,6 @@ choose a category	sitemgr	zh-tw	類別
 choose a format	sitemgr	zh-tw	選擇一個格式
 choose a guestbook	sitemgr	zh-tw	選一個留言板
 choose language	sitemgr	zh-tw	選擇語言
-choose news layout	sitemgr	zh-tw	選擇新版面
 choose template	sitemgr	zh-tw	選擇樣板
 choose the categories to display	sitemgr	zh-tw	顯示的類別
 choose the valid html type (note: not all icons are available):	sitemgr	zh-tw	選擇有效的 HTML 類型（注意：並非所有圖示都能夠使用）：
@@ -90,7 +89,6 @@ codebase url	sitemgr	zh-tw	編碼基礎網址
 collapse threads	sitemgr	zh-tw	展開
 commit changes	sitemgr	zh-tw	執行異動
 common prefix of the image-name (a number starting with 1 will be appended)	sitemgr	zh-tw	逗點分隔的圖片名稱(會自動附加從1開始的數字)
-complete news	sitemgr	zh-tw	完整新聞
 configure module properties	sitemgr	zh-tw	設定模組屬性
 configure sitemgr	sitemgr	zh-tw	設定網站管理員
 configure website	sitemgr	zh-tw	設定網站
@@ -118,15 +116,13 @@ delete this guestbook	sitemgr	zh-tw	刪除這個留言板
 delete version	sitemgr	zh-tw	刪除版本
 deleting all data for %1	sitemgr	zh-tw	刪除 %1 的所有資料
 details for language %1 (%2)	sitemgr	zh-tw	語言的細節 %1 (%2)
-directory for uploads (images etc.)	sitemgr	zh-tw	上傳的資料夾（圖片等）
-directory is not writeable by webserver. please correct this situation!	sitemgr	zh-tw	網頁伺服器無法寫入這個資料夾，請修正！
+directory is not writable by the webserver --> disabling upload	sitemgr	zh-tw	網頁伺服器無法寫入資料夾 --> 停用上傳功能
 discussions	sitemgr	zh-tw	討論
 display link to autoregistration below login form?	sitemgr	zh-tw	顯示註冊連結？
 do you realy want to delete the selected categories (including all pages), pages and blocks?	sitemgr	zh-tw	您確定要刪除選擇的類別(包含所有頁面)、頁面與區塊？
 do you realy want to delete this block?	sitemgr	zh-tw	您確定要刪除這個區塊？
 do you realy want to delete this page?	sitemgr	zh-tw	您確定要刪除這個頁面？
 do you want to delete them?	sitemgr	zh-tw	您確定要刪除他們？
-do you want to publish a rss feed for this news category	sitemgr	zh-tw	您希望公開這個新聞類別的RSS資料摘要嗎
 documentation	sitemgr	zh-tw	文件
 domain-name (offical dns-name eg. www.egroupware.org) if you want to give the user a choice between searching this site or the whole web. leaving it empty allows to search the web only.	sitemgr	zh-tw	網域名稱(真實的網預名稱，例如 www.eGroupWare.org)，保留空白時搜尋功能只限於這個網站。
 don't have an account?	sitemgr	zh-tw	還沒註冊？
@@ -172,7 +168,7 @@ filesystem path to sitemgr-site directory	sitemgr	zh-tw	網站管理員檔案存
 fill in permissions from parent category? if you check this, below values will be ignored	sitemgr	zh-tw	從上一層目錄取得權限？如果您勾選了這個，下面的數值會被忽略。
 following new modules registed: %1	sitemgr	zh-tw	新模組登錄： %1
 footer editor	sitemgr	zh-tw	頁尾編輯器
-forever	sitemgr	zh-tw	永遠
+forever	common	zh-tw	永遠
 forum	sitemgr	zh-tw	討論區
 full path of the xslt file that should be applied to the xml files	sitemgr	zh-tw	XML檔案要使用的XSLT檔案完整路徑
 galerie	sitemgr	zh-tw	圖庫
@@ -234,7 +230,6 @@ migrating data for %1 to %2	sitemgr	zh-tw	將資料從 %1 搬到 %2
 module %1 is not permitted in this context!	sitemgr	zh-tw	模組 %1 無法使用
 module manager	sitemgr	zh-tw	模組管理員
 module: %1, scope: %2, contentarea: %3, viewable: %4	sitemgr	zh-tw	模組： %1, 可視範圍： %2, 內容區： %3, 可瀏覽： %4
-more news	sitemgr	zh-tw	其他新聞
 move block down (increase sort order)	sitemgr	zh-tw	區塊下移
 move block up (decrease sort order)	sitemgr	zh-tw	區塊上移
 move to	sitemgr	zh-tw	移到
@@ -243,14 +238,12 @@ name has been translated to lower case	sitemgr	zh-tw	名稱被轉換為小寫
 new application	sitemgr	zh-tw	新的應用程式
 new guestbook	sitemgr	zh-tw	新的留言板
 new sitemgr site	sitemgr	zh-tw	新網站
-news module	sitemgr	zh-tw	新聞模組
 no additional arguments required	sitemgr	zh-tw	不需要其他參數
 no anonymous user accounts installed.  notify the administrator.	sitemgr	zh-tw	還沒設定訪客帳號，請提醒管理員
 no content areas found in selected template	sitemgr	zh-tw	在選擇的樣版中沒有發現內容區域
 no content found	sitemgr	zh-tw	找不到內容
 no groups defined.	sitemgr	zh-tw	未定義任何群組
 no link to full index	sitemgr	zh-tw	沒有連結到全部索引
-no matching news item	sitemgr	zh-tw	沒有符合的新聞
 no modules permitted for this content area/category	sitemgr	zh-tw	這個內容區/類別無法使用任何模組
 no new modules found !!!	sitemgr	zh-tw	找不到新的模組！
 no options available.	sitemgr	zh-tw	沒有選項
@@ -263,11 +256,9 @@ no users defined.	sitemgr	zh-tw	未定義使用者
 no websites defined	sitemgr	zh-tw	未定義網站
 no, chooser only (for side-areas)	sitemgr	zh-tw	不，只做選擇
 no, chooser with preview	sitemgr	zh-tw	不，選擇並且預覽
-not	sitemgr	zh-tw	否
+not	common	zh-tw	否
 not yet translated	sitemgr	zh-tw	未翻譯
 note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	zh-tw	您看到這個訊息是因為您的設定錯誤，例如 config.inc.php 並不在您指定的資料夾中
-note, this directory has to be writeable by webserver!	sitemgr	zh-tw	注意，這個資料夾網頁伺服器必須能夠寫入！
-number of news items to be displayed on page	sitemgr	zh-tw	網頁要顯示幾篇新聞
 on all pages	sitemgr	zh-tw	在所有頁面
 only gallery	sitemgr	zh-tw	只有圖庫
 only on the first page	sitemgr	zh-tw	只有第一頁
@@ -310,7 +301,7 @@ refresh	sitemgr	zh-tw	重新整理
 register for one now.	sitemgr	zh-tw	現在註冊一個新的
 register new modules	sitemgr	zh-tw	註冊新模組
 reload	sitemgr	zh-tw	重新讀取
-remember me	sitemgr	zh-tw	記住我
+remember me	common	zh-tw	記住我
 replies	sitemgr	zh-tw	回應
 required fields	sitemgr	zh-tw	必填欄位
 reset	sitemgr	zh-tw	重設
@@ -337,7 +328,6 @@ show contents of a directory	sitemgr	zh-tw	顯示資料夾內容
 show contents of a directory with subdirectories	sitemgr	zh-tw	顯示資料夾內容（包含子資料夾）
 show details for the applications	sitemgr	zh-tw	顯示應用程式的細節
 show only (in the next field) selected templates	sitemgr	zh-tw	顯示選取的樣板
-show only headers containing links for complete news	sitemgr	zh-tw	在完整新聞中只顯示包含連結的頁首
 show path?	sitemgr	zh-tw	顯示路徑？
 show searchbox	sitemgr	zh-tw	顯示搜尋
 show site index	sitemgr	zh-tw	顯示網站索引
@@ -362,6 +352,7 @@ sitemgr setup instructions	sitemgr	zh-tw	網站管理安裝架構
 sitemgr setup page	sitemgr	zh-tw	網站管理設定頁面
 sitemgr web content manager	common	zh-tw	網站管理內容管理員
 sitemgr websites	sitemgr	zh-tw	網站管理
+sitemgr-link	common	zh-tw	網站
 sort order	sitemgr	zh-tw	排序方式
 state	sitemgr	zh-tw	鄉/鎮/市
 strip html from block content?	sitemgr	zh-tw	移除區塊內容中的HTML？
@@ -443,7 +434,6 @@ this module provides a complete table of contents, it is automatically used by t
 this module provides a condensed table of contents, meant for side areas	sitemgr	zh-tw	這個模組提供一個壓縮過的資料表與內容，出現在網站旁邊
 this module provides the path to the element currently shown	sitemgr	zh-tw	這個模組提供目前顯示元件的路徑
 this module provides the site index, it is automatically used by the index get parameter	sitemgr	zh-tw	這個模組提供網站索引，它將自動用在 GET 的索引參數
-this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	sitemgr	zh-tw	這個模組發佈從新聞管理應用程式取得的新聞，小心新聞管理程式的 ACL 限制
 this module show the status / percentage of the translation of egw	sitemgr	zh-tw	這個模組顯示 eGW 的翻譯狀態
 this must be an absolute directory location.  <b>no trailing slash</b>.	sitemgr	zh-tw	這必須是一個資料夾的絕對路徑<b>不需要最後的斜線</b>
 this should be a comma-separated list of language-codes.	sitemgr	zh-tw	請用逗點分隔要使用的語言代碼
@@ -462,8 +452,6 @@ up to parent	sitemgr	zh-tw	回到上一層
 up to table of contents	sitemgr	zh-tw	回到內容資料表
 update notification	sitemgr	zh-tw	更新提醒
 updating to new category system	sitemgr	zh-tw	更新類別系統
-url of directory for uploads (images etc.)	sitemgr	zh-tw	上傳檔案資料夾的網址（images 等）
-url pointing to the image-directory	sitemgr	zh-tw	連到圖片資料夾的網址
 url to sitemgr-site	sitemgr	zh-tw	連到網站的網址
 use phpnuke themes instead of templates	sitemgr	zh-tw	用phpNuke的佈景取代樣板
 use this module for displaying book ads for the amazon web site	sitemgr	zh-tw	使用這個模組來顯示amazon書籍廣告
