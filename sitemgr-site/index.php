@@ -108,7 +108,9 @@
 		$GLOBALS['egw']->preferences->save_repository(True);
 	}
 
-	if($GLOBALS['egw_info']['server']['usecookies'] && $_COOKIE['sessionid'] != $GLOBALS['egw_info']['user']['sessionid'])
+	if ($GLOBALS['egw_info']['server']['usecookies'] && $_COOKIE['sessionid'] != $GLOBALS['egw_info']['user']['sessionid'] &&
+		(!$GLOBALS['egw_info']['server']['cookiedomain'] || // set SiteMgr cookie only if eGW's cookiedomain does not fit
+		substr($_SERVER['SERVER_NAME'],-strlen($GLOBALS['egw_info']['server']['cookiedomain'])) != $GLOBALS['egw_info']['server']['cookiedomain']))
 	{
 		if (count(explode('.',$domain = $_SERVER['SERVER_NAME'])) <= 1) $domain = '';
 		// we dont sue session::egw_setcookie() as it would set the domain and path of the eGW install and not the one from sitemgr
