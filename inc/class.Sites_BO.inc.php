@@ -135,9 +135,11 @@
 			{
 				$prefs['themesel'] = $prefs['default_theme'];	// use the new name
 			}
-			$this->so->saveprefs($prefs,$site_id);
 			$site_languages = $prefs['site_languages'] ? $prefs['site_languages'] : $this->current_site['site_languages'];
-			$site_languages = $site_languages ? explode(',',$site_languages) : array('en');
+			// remove extra space in the language list
+			$site_languages = $site_languages ? split(' ?, ?',trim($site_languages)) : array('en');
+			$prefs['site_languages'] = implode(',',$site_languages);
+			$this->so->saveprefs($prefs,$site_id);
 			foreach ($site_languages as $lang)
 			{
 				$GLOBALS['Common_BO']->cats->saveCategoryLang(

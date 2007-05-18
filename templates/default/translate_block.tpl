@@ -3,9 +3,9 @@
 <h5>{moduleinfo}</h5>
 <div align="center" style="color:red">{validationerror}</div>
 <form method="POST" action="{action_url}">
-<table style="border-width:2px;border-style:solid;" align="center" border ="1" rules="all" width="80%" cellpadding="5">
+<table style="border-width:2px;border-style:solid;" align="center" border ="1" rules="all" width="100%" cellpadding="5">
 	<tr>
-		<td width="20%">{lang_refresh}</td><td width="40%">{showlang}</td><td width="40%">{savelang}</td>
+		<td width="10%">{lang_refresh}</td><td width="40%">{showlang}</td><td width="50%">{savelang}</td>
 	</tr>
 {standardelements}
 <!-- BEGIN Version -->
