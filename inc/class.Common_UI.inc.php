@@ -141,7 +141,7 @@
 					if ($oldsitelanguages && ($oldsitelanguages != $_POST['pref']['site_languages']))
 					{
 						$oldsitelanguages = explode(',',$oldsitelanguages);
-						$newsitelanguages = explode(',',$_POST['pref']['site_languages']);
+						$newsitelanguages = split(' ?, ?',trim($_POST['pref']['site_languages']));
 						$replacedlang = array_diff($oldsitelanguages,$newsitelanguages);
 						$addedlang = array_diff($newsitelanguages,$oldsitelanguages);
 						if ($replacedlang)

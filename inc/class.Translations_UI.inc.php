@@ -13,13 +13,48 @@
 
 	class Translations_UI
 	{
+		/**
+		 * Reference to the global (phplib) Template class
+		 *
+		 * @var Template
+		 */
 		var $t;
+		/**
+		 * Reference to $GLOBALS['Common_BO']'s Categories_BO class
+		 *
+		 * @var Categories_BO
+		 */
 		var $cat_bo;
+		/**
+		 * Reference to $GLOBALS['Common_BO']'s ACL_BO class
+		 *
+		 * @var ACL_BO
+		 */
 		var $acl;
 		var $sitelanguages;
+		/**
+		 * Own instance of the Common_UI class
+		 *
+		 * @var Common_UI
+		 */
 		var $common_ui;
+		/**
+		 * Reference to $GLOBALS['Common_BO']'s Pages_BO class
+		 *
+		 * @var Pages_BO
+		 */
 		var $pagebo;
+		/**
+		 * Reference to $GLOBALS['Common_BO']'s Content_BO class
+		 *
+		 * @var Content_BO
+		 */
 		var $contentbo;
+		/**
+		 * Reference to $GLOBALS['Common_BO']'s Modules_BO class
+		 *
+		 * @var Modules_BO
+		 */
 		var $modulebo;
 
 		var $public_functions = array
@@ -92,7 +127,7 @@
 					$this->t->set_var('langcatBlock','');
 					foreach ($this->sitelanguages as $lang)
 					{
-						$this->t->set_var('catexistsinlang', in_array($lang,$availablelangsforcat) ? '�' : '&nbsp;');
+						$this->t->set_var('catexistsinlang', in_array($lang,$availablelangsforcat) ? 'X' : '&nbsp;');
 						$this->t->parse('langcatBlock', 'langexistcat', true);
 					}
 
@@ -117,7 +152,7 @@
 							$this->t->set_var('langpageBlock','');
 							foreach ($this->sitelanguages as $lang)
 							{
-								$this->t->set_var('pageexistsinlang', in_array($lang,$availablelangsforpage) ? '�' : '&nbsp;');
+								$this->t->set_var('pageexistsinlang', in_array($lang,$availablelangsforpage) ? 'X' : '&nbsp;');
 								$this->t->parse('langpageBlock', 'langexistpage', true);
 							}
 
@@ -315,10 +350,10 @@
 					)
 				);
 				$moduleobject->set_block($block);
-				$saveblock = $block;
-//        $translatormoduleelements = $moduleobject->get_translation_interface($block,$saveblock);
+				$saveblock = clone($block);
+//				$translatormoduleelements = $moduleobject->get_translation_interface($block,$saveblock);
 
-//        $interface = array_merge($translatorstandardelements,$translatormoduleelements);
+//				$interface = array_merge($translatorstandardelements,$translatormoduleelements);
 
 				$this->t->set_var('standardelements','');
 				while (list(,$element) = each($translatorstandardelements))
@@ -338,7 +373,7 @@
 					$block->set_version($version);
 					$saveblock->set_version($savelangversions[$version_id]);
 					$translatormoduleelements = $moduleobject->get_translation_interface($block,$saveblock);
-						$this->t->set_var(array(
+					$this->t->set_var(array(
 						'version_id' => $version_id,
 						'version_state' => $GLOBALS['Common_BO']->state[$version['state']],
 						'versionelements' => ''
