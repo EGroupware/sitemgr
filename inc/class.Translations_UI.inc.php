@@ -245,7 +245,7 @@
 
 			if ($btnSavePage)
 			{
-				$page->id = $page_id;
+				$page = $this->pagebo->getPage($page_id,$savelanguage);
 				$page->title = $savepagetitle;
 				$page->subtitle = $savepagesubtitle;
 				$this->pagebo->savePageLang($page, $savelanguage);
