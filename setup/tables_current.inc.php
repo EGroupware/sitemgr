@@ -167,7 +167,7 @@
 			'fd' => array(
 				'notification_id' => array('type' => 'auto','nullable' => False),
 				'site_id' => array('type' => 'int','precision' => '4','nullable' => False),
-				'site_language' => array('type' => 'varchar','precision' => '3','nullable' => False,'default' => 'all'),
+				'site_language' => array('type' => 'varchar','precision' => '5','nullable' => False,'default' => 'all'),
 				'cat_id' => array('type' => 'int','precision' => '4','nullable' => False,'default' => '0'),
 				'email' => array('type' => 'varchar','precision' => '255','nullable' => False)
 			),
@@ -180,7 +180,7 @@
 			'fd' => array(
 				'message_id' => array('type' => 'auto','nullable' => False),
 				'site_id' => array('type' => 'int','precision' => '4','nullable' => False),
-				'language' => array('type' => 'varchar','precision' => '3'),
+				'language' => array('type' => 'varchar','precision' => '5'),
 				'message' => array('type' => 'text','nullable' => False),
 				'subject' => array('type' => 'text','nullable' => False)
 			),

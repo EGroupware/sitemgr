@@ -394,7 +394,7 @@ define('SITEMGR_VIEWABLE_ANONYMOUS',3);
 				$state=$this->so->getblockstate($block_id,$lang);
 			}
 
-			$bo=CreateObject("sitemgr.notification_bo");
+			$bo=CreateObject("sitemgr.bonotifications");
 			$bo->notify_users($GLOBALS['Common_BO']->sites->current_site['site_id'],
 				$cat_id,
 				$state,

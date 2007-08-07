@@ -31,13 +31,13 @@
 		{
 			if (isset($data['email']))
 			{
-				$bo=CreateObject("sitemgr.notification_bo");
+				$bo=CreateObject("sitemgr.bonotifications");
 				if (isset($data['unsubscribe'])) {
 					$bo->delete_notifications($data['email']);
 					return $data['email']." has been successfully unsubscribed from notifications about changes of this site.";
 				}
 				$bo->create_notification($data['email'],isset($data['all_langs']));
-				
+
 				return $data['email']." has been successfully subscribed to notifications about changes of this site.";
 			}
 			return FALSE;

@@ -12,6 +12,7 @@
 <b>want more templates?</b><br />just download one from the template gallery at %1www.egroupware.org%2 or use a %3mambo open source%4 version 4.5 compatible template eg. from %5. unpack the downloaded template in your templates directory (%6).	sitemgr	en	<b>Want more templates?</b><br />Just download one from the template gallery at %1www.eGroupWare.org%2 or use a %3Mambo Open Source%4 Version 4.5 compatible template eg. from %5. Unpack the downloaded template in your templates directory (%6).
 a simple picture galery	sitemgr	en	A simple picture galery
 actif	sitemgr	en	Actif
+actions	sitemgr	en	Actions
 add a category	sitemgr	en	Add a category
 add a new application	sitemgr	en	Add a new application
 add a new guestbook	sitemgr	en	Add a new guestbook
@@ -25,10 +26,15 @@ add website	sitemgr	en	Add Website
 administration	sitemgr	en	Administration
 administrative menu	sitemgr	en	Administrative Menu
 administrators	sitemgr	en	administrators
+advanced plus google: also show google search	sitemgr	en	Advanced plus google: Also show google search
+all available languages	sitemgr	en	All available Languages
 all categories	sitemgr	en	All categories
 all forums in category %1	sitemgr	en	All forums in category %1
 all languages	sitemgr	en	all languages
+all sites	sitemgr	en	All Sites
+all words	sitemgr	en	All words
 allignment of navigation elements	sitemgr	en	Allignment of navigation elements
+allow customer to input a note	sitemgr	en	Allow customer to input a note
 allow posting of questions	sitemgr	en	Allow posting of questions
 amazon	sitemgr	en	Amazon
 amazon server (without www), eg. amazon.com	sitemgr	en	Amazon server (without www), eg. amazon.com
@@ -37,6 +43,8 @@ anonymous	sitemgr	en	anonymous
 anonymous user login domain	sitemgr	en	Anonymous user login domain
 anonymous user's password	sitemgr	en	Anonymous user's password
 anonymous user's username	sitemgr	en	Anonymous user's username
+anvanced: show all search modes	sitemgr	en	Anvanced: Show all search modes
+any words	sitemgr	en	Any words
 applet	sitemgr	en	Applet
 application	sitemgr	en	Application
 application '%1' is not installed !!!<br>please install it, to be able to use the block.	sitemgr	en	Application '%1' is not installed !!!<br>Please install it, to be able to use the block.
@@ -49,6 +57,7 @@ are you sure you want to delete site %1 and all its content? you cannot retrieve
 are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	en	Are you sure you want to delete the category %1 and all of its associated pages?  You cannot retrieve the deleted pages if you continue.
 as	common	en	as
 asin[=title] pairs (title is optional)	sitemgr	en	ASIN[=title] pairs (title is optional)
+ask customer	sitemgr	en	Ask customer
 attempt to access information outside current website	sitemgr	en	Attempt to access information outside current website
 attempt to edit non-editable block	sitemgr	en	Attempt to edit non-editable block
 automatic index	sitemgr	en	Automatic index
@@ -72,6 +81,8 @@ category description	sitemgr	en	Category Description
 category manager	sitemgr	en	Category Manager
 category name	sitemgr	en	Category Name
 category saved	sitemgr	en	Category saved
+cats are numeric, pages strings	sitemgr	en	cats are numeric, pages strings
+center	sitemgr	en	Center
 changes saved.	sitemgr	en	Changes saved.
 check here after every upgrade	sitemgr	en	check here after every upgrade
 check to hide from condensed site index.	sitemgr	en	Check to hide from condensed site index.
@@ -87,6 +98,7 @@ click here to login through a safe connection.	sitemgr	en	Click here to login th
 code file	sitemgr	en	Code file
 codebase url	sitemgr	en	Codebase URL
 collapse threads	sitemgr	en	Collapse Threads
+comment	sitemgr	en	Comment
 commit changes	sitemgr	en	Commit changes
 common prefix of the image-name (a number starting with 1 will be appended)	sitemgr	en	common prefix of the image-name (a number starting with 1 will be appended)
 configure module properties	sitemgr	en	Configure module properties
@@ -102,6 +114,7 @@ contributor menu	sitemgr	en	Contributor Menu
 copyright	sitemgr	en	Copyright
 create new version	sitemgr	en	Create new version
 css styles	sitemgr	en	CSS styles
+currency code of the value specified in amount (eg. usd, eur)	sitemgr	en	Currency code of the value specified in amount (eg. USD, EUR)
 current section	sitemgr	en	Current Section
 custom	sitemgr	en	custom
 default	sitemgr	en	Default
@@ -126,7 +139,9 @@ do you want to delete them?	sitemgr	en	Do you want to delete them?
 documentation	sitemgr	en	Documentation
 domain-name (offical dns-name eg. www.egroupware.org) if you want to give the user a choice between searching this site or the whole web. leaving it empty allows to search the web only.	sitemgr	en	Domain-name (offical DNS-name eg. www.eGroupWare.org) if you want to give the user a choice between searching this site or the whole web. Leaving it empty allows to search the web only.
 don't have an account?	sitemgr	en	Don't have an account?
+don't use egroupware css ">" separator (for templates that uses images/simbols for lists)	sitemgr	en	Don't use egroupware css ">" separator (for templates that uses images/simbols for lists)
 done	sitemgr	en	Done
+dont ask	sitemgr	en	Dont ask
 download as zip-archiv	sitemgr	en	download as ZIP-archiv
 downloaded	sitemgr	en	downloaded
 draft	sitemgr	en	draft
@@ -135,27 +150,36 @@ edit categories and permissions	common	en	Edit Categories and Permissions
 edit category	sitemgr	en	Edit Category
 edit individual pages	common	en	Edit Individual Pages
 edit mode	sitemgr	en	Edit mode
+edit notification	sitemgr	en	Edit notification
+edit notification message	sitemgr	en	Edit notification message
 edit page	sitemgr	en	Edit Page
 edit properties of module %1 for %2 with scope %3	sitemgr	en	Edit properties of module %1 for %2 with scope %3
 edit site	sitemgr	en	Edit Site
 edit site header and footer	common	en	Edit Site Header and Footer
 edit this block	sitemgr	en	Edit this block
 edit website	sitemgr	en	Edit Website
-egw users	sitemgr	en	egw users
+egw users	sitemgr	en	Egw users
 element successfully deleted.	sitemgr	en	Element successfully deleted.
+email address	sitemgr	en	Email address
+email address of the paypal account selling the item	sitemgr	en	Email address of the PayPal account selling the item
 enter a name	sitemgr	en	Enter a name
 enter the block content here	sitemgr	en	Enter the block content here
 enter the email to be notified about changes of the website.	sitemgr	en	Enter the email to be notified about changes of the website.
 enter the email to be notified about changes of the website:	sitemgr	en	Enter the email to be notified about changes of the website:
 enter the page content here	sitemgr	en	Enter the page content here
 enterprise knowledge articles repository	sitemgr	en	Enterprise Knowledge articles repository
+entry deleted	sitemgr	en	Entry deleted
 entry duplicated.	sitemgr	en	Entry duplicated.
+entry saved	sitemgr	en	Entry saved
 entry saved.	sitemgr	en	Entry saved.
 error accessing page	common	en	Error accessing page
 error deleting the element.	sitemgr	en	Error deleting the element.
+error deleting the entry!!!	sitemgr	en	Error deleting the entry!!!
+error saving the entry!!!	sitemgr	en	Error saving the entry!!!
 error writing to the database.	sitemgr	en	Error writing to the database.
 error writing to the database: %1.	sitemgr	en	Error writing to the database: %1.
-everybody	sitemgr	en	everybody
+everybody	sitemgr	en	Everybody
+exact phrase	sitemgr	en	Exact Phrase
 expand current category	sitemgr	en	Expand current category
 file %1 is not readable by the webserver !!!	sitemgr	en	File %1 is not readable by the webserver !!!
 file %1 is outside the docroot of the webserver !!!<br>this module does not allow - for security reasons - to open files outside the docroot.	sitemgr	en	File %1 is outside the docroot of the webserver !!!<br>This module does NOT allow - for security reasons - to open files outside the docroot.
@@ -166,6 +190,7 @@ filesystem path of the directory where xml files are stored	sitemgr	en	Filesyste
 filesystem path of the image-directory	sitemgr	en	Filesystem path of the image-directory
 filesystem path to sitemgr-site directory	sitemgr	en	Filesystem path to sitemgr-site directory
 fill in permissions from parent category? if you check this, below values will be ignored	sitemgr	en	Fill in permissions from parent category? If you check this, below values will be ignored
+flag symbols	sitemgr	en	Flag symbols
 following new modules registed: %1	sitemgr	en	Following new modules registed: %1
 footer editor	sitemgr	en	Footer Editor
 forever	common	en	Forever
@@ -175,6 +200,7 @@ galerie	sitemgr	en	Galerie
 gallery plus chooser	sitemgr	en	Gallery plus chooser
 gallery plus chooser and download	sitemgr	en	Gallery plus chooser and download
 gallery plus download	sitemgr	en	Gallery plus download
+go	sitemgr	en	Go
 go back to page manager	sitemgr	en	Go back to Page Manager
 go back to the category manager.	sitemgr	en	Go back to the category manager.
 go to	sitemgr	en	Go to
@@ -192,6 +218,8 @@ horizontal	sitemgr	en	Horizontal
 html frame	sitemgr	en	HTML Frame
 html module	sitemgr	en	HTML module
 i'm sorry, you do not have write permissions for any site categories.	sitemgr	en	I'm sorry, you do not have write permissions for any site categories.
+id	sitemgr	en	ID
+identifier you can use to track an internal inventory number	sitemgr	en	Identifier you can use to track an internal inventory number
 if nonsecure redirect to:	sitemgr	en	If nonsecure redirect to:
 if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	en	If you haven't done so already, create a user that will be used for public viewing of the site.  Recommended name: anonymous.
 image type	sitemgr	en	image type
@@ -202,9 +230,11 @@ individual access permissions	sitemgr	en	Individual Access Permissions
 interface to google website	sitemgr	en	Interface to google website
 invalid template directory '%1' !!!	sitemgr	en	Invalid template directory '%1' !!!
 knowledge base	sitemgr	en	Knowledge Base
+language:	sitemgr	en	Language:
 languages the site user can choose from	sitemgr	en	Languages the site user can choose from
 last entries to the guestbook	sitemgr	en	Last entries to the guestbook
 latest reply	sitemgr	en	Latest Reply
+links for the tabs (comma seperated)	sitemgr	en	Links for the tabs (comma seperated)
 list of permitted modules specific to content area %1	sitemgr	en	List of permitted modules specific to content area %1
 loged in as:	sitemgr	en	Loged in as:
 login	sitemgr	en	Login
@@ -218,16 +248,24 @@ manage category wide content	sitemgr	en	Manage category wide content
 manage category wide module properties	sitemgr	en	Manage category wide module properties
 manage content	sitemgr	en	Manage Content
 manage modules	sitemgr	en	Manage Modules
+manage notifications	sitemgr	en	Manage notifications
 manage page specific content	sitemgr	en	Manage page specific content
 manage pages	common	en	Manage Pages
 manage site content	sitemgr	en	Manage Site Content
 manage site-wide content	sitemgr	en	Manage site-wide content
 manage site-wide module properties	sitemgr	en	Manage site-wide module properties
 manage translations	sitemgr	en	Manage Translations
+manange notifications	sitemgr	en	Manange Notifications
+manange notifications messages	sitemgr	en	Manange Notifications Messages
 master list of permitted modules	sitemgr	en	Master list of permitted modules
+maximal category depth to be shown	sitemgr	en	Maximal category depth to be shown
+maximal page depth to be shown	sitemgr	en	Maximal page depth to be shown
+message not found !!!	sitemgr	en	Message not found !!!
+message text:	sitemgr	en	Message text:
 messages are defined for all site languages.	sitemgr	en	Messages are defined for all site languages.
 migrating data for %1 to %2	sitemgr	en	Migrating data for %1 to %2
 module %1 is not permitted in this context!	sitemgr	en	Module %1 is not permitted in this context!
+module '%1' not found in: %2! --> exiting	sitemgr	en	Module '%1' not found in: %2! --> exiting
 module manager	sitemgr	en	Module manager
 module: %1, scope: %2, contentarea: %3, viewable: %4	sitemgr	en	Module: %1, Scope: %2, Contentarea: %3, Viewable: %4
 move block down (increase sort order)	sitemgr	en	Move block down (increase sort order)
@@ -235,6 +273,8 @@ move block up (decrease sort order)	sitemgr	en	Move block up (decrease sort orde
 move to	sitemgr	en	Move to
 name	sitemgr	en	Name
 name has been translated to lower case	sitemgr	en	Name has been translated to lower case
+name of the item for sale	sitemgr	en	Name of the item for sale
+name of the tabs (comma seperated)	sitemgr	en	Name of the tabs (comma seperated)
 new application	sitemgr	en	New application
 new guestbook	sitemgr	en	New guestbook
 new sitemgr site	sitemgr	en	New sitemgr site
@@ -259,9 +299,13 @@ no, chooser with preview	sitemgr	en	No, chooser with preview
 not	common	en	not
 not yet translated	sitemgr	en	not yet translated
 note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	en	Note that you may get this message if your preferences are incorrect.  For example, if config.inc.php is not found in the directory that you specified.
+notification message not found !!!	sitemgr	en	Notification Message not found !!!
+notification not found !!!	sitemgr	en	Notification not found !!!
+number of results	sitemgr	en	Number of results
 on all pages	sitemgr	en	on all pages
 only gallery	sitemgr	en	Only gallery
 only on the first page	sitemgr	en	only on the first page
+options in search result page	sitemgr	en	Options in search result page
 or enter the title for a new guestbook	sitemgr	en	or enter the title for a new guestbook
 other websites	sitemgr	en	Other websites
 overview of all available categories	sitemgr	en	Overview of all available categories
@@ -282,18 +326,25 @@ parent directory	sitemgr	en	parent directory
 parent section:	sitemgr	en	Parent Section:
 password	sitemgr	en	Password
 password that you assigned for the anonymous user account.	sitemgr	en	Password that you assigned for the anonymous user account.
+path	sitemgr	en	Path
 path to image-directory '%1' is not valid or readable by the webserver !!!	sitemgr	en	Path to image-directory '%1' is not valid or readable by the webserver !!!
 path to zip binary if not in path of the webserver	sitemgr	en	Path to zip binary if not in path of the webserver
+pay with paypal	sitemgr	en	Pay with Paypal
+paypal	sitemgr	en	Paypal
+paypal pay now button	sitemgr	en	Paypal pay now button
 percentage	sitemgr	en	Percentage
 phrases in total	sitemgr	en	Phrases in total
+plain selectbox	sitemgr	en	Plain selectbox
 please enter a name for that site !	sitemgr	en	Please enter a name for that site !
 please sign the guestbook	sitemgr	en	Please sign the guestbook
 post a message to this thread	sitemgr	en	Post A Message To This Thread
 prepublished	sitemgr	en	prepublished
 preunpublished	sitemgr	en	preunpublished
 previous	sitemgr	en	Previous
+price of the item (empty allows buyer to choose, eg. for donations)	sitemgr	en	Price of the item (empty allows buyer to choose, eg. for donations)
 production mode	sitemgr	en	Production mode
 published	sitemgr	en	published
+quantity items (empty allows buyer to specify)	sitemgr	en	Quantity items (empty allows buyer to specify)
 reactivate content	sitemgr	en	Reactivate content
 read permission	sitemgr	en	Read Permission
 redirection	sitemgr	en	Redirection
@@ -303,6 +354,7 @@ register new modules	sitemgr	en	Register new modules
 reload	sitemgr	en	Reload
 remember me	common	en	remember me
 replies	sitemgr	en	Replies
+required	sitemgr	en	Required
 required fields	sitemgr	en	Required Fields
 reset	sitemgr	en	Reset
 return to forums	sitemgr	en	Return to forums
@@ -313,19 +365,27 @@ save	sitemgr	en	Save
 save block	sitemgr	en	Save block
 saved	sitemgr	en	Saved
 scope	sitemgr	en	Scope
+search keyword	sitemgr	en	search keyword
+search language options	sitemgr	en	Search language options
+search modes	sitemgr	en	Search modes
+search with	sitemgr	en	Search with
 seen by	sitemgr	en	Seen by
 select a category	sitemgr	en	Select a category
 select a forum	sitemgr	en	Select a forum
 select allowed modules	sitemgr	en	Select allowed modules
+select layout for lang selection	sitemgr	en	Select layout for lang selection
 select persons and groups that are entitled to configure the website.	sitemgr	en	Select persons and groups that are entitled to configure the website.
 select the templates the user is allowed to see	sitemgr	en	Select the templates the user is allowed to see
 select type of navigation	sitemgr	en	Select type of Navigation
 selected template %1 does not exist.	sitemgr	en	Selected template %1 does not exist.
 selected theme %1 does not exist.	sitemgr	en	Selected theme %1 does not exist.
+seperate cats / pages of one tab by :	sitemgr	en	Seperate Cats / Pages of one tab by :
+shipping address	sitemgr	en	Shipping address
 should the file be viewed in the browser or downloaded	sitemgr	en	Should the file be viewed in the browser or downloaded
 show a template-gallery (thumbnail and informations)	sitemgr	en	Show a template-gallery (thumbnail and informations)
 show contents of a directory	sitemgr	en	Show contents of a directory
 show contents of a directory with subdirectories	sitemgr	en	Show contents of a directory with subdirectories
+show current section only	sitemgr	en	Show current section only
 show details for the applications	sitemgr	en	Show details for the applications
 show only (in the next field) selected templates	sitemgr	en	Show only (in the next field) selected templates
 show path?	sitemgr	en	show path?
@@ -333,6 +393,7 @@ show searchbox	sitemgr	en	Show searchbox
 show site index	sitemgr	en	Show Site Index
 show subcategories	sitemgr	en	Show subcategories
 show the title of the wiki page	sitemgr	en	Show the title of the wiki page
+simple: only selected mode, no more options displayed	sitemgr	en	Simple: Only selected mode, no more options displayed
 single file download	sitemgr	en	Single file download
 site	sitemgr	en	Site
 site %1 has been added, you need to %2configure the site%3 now	sitemgr	en	Site %1 has been added, you need to %2configure the site%3 now
@@ -341,6 +402,7 @@ site administrators	sitemgr	en	Site administrators
 site description	sitemgr	en	Site description
 site format manager	sitemgr	en	Site Format Manager
 site index	sitemgr	en	Site Index
+site language	sitemgr	en	Site Language
 site name	sitemgr	en	Site name
 site setup	common	en	Site Setup
 site tree menu	sitemgr	en	Site Tree Menu
@@ -353,6 +415,9 @@ sitemgr setup page	sitemgr	en	sitemgr setup page
 sitemgr web content manager	common	en	SiteMgr Web Content Manager
 sitemgr websites	sitemgr	en	Sitemgr Websites
 sitemgr-link	common	en	Website
+sitio	sitemgr	en	Sitio
+size	sitemgr	en	Size
+sorry, no content found for you search criteria	sitemgr	en	Sorry, no content found for you search criteria
 sort order	sitemgr	en	Sort Order
 state	sitemgr	en	State
 strip html from block content?	sitemgr	en	Strip HTML from block content?
@@ -363,11 +428,14 @@ subtitle	sitemgr	en	Subtitle
 summary of one forum	sitemgr	en	Summary of one forum
 suppress link to index (show all)	sitemgr	en	Suppress link to index (show all)
 suppress link to parent category	sitemgr	en	Suppress link to parent category
+suppress main categories	sitemgr	en	Suppress main categories
+suppress the current category	sitemgr	en	Suppress the current category
 suppress the current page	sitemgr	en	Suppress the current page
 table of contents	sitemgr	en	Table of Contents
 template based navigation module	sitemgr	en	Template based navigation module
 template select	sitemgr	en	Template select
 text allignment	sitemgr	en	Text allignment
+text of page links	sitemgr	en	Text of page links
 textarea	sitemgr	en	textarea
 the category to display, 0 for complete table of contents	sitemgr	en	The category to display, 0 for complete table of contents
 the complete url or path to a file to be included	sitemgr	en	The complete URL or path to a file to be included
@@ -375,6 +443,7 @@ the config.inc.php file needs to be edited to point to the egroupware directory.
 the file to be downloaded	sitemgr	en	The file to be downloaded
 the filesystem path to your sitemgr-site directory '%1' is probably wrong. go to sitemgr --> define websites and edit/fix the concerned site.	sitemgr	en	The filesystem path to your sitemgr-site directory '%1' is probably wrong. Go to SiteMgr --> Define Websites and edit/fix the concerned Site.
 the first directory to think about is sitemgr-link.  if you move this to the parent directory of sitemgr (your egroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  if you don't want this icon, there's no reason to ever bother with the directory.	sitemgr	en	The first directory to think about is sitemgr-link.  If you move this to the parent directory of sitemgr (your egroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  If you don't want this icon, there's no reason to ever bother with the directory.
+the messages for changes in this language will use the default text, if available.	sitemgr	en	The messages for changes in this language will use the default text, if available.
 the name field cannot contain punctuation or spaces (field modified).	sitemgr	en	The Name field cannot contain punctuation or spaces (field modified).
 the page name must be unique.	sitemgr	en	The page name must be unique.
 the page was successfully saved.	sitemgr	en	The page was successfully saved.
@@ -432,8 +501,10 @@ this module lets you show a given url inside an iframe in the page.	sitemgr	en	T
 this module permits browsing through xml files stored in a directory, and transformed by xslt	sitemgr	en	This module permits browsing through XML files stored in a directory, and transformed by XSLT
 this module provides a complete table of contents, it is automatically used by the toc and category_id get parameters	sitemgr	en	This module provides a complete table of contents, it is automatically used by the toc and category_id GET parameters
 this module provides a condensed table of contents, meant for side areas	sitemgr	en	This module provides a condensed table of contents, meant for side areas
+this module provides tabs	sitemgr	en	This module provides tabs
 this module provides the path to the element currently shown	sitemgr	en	This module provides the path to the element currently shown
 this module provides the site index, it is automatically used by the index get parameter	sitemgr	en	This module provides the site index, it is automatically used by the index GET parameter
+this module search throw the content (page title/description and html content)	sitemgr	en	This module search throw the content (Page title/description and html content)
 this module show the status / percentage of the translation of egw	sitemgr	en	This module show the status / percentage of the translation of eGW
 this must be an absolute directory location.  <b>no trailing slash</b>.	sitemgr	en	This must be an absolute directory location.  <b>No trailing slash</b>.
 this should be a comma-separated list of language-codes.	sitemgr	en	This should be a comma-separated list of language-codes.
@@ -452,7 +523,9 @@ up to parent	sitemgr	en	Up to parent
 up to table of contents	sitemgr	en	Up to table of contents
 update notification	sitemgr	en	Update Notification
 updating to new category system	sitemgr	en	Updating to new category system
+url pointing to the image-directory	sitemgr	en	URL pointing to the image-directory
 url to sitemgr-site	sitemgr	en	URL to sitemgr-site
+use current user selected language	sitemgr	en	Use current user selected language
 use phpnuke themes instead of templates	sitemgr	en	Use phpNuke themes instead of templates
 use this module for displaying book ads for the amazon web site	sitemgr	en	Use this module for displaying book ads for the amazon web site
 use this module for displaying wiki-pages	sitemgr	en	Use this module for displaying wiki-pages
@@ -471,7 +544,9 @@ web site manager	sitemgr	en	Web Site Manager
 website	sitemgr	en	Website
 week	sitemgr	en	week
 what do you want to do with existing translations of categories and pages for this language?	sitemgr	en	What do you want to do with existing translations of categories and pages for this language?
+when is a tab activated?	sitemgr	en	When is a tab activated?
 which application should be executed after login?	sitemgr	en	Which application should be executed after login?
+which main categories schuld be included (comma seperated list, empty for all)	sitemgr	en	Which main categories schuld be included (comma seperated list, empty for all)
 wiki	sitemgr	en	Wiki
 wiki startpage	sitemgr	en	Wiki startpage
 with which view should the module be displayed in the beginning?	sitemgr	en	With which view should the module be displayed in the beginning?
@@ -497,6 +572,7 @@ you must be an admin to edit the site header and footer.	sitemgr	en	You must be 
 you must be an admin to manage module properties.	sitemgr	en	You must be an admin to manage module properties.
 you must be an administrator to setup the site manager.	sitemgr	en	You must be an administrator to setup the Site Manager.
 you removed one ore more languages from your site languages.	sitemgr	en	You removed one ore more languages from your site languages.
+you will remove the message in the following language from your notification system:	sitemgr	en	You will remove the message in the following language from your notification system:
 your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr	en	Your administrator has not yet setup the web content manager for public viewing.  Go bug your administrator to get their butt in gear.
 your calendar	sitemgr	en	Your Calendar
 your comment	sitemgr	en	Your comment

@@ -201,7 +201,7 @@
 				$state=$pg->state;
 			}
 			
-			$bo=CreateObject("sitemgr.notification_bo");
+			$bo=CreateObject("sitemgr.bonotifications");
 			$bo->notify_users($GLOBALS['Common_BO']->sites->current_site['site_id'], 
 				$cat_id,
 				$state,
