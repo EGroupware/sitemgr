@@ -93,6 +93,10 @@
 				$result['sitelanguages'] = $result['site_languages'] ? explode(',',$result['site_languages']) : array('en');;
 				foreach($result['sitelanguages'] as $lang)
 				{
+					if (!is_object($GLOBALS['Common_BO']))
+					{
+						$GLOBALS['Common_BO'] = CreateObject("sitemgr.Common_BO");
+					}
 					$langinfo = $GLOBALS['Common_BO']->cats->getCategory($id,$lang,True);
 					$result['site_name_' . $lang] = $langinfo->name;
 					$result['site_desc_' . $lang] = $langinfo->description;

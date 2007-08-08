@@ -116,14 +116,14 @@
 				$link_data['menuaction'] = "sitemgr.Content_UI.manage";
 				$file['Manage site-wide content'] = $GLOBALS['egw']->link('/index.php',$link_data);
 */
-				$file['Manage Notifications'] = $GLOBALS['egw']->link('/index.php', 'menuaction=sitemgr.Notifications_UI.list_all&site_id='.CURRENT_SITE_ID);
+				$file['Manage Notifications'] = $GLOBALS['egw']->link('/index.php', 'menuaction=sitemgr.uinotifications.index&site_id='.CURRENT_SITE_ID);
 			}
 //      $file['Manage Categories and pages'] = $GLOBALS['egw']->link('/index.php', 'menuaction=sitemgr.Outline_UI.manage');
 			$file['Manage Translations'] = $GLOBALS['egw']->link('/index.php', 'menuaction=sitemgr.Translations_UI.manage');
 			$file['Commit Changes'] = $GLOBALS['egw']->link('/index.php', 'menuaction=sitemgr.Content_UI.commit');
 			$file['Manage archived content'] = $GLOBALS['egw']->link('/index.php', 'menuaction=sitemgr.Content_UI.archive');
 
-			$file['Manage Notification Messages'] = $GLOBALS['egw']->link('/index.php', 'menuaction=sitemgr.NtfMessages_UI.list_all&site_id='.CURRENT_SITE_ID);
+			$file['Manage Notification Messages'] = $GLOBALS['egw']->link('/index.php', 'menuaction=sitemgr.uintfmess.index&site_id='.CURRENT_SITE_ID);
 			if (($site = $this->sites->read(CURRENT_SITE_ID)) && $site['site_url'])
 			{
 				$file[] = '_NewLine_';

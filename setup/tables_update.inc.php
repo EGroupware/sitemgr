@@ -953,4 +953,22 @@
 	{
 		return $GLOBALS['setup_info']['sitemgr']['currentver'] = '1.4';
 	}
+	
+	$test[] = '1.4';
+	function sitemgr_upgrade1_4()
+	{
+		$GLOBALS['egw_setup']->oProc->AlterColumn('egw_sitemgr_notifications','site_language',array(
+			'type' => 'varchar',
+			'precision' => '5',
+			'nullable' => False,
+			'default' => 'all'
+		));
+		
+		$GLOBALS['egw_setup']->oProc->AlterColumn('egw_sitemgr_notify_messages','language',array(
+			'type' => 'varchar',
+			'precision' => '5',
+		));		
+		
+		return $GLOBALS['setup_info']['sitemgr']['currentver'] = '1.4.002';
+	}
 ?>
