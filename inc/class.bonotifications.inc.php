@@ -183,7 +183,7 @@ class bonotifications extends sonotifications
 			 return False;
 		}
 		
-		return $this->so->get_permissions($cat_id) & EGW_ACL_READ;
+		return $this->get_permissions($cat_id) & EGW_ACL_READ;
 	}
 
 	function notify_users($site_id,$cat_id,$state,$lang,$def_lang,$url,$data="N/A") 
