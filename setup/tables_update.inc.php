@@ -971,4 +971,12 @@
 		
 		return $GLOBALS['setup_info']['sitemgr']['currentver'] = '1.5.001';
 	}
+	
+	$test[] = '1.4.002';
+	function sitemgr_upgrade1_4()
+	{
+		// duno why, but the stable 1.4 branch uses 1.4.002 for what's called 1.5.001 in trunk
+		return $GLOBALS['setup_info']['sitemgr']['currentver'] = '1.5.001';
+	}
+	
 ?>
