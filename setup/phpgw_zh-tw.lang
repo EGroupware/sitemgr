@@ -12,6 +12,7 @@
 <b>want more templates?</b><br />just download one from the template gallery at %1www.egroupware.org%2 or use a %3mambo open source%4 version 4.5 compatible template eg. from %5. unpack the downloaded template in your templates directory (%6).	sitemgr	zh-tw	<b>想要找尋更多的樣板嗎？</b><br />您可以在%1www.eGroupWare.org%2下載或是使用%3Mambo Open Source%4版本4.5的樣板，例如從 %5。解壓縮下載的樣板後放到樣板資料夾中 (%6)。
 a simple picture galery	sitemgr	zh-tw	一個簡單的圖庫
 actif	sitemgr	zh-tw	如果符合
+actions	sitemgr	zh-tw	操作
 add a category	sitemgr	zh-tw	新增類別
 add a new application	sitemgr	zh-tw	新增應用程式
 add a new guestbook	sitemgr	zh-tw	新增留言板
@@ -25,10 +26,15 @@ add website	sitemgr	zh-tw	新增網站
 administration	sitemgr	zh-tw	管理
 administrative menu	sitemgr	zh-tw	管理選單
 administrators	sitemgr	zh-tw	管理者
+advanced plus google: also show google search	sitemgr	zh-tw	加入 google 的進階項目：同時顯示 google 搜尋
+all available languages	sitemgr	zh-tw	所有語言
 all categories	sitemgr	zh-tw	所有類別
 all forums in category %1	sitemgr	zh-tw	類別 %1 的所有討論區
 all languages	sitemgr	zh-tw	所有語言
+all sites	sitemgr	zh-tw	所有網站
+all words	sitemgr	zh-tw	所有文字
 allignment of navigation elements	sitemgr	zh-tw	導覽元件對齊方式
+allow customer to input a note	sitemgr	zh-tw	允許客戶輸入記事
 allow posting of questions	sitemgr	zh-tw	允許發表問題
 amazon	sitemgr	zh-tw	Amazon
 amazon server (without www), eg. amazon.com	sitemgr	zh-tw	Amazon伺服器(不要加www)，例如amazon.com
@@ -37,6 +43,8 @@ anonymous	sitemgr	zh-tw	匿名
 anonymous user login domain	sitemgr	zh-tw	匿名者登入網域
 anonymous user's password	sitemgr	zh-tw	匿名者的密碼
 anonymous user's username	sitemgr	zh-tw	匿名者的帳號
+anvanced: show all search modes	sitemgr	zh-tw	進階：顯示所有搜尋模式
+any words	sitemgr	zh-tw	任意文字
 applet	sitemgr	zh-tw	小程式
 application	sitemgr	zh-tw	應用程式
 application '%1' is not installed !!!<br>please install it, to be able to use the block.	sitemgr	zh-tw	應用程式'%1'未安裝！<br>安裝完成後才能使用這個區塊。
@@ -49,6 +57,7 @@ are you sure you want to delete site %1 and all its content? you cannot retrieve
 are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	zh-tw	您確定要刪除類別%1與它的所有頁面？這將無法還原
 as	common	zh-tw	當
 asin[=title] pairs (title is optional)	sitemgr	zh-tw	ASIN[=標題] 巴黎 (標題是選填的)
+ask customer	sitemgr	zh-tw	詢問顧客
 attempt to access information outside current website	sitemgr	zh-tw	嘗試存取的資訊在這個網站以外
 attempt to edit non-editable block	sitemgr	zh-tw	試著編輯無法編輯的區塊
 automatic index	sitemgr	zh-tw	自動索引
@@ -72,6 +81,8 @@ category description	sitemgr	zh-tw	描述
 category manager	sitemgr	zh-tw	管理者
 category name	sitemgr	zh-tw	名稱
 category saved	sitemgr	zh-tw	儲存
+cats are numeric, pages strings	sitemgr	zh-tw	類別是數字、頁面文字
+center	sitemgr	zh-tw	置中
 changes saved.	sitemgr	zh-tw	已經更新
 check here after every upgrade	sitemgr	zh-tw	在每次更新後勾選這裡
 check to hide from condensed site index.	sitemgr	zh-tw	隱藏簡易的網站索引
@@ -87,6 +98,7 @@ click here to login through a safe connection.	sitemgr	zh-tw	點選這裡來透�
 code file	sitemgr	zh-tw	編碼檔案
 codebase url	sitemgr	zh-tw	編碼基礎網址
 collapse threads	sitemgr	zh-tw	展開
+comment	sitemgr	zh-tw	備註
 commit changes	sitemgr	zh-tw	執行異動
 common prefix of the image-name (a number starting with 1 will be appended)	sitemgr	zh-tw	逗點分隔的圖片名稱(會自動附加從1開始的數字)
 configure module properties	sitemgr	zh-tw	設定模組屬性
@@ -102,6 +114,7 @@ contributor menu	sitemgr	zh-tw	網站選單
 copyright	sitemgr	zh-tw	版權
 create new version	sitemgr	zh-tw	建立新版本
 css styles	sitemgr	zh-tw	CSS樣式
+currency code of the value specified in amount (eg. usd, eur)	sitemgr	zh-tw	金額指定的貨幣代碼（例如 USD、EUR）
 current section	sitemgr	zh-tw	目前部份
 custom	sitemgr	zh-tw	自訂
 default	sitemgr	zh-tw	預設
@@ -126,7 +139,9 @@ do you want to delete them?	sitemgr	zh-tw	您確定要刪除他們？
 documentation	sitemgr	zh-tw	文件
 domain-name (offical dns-name eg. www.egroupware.org) if you want to give the user a choice between searching this site or the whole web. leaving it empty allows to search the web only.	sitemgr	zh-tw	網域名稱(真實的網預名稱，例如 www.eGroupWare.org)，保留空白時搜尋功能只限於這個網站。
 don't have an account?	sitemgr	zh-tw	還沒註冊？
+don't use egroupware css ">" separator (for templates that uses images/simbols for lists)	sitemgr	zh-tw	不要使用 egroupware css 的分隔字元 ">" （在樣板則是使用圖片、符號等清單）
 done	sitemgr	zh-tw	完成
+dont ask	sitemgr	zh-tw	不要詢問
 download as zip-archiv	sitemgr	zh-tw	以ZIP格式下載
 downloaded	sitemgr	zh-tw	已經下載
 draft	sitemgr	zh-tw	草稿
@@ -135,6 +150,8 @@ edit categories and permissions	common	zh-tw	編輯類別與權限
 edit category	sitemgr	zh-tw	編輯類別
 edit individual pages	common	zh-tw	編輯個別頁面
 edit mode	sitemgr	zh-tw	編輯模式
+edit notification	sitemgr	zh-tw	編輯提醒
+edit notification message	sitemgr	zh-tw	編輯提醒訊息
 edit page	sitemgr	zh-tw	編輯頁面
 edit properties of module %1 for %2 with scope %3	sitemgr	zh-tw	編輯 %2 在範圍 %3 的模組 %1 屬性
 edit site	sitemgr	zh-tw	編輯網站
@@ -143,19 +160,26 @@ edit this block	sitemgr	zh-tw	編輯這個區塊
 edit website	sitemgr	zh-tw	編輯網站
 egw users	sitemgr	zh-tw	使用者
 element successfully deleted.	sitemgr	zh-tw	成功刪除元件
+email address	sitemgr	zh-tw	郵件位址
+email address of the paypal account selling the item	sitemgr	zh-tw	用來作為 PayPal 帳號銷售商品的信箱
 enter a name	sitemgr	zh-tw	輸入名稱
 enter the block content here	sitemgr	zh-tw	輸入區塊內容
 enter the email to be notified about changes of the website.	sitemgr	zh-tw	輸入異動提醒通知寄送的信箱。
 enter the email to be notified about changes of the website:	sitemgr	zh-tw	輸入異動提醒通知寄送的信箱：
 enter the page content here	sitemgr	zh-tw	輸入頁面內容
 enterprise knowledge articles repository	sitemgr	zh-tw	企業知識庫
+entry deleted	sitemgr	zh-tw	資料刪除了
 entry duplicated.	sitemgr	zh-tw	資料重複了
+entry saved	sitemgr	zh-tw	資料儲存了
 entry saved.	sitemgr	zh-tw	資料儲存了
 error accessing page	common	zh-tw	錯誤訊息頁面
 error deleting the element.	sitemgr	zh-tw	刪除元件時發生錯誤
+error deleting the entry!!!	sitemgr	zh-tw	資料刪除時發生錯誤！
+error saving the entry!!!	sitemgr	zh-tw	儲存資料時發生錯誤！
 error writing to the database.	sitemgr	zh-tw	寫入資料庫時發生錯誤
 error writing to the database: %1.	sitemgr	zh-tw	寫入資料庫時發生錯誤： %1
 everybody	sitemgr	zh-tw	所有人
+exact phrase	sitemgr	zh-tw	正確的文字
 expand current category	sitemgr	zh-tw	展開目前類別
 file %1 is not readable by the webserver !!!	sitemgr	zh-tw	檔案 %1 沒有權限讀取！
 file %1 is outside the docroot of the webserver !!!<br>this module does not allow - for security reasons - to open files outside the docroot.	sitemgr	zh-tw	檔案 %1 在網頁根目錄以外的地方！基於安全的理由，這個程式不被允許開啟網頁根目錄以外的檔案
@@ -166,6 +190,7 @@ filesystem path of the directory where xml files are stored	sitemgr	zh-tw	儲存
 filesystem path of the image-directory	sitemgr	zh-tw	圖片檔案存放的路徑
 filesystem path to sitemgr-site directory	sitemgr	zh-tw	網站管理員檔案存放的路徑
 fill in permissions from parent category? if you check this, below values will be ignored	sitemgr	zh-tw	從上一層目錄取得權限？如果您勾選了這個，下面的數值會被忽略。
+flag symbols	sitemgr	zh-tw	國旗符號
 following new modules registed: %1	sitemgr	zh-tw	新模組登錄： %1
 footer editor	sitemgr	zh-tw	頁尾編輯器
 forever	common	zh-tw	永遠
@@ -175,6 +200,7 @@ galerie	sitemgr	zh-tw	圖庫
 gallery plus chooser	sitemgr	zh-tw	圖庫加選擇器
 gallery plus chooser and download	sitemgr	zh-tw	圖庫加選擇器與下載
 gallery plus download	sitemgr	zh-tw	圖庫加下載
+go	sitemgr	zh-tw	衝
 go back to page manager	sitemgr	zh-tw	回到頁面管理員
 go back to the category manager.	sitemgr	zh-tw	回到類別管理員
 go to	sitemgr	zh-tw	到
@@ -192,6 +218,8 @@ horizontal	sitemgr	zh-tw	水平
 html frame	sitemgr	zh-tw	HTML框架
 html module	sitemgr	zh-tw	HTML模組
 i'm sorry, you do not have write permissions for any site categories.	sitemgr	zh-tw	抱歉，您沒有權限寫入任何網站類別
+id	sitemgr	zh-tw	編號
+identifier you can use to track an internal inventory number	sitemgr	zh-tw	您可以用來追蹤內部資產編號的識別號碼
 if nonsecure redirect to:	sitemgr	zh-tw	如果不安全就引導到：
 if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	zh-tw	如果您還沒建立一個用來提供給訪客的帳號。建議的名稱是： anonymous
 image type	sitemgr	zh-tw	圖片格式
@@ -202,9 +230,11 @@ individual access permissions	sitemgr	zh-tw	個別存取權限
 interface to google website	sitemgr	zh-tw	GOOGLE網站的介面
 invalid template directory '%1' !!!	sitemgr	zh-tw	錯誤的樣版資料夾 '%1' ！
 knowledge base	sitemgr	zh-tw	知識庫
+language:	sitemgr	zh-tw	語言：
 languages the site user can choose from	sitemgr	zh-tw	網站訪客能夠選擇的語言
 last entries to the guestbook	sitemgr	zh-tw	留言板的最後一筆資料
 latest reply	sitemgr	zh-tw	最後回應
+links for the tabs (comma seperated)	sitemgr	zh-tw	分隔的連結（逗點分隔）
 list of permitted modules specific to content area %1	sitemgr	zh-tw	允許使用在內容區 %1 的模組清單
 loged in as:	sitemgr	zh-tw	登入為：
 login	sitemgr	zh-tw	登入
@@ -218,16 +248,24 @@ manage category wide content	sitemgr	zh-tw	管理類別與內容
 manage category wide module properties	sitemgr	zh-tw	管理類別與模組屬性
 manage content	sitemgr	zh-tw	管理內容
 manage modules	sitemgr	zh-tw	管理模組
+manage notifications	sitemgr	zh-tw	管理提醒
 manage page specific content	sitemgr	zh-tw	管理頁面特定內容
 manage pages	common	zh-tw	管理頁面
 manage site content	sitemgr	zh-tw	管理網站內容
 manage site-wide content	sitemgr	zh-tw	管理所有網站內容
 manage site-wide module properties	sitemgr	zh-tw	管理網站，包括模組屬性
 manage translations	sitemgr	zh-tw	管理翻譯
+manange notifications	sitemgr	zh-tw	管理提醒
+manange notifications messages	sitemgr	zh-tw	管理提醒訊息
 master list of permitted modules	sitemgr	zh-tw	管理授權的模組清單
+maximal category depth to be shown	sitemgr	zh-tw	顯示類別深度上限
+maximal page depth to be shown	sitemgr	zh-tw	顯示頁面深度上限
+message not found !!!	sitemgr	zh-tw	找不到訊息！
+message text:	sitemgr	zh-tw	訊息內容：
 messages are defined for all site languages.	sitemgr	zh-tw	訊息被定義為所有語言都可以瀏覽
 migrating data for %1 to %2	sitemgr	zh-tw	將資料從 %1 搬到 %2
 module %1 is not permitted in this context!	sitemgr	zh-tw	模組 %1 無法使用
+module '%1' not found in: %2! --> exiting	sitemgr	zh-tw	在 %2 找不到模組 '%1'  ！ --> 已經存在
 module manager	sitemgr	zh-tw	模組管理員
 module: %1, scope: %2, contentarea: %3, viewable: %4	sitemgr	zh-tw	模組： %1, 可視範圍： %2, 內容區： %3, 可瀏覽： %4
 move block down (increase sort order)	sitemgr	zh-tw	區塊下移
@@ -235,6 +273,8 @@ move block up (decrease sort order)	sitemgr	zh-tw	區塊上移
 move to	sitemgr	zh-tw	移到
 name	sitemgr	zh-tw	名稱
 name has been translated to lower case	sitemgr	zh-tw	名稱被轉換為小寫
+name of the item for sale	sitemgr	zh-tw	銷售商品名稱
+name of the tabs (comma seperated)	sitemgr	zh-tw	分隔名稱（逗點分隔）
 new application	sitemgr	zh-tw	新的應用程式
 new guestbook	sitemgr	zh-tw	新的留言板
 new sitemgr site	sitemgr	zh-tw	新網站
@@ -259,9 +299,13 @@ no, chooser with preview	sitemgr	zh-tw	不，選擇並且預覽
 not	common	zh-tw	否
 not yet translated	sitemgr	zh-tw	未翻譯
 note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	zh-tw	您看到這個訊息是因為您的設定錯誤，例如 config.inc.php 並不在您指定的資料夾中
+notification message not found !!!	sitemgr	zh-tw	找不到提醒訊息！
+notification not found !!!	sitemgr	zh-tw	找不到提醒！
+number of results	sitemgr	zh-tw	結果數量
 on all pages	sitemgr	zh-tw	在所有頁面
 only gallery	sitemgr	zh-tw	只有圖庫
 only on the first page	sitemgr	zh-tw	只有第一頁
+options in search result page	sitemgr	zh-tw	搜尋結果頁面選項
 or enter the title for a new guestbook	sitemgr	zh-tw	或是輸入新留言板的標題
 other websites	sitemgr	zh-tw	其他網站
 overview of all available categories	sitemgr	zh-tw	所有可用的類別概要
@@ -282,18 +326,25 @@ parent directory	sitemgr	zh-tw	上層資料夾
 parent section:	sitemgr	zh-tw	上一層：
 password	sitemgr	zh-tw	密碼
 password that you assigned for the anonymous user account.	sitemgr	zh-tw	您指定給訪客帳號的密碼
+path	sitemgr	zh-tw	路徑
 path to image-directory '%1' is not valid or readable by the webserver !!!	sitemgr	zh-tw	網頁伺服器無法讀取圖片路徑 %1 ！
 path to zip binary if not in path of the webserver	sitemgr	zh-tw	ZIP路徑
+pay with paypal	sitemgr	zh-tw	透過 Paypal 付款
+paypal	sitemgr	zh-tw	Paypal
+paypal pay now button	sitemgr	zh-tw	Paypal 立即付款按鈕
 percentage	sitemgr	zh-tw	比例
 phrases in total	sitemgr	zh-tw	所有片語
+plain selectbox	sitemgr	zh-tw	空白的下拉選單
 please enter a name for that site !	sitemgr	zh-tw	請輸入網站的名稱！
 please sign the guestbook	sitemgr	zh-tw	請留言
 post a message to this thread	sitemgr	zh-tw	回覆
 prepublished	sitemgr	zh-tw	預定發布
 preunpublished	sitemgr	zh-tw	預定到期
 previous	sitemgr	zh-tw	上一個
+price of the item (empty allows buyer to choose, eg. for donations)	sitemgr	zh-tw	產品價格（空白表示買家可以選擇，像是贊助）
 production mode	sitemgr	zh-tw	產品模式
 published	sitemgr	zh-tw	發布
+quantity items (empty allows buyer to specify)	sitemgr	zh-tw	產品數量（空白表示買家可以指定）
 reactivate content	sitemgr	zh-tw	重新啟用內容
 read permission	sitemgr	zh-tw	讀取權限
 redirection	sitemgr	zh-tw	轉向
@@ -303,6 +354,7 @@ register new modules	sitemgr	zh-tw	註冊新模組
 reload	sitemgr	zh-tw	重新讀取
 remember me	common	zh-tw	記住我
 replies	sitemgr	zh-tw	回應
+required	sitemgr	zh-tw	必填
 required fields	sitemgr	zh-tw	必填欄位
 reset	sitemgr	zh-tw	重設
 return to forums	sitemgr	zh-tw	回到討論區
@@ -313,19 +365,27 @@ save	sitemgr	zh-tw	儲存
 save block	sitemgr	zh-tw	儲存區塊
 saved	sitemgr	zh-tw	儲存
 scope	sitemgr	zh-tw	範圍
+search keyword	sitemgr	zh-tw	搜尋關鍵字
+search language options	sitemgr	zh-tw	搜尋語言選項
+search modes	sitemgr	zh-tw	搜尋模式
+search with	sitemgr	zh-tw	搜尋關鍵字
 seen by	sitemgr	zh-tw	訪客
 select a category	sitemgr	zh-tw	類別
 select a forum	sitemgr	zh-tw	選擇一個討論區
 select allowed modules	sitemgr	zh-tw	選擇模組
+select layout for lang selection	sitemgr	zh-tw	選擇語言時的配置
 select persons and groups that are entitled to configure the website.	sitemgr	zh-tw	請選擇可以設定網站的帳號或群組。
 select the templates the user is allowed to see	sitemgr	zh-tw	選擇使用者可以看到的樣板
 select type of navigation	sitemgr	zh-tw	選擇導覽類型
 selected template %1 does not exist.	sitemgr	zh-tw	選擇的樣板 %1 不存在
 selected theme %1 does not exist.	sitemgr	zh-tw	選擇的佈景 %1 不存在
+seperate cats / pages of one tab by :	sitemgr	zh-tw	分隔類別 / 頁面的標籤：
+shipping address	sitemgr	zh-tw	送貨地址
 should the file be viewed in the browser or downloaded	sitemgr	zh-tw	這個檔案要出現在瀏覽器或是被下載嗎？
 show a template-gallery (thumbnail and informations)	sitemgr	zh-tw	顯示一個樣板圖庫(縮圖與資訊)
 show contents of a directory	sitemgr	zh-tw	顯示資料夾內容
 show contents of a directory with subdirectories	sitemgr	zh-tw	顯示資料夾內容（包含子資料夾）
+show current section only	sitemgr	zh-tw	只顯示目前選擇的項目
 show details for the applications	sitemgr	zh-tw	顯示應用程式的細節
 show only (in the next field) selected templates	sitemgr	zh-tw	顯示選取的樣板
 show path?	sitemgr	zh-tw	顯示路徑？
@@ -333,6 +393,7 @@ show searchbox	sitemgr	zh-tw	顯示搜尋
 show site index	sitemgr	zh-tw	顯示網站索引
 show subcategories	sitemgr	zh-tw	顯示附屬類別
 show the title of the wiki page	sitemgr	zh-tw	顯示 wiki 頁面的標題
+simple: only selected mode, no more options displayed	sitemgr	zh-tw	簡單：只使用選擇的模式，不顯示其他選項
 single file download	sitemgr	zh-tw	下載單一檔案
 site	sitemgr	zh-tw	網站
 site %1 has been added, you need to %2configure the site%3 now	sitemgr	zh-tw	網站 %1 新增了，您現在必須 %2設定它%3。
@@ -341,6 +402,7 @@ site administrators	sitemgr	zh-tw	網站管理員
 site description	sitemgr	zh-tw	描述
 site format manager	sitemgr	zh-tw	格式管理員
 site index	sitemgr	zh-tw	首頁
+site language	sitemgr	zh-tw	語言
 site name	sitemgr	zh-tw	名稱
 site setup	common	zh-tw	安裝
 site tree menu	sitemgr	zh-tw	樹狀選單
@@ -353,6 +415,8 @@ sitemgr setup page	sitemgr	zh-tw	網站管理設定頁面
 sitemgr web content manager	common	zh-tw	網站管理內容管理員
 sitemgr websites	sitemgr	zh-tw	網站管理
 sitemgr-link	common	zh-tw	網站
+size	sitemgr	zh-tw	大小
+sorry, no content found for you search criteria	sitemgr	zh-tw	抱歉，您的搜尋條件找不到任何內容
 sort order	sitemgr	zh-tw	排序方式
 state	sitemgr	zh-tw	鄉/鎮/市
 strip html from block content?	sitemgr	zh-tw	移除區塊內容中的HTML？
@@ -363,11 +427,14 @@ subtitle	sitemgr	zh-tw	副標題
 summary of one forum	sitemgr	zh-tw	一個討論區的概要
 suppress link to index (show all)	sitemgr	zh-tw	索引頁隱藏的聯結(顯示全部)
 suppress link to parent category	sitemgr	zh-tw	上層類別隱藏的聯結
+suppress main categories	sitemgr	zh-tw	隱藏主要類別
+suppress the current category	sitemgr	zh-tw	隱藏目前類別
 suppress the current page	sitemgr	zh-tw	目前頁面隱藏的聯結
 table of contents	sitemgr	zh-tw	內容表單
 template based navigation module	sitemgr	zh-tw	基於導覽模組的樣板
 template select	sitemgr	zh-tw	樣板選擇
 text allignment	sitemgr	zh-tw	文字對齊方式
+text of page links	sitemgr	zh-tw	頁面連結的文字
 textarea	sitemgr	zh-tw	文字區
 the category to display, 0 for complete table of contents	sitemgr	zh-tw	要顯示的類別，0表示所有的內容
 the complete url or path to a file to be included	sitemgr	zh-tw	要包含的檔案所在路徑
@@ -375,6 +442,7 @@ the config.inc.php file needs to be edited to point to the egroupware directory.
 the file to be downloaded	sitemgr	zh-tw	被下載的檔案
 the filesystem path to your sitemgr-site directory '%1' is probably wrong. go to sitemgr --> define websites and edit/fix the concerned site.	sitemgr	zh-tw	您的網站管理資料夾 %1 也許有誤，到網站管理員的定義網站中編輯/修正這個設定
 the first directory to think about is sitemgr-link.  if you move this to the parent directory of sitemgr (your egroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  if you don't want this icon, there's no reason to ever bother with the directory.	sitemgr	zh-tw	第一個資料夾預設為 sitemgr-link ，如果您將這個資料夾移到 sitemgr 的上一層目錄(您的 egroupware 根目錄)，接著您可以使用安裝程式來安裝應用程式以及每個能夠存取的成員都會出現一個新的圖示連到公開的網站。如果您不要這個圖示，您不需要移動這個資料夾。
+the messages for changes in this language will use the default text, if available.	sitemgr	zh-tw	在這個語言的訊息異動會使用已經存在的預設文字。
 the name field cannot contain punctuation or spaces (field modified).	sitemgr	zh-tw	名稱不能包含空白或是符號(欄位修改過的)
 the page name must be unique.	sitemgr	zh-tw	頁面名稱必須是唯一的
 the page was successfully saved.	sitemgr	zh-tw	頁面儲存成功
@@ -432,8 +500,10 @@ this module lets you show a given url inside an iframe in the page.	sitemgr	zh-t
 this module permits browsing through xml files stored in a directory, and transformed by xslt	sitemgr	zh-tw	這個模組允許透過儲存的XML瀏覽資訊，傳輸時會透過 XSLT
 this module provides a complete table of contents, it is automatically used by the toc and category_id get parameters	sitemgr	zh-tw	這個模組提供一個完整的資料表與內容，它會自動被用在 GET 的 toc 與 category_id 參數中
 this module provides a condensed table of contents, meant for side areas	sitemgr	zh-tw	這個模組提供一個壓縮過的資料表與內容，出現在網站旁邊
+this module provides tabs	sitemgr	zh-tw	這個模組提供標籤
 this module provides the path to the element currently shown	sitemgr	zh-tw	這個模組提供目前顯示元件的路徑
 this module provides the site index, it is automatically used by the index get parameter	sitemgr	zh-tw	這個模組提供網站索引，它將自動用在 GET 的索引參數
+this module search throw the content (page title/description and html content)	sitemgr	zh-tw	這個模組搜尋出內容（頁面標題/說明與html內容）
 this module show the status / percentage of the translation of egw	sitemgr	zh-tw	這個模組顯示 eGW 的翻譯狀態
 this must be an absolute directory location.  <b>no trailing slash</b>.	sitemgr	zh-tw	這必須是一個資料夾的絕對路徑<b>不需要最後的斜線</b>
 this should be a comma-separated list of language-codes.	sitemgr	zh-tw	請用逗點分隔要使用的語言代碼
@@ -452,7 +522,9 @@ up to parent	sitemgr	zh-tw	回到上一層
 up to table of contents	sitemgr	zh-tw	回到內容資料表
 update notification	sitemgr	zh-tw	更新提醒
 updating to new category system	sitemgr	zh-tw	更新類別系統
+url pointing to the image-directory	sitemgr	zh-tw	圖片資料夾的網址
 url to sitemgr-site	sitemgr	zh-tw	連到網站的網址
+use current user selected language	sitemgr	zh-tw	使用目前使用者選擇的語言
 use phpnuke themes instead of templates	sitemgr	zh-tw	用phpNuke的佈景取代樣板
 use this module for displaying book ads for the amazon web site	sitemgr	zh-tw	使用這個模組來顯示amazon書籍廣告
 use this module for displaying wiki-pages	sitemgr	zh-tw	使用這個模組來顯示WIKI頁面
@@ -471,7 +543,9 @@ web site manager	sitemgr	zh-tw	網站管理員
 website	sitemgr	zh-tw	網站
 week	sitemgr	zh-tw	週
 what do you want to do with existing translations of categories and pages for this language?	sitemgr	zh-tw	對於已經存在的類別翻譯與這個語言的頁面您想要執行什麼動作？
+when is a tab activated?	sitemgr	zh-tw	當標籤啟用？
 which application should be executed after login?	sitemgr	zh-tw	在登入後要執行那個應用程式？
+which main categories schuld be included (comma seperated list, empty for all)	sitemgr	zh-tw	要包含哪個主要類別（逗點分隔，空白表示全部）
 wiki	sitemgr	zh-tw	協同編輯系統Wiki
 wiki startpage	sitemgr	zh-tw	Wiki首頁
 with which view should the module be displayed in the beginning?	sitemgr	zh-tw	這個模組在開始時應該以什麼樣的模式顯示
@@ -497,6 +571,7 @@ you must be an admin to edit the site header and footer.	sitemgr	zh-tw	管理員
 you must be an admin to manage module properties.	sitemgr	zh-tw	成為管理者才能夠修改模組屬性
 you must be an administrator to setup the site manager.	sitemgr	zh-tw	成為管理者才能夠安裝網站管理員
 you removed one ore more languages from your site languages.	sitemgr	zh-tw	您已經從網站語言移除了一或多個語言
+you will remove the message in the following language from your notification system:	sitemgr	zh-tw	您將從提醒系統中移除下面語言的訊息：
 your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr	zh-tw	您的管理員還沒將網站內容設定為公開瀏覽，請聯絡管理員
 your calendar	sitemgr	zh-tw	您的行事曆
 your comment	sitemgr	zh-tw	您的意見
