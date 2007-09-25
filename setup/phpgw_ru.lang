@@ -1,3 +1,9 @@
+(leave blank to allow insecure logins)	sitemgr	ru	(оставьте незаполненным чтобы позволить незащищенный вход)
+1 day	common	ru	1 День
+1 hour	common	ru	1 Час
+1 month	common	ru	1 Месяц
+1 week	common	ru	1 Неделя
+a simple picture galery	sitemgr	ru	Простая картинная галерея
 add a category	sitemgr	ru	Добавить категорию
 add a new application	sitemgr	ru	Добавить новое приложение
 add a new guestbook	sitemgr	ru	Добавить новую Гостевую Книгу
@@ -5,14 +11,21 @@ add block ...	sitemgr	ru	Добавить блок ...
 add category	sitemgr	ru	Добавить Категорию
 add new page to this category	sitemgr	ru	Добавить новую страницу в данную категорию
 add page	sitemgr	ru	Добавить Страницу
+add page to category	sitemgr	ru	Добавить страницу в категорию
 add website	sitemgr	ru	Добавить Веб-сайт
+administration	sitemgr	ru	Администрирование
+administrative menu	sitemgr	ru	Меню Администратора
+administrators	sitemgr	ru	администраторы
 all categories	sitemgr	ru	Все категории
+all forums in category %1	sitemgr	ru	Все форумы в категории %1
+all languages	sitemgr	ru	все языки
 basic settings	sitemgr	ru	Основные настройки
 block not found.	sitemgr	ru	Блок не найден
 block saved	sitemgr	ru	Блок сохранен
 bookmarks	sitemgr	ru	Закладки
 calendar	sitemgr	ru	Календарь
 category	sitemgr	ru	Категория
+category description	sitemgr	ru	Описание Категории
 category saved	sitemgr	ru	Категория сохранена
 changes saved.	sitemgr	ru	Изменения сохранены.
 choose a guestbook	sitemgr	ru	Выбирите Гостевую Книгу
@@ -28,4 +41,17 @@ edit mode	sitemgr	ru	Режим редактирования
 no pages available	sitemgr	ru	Нет страниц для просмотра
 pages	sitemgr	ru	Страницы
 pages:	sitemgr	ru	Страницы
+site index	sitemgr	ru	Содержание Сайта
+site name	sitemgr	ru	Название сайта
+site tree menu	sitemgr	ru	Древовидное меню сайта
+sort order	sitemgr	ru	Порядок Сортировки
 state	sitemgr	ru	Состояние
+subcategories	sitemgr	ru	Подкатегории
+subsections:	sitemgr	ru	Подсекции:
+table of contents	sitemgr	ru	Содержание
+this site	sitemgr	ru	этот сайт
+user name	sitemgr	ru	Имя Пользователя
+your calendar	sitemgr	ru	Ваш Календарь
+your comment	sitemgr	ru	Ваш комментарий
+your connection is not safe.	sitemgr	ru	Ваше подсоединение небезопасно.
+your name	sitemgr	ru	Ваше имя
