@@ -175,15 +175,14 @@
 	// Check for explicit modules calls
 	if ($_GET['module'])
 	{
-		// Check for RSS feed in news_admin
-		// temporary hack. this should be extendet to a generalized 
-		// moduel call which gets executed before "nomal" sitemgr operations
-		if ($_GET['module']=='news_admin')
-		{
-			include($GLOBALS['sitemgr_info']['egw_path'] . 'news_admin/website/export.php');
-			// No more stuff in the generated xml
-			$GLOBALS['egw']->common->egw_exit();
-		}
+		// we (miss-)use the addcontent handler to call the module
+		$GLOBALS['egw']->session->appsession('addcontent','sitemgr',array(array(
+			'module_name' => $_GET['module'],
+			'arguments' => array(),
+			'page' => false,
+			'area' => false,
+			'sort_order' => false
+		)));
 	}
 
 	if ($page_name && $page_name != 'index.php')
