@@ -1,0 +1,543 @@
+%1 content manager	sitemgr	gl	Xestor de contidos de %1
+%1 module manager	sitemgr	gl	Xestor de módulos de %1
+'%1' is no valid sitemgr-site directory !!!	sitemgr	gl	'%1' non é un directorio válido para un sitio sitemgr !!!
+(do not put spaces or punctuation in the name field.)	sitemgr	gl	(Non utilice espazos nin signos de puntuación no campo Nome)
+(leave blank to allow insecure logins)	sitemgr	gl	(deixar en branco para permitir inicios de sesión inseguros)
+(only used in case of single file)	sitemgr	gl	(só se usa con ficheiros únicos)
+1 day	common	gl	1 día
+1 hour	common	gl	1 hora
+1 month	common	gl	1 mes
+1 week	common	gl	1 semana
+<b>autoregistration is not enabled / configured in the registration app !!!</b><br>you need to do so, to get the autoregistration link working.	sitemgr	gl	<b>O rexistro automático non está activado ou configurado na súa aplicación.</b><br>Para que a ligazón do rexistro automático funcione precisa de o facer.
+<b>want more templates?</b><br />just download one from the template gallery at %1www.egroupware.org%2 or use a %3mambo open source%4 version 4.5 compatible template eg. from %5. unpack the downloaded template in your templates directory (%6).	sitemgr	gl	<b>Quere máis modelos?</b><br />Descárgueos da galería de %1www.eGroupWare.org%2 ou utilice algún compatible coa versión 4.5 de %3Mambo Open Source%4, por exemplo de %5. Descomprima o modelo descargado no seu directorio de modelos (%6).
+a simple picture galery	sitemgr	gl	Unha galería simple de imaxes
+actif	sitemgr	gl	Activo
+add a category	sitemgr	gl	Engadir unha categoría
+add a new application	sitemgr	gl	Engadir unha nova aplicación
+add a new guestbook	sitemgr	gl	Engadir un novo libro de convidados
+add block ...	sitemgr	gl	Engadir bloque...
+add block to content area %1	sitemgr	gl	Engadir bloque á área de contido %1
+add category	sitemgr	gl	Engadir categoría
+add new page to this category	sitemgr	gl	Engadir unha nova páxina a esta categoría
+add page	sitemgr	gl	Engadir páxina
+add page to category	sitemgr	gl	Engadir páxina á categoría
+add website	sitemgr	gl	Engadir sitio web
+administration	sitemgr	gl	Administración
+administrative menu	sitemgr	gl	Menú administrativo
+administrators	sitemgr	gl	administradores
+advanced plus google: also show google search	sitemgr	gl	Avanzado máis google : Tamén mostra a busca en google
+all available languages	sitemgr	gl	todos os idiomas dispoñibles
+all categories	sitemgr	gl	Todas as categorías
+all forums in category %1	sitemgr	gl	Todos os foros da categoría %1
+all languages	sitemgr	gl	todos os idiomas
+all words	sitemgr	gl	Todas as palabras
+allignment of navigation elements	sitemgr	gl	Aliñamento dos elementos de navegación
+allow posting of questions	sitemgr	gl	Permitir o envío de preguntas
+amazon	sitemgr	gl	Amazon
+amazon server (without www), eg. amazon.com	sitemgr	gl	Servidor de Amazon (sen www), p. ex. amazon.com
+an application directory	sitemgr	gl	O directorio dunha aplicación
+anonymous	sitemgr	gl	anónimo
+anonymous user login domain	sitemgr	gl	Dominio do usuario anónimo
+anonymous user's password	sitemgr	gl	Contrasinal do usuario anónimo
+anonymous user's username	sitemgr	gl	Nome de usuario do usuario anónimo
+anvanced: show all search modes	sitemgr	gl	Avanzado: mostra todos os modos de busca
+any words	sitemgr	gl	Calquera palabra
+applet	sitemgr	gl	Miniaplicación
+application	sitemgr	gl	Aplicación
+application '%1' is not installed !!!<br>please install it, to be able to use the block.	sitemgr	gl	A aplicación %1 non está instalada!<br>Instálea para poder usar o bloque.
+application sitemgr_module_guestbook must be installed as a egroupware application for this module to run	sitemgr	gl	A aplicación sitemgr_module_guestbook debe estar instalada como aplicación eGroupWare para que este módulo se execute
+apply permissions also to subcategories?	sitemgr	gl	Desexa aplicar permisos tamén ás subcategorías?
+archived	sitemgr	gl	arquivado
+archived content	sitemgr	gl	Contido arquivado
+are contributors allowed to define new guestbooks?	sitemgr	gl	Teñen permiso os colaboradores para definiren novos libros de convidados?
+are you sure you want to delete site %1 and all its content? you cannot retrieve it if you continue.	sitemgr	gl	Está certo de que desexa eliminar o sitio %1 con todo o seu contido? De continuar, non poderá recuperalo.
+are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	gl	Está certo de que desexa eliminar a categoría %1 xunto con todas as páxinas asociadas? De continuar, non poderá recuperar as páxinas eliminadas.
+as	common	gl	como
+asin[=title] pairs (title is optional)	sitemgr	gl	pares ASIN[=título] (o título é opcional)
+attempt to access information outside current website	sitemgr	gl	Tentativa de acceder a información externa ao sitio web actual
+attempt to edit non-editable block	sitemgr	gl	Tentativa de editar un bloque non editable
+automatic index	sitemgr	gl	Índice automático
+automatically generated notification	sitemgr	gl	Notificación xerada automaticamente
+back to module manager	sitemgr	gl	Volver ao xestor de módulos
+back to the list of languages	sitemgr	gl	Volver á lista de idiomas
+basic settings	sitemgr	gl	Configuración básica
+before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr	gl	Para poder ver o sitio público, configure as diferentes localizacións e preferencias. Vaia á páxina de configuración de sitemgr a través desta ligazón:
+block not found.	sitemgr	gl	Non se encontrou o bloque.
+block reloaded	sitemgr	gl	Bloque cargado novamente
+block returned no content.	sitemgr	gl	O bloque non devolveu contido.
+block saved	sitemgr	gl	Bloque gardado
+bookmarks	sitemgr	gl	Marcadores
+buy at %1	sitemgr	gl	Comprar en %1
+calendar	sitemgr	gl	Calendario
+can't open an url or execute a script, because allow_url_fopen is not set in your php.ini !!!	sitemgr	gl	Non é  posible  abrir un URL ou executar un script porque allow_url_fopen non está definido en php.ini.
+cancel the delete	sitemgr	gl	Cancelar a eliminación
+cannot move page until it has been saved.	sitemgr	gl	Non é posible  mover a páxina mentres non se garde.
+category	sitemgr	gl	Categoría
+category description	sitemgr	gl	Descrición da categoría
+category manager	sitemgr	gl	Xestor de categorías
+category name	sitemgr	gl	Nome da categoría
+category saved	sitemgr	gl	Categoría gardada
+cats are numeric, pages strings	sitemgr	gl	as categorías son numéricas, as páxinas cadeas
+center	sitemgr	gl	Centrado
+changes saved.	sitemgr	gl	Modificacións gardadas
+check here after every upgrade	sitemgr	gl	Verifique aquí após cada actualización
+check to hide from condensed site index.	sitemgr	gl	Marque para ocultar do índice resumido do sitio
+choose a category	sitemgr	gl	Escoller unha categoría
+choose a format	sitemgr	gl	Escoller un formato
+choose a guestbook	sitemgr	gl	Escoller un libro de convidados
+choose language	sitemgr	gl	Escoller idioma
+choose template	sitemgr	gl	Escoller modelo
+choose the categories to display	sitemgr	gl	Escoller as categorías para mostrar
+choose the valid html type (note: not all icons are available):	sitemgr	gl	Escoller o tipo de HTML válido (Nota: Non están dispoñibles todas as iconas):
+choose your site's theme or template.  note that if you changed the above checkbox you need to save before choosing a theme or template.	sitemgr	gl	Escolla o tema ou modelo do seu sitio. Se modifica a caixa de verificación, terá que gardar antes de escoller un tema ou modelo.
+click here to login through a safe connection.	sitemgr	gl	Prema aquí para iniciar a sesión mediante unha conexión segura
+code file	sitemgr	gl	Ficheiro de código
+codebase url	sitemgr	gl	URL do código base
+collapse threads	sitemgr	gl	Contraer conversacións
+comment	sitemgr	gl	Comentario
+commit changes	sitemgr	gl	Aplicar modificacións
+common prefix of the image-name (a number starting with 1 will be appended)	sitemgr	gl	prefixo común do nome da imaxe (engadiráselle un número contando desde 1)
+configure module properties	sitemgr	gl	Configurar as propiedades do módulo
+configure sitemgr	sitemgr	gl	Configurar SiteMgr
+configure website	sitemgr	gl	Configurar sitio web
+contact the administrator.	sitemgr	gl	Contacte co administrador.
+content areas	sitemgr	gl	Áreas de contido
+content blocks	sitemgr	gl	Bloques de contido
+content blocks for category	sitemgr	gl	Bloques de contido para a categoría
+content manager	sitemgr	gl	Xestor de contido
+contentarea	sitemgr	gl	Área de contidos
+contributor menu	sitemgr	gl	Menú do colaborador
+copyright	sitemgr	gl	Copyright
+create new version	sitemgr	gl	Crear unha versión nova
+css styles	sitemgr	gl	Estilos CSS
+current section	sitemgr	gl	Sección actual
+custom	sitemgr	gl	personalizado
+default	sitemgr	gl	Predefinido
+default home page id number	sitemgr	gl	Número de ID da páxina de inicio por defeito
+define websites	common	gl	Definir sitios web
+delete block	sitemgr	gl	Eliminar bloque
+delete category	sitemgr	gl	Eliminar categoría
+delete page	sitemgr	gl	Eliminar páxina
+delete this application	sitemgr	gl	Eliminar esta aplicación
+delete this block	sitemgr	gl	Eliminar este bloque
+delete this guestbook	sitemgr	gl	Eliminar este libro de convidados
+delete version	sitemgr	gl	Eliminar versión
+deleting all data for %1	sitemgr	gl	Eliminar todos os datos de %1
+details for language %1 (%2)	sitemgr	gl	Detalles para o idioma %1 (%2)
+directory is not writable by the webserver --> disabling upload	sitemgr	gl	O directorio NON pode ser escrito polo servidor web --> desactive a descarga
+discussions	sitemgr	gl	Discusións
+display link to autoregistration below login form?	sitemgr	gl	Mostrar a ligazón para rexistrarse automaticamente na parte inferior do formulario?
+do you realy want to delete the selected categories (including all pages), pages and blocks?	sitemgr	gl	Está certo de querer eliminar as categorías (incluíndo todas as páxinas), páxinas e bloques seleccionados?
+do you realy want to delete this block?	sitemgr	gl	Está certo de que desexa eliminar este bloque?
+do you realy want to delete this page?	sitemgr	gl	Está certo de que desexa eliminar esta páxina?
+do you want to delete them?	sitemgr	gl	Desexa eliminalos?
+documentation	sitemgr	gl	Documentación
+domain-name (offical dns-name eg. www.egroupware.org) if you want to give the user a choice between searching this site or the whole web. leaving it empty allows to search the web only.	sitemgr	gl	Nome do dominio (nome DNS oficial, p. ex. www.eGroupWare.org) se desexa dar ao usuario a opción de buscar ben nese sitio ben por toda a web. Deixándoo en branco as buscas realízanse só na web.
+don't have an account?	sitemgr	gl	Non ten ningunha conta?
+don't use egroupware css ">" separator (for templates that uses images/simbols for lists)	sitemgr	gl	non use o separador ">" do css de egroupware (para modelos que usan imaxes/símbolos para listas)
+done	sitemgr	gl	Feito
+download as zip-archiv	sitemgr	gl	Descargar como ficheiro ZIP
+downloaded	sitemgr	gl	descargado
+draft	sitemgr	gl	esbozo
+draft mode	sitemgr	gl	Modo esbozo
+edit categories and permissions	common	gl	Editar as categorías e os permisos
+edit category	sitemgr	gl	Editar categoría
+edit individual pages	common	gl	Editar páxinas individuais
+edit mode	sitemgr	gl	Modo editar
+edit page	sitemgr	gl	Editar páxina
+edit properties of module %1 for %2 with scope %3	sitemgr	gl	Editar as propiedades do módulo %1 para %2 no ámbito %3
+edit site	sitemgr	gl	Editar sitio
+edit site header and footer	common	gl	Editar a cabeceira e o pé do sitio
+edit this block	sitemgr	gl	Editar este bloque
+edit website	sitemgr	gl	Editar sitio web
+egw users	sitemgr	gl	usuarios do eGW
+element successfully deleted.	sitemgr	gl	O elemento eliminouse correctamente.
+enter a name	sitemgr	gl	Introduza un nome
+enter the block content here	sitemgr	gl	Introduza aquí o contido do bloque
+enter the email to be notified about changes of the website.	sitemgr	gl	Introduza o enderezo de correo ao cal notificar as modificacións realizadas no sitio web.
+enter the email to be notified about changes of the website:	sitemgr	gl	Introduza o enderezo de correo ao cal notificar as modificacións realizadas no sitio web:
+enter the page content here	sitemgr	gl	Introduza aquí o contido da páxina
+enterprise knowledge articles repository	sitemgr	gl	Repositorio de artigos da base de coñecemento da empresa
+entry duplicated.	sitemgr	gl	Entrada duplicada
+entry saved.	sitemgr	gl	Entrada gardada
+error accessing page	common	gl	Erro ao acceder á páxina
+error deleting the element.	sitemgr	gl	Erro ao eliminar o elemento
+error writing to the database.	sitemgr	gl	Erro ao escribir na base de datos
+error writing to the database: %1.	sitemgr	gl	Erro ao escribir na base de datos %1
+everybody	sitemgr	gl	todos
+exact phrase	sitemgr	gl	Frase exacta
+expand current category	sitemgr	gl	Expandir a categoría actual
+file %1 is not readable by the webserver !!!	sitemgr	gl	O servidor web non pode ler o ficheiro %1!!!
+file %1 is outside the docroot of the webserver !!!<br>this module does not allow - for security reasons - to open files outside the docroot.	sitemgr	gl	O ficheiro %1 está fóra da raíz do servidor!!<br>Por motivos de seguranza, este módulo NON permite abrir ficheiros fóra da raíz do servidor.
+file contents	sitemgr	gl	Contido do ficheiro
+file download	sitemgr	gl	Descarga do ficheiro
+filename	sitemgr	gl	Nome do ficheiro
+filesystem path of the directory where xml files are stored	sitemgr	gl	Camiño do directorio en que se almacenan os ficheiros XML
+filesystem path of the image-directory	sitemgr	gl	Camiño do directorio de imaxes
+filesystem path to sitemgr-site directory	sitemgr	gl	Camiño do directorio sitemgr-site
+fill in permissions from parent category? if you check this, below values will be ignored	sitemgr	gl	Desexa encher os permisos desde a categoría superior? Se marca isto, ignoraranse os valores abaixo indicados.
+flag symbols	sitemgr	gl	Símbolos de bandeiras
+following new modules registed: %1	sitemgr	gl	Seguintes módulos novos rexistrados: %1
+footer editor	sitemgr	gl	Editor de pés de páxina
+forever	common	gl	Para sempre
+forum	sitemgr	gl	Foro
+full path of the xslt file that should be applied to the xml files	sitemgr	gl	Camiño completo do ficheiro XSLT que hai que aplicar aos ficheiros XML
+galerie	sitemgr	gl	Galería
+gallery plus chooser	sitemgr	gl	Selector Gallery plus
+gallery plus chooser and download	sitemgr	gl	Selector e descarga Gallery plus
+gallery plus download	sitemgr	gl	Descarga Gallery plus
+go	sitemgr	gl	Ir
+go back to page manager	sitemgr	gl	Volver ao xestor de páxinas
+go back to the category manager.	sitemgr	gl	Volver ao xestor de categorías
+go to	sitemgr	gl	Ir a
+go to page manager	sitemgr	gl	Ir ao xestor de páxinas
+google	sitemgr	gl	Google
+google search	sitemgr	gl	Busca do Google
+group access permissions	sitemgr	gl	Permisos de acceso do grupo
+group name	sitemgr	gl	Nome do grupo
+header editor	sitemgr	gl	Editor de cabeceiras
+headlines	sitemgr	gl	Titulares
+hello	sitemgr	gl	Ola
+hello world	sitemgr	gl	Ola a todos
+helps you respect html/xhtml standards.	sitemgr	gl	Axuda a respectar os estándares HTML/XHTML.
+horizontal	sitemgr	gl	Horizontal
+html frame	sitemgr	gl	Marco HTML
+html module	sitemgr	gl	Módulo HTML
+i'm sorry, you do not have write permissions for any site categories.	sitemgr	gl	Non ten permiso de escrita para ningunha das categorías do sitio.
+if nonsecure redirect to:	sitemgr	gl	Se non é seguro, redirixir a:
+if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	gl	Se aínda non o fixo, cree un usuario para permitir o acceso público ao sitio. Nome recomendado: anónimo.
+image type	sitemgr	gl	tipo de imaxe
+implies read permission	sitemgr	gl	implica permiso de lectura
+index	sitemgr	gl	Índice
+individual access permission	sitemgr	gl	Permiso de acceso individual
+individual access permissions	sitemgr	gl	Permisos de acceso individuais
+interface to google website	sitemgr	gl	Interface á páxina de Google
+invalid template directory '%1' !!!	sitemgr	gl	O directorio de modelos %1 non é válido
+knowledge base	sitemgr	gl	Base de coñecemento
+languages the site user can choose from	sitemgr	gl	Idiomas que pode escoller o usuario do sitio
+last entries to the guestbook	sitemgr	gl	Últimas entradas do libro de convidados
+latest reply	sitemgr	gl	Última resposta
+links for the tabs (comma seperated)	sitemgr	gl	Ligazóns para os separadores (separador por comas)
+list of permitted modules specific to content area %1	sitemgr	gl	Lista de módulos permitidos específicos da área de contidos %1
+loged in as:	sitemgr	gl	Sesión iniciada como:
+login	sitemgr	gl	Inicio de sesión
+login name	sitemgr	gl	Nome de inicio de sesión
+main content	sitemgr	gl	Contido principal
+mains	sitemgr	gl	Principais
+manage archived content	sitemgr	gl	Administrar contido arquivado
+manage categories	sitemgr	gl	Administrar categorías
+manage categories and pages	sitemgr	gl	Administrar categorías e páxinas
+manage category wide content	sitemgr	gl	Administrar todo o contido da categoría
+manage category wide module properties	sitemgr	gl	Administrar as propiedades dos módulos das categorías
+manage content	sitemgr	gl	Administrar contidos
+manage modules	sitemgr	gl	Administrar módulos
+manage page specific content	sitemgr	gl	Administrar os contidos específicos da páxina
+manage pages	common	gl	Administrar páxinas
+manage site content	sitemgr	gl	Administrar o contido do sitio
+manage site-wide content	sitemgr	gl	Administrar o contido de todo o sitio
+manage site-wide module properties	sitemgr	gl	Administrar as propiedades dos módulos de todo o sitio
+manage translations	sitemgr	gl	Administrar traducións
+master list of permitted modules	sitemgr	gl	Lista principal de módulos permitidos
+maximal category depth to be shown	sitemgr	gl	Profundidade de categoría máxima a mostrar
+maximal page depth to be shown	sitemgr	gl	Profundidade de páxina máxima a mostrar
+messages are defined for all site languages.	sitemgr	gl	As mensaxes están definidas para todos os idiomas do sitio.
+migrating data for %1 to %2	sitemgr	gl	Migrar datos de %1 a %2
+module %1 is not permitted in this context!	sitemgr	gl	O módulo %1 non está permitido neste contexto.
+module '%1' not found in: %2! --> exiting	sitemgr	gl	Módulo '%1' non atopado en: %2! - - > saíndo
+module manager	sitemgr	gl	Xestor de módulos
+module: %1, scope: %2, contentarea: %3, viewable: %4	sitemgr	gl	Módulo: %1, Ámbito: %2, Área de contido: %3, Visible: %4
+move block down (increase sort order)	sitemgr	gl	Mover o bloque cara a abaixo (orde ascendente)
+move block up (decrease sort order)	sitemgr	gl	Mover bloque cara a arriba (orde descendente)
+move to	sitemgr	gl	Mover a
+name	sitemgr	gl	Nome
+name has been translated to lower case	sitemgr	gl	O nome traduciuse a minúsculas
+name of the tabs (comma seperated)	sitemgr	gl	Nome dos separadores (separado por comas)
+new application	sitemgr	gl	Nova aplicación
+new guestbook	sitemgr	gl	Novo libro de convidados
+new sitemgr site	sitemgr	gl	Nova páxina do xestor de sitios web
+no additional arguments required	sitemgr	gl	Non se requiren argumentos adicionais
+no anonymous user accounts installed.  notify the administrator.	sitemgr	gl	NON HAI INSTALADAS CONTAS DE USUARIO ANÓNIMAS. NOTIFÍQUEO AO ADMINISTRADOR.
+no content areas found in selected template	sitemgr	gl	Non se encontrou ningunha área de contido no modelo seleccionado.
+no content found	sitemgr	gl	Non se encontrou contido.
+no groups defined.	sitemgr	gl	Non hai grupos definidos.
+no link to full index	sitemgr	gl	Non hai ningunha ligazón a todo o índice
+no modules permitted for this content area/category	sitemgr	gl	Non se permiten módulos para esta área ou categoría
+no new modules found !!!	sitemgr	gl	Non se encontraron módulos novos.
+no options available.	sitemgr	gl	Non hai ningunha opción dispoñible.
+no pages available	sitemgr	gl	Non hai ningunha páxina dispoñible.
+no sitelanguages configured	sitemgr	gl	Non hai ningún idioma configurado.
+no template file found.	sitemgr	gl	Non se encontrou ningún ficheiro do modelo.
+no templates found.	sitemgr	gl	Non se encontrou ningún modelo.
+no thumbnail availible	sitemgr	gl	Non hai ningunha miniatura dispoñible.
+no users defined.	sitemgr	gl	Non hai ningún usuario definido.
+no websites defined	sitemgr	gl	Non hai ningún sitio web definido.
+no, chooser only (for side-areas)	sitemgr	gl	Non, só o seleccionador (para áreas laterais)
+no, chooser with preview	sitemgr	gl	Non, seleccionador con visualización previa
+not	common	gl	non
+not yet translated	sitemgr	gl	pendente de traducir
+note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	gl	Talvez vexa esta mensaxe se as súas preferencias son incorrectas; por exemplo, se config.inc.php non está no directorio especificado.
+number of results	sitemgr	gl	Número de resultados
+on all pages	sitemgr	gl	en todas as páxinas
+only gallery	sitemgr	gl	Só galería
+only on the first page	sitemgr	gl	só na primera páxina
+options in search result page	sitemgr	gl	Opcións na páxina de resultado da busca
+or enter the title for a new guestbook	sitemgr	gl	ou introducir o título dun novo libro de convidados
+other websites	sitemgr	gl	Outros sitios web
+overview of all available categories	sitemgr	gl	Visión xeral de todas as categorías dispoñibles
+overview of one specific category	sitemgr	gl	Visión xeral dunha categoría específica
+own amazon partner-id or empty to donate to the egroupware project	sitemgr	gl	ID de colaborador de Amazon ou en branco para doazón ao proxecto eGroupWare
+page	sitemgr	gl	Páxina
+page content	sitemgr	gl	Contido da páxina
+page manager	sitemgr	gl	Xestor de páxinas
+page name	sitemgr	gl	Nome da páxina
+page saved	sitemgr	gl	Páxina gardada
+page saved.	sitemgr	gl	Páxina gardada
+page subtitle	sitemgr	gl	Subtítulo da páxina
+page title	sitemgr	gl	Título da páxina
+pages	sitemgr	gl	Páxinas
+pages:	sitemgr	gl	Páxinas:
+parent	sitemgr	gl	Superior
+parent directory	sitemgr	gl	directorio superior
+parent section:	sitemgr	gl	Sección superior:
+password	sitemgr	gl	Contrasinal
+password that you assigned for the anonymous user account.	sitemgr	gl	Contrasinal atribuído á conta do usuario anónimo
+path	sitemgr	gl	Camiño
+path to image-directory '%1' is not valid or readable by the webserver !!!	sitemgr	gl	O camiño do directorio de imaxes %1 non é válido ou non pode ser lido polo servidor web.
+path to zip binary if not in path of the webserver	sitemgr	gl	Camiño do binario zip se non está no camiño do servidor web
+percentage	sitemgr	gl	Porcentaxe
+phrases in total	sitemgr	gl	Frases en total
+plain selectbox	sitemgr	gl	caixa de selección plana
+please enter a name for that site !	sitemgr	gl	Introduza un nome para ese sitio.
+please sign the guestbook	sitemgr	gl	Asine no libro de convidados.
+post a message to this thread	sitemgr	gl	Publicar unha mensaxe nesta conversación
+prepublished	sitemgr	gl	publicado previamente
+preunpublished	sitemgr	gl	sen publicar previamente
+previous	sitemgr	gl	Anterior
+production mode	sitemgr	gl	Modo de produción
+published	sitemgr	gl	publicado
+reactivate content	sitemgr	gl	Reactivar contido
+read permission	sitemgr	gl	Permiso de lectura
+redirection	sitemgr	gl	Redireccionamento
+refresh	sitemgr	gl	Actualizar
+register for one now.	sitemgr	gl	Rexístrese agora
+register new modules	sitemgr	gl	Rexistrar módulos novos
+reload	sitemgr	gl	Recargar
+remember me	common	gl	lembrarme
+replies	sitemgr	gl	Respostas
+required fields	sitemgr	gl	Campos obrigatorios
+reset	sitemgr	gl	Restablecer
+return to forums	sitemgr	gl	Volver aos foros
+return to main menu.	sitemgr	gl	Volver ao menú principal
+return to message list	sitemgr	gl	Volver á lista de mensaxes
+root site index	sitemgr	gl	Índice do sitio raíz
+save	sitemgr	gl	Gardar
+save block	sitemgr	gl	Gardar bloque
+saved	sitemgr	gl	Gardado
+scope	sitemgr	gl	Ámbito
+search keyword	sitemgr	gl	palabra clave de busca
+search language options	sitemgr	gl	opcións de idioma da busca
+search modes	sitemgr	gl	modos de busca
+search with	sitemgr	gl	buscar con
+seen by	sitemgr	gl	Visto por
+select a category	sitemgr	gl	Seleccionar unha categoría
+select a forum	sitemgr	gl	Seleccionar un foro
+select allowed modules	sitemgr	gl	Seleccionar os módulos permitidos
+select persons and groups that are entitled to configure the website.	sitemgr	gl	Seleccionar as persoas e grupos que teñen dereito a configurar o sitio web.
+select the templates the user is allowed to see	sitemgr	gl	Seleccionar os modelos que o usuario pode ver
+select type of navigation	sitemgr	gl	Seleccionar o tipo de navegación
+selected template %1 does not exist.	sitemgr	gl	O modelo seleccionado %1 non existe
+selected theme %1 does not exist.	sitemgr	gl	O tema seleccionado %1 non existe.
+seperate cats / pages of one tab by :	sitemgr	gl	Separar as Categorías /  Páxinas dun separador por :
+should the file be viewed in the browser or downloaded	sitemgr	gl	Ver o ficheiro no navegador ou descargalo?
+show a template-gallery (thumbnail and informations)	sitemgr	gl	Mostrar unha galería de modelos (miniatura e información)
+show contents of a directory	sitemgr	gl	Mostrar o contido dun directorio
+show contents of a directory with subdirectories	sitemgr	gl	Mostrar o contido dun directorio con subdirectorios
+show current section only	sitemgr	gl	Mostrar só a selección actual
+show details for the applications	sitemgr	gl	Mostrar detalles das aplicacións
+show only (in the next field) selected templates	sitemgr	gl	Mostrar só os modelos seleccionados (no seguinte campo)
+show path?	sitemgr	gl	Mostrar camiño
+show searchbox	sitemgr	gl	Mostrar caixa de busca
+show site index	sitemgr	gl	Mostrar índice do sitio
+show subcategories	sitemgr	gl	Mostrar subcategorías
+show the title of the wiki page	sitemgr	gl	Mostrar o título da páxina wiki
+simple: only selected mode, no more options displayed	sitemgr	gl	Simple: Só o modo seleccionado, non mostrar máis opcións
+single file download	sitemgr	gl	Descarga dun único ficheiro
+site	sitemgr	gl	Sitio
+site %1 has been added, you need to %2configure the site%3 now	sitemgr	gl	Engadiuse o sitio %1. Precisa de o %2configurar%3 agora.
+site %1 has been updated	sitemgr	gl	O sitio %1 foi actualizado
+site administrators	sitemgr	gl	Administradores do sitio
+site description	sitemgr	gl	Descrición do sitio
+site format manager	sitemgr	gl	Xestor do formato do sitio
+site index	sitemgr	gl	Índice do sitio
+site name	sitemgr	gl	Nome do sitio
+site setup	common	gl	Configuración do sitio
+site tree menu	sitemgr	gl	Menú en árbore do sitio
+site wide	sitemgr	gl	Por todo o sitio
+sitemgr	common	gl	Xestor de sitios web
+sitemgr manual	sitemgr	gl	Manual do Xestor de sitios web
+sitemgr options	sitemgr	gl	Opcións do Xestor de sitios web
+sitemgr setup instructions	sitemgr	gl	Instrucións para configurar o Xestor de sitios web
+sitemgr setup page	sitemgr	gl	Páxina de configuración do Xestor de sitios web
+sitemgr web content manager	common	gl	Xestor de contidos do Xestor de sitios web
+sitemgr websites	sitemgr	gl	Sitios web do Xestor de sitios web
+sitemgr-link	common	gl	Sitio web principal
+size	sitemgr	gl	Tamaño
+sorry, no content found for you search criteria	sitemgr	gl	Desculpe, non se atopou contido para o seu criterio de busca
+sort order	sitemgr	gl	Orde
+state	sitemgr	gl	Estado
+strip html from block content?	sitemgr	gl	Eliminar o código HTML do contido do bloque?
+subcategories	sitemgr	gl	Subcategorías
+subsections:	sitemgr	gl	Subseccións:
+subtext for image %1	sitemgr	gl	Subtexto da imaxe %1
+subtitle	sitemgr	gl	Subtítulo
+summary of one forum	sitemgr	gl	Resumo dun foro
+suppress link to index (show all)	sitemgr	gl	Suprimir a ligazón ao índice (mostrar todo)
+suppress link to parent category	sitemgr	gl	Suprimir a ligazón á categoría superior
+suppress main categories	sitemgr	gl	Suprimir as categorías principais
+suppress the current category	sitemgr	gl	Suprimir a categoría principal
+suppress the current page	sitemgr	gl	Suprimir a páxina actual
+table of contents	sitemgr	gl	Táboa de contidos
+template based navigation module	sitemgr	gl	Módulo de navegación baseado no modelo
+template select	sitemgr	gl	Selección do modelo
+text allignment	sitemgr	gl	Aliñamento do texto
+text of page links	sitemgr	gl	Texto das ligazóns de páxina
+textarea	sitemgr	gl	Área de texto
+the category to display, 0 for complete table of contents	sitemgr	gl	A categoría que se vai mostrar. 0 para toda a táboa de contidos
+the complete url or path to a file to be included	sitemgr	gl	O URL ou camiño do ficheiro que se vai incluír
+the config.inc.php file needs to be edited to point to the egroupware directory. copy the config.inc.php.template file to config.inc.php and then edit it.	sitemgr	gl	O ficheiro config.inc.php ten que ser editado para apuntar ao directorio de eGroupWare. Copie o ficheiro config.inc.php.template a config.inc.php e despois edíteo.
+the file to be downloaded	sitemgr	gl	O ficheiro que se vai descargar
+the filesystem path to your sitemgr-site directory '%1' is probably wrong. go to sitemgr --> define websites and edit/fix the concerned site.	sitemgr	gl	O camiño local do directorio sitemgr-site do sitio %1 talvez sexa incorrecto. Vaia a SiteMgr --> Definir sitios web e edite/corrixa o sitio correspondente.
+the first directory to think about is sitemgr-link.  if you move this to the parent directory of sitemgr (your egroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  if you don't want this icon, there's no reason to ever bother with the directory.	sitemgr	gl	O primeiro directorio que se debe ter en conta é sitemgr-link. Movéndoo ao directorio superior de sitemgr (o directorio raíz do eGroupWare), pódese utilizar o programa de instalación para instalar a aplicación e todos os que teñan acceso a ela disporán dunha icona na súa barra de navegación con ligazón directa ao sitio web público. Se non se quere esta icona, non hai razón para preocuparse por este directorio.
+the name field cannot contain punctuation or spaces (field modified).	sitemgr	gl	O campo Nome non pode conter signos de puntuación nin espazos (campo modificado).
+the page name must be unique.	sitemgr	gl	O nome da páxina debe ser único.
+the page was successfully saved.	sitemgr	gl	A páxina gardouse correctamente.
+the path to the file to be downloaded	sitemgr	gl	O camiño do ficheiro que se vai descargar
+the person to say hello to	sitemgr	gl	A persoa a quen saudar
+the second directory is the sitemgr-site directory.  this can be moved <i>anywhere</i>.  it can also be named <i>anything</i>.  wherever it winds up, when you point a web browser to it, you will get the generated website.  assuming, of course, that you've accurately completed the setup fields below and also <b><i>edited the config.inc.php</i></b> file.	sitemgr	gl	O segundo directorio é sitemgr-site. Pódese mover <i>a calquera sitio</i> e pódese chamar <i>de calquera forma</i>. Independentemente de onde fique finalmente, cando o navegador apunte cara a el, obterase o sitio web xerado. Para iso, é preciso encher adecuadamente os campos de configuración e tamén <b><i>editar o ficheiro config.inc.php</i></b>.
+the text for the link, if empty the module returns the raw url (without a link)	sitemgr	gl	O texto para a ligazón. Se está baleiro, o módulo devolve o URL sen ligazón.
+the url can be relative or absolute.  name must end in a slash.	sitemgr	gl	O URL pode ser relativo ou absoluto. O nome ten que ir seguido dunha barra ("/").
+the url must be absolute and end in a slash, for example http://mydomain.com/mysite/	sitemgr	gl	O URL ten que ser absoluto e ir seguido dunha barra ("/"); por exemplo, http://omeudominio.com/omeusitio/
+the url to display	sitemgr	gl	O URL que se vai mostrar
+the url to redirect to	sitemgr	gl	O URL ao cal redirixir
+the web	sitemgr	gl	a web
+the website has changed. too see the change, follow this url: $url.	sitemgr	gl	O sitio web foi modificado. Para ver as modificacións, siga este URL: $URL.
+the whole page	sitemgr	gl	toda a páxina
+the xml files' common name	sitemgr	gl	o nome común dos ficheiros XML
+theme or template select	sitemgr	gl	Selección de tema ou modelo
+there are %1 elements in the list.	sitemgr	gl	Hai %1 elementos na lista.
+there are no categories	sitemgr	gl	Non hai categorías
+there are no forums in this category	sitemgr	gl	Non hai ningún foro nesta categoría
+there are no pages in this section	sitemgr	gl	Non hai páxinas nesta sección
+there are no properties defined for this module	sitemgr	gl	Non hai propiedades definidas neste módulo
+there are no sections available to you.	sitemgr	gl	Non hai seccións dispoñibles para vostede
+there are two subdirectories off of your sitemgr directory that you should move before you do anything else.  you don't <i>have</i> to move either of these directories, although you will probably want to.	sitemgr	gl	Hai dous subdirectorios fóra do directorio sitemgr que se deberían mover antes de facer máis nada. Non <i>ten</i> que mover ningún destes directorios, aínda que probablemente queira facelo.
+there can only be one version in (pre(un))published state, with the one exeption that one prepublished version can coexist with one preunpublished version	sitemgr	gl	Só pode haber una versión en estado ((non) pre)publicado, exceptuando o feito de que unha versión prepublicada e outra non prepublicada si poden coexistir.
+there is no website configured for url %1.  notify the administrator.	sitemgr	gl	NON HAI NINGÚN SITIO WEB CONFIGURADO PARA O URL %1. NOTIFÍQUEO AO ADMINISTRADOR.
+there is nothing to list.	sitemgr	gl	Non hai nada para pór na lista.
+there was an error accessing the requested page. either you do not have permission to view this page, or the page does not exist.	common	gl	Houbo un erro ao acceder á páxina solicitada. Ou non ten permiso para ver a páxina ou a propia páxina non existe.
+there was an error writing to the database.	sitemgr	gl	Houbo un erro ao escribir na base de datos.
+this block displays a javascript based tree menu	sitemgr	gl	Este bloque mostra un menú en árbore baseado en JavaScript
+this block displays the current section's table of contents	sitemgr	gl	Este bloque mostra a táboa de contidos da sección actual
+this category has no pages.	sitemgr	gl	Esta categoría non ten páxinas
+this is a simple sample module	sitemgr	gl	Este é un módulo de exemplo simple
+this is only used as an internal name for the website.	sitemgr	gl	Isto utilízase só como nome interno do sitio web.
+this is used chiefly for meta data and the title bar. if you change the site languages below you have to save before being able to set this preference for a new language.	sitemgr	gl	Isto utilízase principalmente para metadatos e a barra de título. Se realiza modificacións nos idiomas, ten que gardalo para poder establecer esta preferencia para un idioma novo.
+this is used chiefly for meta data. if you change the site languages below you have to save before being able to set this preference for a new language.	sitemgr	gl	Isto utilízase principalmente para metadatos. Se realiza modificacións nos idiomas, ten que gardalo para poder establecer esta preferencia para un idioma novo.
+this module create a link for downloading a file from the vfs	sitemgr	gl	Este módulo crea unha ligazón para descargar un ficheiro do VFS
+this module create a link for downloading a file(s) from the vfs	sitemgr	gl	Este módulo crea unha ligazón para descargar ficheiros do VFS
+this module demonstrates how handling data stored in xml and building an interacvite interface from it	sitemgr	gl	Este módulo mostra como manexar os datos almacenados en XML e constuír unha interface interactiva a partir deles.
+this module displays a login form	sitemgr	gl	Este módulo mostra un formulario de inicio de sesión
+this module displays any kind of navigation element.	sitemgr	gl	Este módulo mostra calquera clase de elemento de navegación.
+this module displays bookmarks in a javascript based tree	sitemgr	gl	Este módulo mostra os marcadores en forma de árbore baseada en JavaScript
+this module displays the current month	sitemgr	gl	Este módulo mostra o mes actual
+this module displays the egw forums on the web site	sitemgr	gl	Este módulo mostra os foros eGW do sitio web
+this module displays the root categories in one block each, with pages and subcategories (incl. their pages if activated).	sitemgr	gl	Este módulo mostra as categorías raíz, unha en cada bloque, con páxinas e subcategorías (incluíndo as súas páxinas se están activadas).
+this module displays the root categories, its pages and evtl. subcategories. it is meant for side areas	sitemgr	gl	Este módulo mostra as categorías raíz, as súas páxinas e, cando as hai, as subcategorías. Utilízase para áreas laterais.
+this module includes the contents of an url or file (readable by the webserver and in its docroot !)	sitemgr	gl	Este módulo inclúe o contido dun URL ou ficheiro (sempre que o poida ler o servidor web e se encontre dentro da raíz dos documentos)
+this module is a customisable navigation element	sitemgr	gl	Este módulo é un elemento de navegación personalizable
+this module is a selectbox to change the mode (production, draft or edit) plus a link back to sitemgr and to log out. it is meant for registered users only	sitemgr	gl	Este módulo é unha caixa de selección para modificar o modo (produción, esbozo ou edición) e ademais unha ligazón para voltar ao Xestor de sitios web e pechar a sesión. Só para usuarios rexistrados.
+this module is a simple html editor	sitemgr	gl	Este módulo é un editor HTML simple
+this module lets the users choose a template or shows a template gallery	sitemgr	gl	Este módulo permite aos usuarios escoller un modelo ou mostra unha galería de modelos
+this module lets users choose language	sitemgr	gl	Este módulo permite aos usuarios escoller o idioma
+this module lets you define pages that redirect to another url, if you use it, there should be no other block defined for the page	sitemgr	gl	Este módulo permite definir páxinas que redirixen a outro URL. Se o utiliza, non debe haber outro bloque definido para a páxina.
+this module lets you include an applet into the page.	sitemgr	gl	Este módulo permítelle incluír na páxina unha miniaplicación
+this module lets you show a given url inside an iframe in the page.	sitemgr	gl	Este módulo permite mostrar un determinado URL dentro dun IFRAME da páxina
+this module permits browsing through xml files stored in a directory, and transformed by xslt	sitemgr	gl	Este módulo permite navegar a través dos ficheiros XML almacenados nun directorio e transformados por medio de XSLT
+this module provides a complete table of contents, it is automatically used by the toc and category_id get parameters	sitemgr	gl	Este módulo proporciona unha táboa de contidos completa. Úsano automaticamente a toc e os parámetros GET category_id
+this module provides a condensed table of contents, meant for side areas	sitemgr	gl	Este módulo proporciona unha táboa de contidos condensada, indicada para áreas laterais
+this module provides tabs	sitemgr	gl	Este módulo proporciona separadores
+this module provides the path to the element currently shown	sitemgr	gl	Este módulo proporciona o camiño do elemento mostrado actualmente
+this module provides the site index, it is automatically used by the index get parameter	sitemgr	gl	Este módulo proporciona o índice do sitio. Úsao automaticamente o parámetro GET índice.
+this module search throw the content (page title/description and html content)	sitemgr	gl	Este módulo busca a través do contido (Título da páxina/descrición e contido HTML)
+this module show the status / percentage of the translation of egw	sitemgr	gl	Este módulo mostra o estado / porcentaxe da tradución de eGW
+this must be an absolute directory location.  <b>no trailing slash</b>.	sitemgr	gl	Isto debe ser unha localización de directorio absoluta. <b>Sen barra ao final</b>.
+this should be a comma-separated list of language-codes.	sitemgr	gl	Isto debe ser unha lista de códigos de idioma separados por comas.
+this should be a page that is readable by everyone. if you leave this blank, the site index will be shown by default.	sitemgr	gl	Isto debe ser una páxina que poida ser lida por todo o mundo. Se deixa isto en branco, mostrarase por defecto o índice do sitio.
+this site	sitemgr	gl	este sitio
+title	sitemgr	gl	Título
+topic	sitemgr	gl	Tema
+translate	sitemgr	gl	Traducir
+translate category	sitemgr	gl	Traducir categoría
+translate page	sitemgr	gl	Traducir páxina
+translate site-wide content blocks	sitemgr	gl	Traducir bloques de contido de todo o sitio web
+translation manager	sitemgr	gl	Xestor de traducións
+translation status	sitemgr	gl	Estado da tradución
+unsubscribe	sitemgr	gl	Non subscribir
+up to parent	sitemgr	gl	Até o directorio superior
+up to table of contents	sitemgr	gl	Até a táboa de contidos
+update notification	sitemgr	gl	Notificación de actualizacion
+updating to new category system	sitemgr	gl	Actualizando ao novo sistema de categorías
+url pointing to the image-directory	sitemgr	gl	URL do directorio de imaxes
+url to sitemgr-site	sitemgr	gl	URL do sitemgr-site
+use current user selected language	sitemgr	gl	Usar o idioma seleccionado do usuario actual
+use phpnuke themes instead of templates	sitemgr	gl	Usar temas de phpNuke en vez de modelos
+use this module for displaying book ads for the amazon web site	sitemgr	gl	Usar este módulo para mostrar publicidade de libros de Amazon
+use this module for displaying wiki-pages	sitemgr	gl	Usar este módulo para mostrar páxinas wiki
+user name	sitemgr	gl	Nome de usuario
+validator	sitemgr	gl	Validador
+vertical	sitemgr	gl	Vertical
+view administrative menu	sitemgr	gl	Ver menú administrativo
+view full index	sitemgr	gl	Ver todo o índice
+view generated site	sitemgr	gl	Ver o sitio xerado
+view template on this site	sitemgr	gl	Ver modelo neste sitio
+view threads	sitemgr	gl	Ver conversacións
+viewed	sitemgr	gl	visto
+web content manager	common	gl	Xestor de contidos do Xestor de sitios web
+web content manager administration	sitemgr	gl	Administración do xestor de contido web
+web site manager	sitemgr	gl	Xestor do sitio web
+website	sitemgr	gl	Sitio web
+week	sitemgr	gl	semana
+what do you want to do with existing translations of categories and pages for this language?	sitemgr	gl	Que desexa facer coas traducións a este idioma das categorías e páxinas?
+when is a tab activated?	sitemgr	gl	Cando está activado un separador?
+which application should be executed after login?	sitemgr	gl	Que aplicación desexa executar unha vez iniciada a sesión?
+which main categories schuld be included (comma seperated list, empty for all)	sitemgr	gl	Que categorías principais deben incluírse (lista separada por comas, baleiro se se queren todas)
+wiki	sitemgr	gl	Wiki
+wiki startpage	sitemgr	gl	Páxina principal do wiki
+with which view should the module be displayed in the beginning?	sitemgr	gl	Con que visualización se debe mostrar o módulo ao comezo?
+write permission	sitemgr	gl	Permiso de escrita
+xml browser	sitemgr	gl	Navegador XML
+yes, please delete it	sitemgr	gl	Si, elimínao.
+you are not entitled to change the scope of block %1 to cat %2 and page %3	sitemgr	gl	Non está autorizado para modificar o ámbito do bloque %1 a Cat %2 e páxina %3
+you are not entitled to create module %1 on this scope	sitemgr	gl	Non está autorizado para crear o módulo %1 neste ámbito
+you are not entitled to edit block %1	sitemgr	gl	Non está autorizado para editar o bloque %1
+you can choose the modules that can be used on the site. the first list is a sort of master list, that is consulted if you do not configure lists specific to contentareas or (sub)categories. then you can choose lists specific to each content area. in the category manager these lists can be overriden for each (sub)category.	sitemgr	gl	Pode escoller os módulos que se poden usar no sitio. A primeira lista é unha especie de lista mestra que se consulta se non se configuran as listas específicas das áreas de contidos ou (sub)categorías. Pódense escoller listas específicas de cada área de contidos. No Xestor de categorías, estas listas pódense ignorar para cada (sub)categoría.
+you can either migrate them to a new language or delete them	sitemgr	gl	Pode migralas a un novo idioma ou eliminalas.
+you can override each content blocks default title. be aware that not in all content areas the block title will be visible.	sitemgr	gl	Pode ignorar o título predefinido de cada bloque de contido. Non esqueza que o título do bloque non estará visible nalgunhas áreas do contido.
+you did not choose a module.	sitemgr	gl	Non seleccionou ningún módulo
+you do not have access to any content on this site.	sitemgr	gl	Non ten acceso a ningún contido deste sitio
+you do not have write permissions for any site categories.	sitemgr	gl	Non ten permiso de escrita para ningunha categoría.
+you don't have permission to write in the category	sitemgr	gl	Non ten permiso de escrita na categoría
+you don't have permission to write to that category.	sitemgr	gl	Non ten permiso de escrita nesa categoría
+you failed to fill in one or more required fields.	sitemgr	gl	Non encheu correctamente algúns campos obrigatorios
+you have no rights to view wiki content or the wiki is not installed at all !!!	sitemgr	gl	Ou non ten dereitos suficientes para ver o contido do wiki ou o wiki non está instalado
+you may have deinstalled the used template '%1'. reinstall it or go to sitemgr --> configure website and select an other one.	sitemgr	gl	Talvez desinstalou o modelo %1. Reinstáleo ou vaia á opción Configurar sitio web e seleccione outro.
+you must be an admin to edit categories.	sitemgr	gl	Para poder editar categorías debe ser administrador.
+you must be an admin to edit the site header and footer.	sitemgr	gl	Para poder editar a cabeceira ou pé de páxina do sitio debe ser administrador.
+you must be an admin to manage module properties.	sitemgr	gl	Para poder xestionar propiedades de módulos debe ser administrador.
+you must be an administrator to setup the site manager.	sitemgr	gl	Para poder configurar o Administrador do sitio debe ser administrador.
+you removed one ore more languages from your site languages.	sitemgr	gl	Eliminou un ou máis idiomas do sitio.
+your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr	gl	O administrador aínda non configurou o xestor de contidos web para que se poida ver publicamente. Informe ao seu administrador.
+your calendar	sitemgr	gl	O seu calendario
+your comment	sitemgr	gl	O seu comentario
+your connection is not safe.	sitemgr	gl	A súa conexión non é segura.
+your name	sitemgr	gl	O seu nome
