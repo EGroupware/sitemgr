@@ -1,57 +1,57 @@
-(leave blank to allow insecure logins)	sitemgr	ru	(оставьте незаполненным чтобы позволить незащищенный вход)
-1 day	common	ru	1 День
-1 hour	common	ru	1 Час
-1 month	common	ru	1 Месяц
-1 week	common	ru	1 Неделя
-a simple picture galery	sitemgr	ru	Простая картинная галерея
-add a category	sitemgr	ru	Добавить категорию
-add a new application	sitemgr	ru	Добавить новое приложение
-add a new guestbook	sitemgr	ru	Добавить новую Гостевую Книгу
-add block ...	sitemgr	ru	Добавить блок ...
-add category	sitemgr	ru	Добавить Категорию
-add new page to this category	sitemgr	ru	Добавить новую страницу в данную категорию
-add page	sitemgr	ru	Добавить Страницу
-add page to category	sitemgr	ru	Добавить страницу в категорию
-add website	sitemgr	ru	Добавить Веб-сайт
-administration	sitemgr	ru	Администрирование
-administrative menu	sitemgr	ru	Меню Администратора
-administrators	sitemgr	ru	администраторы
-all categories	sitemgr	ru	Все категории
-all forums in category %1	sitemgr	ru	Все форумы в категории %1
-all languages	sitemgr	ru	все языки
-basic settings	sitemgr	ru	Основные настройки
-block not found.	sitemgr	ru	Блок не найден
-block saved	sitemgr	ru	Блок сохранен
-bookmarks	sitemgr	ru	Закладки
-calendar	sitemgr	ru	Календарь
-category	sitemgr	ru	Категория
-category description	sitemgr	ru	Описание Категории
-category saved	sitemgr	ru	Категория сохранена
-changes saved.	sitemgr	ru	Изменения сохранены.
-choose a guestbook	sitemgr	ru	Выбирите Гостевую Книгу
-choose language	sitemgr	ru	Выбирите Язык
-choose template	sitemgr	ru	Выбирите шаблон
-delete block	sitemgr	ru	Удалить блок
-delete category	sitemgr	ru	Удалить категорию
-delete page	sitemgr	ru	Удалить страницу
-delete this block	sitemgr	ru	Удалить данный блок
-delete this guestbook	sitemgr	ru	Удалить данную гостевую книгу
-download as zip-archiv	sitemgr	ru	скачать как ZIP-архив
-edit mode	sitemgr	ru	Режим редактирования
-no pages available	sitemgr	ru	Нет страниц для просмотра
-pages	sitemgr	ru	Страницы
-pages:	sitemgr	ru	Страницы
-site index	sitemgr	ru	Содержание Сайта
-site name	sitemgr	ru	Название сайта
-site tree menu	sitemgr	ru	Древовидное меню сайта
-sort order	sitemgr	ru	Порядок Сортировки
-state	sitemgr	ru	Состояние
-subcategories	sitemgr	ru	Подкатегории
-subsections:	sitemgr	ru	Подсекции:
-table of contents	sitemgr	ru	Содержание
-this site	sitemgr	ru	этот сайт
-user name	sitemgr	ru	Имя Пользователя
-your calendar	sitemgr	ru	Ваш Календарь
-your comment	sitemgr	ru	Ваш комментарий
-your connection is not safe.	sitemgr	ru	Ваше подсоединение небезопасно.
-your name	sitemgr	ru	Ваше имя
+(leave blank to allow insecure logins)	sitemgr	ru	(п╬я│я┌п╟п╡я▄я┌п╣ п╫п╣п╥п╟п©п╬п╩п╫п╣п╫п╫я▀п╪ я┤я┌п╬п╠я▀ п©п╬п╥п╡п╬п╩п╦я┌я▄ п╫п╣п╥п╟я┴п╦я┴п╣п╫п╫я▀п╧ п╡я┘п╬п╢)
+1 day	common	ru	1 п■п╣п╫я▄
+1 hour	common	ru	1 п╖п╟я│
+1 month	common	ru	1 п°п╣я│я▐я├
+1 week	common	ru	1 п²п╣п╢п╣п╩я▐
+a simple picture galery	sitemgr	ru	п÷я─п╬я│я┌п╟я▐ п╨п╟я─я┌п╦п╫п╫п╟я▐ пЁп╟п╩п╣я─п╣я▐
+add a category	sitemgr	ru	п■п╬п╠п╟п╡п╦я┌я▄ п╨п╟я┌п╣пЁп╬я─п╦я▌
+add a new application	sitemgr	ru	п■п╬п╠п╟п╡п╦я┌я▄ п╫п╬п╡п╬п╣ п©я─п╦п╩п╬п╤п╣п╫п╦п╣
+add a new guestbook	sitemgr	ru	п■п╬п╠п╟п╡п╦я┌я▄ п╫п╬п╡я┐я▌ п⌠п╬я│я┌п╣п╡я┐я▌ п п╫п╦пЁя┐
+add block ...	sitemgr	ru	п■п╬п╠п╟п╡п╦я┌я▄ п╠п╩п╬п╨ ...
+add category	sitemgr	ru	п■п╬п╠п╟п╡п╦я┌я▄ п п╟я┌п╣пЁп╬я─п╦я▌
+add new page to this category	sitemgr	ru	п■п╬п╠п╟п╡п╦я┌я▄ п╫п╬п╡я┐я▌ я│я┌я─п╟п╫п╦я├я┐ п╡ п╢п╟п╫п╫я┐я▌ п╨п╟я┌п╣пЁп╬я─п╦я▌
+add page	sitemgr	ru	п■п╬п╠п╟п╡п╦я┌я▄ п║я┌я─п╟п╫п╦я├я┐
+add page to category	sitemgr	ru	п■п╬п╠п╟п╡п╦я┌я▄ я│я┌я─п╟п╫п╦я├я┐ п╡ п╨п╟я┌п╣пЁп╬я─п╦я▌
+add website	sitemgr	ru	п■п╬п╠п╟п╡п╦я┌я▄ п▓п╣п╠-я│п╟п╧я┌
+administration	sitemgr	ru	п░п╢п╪п╦п╫п╦я│я┌я─п╦я─п╬п╡п╟п╫п╦п╣
+administrative menu	sitemgr	ru	п°п╣п╫я▌ п░п╢п╪п╦п╫п╦я│я┌я─п╟я┌п╬я─п╟
+administrators	sitemgr	ru	п╟п╢п╪п╦п╫п╦я│я┌я─п╟я┌п╬я─я▀
+all categories	sitemgr	ru	п▓я│п╣ п╨п╟я┌п╣пЁп╬я─п╦п╦
+all forums in category %1	sitemgr	ru	п▓я│п╣ я└п╬я─я┐п╪я▀ п╡ п╨п╟я┌п╣пЁп╬я─п╦п╦ %1
+all languages	sitemgr	ru	п╡я│п╣ я▐п╥я▀п╨п╦
+basic settings	sitemgr	ru	п·я│п╫п╬п╡п╫я▀п╣ п╫п╟я│я┌я─п╬п╧п╨п╦
+block not found.	sitemgr	ru	п▒п╩п╬п╨ п╫п╣ п╫п╟п╧п╢п╣п╫
+block saved	sitemgr	ru	п▒п╩п╬п╨ я│п╬я┘я─п╟п╫п╣п╫
+bookmarks	sitemgr	ru	п≈п╟п╨п╩п╟п╢п╨п╦
+calendar	sitemgr	ru	п п╟п╩п╣п╫п╢п╟я─я▄
+category	sitemgr	ru	п п╟я┌п╣пЁп╬я─п╦я▐
+category description	sitemgr	ru	п·п©п╦я│п╟п╫п╦п╣ п п╟я┌п╣пЁп╬я─п╦п╦
+category saved	sitemgr	ru	п п╟я┌п╣пЁп╬я─п╦я▐ я│п╬я┘я─п╟п╫п╣п╫п╟
+changes saved.	sitemgr	ru	п≤п╥п╪п╣п╫п╣п╫п╦я▐ я│п╬я┘я─п╟п╫п╣п╫я▀.
+choose a guestbook	sitemgr	ru	п▓я▀п╠п╦я─п╦я┌п╣ п⌠п╬я│я┌п╣п╡я┐я▌ п п╫п╦пЁя┐
+choose language	sitemgr	ru	п▓я▀п╠п╦я─п╦я┌п╣ п╞п╥я▀п╨
+choose template	sitemgr	ru	п▓я▀п╠п╦я─п╦я┌п╣ я┬п╟п╠п╩п╬п╫
+delete block	sitemgr	ru	пёп╢п╟п╩п╦я┌я▄ п╠п╩п╬п╨
+delete category	sitemgr	ru	пёп╢п╟п╩п╦я┌я▄ п╨п╟я┌п╣пЁп╬я─п╦я▌
+delete page	sitemgr	ru	пёп╢п╟п╩п╦я┌я▄ я│я┌я─п╟п╫п╦я├я┐
+delete this block	sitemgr	ru	пёп╢п╟п╩п╦я┌я▄ п╢п╟п╫п╫я▀п╧ п╠п╩п╬п╨
+delete this guestbook	sitemgr	ru	пёп╢п╟п╩п╦я┌я▄ п╢п╟п╫п╫я┐я▌ пЁп╬я│я┌п╣п╡я┐я▌ п╨п╫п╦пЁя┐
+download as zip-archiv	sitemgr	ru	я│п╨п╟я┤п╟я┌я▄ п╨п╟п╨ ZIP-п╟я─я┘п╦п╡
+edit mode	sitemgr	ru	п═п╣п╤п╦п╪ я─п╣п╢п╟п╨я┌п╦я─п╬п╡п╟п╫п╦я▐
+no pages available	sitemgr	ru	п²п╣я┌ я│я┌я─п╟п╫п╦я├ п╢п╩я▐ п©я─п╬я│п╪п╬я┌я─п╟
+pages	sitemgr	ru	п║я┌я─п╟п╫п╦я├я▀
+pages:	sitemgr	ru	п║я┌я─п╟п╫п╦я├я▀
+site index	sitemgr	ru	п║п╬п╢п╣я─п╤п╟п╫п╦п╣ п║п╟п╧я┌п╟
+site name	sitemgr	ru	п²п╟п╥п╡п╟п╫п╦п╣ я│п╟п╧я┌п╟
+site tree menu	sitemgr	ru	п■я─п╣п╡п╬п╡п╦п╢п╫п╬п╣ п╪п╣п╫я▌ я│п╟п╧я┌п╟
+sort order	sitemgr	ru	п÷п╬я─я▐п╢п╬п╨ п║п╬я─я┌п╦я─п╬п╡п╨п╦
+state	sitemgr	ru	п║п╬я│я┌п╬я▐п╫п╦п╣
+subcategories	sitemgr	ru	п÷п╬п╢п╨п╟я┌п╣пЁп╬я─п╦п╦
+subsections:	sitemgr	ru	п÷п╬п╢я│п╣п╨я├п╦п╦:
+table of contents	sitemgr	ru	п║п╬п╢п╣я─п╤п╟п╫п╦п╣
+this site	sitemgr	ru	я█я┌п╬я┌ я│п╟п╧я┌
+user name	sitemgr	ru	п≤п╪я▐ п÷п╬п╩я▄п╥п╬п╡п╟я┌п╣п╩я▐
+your calendar	sitemgr	ru	п▓п╟я┬ п п╟п╩п╣п╫п╢п╟я─я▄
+your comment	sitemgr	ru	п▓п╟я┬ п╨п╬п╪п╪п╣п╫я┌п╟я─п╦п╧
+your connection is not safe.	sitemgr	ru	п▓п╟я┬п╣ п©п╬п╢я│п╬п╣п╢п╦п╫п╣п╫п╦п╣ п╫п╣п╠п╣п╥п╬п©п╟я│п╫п╬.
+your name	sitemgr	ru	п▓п╟я┬п╣ п╦п╪я▐

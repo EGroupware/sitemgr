@@ -1,517 +1,517 @@
-%1 content manager	sitemgr	pl	%1 mened¿er tre¶ci
-%1 module manager	sitemgr	pl	%1 mened¿er modu³ów
+%1 content manager	sitemgr	pl	%1 menedÅ¼er treÅ›ci
+%1 module manager	sitemgr	pl	%1 menedÅ¼er moduÅ‚Ã³w
 '%1' is no valid sitemgr-site directory !!!	sitemgr	pl	'%1' nie jest katalogiem sitemgr-site !!!
-(do not put spaces or punctuation in the name field.)	sitemgr	pl	(W polu nazwy nie u¿ywaj ani punktacji ani spacji.)
-(leave blank to allow insecure logins)	sitemgr	pl	(pozostaw puste aby pozwoliæ na niezbyt bezpieczne logowanie)
-(only used in case of single file)	sitemgr	pl	(u¿ywane w wypadku pojeñyczego pliku)
-1 day	common	pl	jeden dzieñ
+(do not put spaces or punctuation in the name field.)	sitemgr	pl	(W polu nazwy nie uÅ¼ywaj ani punktacji ani spacji.)
+(leave blank to allow insecure logins)	sitemgr	pl	(pozostaw puste aby pozwoliÄ‡ na niezbyt bezpieczne logowanie)
+(only used in case of single file)	sitemgr	pl	(uÅ¼ywane w wypadku pojeÅ„yczego pliku)
+1 day	common	pl	jeden dzieÅ„
 1 hour	common	pl	jedna godzina
-1 month	common	pl	jeden miesi±c
-1 week	common	pl	jeden tydzieñ
-<b>autoregistration is not enabled / configured in the registration app !!!</b><br>you need to do so, to get the autoregistration link working.	sitemgr	pl	<strong>Automatyczna rejestracja nie jest w³±czona/skonfigurowana w rejestracji  !!! </strong><br/>
-<b>want more templates?</b><br />just download one from the template gallery at %1www.egroupware.org%2 or use a %3mambo open source%4 version 4.5 compatible template eg. from %5. unpack the downloaded template in your templates directory (%6).	sitemgr	pl	<strong>Chesz wiêcej szablonów?</strong><br/>Po prostu ¶ci±gnij jaki¶ z galerii na %1www.egroupware.org%2 albo wykorzystaj szablon %3Mambo Open Source%4 w wersji 4.5 z %5 i rozpakuj go do katalogu szablonów (%6).
-a simple picture galery	sitemgr	pl	Prosta galeria zdjêæ
+1 month	common	pl	jeden miesiÄ…c
+1 week	common	pl	jeden tydzieÅ„
+<b>autoregistration is not enabled / configured in the registration app !!!</b><br>you need to do so, to get the autoregistration link working.	sitemgr	pl	<strong>Automatyczna rejestracja nie jest wÅ‚Ä…czona/skonfigurowana w rejestracji  !!! </strong><br/>
+<b>want more templates?</b><br />just download one from the template gallery at %1www.egroupware.org%2 or use a %3mambo open source%4 version 4.5 compatible template eg. from %5. unpack the downloaded template in your templates directory (%6).	sitemgr	pl	<strong>Chesz wiÄ™cej szablonÃ³w?</strong><br/>Po prostu Å›ciÄ…gnij jakiÅ› z galerii na %1www.egroupware.org%2 albo wykorzystaj szablon %3Mambo Open Source%4 w wersji 4.5 z %5 i rozpakuj go do katalogu szablonÃ³w (%6).
+a simple picture galery	sitemgr	pl	Prosta galeria zdjÄ™Ä‡
 actif	sitemgr	pl	Aktywny
-add a category	sitemgr	pl	Dodaj kategoriê
-add a new application	sitemgr	pl	Dodaj now± aplikacjê
-add a new guestbook	sitemgr	pl	Dodaj now± ksiêgê go¶ci
+add a category	sitemgr	pl	Dodaj kategoriÄ™
+add a new application	sitemgr	pl	Dodaj nowÄ… aplikacjÄ™
+add a new guestbook	sitemgr	pl	Dodaj nowÄ… ksiÄ™gÄ™ goÅ›ci
 add block ...	sitemgr	pl	Dodaj blok ...
-add block to content area %1	sitemgr	pl	Dodaj blok do obszaru zawarto¶ci %1
-add category	sitemgr	pl	Dodaj kategoriê
-add new page to this category	sitemgr	pl	Dodaj now± stronê do tej kategorii
-add page	sitemgr	pl	Dodaj stronê
-add page to category	sitemgr	pl	Dodaj stronê do kategorii
-add website	sitemgr	pl	Dodaj stronê internetow±
+add block to content area %1	sitemgr	pl	Dodaj blok do obszaru zawartoÅ›ci %1
+add category	sitemgr	pl	Dodaj kategoriÄ™
+add new page to this category	sitemgr	pl	Dodaj nowÄ… stronÄ™ do tej kategorii
+add page	sitemgr	pl	Dodaj stronÄ™
+add page to category	sitemgr	pl	Dodaj stronÄ™ do kategorii
+add website	sitemgr	pl	Dodaj stronÄ™ internetowÄ…
 administration	sitemgr	pl	Administracja
 administrative menu	sitemgr	pl	Menu administracji
 administrators	sitemgr	pl	administratorzy
 all categories	sitemgr	pl	Wszystkie kategorie
-all forums in category %1	sitemgr	pl	Ka¿de forum w kategorii %1
-all languages	sitemgr	pl	wszystkie jêzyki
-allignment of navigation elements	sitemgr	pl	pozycja elementów nawigacji
-allow posting of questions	sitemgr	pl	Pozwól na stawianie pytañ
+all forums in category %1	sitemgr	pl	KaÅ¼de forum w kategorii %1
+all languages	sitemgr	pl	wszystkie jÄ™zyki
+allignment of navigation elements	sitemgr	pl	pozycja elementÃ³w nawigacji
+allow posting of questions	sitemgr	pl	PozwÃ³l na stawianie pytaÅ„
 amazon	sitemgr	pl	Amazon
 amazon server (without www), eg. amazon.com	sitemgr	pl	Serwer amazon (bez www), np amazon.com
 an application directory	sitemgr	pl	Katalog aplikacji
 anonymous	sitemgr	pl	anonimowy
-anonymous user login domain	sitemgr	pl	Domena u¿ytkownika anonimowego
-anonymous user's password	sitemgr	pl	Has³o u¿ytkownika anonimowego
-anonymous user's username	sitemgr	pl	Nazwa u¿ytkownika anonimowego
+anonymous user login domain	sitemgr	pl	Domena uÅ¼ytkownika anonimowego
+anonymous user's password	sitemgr	pl	HasÅ‚o uÅ¼ytkownika anonimowego
+anonymous user's username	sitemgr	pl	Nazwa uÅ¼ytkownika anonimowego
 applet	sitemgr	pl	Applet
 application	sitemgr	pl	Aplikacjia
-application '%1' is not installed !!!<br>please install it, to be able to use the block.	sitemgr	pl	Aplikacja '%1" nie jest zainstalowana !!!<br>Proszê j± zainstalowaæ, aby móc z niej korzystaæ.
-application sitemgr_module_guestbook must be installed as a egroupware application for this module to run	sitemgr	pl	Aplikacja sitemgr_module_guestbook musi byæ zainstalowana jako aplikacja eGroupWare aby u¿ywaæ tego modu³u
-apply permissions also to subcategories?	sitemgr	pl	Dodaæ uprawnienia tak¿e do kategorii poni¿ej?
+application '%1' is not installed !!!<br>please install it, to be able to use the block.	sitemgr	pl	Aplikacja '%1" nie jest zainstalowana !!!<br>ProszÄ™ jÄ… zainstalowaÄ‡, aby mÃ³c z niej korzystaÄ‡.
+application sitemgr_module_guestbook must be installed as a egroupware application for this module to run	sitemgr	pl	Aplikacja sitemgr_module_guestbook musi byÄ‡ zainstalowana jako aplikacja eGroupWare aby uÅ¼ywaÄ‡ tego moduÅ‚u
+apply permissions also to subcategories?	sitemgr	pl	DodaÄ‡ uprawnienia takÅ¼e do kategorii poniÅ¼ej?
 archived	sitemgr	pl	w archiwum
-archived content	sitemgr	pl	tre¶æ w archiwum
-are contributors allowed to define new guestbooks?	sitemgr	pl	Czy kontrybutorzy mog± definiowaæ w³asne ksiêgi go¶ci?
-are you sure you want to delete site %1 and all its content? you cannot retrieve it if you continue.	sitemgr	pl	Chesz naprawdê wykasowaæ stronê %1 i wszystkie jej komentarze? Stracisz je na zawsze, je¶li odpowiesz na tak.
-are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	pl	Chesz naprawdê skasowaæ kategoriê %1 i wszystkie do niej nale¿±ce strony? Stracisz je na zawsze, je¶li odpowiesz na tak.
+archived content	sitemgr	pl	treÅ›Ä‡ w archiwum
+are contributors allowed to define new guestbooks?	sitemgr	pl	Czy kontrybutorzy mogÄ… definiowaÄ‡ wÅ‚asne ksiÄ™gi goÅ›ci?
+are you sure you want to delete site %1 and all its content? you cannot retrieve it if you continue.	sitemgr	pl	Chesz naprawdÄ™ wykasowaÄ‡ stronÄ™ %1 i wszystkie jej komentarze? Stracisz je na zawsze, jeÅ›li odpowiesz na tak.
+are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	pl	Chesz naprawdÄ™ skasowaÄ‡ kategoriÄ™ %1 i wszystkie do niej naleÅ¼Ä…ce strony? Stracisz je na zawsze, jeÅ›li odpowiesz na tak.
 as	common	pl	jako
-asin[=title] pairs (title is optional)	sitemgr	pl	pary ASIN[=tytu³] (tytu³ opcjonalnie)
-attempt to access information outside current website	sitemgr	pl	Zezwól na dostêp do informacji z poza obecnej strony
-attempt to edit non-editable block	sitemgr	pl	Zezwól na edycjê bloków nie edytowalnych
+asin[=title] pairs (title is optional)	sitemgr	pl	pary ASIN[=tytuÅ‚] (tytuÅ‚ opcjonalnie)
+attempt to access information outside current website	sitemgr	pl	ZezwÃ³l na dostÄ™p do informacji z poza obecnej strony
+attempt to edit non-editable block	sitemgr	pl	ZezwÃ³l na edycjÄ™ blokÃ³w nie edytowalnych
 automatic index	sitemgr	pl	Automatyczny indeks
 automatically generated notification	sitemgr	pl	Powiadomienie utworzone automatycznie
-back to module manager	sitemgr	pl	Wróæ do mened¿era modu³ów
-back to the list of languages	sitemgr	pl	Wróæ do listy jêzyków
+back to module manager	sitemgr	pl	WrÃ³Ä‡ do menedÅ¼era moduÅ‚Ã³w
+back to the list of languages	sitemgr	pl	WrÃ³Ä‡ do listy jÄ™zykÃ³w
 basic settings	sitemgr	pl	Ustawienia podstawowe
-before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr	pl	Zanim publiczna strona bêdzie widoczna musisz skonfigurowaæ ¶cie¿ki i ustawienia. Wej¼ zatem do SiteMgr klikaj±c na ten link:
+before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr	pl	Zanim publiczna strona bÄ™dzie widoczna musisz skonfigurowaÄ‡ Å›cieÅ¼ki i ustawienia. WejÅº zatem do SiteMgr klikajÄ…c na ten link:
 block not found.	sitemgr	pl	Nie znaleziono bloku.
-block reloaded	sitemgr	pl	Blok zosta³ za³adowany ponownie
-block returned no content.	sitemgr	pl	Blok nie zwróci³ ¿adnej zawarto¶ci.
+block reloaded	sitemgr	pl	Blok zostaÅ‚ zaÅ‚adowany ponownie
+block returned no content.	sitemgr	pl	Blok nie zwrÃ³ciÅ‚ Å¼adnej zawartoÅ›ci.
 block saved	sitemgr	pl	Blok zapisany
-bookmarks	sitemgr	pl	Zak³adki
+bookmarks	sitemgr	pl	ZakÅ‚adki
 buy at %1	sitemgr	pl	Kup w %1
 calendar	sitemgr	pl	Kalendarz
-can't open an url or execute a script, because allow_url_fopen is not set in your php.ini !!!	sitemgr	pl	Nie mogê otworzyæ URL albo wywo³aæ skryptu, poniewa¿ allow_url_fopen w php.ini nie jest w³±czony !!! (W³±czenie tej opcji mo¿e spowodowaæ obni¿enie bezpieczeñstwa serwera - Spytaj o to administratora.)
+can't open an url or execute a script, because allow_url_fopen is not set in your php.ini !!!	sitemgr	pl	Nie mogÄ™ otworzyÄ‡ URL albo wywoÅ‚aÄ‡ skryptu, poniewaÅ¼ allow_url_fopen w php.ini nie jest wÅ‚Ä…czony !!! (WÅ‚Ä…czenie tej opcji moÅ¼e spowodowaÄ‡ obniÅ¼enie bezpieczeÅ„stwa serwera - Spytaj o to administratora.)
 cancel the delete	sitemgr	pl	Przerwij kasowanie
-cannot move page until it has been saved.	sitemgr	pl	Nie mogê przenie¶æ tej strony dopóki jej nie zapisa³e¶
+cannot move page until it has been saved.	sitemgr	pl	Nie mogÄ™ przenieÅ›Ä‡ tej strony dopÃ³ki jej nie zapisaÅ‚eÅ›
 category	sitemgr	pl	Kategoria
 category description	sitemgr	pl	Opis kategorii
-category manager	sitemgr	pl	Mened¿er kategorii
+category manager	sitemgr	pl	MenedÅ¼er kategorii
 category name	sitemgr	pl	Nazwa kategorii
 category saved	sitemgr	pl	Kategoria zapisana
 changes saved.	sitemgr	pl	Zmiany zapisane
-check here after every upgrade	sitemgr	pl	Zaznacz to po ka¿dym "upgrade"
-check to hide from condensed site index.	sitemgr	pl	Zaznacz to aby ukryæ stronê w spisie tre¶ci.
-choose a category	sitemgr	pl	Wybierz kategoriê
+check here after every upgrade	sitemgr	pl	Zaznacz to po kaÅ¼dym "upgrade"
+check to hide from condensed site index.	sitemgr	pl	Zaznacz to aby ukryÄ‡ stronÄ™ w spisie treÅ›ci.
+choose a category	sitemgr	pl	Wybierz kategoriÄ™
 choose a format	sitemgr	pl	Wybierz format
-choose a guestbook	sitemgr	pl	Wybierz ksiêgê go¶ci
-choose language	sitemgr	pl	Wybierz jêzyk
-choose news layout	sitemgr	pl	Wybierz wygl±d nowo¶ci
+choose a guestbook	sitemgr	pl	Wybierz ksiÄ™gÄ™ goÅ›ci
+choose language	sitemgr	pl	Wybierz jÄ™zyk
+choose news layout	sitemgr	pl	Wybierz wyglÄ…d nowoÅ›ci
 choose template	sitemgr	pl	Wybierz szablon
-choose the categories to display	sitemgr	pl	Wybierz kategorie do wy¶wietlenia
-choose the valid html type (note: not all icons are available):	sitemgr	pl	Wybierz WA¯NY typ HTML (zapamiêtaj: nie wszystkie ikony bêd± widoczne)
-choose your site's theme or template.  note that if you changed the above checkbox you need to save before choosing a theme or template.	sitemgr	pl	Wybierz temat lub szablon strony. Je¶li zmieni³e¶ pole wyboru (kwadracik) u góry, musisz najpierw zapisaæ zmiany przed wyborem szablonu lub tematu.
-click here to login through a safe connection.	sitemgr	pl	Klinkij tutaj aby zalogowaæ siê po³±czeniem bezpiecznym
+choose the categories to display	sitemgr	pl	Wybierz kategorie do wyÅ›wietlenia
+choose the valid html type (note: not all icons are available):	sitemgr	pl	Wybierz WAÅ»NY typ HTML (zapamiÄ™taj: nie wszystkie ikony bÄ™dÄ… widoczne)
+choose your site's theme or template.  note that if you changed the above checkbox you need to save before choosing a theme or template.	sitemgr	pl	Wybierz temat lub szablon strony. JeÅ›li zmieniÅ‚eÅ› pole wyboru (kwadracik) u gÃ³ry, musisz najpierw zapisaÄ‡ zmiany przed wyborem szablonu lub tematu.
+click here to login through a safe connection.	sitemgr	pl	Klinkij tutaj aby zalogowaÄ‡ siÄ™ poÅ‚Ä…czeniem bezpiecznym
 code file	sitemgr	pl	Plik z kodem
 codebase url	sitemgr	pl	Baza kodu (codebase URL)
-collapse threads	sitemgr	pl	Zamnkij ga³±¼
+collapse threads	sitemgr	pl	Zamnkij gaÅ‚Ä…Åº
 commit changes	sitemgr	pl	Zapisz zmiany
-common prefix of the image-name (a number starting with 1 will be appended)	sitemgr	pl	Podstawowy prefix w nazwie obrazków (numer zaczynaj±cy siê od 1 zostanie automatycznie do³aczony)
-complete news	sitemgr	pl	Ca³a wiadomo¶æ
-configure module properties	sitemgr	pl	Konfiguracjia modu³u
+common prefix of the image-name (a number starting with 1 will be appended)	sitemgr	pl	Podstawowy prefix w nazwie obrazkÃ³w (numer zaczynajÄ…cy siÄ™ od 1 zostanie automatycznie doÅ‚aczony)
+complete news	sitemgr	pl	CaÅ‚a wiadomoÅ›Ä‡
+configure module properties	sitemgr	pl	Konfiguracjia moduÅ‚u
 configure sitemgr	sitemgr	pl	Konfiguracja SiteMgr
-configure website	sitemgr	pl	Konfiguruj Stronê
-contact the administrator.	sitemgr	pl	Skontaktuj siê z administratorem
-content areas	sitemgr	pl	Obszar zawarto¶ci
-content blocks	sitemgr	pl	Blok tre¶ci
-content blocks for category	sitemgr	pl	Blok tre¶ci dla kategorii
-content manager	sitemgr	pl	Menad¿er tre¶ci
-contentarea	sitemgr	pl	Obszar tre¶ci
+configure website	sitemgr	pl	Konfiguruj StronÄ™
+contact the administrator.	sitemgr	pl	Skontaktuj siÄ™ z administratorem
+content areas	sitemgr	pl	Obszar zawartoÅ›ci
+content blocks	sitemgr	pl	Blok treÅ›ci
+content blocks for category	sitemgr	pl	Blok treÅ›ci dla kategorii
+content manager	sitemgr	pl	MenadÅ¼er treÅ›ci
+contentarea	sitemgr	pl	Obszar treÅ›ci
 contributor menu	sitemgr	pl	Menue kontrybutora
 copyright	sitemgr	pl	Prawa autorskie
-create new version	sitemgr	pl	Utwórz now± wersjê
+create new version	sitemgr	pl	UtwÃ³rz nowÄ… wersjÄ™
 css styles	sitemgr	pl	Style CSS
 current section	sitemgr	pl	Obecna wersja
-custom	sitemgr	pl	w³asne
+custom	sitemgr	pl	wÅ‚asne
 default	sitemgr	pl	standardowe
 default home page id number	sitemgr	pl	standardowy numer ID strony
 define websites	common	pl	Definiowanie strony
-delete block	sitemgr	pl	Usuñ blok
-delete category	sitemgr	pl	Usuñ kategoriê
-delete page	sitemgr	pl	Usuñ stronê
-delete this application	sitemgr	pl	Usuñ tê aplikacjê
-delete this block	sitemgr	pl	Usuñ ten blok
-delete this guestbook	sitemgr	pl	Usuñ tê ksiêgê go¶ci
-delete version	sitemgr	pl	Usuñ wersjê
+delete block	sitemgr	pl	UsuÅ„ blok
+delete category	sitemgr	pl	UsuÅ„ kategoriÄ™
+delete page	sitemgr	pl	UsuÅ„ stronÄ™
+delete this application	sitemgr	pl	UsuÅ„ tÄ™ aplikacjÄ™
+delete this block	sitemgr	pl	UsuÅ„ ten blok
+delete this guestbook	sitemgr	pl	UsuÅ„ tÄ™ ksiÄ™gÄ™ goÅ›ci
+delete version	sitemgr	pl	UsuÅ„ wersjÄ™
 deleting all data for %1	sitemgr	pl	Usuwanie wszystkich danych dla %1
-details for language %1 (%2)	sitemgr	pl	Detale dla jêzyka %1
-directory for uploads (images etc.)	sitemgr	pl	Katalog do zapisywania plików (obrazki itp)
-directory is not writeable by webserver. please correct this situation!	sitemgr	pl	Katalog nie mo¿e zostaæ zapisany przez serwer www. Proszê zmieniæ uprawnienia do katalogu lub ¶cie¿kê!
+details for language %1 (%2)	sitemgr	pl	Detale dla jÄ™zyka %1
+directory for uploads (images etc.)	sitemgr	pl	Katalog do zapisywania plikÃ³w (obrazki itp)
+directory is not writeable by webserver. please correct this situation!	sitemgr	pl	Katalog nie moÅ¼e zostaÄ‡ zapisany przez serwer www. ProszÄ™ zmieniÄ‡ uprawnienia do katalogu lub Å›cieÅ¼kÄ™!
 discussions	sitemgr	pl	Dyskusje
-display link to autoregistration below login form?	sitemgr	pl	Mam wy¶wietlaæ pod loginem link do autorejestracji?
-do you realy want to delete the selected categories (including all pages), pages and blocks?	sitemgr	pl	Naprawdê chesz skasowaæ wybrane kategorie (z zawartymi w nich stronami), strony i bloki?
-do you realy want to delete this block?	sitemgr	pl	Naprawdê chesz usun±æ ten blok?
-do you realy want to delete this page?	sitemgr	pl	Naprawdê chesz usun±æ tê stronê?
-do you want to delete them?	sitemgr	pl	Naprawdê chesz go usun±æ?
-do you want to publish a rss feed for this news category	sitemgr	pl	Opublikuj RSS dla tej kategorii wiadomo¶ci
+display link to autoregistration below login form?	sitemgr	pl	Mam wyÅ›wietlaÄ‡ pod loginem link do autorejestracji?
+do you realy want to delete the selected categories (including all pages), pages and blocks?	sitemgr	pl	NaprawdÄ™ chesz skasowaÄ‡ wybrane kategorie (z zawartymi w nich stronami), strony i bloki?
+do you realy want to delete this block?	sitemgr	pl	NaprawdÄ™ chesz usunÄ…Ä‡ ten blok?
+do you realy want to delete this page?	sitemgr	pl	NaprawdÄ™ chesz usunÄ…Ä‡ tÄ™ stronÄ™?
+do you want to delete them?	sitemgr	pl	NaprawdÄ™ chesz go usunÄ…Ä‡?
+do you want to publish a rss feed for this news category	sitemgr	pl	Opublikuj RSS dla tej kategorii wiadomoÅ›ci
 documentation	sitemgr	pl	Dokumentacja
-domain-name (offical dns-name eg. www.egroupware.org) if you want to give the user a choice between searching this site or the whole web. leaving it empty allows to search the web only.	sitemgr	pl	Nazwa domeny (oficjalna nazwa DNS jak np. wwwegroupware.org) je¶li chcesz umo¿liwiæ urzytkownikowi wybór pomiêdzy szukaniem na twojej stronie a szukaniem w ca³ym necie. Je¶li pozostawisz puste, pozwolisz tylko na szukanie w ca³ym necie.
+domain-name (offical dns-name eg. www.egroupware.org) if you want to give the user a choice between searching this site or the whole web. leaving it empty allows to search the web only.	sitemgr	pl	Nazwa domeny (oficjalna nazwa DNS jak np. wwwegroupware.org) jeÅ›li chcesz umoÅ¼liwiÄ‡ urzytkownikowi wybÃ³r pomiÄ™dzy szukaniem na twojej stronie a szukaniem w caÅ‚ym necie. JeÅ›li pozostawisz puste, pozwolisz tylko na szukanie w caÅ‚ym necie.
 don't have an account?	sitemgr	pl	Nie masz logina?
 done	sitemgr	pl	Zrobione
-download as zip-archiv	sitemgr	pl	sci±gniête jako zip
-downloaded	sitemgr	pl	sci±gniête
+download as zip-archiv	sitemgr	pl	sciÄ…gniÄ™te jako zip
+downloaded	sitemgr	pl	sciÄ…gniÄ™te
 draft	sitemgr	pl	wersja robocza
 draft mode	sitemgr	pl	Wersja robocza
-edit categories and permissions	common	pl	Edytuj kategoriê i uprawnienia
-edit category	sitemgr	pl	Edytuj kategoriê
+edit categories and permissions	common	pl	Edytuj kategoriÄ™ i uprawnienia
+edit category	sitemgr	pl	Edytuj kategoriÄ™
 edit individual pages	common	pl	Edytuj individualne strony
 edit mode	sitemgr	pl	Edycja
-edit page	sitemgr	pl	Edytuj stronê
-edit properties of module %1 for %2 with scope %3	sitemgr	pl	Edytuj ustawienia modu³u %1 dla %2 dotycz±cej %3
-edit site	sitemgr	pl	Edytuj stronê
-edit site header and footer	common	pl	Edytuj nag³ówek i stopkê strony
+edit page	sitemgr	pl	Edytuj stronÄ™
+edit properties of module %1 for %2 with scope %3	sitemgr	pl	Edytuj ustawienia moduÅ‚u %1 dla %2 dotyczÄ…cej %3
+edit site	sitemgr	pl	Edytuj stronÄ™
+edit site header and footer	common	pl	Edytuj nagÅ‚Ã³wek i stopkÄ™ strony
 edit this block	sitemgr	pl	Edytuj blok
-edit website	sitemgr	pl	Edytuj stronê internetow±
+edit website	sitemgr	pl	Edytuj stronÄ™ internetowÄ…
 egw users	sitemgr	pl	Urzytkownicy egw
-element successfully deleted.	sitemgr	pl	Element zosta³ skaowany
-enter a name	sitemgr	pl	Podaj nazwê
-enter the block content here	sitemgr	pl	Wpisz tutaj zawarto¶æ bloku
-enter the email to be notified about changes of the website.	sitemgr	pl	Podaj adres email aby zostaæ powiadomionym o zmianach na stronie.
-enter the email to be notified about changes of the website:	sitemgr	pl	Podaj adres email aby zostaæ powiadomionym o zmianach na stronie:
-enter the page content here	sitemgr	pl	Wpisz tutaj tre¶æ strony
-enterprise knowledge articles repository	sitemgr	pl	Zbiór artyku³ów wiedzy
+element successfully deleted.	sitemgr	pl	Element zostaÅ‚ skaowany
+enter a name	sitemgr	pl	Podaj nazwÄ™
+enter the block content here	sitemgr	pl	Wpisz tutaj zawartoÅ›Ä‡ bloku
+enter the email to be notified about changes of the website.	sitemgr	pl	Podaj adres email aby zostaÄ‡ powiadomionym o zmianach na stronie.
+enter the email to be notified about changes of the website:	sitemgr	pl	Podaj adres email aby zostaÄ‡ powiadomionym o zmianach na stronie:
+enter the page content here	sitemgr	pl	Wpisz tutaj treÅ›Ä‡ strony
+enterprise knowledge articles repository	sitemgr	pl	ZbiÃ³r artykuÅ‚Ã³w wiedzy
 entry duplicated.	sitemgr	pl	Wykonano duplikat wpisu
 entry saved.	sitemgr	pl	Wpis zapisany
-error accessing page	common	pl	Bl±d podczas otwierania strony
-error deleting the element.	sitemgr	pl	Bl±d usuwania elementu.
-error writing to the database.	sitemgr	pl	Bl±d przy zapisywaniu do bazy danych.
-error writing to the database: %1.	sitemgr	pl	Bl±d przy zapisywaniu do bazy danych %1.
+error accessing page	common	pl	BlÄ…d podczas otwierania strony
+error deleting the element.	sitemgr	pl	BlÄ…d usuwania elementu.
+error writing to the database.	sitemgr	pl	BlÄ…d przy zapisywaniu do bazy danych.
+error writing to the database: %1.	sitemgr	pl	BlÄ…d przy zapisywaniu do bazy danych %1.
 everybody	sitemgr	pl	wszyscy
-expand current category	sitemgr	pl	Rozwiñ obecn± kategoriê
-file %1 is not readable by the webserver !!!	sitemgr	pl	Plik %1 nie mo¿e byæ odczytany przez serwer www !!!
-file %1 is outside the docroot of the webserver !!!<br>this module does not allow - for security reasons - to open files outside the docroot.	sitemgr	pl	Plik %1 znajduje siê poza DOCROOT serwera www !!! <br>Modu³ nie pozwala - dla bezpieczeñstwa serwera www - na otwieranie plików poza katalogiem DOCROOT.
-file contents	sitemgr	pl	Zawarto¶æ pliku
-file download	sitemgr	pl	Plik sci±gniêty
+expand current category	sitemgr	pl	RozwiÅ„ obecnÄ… kategoriÄ™
+file %1 is not readable by the webserver !!!	sitemgr	pl	Plik %1 nie moÅ¼e byÄ‡ odczytany przez serwer www !!!
+file %1 is outside the docroot of the webserver !!!<br>this module does not allow - for security reasons - to open files outside the docroot.	sitemgr	pl	Plik %1 znajduje siÄ™ poza DOCROOT serwera www !!! <br>ModuÅ‚ nie pozwala - dla bezpieczeÅ„stwa serwera www - na otwieranie plikÃ³w poza katalogiem DOCROOT.
+file contents	sitemgr	pl	ZawartoÅ›Ä‡ pliku
+file download	sitemgr	pl	Plik sciÄ…gniÄ™ty
 filename	sitemgr	pl	Nazwa pliku
-filesystem path of the directory where xml files are stored	sitemgr	pl	¦cie¿ka do katalogu, w którym znajduje siê plik XML
-filesystem path of the image-directory	sitemgr	pl	¦cie¿ka do katalogu, wktórym znajduj± siê obrazki
-filesystem path to sitemgr-site directory	sitemgr	pl	¦cie¿ka do katalogu sitemgr-site
-fill in permissions from parent category? if you check this, below values will be ignored	sitemgr	pl	Wykorzystaæ uprawnienia z powy¿szej kategorii? Je¶li tu odznaczysz, poni¿sze dane zostan± zignorowane.
-following new modules registed: %1	sitemgr	pl	Nastêpuj±ce modu³y zosta³y zarejestrowane> %1
+filesystem path of the directory where xml files are stored	sitemgr	pl	ÅšcieÅ¼ka do katalogu, w ktÃ³rym znajduje siÄ™ plik XML
+filesystem path of the image-directory	sitemgr	pl	ÅšcieÅ¼ka do katalogu, wktÃ³rym znajdujÄ… siÄ™ obrazki
+filesystem path to sitemgr-site directory	sitemgr	pl	ÅšcieÅ¼ka do katalogu sitemgr-site
+fill in permissions from parent category? if you check this, below values will be ignored	sitemgr	pl	WykorzystaÄ‡ uprawnienia z powyÅ¼szej kategorii? JeÅ›li tu odznaczysz, poniÅ¼sze dane zostanÄ… zignorowane.
+following new modules registed: %1	sitemgr	pl	NastÄ™pujÄ…ce moduÅ‚y zostaÅ‚y zarejestrowane> %1
 footer editor	sitemgr	pl	Edytor stopki
 forever	common	pl	Na zawsze
 forum	sitemgr	pl	Forum
-full path of the xslt file that should be applied to the xml files	sitemgr	pl	¦cie¿ka do katalogu, w którym znajduje siê plik XSTL do wykonania na pliku XML
+full path of the xslt file that should be applied to the xml files	sitemgr	pl	ÅšcieÅ¼ka do katalogu, w ktÃ³rym znajduje siÄ™ plik XSTL do wykonania na pliku XML
 galerie	sitemgr	pl	Galeria
-gallery plus chooser	sitemgr	pl	Galeria i wybór
-gallery plus chooser and download	sitemgr	pl	Galeria, wybór i ¶ci±ganie
-gallery plus download	sitemgr	pl	Galeria i ¶ci±ganie
-go back to page manager	sitemgr	pl	Wróæ do mened¿era stron
-go back to the category manager.	sitemgr	pl	Wróæ do mened¿era kategorii
-go to	sitemgr	pl	Id¼ do
-go to page manager	sitemgr	pl	Id¼ do mened¿era stron
+gallery plus chooser	sitemgr	pl	Galeria i wybÃ³r
+gallery plus chooser and download	sitemgr	pl	Galeria, wybÃ³r i Å›ciÄ…ganie
+gallery plus download	sitemgr	pl	Galeria i Å›ciÄ…ganie
+go back to page manager	sitemgr	pl	WrÃ³Ä‡ do menedÅ¼era stron
+go back to the category manager.	sitemgr	pl	WrÃ³Ä‡ do menedÅ¼era kategorii
+go to	sitemgr	pl	IdÅº do
+go to page manager	sitemgr	pl	IdÅº do menedÅ¼era stron
 google	sitemgr	pl	Google
 google search	sitemgr	pl	Szukanie w google
-group access permissions	sitemgr	pl	Prawa dostêpu grup
+group access permissions	sitemgr	pl	Prawa dostÄ™pu grup
 group name	sitemgr	pl	Nazwa grupy
-header editor	sitemgr	pl	Edytor nag³ówka
-headlines	sitemgr	pl	Nag³ówki
+header editor	sitemgr	pl	Edytor nagÅ‚Ã³wka
+headlines	sitemgr	pl	NagÅ‚Ã³wki
 hello	sitemgr	pl	Witaj
-hello world	sitemgr	pl	Witaj ¶wiecie
-helps you respect html/xhtml standards.	sitemgr	pl	Pomo¿e ci zachowaæ standard HTML/XHTML
+hello world	sitemgr	pl	Witaj Å›wiecie
+helps you respect html/xhtml standards.	sitemgr	pl	PomoÅ¼e ci zachowaÄ‡ standard HTML/XHTML
 horizontal	sitemgr	pl	poziomo
 html frame	sitemgr	pl	Ramka HTML
-html module	sitemgr	pl	Modu³ HTML
-i'm sorry, you do not have write permissions for any site categories.	sitemgr	pl	Przykro mi, ale nie masz uprawnieñ do zapisu stron w ¿adnej kategorii.
-if nonsecure redirect to:	sitemgr	pl	Je¶li nie jest bezpieczne przekieruj do:
-if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	pl	Je¶li nie uczyni³e¶ tego dotychczas, powiniene¶ stworzyæ urzytkownika anonimowego do ogl±dania stron. Zalecana nazwa to: anonymous.
+html module	sitemgr	pl	ModuÅ‚ HTML
+i'm sorry, you do not have write permissions for any site categories.	sitemgr	pl	Przykro mi, ale nie masz uprawnieÅ„ do zapisu stron w Å¼adnej kategorii.
+if nonsecure redirect to:	sitemgr	pl	JeÅ›li nie jest bezpieczne przekieruj do:
+if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	pl	JeÅ›li nie uczyniÅ‚eÅ› tego dotychczas, powinieneÅ› stworzyÄ‡ urzytkownika anonimowego do oglÄ…dania stron. Zalecana nazwa to: anonymous.
 image type	sitemgr	pl	typ obrazka
 implies read permission	sitemgr	pl	zawiera prawo do odczytu
-index	sitemgr	pl	Spis tre¶ci
-individual access permission	sitemgr	pl	Indiwidualne prawo dostêpu
-individual access permissions	sitemgr	pl	Indiwidualne prawa dostêpu
+index	sitemgr	pl	Spis treÅ›ci
+individual access permission	sitemgr	pl	Indiwidualne prawo dostÄ™pu
+individual access permissions	sitemgr	pl	Indiwidualne prawa dostÄ™pu
 interface to google website	sitemgr	pl	Interfejs do strony google
-invalid template directory '%1' !!!	sitemgr	pl	Katalog szablonu '%1' jest niewa¿ny (nie istnieje) !!!
+invalid template directory '%1' !!!	sitemgr	pl	Katalog szablonu '%1' jest niewaÅ¼ny (nie istnieje) !!!
 knowledge base	sitemgr	pl	Baza wiedzy
-languages the site user can choose from	sitemgr	pl	Jêzyki, które obecny urzytkownik mo¿e wybraæ
-last entries to the guestbook	sitemgr	pl	Ostatnie wpisy do ksiêgi go¶ci
-latest reply	sitemgr	pl	Ostatnia odpowied¼
-list of permitted modules specific to content area %1	sitemgr	pl	Lista mo¿liwych modu³ów dla obszaru zawarto¶ci %1
+languages the site user can choose from	sitemgr	pl	JÄ™zyki, ktÃ³re obecny urzytkownik moÅ¼e wybraÄ‡
+last entries to the guestbook	sitemgr	pl	Ostatnie wpisy do ksiÄ™gi goÅ›ci
+latest reply	sitemgr	pl	Ostatnia odpowiedÅº
+list of permitted modules specific to content area %1	sitemgr	pl	Lista moÅ¼liwych moduÅ‚Ã³w dla obszaru zawartoÅ›ci %1
 loged in as:	sitemgr	pl	Zalogowany jako:
 login	sitemgr	pl	Logowanie
 login name	sitemgr	pl	Nazwa
-main content	sitemgr	pl	¿awarto¶æ g³ówna
-mains	sitemgr	pl	G³ówna
-manage archived content	sitemgr	pl	Zarz±dzaj tre¶ciami w archiwum
-manage categories	sitemgr	pl	Zarz±dzaj kategoriami
-manage categories and pages	sitemgr	pl	Zarz±dzaj kategoriami i stronami
-manage category wide content	sitemgr	pl	Zarz±dzaj tre¶ciami dla ca³ej kategorii
-manage category wide module properties	sitemgr	pl	Zarz±dzaj modu³ami dla ca³ej kategorii
-manage content	sitemgr	pl	Zarz±dzaj tre¶ci±
-manage modules	sitemgr	pl	Zarz±dzaj modu³ami
-manage page specific content	sitemgr	pl	Zarz±dzaj zawarto¶ci± strony
-manage pages	common	pl	Zarz±dzaj stronami
-manage site content	sitemgr	pl	Zarz±dzaj tre¶ci± stron
-manage site-wide content	sitemgr	pl	Zarz±dzaj zawarto¶ci± dla wszstkich stron
-manage site-wide module properties	sitemgr	pl	Zarz±dzaj modu³ami dla wszystkich stron
-manage translations	sitemgr	pl	Zarz±dzaj t³umaczeniami
-master list of permitted modules	sitemgr	pl	G³ówna lista dostêpnych modu³ów
-messages are defined for all site languages.	sitemgr	pl	Wiadomo¶ci s± zdefiniwane dla wszystkich stron jêzykowych.
-migrating data for %1 to %2	sitemgr	pl	Migrujê dane dla %1 do %2
-module %1 is not permitted in this context!	sitemgr	pl	Modu³ %1 nie jest dozwolony w tym kontek¶cie!
-module manager	sitemgr	pl	Zarz±danie modu³ami
-module: %1, scope: %2, contentarea: %3, viewable: %4	sitemgr	pl	Modu³: %1, Obszar: %2, Obszar zawarto¶ci: %3, Widoczny: %4
-more news	sitemgr	pl	Wiêcej nowo¶ci
-move block down (increase sort order)	sitemgr	pl	Przenie¶ blok na dó³ (obni¿ warto¶æ porz±dku sortowania)
-move block up (decrease sort order)	sitemgr	pl	Przenie¶ blok do góry (podwy¿ warto¶æ porz±dku sortowania)
-move to	sitemgr	pl	Przenie¶ do
+main content	sitemgr	pl	Å¼awartoÅ›Ä‡ gÅ‚Ã³wna
+mains	sitemgr	pl	GÅ‚Ã³wna
+manage archived content	sitemgr	pl	ZarzÄ…dzaj treÅ›ciami w archiwum
+manage categories	sitemgr	pl	ZarzÄ…dzaj kategoriami
+manage categories and pages	sitemgr	pl	ZarzÄ…dzaj kategoriami i stronami
+manage category wide content	sitemgr	pl	ZarzÄ…dzaj treÅ›ciami dla caÅ‚ej kategorii
+manage category wide module properties	sitemgr	pl	ZarzÄ…dzaj moduÅ‚ami dla caÅ‚ej kategorii
+manage content	sitemgr	pl	ZarzÄ…dzaj treÅ›ciÄ…
+manage modules	sitemgr	pl	ZarzÄ…dzaj moduÅ‚ami
+manage page specific content	sitemgr	pl	ZarzÄ…dzaj zawartoÅ›ciÄ… strony
+manage pages	common	pl	ZarzÄ…dzaj stronami
+manage site content	sitemgr	pl	ZarzÄ…dzaj treÅ›ciÄ… stron
+manage site-wide content	sitemgr	pl	ZarzÄ…dzaj zawartoÅ›ciÄ… dla wszstkich stron
+manage site-wide module properties	sitemgr	pl	ZarzÄ…dzaj moduÅ‚ami dla wszystkich stron
+manage translations	sitemgr	pl	ZarzÄ…dzaj tÅ‚umaczeniami
+master list of permitted modules	sitemgr	pl	GÅ‚Ã³wna lista dostÄ™pnych moduÅ‚Ã³w
+messages are defined for all site languages.	sitemgr	pl	WiadomoÅ›ci sÄ… zdefiniwane dla wszystkich stron jÄ™zykowych.
+migrating data for %1 to %2	sitemgr	pl	MigrujÄ™ dane dla %1 do %2
+module %1 is not permitted in this context!	sitemgr	pl	ModuÅ‚ %1 nie jest dozwolony w tym kontekÅ›cie!
+module manager	sitemgr	pl	ZarzÄ…danie moduÅ‚ami
+module: %1, scope: %2, contentarea: %3, viewable: %4	sitemgr	pl	ModuÅ‚: %1, Obszar: %2, Obszar zawartoÅ›ci: %3, Widoczny: %4
+more news	sitemgr	pl	WiÄ™cej nowoÅ›ci
+move block down (increase sort order)	sitemgr	pl	PrzenieÅ› blok na dÃ³Å‚ (obniÅ¼ wartoÅ›Ä‡ porzÄ…dku sortowania)
+move block up (decrease sort order)	sitemgr	pl	PrzenieÅ› blok do gÃ³ry (podwyÅ¼ wartoÅ›Ä‡ porzÄ…dku sortowania)
+move to	sitemgr	pl	PrzenieÅ› do
 name	sitemgr	pl	Nazwa
-name has been translated to lower case	sitemgr	pl	Nazwê zmieniono na ma³e litery
+name has been translated to lower case	sitemgr	pl	NazwÄ™ zmieniono na maÅ‚e litery
 new application	sitemgr	pl	Nowa aplikacja
-new guestbook	sitemgr	pl	Nowa ksiêga go¶ci
+new guestbook	sitemgr	pl	Nowa ksiÄ™ga goÅ›ci
 new sitemgr site	sitemgr	pl	Nowa strona sitemgr
-news module	sitemgr	pl	Modu³ nowo¶ci
-no additional arguments required	sitemgr	pl	Inne argumenty nie s± potrzebne
-no anonymous user accounts installed.  notify the administrator.	sitemgr	pl	BRAK LOGINU U¯YTKOWNIKA ANONIMOWEGO. POWIADOM ADMINISTRATORA.
-no content areas found in selected template	sitemgr	pl	Nie znaleziono obszarów zawarto¶ci w tym szablonie
-no content found	sitemgr	pl	Nie znaleziono tre¶ci
+news module	sitemgr	pl	ModuÅ‚ nowoÅ›ci
+no additional arguments required	sitemgr	pl	Inne argumenty nie sÄ… potrzebne
+no anonymous user accounts installed.  notify the administrator.	sitemgr	pl	BRAK LOGINU UÅ»YTKOWNIKA ANONIMOWEGO. POWIADOM ADMINISTRATORA.
+no content areas found in selected template	sitemgr	pl	Nie znaleziono obszarÃ³w zawartoÅ›ci w tym szablonie
+no content found	sitemgr	pl	Nie znaleziono treÅ›ci
 no groups defined.	sitemgr	pl	Nie zdefiniowano grup
-no link to full index	sitemgr	pl	Brak linku do pe³nego spisu tre¶ci
+no link to full index	sitemgr	pl	Brak linku do peÅ‚nego spisu treÅ›ci
 no matching news item	sitemgr	pl	Nie znaleziono takiego newsa
-no modules permitted for this content area/category	sitemgr	pl	Nie zezwolono na urzywanie modu³ów w tym obszarze/kategorii
-no new modules found !!!	sitemgr	pl	Nie znaleziono nowych modu³ów !!!
+no modules permitted for this content area/category	sitemgr	pl	Nie zezwolono na urzywanie moduÅ‚Ã³w w tym obszarze/kategorii
+no new modules found !!!	sitemgr	pl	Nie znaleziono nowych moduÅ‚Ã³w !!!
 no options available.	sitemgr	pl	Brak opcji
 no pages available	sitemgr	pl	Brak stron
-no sitelanguages configured	sitemgr	pl	Nie skonfigurowano jêzyków strony
+no sitelanguages configured	sitemgr	pl	Nie skonfigurowano jÄ™zykÃ³w strony
 no template file found.	sitemgr	pl	Nie znaleziono pliku szablonu.
-no templates found.	sitemgr	pl	Nie znaleziono szablonów.
-no thumbnail availible	sitemgr	pl	Brak podg³adów
-no users defined.	sitemgr	pl	Nie zdefiniowano u¿ytkowników
+no templates found.	sitemgr	pl	Nie znaleziono szablonÃ³w.
+no thumbnail availible	sitemgr	pl	Brak podgÅ‚adÃ³w
+no users defined.	sitemgr	pl	Nie zdefiniowano uÅ¼ytkownikÃ³w
 no websites defined	sitemgr	pl	Nie zdefiniowano stron internetowych
-no, chooser only (for side-areas)	sitemgr	pl	Nie, tylko wybór (dla obszarów bocznych)
-no, chooser with preview	sitemgr	pl	Nie, wybór z podgl±dem
+no, chooser only (for side-areas)	sitemgr	pl	Nie, tylko wybÃ³r (dla obszarÃ³w bocznych)
+no, chooser with preview	sitemgr	pl	Nie, wybÃ³r z podglÄ…dem
 not	common	pl	nie
-not yet translated	sitemgr	pl	jeszcze nie przet³umaczono
-note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	pl	Zapamiêtaj, ¿e dostaniesz tê wiadomo¶æ, je¶li twoje ustawienia nie s± blêdne. Np., je¶li nie znaleziono config.inc.php w podanym katalogu.
-note, this directory has to be writeable by webserver!	sitemgr	pl	Zapamiêtaj, ¿e ten katalog musi byæ dla serwera www nie tylko do odczytu ale i do zapisu.
-number of news items to be displayed on page	sitemgr	pl	Ilo¶æ newsów do pokazania na stronie
+not yet translated	sitemgr	pl	jeszcze nie przetÅ‚umaczono
+note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	pl	ZapamiÄ™taj, Å¼e dostaniesz tÄ™ wiadomoÅ›Ä‡, jeÅ›li twoje ustawienia nie sÄ… blÄ™dne. Np., jeÅ›li nie znaleziono config.inc.php w podanym katalogu.
+note, this directory has to be writeable by webserver!	sitemgr	pl	ZapamiÄ™taj, Å¼e ten katalog musi byÄ‡ dla serwera www nie tylko do odczytu ale i do zapisu.
+number of news items to be displayed on page	sitemgr	pl	IloÅ›Ä‡ newsÃ³w do pokazania na stronie
 on all pages	sitemgr	pl	na wszystkich stronach
 only gallery	sitemgr	pl	w galerii
 only on the first page	sitemgr	pl	tylko na pierwszej stronie
-or enter the title for a new guestbook	sitemgr	pl	albo podaj tytu³ nowej ksiêgi go¶ci
+or enter the title for a new guestbook	sitemgr	pl	albo podaj tytuÅ‚ nowej ksiÄ™gi goÅ›ci
 other websites	sitemgr	pl	Inne strony
 overview of all available categories	sitemgr	pl	Wszystkie kategorie
 overview of one specific category	sitemgr	pl	Wybrana kategoria
-own amazon partner-id or empty to donate to the egroupware project	sitemgr	pl	Podaj twoje partner-ID w amazon, albo pozostaw puste aby wspieraæ projekt eGroupWare
+own amazon partner-id or empty to donate to the egroupware project	sitemgr	pl	Podaj twoje partner-ID w amazon, albo pozostaw puste aby wspieraÄ‡ projekt eGroupWare
 page	sitemgr	pl	Strona
-page content	sitemgr	pl	Zawarto¶æ strony
-page manager	sitemgr	pl	Mened¿er stron
+page content	sitemgr	pl	ZawartoÅ›Ä‡ strony
+page manager	sitemgr	pl	MenedÅ¼er stron
 page name	sitemgr	pl	Nazwa strony
-page saved	sitemgr	pl	Stronê zapisano
-page saved.	sitemgr	pl	Stronê zapisano.
-page subtitle	sitemgr	pl	Podtytu³ strony
-page title	sitemgr	pl	Tytu³ strony
+page saved	sitemgr	pl	StronÄ™ zapisano
+page saved.	sitemgr	pl	StronÄ™ zapisano.
+page subtitle	sitemgr	pl	PodtytuÅ‚ strony
+page title	sitemgr	pl	TytuÅ‚ strony
 pages	sitemgr	pl	Strony
 pages:	sitemgr	pl	Strony:
-parent	sitemgr	pl	Nadrzêdny
-parent directory	sitemgr	pl	katalog nadrzêdny
-parent section:	sitemgr	pl	Sekcja nadrzêdna:
-password	sitemgr	pl	Has³o
-password that you assigned for the anonymous user account.	sitemgr	pl	Has³o urzytkownika anonimowego (poda³e¶ je zak³adaj±c go)
-path to image-directory '%1' is not valid or readable by the webserver !!!	sitemgr	pl	¦cie¿ka do katalogu obrazków '%1' nie zgadza siê, albo serwer www nie ma w nim praw do odczytu!!!
-path to zip binary if not in path of the webserver	sitemgr	pl	¦cie¿ka do programu zip, je¶li nie jest w ¶cie¿ce serwera www
+parent	sitemgr	pl	NadrzÄ™dny
+parent directory	sitemgr	pl	katalog nadrzÄ™dny
+parent section:	sitemgr	pl	Sekcja nadrzÄ™dna:
+password	sitemgr	pl	HasÅ‚o
+password that you assigned for the anonymous user account.	sitemgr	pl	HasÅ‚o urzytkownika anonimowego (podaÅ‚eÅ› je zakÅ‚adajÄ…c go)
+path to image-directory '%1' is not valid or readable by the webserver !!!	sitemgr	pl	ÅšcieÅ¼ka do katalogu obrazkÃ³w '%1' nie zgadza siÄ™, albo serwer www nie ma w nim praw do odczytu!!!
+path to zip binary if not in path of the webserver	sitemgr	pl	ÅšcieÅ¼ka do programu zip, jeÅ›li nie jest w Å›cieÅ¼ce serwera www
 percentage	sitemgr	pl	w procentach
-phrases in total	sitemgr	pl	Wyra¿eñ ogó³em
-please enter a name for that site !	sitemgr	pl	Podaj nazwê dla tej strony
-please sign the guestbook	sitemgr	pl	Wpisz siê do ksiêgi
-post a message to this thread	sitemgr	pl	Dodaj wiadomo¶æ do tego tematu
-prepublished	sitemgr	pl	opublikowano wstêpnie
+phrases in total	sitemgr	pl	WyraÅ¼eÅ„ ogÃ³Å‚em
+please enter a name for that site !	sitemgr	pl	Podaj nazwÄ™ dla tej strony
+please sign the guestbook	sitemgr	pl	Wpisz siÄ™ do ksiÄ™gi
+post a message to this thread	sitemgr	pl	Dodaj wiadomoÅ›Ä‡ do tego tematu
+prepublished	sitemgr	pl	opublikowano wstÄ™pnie
 preunpublished	sitemgr	pl	przed opublikowaniem
 previous	sitemgr	pl	Poprzedni
-production mode	sitemgr	pl	Wygl±d dostêpny publicznie
+production mode	sitemgr	pl	WyglÄ…d dostÄ™pny publicznie
 published	sitemgr	pl	opublikowany
-reactivate content	sitemgr	pl	Uaktywnij zawarto¶æ
+reactivate content	sitemgr	pl	Uaktywnij zawartoÅ›Ä‡
 read permission	sitemgr	pl	Prawo do odczytu
 redirection	sitemgr	pl	Przekierowanie
-refresh	sitemgr	pl	Od¶wie¿
+refresh	sitemgr	pl	OdÅ›wieÅ¼
 register for one now.	sitemgr	pl	Zarejestuj po nowe
-register new modules	sitemgr	pl	Zarejestruj nowe modu³y
-reload	sitemgr	pl	Za³aduj ponownie
-remember me	common	pl	zapamiêtaj mnie
-replies	sitemgr	pl	Odpowied¼
+register new modules	sitemgr	pl	Zarejestruj nowe moduÅ‚y
+reload	sitemgr	pl	ZaÅ‚aduj ponownie
+remember me	common	pl	zapamiÄ™taj mnie
+replies	sitemgr	pl	OdpowiedÅº
 required fields	sitemgr	pl	Wymagane pola
 reset	sitemgr	pl	Zresetuj
-return to forums	sitemgr	pl	Powrót do forum
-return to main menu.	sitemgr	pl	Wróæ do g³ównego menue
-return to message list	sitemgr	pl	Powrót do listy wiadomo¶ci
-root site index	sitemgr	pl	Spis tre¶ci strony g³ównej
+return to forums	sitemgr	pl	PowrÃ³t do forum
+return to main menu.	sitemgr	pl	WrÃ³Ä‡ do gÅ‚Ã³wnego menue
+return to message list	sitemgr	pl	PowrÃ³t do listy wiadomoÅ›ci
+root site index	sitemgr	pl	Spis treÅ›ci strony gÅ‚Ã³wnej
 save	sitemgr	pl	Zapisz
 save block	sitemgr	pl	Zapisz blok
 saved	sitemgr	pl	Zapisane
 scope	sitemgr	pl	Dotyczy
 seen by	sitemgr	pl	Widoczny dla
-select a category	sitemgr	pl	Wybierz kategoriê
+select a category	sitemgr	pl	Wybierz kategoriÄ™
 select a forum	sitemgr	pl	Wybierz forum
-select allowed modules	sitemgr	pl	Wybierz dostêpne modu³y
-select persons and groups that are entitled to configure the website.	sitemgr	pl	Wybierz osoby i grupy, którym wolno konfigurowaæ stronê.
-select the templates the user is allowed to see	sitemgr	pl	Wybierz szablony, z których urzytkownik mo¿e wybieraæ
+select allowed modules	sitemgr	pl	Wybierz dostÄ™pne moduÅ‚y
+select persons and groups that are entitled to configure the website.	sitemgr	pl	Wybierz osoby i grupy, ktÃ³rym wolno konfigurowaÄ‡ stronÄ™.
+select the templates the user is allowed to see	sitemgr	pl	Wybierz szablony, z ktÃ³rych urzytkownik moÅ¼e wybieraÄ‡
 select type of navigation	sitemgr	pl	Wybierz typ nawigacji
 selected template %1 does not exist.	sitemgr	pl	Wybrany szablon %1 nie istnieje.
 selected theme %1 does not exist.	sitemgr	pl	Wybrany temat %1 nie istnieje.
-should the file be viewed in the browser or downloaded	sitemgr	pl	Pokazaæ plik w przegl±darce czy daæ ¶ci±gn±æ
-show a template-gallery (thumbnail and informations)	sitemgr	pl	Poka¿ galeriê szablnów (podgl±d i informacje)
-show contents of a directory	sitemgr	pl	Poka¿ zawarto¶æ katalogu
-show contents of a directory with subdirectories	sitemgr	pl	Poka¿ zawarto¶æ katalogu i podkatalogów
-show details for the applications	sitemgr	pl	Poka¿ szczególy tej aplikacji
-show only (in the next field) selected templates	sitemgr	pl	Poka¿ tylko wybrane szablony w nastêpnym polu
-show only headers containing links for complete news	sitemgr	pl	Poka¿ tylko nag³ówki zawieraj±ce linki do ca³ych wiadomo¶ci
-show path?	sitemgr	pl	pokazaæ ¶cie¿kê?
-show searchbox	sitemgr	pl	Poka¿ pole szukania
-show site index	sitemgr	pl	Poka¿ spis tre¶ci strony
-show subcategories	sitemgr	pl	Poka¿ podkategorie
-show the title of the wiki page	sitemgr	pl	Poka¿ tytu³ strony wiki
-single file download	sitemgr	pl	¦ci±ganie pojedyñczych plików
+should the file be viewed in the browser or downloaded	sitemgr	pl	PokazaÄ‡ plik w przeglÄ…darce czy daÄ‡ Å›ciÄ…gnÄ…Ä‡
+show a template-gallery (thumbnail and informations)	sitemgr	pl	PokaÅ¼ galeriÄ™ szablnÃ³w (podglÄ…d i informacje)
+show contents of a directory	sitemgr	pl	PokaÅ¼ zawartoÅ›Ä‡ katalogu
+show contents of a directory with subdirectories	sitemgr	pl	PokaÅ¼ zawartoÅ›Ä‡ katalogu i podkatalogÃ³w
+show details for the applications	sitemgr	pl	PokaÅ¼ szczegÃ³ly tej aplikacji
+show only (in the next field) selected templates	sitemgr	pl	PokaÅ¼ tylko wybrane szablony w nastÄ™pnym polu
+show only headers containing links for complete news	sitemgr	pl	PokaÅ¼ tylko nagÅ‚Ã³wki zawierajÄ…ce linki do caÅ‚ych wiadomoÅ›ci
+show path?	sitemgr	pl	pokazaÄ‡ Å›cieÅ¼kÄ™?
+show searchbox	sitemgr	pl	PokaÅ¼ pole szukania
+show site index	sitemgr	pl	PokaÅ¼ spis treÅ›ci strony
+show subcategories	sitemgr	pl	PokaÅ¼ podkategorie
+show the title of the wiki page	sitemgr	pl	PokaÅ¼ tytuÅ‚ strony wiki
+single file download	sitemgr	pl	ÅšciÄ…ganie pojedyÅ„czych plikÃ³w
 site	sitemgr	pl	Strona
-site %1 has been added, you need to %2configure the site%3 now	sitemgr	pl	Strona %1 zosta³a dodana. Powiniene¶ teraz %2skonfigurowaæ stronê%3.
-site %1 has been updated	sitemgr	pl	Strona %1 zosta³a zaktualizowana
+site %1 has been added, you need to %2configure the site%3 now	sitemgr	pl	Strona %1 zostaÅ‚a dodana. PowinieneÅ› teraz %2skonfigurowaÄ‡ stronÄ™%3.
+site %1 has been updated	sitemgr	pl	Strona %1 zostaÅ‚a zaktualizowana
 site administrators	sitemgr	pl	Administratorzy strony WWW
 site description	sitemgr	pl	Opis strony WWW
-site format manager	sitemgr	pl	Mened¿er formatowania strony WWW
-site index	sitemgr	pl	Spis tre¶ci strony
+site format manager	sitemgr	pl	MenedÅ¼er formatowania strony WWW
+site index	sitemgr	pl	Spis treÅ›ci strony
 site name	sitemgr	pl	Nazwa strony
 site setup	common	pl	Ustawienia strony
 site tree menu	sitemgr	pl	Menue drzewka strony WWW
-site wide	sitemgr	pl	ca³ej strony internetowej
+site wide	sitemgr	pl	caÅ‚ej strony internetowej
 sitemgr	common	pl	SiteMgr
-sitemgr manual	sitemgr	pl	Podrêcznik SiteMgr
+sitemgr manual	sitemgr	pl	PodrÄ™cznik SiteMgr
 sitemgr options	sitemgr	pl	Opcje SiteMgr
 sitemgr setup instructions	sitemgr	pl	Instrukcje instalacji SiteMgr
-sitemgr setup page	sitemgr	pl	Strona ustawieñ sitemgr
-sitemgr web content manager	common	pl	SiteMgr menad¿er tre¶ci stron WWW
+sitemgr setup page	sitemgr	pl	Strona ustawieÅ„ sitemgr
+sitemgr web content manager	common	pl	SiteMgr menadÅ¼er treÅ›ci stron WWW
 sitemgr websites	sitemgr	pl	Strony SiteMgr
 sitemgr-link	common	pl	Strona internetowa
-sort order	sitemgr	pl	Porz±dek sortowania
+sort order	sitemgr	pl	PorzÄ…dek sortowania
 state	sitemgr	pl	Stan
-strip html from block content?	sitemgr	pl	Usun±æ HTML z tre¶ci?
+strip html from block content?	sitemgr	pl	UsunÄ…Ä‡ HTML z treÅ›ci?
 subcategories	sitemgr	pl	Podkategorie
 subsections:	sitemgr	pl	Sekcjie:
 subtext for image %1	sitemgr	pl	Podpis obrazka %1
-subtitle	sitemgr	pl	Podtytu³
+subtitle	sitemgr	pl	PodtytuÅ‚
 summary of one forum	sitemgr	pl	Streszczenie jednego forum
-suppress link to index (show all)	sitemgr	pl	Nie pokazuj linku do strony g³ównej (poka¿ wszystkie)
-suppress link to parent category	sitemgr	pl	Nie pokazuj linku do kategorii powy¿szej
+suppress link to index (show all)	sitemgr	pl	Nie pokazuj linku do strony gÅ‚Ã³wnej (pokaÅ¼ wszystkie)
+suppress link to parent category	sitemgr	pl	Nie pokazuj linku do kategorii powyÅ¼szej
 suppress the current page	sitemgr	pl	Nie pokazuj obecnej strony
-table of contents	sitemgr	pl	Spis tre¶ci
-template based navigation module	sitemgr	pl	Modu³ nawigacji bazuj±cy na szablonie
+table of contents	sitemgr	pl	Spis treÅ›ci
+template based navigation module	sitemgr	pl	ModuÅ‚ nawigacji bazujÄ…cy na szablonie
 template select	sitemgr	pl	Wzbierz szablon
-text allignment	sitemgr	pl	Po³o¿enie tekstu
+text allignment	sitemgr	pl	PoÅ‚oÅ¼enie tekstu
 textarea	sitemgr	pl	Obszar tekstu
-the category to display, 0 for complete table of contents	sitemgr	pl	Kategoria do wy¶wietlenia, 0 dla wy¶wietlania spisu tre¶ci
-the complete url or path to a file to be included	sitemgr	pl	Ca³a ¶cie¿ka URL albo lokalna ¶cie¿ka do pliku, który ma zostaæ do³±czony
-the config.inc.php file needs to be edited to point to the egroupware directory. copy the config.inc.php.template file to config.inc.php and then edit it.	sitemgr	pl	Musisz zmieniæ ¶cie¿kê do katalogu eGroupWare w pliku config.inc.php. Skopiuj szablon config.inc.php.template do config.inc.php i zmieñ w nim ustawienia.
-the file to be downloaded	sitemgr	pl	Plik do ¶ci±gniêcia
-the filesystem path to your sitemgr-site directory '%1' is probably wrong. go to sitemgr --> define websites and edit/fix the concerned site.	sitemgr	pl	¦cie¿ka do katalogu sitemgr-site '%1' prawdopodobnie siê nie zgadza. Wejd¼ do SiteMgr--> Definiowanie strony i sprawd¼/zmieñ ustawienia obecnej strony.
-the first directory to think about is sitemgr-link.  if you move this to the parent directory of sitemgr (your egroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  if you don't want this icon, there's no reason to ever bother with the directory.	sitemgr	pl	Pierwszym katalogiem, o którym powinienie¶ pomy¶leæ to sitemgr-link. Je¶li skopiujesz go z katalogu sitemgr do katalogu g³ównego eGW, bedziesz móg³ zainstalowaæ sitemgr-link jako aplikacjê. Bêdzie to link do strony WWW pokazywany w nawigacji eGW jako ikona. Je¶li tego nie potrzebujesz, nie masz powodu aby byæ tym zamêczny.
-the name field cannot contain punctuation or spaces (field modified).	sitemgr	pl	Nazwa nie mo¿e zawieraæ kropek i spacji (pole zmienione).
-the page name must be unique.	sitemgr	pl	Nazwa strony musi byæ unikatowa
-the page was successfully saved.	sitemgr	pl	Strona zosta³a zapisana.
-the path to the file to be downloaded	sitemgr	pl	¦cie¿ka do pliku do sci±gniêcia
-the person to say hello to	sitemgr	pl	Osoba, któr± mam powitaæ
-the second directory is the sitemgr-site directory.  this can be moved <i>anywhere</i>.  it can also be named <i>anything</i>.  wherever it winds up, when you point a web browser to it, you will get the generated website.  assuming, of course, that you've accurately completed the setup fields below and also <b><i>edited the config.inc.php</i></b> file.	sitemgr	pl	Innym katalogiem jest sitemgr-site. Mo¿esz przesun±æ go dok±d chesz i nazwaæ go jak chesz. Zawsze, kiedy wska¿esz na ten katalog w przegl±darce, zobaczysz wygenerowan± strone. Podstaw± jest jednak, ¿e wype³nisz odpowiednie wszystkie pola poni¿ej i ustawisz <strong><em>odpowiednio plik config.inc.php</em></strong>.
-the text for the link, if empty the module returns the raw url (without a link)	sitemgr	pl	Tekst dla linku. Je¶li pozostawisz to pole puste, bêdzie pokazywany URL z linkiem.
-the url can be relative or absolute.  name must end in a slash.	sitemgr	pl	URL mo¿e byæ wglêdny lub bezwzglêdny. Musi koñczyæ siê sleszem.
-the url must be absolute and end in a slash, for example http://mydomain.com/mysite/	sitemgr	pl	URL musi byæ bezwzglêdne i koñczyæ siê sleszem, np.: http://mojadomena.pl/strona/
-the url to display	sitemgr	pl	URL do wy¶wietlenia
+the category to display, 0 for complete table of contents	sitemgr	pl	Kategoria do wyÅ›wietlenia, 0 dla wyÅ›wietlania spisu treÅ›ci
+the complete url or path to a file to be included	sitemgr	pl	CaÅ‚a Å›cieÅ¼ka URL albo lokalna Å›cieÅ¼ka do pliku, ktÃ³ry ma zostaÄ‡ doÅ‚Ä…czony
+the config.inc.php file needs to be edited to point to the egroupware directory. copy the config.inc.php.template file to config.inc.php and then edit it.	sitemgr	pl	Musisz zmieniÄ‡ Å›cieÅ¼kÄ™ do katalogu eGroupWare w pliku config.inc.php. Skopiuj szablon config.inc.php.template do config.inc.php i zmieÅ„ w nim ustawienia.
+the file to be downloaded	sitemgr	pl	Plik do Å›ciÄ…gniÄ™cia
+the filesystem path to your sitemgr-site directory '%1' is probably wrong. go to sitemgr --> define websites and edit/fix the concerned site.	sitemgr	pl	ÅšcieÅ¼ka do katalogu sitemgr-site '%1' prawdopodobnie siÄ™ nie zgadza. WejdÅº do SiteMgr--> Definiowanie strony i sprawdÅº/zmieÅ„ ustawienia obecnej strony.
+the first directory to think about is sitemgr-link.  if you move this to the parent directory of sitemgr (your egroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  if you don't want this icon, there's no reason to ever bother with the directory.	sitemgr	pl	Pierwszym katalogiem, o ktÃ³rym powinienieÅ› pomyÅ›leÄ‡ to sitemgr-link. JeÅ›li skopiujesz go z katalogu sitemgr do katalogu gÅ‚Ã³wnego eGW, bedziesz mÃ³gÅ‚ zainstalowaÄ‡ sitemgr-link jako aplikacjÄ™. BÄ™dzie to link do strony WWW pokazywany w nawigacji eGW jako ikona. JeÅ›li tego nie potrzebujesz, nie masz powodu aby byÄ‡ tym zamÄ™czny.
+the name field cannot contain punctuation or spaces (field modified).	sitemgr	pl	Nazwa nie moÅ¼e zawieraÄ‡ kropek i spacji (pole zmienione).
+the page name must be unique.	sitemgr	pl	Nazwa strony musi byÄ‡ unikatowa
+the page was successfully saved.	sitemgr	pl	Strona zostaÅ‚a zapisana.
+the path to the file to be downloaded	sitemgr	pl	ÅšcieÅ¼ka do pliku do sciÄ…gniÄ™cia
+the person to say hello to	sitemgr	pl	Osoba, ktÃ³rÄ… mam powitaÄ‡
+the second directory is the sitemgr-site directory.  this can be moved <i>anywhere</i>.  it can also be named <i>anything</i>.  wherever it winds up, when you point a web browser to it, you will get the generated website.  assuming, of course, that you've accurately completed the setup fields below and also <b><i>edited the config.inc.php</i></b> file.	sitemgr	pl	Innym katalogiem jest sitemgr-site. MoÅ¼esz przesunÄ…Ä‡ go dokÄ…d chesz i nazwaÄ‡ go jak chesz. Zawsze, kiedy wskaÅ¼esz na ten katalog w przeglÄ…darce, zobaczysz wygenerowanÄ… strone. PodstawÄ… jest jednak, Å¼e wypeÅ‚nisz odpowiednie wszystkie pola poniÅ¼ej i ustawisz <strong><em>odpowiednio plik config.inc.php</em></strong>.
+the text for the link, if empty the module returns the raw url (without a link)	sitemgr	pl	Tekst dla linku. JeÅ›li pozostawisz to pole puste, bÄ™dzie pokazywany URL z linkiem.
+the url can be relative or absolute.  name must end in a slash.	sitemgr	pl	URL moÅ¼e byÄ‡ wglÄ™dny lub bezwzglÄ™dny. Musi koÅ„czyÄ‡ siÄ™ sleszem.
+the url must be absolute and end in a slash, for example http://mydomain.com/mysite/	sitemgr	pl	URL musi byÄ‡ bezwzglÄ™dne i koÅ„czyÄ‡ siÄ™ sleszem, np.: http://mojadomena.pl/strona/
+the url to display	sitemgr	pl	URL do wyÅ›wietlenia
 the url to redirect to	sitemgr	pl	URL do przekierowania
-the web	sitemgr	pl	sieæ WWW
-the website has changed. too see the change, follow this url: $url.	sitemgr	pl	Srona zosta³a zmieniona. Aby zobaczyæ zmiany, id¼ do URL: $URL.
-the whole page	sitemgr	pl	ca³a strona
+the web	sitemgr	pl	sieÄ‡ WWW
+the website has changed. too see the change, follow this url: $url.	sitemgr	pl	Srona zostaÅ‚a zmieniona. Aby zobaczyÄ‡ zmiany, idÅº do URL: $URL.
+the whole page	sitemgr	pl	caÅ‚a strona
 the xml files' common name	sitemgr	pl	Nazwa pliku XML
-theme or template select	sitemgr	pl	Wybór szablonu lub tematu
-there are %1 elements in the list.	sitemgr	pl	W li¶cie jest %1 elementów.
+theme or template select	sitemgr	pl	WybÃ³r szablonu lub tematu
+there are %1 elements in the list.	sitemgr	pl	W liÅ›cie jest %1 elementÃ³w.
 there are no categories	sitemgr	pl	Brak kategorii
-there are no forums in this category	sitemgr	pl	Nie ma ¿adnego forum w tej kategorii
+there are no forums in this category	sitemgr	pl	Nie ma Å¼adnego forum w tej kategorii
 there are no pages in this section	sitemgr	pl	Brak stron w tej sekcji
-there are no properties defined for this module	sitemgr	pl	Brak ustawieñ dla tego modu³u
-there are no sections available to you.	sitemgr	pl	Brak sekcji, które móg³by¶ zobaczyæ.
-there are two subdirectories off of your sitemgr directory that you should move before you do anything else.  you don't <i>have</i> to move either of these directories, although you will probably want to.	sitemgr	pl	Istniej± dwa katalogi w katalog sitemgr, o których powinienie¶ pomy¶leæ zanim cokolwiek zrobisz. Nie <em> musisz</em> ich ich kopiowaæ, chocia¿ pewnie bêdziesz chcia³.
-there can only be one version in (pre(un))published state, with the one exeption that one prepublished version can coexist with one preunpublished version	sitemgr	pl	Mo¿e byæ tylko jedna strona w stanie nieopublikowana/przed_opublikowniem, poza przypadkiem kiedy jedna wersja przed_opublikowaniem mo¿e istnieæ jednocze¶nie z wersj± nieopublikowani±.
+there are no properties defined for this module	sitemgr	pl	Brak ustawieÅ„ dla tego moduÅ‚u
+there are no sections available to you.	sitemgr	pl	Brak sekcji, ktÃ³re mÃ³gÅ‚byÅ› zobaczyÄ‡.
+there are two subdirectories off of your sitemgr directory that you should move before you do anything else.  you don't <i>have</i> to move either of these directories, although you will probably want to.	sitemgr	pl	IstniejÄ… dwa katalogi w katalog sitemgr, o ktÃ³rych powinienieÅ› pomyÅ›leÄ‡ zanim cokolwiek zrobisz. Nie <em> musisz</em> ich ich kopiowaÄ‡, chociaÅ¼ pewnie bÄ™dziesz chciaÅ‚.
+there can only be one version in (pre(un))published state, with the one exeption that one prepublished version can coexist with one preunpublished version	sitemgr	pl	MoÅ¼e byÄ‡ tylko jedna strona w stanie nieopublikowana/przed_opublikowniem, poza przypadkiem kiedy jedna wersja przed_opublikowaniem moÅ¼e istnieÄ‡ jednoczeÅ›nie z wersjÄ… nieopublikowaniÄ….
 there is no website configured for url %1.  notify the administrator.	sitemgr	pl	NIE SKONFIGUROWANO STRONY  DLA URL %1. POWIADOM ADMINISTRATORA.
-there is nothing to list.	sitemgr	pl	Nie ma czego pokazaæ.
-there was an error accessing the requested page. either you do not have permission to view this page, or the page does not exist.	common	pl	Podczas dostêpu do wybranej strony powsta³ b³±d. Albo nie masz uprawnieñ do dostêpu do tej strony, albo strona nie istnieje.
-there was an error writing to the database.	sitemgr	pl	Podczas zapisu do bazy danych zaistnia³ problem.
-this block displays a javascript based tree menu	sitemgr	pl	Ten blok wy¶wietla drzewko stron (JavaScript)
-this block displays the current section's table of contents	sitemgr	pl	Ten blok wy¶wietla spis tre¶ci obecnej sekcji
+there is nothing to list.	sitemgr	pl	Nie ma czego pokazaÄ‡.
+there was an error accessing the requested page. either you do not have permission to view this page, or the page does not exist.	common	pl	Podczas dostÄ™pu do wybranej strony powstaÅ‚ bÅ‚Ä…d. Albo nie masz uprawnieÅ„ do dostÄ™pu do tej strony, albo strona nie istnieje.
+there was an error writing to the database.	sitemgr	pl	Podczas zapisu do bazy danych zaistniaÅ‚ problem.
+this block displays a javascript based tree menu	sitemgr	pl	Ten blok wyÅ›wietla drzewko stron (JavaScript)
+this block displays the current section's table of contents	sitemgr	pl	Ten blok wyÅ›wietla spis treÅ›ci obecnej sekcji
 this category has no pages.	sitemgr	pl	Ta kategoria nie ma zdefiniowanych stron
-this is a simple sample module	sitemgr	pl	To jest prosty przyk³ad modu³u
-this is only used as an internal name for the website.	sitemgr	pl	Ta nazwa bêdzie jedynie urzywana jako wewnêtrzna nazwa idetyfikacji strony internetowej.
-this is used chiefly for meta data and the title bar. if you change the site languages below you have to save before being able to set this preference for a new language.	sitemgr	pl	Jest to urzywane przede wszytskim dla meta-danych i paska tytu³u. Je¶li zmienisz pod spodem jêzyk strony, musisz najpierw zapisaæ zmiany. inaczej nie bêdziesz móg³ zmieniæ ustawieñ dla nowego jêzyka.
-this is used chiefly for meta data. if you change the site languages below you have to save before being able to set this preference for a new language.	sitemgr	pl	Jest to urzywane przede wszytskim dla meta-danych. Je¶li zmienisz pod spodem jêzyk strony, musisz najpierw zapisaæ zmiany. inaczej nie bêdziesz móg³ zmieniæ ustawieñ dla nowego jêzyka.
-this module create a link for downloading a file from the vfs	sitemgr	pl	Ten modu³ tworzy link do sci±gania pliku z VFS
-this module create a link for downloading a file(s) from the vfs	sitemgr	pl	Ten modu³ tworzy link do sci±gania pliku/plików z VFS
-this module demonstrates how handling data stored in xml and building an interacvite interface from it	sitemgr	pl	Ten modu³ demonstruje, jak obslugiwaæ dane zapisanem w XML'u i tworzy z nich interaktywny interfejs.
-this module displays a login form	sitemgr	pl	Ten modu³ wy¶wietla formularz logowania
-this module displays any kind of navigation element.	sitemgr	pl	Ten modu³ wy¶wietla elementy nawigacji.
-this module displays bookmarks in a javascript based tree	sitemgr	pl	Ten modu³ wy¶wietla zak³adki jako drzewko w JavaScript.
-this module displays the current month	sitemgr	pl	Ten modu³ wy¶wietla obecny miesi±c
-this module displays the egw forums on the web site	sitemgr	pl	Ten modu³ wy¶wietla fora eGW na stronie
-this module displays the root categories in one block each, with pages and subcategories (incl. their pages if activated).	sitemgr	pl	Ten modu³ wy¶wietla g³ówne kategorie na ka¿dej stronie (je¶li maj± aktywne strony).
-this module displays the root categories, its pages and evtl. subcategories. it is meant for side areas	sitemgr	pl	Ten modu³ wy¶wietla g³ówne kategorie i ewentualnie podkategorie obszarów stron.
-this module includes the contents of an url or file (readable by the webserver and in its docroot !)	sitemgr	pl	Ten modu³ do³ancza zawarto¶æ URLa lub pliku lokalnego (je¶li jest czytelny dla serwera www i le¿y w jego docroot!)
-this module is a customisable navigation element	sitemgr	pl	Ten modu³ jest elementem nawigacji z konfiguracj±
-this module is a selectbox to change the mode (production, draft or edit) plus a link back to sitemgr and to log out. it is meant for registered users only	sitemgr	pl	Ten modu³ pokazuje listê zmieniaj±c± wersjê (produkcyjna, robocza, edycja) z linkiem do SiteMgr i wylogowania zarejestrowanym urzytkownikom.
-this module is a simple html editor	sitemgr	pl	Ten modu³ to prosty edytor HTML
-this module lets the users choose a template or shows a template gallery	sitemgr	pl	Ten modu³ pozwala urzytkownikowi zmieniæ szablon lub zobaczyæ galeriê szablonów.
-this module lets users choose language	sitemgr	pl	Ten modu³ pozwala na wybór jêzyka przez u¿ytkownika
-this module lets you define pages that redirect to another url, if you use it, there should be no other block defined for the page	sitemgr	pl	Ten modu³ pozwala na definiowanie stron z przekierowaniami do innych URL'i. Je¶li zniego skorzystasz nie powiniene¶ dodawaæ innych bloków (bo i tak nie bêd± widoczne).
-this module lets you include an applet into the page.	sitemgr	pl	Ten modu³ pozwala na dodawanie apletów do strony.
-this module lets you show a given url inside an iframe in the page.	sitemgr	pl	Tym modu³em mo¿esz w³±czyæ podany URL jako IFRAME do swojej strony.
-this module permits browsing through xml files stored in a directory, and transformed by xslt	sitemgr	pl	Ten modu³ pozwala na przegl±danie plików XML zapisanych w jakim¶ katalogu i transformowanych przez XSLT.
-this module provides a complete table of contents, it is automatically used by the toc and category_id get parameters	sitemgr	pl	Ten modu³ tworzy ca³kowity spis tre¶ci. Jest on urzywany przez toc i parametry category_id zapytañ HTTP typu GET.
-this module provides a condensed table of contents, meant for side areas	sitemgr	pl	Ten modu³ zawiera skondensowany spis tre¶ci dla pojedzñczych obszarów strony.
-this module provides the path to the element currently shown	sitemgr	pl	Ten modu³ zawiera ¶cie¿kê do obecnego elementu (znane jako breadcrumbs)
-this module provides the site index, it is automatically used by the index get parameter	sitemgr	pl	Ten modu³ tworzy indeks. Jest on urzywany przy parametrach zapytañ HTTP typu GET do indeksu.
-this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	sitemgr	pl	Ten modu³ publikuje nowo¶ci z news_admin na stronie WWW. Pamiêtaj aby ustawiæ odpowiednie uprawnienia do odczytu w aplikacji news_admin.
-this module show the status / percentage of the translation of egw	sitemgr	pl	Ten modu³ pokazuje procentowo stan t³umaczeñ eGW
-this must be an absolute directory location.  <b>no trailing slash</b>.	sitemgr	pl	Musi to byæ ¶cie¿ka absulutna. <strong>Bez koñcowego slesza</strong>.
-this should be a comma-separated list of language-codes.	sitemgr	pl	Powinna to byæ lista kodów jêzykowych dzielonych przecinkiem.
-this should be a page that is readable by everyone. if you leave this blank, the site index will be shown by default.	sitemgr	pl	Powinna byæ to strona z prawami do odczytu dla wszystkich. Je¶li pozostawisz j± pust±, zostanie pokazany indeks.
+this is a simple sample module	sitemgr	pl	To jest prosty przykÅ‚ad moduÅ‚u
+this is only used as an internal name for the website.	sitemgr	pl	Ta nazwa bÄ™dzie jedynie urzywana jako wewnÄ™trzna nazwa idetyfikacji strony internetowej.
+this is used chiefly for meta data and the title bar. if you change the site languages below you have to save before being able to set this preference for a new language.	sitemgr	pl	Jest to urzywane przede wszytskim dla meta-danych i paska tytuÅ‚u. JeÅ›li zmienisz pod spodem jÄ™zyk strony, musisz najpierw zapisaÄ‡ zmiany. inaczej nie bÄ™dziesz mÃ³gÅ‚ zmieniÄ‡ ustawieÅ„ dla nowego jÄ™zyka.
+this is used chiefly for meta data. if you change the site languages below you have to save before being able to set this preference for a new language.	sitemgr	pl	Jest to urzywane przede wszytskim dla meta-danych. JeÅ›li zmienisz pod spodem jÄ™zyk strony, musisz najpierw zapisaÄ‡ zmiany. inaczej nie bÄ™dziesz mÃ³gÅ‚ zmieniÄ‡ ustawieÅ„ dla nowego jÄ™zyka.
+this module create a link for downloading a file from the vfs	sitemgr	pl	Ten moduÅ‚ tworzy link do sciÄ…gania pliku z VFS
+this module create a link for downloading a file(s) from the vfs	sitemgr	pl	Ten moduÅ‚ tworzy link do sciÄ…gania pliku/plikÃ³w z VFS
+this module demonstrates how handling data stored in xml and building an interacvite interface from it	sitemgr	pl	Ten moduÅ‚ demonstruje, jak obslugiwaÄ‡ dane zapisanem w XML'u i tworzy z nich interaktywny interfejs.
+this module displays a login form	sitemgr	pl	Ten moduÅ‚ wyÅ›wietla formularz logowania
+this module displays any kind of navigation element.	sitemgr	pl	Ten moduÅ‚ wyÅ›wietla elementy nawigacji.
+this module displays bookmarks in a javascript based tree	sitemgr	pl	Ten moduÅ‚ wyÅ›wietla zakÅ‚adki jako drzewko w JavaScript.
+this module displays the current month	sitemgr	pl	Ten moduÅ‚ wyÅ›wietla obecny miesiÄ…c
+this module displays the egw forums on the web site	sitemgr	pl	Ten moduÅ‚ wyÅ›wietla fora eGW na stronie
+this module displays the root categories in one block each, with pages and subcategories (incl. their pages if activated).	sitemgr	pl	Ten moduÅ‚ wyÅ›wietla gÅ‚Ã³wne kategorie na kaÅ¼dej stronie (jeÅ›li majÄ… aktywne strony).
+this module displays the root categories, its pages and evtl. subcategories. it is meant for side areas	sitemgr	pl	Ten moduÅ‚ wyÅ›wietla gÅ‚Ã³wne kategorie i ewentualnie podkategorie obszarÃ³w stron.
+this module includes the contents of an url or file (readable by the webserver and in its docroot !)	sitemgr	pl	Ten moduÅ‚ doÅ‚ancza zawartoÅ›Ä‡ URLa lub pliku lokalnego (jeÅ›li jest czytelny dla serwera www i leÅ¼y w jego docroot!)
+this module is a customisable navigation element	sitemgr	pl	Ten moduÅ‚ jest elementem nawigacji z konfiguracjÄ…
+this module is a selectbox to change the mode (production, draft or edit) plus a link back to sitemgr and to log out. it is meant for registered users only	sitemgr	pl	Ten moduÅ‚ pokazuje listÄ™ zmieniajÄ…cÄ… wersjÄ™ (produkcyjna, robocza, edycja) z linkiem do SiteMgr i wylogowania zarejestrowanym urzytkownikom.
+this module is a simple html editor	sitemgr	pl	Ten moduÅ‚ to prosty edytor HTML
+this module lets the users choose a template or shows a template gallery	sitemgr	pl	Ten moduÅ‚ pozwala urzytkownikowi zmieniÄ‡ szablon lub zobaczyÄ‡ galeriÄ™ szablonÃ³w.
+this module lets users choose language	sitemgr	pl	Ten moduÅ‚ pozwala na wybÃ³r jÄ™zyka przez uÅ¼ytkownika
+this module lets you define pages that redirect to another url, if you use it, there should be no other block defined for the page	sitemgr	pl	Ten moduÅ‚ pozwala na definiowanie stron z przekierowaniami do innych URL'i. JeÅ›li zniego skorzystasz nie powinieneÅ› dodawaÄ‡ innych blokÃ³w (bo i tak nie bÄ™dÄ… widoczne).
+this module lets you include an applet into the page.	sitemgr	pl	Ten moduÅ‚ pozwala na dodawanie apletÃ³w do strony.
+this module lets you show a given url inside an iframe in the page.	sitemgr	pl	Tym moduÅ‚em moÅ¼esz wÅ‚Ä…czyÄ‡ podany URL jako IFRAME do swojej strony.
+this module permits browsing through xml files stored in a directory, and transformed by xslt	sitemgr	pl	Ten moduÅ‚ pozwala na przeglÄ…danie plikÃ³w XML zapisanych w jakimÅ› katalogu i transformowanych przez XSLT.
+this module provides a complete table of contents, it is automatically used by the toc and category_id get parameters	sitemgr	pl	Ten moduÅ‚ tworzy caÅ‚kowity spis treÅ›ci. Jest on urzywany przez toc i parametry category_id zapytaÅ„ HTTP typu GET.
+this module provides a condensed table of contents, meant for side areas	sitemgr	pl	Ten moduÅ‚ zawiera skondensowany spis treÅ›ci dla pojedzÅ„czych obszarÃ³w strony.
+this module provides the path to the element currently shown	sitemgr	pl	Ten moduÅ‚ zawiera Å›cieÅ¼kÄ™ do obecnego elementu (znane jako breadcrumbs)
+this module provides the site index, it is automatically used by the index get parameter	sitemgr	pl	Ten moduÅ‚ tworzy indeks. Jest on urzywany przy parametrach zapytaÅ„ HTTP typu GET do indeksu.
+this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	sitemgr	pl	Ten moduÅ‚ publikuje nowoÅ›ci z news_admin na stronie WWW. PamiÄ™taj aby ustawiÄ‡ odpowiednie uprawnienia do odczytu w aplikacji news_admin.
+this module show the status / percentage of the translation of egw	sitemgr	pl	Ten moduÅ‚ pokazuje procentowo stan tÅ‚umaczeÅ„ eGW
+this must be an absolute directory location.  <b>no trailing slash</b>.	sitemgr	pl	Musi to byÄ‡ Å›cieÅ¼ka absulutna. <strong>Bez koÅ„cowego slesza</strong>.
+this should be a comma-separated list of language-codes.	sitemgr	pl	Powinna to byÄ‡ lista kodÃ³w jÄ™zykowych dzielonych przecinkiem.
+this should be a page that is readable by everyone. if you leave this blank, the site index will be shown by default.	sitemgr	pl	Powinna byÄ‡ to strona z prawami do odczytu dla wszystkich. JeÅ›li pozostawisz jÄ… pustÄ…, zostanie pokazany indeks.
 this site	sitemgr	pl	ta strona
-title	sitemgr	pl	Tytu³
+title	sitemgr	pl	TytuÅ‚
 topic	sitemgr	pl	Temat
-translate	sitemgr	pl	Przet³umacz
-translate category	sitemgr	pl	Przet³umacz kategoriê
-translate page	sitemgr	pl	Przet³umacz stronê
-translate site-wide content blocks	sitemgr	pl	Przet³umacz tre¶æ
-translation manager	sitemgr	pl	Mened¿er t³umaczeñ
-translation status	sitemgr	pl	Stan t³umaczeñ
-unsubscribe	sitemgr	pl	Usuñ z  listy
-up to parent	sitemgr	pl	Do góry (do nadrzêdnego)
-up to table of contents	sitemgr	pl	Do góry (do spisu tre¶ci)
+translate	sitemgr	pl	PrzetÅ‚umacz
+translate category	sitemgr	pl	PrzetÅ‚umacz kategoriÄ™
+translate page	sitemgr	pl	PrzetÅ‚umacz stronÄ™
+translate site-wide content blocks	sitemgr	pl	PrzetÅ‚umacz treÅ›Ä‡
+translation manager	sitemgr	pl	MenedÅ¼er tÅ‚umaczeÅ„
+translation status	sitemgr	pl	Stan tÅ‚umaczeÅ„
+unsubscribe	sitemgr	pl	UsuÅ„ z  listy
+up to parent	sitemgr	pl	Do gÃ³ry (do nadrzÄ™dnego)
+up to table of contents	sitemgr	pl	Do gÃ³ry (do spisu treÅ›ci)
 update notification	sitemgr	pl	Powiadomienie o aktualizacji
 updating to new category system	sitemgr	pl	Uaktualniam do nowego systemu kategorii
-url of directory for uploads (images etc.)	sitemgr	pl	URL katalogu dla plików wysy³anych na serwer (obrazki etc)
-url pointing to the image-directory	sitemgr	pl	URL pokazuj±ce do katalogu obrazków
+url of directory for uploads (images etc.)	sitemgr	pl	URL katalogu dla plikÃ³w wysyÅ‚anych na serwer (obrazki etc)
+url pointing to the image-directory	sitemgr	pl	URL pokazujÄ…ce do katalogu obrazkÃ³w
 url to sitemgr-site	sitemgr	pl	URL do sitemgr-site
-use phpnuke themes instead of templates	sitemgr	pl	Urzywaj tematów phpNuke zamiast szablonów
-use this module for displaying book ads for the amazon web site	sitemgr	pl	Skorzystaj z tego modu³u, aby wy¶wietliæ ksi±¿ki dodane przez amazon
-use this module for displaying wiki-pages	sitemgr	pl	Ten modu³ wy¶wietla strony Wiki
+use phpnuke themes instead of templates	sitemgr	pl	Urzywaj tematÃ³w phpNuke zamiast szablonÃ³w
+use this module for displaying book ads for the amazon web site	sitemgr	pl	Skorzystaj z tego moduÅ‚u, aby wyÅ›wietliÄ‡ ksiÄ…Å¼ki dodane przez amazon
+use this module for displaying wiki-pages	sitemgr	pl	Ten moduÅ‚ wyÅ›wietla strony Wiki
 user name	sitemgr	pl	Nazwa urzytkownika
 validator	sitemgr	pl	Walidator
 vertical	sitemgr	pl	pionowo
-view administrative menu	sitemgr	pl	Poka¿ menue administracji
-view full index	sitemgr	pl	Poka¿ pe³ny index
-view generated site	sitemgr	pl	Poka¿ wygenerowan± stronê
-view template on this site	sitemgr	pl	Poka¿ szablon na tej stronie
-view threads	sitemgr	pl	Poka¿ tematy
+view administrative menu	sitemgr	pl	PokaÅ¼ menue administracji
+view full index	sitemgr	pl	PokaÅ¼ peÅ‚ny index
+view generated site	sitemgr	pl	PokaÅ¼ wygenerowanÄ… stronÄ™
+view template on this site	sitemgr	pl	PokaÅ¼ szablon na tej stronie
+view threads	sitemgr	pl	PokaÅ¼ tematy
 viewed	sitemgr	pl	pokazana
-web content manager	common	pl	SiteMgr Mened¿er Tre¶ci WWW
-web content manager administration	sitemgr	pl	Administracja menad¿era tre¶ci stron WWW
-web site manager	sitemgr	pl	Mened¿er Stron WWW
+web content manager	common	pl	SiteMgr MenedÅ¼er TreÅ›ci WWW
+web content manager administration	sitemgr	pl	Administracja menadÅ¼era treÅ›ci stron WWW
+web site manager	sitemgr	pl	MenedÅ¼er Stron WWW
 website	sitemgr	pl	Strona WWW
-week	sitemgr	pl	tydzieñ
-what do you want to do with existing translations of categories and pages for this language?	sitemgr	pl	Co chesz zrobiæ z istniej±cymi t³umaczeniami stron i kategorii?
-which application should be executed after login?	sitemgr	pl	Jak± aplikacjê wystartowaæ po zalogowaniu?
+week	sitemgr	pl	tydzieÅ„
+what do you want to do with existing translations of categories and pages for this language?	sitemgr	pl	Co chesz zrobiÄ‡ z istniejÄ…cymi tÅ‚umaczeniami stron i kategorii?
+which application should be executed after login?	sitemgr	pl	JakÄ… aplikacjÄ™ wystartowaÄ‡ po zalogowaniu?
 wiki	sitemgr	pl	Wiki
 wiki startpage	sitemgr	pl	Strona startowa wiki
-with which view should the module be displayed in the beginning?	sitemgr	pl	Z jakim wygl±dem ma byæ pokazywany ten modu³ na pocz±tku?
+with which view should the module be displayed in the beginning?	sitemgr	pl	Z jakim wyglÄ…dem ma byÄ‡ pokazywany ten moduÅ‚ na poczÄ…tku?
 write permission	sitemgr	pl	Prawa do zapisu
-xml browser	sitemgr	pl	Przegl±darka XML
-yes, please delete it	sitemgr	pl	Tak, proszê usuñ
-you are not entitled to change the scope of block %1 to cat %2 and page %3	sitemgr	pl	Nie masz uprawnieñ do zmiany zakresu wa¿no¶ci bloku %1 do kategorii %2 i strony %3
-you are not entitled to create module %1 on this scope	sitemgr	pl	Nie masz uprawnieñ do tworzenia modu³u %1 w tym zakresie wa¿no¶ci
-you are not entitled to edit block %1	sitemgr	pl	Nie masz uprawnieñ do edycji bloku %1
-you can choose the modules that can be used on the site. the first list is a sort of master list, that is consulted if you do not configure lists specific to contentareas or (sub)categories. then you can choose lists specific to each content area. in the category manager these lists can be overriden for each (sub)category.	sitemgr	pl	Mo¿esz wybraæ modu³y, które bêd± mog³y byæ urzywane na stronie WWW. Pierwsz± list± jest lista g³ówna (podstawowa). Bêdzie ona uwzglêdniana, je¶li nie skonfigurowa³e¶ specjalnych list dla obszarów i katalogów. Nastêpnie wybierz dla ka¿edgo obszaru listê modu³ów. W menad¿erze categorii te listy mog± byæ nadpisane dla ka¿ej podkategorii.
-you can either migrate them to a new language or delete them	sitemgr	pl	Nie masz uprawnieñ do przesuniêcia tego do innej wersji jêzykowej lub usuniêcia tego.
-you can override each content blocks default title. be aware that not in all content areas the block title will be visible.	sitemgr	pl	Mo¿esz usun±æ/nadpisaæ nazwy bloków zawarto¶ci. Pamiêtaj jednak, ¿e nie we wszystkich obszara zawarto¶ci nazwy bloków bêd± widoczne.
-you did not choose a module.	sitemgr	pl	Nie wybra³e¶ modu³u
-you do not have access to any content on this site.	sitemgr	pl	Nie masz praw dostêpu do zawarto¶ci tej strony.
-you do not have write permissions for any site categories.	sitemgr	pl	Nie masz uprawnieñ do zapisu w ¿adnej kategorii tej strony.
-you don't have permission to write in the category	sitemgr	pl	Nie masz uprawnieñ do zapisu dla kategorii
-you don't have permission to write to that category.	sitemgr	pl	Nie masz uprawnieñ do zapisu w tej kategorii.
-you failed to fill in one or more required fields.	sitemgr	pl	Nie wype³ni³e¶ jednego lub wiêcej z wymaganych pól
-you have no rights to view wiki content or the wiki is not installed at all !!!	sitemgr	pl	Nie masz uprawnieæ do ogl±dania zawarto¶ci wiki lub wogóle nie zanstalowano wiki !!!
-you may have deinstalled the used template '%1'. reinstall it or go to sitemgr --> configure website and select an other one.	sitemgr	pl	Usun±³e¶ urzywany szablon '%1'. Zainstaluj go ponownie, lub id¼ do mened¿era stron WWW --> konfiguruj stronê i wybierz inny.
-you must be an admin to edit categories.	sitemgr	pl	Musisz byæ administratoren, aby móc edytowaæ tê kategoriê
-you must be an admin to edit the site header and footer.	sitemgr	pl	Musisz byæ administratorem aby móc zmieniæ nag³ówek i stopkê.
-you must be an admin to manage module properties.	sitemgr	pl	Musisz byæ administratoren, aby móc zarz±daæ ustawieniami modu³ów.
-you must be an administrator to setup the site manager.	sitemgr	pl	Musisz byæ administratorem aby móc ustawiæ mened¿era stron.
-you removed one ore more languages from your site languages.	sitemgr	pl	Usun±³e¶ jeden lub wiêcej z jêzyków strony.
-your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr	pl	Administrator nie skonfigurowa³ jeszcze w menad¿erze stron WWW publicznego pokazywania tej strony. Skontaktuj siê z administratorem.
-your calendar	sitemgr	pl	Twój kalendarz
-your comment	sitemgr	pl	Twój komentarz
-your connection is not safe.	sitemgr	pl	Twoje po³±czenie nie jest bezpieczne (szyfrowane).
-your name	sitemgr	pl	Twoje Imê
+xml browser	sitemgr	pl	PrzeglÄ…darka XML
+yes, please delete it	sitemgr	pl	Tak, proszÄ™ usuÅ„
+you are not entitled to change the scope of block %1 to cat %2 and page %3	sitemgr	pl	Nie masz uprawnieÅ„ do zmiany zakresu waÅ¼noÅ›ci bloku %1 do kategorii %2 i strony %3
+you are not entitled to create module %1 on this scope	sitemgr	pl	Nie masz uprawnieÅ„ do tworzenia moduÅ‚u %1 w tym zakresie waÅ¼noÅ›ci
+you are not entitled to edit block %1	sitemgr	pl	Nie masz uprawnieÅ„ do edycji bloku %1
+you can choose the modules that can be used on the site. the first list is a sort of master list, that is consulted if you do not configure lists specific to contentareas or (sub)categories. then you can choose lists specific to each content area. in the category manager these lists can be overriden for each (sub)category.	sitemgr	pl	MoÅ¼esz wybraÄ‡ moduÅ‚y, ktÃ³re bÄ™dÄ… mogÅ‚y byÄ‡ urzywane na stronie WWW. PierwszÄ… listÄ… jest lista gÅ‚Ã³wna (podstawowa). BÄ™dzie ona uwzglÄ™dniana, jeÅ›li nie skonfigurowaÅ‚eÅ› specjalnych list dla obszarÃ³w i katalogÃ³w. NastÄ™pnie wybierz dla kaÅ¼edgo obszaru listÄ™ moduÅ‚Ã³w. W menadÅ¼erze categorii te listy mogÄ… byÄ‡ nadpisane dla kaÅ¼ej podkategorii.
+you can either migrate them to a new language or delete them	sitemgr	pl	Nie masz uprawnieÅ„ do przesuniÄ™cia tego do innej wersji jÄ™zykowej lub usuniÄ™cia tego.
+you can override each content blocks default title. be aware that not in all content areas the block title will be visible.	sitemgr	pl	MoÅ¼esz usunÄ…Ä‡/nadpisaÄ‡ nazwy blokÃ³w zawartoÅ›ci. PamiÄ™taj jednak, Å¼e nie we wszystkich obszara zawartoÅ›ci nazwy blokÃ³w bÄ™dÄ… widoczne.
+you did not choose a module.	sitemgr	pl	Nie wybraÅ‚eÅ› moduÅ‚u
+you do not have access to any content on this site.	sitemgr	pl	Nie masz praw dostÄ™pu do zawartoÅ›ci tej strony.
+you do not have write permissions for any site categories.	sitemgr	pl	Nie masz uprawnieÅ„ do zapisu w Å¼adnej kategorii tej strony.
+you don't have permission to write in the category	sitemgr	pl	Nie masz uprawnieÅ„ do zapisu dla kategorii
+you don't have permission to write to that category.	sitemgr	pl	Nie masz uprawnieÅ„ do zapisu w tej kategorii.
+you failed to fill in one or more required fields.	sitemgr	pl	Nie wypeÅ‚niÅ‚eÅ› jednego lub wiÄ™cej z wymaganych pÃ³l
+you have no rights to view wiki content or the wiki is not installed at all !!!	sitemgr	pl	Nie masz uprawnieÄ‡ do oglÄ…dania zawartoÅ›ci wiki lub wogÃ³le nie zanstalowano wiki !!!
+you may have deinstalled the used template '%1'. reinstall it or go to sitemgr --> configure website and select an other one.	sitemgr	pl	UsunÄ…Å‚eÅ› urzywany szablon '%1'. Zainstaluj go ponownie, lub idÅº do menedÅ¼era stron WWW --> konfiguruj stronÄ™ i wybierz inny.
+you must be an admin to edit categories.	sitemgr	pl	Musisz byÄ‡ administratoren, aby mÃ³c edytowaÄ‡ tÄ™ kategoriÄ™
+you must be an admin to edit the site header and footer.	sitemgr	pl	Musisz byÄ‡ administratorem aby mÃ³c zmieniÄ‡ nagÅ‚Ã³wek i stopkÄ™.
+you must be an admin to manage module properties.	sitemgr	pl	Musisz byÄ‡ administratoren, aby mÃ³c zarzÄ…daÄ‡ ustawieniami moduÅ‚Ã³w.
+you must be an administrator to setup the site manager.	sitemgr	pl	Musisz byÄ‡ administratorem aby mÃ³c ustawiÄ‡ menedÅ¼era stron.
+you removed one ore more languages from your site languages.	sitemgr	pl	UsunÄ…Å‚eÅ› jeden lub wiÄ™cej z jÄ™zykÃ³w strony.
+your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr	pl	Administrator nie skonfigurowaÅ‚ jeszcze w menadÅ¼erze stron WWW publicznego pokazywania tej strony. Skontaktuj siÄ™ z administratorem.
+your calendar	sitemgr	pl	TwÃ³j kalendarz
+your comment	sitemgr	pl	TwÃ³j komentarz
+your connection is not safe.	sitemgr	pl	Twoje poÅ‚Ä…czenie nie jest bezpieczne (szyfrowane).
+your name	sitemgr	pl	Twoje ImÄ™

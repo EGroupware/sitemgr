@@ -1,6 +1,6 @@
 %1 content manager	sitemgr	it	Gestione contenuti %1
 %1 module manager	sitemgr	it	Gestione moduli %1
-'%1' is no valid sitemgr-site directory !!!	sitemgr	it	'%1' non Ë una directory  di sito valida per sitemgr !!!
+'%1' is no valid sitemgr-site directory !!!	sitemgr	it	'%1' non √® una directory  di sito valida per sitemgr !!!
 (do not put spaces or punctuation in the name field.)	sitemgr	it	(Non mettere spazi o punteggiatura nel campo Nome.)
 (leave blank to allow insecure logins)	sitemgr	it	(lascia vuoto per permettere login insicuri)
 (only used in case of single file)	sitemgr	it	(usato solo in caso di singolo file)
@@ -8,7 +8,7 @@
 1 hour	sitemgr	it	1 Ora
 1 month	sitemgr	it	1 Mese
 1 week	sitemgr	it	1 Settimana
-<b>autoregistration is not enabled / configured in the registration app !!!</b><br>you need to do so, to get the autoregistration link working.	sitemgr	it	<b>L'autoregistrazione non Ë abilitata / configurata nell'applicazione Registrazione !!!</b><br>Devi farlo, perchÈ il link autoregistrazione funzioni.
+<b>autoregistration is not enabled / configured in the registration app !!!</b><br>you need to do so, to get the autoregistration link working.	sitemgr	it	<b>L'autoregistrazione non √® abilitata / configurata nell'applicazione Registrazione !!!</b><br>Devi farlo, perch√© il link autoregistrazione funzioni.
 <b>want more templates?</b><br />just download one from the template gallery at %1www.egroupware.org%2 or use a %3mambo open source%4 version 4.5 compatible template eg. from %5. unpack the downloaded template in your templates directory (%6).	sitemgr	it	<b>Vuoi altri template?</b><br />Basta scaricarli dalla galleria dei template a %1www.eGroupWare.org%2 o utilizza un template compatibile con %3Mambo Open Source%4 Version 4.5 es. da %5. Scompatta il template scaricato nella tua directory dei template (%6).
 a simple picture galery	sitemgr	it	Una semplice galleria di immagini
 actif	sitemgr	it	Attivo
@@ -23,7 +23,7 @@ add page	sitemgr	it	Aggiungi Pagina
 add page to category	sitemgr	it	Aggiungi pagina a categoria
 add website	sitemgr	it	Aggiungi Sito Web
 administration	sitemgr	it	Amministrazione
-administrative menu	sitemgr	it	Men˘ Amministrazione
+administrative menu	sitemgr	it	Men√π Amministrazione
 administrators	sitemgr	it	amministratori
 all categories	sitemgr	it	Tutte le categorie
 all forums in category %1	sitemgr	it	Tutti i forum nella categoria %1
@@ -39,8 +39,8 @@ anonymous user's password	sitemgr	it	Password utente anonimo
 anonymous user's username	sitemgr	it	Nomeutente utente anonimo
 applet	sitemgr	it	Applet
 application	sitemgr	it	Applicazione
-application '%1' is not installed !!!<br>please install it, to be able to use the block.	sitemgr	it	L'Applicazione '%1' non Ë installata !!!<br>Per favore installala, per potere usare il blocco.
-application sitemgr_module_guestbook must be installed as a egroupware application for this module to run	sitemgr	it	L'applicazione sitemgr_module_guestbook deve essere installata come applicazione eGroupWare perchÈ questo modulo funzioni
+application '%1' is not installed !!!<br>please install it, to be able to use the block.	sitemgr	it	L'Applicazione '%1' non √® installata !!!<br>Per favore installala, per potere usare il blocco.
+application sitemgr_module_guestbook must be installed as a egroupware application for this module to run	sitemgr	it	L'applicazione sitemgr_module_guestbook deve essere installata come applicazione eGroupWare perch√© questo modulo funzioni
 apply permissions also to subcategories?	sitemgr	it	Applica i permessi anche alle sottocategorie?
 archived	sitemgr	it	archiviato
 archived content	sitemgr	it	Contenuto archiviato
@@ -73,13 +73,13 @@ choose language	sitemgr	it	Scegli una lingua
 choose template	sitemgr	it	Scegli template
 choose the categories to display	sitemgr	it	Scegli le categorie da mostrare
 commit changes	sitemgr	it	Applica modifiche
-configure module properties	sitemgr	it	Configura propriet‡ modulo
+configure module properties	sitemgr	it	Configura propriet√† modulo
 done	sitemgr	it	Fatto
 downloaded	sitemgr	it	scaricato
 draft	sitemgr	it	bozza
-draft mode	sitemgr	it	Modalit‡ bozza
+draft mode	sitemgr	it	Modalit√† bozza
 edit category	sitemgr	it	Modifica Categoria
-edit mode	sitemgr	it	Modalit‡ modifica
+edit mode	sitemgr	it	Modalit√† modifica
 edit page	sitemgr	it	Modifica Pagina
 edit site	sitemgr	it	Modifica Sito
 edit website	sitemgr	it	Modifica Sito Web
@@ -106,7 +106,7 @@ subcategories	sitemgr	it	Sottocategorie
 subsections:	sitemgr	it	Sottosezioni:
 subtitle	sitemgr	it	Sottotitolo
 the whole page	sitemgr	it	la pagina intera
-there is nothing to list.	sitemgr	it	Non c'Ë niente da elencare.
+there is nothing to list.	sitemgr	it	Non c'√® niente da elencare.
 you must be an admin to edit categories.	sitemgr	it	Devi essere un amministratore per modificare le categorie.
 your calendar	sitemgr	it	La tua agenda
 your comment	sitemgr	it	Il tuo commento
