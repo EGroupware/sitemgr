@@ -76,7 +76,6 @@ deleting all data for %1	sitemgr	ca	Borrar todos los datos de %1
 discussions	sitemgr	ca	Discusiones
 display link to autoregistration below login form?	sitemgr	ca	¿Mostrar el enlace para registrarse automáticamente debajo del formulario?
 do you want to delete them?	sitemgr	ca	¿Desea borrarlos?
-do you want to publish a rss feed for this news category	sitemgr	ca	¿Desea publicar un contenido RSS para esta categoría de noticias?
 don't have an account?	sitemgr	ca	¿No tiene una cuenta?
 done	sitemgr	ca	Hecho
 downloaded	sitemgr	ca	descargado
@@ -91,6 +90,7 @@ edit properties of module %1 for %2 with scope %3	sitemgr	ca	Editar las propieda
 edit site header and footer	common	ca	Editar el encabezado y el pie del sitio
 edit this block	sitemgr	ca	Editar este bloque
 edit website	sitemgr	ca	Editar sitio web
+egw users	sitemgr	ca	usuarios de eGW
 enter a name	sitemgr	ca	Introduzca un nombre
 enter the block content here	sitemgr	ca	Introduzca aquí el contenido del bloque aquí
 enter the page content here	sitemgr	ca	Introduzca aquí el contenido de la página
@@ -98,8 +98,6 @@ error accessing page	common	ca	Error al acceder a la página
 everybody	sitemgr	ca	todo el mundo
 file contents	sitemgr	ca	Contenido del fichero
 file download	sitemgr	ca	Descarga del fichero
-file is not world readable	sitemgr	ca	El fichero no está accesible para todo el mundo
-filesystem path of the directory where the images are found (no trailing slash)	sitemgr	ca	Ruta del directorio a nivel de sistema donde están las imágenes (sin la barra "/" final)
 filesystem path of the directory where xml files are stored	sitemgr	ca	Ruta del directorio donde se almacenan los ficheros SML
 filesystem path to sitemgr-site directory	sitemgr	ca	Ruta en el sistema para el directorio del sitio del Administrador de sitios
 fill in permissions from parent category? if you check this, below values will be ignored	sitemgr	ca	¿Rellenar permisos con los de la categoría superior? Si marca esto, se ignorarán los valores de debajo.
@@ -134,7 +132,6 @@ login	sitemgr	ca	Inicio de sesión
 login name	sitemgr	ca	Nombre de usuario
 main content	sitemgr	ca	Contenido principal
 mains	sitemgr	ca	Principal
-maintainer	sitemgr	ca	Mantenido por
 manage archived content	sitemgr	ca	Administrar contenido archivado
 manage categories	sitemgr	ca	Administrar categorías
 manage categories and pages	sitemgr	ca	Administrar categorías y páginas
@@ -152,8 +149,6 @@ master list of permitted modules	sitemgr	ca	Lista principal de módulos permitid
 migrating data for %1 to %2	sitemgr	ca	Migrar datos para %1 a %2
 module %1 is not permitted in this context!	sitemgr	ca	El módulo %1 no está permitido en este contexto
 module manager	sitemgr	ca	Administrador de módulos
-module: %1, scope: %2, contentarea: %3	sitemgr	ca	Módulo: %1, ámbito: %2, área de contenido: %3
-more news	sitemgr	ca	Más noticias
 move block down (increase sort order)	sitemgr	ca	Mover bloque hacia abajo (incrementar el orden)
 move block up (decrease sort order)	sitemgr	ca	Mover bloque hacia arriba (decrementar el orden)
 move to	sitemgr	ca	Mover a
@@ -161,12 +156,10 @@ name	sitemgr	ca	Nombra
 name has been translated to lower case	sitemgr	ca	El nombre se ha traducido en minúsculas
 new application	sitemgr	ca	Nueva aplicación
 new sitemgr site	sitemgr	ca	Nuevo sitio web
-news module	sitemgr	ca	Módulo de noticias
 no anonymous user accounts installed.  notify the administrator.	sitemgr	ca	NO HAY INSTALADAS CUENTAS DE USUARIO ANONIMAS. NOTIFIQUELO AL ADMINISTRADOR.
 no content areas found in selected template	sitemgr	ca	No se encontraron áreas de contenido en la plantilla seleccionada
 no content found	sitemgr	ca	No se encontró contenido
 no groups defined.	sitemgr	ca	No hay grupos definidos.
-no matching news item	sitemgr	ca	No coincide ningún elemento de noticias
 no modules permitted for this content area/category	sitemgr	ca	No se permiten módulos para este área o categoría
 no options available.	sitemgr	ca	No hay opciones disponibles
 no pages available	sitemgr	ca	No hay páginas disponibles
@@ -177,7 +170,6 @@ no users defined.	sitemgr	ca	No hay usuarios definidos
 no websites defined	sitemgr	ca	No hay sitios web definidos
 not yet translated	sitemgr	ca	pendiente de traducir
 note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	ca	Puede que vea este mensaje si sus preferencias son incorrectas. Por ejemplo, si config.inc.php no está en el directorio especificado.
-number of news items to be displayed on page	sitemgr	ca	Número de elementos de noticias a mostrar en la página
 other websites	sitemgr	ca	Otros sitios web
 overview of all available categories	sitemgr	ca	Descripción de todas las categorías disponibles
 overview of one specific category	sitemgr	ca	Descripción de una categoría específica
@@ -193,7 +185,6 @@ pages	sitemgr	ca	Páginas
 parent	sitemgr	ca	Superior
 password	sitemgr	ca	Contraseña
 password that you assigned for the anonymous user account.	sitemgr	ca	Contraseña asignada al usuario anónimo
-egw users	sitemgr	ca	usuarios de eGW
 please enter a name for that site !	sitemgr	ca	Por favor, introduzca un nombre para ese sitio
 post a message to this thread	sitemgr	ca	Publicar un mensaje en esta conversación
 prepublished	sitemgr	ca	publicado previamente
@@ -228,7 +219,6 @@ selected theme %1 does not exist.	sitemgr	ca	El tema seleccionado %1 no existe.
 should the file be viewed in the browser or downloaded	sitemgr	ca	¿Mostrar el fichero o descargarlo?
 show site index	sitemgr	ca	Mostrar el índice del sitio
 site	sitemgr	ca	Sitio
-site %1 has been added	sitemgr	ca	El sitio %1 ha sido añadido
 site %1 has been updated	sitemgr	ca	El sitio %1 ha sido actualizado
 site administrators	sitemgr	ca	Administradores del sitio
 site description	sitemgr	ca	Descripción del sitio
@@ -254,18 +244,15 @@ table of contents	sitemgr	ca	Tabla de contenidos
 template select	sitemgr	ca	Selección de plantilla
 textarea	sitemgr	ca	Area de texto
 the category to display, 0 for complete table of contents	sitemgr	ca	La categoría a mostrar. 0 para toda la tabla de contenidos
-the complete path to the file to be included	sitemgr	ca	La ruta completa al fichero que hay que incluir
 the config.inc.php file needs to be edited to point to the egroupware directory. copy the config.inc.php.template file to config.inc.php and then edit it.	sitemgr	ca	El fichero config.inc.php necesita editarse para apuntar al fichero eGW. Copie el fichero de plantilla config.inc.php.template a config.inc.php y luego edítelo
 the file to be downloaded	sitemgr	ca	El fichero a descargar
 the first directory to think about is sitemgr-link.  if you move this to the parent directory of sitemgr (your egroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  if you don't want this icon, there's no reason to ever bother with the directory.	sitemgr	ca	El primer directorio en el que hay que pensar es <tt>sitemgr-link</tt>. Si lo mueve al directorio superior de <tt>sitemgr</tt> (el fichero raíz de la instalación) entonces puede usar <tt>setup</tt> para instalar la aplicación y todos los que tengan acceso a la aplicación tendrán un icono en su barra de navegación que está enlazada directamente al sitio web público. Si no quiere este icono, no hay razón para preocuparse de este directorio.
-the images' common name	sitemgr	ca	El nombre común de las imágenes
 the name field cannot contain punctuation or spaces (field modified).	sitemgr	ca	El campo Nombre no puede contener signos de puntuación ni espacios (campo modificado).
 the page name must be unique.	sitemgr	ca	El nombre de la página debe ser único
 the page was successfully saved.	sitemgr	ca	La página se guardó correctamente
 the path to the file to be downloaded	sitemgr	ca	La ruta al fichero que se va a descargar
 the person to say hello to	sitemgr	ca	La persona a la que saludar
 the second directory is the sitemgr-site directory.  this can be moved <i>anywhere</i>.  it can also be named <i>anything</i>.  wherever it winds up, when you point a web browser to it, you will get the generated website.  assuming, of course, that you've accurately completed the setup fields below and also <b><i>edited the config.inc.php</i></b> file.	sitemgr	ca	El segundo directorio es el directorio <tt>sitemgr-site</tt>. Se puede mover <i>a cualquier sitio</i>. También se puede llamar <i>de cualquier forma</i>. Donde se quede finalmente, cuando el navegador vaya ahí, obtendrá el sitio web generado. Asumiendo, por supuesto, que ha completado adecuadamente los pasos de configuracón previos y también <b><i>editado el fichero config.inc.php</i></b>.
-the text for the link, if empty the module returns the raw url (without the html a element)	sitemgr	ca	El texto para el enlace. Si está vacío, el módulo devuelve la URL (sin la etiqueta "A")
 the url can be relative or absolute.  name must end in a slash.	sitemgr	ca	La URL puede ser relativa o absoluta. El nombre debe acabar en una barra invertida ("/").
 the url must be absolute and end in a slash, for example http://mydomain.com/mysite/	sitemgr	ca	La URL debe ser abosluta y acabar en una barra invertida ("/"). Por ejemplo, http://midominio.com/mi_sitio/
 the url to redirect to	sitemgr	ca	La URL a la que redirigir
@@ -295,16 +282,13 @@ this module displays a login form	sitemgr	ca	Este módulo muestra un formulario 
 this module displays bookmarks in a javascript based tree	sitemgr	ca	Este módulo muestra los marcadores en forma de árbol mediante javascript
 this module displays the current month	sitemgr	ca	Este módulo muestra el mes actual.
 this module displays the egw forums on the web site	sitemgr	ca	Este módulo muestra los foros eGW en el sitio web
-this module includes the contents of a (world readable) file	sitemgr	ca	Este módulo incluye los contenidos de un fichero al que todo el mundo tiene acceso
 this module is a simple html editor	sitemgr	ca	Este módulo es un editor HTML sencillo
 this module lets users choose language	sitemgr	ca	Este módulo permite a los usuarios elegir idioma
 this module lets you define pages that redirect to another url, if you use it, there should be no other block defined for the page	sitemgr	ca	Este módulo permite definir páginas que redirigen a otra URL. Si lo usa, no debería haber otro bloque definido para la página.
 this module permits browsing through xml files stored in a directory, and transformed by xslt	sitemgr	ca	Este módulo permite navegar a través de los ficheros XML almacenados en un directorio, y transformados por XSLT
-this module presents a link back to the sitemgr's administration menu. it is meant for registered users	sitemgr	ca	Este módulo presenta un enlace para volver al menú de Administración de sitios web. Indicado para usuarios registrados.
 this module provides a complete table of contents, it is automatically used by the toc and category_id get parameters	sitemgr	ca	Este módulo proporciona una tabla de contenidos completa. Se usa automáticamente por los parámetros GET <tt>toc</tt> y <tt>category_id</tt>
 this module provides a condensed table of contents, meant for side areas	sitemgr	ca	Este módulo proporciona una tabla de contenidos condensada, indicada para áreas laterales
 this module provides the site index, it is automatically used by the index get parameter	sitemgr	ca	Este módulo proporciona el índice del sitio. Lo usa automáticamente el parámetro GET índice.
-this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	sitemgr	ca	Este módulo publica noticias la aplicación news_admin en su sitio web. Tenga precaución con las restricciones ACL de news_admin.
 this must be an absolute directory location.  <b>no trailing slash</b>.	sitemgr	ca	Esto debe ser una ubicación de directorio absoluta. <b>Sin barra invertida al final</b>.
 this should be a comma-separated list of language-codes.	sitemgr	ca	Esto debe ser una lista separada por comas de códigos de idioma.
 this should be a page that is readable by everyone. if you leave this blank, the site index will be shown by default.	sitemgr	ca	Esto debe ser una página que pueda ser leída por todo el mundo. Si deja esto en blanco, se mostrará el índice del sitio por defecto.
@@ -318,7 +302,6 @@ translation manager	sitemgr	ca	Administrador de traducciones
 up to parent	sitemgr	ca	Subir al directorio superior
 up to table of contents	sitemgr	ca	Subir a la tabla de contenidos
 updating to new category system	sitemgr	ca	Actualizando a sistema de nueva categoría
-url pointing to the directory where the images are found (no trailing slash)	sitemgr	ca	URL que apunta al directorio donde se encuentran las imágenes (sin barra invertida al final)
 url to sitemgr-site	sitemgr	ca	URL al directorio <tt>sitemgr-site</tt>
 use phpnuke themes instead of templates	sitemgr	ca	Usar temas de phpNuke en vez de plantillas
 use this module for displaying book ads for the amazon web site	sitemgr	ca	Usar este módulo para mostrar publicidad de libros de amazon
