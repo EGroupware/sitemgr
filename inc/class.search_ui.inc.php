@@ -38,7 +38,7 @@
 				   }	   
 				   
 				   
-			$res .= "<br><br>";
+			$res .= "</form><br><br>";
 			// Construct the result
 			if ($searched['matches'] == 0)
 			{
