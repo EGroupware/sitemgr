@@ -68,6 +68,7 @@ class module_search extends Module
 			$content .= "\n".'<input type="hidden" name="search_mode" value="'.$arguments['mode'].'">';
 			$content .= "\n".'<input type="hidden" name="search_options" value="'.$arguments['options'].'">';
 			$content .= "\n".'<input type="submit" name="search" value="'.lang('Go').'">';
+			$content .= "\n".'</form>'."\n";
 		}
 		else
 		{
