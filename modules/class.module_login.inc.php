@@ -47,7 +47,7 @@ class module_login extends Module
 		$installed_apps = array_flip($installed_apps);
 		$chooseable_apps = array(
 			false => lang('select one'),
-// 			'user' => lang('users choice')
+ 			'user' => lang('users choice')
 		);
 		foreach($installed_apps as $app => $lang_app)
 		{
@@ -64,6 +64,10 @@ class module_login extends Module
 		unset($chooseable_apps['registration']);
 		unset($chooseable_apps['skel']);
 		unset($chooseable_apps['smfbridge']);
+		unset($chooseable_apps['syncml']);
+		unset($chooseable_apps['notifications']);
+		unset($chooseable_apps['etemplate']);
+		unset($chooseable_apps['egw-pear']);
 		$this->arguments['login_dest']['options'] = $chooseable_apps;
 		
 		$config =& CreateObject('phpgwapi.config','registration');
@@ -118,7 +122,7 @@ class module_login extends Module
 					default :
 						$forward = '/'.$arguments['login_dest']; 
 				}
-				$content .= '<input type="hidden" name="phpgw_forward" value="'. $forward. '">'; 
+				if ($forward) $content .= '<input type="hidden" name="phpgw_forward" value="'. $forward. '">'; 
 				$content .= '<input type="submit" value="' . lang('Login') .'" name="submitit">';
 				$content .= '</font></center></form>';
 			}
