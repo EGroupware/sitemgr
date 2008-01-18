@@ -299,6 +299,7 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 			}
 			if ($GLOBALS['sitemgr_info']['mode'] == 'Edit' &&
 				is_object($this->edit_transformer) &&
+				$GLOBALS['Common_BO']->acl->can_write_category($page->cat_id) &&
 				method_exists($this->edit_transformer,'area_transform'))
 			{
 				return $cache[$areaname] = $this->edit_transformer->area_transform($areaname,$content,$page);
