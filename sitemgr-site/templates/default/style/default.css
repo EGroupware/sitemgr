@@ -127,3 +127,18 @@ This code would produce 100% complability with old module, but looks ugly in cas
 }
 .highlight { font-family: Verdana; color: red; font-weight: bold; }
 /*-----------------------------------------------*/
+/*| styles for tables -> addressbook module     |*/
+/*-----------------------------------------------*/
+.th { 
+	color: black; 
+	background-color: #D3DCE3; 
+}
+.row_on { 
+	color: black; 
+	background-color: #F1F1F1; 
+}
+.row_off { 
+	color: black; 
+	background-color: #ffffff; 
+}
+
