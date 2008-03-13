@@ -323,7 +323,7 @@
 					$arguments = array_merge($arguments, array(
 						'max_cat_depth' => '2',
 						'max_pages_depth' => '2',
-						'showhidden' => false,
+						'showhidden' => true,
 						'suppress_parent' => true,
 						'suppress_show_all' => true,
 						'suppress_cat_link' => true,
