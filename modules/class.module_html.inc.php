@@ -36,10 +36,6 @@
 				return $GLOBALS['egw']->strip_html($arguments['htmlcontent']);
 			}
 			// spamsaver emailaddress and activating the links
-			if (!is_object($GLOBALS['egw']->html))
-			{
-				$GLOBALS['egw']->html =& CreateObject('phpgwapi.html');
-			}
-			return $GLOBALS['egw']->html->activate_links($arguments['htmlcontent']);
+			return html::activate_links($arguments['htmlcontent']);
 		}
 	}

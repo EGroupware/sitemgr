@@ -241,12 +241,8 @@
 				if (!isset($label_sort)) $label_sort = create_function('$a,$b', 'return strcasecmp($a["label"],$b["label"]);');
 				uasort($options,$label_sort);
 			}
-			if (!is_object($GLOBALS['egw']->html))
-			{
-				$GLOBALS['egw']->html =& CreateObject('phpgwapi.html');
-			}
 			$method = $multiple > 0 ? 'checkbox_multiselect' : 'select';
-			return $GLOBALS['egw']->html->$method($name,$selected,$options,true,
+			return html::$method($name,$selected,$options,true,
 				$multiple < 0 ? ' style="width: 100%"' : '',$multiple);
 		}
 	}

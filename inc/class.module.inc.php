@@ -315,11 +315,7 @@ class Module
 		switch($input['type'])
 		{
 			case 'htmlarea':
-				if (!is_object($GLOBALS['egw']->html))
-				{
-					$GLOBALS['egw']->html =& CreateObject('phpgwapi.html');
-				}
-				return $GLOBALS['egw']->html->fckEditor($elementname,$default,
+				return html::fckEditor($elementname,$default,
 					$GLOBALS['egw_info']['user']['preferences']['sitemgr']['rtfEditorFeatures'],	// default is extended
 					null,'300px','100%',	// 300px to fit in the popup, one can use fitWindow to expand it
 					$GLOBALS['Common_BO']->sites->current_site['upload_dir']);

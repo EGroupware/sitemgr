@@ -70,12 +70,8 @@
 	* @param string format optional format for strftime
 	* @returns current date
 	*/
-	function mosCurrentDate( $format="" ) {
-		
-		if (!is_object($GLOBALS['egw']->datetime))
-		{
-			$GLOBALS['egw']->datetime =& CreateObject('phpgwapi.datetime');
-		}
+	function mosCurrentDate( $format="" )
+	{
 		$tz_offset_s = $GLOBALS['egw']->datetime->tz_offset;
 
 		if ($format=="") {

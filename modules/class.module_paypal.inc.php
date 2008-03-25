@@ -75,13 +75,8 @@ class module_paypal extends Module
 
 	function get_content(&$arguments,$properties) 
 	{
-		if (!is_object($GLOBALS['egw']->html))
-		{
-			require_once(EGW_API_INC.'/class.html.inc.php');
-			$GLOBALS['egw']->html =& new html;
-		}
 		return '<form method="POST" action="https://www.paypal.com/cgi-bin/webscr">'.
-			$GLOBALS['egw']->html->input_hidden(array(
+			html::input_hidden(array(
 				'cmd' => '_xclick',
 				'business' => $arguments['business'],
 				'item_name' => $arguments['item_name'],
@@ -94,10 +89,10 @@ class module_paypal extends Module
  				'bn' => 'IC_Sample',
 			)+(!$arguments['quantity'] ? array('undefined_quantity' => 1) : array())).
 			($arguments['button'] ? 
-				$GLOBALS['egw']->html->input('submit','','image',	// image button with url
+				html::input('submit','','image',	// image button with url
 					'src="'.htmlspecialchars($arguments['button']).'" title="'.htmlspecialchars($arguments['button_title']).'"'
 				) : 
-				$GLOBALS['egw']->html->input('submit',$arguments['button_title'],'submit')).	// text button
+				html::input('submit',$arguments['button_title'],'submit')).	// text button
 			"</form>\n";
 	}
 }

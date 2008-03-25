@@ -16,10 +16,6 @@ class edit_transform
 {
 	function edit_transform()
 	{
-		if (!is_object($GLOBALS['egw']->html))
-		{
-			$GLOBALS['egw']->html =& CreateObject('phpgwapi.html');
-		}
 		$this->modulebo = &$GLOBALS['Common_BO']->modules;
 		$this->content_ui =& CreateObject('sitemgr.Content_UI');
 	}
@@ -50,7 +46,7 @@ class edit_transform
 	function area_transform($contentarea,$content,$page)
 	{
 		$frame = '<div class="editContentarea"><div class="editIcons">';
-		//$frame .= $GLOBALS['egw']->html->image('sitemgr','question.button',
+		//$frame .= html::image('sitemgr','question.button',
 		//	lang('Contentarea').': '.$contentarea);
 		$frame .= '<span class="editIconText" title="'.lang('Contentarea').': '.$contentarea.'">'.$contentarea."</span>\n";
 

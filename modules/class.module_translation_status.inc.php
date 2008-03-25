@@ -30,11 +30,6 @@
 			$this->title = lang('Translation Status');
 			$this->description = lang('This module show the status / percentage of the translation of eGW');
 
-			if (!is_object($GLOBALS['egw']->html))
-			{
-				$GLOBALS['egw']->html =& CreateObject('phpgwapi.html');
-			}
-			$this->html =& $GLOBALS['egw']->html;
 			$this->db =& $GLOBALS['egw']->db;
 			
 			$this->lang_table = $GLOBALS['egw']->translation->lang_table;
@@ -125,12 +120,12 @@
 					}
 					$table[] = array(
 						'lang' => $this->try_lang($row['lang_name']).' ('.$row['lang'].')',
-						'percent' => $this->html->progressbar($percent,$percent.'%','','50px',$color,'8px'),
+						'percent' => html::progressbar($percent,$percent.'%','','50px',$color,'8px'),
 						'total'   => $row[count],
 						'details' => '<a href="'.$this->link(array('details'=>$row['lang'])).'" title="'.lang('Show details for the applications').'">('.lang('details').')</a>'
 					);
 				}
-				return $this->html->table($table,'cellspacing="5"');
+				return html::table($table,'cellspacing="5"');
 			}
 			$table[] = array(
 				'app'     => lang('Application'),
@@ -160,7 +155,7 @@
 				}
 				$table[] = array(
 					'app' => ($row['app_name'] == 'common' ? 'API' : $this->try_lang($row['app_name'])).' ('.$row['app_name'].')',
-					'percent' => $this->html->progressbar($percent,$percent.'%','','50px',$color,'8px'),
+					'percent' => html::progressbar($percent,$percent.'%','','50px',$color,'8px'),
 					'total'   => $row[count].' / '.$m
 				);
 			}
@@ -168,14 +163,14 @@
 			{
 				$table[] = array(
 					'app' => ($app == 'common' ? 'API' : $this->try_lang($app)).' ('.$app.')',
-					'percent' => $this->html->progressbar(0,'0.0%','','50px',$color,'8px'),
+					'percent' => html::progressbar(0,'0.0%','','50px',$color,'8px'),
 					'total'   => '0 / '.$m
 				);
 			}
 			$this->db->query("SELECT lang_name FROM $this->languages_table WHERE lang_id=".$this->db->quote($details),__FILE__,__LINE__);
 			$row = $this->db->row(True);
 			return '<h3>'.lang('Details for language %1 (%2)',$this->try_lang($row['lang_name']),$details)."</h3>\n".
-				$this->html->table($table,'cellspacing="5"').
+				html::table($table,'cellspacing="5"').
 				'<a href="'.$this->link().'">('.lang('Back to the list of languages').')</a>';
 		}
 	}

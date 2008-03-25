@@ -249,10 +249,6 @@
 
 			$GLOBALS['egw']->template->set_var($site);
 
-			if (!is_object($GLOBALS['egw']->uiaccountsel))
-			{
-				$GLOBALS['egw']->uiaccountsel =& CreateObject('phpgwapi.uiaccountsel');
-			}
 			$GLOBALS['egw']->template->set_var(array(
 				'site_anonuser'  => $GLOBALS['egw']->uiaccountsel->selection('site[anonuser]','anonuser',
 					$GLOBALS['egw']->accounts->name2id($site['anonymous_user'])),

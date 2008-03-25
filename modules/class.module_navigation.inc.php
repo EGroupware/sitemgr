@@ -218,10 +218,6 @@
 		
 		function get_user_interface()
 		{
-			if(!@is_object($GLOBALS['egw']->js))
-			{
-				$GLOBALS['egw']->js =& CreateObject('phpgwapi.javascript');
-			}
 			$GLOBALS['egw']->js->validate_file('tabs','tabs');
 				
 			// I know, this is ugly. If you find a better solution for this, please help!

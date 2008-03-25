@@ -336,11 +336,7 @@
 
 		function inputhtmlarea($name,$cols=80,$rows=5,$default='')
 		{
-			if (!is_object($GLOBALS['egw']->html))
-			{
-				$GLOBALS['egw']->html =& CreateObject('phpgwapi.html');
-			}
-			return $GLOBALS['egw']->html->htmlarea("pref[$name]",$default,'',$GLOBALS['Common_BO']->sites->current_site['site_url']);
+			return html::htmlarea("pref[$name]",$default,'',$GLOBALS['Common_BO']->sites->current_site['site_url']);
 		}
 
 		function inputCheck($name = '')
