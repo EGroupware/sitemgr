@@ -593,11 +593,7 @@
 				}
 				if (count($scopes) > 1)
 				{
-					if (!is_object($GLOBALS['egw']->html))
-					{
-						$GLOBALS['egw']->html =& CreateObject('phpgwapi.html');
-					}
-					return $GLOBALS['egw']->html->select('scope',array($scope),$scopes,True);
+					return html::select('scope',array($scope),$scopes,True);
 				}
 				else
 				{
