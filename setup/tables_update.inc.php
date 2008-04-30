@@ -63,10 +63,10 @@
 
 		// Finally, delete the categories table
 		//$GLOBALS['egw_setup']->oProc->DropTable('phpgw_sitemgr_categories');
-		
-		// Turns out that convert_to_phpgwapi() must be run under 
+
+		// Turns out that convert_to_phpgwapi() must be run under
 		// the normal phpgw environment and not the setup env.
-		// This upgrade routine has been moved to the main body 
+		// This upgrade routine has been moved to the main body
 		// of code.
 
 		return $setup_info['sitemgr']['currentver'];
@@ -100,10 +100,10 @@
 			array(
 				'fd' => array(
 					'page_id' => array('type' => 'auto', 'nullable' => false),
-					'lang' => array('type' => 'varchar', 'precision' => 2, 
+					'lang' => array('type' => 'varchar', 'precision' => 2,
 						'nullable' => false),
 					'title' => array('type' => 'varchar', 'precision' => 256),
-					'subtitle' => array('type' => 'varchar', 
+					'subtitle' => array('type' => 'varchar',
 						'precision' => 256),
 					'content' => array('type' => 'text')
 				),
@@ -118,10 +118,10 @@
 			array(
 				'fd' => array(
 					'cat_id' => array('type' => 'auto', 'nullable' => false),
-					'lang' => array('type' => 'varchar', 'precision' => 2, 
+					'lang' => array('type' => 'varchar', 'precision' => 2,
 						'nullable' => false),
 					'name' => array('type' => 'varchar', 'precision' => 100),
-					'description' => array('type' => 'varchar', 
+					'description' => array('type' => 'varchar',
 						'precision' => 256)
 				),
 				'pk' => array('cat_id','lang'),
@@ -146,10 +146,10 @@
 			$title = $GLOBALS['egw_setup']->oProc->f('title');
 			$subtitle = $GLOBALS['egw_setup']->oProc->f('subtitle');
 			$content =  $GLOBALS['egw_setup']->oProc->f('content');
-					
+
 			$db2->query("INSERT INTO phpgw_sitemgr_pages_lang (page_id, lang, title, subtitle, content) VALUES ($page_id, '$lang', '$title', '$subtitle', '$content')");
 		}
-		
+
 		$newtbldef = array(
 			'fd' => array(
 				'page_id' => array('type' => 'auto', 'nullable' => false),
@@ -199,7 +199,7 @@
 		$GLOBALS['egw_setup']->oProc->DropColumn('phpgw_sitemgr_pages',
 			$newtbldef,'content');
 
-		// try to set the sitelanguages preference. 
+		// try to set the sitelanguages preference.
 		// if it already exists do nothing
 		$db2->query("SELECT pref_id FROM phpgw_sitemgr_preferences WHERE name='sitelanguages'");
 		if ($db2->next_record())
@@ -210,10 +210,10 @@
 			$db2->query("INSERT INTO phpgw_sitemgr_preferences (name, value) VALUES ('sitelanguages', '$lang')");
 		}
 
-		//internationalize the names for site-name, header and footer 
+		//internationalize the names for site-name, header and footer
 		//preferences
 		$prefstochange = array('sitemgr-site-name','siteheader','sitefooter');
-		
+
 		foreach ($prefstochange as $oldprefname)
 		{
 			$newprefname = $oldprefname . '-' . $lang;
@@ -221,8 +221,8 @@
 			$db2->query("UPDATE phpgw_sitemgr_preferences SET name='$newprefname' where name='$oldprefname'");
 		}
 
-		return $setup_info['sitemgr']['currentver'];    
-	} 
+		return $setup_info['sitemgr']['currentver'];
+	}
 
 	$test[] = '0.9.14.004';
 	function sitemgr_upgrade0_9_14_004()
@@ -232,7 +232,7 @@
 
 		$GLOBALS['egw_setup']->oProc->RenameColumn('phpgw_sitemgr_blocks', 'position', 'pos');
 
-		return $setup_info['sitemgr']['currentver'];                             
+		return $setup_info['sitemgr']['currentver'];
 	}
 
 	$test[] = '0.9.14.005';
@@ -249,7 +249,7 @@
 			'actif', array('type' => 'int', 'precision' => 2));
 		return $setup_info['sitemgr']['currentver'];
 	}
-	
+
 	$test[] = '0.9.14.006';
 	function sitemgr_upgrade0_9_14_006()
 	{
@@ -316,8 +316,8 @@
 			'fd' => array(
 				// area __PAGE__ stands for all areas
 				'area' => array('type' => 'varchar', 'precision' => 50, 'nullable' => false),
-				// cat_id 0 stands for site wide 
-				'cat_id' => array('type' => 'int', 'precision' => 4, 'nullable' => false), 
+				// cat_id 0 stands for site wide
+				'cat_id' => array('type' => 'int', 'precision' => 4, 'nullable' => false),
 				'module_id' => array('type' => 'int', 'precision' => 4, 'nullable' => false),
 				'properties' => array('type' => 'text')
 			),
@@ -383,7 +383,7 @@
 
 		$GLOBALS['egw_setup']->oProc->RenameColumn('phpgw_sitemgr_content', 'view', 'viewable');
 
-		return $setup_info['sitemgr']['currentver'];                             
+		return $setup_info['sitemgr']['currentver'];
 	}
 
 	$test[] = '0.9.15.002';
@@ -406,7 +406,7 @@
 
 		$GLOBALS['egw_setup']->oProc->DropColumn('phpgw_sitemgr_modules',$newtbldef,'app_name');
 
-		return $setup_info['sitemgr']['currentver'];                             
+		return $setup_info['sitemgr']['currentver'];
 	}
 
 	$test[] = '0.9.15.003';
@@ -496,7 +496,7 @@
 				{
 					$header_lang = $db2->f('value');
 					$content = $db2->db_addslashes(serialize(array('htmlcontent' => stripslashes($header_lang))));
-		
+
 					$db2->query("INSERT INTO phpgw_sitemgr_content_lang (block_id,lang,arguments_lang,title) VALUES ($headerblock,'$lang','$content','Site header')",__LINE__,__FILE__);
 				}
 				$db2->query("SELECT value from phpgw_sitemgr_preferences WHERE name = 'sitefooter-$lang'");
@@ -504,7 +504,7 @@
 				{
 					$footer_lang = $db2->f('value');
 					$content = $db2->db_addslashes(serialize(array('htmlcontent' => stripslashes($footer_lang))));
-				
+
 					$db2->query("INSERT INTO phpgw_sitemgr_content_lang (block_id,lang,arguments_lang,title) VALUES ($footerblock,'$lang','$content','Site footer')",__LINE__,__FILE__);
 				}
 			}
@@ -525,7 +525,7 @@
 		//Create the field state for pages and categories and give all existing pages and categories published state (2)
 		$GLOBALS['egw_setup']->oProc->AddColumn('phpgw_sitemgr_pages',
 			'state',array('type'=>int, 'precision'=>2));
-	
+
 		$GLOBALS['egw_setup']->oProc->query("UPDATE phpgw_sitemgr_pages SET state = 2");
 
 		$GLOBALS['egw_setup']->oProc->CreateTable('phpgw_sitemgr_categories_state',array(
@@ -749,8 +749,8 @@
 		$GLOBALS['setup_info']['sitemgr']['currentver'] = '1.0.0';
 		return $GLOBALS['setup_info']['sitemgr']['currentver'];
 	}
-	
-	
+
+
 	$test[] = '0.9.15.010';
 	function sitemgr_upgrade0_9_15_010()
 	{
@@ -759,7 +759,7 @@
 		$GLOBALS['setup_info']['sitemgr']['currentver'] = '1.0.0';
 		return $GLOBALS['setup_info']['sitemgr']['currentver'];
 	}
-	
+
 	$test[] = '1.0.0';
 	function sitemgr_upgrade1_0_0()
 	{
@@ -843,11 +843,11 @@
 	{
 		// this update replaces diverse old navigation modules with conny's new "navigation" module
 		$modules2nav_type = array('currentsection' => 1,'index' => 2,'index_block' => 3,'navigation' => 4,'sitetree' => 5,'toc' => 6,'toc_block' => 7);
-		
+
 		$db = clone($GLOBALS['egw_setup']->db);
 		$db->set_app('sitemgr');
 		$db2 = clone($db);
-		
+
 		// get the module_id of all navigation modules and remove the old modules
 		$db->select('egw_sitemgr_modules','module_id,module_name',array('module_name' => array_keys($modules2nav_type)),__LINE__,__FILE__);
 		$id2module = $old_modules = array();
@@ -860,10 +860,10 @@
 			}
 		}
 		$db->delete('egw_sitemgr_modules',array('module_id' => $old_modules),__LINE__,__FILE__);
-		
+
 		// check if navigation is already registered, if not register it
-		
-		if (!($navigation_id = array_search('navigation',$id2module)))	
+
+		if (!($navigation_id = array_search('navigation',$id2module)))
 		{
 			if (ereg('\$this->description = lang\(\'([^'."\n".']*)\'\);',implode("\n",file(EGW_SERVER_ROOT.'/sitemgr/modules/class.module_navigation.inc.php')),$parts))
 			{
@@ -883,7 +883,7 @@
 			$db2->insert('egw_sitemgr_active_modules',array(),$row,__LINE__,__FILE__);
 		}
 		$db->delete('egw_sitemgr_active_modules',array('module_id' => $old_modules),__LINE__,__FILE__);
-		
+
 		// replace old modules in the blocks with the navigation module
 		$db->select('egw_sitemgr_blocks','block_id,module_id',array('module_id' => array_keys($id2module)),__LINE__,__FILE__);
 		$block_id2module_id = array();
@@ -909,13 +909,13 @@
 		$GLOBALS['setup_info']['sitemgr']['currentver'] = '1.2';
 		return $GLOBALS['setup_info']['sitemgr']['currentver'];
 	}
-	
+
 	$test[] = '1.2';
 	function sitemgr_upgrade1_2()
 	{
 		// replace news module with news_admin module
 		$GLOBALS['egw_setup']->db->update('egw_sitemgr_modules',array('module_name' => 'news_admin'),array('module_name' => 'news'),__LINE__,__FILE__);
-		
+
 		$GLOBALS['setup_info']['sitemgr']['currentver'] = '1.3.001';
 		return $GLOBALS['setup_info']['sitemgr']['currentver'];
 	}
@@ -925,13 +925,13 @@
 	{
 		$db = clone($GLOBALS['egw_setup']->db);
 		$db->set_app('sitemgr');
-		
+
 		// insert the search module into the module table
 		$db->insert('egw_sitemgr_modules',array(
 			'module_name' => 'search',
 			'description' => 'This module search throw the content (Page title/description and html content)',
 		),false,__LINE__,__FILE__);
-		$search_id = $db->get_last_insert_id('egw_sitemgr_modules','module_id');		
+		$search_id = $db->get_last_insert_id('egw_sitemgr_modules','module_id');
 
 		// insert in the active_module table the search module (all areas are permited)
 		foreach(array('left','right','header','footer','__PAGE__') as $area)
@@ -940,20 +940,20 @@
 				'area' => $area,
 				'cat_id' => 2,
 				'module_id' => $search_id,
-			),false,__LINE__,__FILE__);			
-		}		
+			),false,__LINE__,__FILE__);
+		}
 
 		$GLOBALS['setup_info']['sitemgr']['currentver'] = '1.3.002';
 		return $GLOBALS['setup_info']['sitemgr']['currentver'];
 	}
-	
+
 
 	$test[] = '1.3.002';
 	function sitemgr_upgrade1_3_002()
 	{
 		return $GLOBALS['setup_info']['sitemgr']['currentver'] = '1.4';
 	}
-	
+
 	$test[] = '1.4';
 	function sitemgr_upgrade1_4()
 	{
@@ -963,20 +963,41 @@
 			'nullable' => False,
 			'default' => 'all'
 		));
-		
+
 		$GLOBALS['egw_setup']->oProc->AlterColumn('egw_sitemgr_notify_messages','language',array(
 			'type' => 'varchar',
 			'precision' => '5',
-		));		
-		
+		));
+
 		return $GLOBALS['setup_info']['sitemgr']['currentver'] = '1.5.001';
 	}
-	
+
 	$test[] = '1.4.002';
 	function sitemgr_upgrade1_4_002()
 	{
 		// duno why, but the stable 1.4 branch uses 1.4.002 for what's called 1.5.001 in trunk
 		return $GLOBALS['setup_info']['sitemgr']['currentver'] = '1.5.001';
 	}
-	
-?>
+
+	$test[] = '1.5.001';
+	function sitemgr_upgrade1_5_001()
+	{
+		// convert htmlcontent value of serialized array in arguments_lang (used by the html block) into just that
+		// (unserialzied) string in that (unserialized) column,
+		// to easy the conversation from iso-... --> utf-8 (all serialized content with non-ascii chars get lost!)
+		foreach($GLOBALS['egw_setup']->db->select('egw_sitemgr_content_lang','*',false,__LINE__,__FILE__,false,'','sitemgr') as $row)
+		{
+			if ($row['arguments_lang'] && ($arr = unserialize($row['arguments_lang'])) !== false &&
+				is_array($arr) && count($arr) == 1 && isset($arr['htmlcontent']))
+			{
+				$row['arguments_lang'] = $arr['htmlcontent'];
+				$GLOBALS['egw_setup']->db->update('egw_sitemgr_content_lang',array(
+					'arguments_lang' => $row['arguments_lang'],
+				),array(
+					'version_id' => $row['version_id'],
+					'lang' => $row['lang'],
+				),__LINE__,__FILE__,'sitemgr');
+			}
+		}
+		return $GLOBALS['setup_info']['sitemgr']['currentver'] = '1.5.002';
+	}

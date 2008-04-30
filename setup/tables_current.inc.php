@@ -114,7 +114,7 @@
 			'fd' => array(
 				'version_id' => array('type' => 'int','precision' => '4','nullable' => False),
 				'lang' => array('type' => 'varchar','precision' => '5','nullable' => False),
-				'arguments_lang' => array('type' => 'text')
+				'arguments_lang' => array('type' => 'text'),
 			),
 			'pk' => array('version_id','lang'),
 			'fk' => array(),

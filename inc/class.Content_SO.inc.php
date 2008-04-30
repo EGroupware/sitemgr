@@ -17,7 +17,12 @@
 
 	class Content_SO
 	{
-		var $db;  /* @var $db db */
+		/**
+		 * Clone of the global db-object
+		 *
+		 * @var egw_db
+		 */
+		var $db;
 		// Name of the differnt tables, initialised in the constructor
 		var $content_table,$content_lang_table,$blocks_table,$blocks_lang_table,$modules_table,$modules_lang_table;
 
@@ -26,7 +31,7 @@
 		 */
 		function Content_SO()
 		{
-			$this->db = clone($GLOBALS['egw']->db); 
+			$this->db = clone($GLOBALS['egw']->db);
 			$this->db->set_app('sitemgr');
 			foreach(array('content','content_lang','blocks','blocks_lang','modules','modules_lang') as $name)
 			{
@@ -109,7 +114,7 @@
 		function getblockidforversion($versionid)
 		{
 			$this->db->select($this->content_table,'block_id',array('version_id'=>$versionid),__LINE__,__FILE__);
-			
+
 			return $this->db->next_record() ? $this->db->f('block_id') : false;
 		}
 
@@ -154,7 +159,7 @@
 		 * Retrives all blocks for a given content-area, cat-list, page and language
 		 * @param string $area name of content-area
 		 * @param array $cat_list array of cat-ids
-		 * @param int $page_id page-id or 0 for eg. an index-page 
+		 * @param int $page_id page-id or 0 for eg. an index-page
 		 * @param string $lang 2-char language id
 		 * @return array of block-objects
 		 */
@@ -169,7 +174,7 @@
 					'area' => $area,
 					'('
 				));
-				
+
 			$cat_list[] = CURRENT_SITE_ID;  // always included
 			$sql .= $this->db->expression($this->block_table,array(
 				'page_id' => 0,
@@ -210,6 +215,28 @@
 			return $result;
 		}
 
+		/**
+		 * Merge the serialized arrays of arguments and arguments_lang, taking into account
+		 * that in case of htmlcontent arguments_lang contain just that and no serialized array
+		 *
+		 * @param string $args
+		 * @param string $args_lang
+		 * @return array
+		 */
+		private function merge_arguments_lang($args,$args_lang)
+		{
+			$args = (array) unserialize($args);
+
+			if (($arr = unserialize($args_lang)) !== false)	// is a serialized value (we dont use serialize(false)!)
+			{
+				$args_lang = (array) $arr;
+			}
+			else
+			{
+				$args_lang = array('htmlcontent' => $args_lang);
+			}
+			return array_merge($args,$args_lang);
+		}
 
 		/**
 		* Retrives all content-versions for a given block and language
@@ -228,15 +255,12 @@
 			$this->db->query($sql,__LINE__,__FILE__);
 
 			$result = array();
-			while ($this->db->next_record())
+			while (($row = $this->db->row(true)))
 			{
-				$version['arguments'] = array_merge(
-					(array) unserialize($this->db->f('arguments')),
-					(array) unserialize($this->db->f('arguments_lang'))
-				);
-				$version['state'] = $this->db->f('state');
-				$version['id'] = $this->db->f('version_id');
-				
+				$version['arguments'] = self::merge_arguments_lang($row['arguments'],$row['arguments_lang']);
+				$version['state'] = $row['state'];
+				$version['id'] = $row['version_id'];
+
 				$result[$version['id']] = $version;
 			}
 			return $result;
@@ -264,7 +288,7 @@
 			while (($row = $this->db->row(true)))
 			{
 				//in cnt we retrieve the numbers of versions that are commitable for a block,
-				//i.e. if there are more than one, it should normally be a prepublished version 
+				//i.e. if there are more than one, it should normally be a prepublished version
 				//that will replace a preunpublished version
 				$result[$row['id']] =& new Block_SO($row);
 			}
@@ -293,8 +317,8 @@
 			}
 			$cat_list[] = CURRENT_SITE_ID;  // always included
 
-			$sql = "SELECT t1.block_id AS id,area,cat_id,page_id,t1.module_id,module_name,state,version_id AS version,sort_order,viewable AS view " . 
-				"FROM $this->blocks_table AS t1,$this->modules_table AS t2,$this->content_table AS t3 " . 
+			$sql = "SELECT t1.block_id AS id,area,cat_id,page_id,t1.module_id,module_name,state,version_id AS version,sort_order,viewable AS view " .
+				"FROM $this->blocks_table AS t1,$this->modules_table AS t2,$this->content_table AS t3 " .
 				"WHERE t1.module_id = t2.module_id AND t1.block_id=t3.block_id AND ".
 				$this->db->expression($this->blocks_table,array(
 					'area' => $area,
@@ -314,7 +338,7 @@
 				)) . ' AND '.$this->db->expression($this->content_table,array(
 					'state'    => $GLOBALS['Common_BO']->visiblestates
 				)) . ' ORDER BY sort_order';
-			
+
 			$this->db->query($sql,__LINE__,__FILE__);
 
 			$result = array();
@@ -335,7 +359,7 @@
 			$this->db->select($this->blocks_lang_table,'lang',array(
 				'block_id' => $block_id
 			),__LINE__,__FILE__);
-			
+
 			$retval = array();
 			while ($this->db->next_record())
 			{
@@ -348,13 +372,13 @@
 		 * Retrives the availible languages for a blocks content-version
 		 * @param int $version_id version-id
 		 * @return array of 2-char language id's
-		 */    
+		 */
 		function getlangarrayforversion($version_id)
 		{
 			$this->db->select($this->content_lang_table,'lang',array(
 				'version_id' => $version_id
 			),__LINE__,__FILE__);
-			
+
 			$retval = array();
 			while ($this->db->next_record())
 			{
@@ -379,11 +403,8 @@
 			$this->db->query($sql,__LINE__,__FILE__);
 			if ($this->db->next_record())
 			{
-				 return $lang ? 
-					array_merge(
-						(array) unserialize($this->db->f('arguments')),
-						(array) unserialize($this->db->f('arguments_lang')) 
-					) : 
+				 return $lang ?
+					self::merge_arguments_lang($this->db->f('arguments'),$this->db->f('arguments_lang')) :
 					unserialize($this->db->f('arguments'));
 			}
 			return false;
@@ -403,7 +424,7 @@
 				" LEFT JOIN $this->modules_table as t2 ON t1.module_id=t2.module_id".
 				" LEFT JOIN $this->blocks_lang_table AS t3 ON (t1.block_id=t3.block_id AND t3.lang=$lang)".
 				" WHERE t1.block_id=".(int)$block_id;
-			
+
 			$this->db->query($sql,__LINE__,__FILE__);
 
 			if (($row = $this->db->row(true)))
@@ -444,7 +465,7 @@
 			if ($lang) $cols['lang'] = $lang;
 
 			$this->db->select($this->blocks_lang_table,'title',$cols,__LINE__,__FILE__);
-				
+
 			return $this->db->next_record() ? $this->db->f('title') : false;
 		}
 
@@ -453,12 +474,12 @@
 			$cols = array('block_id' => $block_id);
 
 			$this->db->select($this->content_table,'state',$cols,__LINE__,__FILE__);
-				
+
 			return $this->db->next_record() ? $this->db->f('title') : false;
 		}
 
 		/**
-		 * Save block-data: sort-order and by whom viewable 
+		 * Save block-data: sort-order and by whom viewable
 		 * @param object $block block-object
 		 * @return boolean true on success, false otherwise
 		 */
@@ -513,7 +534,7 @@
 		 * Save block-state
 		 * @param int $block_id block-id
 		 * @param int $version_id version-id
-		 * @param int $state state 
+		 * @param int $state state
 		 * @return boolean true on success, false otherwise
 		 */
 		function saveversionstate($block_id,$version_id,$state)
@@ -528,6 +549,8 @@
 
 		/**
 		 * Save block-data: the language dependent versionised of block-content
+		 * If $data contains only a value for key htmlcontent, we store that value and not a serialized version of $data
+		 *
 		 * @param int $version_id version-id
 		 * @param array $data array of language-dependent versionised block-content/arguments
 		 * @param string $lang 2-char language id
@@ -541,7 +564,7 @@
 				$this->remove_magic_quotes($data);
 			}
 			return $this->db->insert($this->content_lang_table,array(
-					'arguments_lang' => serialize($data)
+					'arguments_lang' => count($data) == 1 && isset($data['htmlcontent']) ? $data['htmlcontent'] : serialize($data)
 				),array(
 					'version_id'  => $version_id,
 					'lang'      => $lang,
