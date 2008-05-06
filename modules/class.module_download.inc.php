@@ -14,42 +14,42 @@
 
 /* $Id$ */
 
-class module_download extends Module 
+class module_download extends Module
 {
-	function module_download() 
+	function module_download()
 	{
 		$this->arguments = array (
 			'format' => array (
-				'type'  => 'select', 
-				'label' => lang('Choose a format'), 
+				'type'  => 'select',
+				'label' => lang('Choose a format'),
 				'options' => array (
-					'file' => lang('Single file download'), 
-					'dir' => lang('Show contents of a directory'), 
+					'file' => lang('Single file download'),
+					'dir' => lang('Show contents of a directory'),
 					'dirnsub' => lang('Show contents of a directory with subdirectories'),
 				),
-			), 
+			),
 			'showpath' => array (
-				'type' => 'checkbox', 
+				'type' => 'checkbox',
 				'label' => lang('show path?'),
-			), 
+			),
 			'path' => array (
-				'type' => 'textfield', 
+				'type' => 'textfield',
 				'label' => lang('The path to the file to be downloaded'),
-			), 
+			),
 			'file' => array (
-				'type' => 'textfield', 
+				'type' => 'textfield',
 				'label' => lang('The file to be downloaded').' '.lang('(only used in case of single file)'),
-			), 
+			),
 			'text' => array (
-				'type' => 'textfield', 
+				'type' => 'textfield',
 				'label' => lang('The text for the link, if empty the module returns the raw URL (without a link)').' '.
 					lang('(only used in case of single file)'),
-			), 
+			),
 			'op' => array (
-				'type' => 'select', 
-				'label' => lang('Should the file be viewed in the browser or downloaded'), 
+				'type' => 'select',
+				'label' => lang('Should the file be viewed in the browser or downloaded'),
 				'options' => array (
-					1 => lang('viewed'), 
+					1 => lang('viewed'),
 					2 => lang('downloaded'),
 				),
 			),
@@ -62,24 +62,26 @@ class module_download extends Module
 		$this->description = lang('This module create a link for downloading a file(s) from the VFS');
 	}
 
-	function get_content(&$arguments, $properties) 
+	function get_content(&$arguments, $properties)
 	{
-		if ($arguments['op'] == 2) 
+		if ($arguments['op'] == 2)
 		{
 			$linkdata['download'] = 1;
 		}
-		if (substr($arguments['path'],-1) == '/') 
+		if (substr($arguments['path'],-1) == '/')
 		{
 			$arguments['path'] = substr($arguments['path'], 0, -1);
 		}
 		$linkdata['path'] = rawurlencode(base64_encode($arguments['path']));
 		$linkdata['menuaction'] = 'filemanager.uifilemanager.view';
 
-		switch ($arguments['format']) 
+		switch ($arguments['format'])
 		{
 			case 'dirnsub' :
 				if ($arguments['subdir']) {
 					$arguments['path'] = $arguments['path'].'/'.$arguments['subdir'];
+					// Need to update $linkdata['path'] with subdir
+					$linkdata['path'] = rawurlencode(base64_encode($arguments['path']));
 				}
 				if ($arguments['showpath']) {
 					$out = lang('Path').': '.$arguments['path'].'<hr>';
@@ -88,8 +90,8 @@ class module_download extends Module
 			case 'dir' :
 				$this->vfs =& Createobject('phpgwapi.vfs');
 				$data = array (
-					'string' => $arguments['path'], 
-					'relatives' => array (RELATIVE_ROOT), 
+					'string' => $arguments['path'],
+					'relatives' => array (RELATIVE_ROOT),
 					'checksubdirs' => false,
 					//'mime'	=> ,
 					'nofiles' => false,
@@ -107,26 +109,26 @@ class module_download extends Module
 						</tr>
 						<tr><td height="1px" colspan="6"><hr></td></tr>';
 
-				if ($arguments['subdir'] && $arguments['format'] == 'dirnsub') 
+				if ($arguments['subdir'] && $arguments['format'] == 'dirnsub')
 				{
 					$out .= '<tr>
 							<td>..</td>
-							<td><a href="'.$this->link(array ('subdir' => strrchr($arguments['subdir'], '/') ? 
+							<td><a href="'.$this->link(array ('subdir' => strrchr($arguments['subdir'], '/') ?
 								substr($arguments['subdir'], 0, strlen($arguments['subdir']) - strlen(strrchr($arguments['subdir'], '/'))) :
 								 false)).'">'.lang('parent directory').'</a>
 							</td><td></td><td></td><td></td><td></td>
 						</tr>';
 				}
 
-				foreach ($ls_dir as $num => $file) 
+				foreach ($ls_dir as $num => $file)
 				{
-					if ($file['mime_type'] == 'Directory') 
+					if ($file['mime_type'] == 'Directory')
 					{
-						if ($arguments['format'] == 'dirnsub') 
+						if ($arguments['format'] == 'dirnsub')
 						{
 							$out .= '<tr>
 									<td>'.$this->mime_icon($file['mime_type']).'</td>
-									<td><a href="'.$this->link(array ('subdir' => $arguments['subdir'] ? 
+									<td><a href="'.$this->link(array ('subdir' => $arguments['subdir'] ?
 										$arguments['subdir'].'/'.$file['name'] : $file['name'])).'">'.$file['name'].'</a>
 									</td>
 									<td>'.$file['comment'].'</td>
@@ -139,7 +141,7 @@ class module_download extends Module
 					}
 				}
 
-				foreach ($ls_dir as $num => $file) 
+				foreach ($ls_dir as $num => $file)
 				{
 					$linkdata['file'] = rawurlencode(base64_encode($file['name']));
 					$out .= '<tr>
@@ -162,7 +164,7 @@ class module_download extends Module
 		}
 	}
 
-	function mime_icon($mime_type, $size = 16) 
+	function mime_icon($mime_type, $size = 16)
 	{
 		if (!$mime_type) $mime_type = 'unknown';
 		$mime_type = str_replace('/', '_', $mime_type);
