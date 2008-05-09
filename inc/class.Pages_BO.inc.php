@@ -49,7 +49,7 @@
 
 		function getPageIDList($cat_id=0,$states=false)
 		{
-			return $this->so->getPageIDList($cat_id,$states); 
+			return $this->so->getPageIDList($cat_id,$states);
 		}
 
 		function addPage($cat_id)
@@ -127,7 +127,7 @@
 		{
 			$oldpage = $this->getpage($page_Info->id);
 
-			if(!($GLOBALS['Common_BO']->acl->can_write_category($page_Info->cat_id) && 
+			if(!($GLOBALS['Common_BO']->acl->can_write_category($page_Info->cat_id) &&
 				$GLOBALS['Common_BO']->acl->can_write_category($oldpage->cat_id)))
 			{
 				return lang("You don't have permission to write to that category.");
@@ -197,12 +197,12 @@
 			if (empty($cat_id)||(state<0)) {
 				$pso=CreateObject("sitemgr.Pages_SO");
 				$pg=$pso->getPage($page_id);
-				$cat_id=$pg->$cat_id;
+				$cat_id=$pg->cat_id;
 				$state=$pg->state;
 			}
-			
+
 			$bo=CreateObject("sitemgr.bonotifications");
-			$bo->notify_users($GLOBALS['Common_BO']->sites->current_site['site_id'], 
+			$bo->notify_users($GLOBALS['Common_BO']->sites->current_site['site_id'],
 				$cat_id,
 				$state,
 				$lang,
