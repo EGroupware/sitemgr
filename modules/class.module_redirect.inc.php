@@ -11,7 +11,7 @@
 
 	/* $Id$ */
 
-class module_redirect extends Module 
+class module_redirect extends Module
 {
 	function module_redirect()
 	{
@@ -26,10 +26,11 @@ class module_redirect extends Module
 		$this->description = lang('This module lets you define pages that redirect to another URL, if you use it, there should be no other block defined for the page');
 	}
 
-	function get_content(&$arguments,$properties) 
+	function get_content(&$arguments,$properties)
 	{
 		if ($GLOBALS['sitemgr_info']['mode'] != 'Edit')
 		{
+			ob_end_clean();		// for mos templates, stop the output buffering
 			$GLOBALS['egw']->redirect($arguments['URL']);
 		}
 		else
