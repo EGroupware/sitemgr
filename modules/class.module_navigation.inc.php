@@ -46,18 +46,18 @@
 	 *
 	 * @author Cornelius Weiss<egw@von-und-zu-weiss.de>
 	 * @package sitemgr
-	 * 
+	 *
 	 */
 	class module_navigation extends Module
 	{
 		var $lastcatdepth = 0;
 		var $lastpagedepth = 0;
-		
+
 		function module_navigation()
 		{
 			$this->arguments = array(
 				'nav_type' => array(
-					'type' => 'select', 
+					'type' => 'select',
 					'label' => lang('Select type of Navigation'),
 					'options' => array(
 						0 => lang('Select one'),
@@ -72,7 +72,7 @@
 						9 => lang('custom'),
 					   10 => 'tabs',
 					)
-				)	
+				)
 			);
 			$this->nav_args = array(
 				1 => array( // Currentsection
@@ -126,7 +126,7 @@
 				6 => array( // Toc
 					'description' => lang('This module provides a complete table of contents, it is automatically used by the toc and category_id GET parameters'),
 					'category_id' =>array(
-						'type' => 'textfield', 
+						'type' => 'textfield',
 						'label' => lang('The category to display, 0 for complete table of contents')
 					)),
 				7 => array( // Toc_block
@@ -215,11 +215,11 @@
 			$this->title = 'Navigation element';
 			$this->description = lang("This module displays any kind of navigation element.");
 		}
-		
+
 		function get_user_interface()
 		{
 			$GLOBALS['egw']->js->validate_file('tabs','tabs');
-				
+
 			// I know, this is ugly. If you find a better solution for this, please help!
 			$interface[] = array(
 				'label' => "
@@ -236,20 +236,20 @@
 			$this->arguments['nav_type']['params'] = array(
 				'onchange' => 'javascript:tab.display(this.value)'
 			);
-			
+
 			$elementname = 'element[' . $this->block->version . '][nav_type]';
 			$interface[] = array(
 				'label' => '<b>'.$this->arguments['nav_type']['label'].'</b>'.
 					parent::build_input_element($this->arguments['nav_type'],$this->block->arguments['nav_type'],$elementname)
 			);
-			
+
 			// build the tab elements
 			$tabs = '';
 			for($id = 1; $id < count($this->arguments['nav_type']['options']); $id++)
 			{
 				$description = $this->nav_args[$id]['description'];
 				unset($this->nav_args[$id]['description']);
-				
+
 				$tmpargs = $this->arguments;
 				$this->arguments = $this->nav_args[$id];
 				$tabs .= '<div id="tabcontent'. $id. '" class="inactivetab"><table>';
@@ -269,7 +269,7 @@
 				$this->arguments = $tmpargs;
 			}
 			$interface[] = array('label' => $tabs);
-			
+
 			// show current tab
 			$interface[] = array(
 				'label' => "
@@ -280,7 +280,7 @@
 
 			return $interface;
 		}
-		
+
 		// strip options from other nav_types
 		function validate(&$data)
 		{
@@ -292,7 +292,7 @@
 			$data = $val_data;
 			return true;
 		}
-		
+
 		function get_content(&$arguments,$properties)
 		{
 			$out =  "<!-- navigation-context begins here -->\n".
@@ -360,7 +360,7 @@
 							'max_cat_depth' => '10',
 							'max_pages_depth' => '0',
 							'no_full_index' => true,
-							
+
 						));
 					}
 					// like currentsection of a certain cat
@@ -389,7 +389,7 @@
 				case 8 : // Path
 					if(!$arguments['no_show_sep'])
 					{
-						$out .= "path\">\n";	
+						$out .= "path\">\n";
 					}
 					else
 					{
@@ -402,11 +402,11 @@
 						'no_full_index' => true,
 					));
 					break;
-					
+
 				case 9 : // Custom
 					$out .= "custom\" ";
-					$out .= "class=\"alignment-". $arguments['alignment']."\" ";
-					$out .= "class=\"textalign-". $arguments['textalign']."\"";
+					$out .= "class=\"alignment-". $arguments['alignment'].";";
+					$out .= "textalign-". $arguments['textalign']."\"";
 					$out .= ">\n";
 					break;
 				case 10 : // tabs
@@ -421,11 +421,11 @@
 					$out .= "  </div>\n<!-- navigation context ends here -->\n</div>\n";
 					return $out;
 			}
-				
+
 			$this->objbo =& $GLOBALS['objbo'];
 			$this->page =& $GLOBALS['page'];
 			$this->category =& $this->objbo->getcatwrapper($this->page->cat_id);
-			
+
 			if (!$arguments['suppress_parent'])
 			{
 				$parent = $this->category->parent;
@@ -438,7 +438,7 @@
 					$out .= "\n<br />\n";
 				}
 			}
-			
+
 			if($arguments['show_subcats_above'])
 			{
 				$catlinks = $arguments['category_id'] ?
@@ -452,26 +452,26 @@
 						$this->encapsulate($arguments,$catlinks,'cat',(int)$this->page->cat_id);
 					$out .= "\n<br />\n";
 				}
-				
+
 			}
-			
+
 			if($arguments['nav_title'])
 			{
 				$out .= "\n<span class=\"nav-title\">".$arguments['nav_title']."</span>\n";
 			}
-			
+
 			if (!$arguments['suppress_show_all'])
 			{
 				$out .= ' (<a href="'.sitemgr_link2('/index.php','category_id='.$this->page->cat_id).
 					'"><i>'.lang('show all').'</i></a>)'."\n";
 			}
-			
+
 			// relative cat or pages depth ?
 			if (strpos($arguments['max_cat_depth'],'+') === 0) (int)$arguments['max_cat_depth'] += $this->category->depth;
 			if (strpos($arguments['max_pages_depth'],'+') === 0) (int)$arguments['max_pages_depth'] += $this->category->depth;
-			
+
 			$cat_tree = $cat_tree_data = array('root');
-			
+
 			$this->lastcatdepth = 0; // indicate start of first cat block!
 			foreach(($this->objbo->getCatLinks(0,true,true) + array( 0 => array('depth' => 0))) as $cat_id => $cat)
 			{
@@ -501,7 +501,7 @@
 							$cat_tree_data[$num]['pages_only'] = true;
 						}
 					}
-					
+
 					//expand rest
 					$cat_tree = array_reverse($cat_tree); $cat_tree_data = array_reverse($cat_tree_data);
 					$outstack = array($cat_tree[count($cat_tree) -1]); $outstack_data = array($cat_tree_data[count($cat_tree) -1]);
@@ -526,7 +526,7 @@
 					}
 					continue;
 				}
-				
+
 				if($arguments['path_only'])
 				{
 					if($cat_id != $this->page->cat_id) continue;
@@ -536,7 +536,7 @@
 					$out .= $this->encapsulate($arguments,$cat_tree_data,'cat',$cat_id);
 					break;
 				}
-				
+
  				if($arguments['current_section_only'] && array_search($this->page->cat_id,$cat_tree) === false) continue;
 				if((int)$arguments['category_id'] > 0 && (int)$arguments['category_id'] != $cat_id) continue;
 				if(! empty($arguments['main_cats_to_include'])) {
@@ -544,11 +544,11 @@
 					$test = array_intersect($main_cats_to_include,$cat_tree);
 					if (empty($test)) continue;
 				}
-				
+
 //  			_debug_array($cat_tree);
 				if($cat['depth'] <= $arguments['max_cat_depth'])
 				{
-					if(!($arguments['suppress_current_cat'] && $this->page->cat_id == $cat_id) && 
+					if(!($arguments['suppress_current_cat'] && $this->page->cat_id == $cat_id) &&
 						!($arguments['suppress_main_cats'] && $cat['depth'] == 1))
 					{
 						if($arguments['suppress_cat_link'])
@@ -564,7 +564,7 @@
 					if($arguments['suppress_current_page']) unset($pages[$this->page->id]);
 					$out .= $this->encapsulate($arguments,$pages,'page',$cat_id,$cat['depth'] +1);
 				}
-				
+
 			}
 			if (!$arguments['no_full_index'])
 			{
@@ -576,12 +576,12 @@
 			$out .= "  </div>\n<!-- navigation context ends here -->\n</div>\n";
 			return $out;
 		}
-		
+
 		/**
 		 * encapsulates navigation elements
 		 *
 		 * @param $arguments of module.
-		 * @param $data 
+		 * @param $data
 		 * @param $type string 'cat' or 'page'
 		 * @param $cat_id of cat itselve or of cat page belongs to.
 		 * @param $depth logical deps of cat or page.
@@ -605,17 +605,17 @@
 						}
 					}
 					$this->lastcatdepth = $depth;
-					
+
 					// marker to end last block
 					if ($depth == 0) return $out;
-					
+
 					//$out .= "  <!-- NAV CAT BLOCK OF DEPTH ". $depth. " STARTS HERE-->\n";
 					$out .= "  <div class=\"nav-cat-block blockdepth-".$depth. ($this->page->cat_id == $cat_id ? ' active' : ' inactive'). "\">\n";
 				}
-			}			
+			}
 			$out .= "    <div class=\"nav-".$type."-entry depth-".$depth."\">\n";
 			$out .= "      <ul>\n";
-			
+
 			if (is_array($data))
 			foreach($data as $id => $entry)
 			{
@@ -632,30 +632,30 @@
 
 				$out .= "        <li>\n";
 				$out .= "          ".$entry['link']."\n";
-				
+
 				if($arguments['show_edit_icons'])
 				{
 					$out .= "<span class=\"nav-edit-icons\">";
-					$out .= $type == 'cat' ? 
+					$out .= $type == 'cat' ?
 						$this->objbo->getEditIconsCat($id) :
 						$this->objbo->getEditIconsPage($id,$cat_id);
 					$out .= "</span>\n";
 				}
- 				
+
 				if(($arguments['show_cat_description'] && $type == 'cat') || ($arguments['show_page_description'] && $type == 'page'))
 				{
 					$out .= "<span class=\"nav-".$type."-description\">";
 					$out .= $type =='cat' ? $entry['description'] : $entry['subtitle'];
 					$out .= "</span>\n";
 				}
-				
+
 				$out .= "        </li>\n";
 			}
 			$out .= "      </ul>\n";
 			$out .= "    </div>\n";
 			return $out;
 		}
-		
+
 
 		function type_navigation(&$arguments,$properties)
 		{
@@ -677,7 +677,7 @@
 			$this->template->set_block('cat_block','level1');
 			$this->template->set_block('cat_block','level2');
 			$this->template->set_block('cat_block','block_end');
-			
+
 			$last_cat_id = 0;
 			foreach($index_pages as $ipage)
 			{
@@ -707,7 +707,7 @@
 					}
 				}
 				$last_cat_id = $ipage['cat_id'];
-				
+
 				// show the pages of the active cat or first-level pages
 				if ($ipage['page_id'] && ($ipage['cat_id'] == $page->cat_id || $ipage['catdepth'] == 1))
 				{
@@ -722,7 +722,7 @@
 			}
 			return $content;
 		}
-		
+
 		function type_sitetree(&$arguments,$properties)
 		{
 			$title = '';
@@ -735,21 +735,21 @@
 				$this->expandedcats = Array();
 			}
 			$topcats = $GLOBALS['objbo']->getCatLinks(0,False);
-	
+
 			$content = "<script type='text/javascript'>
 				// the whole thing only works in a DOM capable browser or IE 4*/
-				
+
 				function add(catid)
 				{
 					document.cookie = 'block[" . $this->block->id . "][menutree][' + catid + ']=';
-				}	
-				
+				}
+
 				function remove(catid)
 				{
 					var now = new Date();
 					document.cookie = 'block[" . $this->block->id . "][menutree][' + catid + ']=; expires=' + now.toGMTString();
 				}
-				
+
 				function toggle(image, catid)
 				{
 					if (document.getElementById)
@@ -760,7 +760,7 @@
 					{
 						return;
 					}
-				
+
 					if (styleObj.style.display == 'none')
 					{
 						add(catid);
@@ -775,14 +775,14 @@
 					}
 				}
 				</script>";
-				
+
 			if (count($topcats)==0)
 			{
 				$content=lang('You do not have access to any content on this site.');
 			}
 			else
 			{
-				$content .= "\n" . 
+				$content .= "\n" .
 					'<table border="0" cellspacing="0" cellpadding="0" width="100%">' .
 					$this->showcat($topcats) .
 					'</table>' .
@@ -791,7 +791,7 @@
 			}
 			return $content;
 		}
-		
+
 		/**
 		 * provides tabs like on egroupware.org
 		 *
@@ -805,13 +805,13 @@
 			$tab_links = explode(',',$_arguments['tab_links']);
 			foreach (explode(',',$_arguments['tab_active']) as $num => $active)
 			{
-				
+
 				$current = false;
 				foreach (explode(':',$active) as $item)
 				{
 					if (!is_numeric($item) && $GLOBALS['page']->name == $item) $current = true;
 					elseif($GLOBALS['page']->cat_id == $item) $current = true;
-					
+
 					if ($current) break;
 				}
 				$out .= '      <li'. ($current ? ' id="current"' : ''). '>';
@@ -820,7 +820,7 @@
 			$out .= "    </ul>\n";
 			return $out;
 		}
-		
+
 		function showcat($cats)
 		{
 			foreach($cats as $cat_id => $cat)
@@ -829,19 +829,19 @@
 				$childrenandself = array_keys($GLOBALS['objbo']->getCatLinks($cat_id));
 				$childrenandself[] = $cat_id;
 				$catcolour = in_array($GLOBALS['page']->cat_id,$childrenandself) ? "red" : "black";
-				$tree .= "\n" . 
-					'<tr><td width="10%">' . 
+				$tree .= "\n" .
+					'<tr><td width="10%">' .
 					'<img src="images/tree_' .
 					($status ? "collapse" : "expand") .
-					'.gif" onclick="toggle(this, \'' . 
-					$cat_id . 
+					'.gif" onclick="toggle(this, \'' .
+					$cat_id .
 					'\')"></td><td><b title="' .
 					$cat['description'] .
 					'" style="color:' .
 					$catcolour .
 					'">'.
-					$cat['name'] . 
-					'</b></td></tr>' . 
+					$cat['name'] .
+					'</b></td></tr>' .
 					"\n";
 				$subcats = $GLOBALS['objbo']->getCatLinks($cat_id,False);
 				$pages = $GLOBALS['objbo']->getPageLinks($cat_id);
@@ -858,18 +858,18 @@
 						//we abuse the subtitle in a nonstandard way: we want it to serve as a *short title* that is displayed
 						//in the tree menu, so that we can have long titles on the page that would not be nice in the tree menu
 						$title = $page['subtitle'] ? $page['subtitle'] : $page['title'];
-						$tree .= '<tr><td colspan="2">' . 
-							(($page_id == $GLOBALS['page']->id) ? 
+						$tree .= '<tr><td colspan="2">' .
+							(($page_id == $GLOBALS['page']->id) ?
 								('<span style="color:red">' . $title . '</span>') :
 								('<a href="' . sitemgr_link('page_name='. $page['name']) . '">' . $title . '</a>')
-							) . 
+							) .
 							'</td></tr>';
 					}
 					if ($subcats)
 					{
 						$tree .= $this->showcat($subcats);
 					}
-	
+
 					$tree .= '</table></td></tr>';
 				}
 			}
