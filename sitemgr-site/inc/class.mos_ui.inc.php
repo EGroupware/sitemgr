@@ -16,7 +16,7 @@
 	{
 		global $objui;
 		return (int)$objui->t->count_blocks($contentarea);
-		
+
 	}
 
 	/**
@@ -46,7 +46,7 @@
 	{
 		echo $url;
 	}
-	
+
 	function mosShowHead()
 	{
 		global $objui,$mosConfig_sitename;
@@ -59,12 +59,12 @@
 	function mosPathWay()
 	{
 		global $objui;
-		
+
 		$module_navigation_path = array('','navigation','nav_type=8&no_show_sep=on');
-		
+
 		echo $objui->t->exec_module($module_navigation_path);
 	}
-	
+
 	/**
 	* Returns current date according to current local and time offset
 	* @param string format optional format for strftime
@@ -82,17 +82,17 @@
 	}
 
 	function mosMainBody()
-	{ 
+	{
 		global $mosConfig_live_site;
 		global $objui;
-		 
+
 		// message passed via the url
 		$mosmsg = strval($_GET['mosmsg']);
 		$popMessages = false;
-		
+
 		// Browser Check
 		$browserCheck = 0;
-		if ( isset( $_SERVER['HTTP_USER_AGENT'] ) && isset( $_SERVER['HTTP_REFERER'] ) && strpos($_SERVER['HTTP_REFERER'], $mosConfig_live_site) !== false ) {
+		if ( isset( $_SERVER['HTTP_USER_AGENT'] ) && isset( $_SERVER['HTTP_REFERER'] ) && !empty( $mosConfig_live_site )   && strpos($_SERVER['HTTP_REFERER'], $mosConfig_live_site) !== false ) {
 			$browserCheck = 1;
 		}
 
@@ -100,17 +100,17 @@
 		if ( strlen( $mosmsg ) > 150 ) {
 			$mosmsg = substr( $mosmsg, 0, 150 );
 		}
-		
+
 		// mosmsg outputed within html
 		if ($mosmsg && !$popMessages && $browserCheck) {
 			echo "\n<div class=\"message\">$mosmsg</div>";
 		}
-	
+
 		// mosmsg outputed in JS Popup
 		if ($mosmsg && $popMessages && $browserCheck) {
 			echo "\n<script language=\"javascript\">alert('$mosmsg');</script>";
 		}
-		
+
 		// load the center module
 		mosLoadModules('center');
 	}
@@ -175,7 +175,7 @@
 			$objbo->loadSearchResult($search_result,$lang,$mode,$options);
 			$this->generatePage();
 		}
-		
+
 		function generatePage()
 		{
 			global $database;
