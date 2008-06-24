@@ -277,6 +277,7 @@ define('SITEMGR_VIEWABLE_ANONYMOUS',3);
 
 			// we need to loop over the stats (and not the data) as empty checkboxes dont return any data !!!
 			// so the empty state would not get saved, if there are only empty checkboxes.
+			if (!is_array($state)) $validationerrors[] = lang('No states defined');
 			foreach($state as $versionid => $s)
 			{
 				$versiondata = isset($data[$versionid]) ? $data[$versionid] : array();
