@@ -94,7 +94,7 @@
 			$page->cat_id = CURRENT_SITE_ID;
 			return true;
 		}
-		
+
 		function loadSearchResult($search_result,$lang,$mode,$options)
 		{
 			global $page;
@@ -104,9 +104,9 @@
 			$page->block =& CreateObject('sitemgr.Block_SO',True);
 			$page->block->module_name = 'search';
 			$page->block->arguments = array(
-					'search_result'=> $search_result, 
-					'show_results' => true, 
-					'lang'         => $lang, 
+					'search_result'=> $search_result,
+					'show_results' => true,
+					'lang'         => $lang,
 					'mode'         => $mode,
 					'options'      => $options,
 					);
@@ -211,7 +211,9 @@
 					'link'=>'<a href="'.sitemgr_link('category_id='.$cat_id).
 						($description ? '" title="'.$category->description : '').'">'.$category->name.'</a>',
 					'description'=>$category->description,
-					'depth'=>$category->depth
+					'depth'=>$category->depth,
+					'url'=>sitemgr_link('category_id='.$cat_id).
+						($description ? '" title="'.$category->description : ''),
 				);
 			}
 			return $catlinks;
