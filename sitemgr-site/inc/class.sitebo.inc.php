@@ -142,7 +142,8 @@
 								'pagename'=>$link['name'],
 								'pagelink'=>$link['link'],
 								'pagetitle'=>$link['title'],
-								'pagesubtitle'=>$link['subtitle']
+								'pagesubtitle'=>$link['subtitle'],
+								'url'=>($link['url']?$link['url']:$cat['link']),
 							);
 						}
 					}
@@ -154,7 +155,8 @@
 							'catdepth'=>$cat['depth'],
 							'catdescrip'=>$cat['description'],
 							'catlink'=>$cat['link'],
-							'pagelink'=>lang('No pages available')
+							'pagelink'=>lang('No pages available'),
+							'url'=> $cat['url'],
 						);
 					}
 				}
@@ -192,7 +194,9 @@
 						'link'=>'<a href="'.sitemgr_link('page_name='.$page->name).
 							($subtitle ? '" title="'.$page->subtitle : '').'">'.$page->title.'</a>',
 						'title'=>$page->title,
-						'subtitle'=>$page->subtitle
+						'subtitle'=>$page->subtitle,
+						'url'=> sitemgr_link('page_name='.$page->name).
+							($subtitle ? '" title="'.$page->subtitle : ''),
 					);
 				}
 			}
