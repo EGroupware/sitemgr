@@ -296,7 +296,7 @@
 		function get_content(&$arguments,$properties)
 		{
 			$out =  "<!-- navigation-context begins here -->\n".
-				"<div id=\"navigation-context\">\n".
+				"<div id=\"navigation-context".$arguments['nav_type']."\">\n".
 				"  <div id=\"navigation-";
 			switch ($arguments['nav_type'])
 			{
