@@ -14,7 +14,7 @@
 	$site_id=0;
 	/**
 	 * Determine the site from the URL ($_SERVER['PHP_SELF'])
-	 * 
+	 *
 	 * @param array &$anon_account anon account_info with keys 'user', 'passwd' and optional 'passwd_type'
 	 * @return boolean true if a site is found or dies if not site defined for the URL
 	 */
@@ -39,7 +39,7 @@
 			);
 
 			$sitemgr_info['anonymous_user'] = $anon_account['login'];
-			
+
 			if($GLOBALS['egw_info']['server']['allow_cookie_auth'])
 			{
 				$eGW_remember = explode('::::',stripslashes($_COOKIE['eGW_remember']));
@@ -75,7 +75,7 @@
 	include('./config.inc.php');
 
 	// do we use a different domain and are already loged in?
-	if (isset($GLOBALS['egw_info']['server']['default_domain']) && 
+	if (isset($GLOBALS['egw_info']['server']['default_domain']) &&
 		@$_REQUEST['domain'] != $GLOBALS['egw_info']['server']['default_domain'])
 	{
 		// force our default domain
@@ -99,8 +99,8 @@
 	{
 		sitemgr_get_site($anon_account);
 	}
-	
-	// switch to current website. 
+
+	// switch to current website.
 	if ($GLOBALS['egw_info']['user']['preferences']['sitemgr']['currentsite'] != $site_id)
 	{
 		$GLOBALS['egw_info']['user']['preferences']['sitemgr']['currentsite'] = $site_id;
@@ -171,7 +171,7 @@
 	$toc = $_GET['toc'];
 	$index = $_GET['index'];
 	$search_content = $_POST['searchword'] ? $_POST['searchword'] : $_GET['searchword'];
-	
+
 	// Check for explicit modules calls
 	if ($_GET['module'])
 	{
@@ -219,7 +219,7 @@
 	}
 	elseif ($search_content)
 	{
-		// Make compatibility with mos search boxes, if not lang, mode and view option, default all languages 
+		// Make compatibility with mos search boxes, if not lang, mode and view option, default all languages
 		// any words mode and view options advgoogle
 		$search_lang = $_POST['search_lang'] ? $_POST['search_lang'] : "all";
 		$search_mode = $_POST['search_mode'] ? $_POST['search_mode'] : "any";
@@ -236,13 +236,13 @@
 		}
 		else
 		{
-			$index = 1; 
+			$index = 1;
 			$objui->displayIndex();
 		}
 	}
 	if (DEBUG_TIMER)
 	{
-		$GLOBALS['debug_timer_stop'] = perfgetmicrotime();
+		$GLOBALS['debug_timer_stop'] = microtime(true);
 		echo 'Page loaded in ' . ($GLOBALS['debug_timer_stop'] - $GLOBALS['debug_timer_start']) . ' seconds.';
 	}
 ?>
