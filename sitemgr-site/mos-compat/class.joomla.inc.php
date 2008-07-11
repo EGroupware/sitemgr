@@ -24,20 +24,16 @@ class joomla {
 			if ($catidscheck[$cat['cat_id']]) continue;
 			$catidscheck[$cat['cat_id']] = true;
 			$tree = array();
-			if ($cat['catdepth'] == 1)
-			{
-				$tree[0] =$cat['cat_id'];
-				$uptree = $cat['cat_id'];
-				$sublevel=0;
-				$parent = 0;
+
+			if ($cat['catdepth'] == 1) $uptree = array();
+			for($count = 0; $count < ($cat['catdepth']); $count++)
+			{	$tree[$count] = $uptree[$count] ? $uptree[$count] :$cat['cat_id'] ;
+				if ($cat['catdepth']-1 == $count) $uptree[$count] = $cat['cat_id'];
+				//echo "....".$count."/".$cat['cat_id']."#tree ".$tree[$count]."#uptree ".$uptree[$count]."<br>";
 			}
-			if ($cat['catdepth'] == 2)
-			{
-				$tree[0] = $uptree;
-				$tree[1] = $cat['cat_id'];
-				$sublevel=1;
-				$parent = $uptree;
-			}
+			$sublevel=((int)$cat['catdepth']-1);
+			$parent = 0 ;
+			if ($cat['catdepth'] != 1) $parent=$uptree[((int)$cat['catdepth']-2)];
 
 			$arr = array(
 			'id' => $cat['cat_id'],
@@ -104,7 +100,6 @@ class joomla {
 			);
 			$rows[] = (object)$arr;
 		}
-
 		return $rows;
 
 	}
