@@ -143,7 +143,8 @@
 								'pagelink'=>$link['link'],
 								'pagetitle'=>$link['title'],
 								'pagesubtitle'=>$link['subtitle'],
-								'url'=>($link['url']?$link['url']:$cat['link']),
+								'cat_url'=>$cat['cat_url'],
+								'page_url'=>$link['page_url'],
 							);
 						}
 					}
@@ -156,7 +157,7 @@
 							'catdescrip'=>$cat['description'],
 							'catlink'=>$cat['link'],
 							'pagelink'=>lang('No pages available'),
-							'url'=> $cat['url'],
+							'cat_url'=> $cat['cat_url'],
 						);
 					}
 				}
@@ -195,8 +196,8 @@
 							($subtitle ? '" title="'.$page->subtitle : '').'">'.$page->title.'</a>',
 						'title'=>$page->title,
 						'subtitle'=>$page->subtitle,
-						'url'=> sitemgr_link('page_name='.$page->name).
-							($subtitle ? '" title="'.$page->subtitle : ''),
+						'page_url'=> sitemgr_link('page_name='.$page->name),
+
 					);
 				}
 			}
@@ -216,8 +217,7 @@
 						($description ? '" title="'.$category->description : '').'">'.$category->name.'</a>',
 					'description'=>$category->description,
 					'depth'=>$category->depth,
-					'url'=>sitemgr_link('category_id='.$cat_id).
-						($description ? '" title="'.$category->description : ''),
+					'cat_url'=>sitemgr_link('category_id='.$cat_id),
 				);
 			}
 			return $catlinks;
