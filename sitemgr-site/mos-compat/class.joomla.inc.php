@@ -43,7 +43,7 @@ class joomla {
 			{
 				$id = 2 * $page['page_id'] + 1;	// pages have odd id's
 				$page_path = $cat_path.'/'.$id;
-				$name=$page['pagename'];
+				$name=$page['pagetitle']?$page['pagetitle']:$page['pagename'];
 				$parent = (int)$tree[$depth-1];
 				$url= $page['page_url'];
 				$rows[] = (object)$this->set_menu($page,$parent,$depth,$tree,$name,$id,$url);
