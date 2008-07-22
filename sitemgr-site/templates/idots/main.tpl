@@ -20,8 +20,8 @@
 		<link rel="shortcut icon" href="templates/idots/images/favicon.ico" />
 		{editmode_styles}
 		<link href="templates/idots/style/style.css" type="text/css" rel="StyleSheet" />
-		<!-- This solves the Internet Explorer PNG-transparency bug, but only for IE 5.5 and higher -->
-		<!--[if gte IE 5.5000]>
+		<!-- This solves the Internet Explorer PNG-transparency bug, but only for IE 5.5 and 6.0 -->
+		<!--[if lt IE 7.0]>
 		<script src="templates/idots/js/pngfix.js" type=text/javascript>
 		</script>
 		<![endif]-->
