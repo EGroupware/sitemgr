@@ -1,0 +1,5 @@
+before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr-link	zh	在发布网站使其可被浏览之前，您必须配置不同的地址和选项。请通过以下链接前往 Sitemgr 设定页：
+note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr-link	zh	注意：如果您的参数不正确，您可能得到这个消息。例如，如果 config.inc.php(配置文件)不存在您所指定的目录。
+sitemgr setup page	sitemgr-link	zh	Sitemgr 设置页面
+you need to make sure the sitemgr-link app is in the egroupware directory.  if you made a symbolic link... it isn't working.	sitemgr-link	zh	您必须确保 Sitemgr-Link 应用程序是在 eGroupWare 目录里。如果您做了一个符号连接...，它是不会工作的。
+your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr-link	zh	您的系统管理员还没有设置网页内容管理供公众浏览，将此告诉您的系统管理员以获得它们的相应链接。
