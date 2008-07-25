@@ -12,6 +12,7 @@
 <b>want more templates?</b><br />just download one from the template gallery at %1www.egroupware.org%2 or use a %3mambo open source%4 version 4.5 compatible template eg. from %5. unpack the downloaded template in your templates directory (%6).	sitemgr	cs	<b>Chcete více ¹ablon?</b><br/>Mù¾ete si nìjakou stáhnout z galerie ¹ablon na %1www.eGroupWare.org%2 nebo pou¾ít ¹ablonu kompatibilní s %3Mambo Open Source%4 Verze 4.5 z %5. Rozbalte sta¾enou ¹ablonu do Va¹eho adresáøe s ¹ablonami (%6).
 a simple picture galery	sitemgr	cs	Jednoduchá galerie obrázkù
 actif	sitemgr	cs	Aktivní
+actions	sitemgr	cs	Akce
 add a category	sitemgr	cs	Pøidat kategorii
 add a new application	sitemgr	cs	Pøidat novou aplikaci
 add a new guestbook	sitemgr	cs	Pøidat novou knihu náv¹tìv
@@ -25,10 +26,15 @@ add website	sitemgr	cs	Pøidat Web
 administration	sitemgr	cs	Administrace
 administrative menu	sitemgr	cs	Administraèní menu
 administrators	sitemgr	cs	administrátoøi
+advanced plus google: also show google search	sitemgr	cs	Roz¹íøené vèetnì Google: Zobrazovat také vyhledávání Google
+all available languages	sitemgr	cs	V¹echny dostupné jazyky
 all categories	sitemgr	cs	V¹echny kategorie
 all forums in category %1	sitemgr	cs	V¹echna fóra v kategorii %1
 all languages	sitemgr	cs	v¹echny jazyky
+all sites	sitemgr	cs	V¹echny weby
+all words	sitemgr	cs	V¹echna slova
 allignment of navigation elements	sitemgr	cs	Uspoøádání navigaèních prvkù
+allow customer to input a note	sitemgr	cs	Povolit zákazníkovi vlo¾ení poznámky
 allow posting of questions	sitemgr	cs	Povolit zasílání otázek
 amazon	sitemgr	cs	Amazon
 amazon server (without www), eg. amazon.com	sitemgr	cs	Amazon server (bez www), napø. amazon.com
@@ -37,6 +43,8 @@ anonymous	sitemgr	cs	anonymní
 anonymous user login domain	sitemgr	cs	Pøihla¹ovací doména anonymního u¾ivatele
 anonymous user's password	sitemgr	cs	Heslo anonymního u¾ivatele
 anonymous user's username	sitemgr	cs	U¾ivatelské jméno anonymního u¾ivatele
+anvanced: show all search modes	sitemgr	cs	Roz¹íøené: Zobrazit v¹echny re¾imy vyhledávání
+any words	sitemgr	cs	Jakákoli slova
 applet	sitemgr	cs	Applet
 application	sitemgr	cs	Aplikace
 application '%1' is not installed !!!<br>please install it, to be able to use the block.	sitemgr	cs	Aplikace '%1' není nainstalovaná !!!<br>Prosím nainstalujte ji, abyste mohli pou¾ívat blok
@@ -49,6 +57,7 @@ are you sure you want to delete site %1 and all its content? you cannot retrieve
 are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	cs	Urèitì chcete smazat kategorii %1 a v¹echny její pøidru¾ené stránky? Smazané stránky nebudete moci obnovit, pokud se rozhodnete pokraèovat.
 as	common	cs	jako
 asin[=title] pairs (title is optional)	sitemgr	cs	dvojice ASIN[=titulek] (titulek je volitelný)
+ask customer	sitemgr	cs	Zeptat se zákazníka
 attempt to access information outside current website	sitemgr	cs	Pokus o pøístup k informacím mimo aktuální web
 attempt to edit non-editable block	sitemgr	cs	Pokus o editaci needitovatelného bloku
 automatic index	sitemgr	cs	Automatický index
@@ -72,6 +81,8 @@ category description	sitemgr	cs	Popis kategorie
 category manager	sitemgr	cs	Správce kategorií
 category name	sitemgr	cs	Název kategorie
 category saved	sitemgr	cs	Kategorie ulo¾ena
+cats are numeric, pages strings	sitemgr	cs	kategorie jsou èíselné, stránky jsou textové øetìzce
+center	sitemgr	cs	Na støed
 changes saved.	sitemgr	cs	Zmìny ulo¾eny.
 check here after every upgrade	sitemgr	cs	oznaèit zde po ka¾dé aktualizaci
 check to hide from condensed site index.	sitemgr	cs	Za¹krtnìte zde pro vynechání ve zhu¹tìném indexu webu
@@ -87,6 +98,7 @@ click here to login through a safe connection.	sitemgr	cs	Kliknìte zde pro pøihl
 code file	sitemgr	cs	Soubor s kódem
 codebase url	sitemgr	cs	Codebase URL
 collapse threads	sitemgr	cs	Svinout vlákna
+comment	sitemgr	cs	Komentáø
 commit changes	sitemgr	cs	Zapsat zmìny
 common prefix of the image-name (a number starting with 1 will be appended)	sitemgr	cs	spoleèný prefix pro jméno obrázku (bude pøipojeno èíslo, zaèíná se od 1)
 configure module properties	sitemgr	cs	Konfigurovat vlastnosti modulu
@@ -102,6 +114,7 @@ contributor menu	sitemgr	cs	Menu pøispìvatele
 copyright	sitemgr	cs	Copyright
 create new version	sitemgr	cs	Vytvoøit novou verzi
 css styles	sitemgr	cs	CSS styly
+currency code of the value specified in amount (eg. usd, eur)	sitemgr	cs	Kód mìny pou¾ité u hodnoty mno¾ství (napø. USD, EUR)
 current section	sitemgr	cs	Aktuální sekce
 custom	sitemgr	cs	u¾ivatelsky definované
 default	sitemgr	cs	Výchozí
@@ -126,7 +139,9 @@ do you want to delete them?	sitemgr	cs	Chcete je smazat?
 documentation	sitemgr	cs	Dokumentace
 domain-name (offical dns-name eg. www.egroupware.org) if you want to give the user a choice between searching this site or the whole web. leaving it empty allows to search the web only.	sitemgr	cs	Doménové jméno (oficiální DNS jméno, napø. www.eGroupWare.org) pokud chcete poskytnout u¾ivateli výbìr mezi prohledáváním této stránky nebo celého webu. Ponecháte-li pole prázdné, povolíte jen prohledávání webu.
 don't have an account?	sitemgr	cs	Nemáte úèet?
+don't use egroupware css ">" separator (for templates that uses images/simbols for lists)	sitemgr	cs	Nepou¾ívat eGroupWare CSS oddìlovaè ">" (u ¹ablon, které pou¾ívají obrázky/symboly v seznamech)
 done	sitemgr	cs	Hotovo
+dont ask	sitemgr	cs	Neptat se
 download as zip-archiv	sitemgr	cs	stáhnout jako ZIP archiv
 downloaded	sitemgr	cs	sta¾eno
 draft	sitemgr	cs	koncept
@@ -135,6 +150,8 @@ edit categories and permissions	common	cs	Editovat kategorie a oprávnìní
 edit category	sitemgr	cs	Editovat kategorii
 edit individual pages	common	cs	Editovat jednotlivé stránky
 edit mode	sitemgr	cs	Re¾im editace
+edit notification	sitemgr	cs	Editovat upozornìní
+edit notification message	sitemgr	cs	Editovat text upozornìní
 edit page	sitemgr	cs	Editovat stránku
 edit properties of module %1 for %2 with scope %3	sitemgr	cs	Editovat vlastnosti modulu %1 pro %2 v oblasti %3
 edit site	sitemgr	cs	Editovat web
@@ -143,19 +160,26 @@ edit this block	sitemgr	cs	Editovat tento blok
 edit website	sitemgr	cs	Editovat web
 egw users	sitemgr	cs	u¾ivatelé eGW
 element successfully deleted.	sitemgr	cs	Prvek úspe¹nì smazán
+email address	sitemgr	cs	E-mailová adresa
+email address of the paypal account selling the item	sitemgr	cs	E-mailová adresa PayPal úètu u¾ivatele, prodávajícího polo¾ku
 enter a name	sitemgr	cs	Zadejte jméno
 enter the block content here	sitemgr	cs	Sem zadejte obsah bloku
 enter the email to be notified about changes of the website.	sitemgr	cs	Zadejte e-mailovou adresu, na kterou chcete zasílat upozornìní o zmìnách webu.
 enter the email to be notified about changes of the website:	sitemgr	cs	Zadejte e-mailovou adresu, na kterou chcete zasílat upozornìní o zmìnách webu:
 enter the page content here	sitemgr	cs	Sem zadejte obsah stránky
 enterprise knowledge articles repository	sitemgr	cs	Podniková znalostní databáze èlánkù
+entry deleted	sitemgr	cs	Záznam smazán
 entry duplicated.	sitemgr	cs	Záznam zduplikován.
+entry saved	sitemgr	cs	Záznam ulo¾en
 entry saved.	sitemgr	cs	Záznam ulo¾en.
 error accessing page	common	cs	Chyba pøi pøístupu na stránku
 error deleting the element.	sitemgr	cs	Chyba pøi mazání prvku.
+error deleting the entry!!!	sitemgr	cs	Chyba pøi mazání záznamu!!!
+error saving the entry!!!	sitemgr	cs	Chyba pøi ukládání záznamu!!!
 error writing to the database.	sitemgr	cs	Chyba pøi zápisu do databáze.
 error writing to the database: %1.	sitemgr	cs	Chyba pøi zápisu do databáze: %1.
 everybody	sitemgr	cs	v¹ichni
+exact phrase	sitemgr	cs	Pøesný výraz
 expand current category	sitemgr	cs	Rozvinout aktuální kategorii
 file %1 is not readable by the webserver !!!	sitemgr	cs	Webový server nemá oprávnìní ke ètení souboru %1 !!!
 file %1 is outside the docroot of the webserver !!!<br>this module does not allow - for security reasons - to open files outside the docroot.	sitemgr	cs	Soubor %1 se nachází mimo koøenový adresáø dokumentù webového serveru !!!<br>Tento modul zakazuje z bezpeènostních dùvodù otevírat takové soubory.
@@ -166,6 +190,7 @@ filesystem path of the directory where xml files are stored	sitemgr	cs	Cesta v s
 filesystem path of the image-directory	sitemgr	cs	Cesta v souborovém systému pro ukládání obrázkù
 filesystem path to sitemgr-site directory	sitemgr	cs	Cesta v souborovém systému pro ukládání webù
 fill in permissions from parent category? if you check this, below values will be ignored	sitemgr	cs	Doplnit oprávnìní z nadøazené kategorie? Pokud zvolíte tuto mo¾nost, ní¾e uvedené hodnoty budou ignorovány.
+flag symbols	sitemgr	cs	Symboly vlajek
 following new modules registed: %1	sitemgr	cs	Byly registrovány následující nové moduly: %1
 footer editor	sitemgr	cs	Editor zápatí
 forever	common	cs	Napoøád
@@ -175,6 +200,7 @@ galerie	sitemgr	cs	Galerie
 gallery plus chooser	sitemgr	cs	Galerie plus voliè
 gallery plus chooser and download	sitemgr	cs	Galerie plus voliè a download
 gallery plus download	sitemgr	cs	Galerie plus download
+go	sitemgr	cs	Jít
 go back to page manager	sitemgr	cs	Zpìt na správce stránek
 go back to the category manager.	sitemgr	cs	Zpìt na správce kategorií
 go to	sitemgr	cs	Jít na
@@ -192,6 +218,8 @@ horizontal	sitemgr	cs	Vodorovný
 html frame	sitemgr	cs	HTML rámec
 html module	sitemgr	cs	HTML modul
 i'm sorry, you do not have write permissions for any site categories.	sitemgr	cs	Je mi líto, ale nemáte oprávnìní k zápisu pro ¾ádnou kategorii webu.
+id	sitemgr	cs	ID
+identifier you can use to track an internal inventory number	sitemgr	cs	Identifikátor, který mù¾ete pou¾ít pro sledování interního inventárního èísla
 if nonsecure redirect to:	sitemgr	cs	Nezabezpeèené pøesmìrovat na:
 if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	cs	Pokud jste tak ji¾ neudìlal(a), vytvoøte u¾ivatele, který bude slou¾it k veøejnému prohlí¾ení webu. Doporuèené jméno: anonymous.
 image type	sitemgr	cs	typ obrázku
@@ -202,9 +230,11 @@ individual access permissions	sitemgr	cs	Individuální pøístupová práva
 interface to google website	sitemgr	cs	Rozhranní k webu Google
 invalid template directory '%1' !!!	sitemgr	cs	Neplatný adresáø ¹ablon '%1' !!!
 knowledge base	sitemgr	cs	Databáze znalostí
+language:	sitemgr	cs	Jazyk:
 languages the site user can choose from	sitemgr	cs	Jazyky, ze kterých si u¾ivatel webu mù¾e vybrat
 last entries to the guestbook	sitemgr	cs	Poslední záznamy v knize náv¹tìv
 latest reply	sitemgr	cs	Poslední odpovìï
+links for the tabs (comma seperated)	sitemgr	cs	Odkazy pro zálo¾ky (oddìlené èárkou)
 list of permitted modules specific to content area %1	sitemgr	cs	Seznam povolených modulù stanovených pro obsahovou oblast %1
 loged in as:	sitemgr	cs	Pøihlá¹en(a) jako:
 login	sitemgr	cs	Pøihlásit
@@ -218,16 +248,24 @@ manage category wide content	sitemgr	cs	Spravovat obsah celé kategorie
 manage category wide module properties	sitemgr	cs	Spravovat vlastnosti modulu celé kategorie
 manage content	sitemgr	cs	Spravovat obsah
 manage modules	sitemgr	cs	Spravovat moduly
+manage notifications	sitemgr	cs	Spravovat upozornìní
 manage page specific content	sitemgr	cs	Spravovat obsah vztahujcí se ke stránce
 manage pages	common	cs	Spravovat stránky
 manage site content	sitemgr	cs	Spravovat obsah webu
 manage site-wide content	sitemgr	cs	Spravovat obsah celého webu
 manage site-wide module properties	sitemgr	cs	Spravovat vlastnosti modulu celého webu
 manage translations	sitemgr	cs	Spravovat pøeklady
+manange notifications	sitemgr	cs	Spravovat upozornìní
+manange notifications messages	sitemgr	cs	Spravovat texty upozornìní
 master list of permitted modules	sitemgr	cs	Hlavní seznam povolených modulù
+maximal category depth to be shown	sitemgr	cs	Maximální hloubka kategorie, která se zobrazí
+maximal page depth to be shown	sitemgr	cs	Maximální hloubka stránky, která se zobrazí
+message not found !!!	sitemgr	cs	Zpráva nebyla nalezena!!!
+message text:	sitemgr	cs	Text zprávy:
 messages are defined for all site languages.	sitemgr	cs	Zprávy definované pro v¹echny jazyky webu
 migrating data for %1 to %2	sitemgr	cs	Migruji data pro %1 do %2
 module %1 is not permitted in this context!	sitemgr	cs	Modul %1není v tomto kontextu povolen!
+module '%1' not found in: %2! --> exiting	sitemgr	cs	Modul '%1' nebyl nalezen v: %2! --> konèím
 module manager	sitemgr	cs	Správce modulù
 module: %1, scope: %2, contentarea: %3, viewable: %4	sitemgr	cs	Modul: %1, Oblast: %2, Obsahová oblast: %3, Viditelné: %4
 move block down (increase sort order)	sitemgr	cs	Pøesunout blok dolù (zvý¹it poøadí øazení)
@@ -235,6 +273,8 @@ move block up (decrease sort order)	sitemgr	cs	Pøesunout blok nahoru (sní¾it poø
 move to	sitemgr	cs	Pøesunout do
 name	sitemgr	cs	Název
 name has been translated to lower case	sitemgr	cs	Název byl pøeveden na malá písmena
+name of the item for sale	sitemgr	cs	Název polo¾ky k prodeji
+name of the tabs (comma seperated)	sitemgr	cs	Názvy zálo¾ek (oddìlené èárkami)
 new application	sitemgr	cs	Nová aplikace
 new guestbook	sitemgr	cs	Nová kniha náv¹tìv
 new sitemgr site	sitemgr	cs	Nový web
@@ -259,9 +299,13 @@ no, chooser with preview	sitemgr	cs	Ne, voliè s náhledem
 not	common	cs	ne
 not yet translated	sitemgr	cs	zatím nepøelo¾eno
 note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	cs	Pamatujte, ¾e mù¾ete dostat tuto zprávu, pokud Va¹e pøedvolby nejsou v poøádku. Napøíklad pokud soubor config.inc.php není v adresáøi, který jste uvedl(a).
+notification message not found !!!	sitemgr	cs	Text upozornìní nebyl nalezen!!!
+notification not found !!!	sitemgr	cs	Upozornìní nebylo nalezeno!!!
+number of results	sitemgr	cs	Poèet výsledkù
 on all pages	sitemgr	cs	na v¹ech stránkách
 only gallery	sitemgr	cs	Jen galerie
 only on the first page	sitemgr	cs	jen na první stranì
+options in search result page	sitemgr	cs	Volby na stránce výsledkù vyhledávání
 or enter the title for a new guestbook	sitemgr	cs	nebo zadejte název pro novou knihu náv¹tìv
 other websites	sitemgr	cs	Ostatní weby
 overview of all available categories	sitemgr	cs	Pøehled v¹ech dostupných kategorií
@@ -282,18 +326,25 @@ parent directory	sitemgr	cs	nadøazený adresáø
 parent section:	sitemgr	cs	Nadøazená sekce:
 password	sitemgr	cs	Heslo
 password that you assigned for the anonymous user account.	sitemgr	cs	Heslo, které jste pøiøadili úètu anonymního u¾ivatele.
+path	sitemgr	cs	Cesta
 path to image-directory '%1' is not valid or readable by the webserver !!!	sitemgr	cs	Cesta k adresáøi pro obrázky '%1' není platná nebo na ni webový server nemá oprávnìní ke ètení.
 path to zip binary if not in path of the webserver	sitemgr	cs	Cesta k binárnímu ZIP souboru není cestou webov. serveru
+pay with paypal	sitemgr	cs	Platit pøes PayPal
+paypal	sitemgr	cs	PayPal
+paypal pay now button	sitemgr	cs	Tlaèítko PayPalu pro zaplacení
 percentage	sitemgr	cs	Procento
 phrases in total	sitemgr	cs	Celkem frází
+plain selectbox	sitemgr	cs	Bì¾ná rozbalovací nabídka
 please enter a name for that site !	sitemgr	cs	Prosím zadejte název pro web !
 please sign the guestbook	sitemgr	cs	Prosím podepi¹tì knihu náv¹tìv
 post a message to this thread	sitemgr	cs	Poslat zprávu do tohoto vlákna
 prepublished	sitemgr	cs	pøedbì¾nì publikovaný
 preunpublished	sitemgr	cs	pøedbì¾nì nepublikovaný
 previous	sitemgr	cs	Pøedchozí
+price of the item (empty allows buyer to choose, eg. for donations)	sitemgr	cs	Cena polo¾ky (prázdná dovoluje kupujícímu stanovit cenu, napø. u penì¾itých darù)
 production mode	sitemgr	cs	Produkèní re¾im
 published	sitemgr	cs	publikovaný
+quantity items (empty allows buyer to specify)	sitemgr	cs	Mno¾ství polo¾ek (prázdné umo¾òuje kupujícímu si zvolit)
 reactivate content	sitemgr	cs	Znovu aktivovat obsah
 read permission	sitemgr	cs	Oprávnìní ke ètení
 redirection	sitemgr	cs	Pøesmìrování
@@ -303,6 +354,7 @@ register new modules	sitemgr	cs	Registrovat nové moduly
 reload	sitemgr	cs	Znovu naèíst
 remember me	common	cs	zapamatuj si mì
 replies	sitemgr	cs	Odpovìdi
+required	sitemgr	cs	Povinné
 required fields	sitemgr	cs	Po¾adované polo¾ky
 reset	sitemgr	cs	Resetovat
 return to forums	sitemgr	cs	Návrat do fór
@@ -313,19 +365,27 @@ save	sitemgr	cs	Ulo¾it
 save block	sitemgr	cs	Ulo¾it blok
 saved	sitemgr	cs	Ulo¾eno
 scope	sitemgr	cs	Oblast
+search keyword	sitemgr	cs	hledané klíèové slovo
+search language options	sitemgr	cs	Jazykové volby hledání
+search modes	sitemgr	cs	Re¾imy hledání
+search with	sitemgr	cs	Hledat
 seen by	sitemgr	cs	Vidìno (kým)
 select a category	sitemgr	cs	Vybrat kategorii
 select a forum	sitemgr	cs	Vybrat fórum
 select allowed modules	sitemgr	cs	Vybrat povolené moduly
+select layout for lang selection	sitemgr	cs	Vyberte vzhled pro výbìr jazyka
 select persons and groups that are entitled to configure the website.	sitemgr	cs	Vyberte osoby a skupiny oprávnìné ke konfiguraci webu.
 select the templates the user is allowed to see	sitemgr	cs	Vyberte ¹ablony, které smí u¾ivatel vidìt
 select type of navigation	sitemgr	cs	Vyberte typ navigace
 selected template %1 does not exist.	sitemgr	cs	Vybraná ¹ablona %1 neexistuje.
 selected theme %1 does not exist.	sitemgr	cs	Vybrané téma %1 neexistuje.
+seperate cats / pages of one tab by :	sitemgr	cs	Oddìlit kategorie / stránky jedné zálo¾ky (èím):
+shipping address	sitemgr	cs	Dodací adresa
 should the file be viewed in the browser or downloaded	sitemgr	cs	Má být soubor zobrazen v prohlí¾eèi nebo sta¾en
 show a template-gallery (thumbnail and informations)	sitemgr	cs	Zobrazit galerii ¹ablon (miniatura a informace)
 show contents of a directory	sitemgr	cs	Zobrazit obsah adresáøe
 show contents of a directory with subdirectories	sitemgr	cs	Zobrazit obsah adresáøe s podadresáøi
+show current section only	sitemgr	cs	Zobrazit jen aktuální sekci
 show details for the applications	sitemgr	cs	Zobrazit podrobnosti aplikací
 show only (in the next field) selected templates	sitemgr	cs	Zobrazit (v dal¹ím poli) jen vybrané ¹ablony
 show path?	sitemgr	cs	zobrazit cestu?
@@ -333,6 +393,7 @@ show searchbox	sitemgr	cs	Zobrazit vyhledávací pole
 show site index	sitemgr	cs	Zobrazit index webu
 show subcategories	sitemgr	cs	Zobrazit podkategorie
 show the title of the wiki page	sitemgr	cs	Zobrazit titulek wiki stránky
+simple: only selected mode, no more options displayed	sitemgr	cs	Jednoduché: jen vybraný re¾im, ¾ádné dal¹í volby nezobrazovat
 single file download	sitemgr	cs	Stáhnout jednotlivý soubor
 site	sitemgr	cs	Web
 site %1 has been added, you need to %2configure the site%3 now	sitemgr	cs	Web %1 byl pøidán, nyní ho musíte %2zkonfigurovat%3
@@ -341,6 +402,7 @@ site administrators	sitemgr	cs	Administrátoøi webu
 site description	sitemgr	cs	Popis webu
 site format manager	sitemgr	cs	Správce formátu webu
 site index	sitemgr	cs	Index webu
+site language	sitemgr	cs	Jazyk webu
 site name	sitemgr	cs	Název webu
 site setup	common	cs	Nastavení webu
 site tree menu	sitemgr	cs	Stromové menu webu
@@ -353,6 +415,9 @@ sitemgr setup page	sitemgr	cs	Stránka pro nastavení Správce webu
 sitemgr web content manager	common	cs	Správce obsahu webu
 sitemgr websites	sitemgr	cs	Weby Správce webu
 sitemgr-link	common	cs	Web
+sitio	sitemgr	cs	Web
+size	sitemgr	cs	Velikost
+sorry, no content found for you search criteria	sitemgr	cs	Lituji, ¾ádný obsah neodpovídá zadaným kritériím vyhledávání
 sort order	sitemgr	cs	Poøadí øazení
 state	sitemgr	cs	Stav
 strip html from block content?	sitemgr	cs	Odstranit HTML z obsahu bloku?
@@ -363,11 +428,14 @@ subtitle	sitemgr	cs	Podtitul
 summary of one forum	sitemgr	cs	Shrnutí jednoho fóra
 suppress link to index (show all)	sitemgr	cs	Potlaèit odkaz na index (zobrazit v¹e)
 suppress link to parent category	sitemgr	cs	Potlaèit odkaz na nadøazenou kategorii
+suppress main categories	sitemgr	cs	Potlaèit hlavní kategorie
+suppress the current category	sitemgr	cs	Potlaèit aktuální kategorii
 suppress the current page	sitemgr	cs	Potlaèit aktuální stránku
 table of contents	sitemgr	cs	Obsah (jako v knize)
 template based navigation module	sitemgr	cs	Navigaèní modul zalo¾ený na ¹ablonì
 template select	sitemgr	cs	Výbìr ¹ablony
 text allignment	sitemgr	cs	Zarovnání textu
+text of page links	sitemgr	cs	Text odkazù stránky
 textarea	sitemgr	cs	textová oblast
 the category to display, 0 for complete table of contents	sitemgr	cs	Zobrazit kategorii, 0 pro kompletní obsah
 the complete url or path to a file to be included	sitemgr	cs	Kompletní URL nebo cesta k souboru, který se má vlo¾it
@@ -375,6 +443,7 @@ the config.inc.php file needs to be edited to point to the egroupware directory.
 the file to be downloaded	sitemgr	cs	Soubor, který má být sta¾en
 the filesystem path to your sitemgr-site directory '%1' is probably wrong. go to sitemgr --> define websites and edit/fix the concerned site.	sitemgr	cs	Cesta v souborovém systému k adresáøi Va¹eho webu '%1' je patrnì chybná. Bì¾te do Správce webu --> Definovat weby a upravte/opravte pøíslu¹ný web.
 the first directory to think about is sitemgr-link.  if you move this to the parent directory of sitemgr (your egroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  if you don't want this icon, there's no reason to ever bother with the directory.	sitemgr	cs	Prvním adresáøem ke zvá¾ení je sitemgr-link. Pokud ho pøesunete do nadøazeného adresáøe Správce webu (koøenového adresáøe Va¹eho eGroupWaru), mù¾ete pou¾ít setup k instalaci aplikací a v¹ichni, kdo k aplikacím budou mít pøístup, uvidí na své navigaèní li¹tì ikonu, která bude odkazem pøímo na veøejný web. Pokud o takovou ikonu nestojíte, nemá vùbec smysl, abyste se uvedeným adresáøem zabývali.
+the messages for changes in this language will use the default text, if available.	sitemgr	cs	Zprávy pro zmìny v tomto jazyce budou pou¾ívat výchozí text, pokud bude k dispozici.
 the name field cannot contain punctuation or spaces (field modified).	sitemgr	cs	Polo¾ka Název nesmí obsahovat punktaci ani mezery.
 the page name must be unique.	sitemgr	cs	Název stránky musí být unikátní.
 the page was successfully saved.	sitemgr	cs	Stránka byla úspì¹nì ulo¾ena.
@@ -432,8 +501,10 @@ this module lets you show a given url inside an iframe in the page.	sitemgr	cs	T
 this module permits browsing through xml files stored in a directory, and transformed by xslt	sitemgr	cs	Tento modul umo¾òuje procházení XML soubory ulo¾enými v adresáøi a transformovanými pomocí XSLT
 this module provides a complete table of contents, it is automatically used by the toc and category_id get parameters	sitemgr	cs	Tento modul poskytuje kompletní obsah, je automaticky pou¾íván GET parametry toc a category_id
 this module provides a condensed table of contents, meant for side areas	sitemgr	cs	Tento modul poskytuje zhu¹tìný obsah a je urèen pro postranní oblasti
+this module provides tabs	sitemgr	cs	Tento modul poskytuje zálo¾ky
 this module provides the path to the element currently shown	sitemgr	cs	Tento modul poskytuje cestu k aktuálnì zobrazenému prvku
 this module provides the site index, it is automatically used by the index get parameter	sitemgr	cs	Tento modul poskytuje index webu, je automaticky pou¾íván GET parametrem index
+this module search throw the content (page title/description and html content)	sitemgr	cs	Tento modul prohledává skrze celý obsah (název stránky/popis a HTML obsah)
 this module show the status / percentage of the translation of egw	sitemgr	cs	Tento modul zobrazuje stav / procento pøekladu eGroupWaru
 this must be an absolute directory location.  <b>no trailing slash</b>.	sitemgr	cs	Toto musí být absolutní umístìní adresáøe. <b>Bez koncového lomítka</b>.
 this should be a comma-separated list of language-codes.	sitemgr	cs	Toto by mìl být seznam kódù jazykù oddìlených èárkami.
@@ -452,7 +523,9 @@ up to parent	sitemgr	cs	Do nadøazené
 up to table of contents	sitemgr	cs	K obsahu
 update notification	sitemgr	cs	Upozornìní na aktualizaci
 updating to new category system	sitemgr	cs	Aktualizuji na nový systém kategorií
+url pointing to the image-directory	sitemgr	cs	URL ukazující na adresáø s obrázky
 url to sitemgr-site	sitemgr	cs	URL k webu
+use current user selected language	sitemgr	cs	Pou¾ít jazyk zvolený aktuálním u¾ivatelem
 use phpnuke themes instead of templates	sitemgr	cs	Pou¾ít témata z phpNuke místo ¹ablon
 use this module for displaying book ads for the amazon web site	sitemgr	cs	Pou¾ít tento modul pro zobrazení reklam na kní¾ky z webu Amazonu
 use this module for displaying wiki-pages	sitemgr	cs	Pou¾ít tento modul pro zobrazování wiki stránek
@@ -471,7 +544,9 @@ web site manager	sitemgr	cs	Správce webu
 website	sitemgr	cs	Web
 week	sitemgr	cs	týden
 what do you want to do with existing translations of categories and pages for this language?	sitemgr	cs	Co chcete udìlat se stávajícímu pøeklady kategorií a stránek v tomto jazyce?
+when is a tab activated?	sitemgr	cs	Kdy je zálo¾ka aktivována?
 which application should be executed after login?	sitemgr	cs	Která aplikace by mìla být spu¹tìna po pøihlá¹ení?
+which main categories schuld be included (comma seperated list, empty for all)	sitemgr	cs	Které hlavní kategorie by mìly být zahrnuty (seznam oddìlený èárkami, ponechte prázdné pro v¹echny)
 wiki	sitemgr	cs	Wiki
 wiki startpage	sitemgr	cs	Úvodní stránka Wiki
 with which view should the module be displayed in the beginning?	sitemgr	cs	Ve kterém pohledu by mìl být modul na zaèátku zobrazen?
@@ -497,6 +572,7 @@ you must be an admin to edit the site header and footer.	sitemgr	cs	Pro editaci 
 you must be an admin to manage module properties.	sitemgr	cs	Pro správu vlastností modulu musíte být administrátorem.
 you must be an administrator to setup the site manager.	sitemgr	cs	Pro nastavení Správce webu musíte být administrátorem.
 you removed one ore more languages from your site languages.	sitemgr	cs	Odstranil(a) jste jeden nebo více jazykù z Va¹eho webu.
+you will remove the message in the following language from your notification system:	sitemgr	cs	Odstraníte zprávu v následujícím jazyce ze systému upozornìní:
 your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr	cs	Vá¹ administrátor dosud nenastavil Správce obsahu webu pro veøejné prohlí¾ení. Jdìte popohnat svého administrátora.
 your calendar	sitemgr	cs	Vá¹ kalendáø
 your comment	sitemgr	cs	Vá¹ komentáø
