@@ -289,6 +289,7 @@ no new modules found !!!	sitemgr	es-es	No se encontraron módulos nuevos
 no options available.	sitemgr	es-es	No hay opciones disponibles
 no pages available	sitemgr	es-es	No hay páginas disponibles
 no sitelanguages configured	sitemgr	es-es	No hay idiomas configurados
+no states defined	sitemgr	es-es	No se han definido estados
 no template file found.	sitemgr	es-es	No se encontró el fichero de la plantilla
 no templates found.	sitemgr	es-es	No se encontraron plantillas
 no thumbnail availible	sitemgr	es-es	No hay miniaturas disponibles
@@ -387,6 +388,7 @@ show contents of a directory	sitemgr	es-es	Mostrar el contenido de un directorio
 show contents of a directory with subdirectories	sitemgr	es-es	Mostrar el contenido de un directorio con subdirectorios
 show current section only	sitemgr	es-es	Mostrar sólo la selección actual
 show details for the applications	sitemgr	es-es	Mostrar detalles para las aplicaciones
+show files including the ones from subdirectories	sitemgr	es-es	Mostrar ficheros, incluyendo los de los subdirectorios
 show only (in the next field) selected templates	sitemgr	es-es	Mostrar sólo (en el siguiente campo) las plantillas seleccionadas
 show path?	sitemgr	es-es	¿Mostrar ruta?
 show searchbox	sitemgr	es-es	Mostrar recuadro de buscar

@@ -289,6 +289,7 @@ no new modules found !!!	sitemgr	en	No new modules found !!!
 no options available.	sitemgr	en	No options available.
 no pages available	sitemgr	en	No pages available
 no sitelanguages configured	sitemgr	en	No sitelanguages configured
+no states defined	sitemgr	en	No states defined
 no template file found.	sitemgr	en	No template file found.
 no templates found.	sitemgr	en	No templates found.
 no thumbnail availible	sitemgr	en	No thumbnail availible
@@ -387,6 +388,7 @@ show contents of a directory	sitemgr	en	Show contents of a directory
 show contents of a directory with subdirectories	sitemgr	en	Show contents of a directory with subdirectories
 show current section only	sitemgr	en	Show current section only
 show details for the applications	sitemgr	en	Show details for the applications
+show files including the ones from subdirectories	sitemgr	en	Show files including the ones from subdirectories
 show only (in the next field) selected templates	sitemgr	en	Show only (in the next field) selected templates
 show path?	sitemgr	en	show path?
 show searchbox	sitemgr	en	Show searchbox
