@@ -35,8 +35,9 @@ class joomla {
 				$cat_path = implode('/',$tree);
 				$parent = (int)$tree[$depth-2];
 				$name = $page['catname'];
+				$title = $page['catdescrip']?$page['catdescrip']:$page['catname'];
 				$url = $page['cat_url'];
-				$rows[] = (object)$this->set_menu($page,$parent,$depth,$tree,$name,$id,$url);
+				$rows[] = (object)$this->set_menu($page,$parent,$depth,$tree,$name,$id,$url,$title);
 				//echo "<p>new cat $page[cat_id]=$cat_id ($depth: /$cat_path, parent=$parent): $page[catname]:</p>\n";
 			}
 			if ($page['page_id'])
@@ -54,13 +55,14 @@ class joomla {
 		return $rows;
 	}
 
-	function set_menu($page,$parent,$sublevel,$tree,$name,$id,$url)
+	function set_menu($page,$parent,$sublevel,$tree,$name,$id,$url,$title=null)
 	{
 		$arr = array(
 		'id' => $id,
 		'menutype' => 'mainmenu',
 		'name' => $name,
  		'alias' => $name,
+ 		'title' => $title?$title:$name,
   		'type' => 'component_item_link',
 		'published' => 1,
 		'parent' => $parent,
