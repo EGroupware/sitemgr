@@ -56,11 +56,11 @@
 		echo $objui->t->parse();
 	}
 
-	function mosPathWay()
+	function mosPathWay($suppress_hide_pages=false)
 	{
 		global $objui;
-
-		$module_navigation_path = array('','navigation','nav_type=8&no_show_sep=on');
+		if ($suppress_hide_pages==true) $suppress_hide='&suppress_hide_pages=on';
+		$module_navigation_path = array('','navigation','nav_type=8&no_show_sep=on'.$suppress_hide);
 
 		echo $objui->t->exec_module($module_navigation_path);
 	}
@@ -122,9 +122,11 @@
 		{
 		}
 
-		function loadObjectList()
+		function loadObjectList($ids)
 		{
-			return array();
+			$joomla = new joomla();
+			$rows = $joomla->getmenu($ids);
+			return $rows;
 		}
 	}
 
@@ -180,7 +182,7 @@
 		{
 			global $database;
 			global $objui;
-			$database =& new mos_database;
+			$database = new mos_database;
 
 			// add a content-type header to overwrite an existing default charset in apache (AddDefaultCharset directiv)
 			header('Content-type: text/html; charset='.$GLOBALS['egw']->translation->charset());
@@ -200,6 +202,7 @@
 			define('_SEARCH_BOX',lang('Search').' ...');
 			define( '_ISO','charset='.$GLOBALS['egw']->translation->charset());
 			define( '_VALID_MOS',True );
+//			define( '_JEXEC', True );
 			define( '_VALID_MYCSSMENU',True );
 			ini_set('include_path',$this->mos_compat_dir.(strtoupper(substr(PHP_OS, 0, 3)) == 'WIN' ? ';' : ':').ini_get('include_path'));
 
