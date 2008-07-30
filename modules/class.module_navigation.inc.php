@@ -136,8 +136,12 @@
 					'description' => lang('This module provides the path to the element currently shown'),
 					'no_show_sep' => array(
 						'type' => 'checkbox',
-						'label'=> lang('Don\'t use egroupware css ">" separator (for templates that uses images/simbols for lists)')
-					)),
+						'label'=> lang('Don\'t use egroupware css ">" separator (for templates that uses images/simbols for lists)')),
+					'suppress_hide_pages' => array(
+						'type' => 'checkbox',
+						'label'=> lang('Don\'t show hidet pages in the path way')),
+
+						),
 				9 => array( //Custom
 					'description' => lang('This module is a customisable navigation element'),
 					'alignment' => array(
@@ -531,7 +535,8 @@
 				{
 					if($cat_id != $this->page->cat_id) continue;
 					unset($cat_tree_data[0]);
-					$pages = $this->objbo->getPageLinks($cat_id,true,true);
+					$suppress_hide_pages=!$arguments['suppress_hide_pages']?true:false;
+					$pages = $this->objbo->getPageLinks($cat_id,$suppress_hide_pages,true);
 					if($this->page->id) $cat_tree_data[] = $pages[$this->page->id];
 					$out .= $this->encapsulate($arguments,$cat_tree_data,'cat',$cat_id);
 					break;
