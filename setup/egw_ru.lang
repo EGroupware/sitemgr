@@ -81,6 +81,8 @@ category name	sitemgr	ru	Имя Категории
 category saved	sitemgr	ru	Категория сохранена
 center	sitemgr	ru	По центру
 changes saved.	sitemgr	ru	Изменения сохранены.
+check here after every upgrade	sitemgr	ru	Отметьте здесь после каждого обновления
+check to hide from condensed site index.	sitemgr	ru	Отметьте для иключения из сокращенного индекса сайта
 choose a category	sitemgr	ru	Выбор категории
 choose a format	sitemgr	ru	Выбор формата
 choose a guestbook	sitemgr	ru	Выбирите Гостевую Книгу
@@ -154,6 +156,7 @@ edit website	sitemgr	ru	Редактировать Веб-сайт
 egw users	sitemgr	ru	пользователи eGW
 element successfully deleted.	sitemgr	ru	Элемент успешно удален
 email address	sitemgr	ru	Адрес эл. почты
+email address of the paypal account selling the item	sitemgr	ru	Адрес эл. почты учетной записи PayPal продающей предмет
 enter a name	sitemgr	ru	Ведите имя
 enter the block content here	sitemgr	ru	Введите здесь содержимое блока
 enter the email to be notified about changes of the website.	sitemgr	ru	Введите адрес эл. почты на который следует посылать сообщения об изменениях на сайте
@@ -200,11 +203,18 @@ header editor	sitemgr	ru	Редактор Заголовка
 headlines	sitemgr	ru	Заголовки
 hello	sitemgr	ru	Привет
 hello world	sitemgr	ru	Привет мир
+helps you respect html/xhtml standards.	sitemgr	ru	Помогает учитывать пожелания стандартов HTML/XHTML.
 horizontal	sitemgr	ru	Горизонтальный
+html frame	sitemgr	ru	Фрейм HTML
+html module	sitemgr	ru	Модуль HTML
 i'm sorry, you do not have write permissions for any site categories.	sitemgr	ru	Просим прощения, но у вас нет прав на запись в какую-либо категорию сайта.
 image type	sitemgr	ru	тип изображения
 implies read permission	sitemgr	ru	подразумевает доступ на чтение
 index	sitemgr	ru	Индекс
+individual access permission	sitemgr	ru	Индивидуальные права на доступ
+individual access permissions	sitemgr	ru	Индивидуальные права на доступ
+interface to google website	sitemgr	ru	Интерфейс к сайту google
+invalid template directory '%1' !!!	sitemgr	ru	Папка шаблонов '%1' неверна !!!
 knowledge base	sitemgr	ru	База Знаний
 language:	sitemgr	ru	Язык:
 languages the site user can choose from	sitemgr	ru	Языки из которых может выбирать пользователь сайта
@@ -231,8 +241,11 @@ manage translations	sitemgr	ru	Управление переводами
 manange notifications	sitemgr	ru	Управление напоминаниями
 manange notifications messages	sitemgr	ru	Управление Сообщениями Напоминаний
 master list of permitted modules	sitemgr	ru	Базовый список разрешенных модулей
+maximal category depth to be shown	sitemgr	ru	Максимальная глубина показа категорий
+maximal page depth to be shown	sitemgr	ru	Максимальная глубина показа страниц
 message not found !!!	sitemgr	ru	Сообщение не найдено !!!
 message text:	sitemgr	ru	Текст сообщения:
+module manager	sitemgr	ru	Управление модулями
 move to	sitemgr	ru	Переместить в
 name	sitemgr	ru	Имя
 name has been translated to lower case	sitemgr	ru	Имя было преобразованы в строчные буквы
@@ -241,8 +254,26 @@ new application	sitemgr	ru	Новое приложение
 new guestbook	sitemgr	ru	Новая гостевая книга
 no additional arguments required	sitemgr	ru	Дополнительные параметры не требуются
 no anonymous user accounts installed.  notify the administrator.	sitemgr	ru	НЕ ОПРЕДЕЛЕН АНОНИМНЫЙ ПОЛЬЗОВАТЕЛЬ. СООБЩИТЕ АДМИНИСТРАТОРУ.
+no groups defined.	sitemgr	ru	Группы не определены.
+no link to full index	sitemgr	ru	Нет ссылки на полный индекс
+no new modules found !!!	sitemgr	ru	Новые модули не найдены !!!
+no options available.	sitemgr	ru	Нет доступных настроек.
 no pages available	sitemgr	ru	Нет страниц для просмотра
+no template file found.	sitemgr	ru	Файл шаблона не найден.
+no templates found.	sitemgr	ru	Шаблон не найден.
+no thumbnail availible	sitemgr	ru	Нет доступного предварительного просмотра
+no users defined.	sitemgr	ru	Пользователи не определены.
+no websites defined	sitemgr	ru	Веб-сайты не определены
+not	common	ru	не
+not yet translated	sitemgr	ru	еще не переведено
+on all pages	sitemgr	ru	на всех страницах
+only gallery	sitemgr	ru	Только галерея
+only on the first page	sitemgr	ru	только на первой странице
+other websites	sitemgr	ru	Другие веб-сайты
 page	sitemgr	ru	Страница
+page content	sitemgr	ru	Содержимое страницы
+page manager	sitemgr	ru	Управление страницей
+page name	sitemgr	ru	Название страницы
 page saved	sitemgr	ru	Страница сохранена
 page saved.	sitemgr	ru	Страница сохранена.
 page subtitle	sitemgr	ru	Подзаголовок страницы.
@@ -254,9 +285,52 @@ parent directory	sitemgr	ru	Родительская папка
 parent section:	sitemgr	ru	Родительская секция:
 password	sitemgr	ru	Пароль
 path	sitemgr	ru	Путь
+pay with paypal	sitemgr	ru	Заплатить через PayPal
+percentage	sitemgr	ru	Проценты
+previous	sitemgr	ru	Предыдущий
+published	sitemgr	ru	опубликовано
+read permission	sitemgr	ru	Разрешение на чтение
+redirection	sitemgr	ru	Перенаправление
+refresh	sitemgr	ru	Обновить
+reload	sitemgr	ru	Перезагрузить
+remember me	common	ru	запомнить меня
+replies	sitemgr	ru	Ответы
+required	sitemgr	ru	Требуется
+required fields	sitemgr	ru	Требуемые Поля
+return to forums	sitemgr	ru	Вернуться к форумам
+return to main menu.	sitemgr	ru	Вернуться в главное меню
+return to message list	sitemgr	ru	Вернуться к списку сообщений
+save	sitemgr	ru	Сохранить
+save block	sitemgr	ru	Сохранить блок
+saved	sitemgr	ru	Сохранено
+scope	sitemgr	ru	Сфера(?)
+search keyword	sitemgr	ru	Поиск слова
+search language options	sitemgr	ru	Параметры языка при поиске
+search modes	sitemgr	ru	Режимы поиска
+seen by	sitemgr	ru	Просмотрели
+select a category	sitemgr	ru	Выбор категории
+select a forum	sitemgr	ru	Выбор форума
+select allowed modules	sitemgr	ru	Выбор допустимых модулей
+select layout for lang selection	sitemgr	ru	Выбор слоя для выбора языка (?)
+select the templates the user is allowed to see	sitemgr	ru	Выбор шаблонов которые разрешено видеть пользователям
+select type of navigation	sitemgr	ru	Выбор типа Навигации
+selected template %1 does not exist.	sitemgr	ru	Выбранный шаблон %1 не существует.
+selected theme %1 does not exist.	sitemgr	ru	Выбранная тема %1 не существует.
+show contents of a directory	sitemgr	ru	Показать содержимое папки
+show contents of a directory with subdirectories	sitemgr	ru	Показать содержимое папки с подпапками
+show current section only	sitemgr	ru	Показать только текущую секцию
+show details for the applications	sitemgr	ru	Показать подробности приложений
+show path?	sitemgr	ru	показать путь?
+show site index	sitemgr	ru	Показать индекс Сайта
+show subcategories	sitemgr	ru	Показать подкатегории
+show the title of the wiki page	sitemgr	ru	Показать название страницы Вики
+site	sitemgr	ru	Сайт
 site index	sitemgr	ru	Содержание Сайта
 site name	sitemgr	ru	Название сайта
 site tree menu	sitemgr	ru	Древовидное меню сайта
+sitemgr-link	common	ru	Веб-сайт
+size	sitemgr	ru	Размер
+sorry, no content found for you search criteria	sitemgr	ru	Извините, но ничего не найдено по заданным критериям поиска
 sort order	sitemgr	ru	Порядок Сортировки
 state	sitemgr	ru	Состояние
 subcategories	sitemgr	ru	Подкатегории
