@@ -14,7 +14,7 @@
 class module_login extends Module
 {
 	function module_login()
-	{		
+	{
 		$this->arguments = array(
 			'security_redirect'=>array(
 				'type' => 'textfield',
@@ -22,8 +22,8 @@ class module_login extends Module
 					lang('(leave blank to allow insecure logins)')
 			),
 			'login_dest' => array(
-				'type' => 'select', 
-				'label' => lang('Which application should be executed after login?'), 
+				'type' => 'select',
+				'label' => lang('Which application should be executed after login?'),
 				'options' => array()
 			)
 		);
@@ -39,7 +39,7 @@ class module_login extends Module
 		$this->description = lang('This module displays a login form');
 		$this->html =& CreateObject('phpgwapi.html');
 	}
-	
+
 	function get_user_interface()
 	{
 		$installed_apps = array_keys($GLOBALS['egw_info']['apps']);
@@ -69,9 +69,8 @@ class module_login extends Module
 		unset($chooseable_apps['etemplate']);
 		unset($chooseable_apps['egw-pear']);
 		$this->arguments['login_dest']['options'] = $chooseable_apps;
-		
-		$config =& CreateObject('phpgwapi.config','registration');
-		$config = $config->read_repository();
+
+		$config = config::read('registration');
 		if (file_exists(EGW_SERVER_ROOT . '/registration') && $config['enable_registration'] != 'True')
 		{
 			$this->arguments['registration']['label'] .= '<br><font color="red">'.
@@ -93,11 +92,11 @@ class module_login extends Module
 				$content .= '<input type="text" name="login" size="8" value=""><br>';
 				$content .= lang('Password') . '<br>';
 				$content .= '<input name="passwd" size="8" type="password"><br>';
-				
+
 				if($GLOBALS['egw_info']['server']['allow_cookie_auth'])
 				{
 					$content .= '<center><font class="content">' . lang("remember me");
-					$content .= $this->html->select('remember_me', 'forever', array(
+					$content .= html::select('remember_me', 'forever', array(
 						false => lang('not'),
 						'1hour' => lang('1 Hour'),
 						'1day' => lang('1 Day'),
@@ -107,7 +106,7 @@ class module_login extends Module
 					);
 					$content .= '</font></center><br>';
 				}
-				
+
 				switch($arguments['login_dest'])
 				{
 					case false :
@@ -118,11 +117,11 @@ class module_login extends Module
 						break;
 					case 'user' :
 						break;
-					
+
 					default :
-						$forward = '/'.$arguments['login_dest']; 
+						$forward = '/'.$arguments['login_dest'];
 				}
-				if ($forward) $content .= '<input type="hidden" name="phpgw_forward" value="'. $forward. '">'; 
+				if ($forward) $content .= '<input type="hidden" name="phpgw_forward" value="'. $forward. '">';
 				$content .= '<input type="submit" value="' . lang('Login') .'" name="submitit">';
 				$content .= '</font></center></form>';
 			}
