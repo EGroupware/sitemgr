@@ -82,7 +82,7 @@ class module_login extends Module
 
 	function get_content(&$arguments,$properties)
 	{
-		if($GLOBALS['phpgw_info']['user']['userid'] == $GLOBALS['sitemgr_info'][anonymous_user])
+		if($GLOBALS['egw_info']['user']['userid'] == $GLOBALS['sitemgr_info']['anonymous_user'])
 		{
 			if (empty($arguments['security_redirect']) || $_SERVER['HTTPS']){
 				$content = '<form name="login" action="'.phpgw_link('/login.php').'" method="post">';
@@ -141,7 +141,7 @@ class module_login extends Module
 		{
 			$content  = '<form name="login" action="'.phpgw_link('/logout.php').'" method="post">';
 			$content .= '<font class="content">'. lang('Loged in as:') .'<br>';
-			$content .= ' ['.$GLOBALS['phpgw_info']['user']['userid']. '] '. $GLOBALS['phpgw_info']['user']['fullname'];
+			$content .= ' ['.$GLOBALS['egw_info']['user']['userid']. '] '. $GLOBALS['egw_info']['user']['fullname'];
 			$content .= '</font><br><br><center>';
 			$content .= '<input type="submit" value="' . lang('Logout') .'" name="submitit">';
 			$content .= '</center></form>';
