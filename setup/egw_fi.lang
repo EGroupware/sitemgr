@@ -494,3 +494,8 @@ your calendar	sitemgr	fi	Kalenterisi
 your comment	sitemgr	fi	Kommenttisi
 your connection is not safe.	sitemgr	fi	Yhteytesi ei ole suojattu.
 your name	sitemgr	fi	Nimesi
+before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr-link	fi	Ennen kuin sivusto voidaan julkaista, sinun pitää säätää useita sijainteja ja asetuksia. Mene SiteMgr sivun asetuksiin seuraavasta linkistä:
+note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr-link	fi	Huomaa että voit saada tämän viestin mikäli asetuksesi ovat virheelliset. Esimerkiksi, jos config.inc.php tiedostoa ei löydy määrittelemästäsi paikasta.
+sitemgr setup page	sitemgr-link	fi	SiteMgr sivun asetukset
+you need to make sure the sitemgr-link app is in the egroupware directory.  if you made a symbolic link... it isn't working.	sitemgr-link	fi	Varmista että SiteMgr-link sovellus on eGroupWaren hakemistossa. Jos teit symbolisen linkin... se ei toimi.
+your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr-link	fi	Pääkäyttäjä ei ole vielä asettanut sisällönhallintaa julkiseksi. Huomauta tästä pääkäyttäjälle.

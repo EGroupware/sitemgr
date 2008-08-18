@@ -25,7 +25,7 @@
 		{
 			$GLOBALS['Common_BO'] =& CreateObject('sitemgr.Common_BO');
 			$this->do_sites_exist = $GLOBALS['Common_BO']->sites->set_currentsite(False,'Administration');
-			$this->t = $GLOBALS['egw']->template;
+			$this->t = new Template($GLOBALS['egw']->common->get_tpl_dir('sitemgr'));
 			$this->acl = &$GLOBALS['Common_BO']->acl;
 			$this->theme = &$GLOBALS['Common_BO']->theme;
 			$this->pages_bo = &$GLOBALS['Common_BO']->pages;
@@ -125,7 +125,7 @@
 						{
 							echo '<b>' . lang('Migrating data for %1 to %2',
 									$GLOBALS['Common_BO']->getlangname($oldlang),
-									$GLOBALS['Common_BO']->getlangname($newlang)) . 
+									$GLOBALS['Common_BO']->getlangname($newlang)) .
 							'</b><br>';
 							$this->pages_bo->migratealllang($oldlang,$newlang);
 							$this->cat_bo->migratealllang($oldlang,$newlang);
@@ -156,7 +156,7 @@
 							{
 								echo lang('Do you want to delete them?'). '<br>';
 							}
-							echo '<form action="' . 
+							echo '<form action="' .
 							$GLOBALS['egw']->link('/index.php','menuaction=sitemgr.Common_UI.DisplayPrefs') .
 							'" method="post"><table>';
 							foreach ($replacedlang as $oldlang)
@@ -167,20 +167,20 @@
 								{
 									foreach ($addedlang as $newlang)
 									{
-										echo '<td><input type="radio" name="change[' . $oldlang . 
-										']" value="' . $newlang . '"> Migrate to ' . 
+										echo '<td><input type="radio" name="change[' . $oldlang .
+										']" value="' . $newlang . '"> Migrate to ' .
 										$GLOBALS['Common_BO']->getlangname($newlang) . "</td>";
 									}
 								}
 								echo '<td><input type="radio" name="change[' . $oldlang . ']" value="delete"> delete</td></tr>';
 							}
-							echo '<tr><td><input type="submit" name="btnlangchange" value="' . 
+							echo '<tr><td><input type="submit" name="btnlangchange" value="' .
 							lang('Submit') . '"></td></tr></table></form>';
 						}
 					}
 
 					$oldsitelanguages = $oldsitelanguages ? explode(',',$oldsitelanguages) : array("en");
-					
+
 					$GLOBALS['Common_BO']->sites->saveprefs($_POST['pref']);
 
 					echo '<p><b>' . lang('Changes Saved.') . '</b></p>';
@@ -289,7 +289,7 @@
 			}
 			$this->DisplayFooter();
 		}
-		
+
 		function check_upload_dir($dir)
 		{
 			if ($dir)
@@ -356,7 +356,7 @@
 				$checked_yes.'>Yes</INPUT>'."\n".
 				'<INPUT TYPE="radio" NAME="'.$name.'" VALUE="0"'.
 				$checked_no.'>No</INPUT>'."\n";
-				
+
 		}
 
 		function inputOption($name = '', $options='', $default = '',$extra='')
@@ -371,7 +371,7 @@
 				$val = $default;
 			}
 			$returnValue = '<select name="pref['.$name.']" '.$extra.'>'."\n";
-			
+
 			foreach($options as $option)
 			{
 				$selected='';
@@ -459,5 +459,5 @@
 			}
 			return $selectlist;
 		}
-	}	
+	}
 ?>

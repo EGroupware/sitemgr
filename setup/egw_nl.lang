@@ -514,3 +514,8 @@ your calendar	sitemgr	nl	Uw calender
 your comment	sitemgr	nl	Uw commentaar
 your connection is not safe.	sitemgr	nl	Uw verbinding is niet veilig
 your name	sitemgr	nl	Uw naam
+before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr-link	nl	Voordat de publieke website bekeken kan worden moet u eerst verschillende locaties en voorkeuren configureren. Ga a.u.b. naar de sitemgr setup pagina door deze link te volgen:
+note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr-link	nl	Letop dat u dit bericht kunt krijgen als uw voorkeuren onjuist zijn. Bijvoorbeeld: als config.inc.php niet gevonden wordt in de directory die u heeft opgegeven.
+sitemgr setup page	sitemgr-link	nl	sitemgr setup pagina
+you need to make sure the sitemgr-link app is in the egroupware directory.  if you made a symbolic link... it isn't working.	sitemgr-link	nl	U moet controleren dat de sitemgr-link toepassing in de eGroupWare directory bestaat. Indien u een symbolic link heeft gemaakt .... werkt deze niet.
+your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr-link	nl	Uw beheerder heeft de web content manager nog niet ingesteld voor publieke weergave. Ga de beheerder aan zijn kop zeuren dat 'ie zijn werk moet gaan doen.
