@@ -42,7 +42,7 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 				$transformerfile = $this->root . SEP . 'draft_transform.inc.php';
 				if (!file_exists($transformerfile))
 				{
-					$transformerfile = $this->root . '/../default/draft_transform.inc.php';
+					$transformerfile = EGW_SERVER_ROOT . '/sitemgr/sitemgr-site/templates/default/draft_transform.inc.php';
 				}
 				if (file_exists($transformerfile))
 				{
@@ -58,7 +58,7 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 				$transformerfile = $this->root . SEP . 'edit_transform.inc.php';
 				if (!file_exists($transformerfile))
 				{
-					$transformerfile = $this->root . '/../default/edit_transform.inc.php';
+					$transformerfile = EGW_SERVER_ROOT . '/sitemgr/sitemgr-site/templates/default/edit_transform.inc.php';
 				}
 				if (file_exists($transformerfile))
 				{
@@ -164,20 +164,20 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 			global $page;
 			global $objbo;
 			static $cache;
-			
+
 			$areaname = is_array($vars) ? $vars[1] : $vars;
 			if (is_array($cache) && isset($cache[$areaname]))
 			{
 				$blocks =& $cache[$areaname];
 			}
-			else 
+			else
 			{
 				$blocks =& $this->bo->getvisibleblockdefsforarea($areaname,$page->cat_id,$page->id,$objbo->is_admin(),$objbo->isuser);
 			}
 			$n_blks = count($blocks);
 			return $GLOBALS['sitemgr_info']['mode'] == 'Edit' ? ( ($n_blks) < 1 ? 1 : $n_blks ) : $n_blks;
 		}
-		
+
 		/**
 		* processes all blocks for a given contentarea
 		*
@@ -221,7 +221,7 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 
 			$blocks =& $this->bo->getvisibleblockdefsforarea($areaname,$page->cat_id,$page->id,$objbo->is_admin(),$objbo->isuser);
 // 			_debug_array($blocks);
-			
+
 			// get addcontent blocks
 			if(is_array($this->addcontent))
 			{
@@ -243,7 +243,7 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 					}
 				}
 			}
-			
+
 			// if we are in the center area, we append special blocks
 			if ($areaname == "center" && $page->block)
 			{
@@ -255,17 +255,17 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 				{
 					if (in_array($block->module_id,$this->permitted_modules))
 					{
-						// we maintain an array of modules we have already used, so we do not have to create them anew. 
+						// we maintain an array of modules we have already used, so we do not have to create them anew.
 						// getmodule returns now a clone of the original module, otherwise PHP5 would use an implicit reference
 						$moduleobject =& $this->getmodule($block->module_name);
-						
+
 						if ($block->id)
 						{
 							$block->title = $this->getblocktitlewrapper($block->id);
-							$block->arguments = $moduleobject->i18n ? 
+							$block->arguments = $moduleobject->i18n ?
 								$this->getversionwrapper($block->version) : $this->bo->getversion($block->version);
 						}
-						
+
 						$moduleobject->set_block($block,True);
 
 						if (($block->state == SITEMGR_STATE_PREPUBLISH) && is_object($this->draft_transformer))
@@ -276,7 +276,7 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 						{
 							$moduleobject->add_transformer($transformer);
 						}
-						if ($GLOBALS['sitemgr_info']['mode'] == 'Edit' && 
+						if ($GLOBALS['sitemgr_info']['mode'] == 'Edit' &&
 							$block->id && is_object($this->edit_transformer) &&
 							$GLOBALS['Common_BO']->acl->can_write_category($block->cat_id))
 						{
@@ -284,7 +284,7 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 						}
 
 						$output = $moduleobject->get_output();
-						
+
 						//process module calls embedded into output
 						$content .= preg_replace_callback(
 							"/\{([[:alnum:]_-]*)\.([[:alnum:]_-]*)(\?([^{ ]+))?\}/",
