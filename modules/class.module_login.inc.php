@@ -109,17 +109,16 @@ class module_login extends Module
 
 				switch($arguments['login_dest'])
 				{
-					case false :
-						$forward = '/home';
+					case false:
+						$forward = '/home/';
 						break;
 					case 'sitemgr-link' :
-						$forward = '/sitemgr-link/index.php?location='. $this->link();
+						$forward = '/sitemgr/sitemgr-link.php?location='. $this->link();
 						break;
-					case 'user' :
+					case 'user':
 						break;
-
 					default :
-						$forward = '/'.$arguments['login_dest'];
+						$forward = '/'.$arguments['login_dest'].'/';
 				}
 				if ($forward) $content .= '<input type="hidden" name="phpgw_forward" value="'. $forward. '">';
 				$content .= '<input type="submit" value="' . lang('Login') .'" name="submitit">';
