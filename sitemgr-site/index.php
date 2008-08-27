@@ -240,9 +240,3 @@
 			$objui->displayIndex();
 		}
 	}
-	if (DEBUG_TIMER)
-	{
-		$GLOBALS['debug_timer_stop'] = microtime(true);
-		echo 'Page loaded in ' . ($GLOBALS['debug_timer_stop'] - $GLOBALS['debug_timer_start']) . ' seconds.';
-	}
-?>
