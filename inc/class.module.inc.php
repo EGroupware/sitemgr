@@ -27,7 +27,7 @@ class Transformer
 }
 
 
-class Module 
+class Module
 {
 	var $i18n; //flag a module must use if it wants its content to be translatable
 	var $validation_error;
@@ -38,7 +38,7 @@ class Module
 
 	function Module()
 	{
-		
+
 		$this->arguments = array();
 		$this->properties = array();
 		$this->transformer_chain = array();
@@ -102,7 +102,8 @@ class Module
 		}
 		if ($GLOBALS['page']->name)
 		{
-			$extravars['page_name'] = $GLOBALS['page']->name;
+			$extravars['page_name'] = $extravars['page_name'] ? $extravars['page_name'] : $GLOBALS['page']->name;
+
 		}
 		elseif ($GLOBALS['page']->cat_id)
 		{
@@ -127,7 +128,7 @@ class Module
 				$extravars['addcontent'] .= $add_counter;
 				$add_cont[$add_counter] = $new_add;
 				if($new_add['page']) $extravars['page_name'] = $new_add['page'];
-				
+
 				$new_add = array_pop($addcontent);
 				if($new_add)
 				{
