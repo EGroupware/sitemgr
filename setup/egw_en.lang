@@ -65,7 +65,7 @@ automatically generated notification	sitemgr	en	Automatically generated notifica
 back to module manager	sitemgr	en	Back to module manager
 back to the list of languages	sitemgr	en	Back to the list of languages
 basic settings	sitemgr	en	Basic Settings
-before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr	en	Before the public web site can be viewed, you must configure the various locations and preferences.  Please go to the sitemgr setup page by following this link:
+before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr-link	en	Before the public web site can be viewed, you must configure the various locations and preferences.  Please go to the sitemgr setup page by following this link:
 block not found.	sitemgr	en	Block not found.
 block reloaded	sitemgr	en	Block reloaded
 block returned no content.	sitemgr	en	Block returned no content.
@@ -139,7 +139,8 @@ do you want to delete them?	sitemgr	en	Do you want to delete them?
 documentation	sitemgr	en	Documentation
 domain-name (offical dns-name eg. www.egroupware.org) if you want to give the user a choice between searching this site or the whole web. leaving it empty allows to search the web only.	sitemgr	en	Domain-name (offical DNS-name eg. www.eGroupWare.org) if you want to give the user a choice between searching this site or the whole web. Leaving it empty allows to search the web only.
 don't have an account?	sitemgr	en	Don't have an account?
-don't use egroupware css ">" separator (for templates that uses images/simbols for lists)	sitemgr	en	Don't use egroupware css ">" separator (for templates that uses images/simbols for lists)
+don't show hiden pages in the path way	sitemgr	en	Don't show hiden pages in the path way
+don't use egroupware css ">" separator (for templates that uses images/symbols for lists)	sitemgr	en	Don't use egroupware css ">" separator (for templates that uses images/symbols for lists)
 done	sitemgr	en	Done
 dont ask	sitemgr	en	Dont ask
 download as zip-archiv	sitemgr	en	download as ZIP-archiv
@@ -248,6 +249,7 @@ manage category wide content	sitemgr	en	Manage category wide content
 manage category wide module properties	sitemgr	en	Manage category wide module properties
 manage content	sitemgr	en	Manage Content
 manage modules	sitemgr	en	Manage Modules
+manage notification messages	sitemgr	en	Manage Notification Messages
 manage notifications	sitemgr	en	Manage notifications
 manage page specific content	sitemgr	en	Manage page specific content
 manage pages	common	en	Manage Pages
@@ -255,8 +257,6 @@ manage site content	sitemgr	en	Manage Site Content
 manage site-wide content	sitemgr	en	Manage site-wide content
 manage site-wide module properties	sitemgr	en	Manage site-wide module properties
 manage translations	sitemgr	en	Manage Translations
-manange notifications	sitemgr	en	Manange Notifications
-manange notifications messages	sitemgr	en	Manange Notifications Messages
 master list of permitted modules	sitemgr	en	Master list of permitted modules
 maximal category depth to be shown	sitemgr	en	Maximal category depth to be shown
 maximal page depth to be shown	sitemgr	en	Maximal page depth to be shown
@@ -299,7 +299,7 @@ no, chooser only (for side-areas)	sitemgr	en	No, chooser only (for side-areas)
 no, chooser with preview	sitemgr	en	No, chooser with preview
 not	common	en	not
 not yet translated	sitemgr	en	not yet translated
-note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	en	Note that you may get this message if your preferences are incorrect.  For example, if config.inc.php is not found in the directory that you specified.
+note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr-link	en	Note that you may get this message if your preferences are incorrect.  For example, if config.inc.php is not found in the directory that you specified.
 notification message not found !!!	sitemgr	en	Notification Message not found !!!
 notification not found !!!	sitemgr	en	Notification not found !!!
 number of results	sitemgr	en	Number of results
@@ -413,11 +413,10 @@ sitemgr	common	en	SiteMgr
 sitemgr manual	sitemgr	en	SiteMgr Manual
 sitemgr options	sitemgr	en	SiteMgr Options
 sitemgr setup instructions	sitemgr	en	SiteMgr Setup Instructions
-sitemgr setup page	sitemgr	en	sitemgr setup page
+sitemgr setup page	sitemgr-link	en	sitemgr setup page
 sitemgr web content manager	common	en	SiteMgr Web Content Manager
 sitemgr websites	sitemgr	en	Sitemgr Websites
 sitemgr-link	common	en	Website
-sitio	sitemgr	en	Sitio
 size	sitemgr	en	Size
 sorry, no content found for you search criteria	sitemgr	en	Sorry, no content found for you search criteria
 sort order	sitemgr	en	Sort Order
@@ -548,7 +547,7 @@ week	sitemgr	en	week
 what do you want to do with existing translations of categories and pages for this language?	sitemgr	en	What do you want to do with existing translations of categories and pages for this language?
 when is a tab activated?	sitemgr	en	When is a tab activated?
 which application should be executed after login?	sitemgr	en	Which application should be executed after login?
-which main categories schuld be included (comma seperated list, empty for all)	sitemgr	en	Which main categories schuld be included (comma seperated list, empty for all)
+which main categories should be included (comma separated list, empty for all)	sitemgr	en	Which main categories should be included (comma separated list, empty for all)
 wiki	sitemgr	en	Wiki
 wiki startpage	sitemgr	en	Wiki startpage
 with which view should the module be displayed in the beginning?	sitemgr	en	With which view should the module be displayed in the beginning?
@@ -573,15 +572,11 @@ you must be an admin to edit categories.	sitemgr	en	You must be an admin to edit
 you must be an admin to edit the site header and footer.	sitemgr	en	You must be an admin to edit the site header and footer.
 you must be an admin to manage module properties.	sitemgr	en	You must be an admin to manage module properties.
 you must be an administrator to setup the site manager.	sitemgr	en	You must be an administrator to setup the Site Manager.
+you need to be an administrator of this website to enter javascript!	sitemgr	en	You need to be an administrator of this website to enter javascript!
 you removed one ore more languages from your site languages.	sitemgr	en	You removed one ore more languages from your site languages.
 you will remove the message in the following language from your notification system:	sitemgr	en	You will remove the message in the following language from your notification system:
-your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr	en	Your administrator has not yet setup the web content manager for public viewing.  Go bug your administrator to get their butt in gear.
+your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr-link	en	Your administrator has not yet setup the web content manager for public viewing.  Go bug your administrator to get their butt in gear.
 your calendar	sitemgr	en	Your Calendar
 your comment	sitemgr	en	Your comment
 your connection is not safe.	sitemgr	en	Your connection is not safe.
 your name	sitemgr	en	Your name
-You need to make sure the sitemgr-link app is in the egroupware directory.  If you made a symbolic link... it isn't working.	sitemgr-link	en	You need to make sure the sitemgr-link app is in the egroupware directory.  If you made a symbolic link... it isn't working.
-Before the public web site can be viewed, you must configure the various locations and preferences.  Please go to the sitemgr setup page by following this link:	sitemgr-link	en	Before the public web site can be viewed, you must configure the various locations and preferences.  Please go to the sitemgr setup page by following this link:
-sitemgr setup page	sitemgr-link	en	sitemgr setup page
-Note that you may get this message if your preferences are incorrect.  For example, if config.inc.php is not found in the directory that you specified.	sitemgr-link	en	Note that you may get this message if your preferences are incorrect.  For example, if config.inc.php is not found in the directory that you specified.
-Your administrator has not yet setup the web content manager for public viewing.  Go bug your administrator to get their butt in gear.	sitemgr-link	en	Your administrator has not yet setup the web content manager for public viewing.  Go bug your administrator to get their butt in gear.

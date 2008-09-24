@@ -43,7 +43,7 @@
 
 			$this->sitelanguages = $GLOBALS['Common_BO']->sites->current_site['sitelanguages'];
 			$savelanguage = $_POST['savelanguage'];
-			$savelanguage = $savelanguage ? $savelanguage : 
+			$savelanguage = $savelanguage ? $savelanguage :
 				($GLOBALS['sitemgr_info']['userlang'] ? $GLOBALS['sitemgr_info']['userlang'] :
 				$GLOBALS['egw']->session->appsession('worklanguage','sitemgr') ?
 				$GLOBALS['egw']->session->appsession('worklanguage','sitemgr') : $this->sitelanguages[0]);
@@ -172,22 +172,41 @@
 					$block->title = $inputblocktitle;
 					$block->sort_order = $inputblocksort;
 					$block->view = $inputblockview;
+
+					foreach($element as $version_id => &$content)
+					{
+						if (isset($GLOBALS['egw_unset_vars']["_POST[element][$version_id][i18n][htmlcontent]"]) && !isset($content['i18n']['htmlcontent']))
+						{
+							if ($this->acl->is_admin())
+							{
+								$content['i18n']['htmlcontent'] =& $GLOBALS['egw_unset_vars']["_POST[element][$version_id][i18n][htmlcontent]"];
+								unset($GLOBALS['egw_unset_vars']["_POST[element][$version_id][i18n][htmlcontent]"]);
+							}
+							else
+							{
+								$this->errormsg[] = lang('You need to be an administrator of this website to enter javascript!');
+							}
+						}
+					}
 				}
-				$result = $this->bo->saveblockdata($block,$element,$inputstate,$this->worklanguage,$_POST['scope']);
-				if ($result !== True)
+				if (!$this->errormsg)
 				{
-					//result should be an array of validationerrors
-					$this->errormsg = $result;
-				}
-				else
-				{
-					$this->errormsg[] = lang('Block saved');
-					$focus_reload_close = 'opener.location.reload();';
-				}
-				if ($_GET['sort_order'] || $block_id && $btnSaveBlock && $result === True)
-				{
-					echo '<html><head></head><body onload="opener.location.reload();self.close()"></body></html>';
-					$GLOBALS['egw']->common->egw_exit();
+					$result = $this->bo->saveblockdata($block,$element,$inputstate,$this->worklanguage,$_POST['scope']);
+					if ($result !== True)
+					{
+						//result should be an array of validationerrors
+						$this->errormsg = $result;
+					}
+					else
+					{
+						$this->errormsg[] = lang('Block saved');
+						$focus_reload_close = 'opener.location.reload();';
+					}
+					if ($_GET['sort_order'] || $block_id && $btnSaveBlock && $result === True)
+					{
+						echo '<html><head></head><body onload="opener.location.reload();self.close()"></body></html>';
+						$GLOBALS['egw']->common->egw_exit();
+					}
 				}
 			}
 			elseif ($btnReloadBlock && $block_id)
@@ -413,7 +432,7 @@
 					'block' => $this->bo->getlangblocktitle($block_id,$this->sitelanguages[0]),
 					'blockid' => $block_id,
 					'scope' => $this->blockscope($block->cat_id,$block->page_id),
-					'addedorremovedorreplaced' => ($block->cnt == 2) ? 'replaced' : 
+					'addedorremovedorreplaced' => ($block->cnt == 2) ? 'replaced' :
 						(($block->state == SITEMGR_STATE_PREPUBLISH) ? 'added' : 'removed'),
 					'edit' =>  $GLOBALS['egw']->link('/index.php',array(
 						'block_id' => $block_id,
@@ -551,7 +570,7 @@
 		{
 			$returnValue = '';
 			foreach($modules as $id => $module)
-			{ 
+			{
 				$returnValue.='<option title="' . lang($module['description']) . '" value="'.$id.'">'.
 					$module['module_name'].'</option>'."\n";
 			}
@@ -675,8 +694,8 @@
 				$this->t->set_var('EvBlock','');
 				while (list($version_id,$version) = each($versions))
 				{
-					//set the version of the block which is referenced by the moduleobject, 
-					//so that we retrieve a interface with the current version's arguments 
+					//set the version of the block which is referenced by the moduleobject,
+					//so that we retrieve a interface with the current version's arguments
 					$block->set_version($version);
 					$editormoduleelements = $moduleobject->get_user_interface();
 					$this->t->set_var(array(

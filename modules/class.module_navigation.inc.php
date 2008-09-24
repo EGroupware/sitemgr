@@ -115,7 +115,7 @@
 					),
 					'main_cats_to_include' => array(
 						'type' => 'textfield',
-						'label' => lang('Which main categories schuld be included (comma seperated list, empty for all)'),
+						'label' => lang('Which main categories should be included (comma separated list, empty for all)'),
 					)),
 				4 => array( // Navigation
 					'description' => lang("This module displays the root categories in one block each, with pages and subcategories (incl. their pages if activated).")
@@ -136,10 +136,10 @@
 					'description' => lang('This module provides the path to the element currently shown'),
 					'no_show_sep' => array(
 						'type' => 'checkbox',
-						'label'=> lang('Don\'t use egroupware css ">" separator (for templates that uses images/simbols for lists)')),
+						'label'=> lang('Don\'t use egroupware css ">" separator (for templates that uses images/symbols for lists)')),
 					'suppress_hide_pages' => array(
 						'type' => 'checkbox',
-						'label'=> lang('Don\'t show hidet pages in the path way')),
+						'label'=> lang('Don\'t show hiden pages in the path way')),
 
 						),
 				9 => array( //Custom
