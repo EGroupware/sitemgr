@@ -65,7 +65,7 @@ automatically generated notification	sitemgr	cs	Automaticky generované upozorn�
 back to module manager	sitemgr	cs	Zpět do správce modulů
 back to the list of languages	sitemgr	cs	Zpět na seznam jazyků
 basic settings	sitemgr	cs	Základní nastavení
-before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr	cs	Než může být veřejný web publikován, musíte nakonfigurovat nejrůznější místa a předvolby. Přejděte prosím na stránku s nastavením Správce webu pomocí následujícího odkazu:
+before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr-link	cs	Než může být veřejný web publikován, musíte nakonfigurovat nejrůznější místa a předvolby. Přejděte prosím na stránku s nastavením Správce webu pomocí následujícího odkazu:
 block not found.	sitemgr	cs	Blok nebyl nalezen.
 block reloaded	sitemgr	cs	Blok byl znovu načten
 block returned no content.	sitemgr	cs	Blok nevrátil žádný obsah
@@ -139,7 +139,8 @@ do you want to delete them?	sitemgr	cs	Chcete je smazat?
 documentation	sitemgr	cs	Dokumentace
 domain-name (offical dns-name eg. www.egroupware.org) if you want to give the user a choice between searching this site or the whole web. leaving it empty allows to search the web only.	sitemgr	cs	Doménové jméno (oficiální DNS jméno, např. www.eGroupWare.org) pokud chcete poskytnout uživateli výběr mezi prohledáváním této stránky nebo celého webu. Ponecháte-li pole prázdné, povolíte jen prohledávání webu.
 don't have an account?	sitemgr	cs	Nemáte účet?
-don't use egroupware css ">" separator (for templates that uses images/simbols for lists)	sitemgr	cs	Nepoužívat eGroupWare CSS oddělovač ">" (u šablon, které používají obrázky/symboly v seznamech)
+don't show hiden pages in the path way	sitemgr	cs	Nezobrazovat skryté stránky v cestě
+don't use egroupware css ">" separator (for templates that uses images/symbols for lists)	sitemgr	cs	Nepoužívat egroupware css ">" oddělovač (pro šablony, které v mají seznamech obrázky nebo symboly)
 done	sitemgr	cs	Hotovo
 dont ask	sitemgr	cs	Neptat se
 download as zip-archiv	sitemgr	cs	stáhnout jako ZIP archiv
@@ -248,6 +249,7 @@ manage category wide content	sitemgr	cs	Spravovat obsah celé kategorie
 manage category wide module properties	sitemgr	cs	Spravovat vlastnosti modulu celé kategorie
 manage content	sitemgr	cs	Spravovat obsah
 manage modules	sitemgr	cs	Spravovat moduly
+manage notification messages	sitemgr	cs	Spravovat upozornění
 manage notifications	sitemgr	cs	Spravovat upozornění
 manage page specific content	sitemgr	cs	Spravovat obsah vztahujcí se ke stránce
 manage pages	common	cs	Spravovat stránky
@@ -255,8 +257,6 @@ manage site content	sitemgr	cs	Spravovat obsah webu
 manage site-wide content	sitemgr	cs	Spravovat obsah celého webu
 manage site-wide module properties	sitemgr	cs	Spravovat vlastnosti modulu celého webu
 manage translations	sitemgr	cs	Spravovat překlady
-manange notifications	sitemgr	cs	Spravovat upozornění
-manange notifications messages	sitemgr	cs	Spravovat texty upozornění
 master list of permitted modules	sitemgr	cs	Hlavní seznam povolených modulů
 maximal category depth to be shown	sitemgr	cs	Maximální hloubka kategorie, která se zobrazí
 maximal page depth to be shown	sitemgr	cs	Maximální hloubka stránky, která se zobrazí
@@ -289,6 +289,7 @@ no new modules found !!!	sitemgr	cs	Žádné nové moduly nebyly nalezeny !!!
 no options available.	sitemgr	cs	Žádné volby nejsou k dispozici.
 no pages available	sitemgr	cs	Žádné stránky nejsou k dispozici
 no sitelanguages configured	sitemgr	cs	Nejsou konfigurovány jazyky pro web
+no states defined	sitemgr	cs	Žádné stavy nebyly definovány
 no template file found.	sitemgr	cs	Žádný soubor s šablonou nebyl nalezen.
 no templates found.	sitemgr	cs	Žádné šablony nebyly nalezeny
 no thumbnail availible	sitemgr	cs	Žádná miniatura není k dispozici
@@ -298,7 +299,7 @@ no, chooser only (for side-areas)	sitemgr	cs	Ne, jen volič (pro postranní obla
 no, chooser with preview	sitemgr	cs	Ne, volič s náhledem
 not	common	cs	ne
 not yet translated	sitemgr	cs	zatím nepřeloženo
-note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	cs	Pamatujte, že můžete dostat tuto zprávu, pokud Vaše předvolby nejsou v pořádku. Například pokud soubor config.inc.php není v adresáři, který jste uvedl(a).
+note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr-link	cs	Pamatujte, že můžete dostat tuto zprávu, pokud Vaše předvolby nejsou v pořádku. Například pokud soubor config.inc.php není v adresáři, který jste uvedl(a).
 notification message not found !!!	sitemgr	cs	Text upozornění nebyl nalezen!!!
 notification not found !!!	sitemgr	cs	Upozornění nebylo nalezeno!!!
 number of results	sitemgr	cs	Počet výsledků
@@ -387,6 +388,7 @@ show contents of a directory	sitemgr	cs	Zobrazit obsah adresáře
 show contents of a directory with subdirectories	sitemgr	cs	Zobrazit obsah adresáře s podadresáři
 show current section only	sitemgr	cs	Zobrazit jen aktuální sekci
 show details for the applications	sitemgr	cs	Zobrazit podrobnosti aplikací
+show files including the ones from subdirectories	sitemgr	cs	Zobrazit soubory včetně těch z podadresářů
 show only (in the next field) selected templates	sitemgr	cs	Zobrazit (v dalším poli) jen vybrané šablony
 show path?	sitemgr	cs	zobrazit cestu?
 show searchbox	sitemgr	cs	Zobrazit vyhledávací pole
@@ -411,11 +413,10 @@ sitemgr	common	cs	Správce webu
 sitemgr manual	sitemgr	cs	Manuál Správce webu
 sitemgr options	sitemgr	cs	Volby Správce webu
 sitemgr setup instructions	sitemgr	cs	Instrukce pro nastavení Správce webu
-sitemgr setup page	sitemgr	cs	Stránka pro nastavení Správce webu
+sitemgr setup page	sitemgr-link	cs	Stránka pro nastavení Správce webu
 sitemgr web content manager	common	cs	Správce obsahu webu
 sitemgr websites	sitemgr	cs	Weby Správce webu
 sitemgr-link	common	cs	Web
-sitio	sitemgr	cs	Web
 size	sitemgr	cs	Velikost
 sorry, no content found for you search criteria	sitemgr	cs	Lituji, žádný obsah neodpovídá zadaným kritériím vyhledávání
 sort order	sitemgr	cs	Pořadí řazení
@@ -546,7 +547,7 @@ week	sitemgr	cs	týden
 what do you want to do with existing translations of categories and pages for this language?	sitemgr	cs	Co chcete udělat se stávajícímu překlady kategorií a stránek v tomto jazyce?
 when is a tab activated?	sitemgr	cs	Kdy je záložka aktivována?
 which application should be executed after login?	sitemgr	cs	Která aplikace by měla být spuštěna po přihlášení?
-which main categories schuld be included (comma seperated list, empty for all)	sitemgr	cs	Které hlavní kategorie by měly být zahrnuty (seznam oddělený čárkami, ponechte prázdné pro všechny)
+which main categories should be included (comma separated list, empty for all)	sitemgr	cs	Které hlavní kategorie by měly být zahrnuty (seznam oddělený čárkami, ponechte prázdné pro všechny)
 wiki	sitemgr	cs	Wiki
 wiki startpage	sitemgr	cs	Úvodní stránka Wiki
 with which view should the module be displayed in the beginning?	sitemgr	cs	Ve kterém pohledu by měl být modul na začátku zobrazen?
@@ -571,15 +572,11 @@ you must be an admin to edit categories.	sitemgr	cs	Pro editaci kategorií musí
 you must be an admin to edit the site header and footer.	sitemgr	cs	Pro editaci záhlaví a zápatí webu musíte být administrátorem.
 you must be an admin to manage module properties.	sitemgr	cs	Pro správu vlastností modulu musíte být administrátorem.
 you must be an administrator to setup the site manager.	sitemgr	cs	Pro nastavení Správce webu musíte být administrátorem.
+you need to be an administrator of this website to enter javascript!	sitemgr	cs	Vkládat javascript mohou jen administrátoři tohoto webu!
 you removed one ore more languages from your site languages.	sitemgr	cs	Odstranil(a) jste jeden nebo více jazyků z Vašeho webu.
 you will remove the message in the following language from your notification system:	sitemgr	cs	Odstraníte zprávu v následujícím jazyce ze systému upozornění:
-your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr	cs	Váš administrátor dosud nenastavil Správce obsahu webu pro veřejné prohlížení. Jděte popohnat svého administrátora.
+your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr-link	cs	Váš administrátor dosud nenastavil Správce obsahu webu pro veřejné prohlížení. Jděte popohnat svého administrátora.
 your calendar	sitemgr	cs	Váš kalendář
 your comment	sitemgr	cs	Váš komentář
 your connection is not safe.	sitemgr	cs	Vaše připojení není zabezpečené
 your name	sitemgr	cs	Vaše jméno
-before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr-link	cs	Než může být veřejný web publikován, musíte nakonfigurovat nejrůznější místa a předvolby. Přejděte prosím na stránku s nastavením Správce webu pomocí následujícího odkazu:
-note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr-link	cs	Pamatujte, že můžete dostat tuto zprávu, pokud Vaše předvolby nejsou v pořádku. Například pokud soubor config.inc.php není v adresáři, který jste uvedl(a).
-sitemgr setup page	sitemgr-link	cs	Stránka pro nastavení Správce webu
-you need to make sure the sitemgr-link app is in the egroupware directory.  if you made a symbolic link... it isn't working.	sitemgr-link	cs	Musíte se ujistit, že aplikace Web (sitemrgr-link) je v adresáři eGroupWaru. Pokud jste jen vytvořil(a) symbolický odkaz, nebude to fungovat.
-your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr-link	cs	Váš administrátor dosud nenastavil Správce obsahu webu pro veřejné prohlížení. Jděte popohnat svého administrátora.
