@@ -112,7 +112,12 @@
 		}
 
 		// load the center module
-		mosLoadModules('center');
+		if (!file_exists($file = $objui->templateroot.'/mainbody.tpl'))
+		{
+			$file = realpath(dirname(__FILE__).'/../mos-compat/mainbody.tpl');
+		}
+		$objui->t->loadfile($file);
+		echo $objui->t->parse();
 	}
 
 	// this is just to make some templates work, it does nothing actually atm.
@@ -124,6 +129,7 @@
 
 		function loadObjectList($ids)
 		{
+			require_once(dirname(__FILE__).'/../mos-compat/class.joomla.inc.php');
 			$joomla = new joomla();
 			$rows = $joomla->getmenu($ids);
 			return $rows;
