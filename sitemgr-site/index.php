@@ -147,7 +147,14 @@
 	elseif (file_exists($templateroot.'/index.php'))	// mambo open source template
 	{
 		include_once './inc/class.mos_ui.inc.php';
+		if (file_exists($templateroot.'/joomla.xml.php'))	// Joomla template
+		{
+			include_once './mos-compat/class.joomla.inc.php';
+			include_once './mos-compat/class.JFilterOutput.inc.php';
+			include_once './mos-compat/joomla_Legacy_function.inc.php';
+		}
 	}
+
 	if (!class_exists('ui'))
 	{
 		echo '<h3>'.lang("Invalid template directory '%1' !!!",$templateroot)."</h3>\n";
