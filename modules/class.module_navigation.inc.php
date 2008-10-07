@@ -346,7 +346,8 @@
 				case 5 : // Sitetree
 					$out .= "sitetree\">\n";
 					$out .= $this->type_sitetree($arguments,$properties);
-					$out .= "  </div>\n<!-- navigation context ends here -->\n</div>\n";
+					$out .= "  </div>\n</div>\n".
+						"<!-- navigation context ends here -->\n\n";
 					return $out;
 				case 6 : // Toc
 					$out .= "toc\">\n";
@@ -422,7 +423,8 @@
 				default:
 					$out .= "navigation\">\n";
 					$out .= $this->type_navigation($arguments,$properties);
-					$out .= "  </div>\n<!-- navigation context ends here -->\n</div>\n";
+					$out .= "  </div>\n</div>\n".
+						"<!-- navigation context ends here -->\n\n";
 					return $out;
 			}
 
@@ -578,7 +580,8 @@
 				$out .= "    </div>\n";
 			}
 
-			$out .= "  </div>\n<!-- navigation context ends here -->\n</div>\n";
+			$out .= "  </div>\n</div>\n".
+						"<!-- navigation context ends here -->\n\n";
 			return $out;
 		}
 
@@ -595,6 +598,7 @@
 		function encapsulate($arguments,$data,$type,$cat_id,$depth=1)
 		{
 			$out = '';
+			//$out .= "    <!-- BEGIN encapsulate(".$type.") -->\n";
 			if(empty($arguments['main_cats_to_include']) && $arguments['nav_type'] != 6) {
 				// do we have to start or finish a block?
 				if ($type == 'cat')
@@ -602,10 +606,10 @@
 					// finish old block
 					if ($this->lastcatdepth >= $depth)
 					{
-						while($this->lastcatdepth != $depth - 1 && $this->lastcatdepth != 0)
+						while($this->lastcatdepth != $depth - 1 && $this->lastcatdepth > 0)
 						{
-							$out .= "  </div>\n";
-							//$out .= "  <!-- NAV CAT BLOCK OF DEPTH ". $this->lastcatdepth. " ENDS HERE-->\n";
+							$out .= "    </div>\n";
+							//$out .= "    <!-- NAV CAT BLOCK OF DEPTH ". $this->lastcatdepth. " ENDS HERE-->\n";
 							$this->lastcatdepth--;
 						}
 					}
@@ -614,12 +618,12 @@
 					// marker to end last block
 					if ($depth == 0) return $out;
 
-					//$out .= "  <!-- NAV CAT BLOCK OF DEPTH ". $depth. " STARTS HERE-->\n";
-					$out .= "  <div class=\"nav-cat-block blockdepth-".$depth. ($this->page->cat_id == $cat_id ? ' active' : ' inactive'). "\">\n";
+					//$out .= "    <!-- NAV CAT BLOCK OF DEPTH ". $depth. " STARTS HERE-->\n";
+					$out .= "    <div class=\"nav-cat-block blockdepth-".$depth. ($this->page->cat_id == $cat_id ? ' active' : ' inactive'). "\">\n";
 				}
 			}
-			$out .= "    <div class=\"nav-".$type."-entry depth-".$depth."\">\n";
-			$out .= "      <ul>\n";
+			$out .= "      <div class=\"nav-".$type."-entry depth-".$depth."\">\n";
+			$out .= "        <ul>\n";
 
 			if (is_array($data))
 			foreach($data as $id => $entry)
@@ -635,8 +639,8 @@
 					$entry['link'] = "<div class=\"nav-highlight_current_page\">".$entry['link'].'</div>';
 				}
 
-				$out .= "        <li>\n";
-				$out .= "          ".$entry['link']."\n";
+				$out .= "          <li>\n";
+				$out .= "            ".$entry['link']."\n";
 
 				if($arguments['show_edit_icons'])
 				{
@@ -656,8 +660,23 @@
 
 				$out .= "        </li>\n";
 			}
-			$out .= "      </ul>\n";
-			$out .= "    </div>\n";
+			$out .= "        </ul>\n";
+			$out .= "      </div><!-- class=\"nav-".$type."-entry depth-".$depth."\" -->\n";
+			if(empty($arguments['main_cats_to_include']) && $arguments['nav_type'] == 8) {
+				// do we have to start or finish a block?
+				if ($type == 'cat')
+				{
+					// finish old block
+					while($this->lastcatdepth > 0)
+					{
+						$out .= "    </div>\n";
+						$out .= "    <!-- DEPTH ". $this->lastcatdepth. " ENDS HERE-->\n";
+						$this->lastcatdepth--;
+					}
+				}
+			}
+			//$out .= "    <!-- END encapsulate() -->\n";
+
 			return $out;
 		}
 
