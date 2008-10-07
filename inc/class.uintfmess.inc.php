@@ -9,7 +9,6 @@
  * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
  */
 
-require_once(EGW_INCLUDE_ROOT.'/etemplate/inc/class.uietemplate.inc.php');
 require_once(EGW_INCLUDE_ROOT.'/sitemgr/inc/class.bontfmess.inc.php');
 
 class uintfmess extends bontfmess
