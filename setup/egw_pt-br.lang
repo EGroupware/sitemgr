@@ -65,7 +65,7 @@ automatically generated notification	sitemgr	pt-br	Notificação gerada automati
 back to module manager	sitemgr	pt-br	Voltar ao módulo de gerenciamento
 back to the list of languages	sitemgr	pt-br	Retornar à lista de idiomas
 basic settings	sitemgr	pt-br	Configurações Básicas
-before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr	pt-br	Antes que o Web Site se torne público e possa ser visto, você deve configurar os vários endereços e preferências. Por favor visite à página de instalação do sitemgr seguindo este link:
+before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr-link	pt-br	Antes da página web pública poder ser vista, você deve configurar vários locais e preferências. Por favor, vá até às configurações do Gerenciador de Sites, clicando no seguinte link:
 block not found.	sitemgr	pt-br	Bloco não encontrado
 block reloaded	sitemgr	pt-br	Bloco recarregado
 block returned no content.	sitemgr	pt-br	Bloco sem conteúdo
@@ -139,7 +139,8 @@ do you want to delete them?	sitemgr	pt-br	Realmente deseja apagá-los?
 documentation	sitemgr	pt-br	Documentação
 domain-name (offical dns-name eg. www.egroupware.org) if you want to give the user a choice between searching this site or the whole web. leaving it empty allows to search the web only.	sitemgr	pt-br	Nome do domínio (nome do DNS oficial, ex. www.eGroupWare.org), se você quiser dar ao usuário a opção entre procurar nesta página ou na Internet toda. Deixar esse campo vazio, permitirá a procura em toda a web.
 don't have an account?	sitemgr	pt-br	Não possui uma conta de acesso?
-don't use egroupware css ">" separator (for templates that uses images/simbols for lists)	sitemgr	pt-br	Não usar o separador css ">" do eGroupWare (para modelos que usam imagens/símbolos para listas)
+don't show hiden pages in the path way	sitemgr	pt-br	Não exibir páginas ocultas na navegação
+don't use egroupware css ">" separator (for templates that uses images/symbols for lists)	sitemgr	pt-br	Não usar o separador css do eGroupWare ">" (para modelos que usem imagens/símbolos para listas)
 done	sitemgr	pt-br	Enviado
 dont ask	sitemgr	pt-br	Não consultar
 download as zip-archiv	sitemgr	pt-br	baixar um arquivo em formato ZIP
@@ -248,6 +249,7 @@ manage category wide content	sitemgr	pt-br	Gerenciar Conteúdo de Categorias
 manage category wide module properties	sitemgr	pt-br	Gerenciar propriedades de módulos de Categoria
 manage content	sitemgr	pt-br	Gerenciar conteúdo
 manage modules	sitemgr	pt-br	Gerenciar módulos
+manage notification messages	sitemgr	pt-br	Gerenciar Mensagens de Notificação
 manage notifications	sitemgr	pt-br	Gerenciar notificações
 manage page specific content	sitemgr	pt-br	Gerenciar página de conteúdo específico
 manage pages	common	pt-br	Gerenciar páginas
@@ -255,8 +257,6 @@ manage site content	sitemgr	pt-br	Gerenciar página de conteúdo
 manage site-wide content	sitemgr	pt-br	Gerenciar Conteúdo do Site
 manage site-wide module properties	sitemgr	pt-br	Gerenciar propriedades de módulos do Site
 manage translations	sitemgr	pt-br	Gerenciar Traduções
-manange notifications	sitemgr	pt-br	Gerenciar Notificações
-manange notifications messages	sitemgr	pt-br	Gerenciar mensagens de notificações
 master list of permitted modules	sitemgr	pt-br	Lista principal de módulos permitidos
 maximal category depth to be shown	sitemgr	pt-br	Nível máximo de categorias a serem exibidas
 maximal page depth to be shown	sitemgr	pt-br	Nível máximo de páginas a serem exibidas
@@ -289,16 +289,17 @@ no new modules found !!!	sitemgr	pt-br	nenhum módulo novo encontrado!!!
 no options available.	sitemgr	pt-br	Nenhuma opção disponível
 no pages available	sitemgr	pt-br	Nenhuma página disponível
 no sitelanguages configured	sitemgr	pt-br	Nenhum idioma configurado
+no states defined	sitemgr	pt-br	Nenhum estado definido
 no template file found.	sitemgr	pt-br	Nenhum arquivo de modelo encontrado
 no templates found.	sitemgr	pt-br	Nenhum modelo encontrado.
-no thumbnail availible	sitemgr	pt-br	Nenhum thumbnail disponível
+no thumbnail availible	sitemgr	pt-br	Nenhuma miniatura disponível
 no users defined.	sitemgr	pt-br	Nenhum usuário definido
 no websites defined	sitemgr	pt-br	Nenhum site web definido.
 no, chooser only (for side-areas)	sitemgr	pt-br	Não, Use apenas o selecionador  (para áreas laterais)
 no, chooser with preview	sitemgr	pt-br	Nenhum. Selecionador com visualização
 not	common	pt-br	não
 not yet translated	sitemgr	pt-br	ainda não traduzido
-note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	pt-br	Note que você pode receber essa mensagem se suas preferências estiverem incorretas. Por exemplo: Se o arquivo config.inc.php não for encontrado no diretório que foi especificado.
+note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr-link	pt-br	Note que você pode receber esta mensagem se suas preferências estiverem incorretas. Por exemplo, se config.inc.php não for encontrado no diretório que você especificou.
 notification message not found !!!	sitemgr	pt-br	Mensagem de notificação não encontrada!!
 notification not found !!!	sitemgr	pt-br	Notificação não encontrada!!
 number of results	sitemgr	pt-br	Número de resultados
@@ -382,11 +383,12 @@ selected theme %1 does not exist.	sitemgr	pt-br	Tema escolhido %1 não existe.
 seperate cats / pages of one tab by :	sitemgr	pt-br	Separar Categorias / Páginas de uma aba por :
 shipping address	sitemgr	pt-br	Endereço de envio:
 should the file be viewed in the browser or downloaded	sitemgr	pt-br	O arquivo deverá ser visto no navegador ou baixado
-show a template-gallery (thumbnail and informations)	sitemgr	pt-br	Exibir a galeria de modelos (foto reduzida e informações)
+show a template-gallery (thumbnail and informations)	sitemgr	pt-br	Exibir a galeria de modelos (miniatura e informações)
 show contents of a directory	sitemgr	pt-br	Exibir conteúdo de um diretório
 show contents of a directory with subdirectories	sitemgr	pt-br	Exibir conteúdo de um diretório com sub-diretórios
 show current section only	sitemgr	pt-br	Exibir somente atual seção
 show details for the applications	sitemgr	pt-br	Exibir detalhes para os aplicativos
+show files including the ones from subdirectories	sitemgr	pt-br	Exibir arquivos, incluindo dos subdiretórios
 show only (in the next field) selected templates	sitemgr	pt-br	Exibir apenas modelos selecionados (no próximo campo)
 show path?	sitemgr	pt-br	Exibir caminho?
 show searchbox	sitemgr	pt-br	Exibir campo de busca
@@ -411,11 +413,10 @@ sitemgr	common	pt-br	Gerenciador de Sites
 sitemgr manual	sitemgr	pt-br	Manual do Gerenciador de Sites
 sitemgr options	sitemgr	pt-br	Opções do Gerenciador de Sites
 sitemgr setup instructions	sitemgr	pt-br	Instruções de Configuração do  Gerenciador de Sites
-sitemgr setup page	sitemgr	pt-br	Página de Configuração do Gerenciador de Sites
+sitemgr setup page	sitemgr-link	pt-br	Página de configuração do Gerenciador de Sites
 sitemgr web content manager	common	pt-br	Gerenciador de Conteúdo Web do Gerenciador de Sites
 sitemgr websites	sitemgr	pt-br	Site do Gerenciador de Sites
 sitemgr-link	common	pt-br	Website
-sitio	sitemgr	pt-br	Site
 size	sitemgr	pt-br	Tamanho
 sorry, no content found for you search criteria	sitemgr	pt-br	Desculpe, nenhum conteúdo encontrado para seu critério de pesquisa
 sort order	sitemgr	pt-br	Ordem de classificação
@@ -546,7 +547,7 @@ week	sitemgr	pt-br	semana
 what do you want to do with existing translations of categories and pages for this language?	sitemgr	pt-br	O que você quer fazer com as traduções existentes das categorias e páginas para este idioma?
 when is a tab activated?	sitemgr	pt-br	Quando uma aba é ativada ?
 which application should be executed after login?	sitemgr	pt-br	Qual aplicação deverá ser executada após o login?
-which main categories schuld be included (comma seperated list, empty for all)	sitemgr	pt-br	Quais categorias principais deverão ser incluídas (lista separada por vírgula, vazio para todas)
+which main categories should be included (comma separated list, empty for all)	sitemgr	pt-br	Quais categorias principais devem ser incluídas (separadas por vírgulas, vazio para todas)
 wiki	sitemgr	pt-br	Wiki
 wiki startpage	sitemgr	pt-br	Página inicial Wiki
 with which view should the module be displayed in the beginning?	sitemgr	pt-br	De que forma o módulo será visto inicialmente?
@@ -571,15 +572,11 @@ you must be an admin to edit categories.	sitemgr	pt-br	Você precisa ser um admi
 you must be an admin to edit the site header and footer.	sitemgr	pt-br	Você precisa ser um administrador para editar o cabeçalho ou rodapé da página.
 you must be an admin to manage module properties.	sitemgr	pt-br	Você precisa ser um administrador para editar as propriedades do módulo.
 you must be an administrator to setup the site manager.	sitemgr	pt-br	Você precisa ser administrador para editar as configurações do Gerenciador de Sites.
+you need to be an administrator of this website to enter javascript!	sitemgr	pt-br	Você precisa ser um administrador deste website para inserir javascript!
 you removed one ore more languages from your site languages.	sitemgr	pt-br	Você removeu um ou mais idiomas do sistema.
 you will remove the message in the following language from your notification system:	sitemgr	pt-br	Você removerá a mensagem do sistema de notificação do seguinte idioma:
-your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr	pt-br	Seu administrador não configurou os recursos de visitação pública. Uma mensagem de erro será enviada ao administrador para que seja feita a correção.
+your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr-link	pt-br	Seu administrador ainda não configurou o gerenciador de conteúdo web para exibição pública. Contacte seu administrador para resolver esta questão.
 your calendar	sitemgr	pt-br	Seu calendário.
 your comment	sitemgr	pt-br	Seu comentário
 your connection is not safe.	sitemgr	pt-br	Sua conexão não é segura.
 your name	sitemgr	pt-br	Seu nome
-before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr-link	pt-br	Antes da página web pública poder ser vista, você deve configurar vários locais e preferências. Por favor, vá até às configurações do Gerenciador de Sites, clicando no seguinte link:
-note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr-link	pt-br	Note que você pode receber esta mensagem se suas preferências estiverem incorretas. Por exemplo, se config.inc.php não for encontrado no diretório que você especificou.
-sitemgr setup page	sitemgr-link	pt-br	Página de configuração do Gerenciador de Sites
-you need to make sure the sitemgr-link app is in the egroupware directory.  if you made a symbolic link... it isn't working.	sitemgr-link	pt-br	Você precisar ter certeza que o aplicativo sitemgr-link está no diretório do eGroupWare. Se você fez um link simbólico, não irá funcionar.
-your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr-link	pt-br	Seu administrador ainda não configurou o gerenciador de conteúdo web para exibição pública. Contacte seu administrador para resolver esta questão.
