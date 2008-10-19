@@ -154,8 +154,7 @@
 			include_once './mos-compat/joomla_Legacy_function.inc.php';
 		}
 	}
-
-	if (!class_exists('ui'))
+	else
 	{
 		echo '<h3>'.lang("Invalid template directory '%1' !!!",$templateroot)."</h3>\n";
 		if (!is_dir($GLOBALS['sitemgr_info']['site_dir'] . SEP . 'templates') || !is_readable($GLOBALS['sitemgr_info']['site_dir'] . SEP . 'templates'))
