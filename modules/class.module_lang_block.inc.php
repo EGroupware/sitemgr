@@ -15,7 +15,7 @@
 	{
 		function module_lang_block()
 		{
-			$this->arguments = array( 
+			$this->arguments = array(
 				'layout' => array(
                                         'type' => 'select',
                                         'label' => lang('Select layout for lang selection'),
@@ -25,12 +25,12 @@
 					),
 				),
 			);
- 
+
 			$this->properties = array();
 			$this->title = lang('Choose language');
 			$this->description = lang('This module lets users choose language');
 		}
-	
+
 		function get_content(&$arguments,$properties)
 		{
 			if ($GLOBALS['sitemgr_info']['sitelanguages'])
@@ -43,7 +43,7 @@
 					foreach ($GLOBALS['sitemgr_info']['sitelanguages'] as $lang)
                                         {
 						$content .= '
-								<li><a href="#." onClick="location.href=\''. str_replace('&','&amp;',$this->link(array(),array('lang'=>$lang))) . '\' ">'. '<img src="images/'. $lang. '.gif" width="32px" height="20px">'. '</a></li>';
+								<li><a href="#." onClick="location.href=\''. str_replace('&','&amp;',$this->link(array(),array('lang'=>$lang))) . '\' ">'. '<img src="images/'. $lang. '.gif" class="langsel_flags_image">'. '</a></li>';
 					}
 					$content .= '
 							</ul>
@@ -57,15 +57,15 @@
 					{
 						$selected='';
 						if ($lang == $GLOBALS['sitemgr_info']['userlang'])
-						{                                                 
+						{
 							$selected = 'selected="1" ';
-						}                                          
+						}
 						$content .= '<option ' . $selected . 'value="' . str_replace('&','&amp;',$this->link(array(),array('lang'=>$lang))) . '">'.$GLOBALS['Common_BO']->getlangname($lang) . '</option>';
 					}
 					$content .= '</select>';
 					$content .= '</form>';
 				}
-			
+
 				return $content;
 			}
 			return lang('No sitelanguages configured');
