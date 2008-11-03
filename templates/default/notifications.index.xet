@@ -14,7 +14,7 @@
 			<rows>
 				<row class="th">
 					<nextmatch-sortheader label="ID" id="notification_id" class="tracker-id"/>
-					<nextmatch-sortheader label="Sitio" id="site_id" class="tracker-id"/>
+					<nextmatch-sortheader label="Site" id="site_id" class="tracker-id"/>
 					<nextmatch-sortheader label="Category" id="cat_id" class="tracker-cat"/>
 					<nextmatch-sortheader label="Site Language" id="site_language"/>
 					<nextmatch-sortheader label="Email" id="email"/>
