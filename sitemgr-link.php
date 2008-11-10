@@ -22,8 +22,9 @@ $sites_bo = CreateObject('sitemgr.Sites_BO');
 // switch to current website in case of website login
 if(isset($_GET['location']))
 {
-	$location_parts = explode('?',$_GET['location']);
-	$dest_site_id =  $sites_bo->urltoid($location_parts[0]);
+	list($location,$query) = explode('?',$_GET['location']);
+
+	$dest_site_id =  $sites_bo->urltoid($location);
 	if($dest_site_id)
 	{
 		$GLOBALS['egw_info']['user']['preferences']['sitemgr']['currentsite'] = $dest_site_id;
@@ -32,15 +33,15 @@ if(isset($_GET['location']))
 	}
 }
 $siteinfo = $sites_bo->get_currentsiteinfo();
-$location = $siteinfo['site_url'];
 if ($location && file_exists($siteinfo['site_dir'] . '/functions.inc.php'))
 {
 	$location .= '?sessionid='.@$GLOBALS['egw_info']['user']['sessionid'] .
 				'&kp3=' . @$GLOBALS['egw_info']['user']['kp3'] .
 				'&domain=' . @$GLOBALS['egw_info']['user']['domain'];
 	// preserve page at login from website
-	if($location_parts) $location .= '&'. $location_parts[1];
+	if($query) $location .= '&'. $query;
 
+	//error_log("_GET[location]=$_GET[location], siteinfo[site_url]=$siteinfo[site_url] --> $location");
 	$GLOBALS['egw']->redirect($location);
 	exit;
 }
