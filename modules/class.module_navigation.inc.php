@@ -71,6 +71,7 @@
 						8 => 'path',
 						9 => lang('custom'),
 					   10 => 'tabs',
+					   11 => 'XML Sitemap',
 					)
 				)
 			);
@@ -215,7 +216,11 @@
 							lang('Seperate Cats / Pages of one tab by :').
 							lang('cats are numeric, pages strings'),
 					),
-				));
+				),
+				11 => array(	// xml sitemap
+					'description' => lang('This module provides an XML sitemap (see www.sitemap.org)'),
+				),
+			);
 			$this->title = 'Navigation element';
 			$this->description = lang("This module displays any kind of navigation element.");
 		}
@@ -419,6 +424,8 @@
 					$out .= $this->type_tabs($arguments,$properties);
 					$out .= "  </div>\n<!-- navigation context ends here -->\n</div>\n";
 					return $out;
+				case 11: // xml sitemap
+					return $this->type_xml_sitemap($arguments,$properties);
 				case 4 : // Navigation
 				default:
 					$out .= "navigation\">\n";
@@ -745,6 +752,54 @@
 				}
 			}
 			return $content;
+		}
+
+		/**
+		 * XML sitemap
+		 *
+		 * Currently we only output pages, not categories.
+		 *
+		 * @link http://www.sitemaps.org/
+		 */
+		function type_xml_sitemap(&$arguments,$properties)
+		{
+			global $objbo,$page;
+			$index_pages = $objbo->getIndex(False,False,True);
+
+			if (!count($index_pages))
+			{
+				return lang('You do not have access to any content on this site.');
+			}
+			if (!extension_loaded('xmlwriter') && (!function_exists('dl') || !dl(PHP_SHLIB_PREFIX.'xmlwriter.'.PHP_SHLIB_SUFFIX)) ||
+				!function_exists('xmlwriter_open_uri'))
+			{
+				return 'XML sitemap requires xmlwriter PHP extension!';
+			}
+
+			header('Content-Type: text/xml');
+			$xml = xmlwriter_open_uri('php://output');
+			xmlwriter_start_document($xml,'1.0','utf-8');
+			xmlwriter_set_indent($xml,4);
+			xmlwriter_start_element_ns($xml,null,'urlset','http://www.sitemaps.org/schemas/sitemap/0.9');
+
+			$last_cat_id = 0;
+			foreach($index_pages as $ipage)
+			{
+				xmlwriter_start_element($xml,'url');
+
+				// pages
+				$link = $ipage['page_url'];
+				if ($link[0] == '/') $link = ($_SERVER['https'] ? 'https://' : 'http://').$_SERVER['HTTP_HOST'].$link;
+				if (isset($_GET['lang'])) $link .= '&lang='.$_GET['lang'];
+				//xmlwriter_write_comment($xml,$ipage['pagetitle']);
+				xmlwriter_write_element($xml,'loc',$link);
+
+				xmlwriter_end_element($xml);	// url
+			}
+			xmlwriter_end_element($xml);	// urlset
+			xmlwriter_end_document($xml);
+			@exit;	// otherwise we get a warning about some shutdown problem, messing up the xml
+			$GLOBALS['egw']->common->egw_exit();
 		}
 
 		function type_sitetree(&$arguments,$properties)
