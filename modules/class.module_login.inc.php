@@ -16,7 +16,7 @@ class module_login extends Module
 	function module_login()
 	{
 		$this->arguments = array(
-			'security_redirect'=>array(
+			'security_redirect' => array(
 				'type' => 'textfield',
 				'label' => lang('If nonsecure redirect to:') . '<br>'.
 					lang('(leave blank to allow insecure logins)')
@@ -25,7 +25,12 @@ class module_login extends Module
 				'type' => 'select',
 				'label' => lang('Which application should be executed after login?'),
 				'options' => array()
-			)
+			),
+			'go' => array(
+				'type' => 'textfield',
+				'label' => lang('Name of page or numeric category to go to, if website was selected above:') . ' '.
+					lang('(leave blank to stay on current page)')
+			),
 		);
 		if (file_exists(EGW_SERVER_ROOT . '/registration'))
 		{
@@ -68,6 +73,8 @@ class module_login extends Module
 		unset($chooseable_apps['notifications']);
 		unset($chooseable_apps['etemplate']);
 		unset($chooseable_apps['egw-pear']);
+		unset($chooseable_apps['groupdav']);
+		unset($chooseable_apps['icalsrv']);
 		$this->arguments['login_dest']['options'] = $chooseable_apps;
 
 		$config = config::read('registration');
@@ -113,7 +120,16 @@ class module_login extends Module
 						$forward = '/home/';
 						break;
 					case 'sitemgr-link' :
-						$forward = '/sitemgr/sitemgr-link.php?location='. $this->link();
+						$extra = array();
+						if (is_numeric($arguments['go']))
+						{
+							$extra['category_id'] = $arguments['go'];
+						}
+						elseif ($arguments['go'])
+						{
+							$extra['page_name'] = $arguments['go'];
+						}
+						$forward = '/sitemgr/sitemgr-link.php?location='.$this->link(array(),$extra);
 						break;
 					case 'user':
 						break;

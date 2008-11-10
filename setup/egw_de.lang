@@ -3,6 +3,7 @@
 '%1' is no valid sitemgr-site directory !!!	sitemgr	de	'%1' ist kein gültiges sitemgr-site Verzeichnis !!!
 (do not put spaces or punctuation in the name field.)	sitemgr	de	(Im Namensfeld sind keine Leer- oder Satzzeichen erlaubt.)
 (leave blank to allow insecure logins)	sitemgr	de	(leer lassen um unsichere Anmeldungen zu erlauben)
+(leave blank to stay on current page)	sitemgr	de	(leer lassen um auf der aktuellen Seite zu bleiben)
 (only used in case of single file)	sitemgr	de	(nur für eine einzige Datei verwendet)
 1 day	common	de	Den ganzen Tag
 1 hour	common	de	Für eine Stunde
@@ -273,6 +274,7 @@ move block up (decrease sort order)	sitemgr	de	Block nach oben verschieben (Sort
 move to	sitemgr	de	Verschieben nach
 name	sitemgr	de	Name
 name has been translated to lower case	sitemgr	de	Der Name wurde in Kleinbuchstaben umgewandelt
+name of page or numeric category to go to, if website was selected above:	sitemgr	de	Name der Seite oder numerische Kategorie auf die gewechselt werden soll, wenn oben Website ausgewählt wurde:
 name of the item for sale	sitemgr	de	Name des zu verkaufenden Artikels
 name of the tabs (comma seperated)	sitemgr	de	Namen für die Kartenreiter (durch Komma getrennt)
 new application	sitemgr	de	Neue Applikation
