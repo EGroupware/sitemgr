@@ -242,7 +242,7 @@
 		function setsitemgrPreferredLanguage()
 		{
 			$supportedLanguages = $GLOBALS['sitemgr_info']['sitelanguages'] ? $GLOBALS['sitemgr_info']['sitelanguages'] : array('en');
-			$postlang = $_GET['lang'];
+			$GLOBALS['sitemgr_info']['userlanguage'] = $postlang = $_GET['lang'];
 			if ($postlang && in_array($postlang,$supportedLanguages))
 			{
 				$GLOBALS['egw']->session->appsession('language','sitemgr-site',$postlang);
@@ -250,7 +250,7 @@
 				return;
 			}
 
-			$sessionlang = $GLOBALS['egw']->session->appsession('language','sitemgr-site');
+			$GLOBALS['sitemgr_info']['userlanguage'] = $sessionlang = $GLOBALS['egw']->session->appsession('language','sitemgr-site');
 			if ($sessionlang)
 			{
 				$this->check_load_translations($sessionlang);
@@ -259,7 +259,7 @@
 
 			if ($this->isuser)
 			{
-				$userlang = $GLOBALS['egw_info']['user']['preferences']['common']['lang'];
+				$GLOBALS['sitemgr_info']['userlanguage'] = $userlang = $GLOBALS['egw_info']['user']['preferences']['common']['lang'];
 				if (in_array($userlang,$supportedLanguages))
 				{
 					//we do not touch $GLOBALS['egw_info']['user']['preferences']['common']['lang'] if
@@ -284,7 +284,7 @@
 				//print "current lang $value<br>";
 				if (in_array($value,$supportedLanguages))
 				{
-					$browserlang = $value;
+					$GLOBALS['sitemgr_info']['userlanguage'] = $browserlang = $value;
 					break;
 				}
 			}
@@ -292,7 +292,7 @@
 			// no usersupported language found -> return the first entry of sitelanguages
 			if (empty($browserlang))
 			{
-				$browserlang = $supportedLanguages[0];
+				$GLOBALS['sitemgr_info']['userlanguage'] = $browserlang = $supportedLanguages[0];
 			}
 
 			$GLOBALS['egw']->session->appsession('language','sitemgr-site',$browserlang);

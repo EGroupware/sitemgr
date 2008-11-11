@@ -22,7 +22,6 @@
 		var $sitelanguages;
 		var $worklanguage;
 		var $errormsg;
-		var $langselect;
 
 		var $public_functions = array
 		(
@@ -42,31 +41,11 @@
 			$this->viewable =& $GLOBALS['Common_BO']->viewable;
 
 			$this->sitelanguages = $GLOBALS['Common_BO']->sites->current_site['sitelanguages'];
-			$savelanguage = $_POST['savelanguage'];
-			$savelanguage = $savelanguage ? $savelanguage :
-				($GLOBALS['sitemgr_info']['userlang'] ? $GLOBALS['sitemgr_info']['userlang'] :
-				$GLOBALS['egw']->session->appsession('worklanguage','sitemgr') ?
-				$GLOBALS['egw']->session->appsession('worklanguage','sitemgr') : $this->sitelanguages[0]);
-			//$GLOBALS['sitemgr_info']['userlang']=$savelanguage;
-			$this->worklanguage = $savelanguage;
-			//$GLOBALS['egw']->session->appsession('worklanguage','sitemgr',$savelanguage);
-
+			$GLOBALS['sitemgr_info']['userlang'] = $GLOBALS['egw']->session->appsession('language','sitemgr-site');
+			$this->worklanguage = isset($_POST['savelanguage']) ? $_POST['savelanguage'] :
+				($GLOBALS['sitemgr_info']['userlang'] ? $GLOBALS['sitemgr_info']['userlang'] : $this->sitelanguages[0]);
+			error_log(__METHOD__."() sitemgr_info[userlanguage]={$GLOBALS['sitemgr_info']['userlang']}, common[lang]={$GLOBALS['egw_info']['user']['preferences']['common']['lang']}, _POST[savelanguage]=$_POST[savelanguage], sitelanguages=".implode(', ',$this->sitelanguages)." --> worklanguage=$this->worklanguage");
 			$this->errormsg = array();
-
-			if (count($this->sitelanguages) > 1)
-			{
-				$this->langselect = lang('as') . ' <select name="savelanguage">';
-				foreach ($this->sitelanguages as $lang)
-				{
-					$selected= '';
-					if ($lang == $this->worklanguage)
-					{
-						$selected = 'selected="selected" ';
-					}
-					$this->langselect .= '<option ' . $selected .'value="' . $lang . '">'. $GLOBALS['Common_BO']->getlangname($lang) . '</option>';
-				}
-				$this->langselect .= '</select> ';
-			}
 		}
 
 		function manage()
@@ -643,10 +622,20 @@
 			//TODO: wrap a module storage around createmodule as in template3,
 			//TODO: so that we do not create the same module object twice
 			$moduleobject =& $this->modulebo->createmodule($block->module_name);
+
+			if (count($this->sitelanguages) > 1)
+			{
+				$langs = array();
+				foreach ($this->sitelanguages as $lang)
+				{
+					$langs[$lang] = $GLOBALS['Common_BO']->getlangname($lang);
+				}
+				$langselect = html::select('savelanguage',$this->worklanguage,$langs,false,' onchange="this.form.submit()"');
+			}
 			$this->t->set_var(array(
 				'moduleinfo' => $block->module_name,
 				'description' => lang($moduleobject->description),
-				'savelang' => $this->langselect
+				'savelang' => $langselect
 			));
 
 			//if the block is in our scope and we are entitled we edit it

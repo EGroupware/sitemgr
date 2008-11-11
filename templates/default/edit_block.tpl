@@ -19,15 +19,21 @@
 </table>
 </div>
 <!-- END Version -->
-<div align="center">
 <input type="hidden" value="{blockid}" name="inputblockid" />
-<input type="submit" value="{lang_save}" name="btnSaveBlock" /> {savelang}
-{apply_button} &nbsp;
-<input type="submit" value="{lang_reload}" name="btnReloadBlock" /> 
-<input type="submit" value="{lang_delete}" name="btnDeleteBlock" onClick="return confirm('{lang_confirm}');" /> &nbsp;
-<input type="submit" value="{lang_createversion}" name="btnCreateVersion" /> &nbsp;
-{cancel_button}
-</div>
+<table width="100%"><tr>
+<td>
+	<input type="submit" value="{lang_save}" name="btnSaveBlock" />
+	{apply_button}
+	{cancel_button}
+</td>
+<td align="center">
+	{savelang} &nbsp;
+	<input type="submit" value="{lang_createversion}" name="btnCreateVersion" /> &nbsp;
+</td>
+<td align="right">
+	<input type="submit" value="{lang_delete}" name="btnDeleteBlock" onClick="return confirm('{lang_confirm}');" /> &nbsp;
+</td>
+</tr></table>
 </form>
 </div>
 <!-- END Moduleeditor -->
