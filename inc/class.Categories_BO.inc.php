@@ -61,7 +61,7 @@
 			if (!$cat_id)
 			{
 				$cat_id = CURRENT_SITE_ID;
-			} 
+			}
 			if ($cat_id != CURRENT_SITE_ID)
 			{
 				$this->check($cat_id);
@@ -130,7 +130,7 @@
 			return $permitted_list;
 		}
 
-		function addCategory($name, $description, $parent=False)    
+		function addCategory($name, $description, $parent=False)
 		{
 			if (!$parent)
 			{
@@ -180,7 +180,7 @@
 			$GLOBALS['Common_BO']->pages->removePagesInCat($cat_id,True);
 			$this->so->removeCategory($cat_id);
 			$GLOBALS['Common_BO']->acl->remove_location($cat_id);
-			
+
 			return True;
 		}
 
@@ -224,7 +224,7 @@
 			}
 			return false;
 		}
-		
+
 		//$force is for bypassing ACL when we called from Sites_UI for building up the info for the currentsite
 		//and for getting at archived categories that are not listed in current nor readablecats
 		function getCategory($cat_id,$lang=False,$force=False)
@@ -362,9 +362,14 @@
 			{
 				return True;
 			}
+			elseif($GLOBALS['Common_BO']->pages->so->PageToID('404NotFound'))
+			{
+				$GLOBALS['egw']->redirect(sitemgr_link(array('page_name' => '404NotFound')));
+			}
 			else
 			{
-				echo '<p><center><b>'.lang('Attempt to access information outside current website').': cat_id='.htmlspecialchars($cat_id).'</b></center>';
+				header('HTTP/1.0 404 Not found');
+				echo '<h1>'.lang('Attempt to access information outside current website').': cat_id='.htmlspecialchars($cat_id).'</h1>';
 				//echo "Backtrace:<pre>".print_r(debug_backtrace(),True)."</pre>\n";
 				$GLOBALS['egw']->common->egw_exit(True);
 			}
@@ -389,7 +394,7 @@
 		function NotifyUsers($lang, $cat_id,$state,$cat_name)
 		{
 			$bo=CreateObject("sitemgr.bonotifications");
-			$bo->notify_users($GLOBALS['Common_BO']->sites->current_site['site_id'], 
+			$bo->notify_users($GLOBALS['Common_BO']->sites->current_site['site_id'],
 				$cat_id,
 				$state,
 				$lang,
