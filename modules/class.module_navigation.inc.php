@@ -775,7 +775,12 @@
 			{
 				return 'XML sitemap requires xmlwriter PHP extension!';
 			}
-
+			// show in edit mode only a link to download the sitemap, so the page can still be edited
+			if ($GLOBALS['sitemgr_info']['mode'] == 'Edit' && !isset($_GET['xml_sitemap_test']))
+			{
+				return '<a href="'.$this->link(array(),array('xml_sitemap_test' => 1)).'" target="_blank">XML Sitemap</a>';
+			}
+			ob_end_clean();
 			header('Content-Type: text/xml');
 			$xml = xmlwriter_open_uri('php://output');
 			xmlwriter_start_document($xml,'1.0','utf-8');
