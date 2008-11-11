@@ -33,6 +33,7 @@ if(isset($_GET['location']))
 	}
 }
 $siteinfo = $sites_bo->get_currentsiteinfo();
+if (!$location) $location = $siteinfo['site_url'];
 if ($location && file_exists($siteinfo['site_dir'] . '/functions.inc.php'))
 {
 	$location .= '?sessionid='.@$GLOBALS['egw_info']['user']['sessionid'] .
