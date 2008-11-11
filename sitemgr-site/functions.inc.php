@@ -21,7 +21,7 @@
 	function phpgw_link($url, $extravars = '')
 	{
 		return $GLOBALS['egw']->session->link($url, $extravars);
-	} 
+	}
 
 	function sitemgr_link2($url, $extravars = '')
 	{
@@ -40,10 +40,20 @@
 			$extravars = $extravarsnew;
 		}
 
-		if ($extravars['page_name'] != '' && $GLOBALS['sitemgr_info']['htaccess_rewrite'])
+		if ($GLOBALS['sitemgr_info']['htaccess_rewrite'])
 		{
-			$url = '/'.$extravars['page_name'];
-			unset($extravars['page_name']);
+			if ($extravars['page_name'])
+			{
+				$url = '/'.$extravars['page_name'];
+				unset($extravars['page_name']);
+			}
+			elseif ($extravars['category_id'] && !$extravars['page_name'] &&
+				($cat = $GLOBALS['Common_BO']->cats->getCategory($extravars['category_id'])) &&
+				$cat->index_page_id && ($page = $GLOBALS['Common_BO']->pages->getPage($cat->index_page_id)))
+			{
+				$url = '/'.$page->name;
+				unset($extravars['category_id']);
+			}
 		}
 
 		// In certain instances (wouldn't it be better to fix these instances? MT)
@@ -67,4 +77,3 @@
 		}
 		return $url . (count($vars) ? '?'.implode('&',$vars) : '');
 	}
-?>
