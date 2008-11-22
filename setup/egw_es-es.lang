@@ -3,6 +3,7 @@
 '%1' is no valid sitemgr-site directory !!!	sitemgr	es-es	¡'%1' no es un directorio válido para el directorio sitemgr-site!
 (do not put spaces or punctuation in the name field.)	sitemgr	es-es	(No ponga espacios ni signos de puntuación en el campo Nombre)
 (leave blank to allow insecure logins)	sitemgr	es-es	(dejar en blanco para permitir sesiones inseguras)
+(leave blank to stay on current page)	sitemgr	es-es	(dejar en blanco para permanecer en la página actual)
 (only used in case of single file)	sitemgr	es-es	(sólo se usa para un único fichero)
 1 day	common	es-es	1 día
 1 hour	common	es-es	1 hora
@@ -65,7 +66,7 @@ automatically generated notification	sitemgr	es-es	Notificación generada autom�
 back to module manager	sitemgr	es-es	Volver al administrador de módulos
 back to the list of languages	sitemgr	es-es	Volver a la lista de idiomas
 basic settings	sitemgr	es-es	Configuración básica
-before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr	es-es	Antes de poder ver el sitio público, debe configurar las distintas ubicaciones y preferencias. Por favor, vaya a la página de configuración del administrador de sitios web pulsando este enlace:
+before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr-link	es-es	Antes de que se pueda ver el sitio web público, debe configurar las distintas ubicaciones y preferencias. Por favor, vaya a la página de instalación del administrador de sitios web desde este enlace:
 block not found.	sitemgr	es-es	No se encontró el bloque
 block reloaded	sitemgr	es-es	Bloque recargado
 block returned no content.	sitemgr	es-es	El bloque no devolvío contenidos.
@@ -139,7 +140,8 @@ do you want to delete them?	sitemgr	es-es	¿Desea borrarlos?
 documentation	sitemgr	es-es	Documentación
 domain-name (offical dns-name eg. www.egroupware.org) if you want to give the user a choice between searching this site or the whole web. leaving it empty allows to search the web only.	sitemgr	es-es	Nombre del dominio (nombre DNS oficial, p. ej. www.eGroupWare.org) si desea dar al usuario una opción entre buscar en este sitio o toda la web. Dejarlo en blanco permite buscar sólo en la web.
 don't have an account?	sitemgr	es-es	¿No tiene una cuenta?
-don't use egroupware css ">" separator (for templates that uses images/simbols for lists)	sitemgr	es-es	No usar egroupware separador css ">" (para plantillas que usan imágenes/símbolos para las listas ordenadas)
+don't show hiden pages in the path way	sitemgr	es-es	No mostrar las páginas ocultas en la ruta
+don't use egroupware css ">" separator (for templates that uses images/symbols for lists)	sitemgr	es-es	No usar el separador css de egroupware ">" (para plantillas que usan imágenes o símbolos para listas)
 done	sitemgr	es-es	Hecho
 dont ask	sitemgr	es-es	No preguntar
 download as zip-archiv	sitemgr	es-es	Descargar como fichero ZIP
@@ -248,6 +250,7 @@ manage category wide content	sitemgr	es-es	Administrar todo el contenido de la c
 manage category wide module properties	sitemgr	es-es	Administrar las propiedades de los módulos de las categorías
 manage content	sitemgr	es-es	Administrados de contenidos
 manage modules	sitemgr	es-es	Administrar módulos
+manage notification messages	sitemgr	es-es	Administrar los mensajes de notificaciones
 manage notifications	sitemgr	es-es	Administrar notificaciones
 manage page specific content	sitemgr	es-es	Administrar los contenidos específicos de la página
 manage pages	common	es-es	Administrar páginas
@@ -255,8 +258,6 @@ manage site content	sitemgr	es-es	Administrar el contenido del sitio
 manage site-wide content	sitemgr	es-es	Administrar el contenido de todo el stio
 manage site-wide module properties	sitemgr	es-es	Administrar las propiedades de todo el sitio
 manage translations	sitemgr	es-es	Administrar traducciones
-manange notifications	sitemgr	es-es	Administrar notificaciones
-manange notifications messages	sitemgr	es-es	Administrar mensajes de notificación
 master list of permitted modules	sitemgr	es-es	Lista principal de módulos permitidos
 maximal category depth to be shown	sitemgr	es-es	Máxima profundidad de categoría a mostrar
 maximal page depth to be shown	sitemgr	es-es	Máxima profundidad de página a mostrar
@@ -273,6 +274,7 @@ move block up (decrease sort order)	sitemgr	es-es	Mover bloque hacia arriba (dec
 move to	sitemgr	es-es	Mover a
 name	sitemgr	es-es	Nombre
 name has been translated to lower case	sitemgr	es-es	El nombre se ha traducido en minúsculas
+name of page or numeric category to go to, if website was selected above:	sitemgr	es-es	Nombre de la página o categoría numérica a la que ir, si el sitio web se seleccionó arriba:
 name of the item for sale	sitemgr	es-es	Nombre del artículo para vender
 name of the tabs (comma seperated)	sitemgr	es-es	Nombre de las pestañas (separados por comas)
 new application	sitemgr	es-es	Nueva aplicación
@@ -299,7 +301,7 @@ no, chooser only (for side-areas)	sitemgr	es-es	No, sólo el selector (para áre
 no, chooser with preview	sitemgr	es-es	No, selector con vista previa
 not	common	es-es	no
 not yet translated	sitemgr	es-es	pendiente de traducir
-note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	es-es	Puede que vea este mensaje si sus preferencias son incorrectas. Por ejemplo, si config.inc.php no está en el directorio especificado.
+note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr-link	es-es	Tenga en cuenta que puede obtener este mensaje si sus preferencias no son correctas. Por ejemplo, si no encuentra el fichero config.inc.php en el directorio especificado.
 notification message not found !!!	sitemgr	es-es	Mensaje de notificación no encontrado !!!
 notification not found !!!	sitemgr	es-es	Notificación no encontrada !!!
 number of results	sitemgr	es-es	Número de resultados
@@ -413,11 +415,10 @@ sitemgr	common	es-es	Administrador de sitios web
 sitemgr manual	sitemgr	es-es	Manual del Administrador de sitios web
 sitemgr options	sitemgr	es-es	Opciones del Administrador de sitios
 sitemgr setup instructions	sitemgr	es-es	Instrucciones para configurar el Administrador de sitios
-sitemgr setup page	sitemgr	es-es	Página de configuración del Administrador de sitios
+sitemgr setup page	sitemgr-link	es-es	Página de instalación del administrador de sitios web
 sitemgr web content manager	common	es-es	Administrador de contenidos del Administrador de sitios web
 sitemgr websites	sitemgr	es-es	Sitios web
 sitemgr-link	common	es-es	Sitio web
-sitio	sitemgr	es-es	Sitio
 size	sitemgr	es-es	Tamaño
 sorry, no content found for you search criteria	sitemgr	es-es	Lo sentimos, no se encontró contenido para su criterio de búsqueda
 sort order	sitemgr	es-es	Orden en la página
@@ -548,7 +549,7 @@ week	sitemgr	es-es	semana
 what do you want to do with existing translations of categories and pages for this language?	sitemgr	es-es	¿Qué desea hacer con las traducciones existentes de las categorías y las páginas para este idioma?
 when is a tab activated?	sitemgr	es-es	¿Cuándo está activada una pestaña?
 which application should be executed after login?	sitemgr	es-es	¿Qué aplicación ejecutar después de iniciar la sesión?
-which main categories schuld be included (comma seperated list, empty for all)	sitemgr	es-es	Qué categorías principales deben incluirse (lista separada por comas, vacío para todas)
+which main categories should be included (comma separated list, empty for all)	sitemgr	es-es	Qué categorías principales deben incluirse (lista separada por comas, en blanco para todo)
 wiki	sitemgr	es-es	Wiki
 wiki startpage	sitemgr	es-es	Página principal del wiki
 with which view should the module be displayed in the beginning?	sitemgr	es-es	¿Con qué vista se debe mostrar el módulo al principio?
@@ -573,15 +574,11 @@ you must be an admin to edit categories.	sitemgr	es-es	Debe ser un administrador
 you must be an admin to edit the site header and footer.	sitemgr	es-es	Debe ser un administrador para editar el encabezado y el pie del sitio.
 you must be an admin to manage module properties.	sitemgr	es-es	Debe ser un administrador para manejar las propiedades del módulo.
 you must be an administrator to setup the site manager.	sitemgr	es-es	Debe ser un administrador para configurar el Administrador del sitio.
+you need to be an administrator of this website to enter javascript!	sitemgr	es-es	¡Necesita ser administrador de este sitio para introducir javascript!
 you removed one ore more languages from your site languages.	sitemgr	es-es	Eliminó uno o más idiomas de los del sitio.
 you will remove the message in the following language from your notification system:	sitemgr	es-es	Eliminará el mensaje en el idioma siguiente de su sistema de notificación:
-your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr	es-es	El administrador todavía no ha configurado el Administrador de contenido web para verlo públicamente. Informe de esta circunstancia al administrador.
+your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr-link	es-es	Su administrador todavia no ha configurado el gestor de contenidos web para que se vea públicamente. Póngase en contacto con él para que lo active.
 your calendar	sitemgr	es-es	Su calendario
 your comment	sitemgr	es-es	Su comentario
 your connection is not safe.	sitemgr	es-es	Su conexión no es segura.
 your name	sitemgr	es-es	Su nombre
-before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr-link	es-es	Antes de que se pueda ver el sitio web público, debe configurar las distintas ubicaciones y preferencias. Por favor, vaya a la página de instalación del administrador de sitios web desde este enlace:
-note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr-link	es-es	Tenga en cuenta que puede obtener este mensaje si sus preferencias no son correctas. Por ejemplo, si no encuentra el fichero config.inc.php en el directorio especificado.
-sitemgr setup page	sitemgr-link	es-es	Página de instalación del administrador de sitios web
-you need to make sure the sitemgr-link app is in the egroupware directory.  if you made a symbolic link... it isn't working.	sitemgr-link	es-es	Necesita asegurarse de que la aplicación sitemgr-link está en el directorio de egroupware. Si ha hecho un enlace simbólico... no funciona.
-your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr-link	es-es	Su administrador todavia no ha configurado el gestor de contenidos web para que se vea públicamente. Póngase en contacto con él para que lo active.
