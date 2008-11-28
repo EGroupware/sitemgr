@@ -152,7 +152,7 @@ class module_download extends Module
 
 			case 'file' :
 			default :
-				$link = $GLOBALS['egw']->link(egw_vfs::download_url($arguments['path'].'/'.$file['name'],$arguments['op'] == 2));
+				$link = $GLOBALS['egw']->link(egw_vfs::download_url($arguments['path'].'/'.$arguments['file'],$arguments['op'] == 2));
 				return $arguments['text'] ? ('<a href="'.$link.'">'.$arguments['text'].'</a>') : $link;
 		}
 	}
