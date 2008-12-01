@@ -44,7 +44,7 @@
 			$GLOBALS['sitemgr_info']['userlang'] = $GLOBALS['egw']->session->appsession('language','sitemgr-site');
 			$this->worklanguage = isset($_POST['savelanguage']) ? $_POST['savelanguage'] :
 				($GLOBALS['sitemgr_info']['userlang'] ? $GLOBALS['sitemgr_info']['userlang'] : $this->sitelanguages[0]);
-			error_log(__METHOD__."() sitemgr_info[userlanguage]={$GLOBALS['sitemgr_info']['userlang']}, common[lang]={$GLOBALS['egw_info']['user']['preferences']['common']['lang']}, _POST[savelanguage]=$_POST[savelanguage], sitelanguages=".implode(', ',$this->sitelanguages)." --> worklanguage=$this->worklanguage");
+			//error_log(__METHOD__."() sitemgr_info[userlanguage]={$GLOBALS['sitemgr_info']['userlang']}, common[lang]={$GLOBALS['egw_info']['user']['preferences']['common']['lang']}, _POST[savelanguage]=$_POST[savelanguage], sitelanguages=".implode(', ',$this->sitelanguages)." --> worklanguage=$this->worklanguage");
 			$this->errormsg = array();
 		}
 
