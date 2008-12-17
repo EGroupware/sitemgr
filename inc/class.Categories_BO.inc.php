@@ -13,21 +13,26 @@
 
 	class Categories_BO
 	{
+		/**
+		 * Our storage object
+		 *
+		 * @var Categories_SO
+		 */
 		var $so;
 		var $currentcats;
+		var $readablecats;
 
 		function Categories_BO()
 		{
 			//all sitemgr BOs should be instantiated via a globalized Common_BO object,
-			$this->so =& CreateObject('sitemgr.Categories_SO', True);
+			$this->so = new Categories_SO();
 		}
 
 		//since we need this information several times we store it once,
 		//this function is called by Sites_BO after the current site is defined
 		function setcurrentcats()
 		{
-			$this->currentcats = $this->getpermittedcats(CURRENT_SITE_ID,'active',True);
-//      echo "<p>Categories_BO::setcurrentcats() site_id=".CURRENT_SITE_ID.", currentcats=".print_r($this->currentcats,True)."</p>\n";
+			$this->currentcats  = $this->getpermittedcats(CURRENT_SITE_ID,'active',True);
 			$this->readablecats = $this->getpermittedcatsRead();
 		}
 
@@ -56,6 +61,7 @@
 			}
 			return $this->getpermittedcats($cat_id,'read',$recurse);
 		}
+
 		function getpermittedcatsWrite($cat_id=False,$recurse=true)
 		{
 			if (!$cat_id)
@@ -68,6 +74,7 @@
 			}
 			return $this->getpermittedcats($cat_id,'write',$recurse);
 		}
+
 		function getpermittedcatsCommitable()
 		{
 			return $this->getpermittedcats(CURRENT_SITE_ID,'commitable',true);
@@ -81,8 +88,11 @@
 		function getpermittedcats($cat_id,$check,$recurse)
 		{
 			$root_list = $this->so->getChildrenIDList($cat_id);
+			//error_log(__METHOD__."($cat_id,$check,$recurse) root_list=".array2string($root_list));
+
 			$permitted_list=array();
-			while(list(,$root_cat) = @each($root_list))
+			
+			if ($root_list) foreach($root_list as $root_cat)
 			{
 				switch ($check)
 				{
@@ -127,6 +137,7 @@
 					}
 				}
 			}
+			//error_log(__METHOD__."($cat_id,$check,$recurse)=".array2string($permitted_list));
 			return $permitted_list;
 		}
 
@@ -358,6 +369,7 @@
 		//make sure cat_id belongs to current site
 		function check($cat_id)
 		{
+			//error_log(__METHOD__."($cat_id) ".function_backtrace());
 			if ($cat_id == CURRENT_SITE_ID || in_array($cat_id,$this->currentcats))
 			{
 				return True;
@@ -407,4 +419,3 @@
 			);
 		}
 	}
-?>

@@ -30,7 +30,7 @@
 		
 		function Categories_SO()
 		{
-			$this->cats =& CreateObject('phpgwapi.categories',-1,'sitemgr');
+			$this->cats = new categories(-1,'sitemgr');
 			$this->db = clone($GLOBALS['egw']->db);
 			$this->db->set_app('sitemgr');
 			$this->state_table = 'egw_sitemgr_categories_state';
@@ -53,32 +53,7 @@
 
 		function getChildrenIDList($parent)
 		{
-			// we need to sort after our sort-order in the cat-data-column as integer (!) not char
-			$order_by = 'cat_data';
-			switch($this->db->Type)
-			{
-				case 'sapdb': case 'maxdb':
-					break;  // cant cast text/LONG to int
-				case 'mysql':
-					// cast is mysql 4 only and has differnt types, eg. CAST(cat_data AS signed)
-					$order_by = "round($order_by)";
-					break;
-				case 'mssql':
-					// mssql cant cast direct from text to int
-					$order_by = "CAST($order_by AS varchar)";
-					// fall through
-				default:
-					$order_by = "CAST($order_by AS integer)";
-					break;
-			}
-			$cats = $this->cats->return_array('all','',False,'','',$order_by,False,$parent,-1,'id');
-			$result = array();
-
-			while (list(,$subs) = @each($cats))
-			{
-				$result[] = $subs['id'];
-			}
-			return $result;
+			return $this->cats->return_array('all','',False,'','','cat_data',False,$parent,-1,'id');
 		}
 
 		function addCategory($name, $description, $parent = False)
@@ -218,4 +193,3 @@
 			$this->db->update($this->state_table,array('state'=>SITEMGR_STATE_DRAFT),array('state'=>SITEMGR_STATE_ARCHIVE), __LINE__,__FILE__);
 		}
 	}
-?>
