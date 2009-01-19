@@ -218,6 +218,10 @@
 			ob_clean();
 			// regenerate header (e.g. js includes)
 			$objui->t->loadfile(realpath(dirname(__FILE__).'/../mos-compat/metadata.tpl'));
+			if (file_exists($this->templateroot.'/metadata.tpl'))
+			{
+				$objui->t->loadfile($this->templateroot.'/metadata.tpl');
+			}
 			echo preg_replace('@<!-- metadata.tpl starts here -->.*?<!-- metadata.tpl ends here -->@si',$objui->t->parse(),$website);
 		}
 	}
