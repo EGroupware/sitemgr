@@ -404,6 +404,8 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 				case 'sitename':
 				case 'site_name':
 					return $GLOBALS['sitemgr_info']['site_name_' . $GLOBALS['egw_info']['user']['preferences']['common']['lang']];
+				case 'slogan':
+					//this one is often used as tag for description in our templates for description in metatags
 				case 'sitedesc':
 				case 'site_desc':
 					return $GLOBALS['sitemgr_info']['site_desc_' . $GLOBALS['egw_info']['user']['preferences']['common']['lang']];
