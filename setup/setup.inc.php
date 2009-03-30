@@ -75,6 +75,9 @@ $setup_info['sitemgr-link']['enable']    = 1;
 $setup_info['sitemgr-link']['index']     = '/sitemgr/sitemgr-link.php';
 $setup_info['sitemgr-link']['icon']      = 'sitemgr-link';
 $setup_info['sitemgr-link']['icon_app']  = 'sitemgr';
+$setup_info['sitemgr-link']['author'] = $setup_info['sitemgr']['author'];
+$setup_info['sitemgr-link']['maintainer'] = $setup_info['sitemgr']['maintainer'];
+$setup_info['sitemgr-link']['license']  = $setup_info['sitemgr']['license'];
 
 /* Dependencies for this app to work */
 $setup_info['sitemgr-link']['depends'][] = array(
