@@ -25,7 +25,7 @@
 		function Categories_BO()
 		{
 			//all sitemgr BOs should be instantiated via a globalized Common_BO object,
-			$this->so = new Categories_SO();
+			$this->so = CreateObject('sitemgr.Categories_SO');
 		}
 
 		//since we need this information several times we store it once,
@@ -91,7 +91,7 @@
 			//error_log(__METHOD__."($cat_id,$check,$recurse) root_list=".array2string($root_list));
 
 			$permitted_list=array();
-			
+
 			if ($root_list) foreach($root_list as $root_cat)
 			{
 				switch ($check)
