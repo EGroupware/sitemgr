@@ -319,7 +319,8 @@ class Module
 				return html::fckEditor($elementname,$default,
 					$GLOBALS['egw_info']['user']['preferences']['sitemgr']['rtfEditorFeatures'],	// default is extended
 					null,'300px','100%',	// 300px to fit in the popup, one can use fitWindow to expand it
-					$GLOBALS['Common_BO']->sites->current_site['upload_dir']);
+					$GLOBALS['Common_BO']->sites->current_site['upload_dir'],
+					!$GLOBALS['Common_BO']->acl->is_admin());	// run htmlpurifier only for regular users (not site-admins)
 			case 'textarea':
 				return '<textarea ' . $inputdef . '>' . $default . '</textarea>';
 			case 'textfield':

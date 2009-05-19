@@ -166,6 +166,11 @@
 								$this->errormsg[] = lang('You need to be an administrator of this website to enter javascript!');
 							}
 						}
+						// run all htmlcontent through htmlpurifier, if user is no site-admin
+						elseif(isset($content['i18n']['htmlcontent']) && !$this->acl->is_admin())
+						{
+							$content['i18n']['htmlcontent'] = html::purify($content['i18n']['htmlcontent']);
+						}
 					}
 				}
 				if (!$this->errormsg)
