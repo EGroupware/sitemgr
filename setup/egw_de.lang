@@ -423,6 +423,7 @@ size	sitemgr	de	Größe
 sorry, no content found for you search criteria	sitemgr	de	Ihre Suche ergab keine Treffer
 sort order	sitemgr	de	Sortierreihenfolge
 state	sitemgr	de	Zustand
+string to return (default api version)	sitemgr	de	Zeichenkette zum zurückgeben (Standart ist die API Version)
 strip html from block content?	sitemgr	de	Entferne HTML aus dem Block Content
 subcategories	sitemgr	de	Unterkategorien
 subsections:	sitemgr	de	Unterkategorien:
@@ -504,6 +505,7 @@ this module lets you show a given url inside an iframe in the page.	sitemgr	de	D
 this module permits browsing through xml files stored in a directory, and transformed by xslt	sitemgr	de	Dieses Modul erlaubt das durchsuchen von Verzeichnisse mit XML Dateien und transformiert mit XSLT
 this module provides a complete table of contents, it is automatically used by the toc and category_id get parameters	sitemgr	de	Dieses Modul bietet ein komplettes Inhaltsverzeichnis. Dieses wird automatisch erstellt durch den toc und den category_ID GET parameter
 this module provides a condensed table of contents, meant for side areas	sitemgr	de	Dieses Modul liefert ein verdichtetes Inhaltsverzeichnis, gedacht für die Seitenspalten
+this module provides an xml sitemap (see www.sitemap.org)	sitemgr	de	Dieses Modul erzeugt ein XML Inhaltsverzeichnis (www.sitemap.org)
 this module provides tabs	sitemgr	de	Dieses Module liefert Kartenreiter
 this module provides the path to the element currently shown	sitemgr	de	Dieses Module liefert einen Pfad zu der gerade gezeigen Seite.
 this module provides the site index, it is automatically used by the index get parameter	sitemgr	de	Dieses Modul stellt einen Seiten Index zur Verfügung. Es wird automatisch durch den Index GET parameter erstellt.
