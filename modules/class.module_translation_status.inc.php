@@ -31,16 +31,13 @@
 			$this->description = lang('This module show the status / percentage of the translation of eGW');
 
 			$this->db =& $GLOBALS['egw']->db;
-			
-			$this->lang_table = $GLOBALS['egw']->translation->lang_table;
-			$this->languages_table = $GLOBALS['egw']->translation->languages_table;
 		}
 
 		function try_lang($message_id,$args='')
 		{
-			return $GLOBALS['egw']->translation->translate($message_id,$args,'');
+			return translation::translate($message_id,$args,'');
 		}
-	
+
 		function get_content(&$arguments,$properties)
 		{
 			$details = $arguments['details'];
@@ -53,11 +50,11 @@
 				if ($lastest < ($l = max($ctimes))) $lastest = $l;
 			}
 			//echo "<p>latest lang modification = $lastest = ".date('Y-m-d H:i',$lastest)."</p>\n";
-			
+
 			$cache_file = $GLOBALS['egw_info']['server']['temp_dir'].'/translation_status.cache';
 			$ctime_cache = @filectime($cache_file);
 			//echo "<p>cache file = '$cache_file', filectime = $ctime_cache = ".date('Y-m-d H:i',$ctime_cache)."</p>\n";
-			
+
 			$cache = array();
 			if (file_exists($cache_file) && (int) $ctime_cache > $lastest)
 			{
@@ -69,14 +66,19 @@
 				if (!$details)
 				{
 					// we use a join with egw_lang itself to eliminate additional (obsolete) phrases not in the english langfile
-					$this->db->query("SELECT l.lang,lang_name,count( l.message_id ) AS count FROM $this->lang_table en,$this->lang_table l LEFT JOIN $this->languages_table ON l.lang=lang_id WHERE en.lang='en' AND l.app_name=en.app_name AND l.message_id=en.message_id GROUP BY l.lang,lang_name ORDER BY count DESC,l.lang");
+					$request = $this->db->query('SELECT l.lang,lang_name,count( l.message_id ) AS count FROM '.
+						translation::LANG_TABLE.' en,'.translation::LANG_TABLE.' l LEFT JOIN '.translation::LANGUAGES_TABLE.
+						" ON l.lang=lang_id WHERE en.lang='en' AND l.app_name=en.app_name AND l.message_id=en.message_id GROUP BY l.lang,lang_name ORDER BY count DESC,l.lang");
 				}
 				else
 				{
 					// we use a join with egw_lang itself to eliminate additional (obsolete) phrases not in the english langfile
-					$this->db->query("SELECT l.app_name,l.lang,count( l.message_id ) AS count,l.lang,CASE WHEN l.lang='en' THEN 1 ELSE 0 END AS is_en FROM $this->lang_table l,$this->lang_table en WHERE l.app_name=en.app_name AND l.message_id=en.message_id AND en.lang='en' AND l.lang IN (".$this->db->quote($details).",'en') GROUP BY l.app_name,l.lang,is_en ORDER BY is_en DESC,count DESC,l.app_name");
+					$request = $this->db->query("SELECT l.app_name,l.lang,count( l.message_id ) AS count,l.lang,CASE WHEN l.lang='en' THEN 1 ELSE 0 END AS is_en FROM ".
+						translation::LANG_TABLE.' l,'.translation::LANG_TABLE.
+						" en WHERE l.app_name=en.app_name AND l.message_id=en.message_id AND en.lang='en' AND l.lang IN (".
+						$this->db->quote($details).",'en') GROUP BY l.app_name,l.lang,is_en ORDER BY is_en DESC,count DESC,l.app_name");
 				}
-				while($row = $this->db->row(True))
+				foreach($request as $row)
 				{
 					$cache[$details][] = $row;
 				}
@@ -167,9 +169,9 @@
 					'total'   => '0 / '.$m
 				);
 			}
-			$this->db->query("SELECT lang_name FROM $this->languages_table WHERE lang_id=".$this->db->quote($details),__FILE__,__LINE__);
-			$row = $this->db->row(True);
-			return '<h3>'.lang('Details for language %1 (%2)',$this->try_lang($row['lang_name']),$details)."</h3>\n".
+			$lang_name = $this->db->query('SELECT lang_name FROM '.translation::LANGUAGES_TABLE.' WHERE lang_id='.$this->db->quote($details),__FILE__,__LINE__)->fetchColumn();
+
+			return '<h3>'.lang('Details for language %1 (%2)',$this->try_lang($lang_name),$details)."</h3>\n".
 				html::table($table,'cellspacing="5"').
 				'<a href="'.$this->link().'">('.lang('Back to the list of languages').')</a>';
 		}
