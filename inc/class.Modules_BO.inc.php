@@ -70,7 +70,7 @@
 			{
 				include_once($file);
 				
-				$obj =& new $classname;
+				$obj = new $classname;
 			}
 			else
 			{

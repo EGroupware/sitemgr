@@ -95,7 +95,7 @@
 		}
 		elseif ($var == 'news')
 		{
-			$ui =& new ui;
+			$ui = new ui;
 			$val = $ui->get_news();
 			unset($ui);
 		}
@@ -103,7 +103,7 @@
 		{
 			if (file_exists('blocks/'.$var.'.php'))
 			{
-				$title=ereg_replace('_',' ',substr($var,6));
+				$title=str_replace('_',' ',substr($var,6));
 				include 'blocks/'.$var.'.php';
 			}
 			else
@@ -169,7 +169,7 @@
 	}
 	function footmsg()
 	{
-		$objbo =& new bo;
+		$objbo = new bo;
 		echo $objbo->get_footer();
 	}
 
@@ -249,10 +249,10 @@
 	}
 	function FixQuotes ($what = "") 
 	{
-		$what = ereg_replace("'","''",$what);
-		while (eregi("\\\\'", $what)) 
+		$what = str_replace("'","''",$what);
+		while (preg_match('/'."\\\\'".'/i', $what)) 
 		{
-			$what = ereg_replace("\\\\'","'",$what);
+			$what = preg_replace('/'."\\\\'".'/',"'",$what);
 		}
 		return $what;
 	}

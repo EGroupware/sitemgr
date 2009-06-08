@@ -143,7 +143,7 @@ class uinotifications extends bonotifications
 			}
 		}
 
-		$tpl =& new etemplate('sitemgr.notifications.edit');
+		$tpl = new etemplate('sitemgr.notifications.edit');
 
 		$preserv = $content = $this->data;
 
@@ -178,7 +178,7 @@ class uinotifications extends bonotifications
 			if (!$msg and $_GET['msg']) $msg = $_GET['msg'];
 		}
 
-		$tpl =& new etemplate('sitemgr.notifications.index');
+		$tpl = new etemplate('sitemgr.notifications.index');
 
 		$content = $content['nm']['rows'];
 

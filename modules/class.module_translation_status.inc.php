@@ -89,9 +89,9 @@
 			}
 
 			$colors = array();
-			foreach(split(', ?',$arguments['colors']) as $value)
+			foreach(preg_split('/, ?/',$arguments['colors']) as $value)
 			{
-				list($color,$minimum) = split(': ?',$value);
+				list($color,$minimum) = preg_split('/: ?/',$value);
 				$colors[$minimum] = $color;
 			}
 			krsort($colors);

@@ -109,7 +109,7 @@ class bonotifications extends sonotifications
 			$url="http://".$GLOBALS['egw_info']['server']['hostname'].$url;
 		}
 
-		$url = substr(ereg_replace('([^:])//','\1/','s'.$url),1);
+		$url = substr(preg_replace('/([^:])\\/\\//','\1/','s'.$url),1);
 
 		// build the extravars string from a array
 		$vars = array();

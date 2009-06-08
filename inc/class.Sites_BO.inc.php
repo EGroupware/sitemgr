@@ -141,7 +141,7 @@
 			}
 			$site_languages = $prefs['site_languages'] ? $prefs['site_languages'] : $this->current_site['site_languages'];
 			// remove extra space in the language list
-			$site_languages = $site_languages ? split(' ?, ?',trim($site_languages)) : array('en');
+			$site_languages = $site_languages ? preg_split('/ ?, ?/',trim($site_languages)) : array('en');
 			$prefs['site_languages'] = implode(',',$site_languages);
 			$this->so->saveprefs($prefs,$site_id);
 			foreach ($site_languages as $lang)

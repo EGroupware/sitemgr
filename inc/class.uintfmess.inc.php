@@ -143,7 +143,7 @@ class uintfmess extends bontfmess
 			}
 		}
 
-		$tpl =& new etemplate('sitemgr.ntfmess.edit');
+		$tpl = new etemplate('sitemgr.ntfmess.edit');
 
 		$preserv = $content = $this->data;
 
@@ -178,7 +178,7 @@ class uintfmess extends bontfmess
 
 		if (!$msg and $_GET['msg']) $msg = $_GET['msg'];
 
-		$tpl =& new etemplate('sitemgr.ntfmess.index');
+		$tpl = new etemplate('sitemgr.ntfmess.index');
 
 		$content = $content['nm']['rows'];
 

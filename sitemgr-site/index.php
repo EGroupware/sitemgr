@@ -122,7 +122,7 @@
 
 	$Common_BO =& CreateObject('sitemgr.Common_BO');
 	require_once './inc/class.sitebo.inc.php';
-	$objbo =& new sitebo;
+	$objbo = new sitebo;
 	$Common_BO->sites->set_currentsite($site_url,$objbo->getmode());
 	if($objbo->getmode() != 'Production')
 	{
@@ -167,7 +167,7 @@
 		}
 		$GLOBALS['egw']->common->egw_exit();
 	}
-	$objui =& new ui;
+	$objui = new ui;
 
 	$page =& CreateObject('sitemgr.Page_SO');
 
