@@ -199,6 +199,10 @@
 						'type' => 'checkbox',
 						'label' => lang('No link to full index')
 					),
+					'highlight_current_page' => array(
+						'type' => 'checkbox',
+						'label' => lang('Highlight current page')
+					),
 				),
 			   10 => array( // tabs
 					'description' => lang('This module provides tabs'),
@@ -351,8 +355,7 @@
 				case 5 : // Sitetree
 					$out .= "sitetree\">\n";
 					$out .= $this->type_sitetree($arguments,$properties);
-					$out .= "  </div>\n</div>\n".
-						"<!-- navigation context ends here -->\n\n";
+					$out .= "  </div>\n<!-- navigation context ends here -->\n</div>\n";
 					return $out;
 				case 6 : // Toc
 					$out .= "toc\">\n";
@@ -430,8 +433,7 @@
 				default:
 					$out .= "navigation\">\n";
 					$out .= $this->type_navigation($arguments,$properties);
-					$out .= "  </div>\n</div>\n".
-						"<!-- navigation context ends here -->\n\n";
+					$out .= "  </div>\n<!-- navigation context ends here -->\n</div>\n";
 					return $out;
 			}
 
@@ -497,27 +499,28 @@
 					}
 				}
 				array_push($cat_tree,$cat_id); array_push($cat_tree_data,$cat);
-
+				
 				if($arguments['expand'] && $cat_id == $this->page->cat_id && $cat['depth'] >= $arguments['max_cat_depth'])
 				{
+					$cat_tree2 = $cat_tree;	$cat_tree_data2 = $cat_tree_data;
 					//strip allready displayed contets of cat_tree
-					unset($cat_tree[0]); unset($cat_tree_data[0]);
-					foreach($cat_tree_data as $num => $category)
+					unset($cat_tree2[0]); unset($cat_tree_data2[0]);
+					foreach($cat_tree_data2 as $num => $category)
 					{
 						if($category['depth'] < $arguments['max_cat_depth'])
 						{
-							unset($cat_tree[$num]); unset($cat_tree_data[$num]);
+							unset($cat_tree2[$num]); unset($cat_tree_data2[$num]);
 						}
 						// we need only pages of this cat, but not cat itseve!
-						if($category['depth'] ==  $arguments['max_cat_depth'] && $this->page->cat_id != $cat_tree[$num])
+						if($category['depth'] ==  $arguments['max_cat_depth'] && $this->page->cat_id != $cat_tree2[$num])
 						{
-							$cat_tree_data[$num]['pages_only'] = true;
+							$cat_tree_data2[$num]['pages_only'] = true;
 						}
 					}
 
 					//expand rest
-					$cat_tree = array_reverse($cat_tree); $cat_tree_data = array_reverse($cat_tree_data);
-					$outstack = array($cat_tree[count($cat_tree) -1]); $outstack_data = array($cat_tree_data[count($cat_tree) -1]);
+					$cat_tree2 = array_reverse($cat_tree2); $cat_tree_data2 = array_reverse($cat_tree_data2);
+					$outstack = array($cat_tree2[count($cat_tree2) -1]); $outstack_data = array($cat_tree_data2[count($cat_tree2) -1]);
 					$popcat = array_pop($outstack); $popcat_data = array_pop($outstack_data);
 					while($popcat)
 					{
@@ -525,7 +528,7 @@
 						{
 							$out .= $this->encapsulate($arguments,array($popcat => $popcat_data),'cat',$popcat,$popcat_data['depth']);
 						}
-						if(array_search($popcat,$cat_tree) !== false)
+						if(array_search($popcat,$cat_tree2) !== false)
 						{
 							$pages = $this->objbo->getPageLinks($popcat,$arguments['showhidden'],true);
 							$out .= $this->encapsulate($arguments,$pages,'page',$popcat,$popcat_data['depth'] +1);
@@ -559,7 +562,7 @@
 					if (empty($test)) continue;
 				}
 
-//  			_debug_array($cat_tree);
+//	  			_debug_array($cat_tree);
 				if($cat['depth'] <= $arguments['max_cat_depth'])
 				{
 					if(!($arguments['suppress_current_cat'] && $this->page->cat_id == $cat_id) &&
@@ -587,8 +590,7 @@
 				$out .= "    </div>\n";
 			}
 
-			$out .= "  </div>\n</div>\n".
-						"<!-- navigation context ends here -->\n\n";
+			$out .= "  </div>\n<!-- navigation context ends here -->\n</div>\n";
 			return $out;
 		}
 
@@ -605,7 +607,6 @@
 		function encapsulate($arguments,$data,$type,$cat_id,$depth=1)
 		{
 			$out = '';
-			//$out .= "    <!-- BEGIN encapsulate(".$type.") -->\n";
 			if(empty($arguments['main_cats_to_include']) && $arguments['nav_type'] != 6) {
 				// do we have to start or finish a block?
 				if ($type == 'cat')
@@ -613,10 +614,10 @@
 					// finish old block
 					if ($this->lastcatdepth >= $depth)
 					{
-						while($this->lastcatdepth != $depth - 1 && $this->lastcatdepth > 0)
+						while($this->lastcatdepth != $depth - 1 && $this->lastcatdepth != 0)
 						{
-							$out .= "    </div>\n";
-							//$out .= "    <!-- NAV CAT BLOCK OF DEPTH ". $this->lastcatdepth. " ENDS HERE-->\n";
+							$out .= "  </div>\n";
+							//$out .= "  <!-- NAV CAT BLOCK OF DEPTH ". $this->lastcatdepth. " ENDS HERE-->\n";
 							$this->lastcatdepth--;
 						}
 					}
@@ -625,12 +626,12 @@
 					// marker to end last block
 					if ($depth == 0) return $out;
 
-					//$out .= "    <!-- NAV CAT BLOCK OF DEPTH ". $depth. " STARTS HERE-->\n";
-					$out .= "    <div class=\"nav-cat-block blockdepth-".$depth. ($this->page->cat_id == $cat_id ? ' active' : ' inactive'). "\">\n";
+					//$out .= "  <!-- NAV CAT BLOCK OF DEPTH ". $depth. " STARTS HERE-->\n";
+					$out .= "  <div class=\"nav-cat-block blockdepth-".$depth. ($this->page->cat_id == $cat_id ? ' active' : ' inactive'). "\">\n";
 				}
 			}
-			$out .= "      <div class=\"nav-".$type."-entry depth-".$depth."\">\n";
-			$out .= "        <ul>\n";
+			$out .= "    <div class=\"nav-".$type."-entry depth-".$depth."\">\n";
+			$out .= "      <ul>\n";
 
 			if (is_array($data))
 			foreach($data as $id => $entry)
@@ -646,8 +647,8 @@
 					$entry['link'] = "<div class=\"nav-highlight_current_page\">".$entry['link'].'</div>';
 				}
 
-				$out .= "          <li>\n";
-				$out .= "            ".$entry['link']."\n";
+				$out .= "        <li>\n";
+				$out .= "          ".$entry['link']."\n";
 
 				if($arguments['show_edit_icons'])
 				{
@@ -667,23 +668,8 @@
 
 				$out .= "        </li>\n";
 			}
-			$out .= "        </ul>\n";
-			$out .= "      </div><!-- class=\"nav-".$type."-entry depth-".$depth."\" -->\n";
-			if(empty($arguments['main_cats_to_include']) && $arguments['nav_type'] == 8) {
-				// do we have to start or finish a block?
-				if ($type == 'cat')
-				{
-					// finish old block
-					while($this->lastcatdepth > 0)
-					{
-						$out .= "    </div>\n";
-						$out .= "    <!-- DEPTH ". $this->lastcatdepth. " ENDS HERE-->\n";
-						$this->lastcatdepth--;
-					}
-				}
-			}
-			//$out .= "    <!-- END encapsulate() -->\n";
-
+			$out .= "      </ul>\n";
+			$out .= "    </div>\n";
 			return $out;
 		}
 
