@@ -440,6 +440,7 @@
 			$this->objbo =& $GLOBALS['objbo'];
 			$this->page =& $GLOBALS['page'];
 			$this->category =& $this->objbo->getcatwrapper($this->page->cat_id);
+			//error_log(__METHOD__."(".array2string($arguments).") page=".array2string($this->page).", category=".array2string($this->category));
 
 			if (!$arguments['suppress_parent'])
 			{
@@ -526,12 +527,20 @@
 					{
 						if(!$popcat_data['pages_only'] && !($arguments['suppress_main_cats'] && $popcat_data['depth'] == 1))
 						{
-							$out .= $this->encapsulate($arguments,array($popcat => $popcat_data),'cat',$popcat,$popcat_data['depth']);
+							// if current page is the index page for $popcat, call encapsulate with page-id to highlight the page
+							if ($popcat == $this->category->id && $this->category->index_page_id == $this->page->id)
+							{
+								$out .= $this->encapsulate($arguments,array($this->page->id => $popcat_data),'page',$popcat,$cat['depth'],__LINE__);
+							}
+							else
+							{
+								$out .= $this->encapsulate($arguments,array($popcat => $popcat_data),'cat',$popcat,$popcat_data['depth'],__LINE__);
+							}
 						}
 						if(array_search($popcat,$cat_tree2) !== false)
 						{
 							$pages = $this->objbo->getPageLinks($popcat,$arguments['showhidden'],true);
-							$out .= $this->encapsulate($arguments,$pages,'page',$popcat,$popcat_data['depth'] +1);
+							$out .= $this->encapsulate($arguments,$pages,'page',$popcat,$popcat_data['depth'] +1,__LINE__);
 						}
 						$subcats = array_reverse($this->objbo->getCatLinks($popcat,false,true),true);
 						foreach($subcats as $subcat_id => $subcat)
@@ -550,7 +559,7 @@
 					$suppress_hide_pages=!$arguments['suppress_hide_pages']?true:false;
 					$pages = $this->objbo->getPageLinks($cat_id,$suppress_hide_pages,true);
 					if($this->page->id) $cat_tree_data[] = $pages[$this->page->id];
-					$out .= $this->encapsulate($arguments,$cat_tree_data,'cat',$cat_id);
+					$out .= $this->encapsulate($arguments,$cat_tree_data,'cat',$cat_id,1,__LINE__);
 					break;
 				}
 
@@ -572,16 +581,16 @@
 						{
 							$cat['link'] = $cat['name'];
 						}
-						$out .= $this->encapsulate($arguments,array($cat_id => $cat),'cat',$cat_id,$cat['depth']);
+						$out .= $this->encapsulate($arguments,array($cat_id => $cat),'cat',$cat_id,$cat['depth'],__LINE__);
+					}
+					// only show pages (of a category), if the category itself is shown
+					if($cat['depth'] <= $arguments['max_pages_depth'] && $cat['depth'] != 0)
+					{
+						$pages = $this->objbo->getPageLinks($cat_id,$arguments['showhidden'],true);
+						if($arguments['suppress_current_page']) unset($pages[$this->page->id]);
+						if ($pages) $out .= $this->encapsulate($arguments,$pages,'page',$cat_id,$cat['depth'] +1,__LINE__);
 					}
 				}
-				if($cat['depth'] <= $arguments['max_pages_depth'] && $cat['depth'] != 0)
-				{
-					$pages = $this->objbo->getPageLinks($cat_id,$arguments['showhidden'],true);
-					if($arguments['suppress_current_page']) unset($pages[$this->page->id]);
-					$out .= $this->encapsulate($arguments,$pages,'page',$cat_id,$cat['depth'] +1);
-				}
-
 			}
 			if (!$arguments['no_full_index'])
 			{
@@ -601,11 +610,13 @@
 		 * @param $data
 		 * @param $type string 'cat' or 'page'
 		 * @param $cat_id of cat itselve or of cat page belongs to.
-		 * @param $depth logical deps of cat or page.
+		 * @param $dept=1h logical deps of cat or page.
+		 * @param $line='other' line number of call
 		 *
 		 */
-		function encapsulate($arguments,$data,$type,$cat_id,$depth=1)
+		function encapsulate($arguments,$data,$type,$cat_id,$depth=1,$line='other')
 		{
+			//error_log(__METHOD__."(...,".array2string($data).",$type,$cat_id,$depth,called from line $line)");
 			$out = '';
 			if(empty($arguments['main_cats_to_include']) && $arguments['nav_type'] != 6) {
 				// do we have to start or finish a block?
