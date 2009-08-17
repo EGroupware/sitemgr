@@ -9,7 +9,7 @@
 		<meta name="DISTRIBUTION" content="GLOBAL" />
 		<meta name="AUTHOR" content="{sitename}" />
 		<meta name="COPYRIGHT" content="Copyright (c) {year} by {sitename}" />
-		<meta name="DESCRIPTION" content="{slogan}" />
+		<meta name="DESCRIPTION" content="{sitedesc}" />
 		<meta name="ROBOTS" content="INDEX, FOLLOW" />
 		<meta name="REVISIT-AFTER" content="1 DAYS" />
 		<meta name="RATING" content="GENERAL" />
@@ -33,7 +33,14 @@
 
 <body bgcolor="#ffffff" text="#000000" link="#363636" vlink="#363636" alink="#d5ae83">
 <div id="divLogo">
-	<a href="index.php"><img src="templates/idots/images/logo.png" border="0" title="{site_name}" /></a>
+<script type="text/javascript">
+var Aussage = "{sitedesc}";
+var Ergebnis = Aussage.search(/##.+/);
+if (Ergebnis != -1)
+  document.write("<a href=\"index.php\"><img src=\""+Aussage.slice(Ergebnis+2,Aussage.lastIndexOf("##"))+"\" border=\"0\" title=\"{sitename}\" /></a>");
+if (Ergebnis == -1)
+  document.write("<a href=\"index.php\"><img src=\"templates/idots/images/logo.png\" border=\"0\" title=\"{sitename}\" /></a>");
+</script>
 </div>
 <div id="divMain">
 	<div id="divAppIconBar">
