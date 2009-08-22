@@ -76,7 +76,7 @@
 
 	// do we use a different domain and are already loged in?
 	if (isset($GLOBALS['egw_info']['server']['default_domain']) &&
-		@$_REQUEST['domain'] != $GLOBALS['egw_info']['server']['default_domain'])
+		egw_session::get_request('domain') != $GLOBALS['egw_info']['server']['default_domain'])
 	{
 		// force our default domain
 		$_GET['domain'] = $_COOKIE['domain'] = $_REQUEST['domain'] = $GLOBALS['egw_info']['server']['default_domain'];
