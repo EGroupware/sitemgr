@@ -73,10 +73,15 @@
 	));
 
 	include('./config.inc.php');
-
+	if (!file_exists($sitemgr_info['egw_path'] . 'header.inc.php'))
+	{
+		die("Header file not found.  Either your path to eGroupWare in the config.inc.php file is bad, or you have not setup eGroupWare.");
+	}
 	// do we use a different domain and are already loged in?
+	require_once($sitemgr_info['egw_path'].'phpgwapi/inc/class.egw_session.inc.php');
 	if (isset($GLOBALS['egw_info']['server']['default_domain']) &&
 		egw_session::get_request('domain') != $GLOBALS['egw_info']['server']['default_domain'])
+		//$_COOKIE['domain'] != $GLOBALS['egw_info']['server']['default_domain'])
 	{
 		// force our default domain
 		$_GET['domain'] = $_COOKIE['domain'] = $_REQUEST['domain'] = $GLOBALS['egw_info']['server']['default_domain'];
@@ -84,11 +89,6 @@
 		unset($_COOKIE['sessionid']);
 		unset($_REQUEST['sessionid']);
 	}
-	if (!file_exists($sitemgr_info['egw_path'] . 'header.inc.php'))
-	{
-		die("Header file not found.  Either your path to eGroupWare in the config.inc.php file is bad, or you have not setup eGroupWare.");
-	}
-
 	include($sitemgr_info['egw_path'] . 'header.inc.php');
 
 	if ($sitemgr_info['webserver_url'])
