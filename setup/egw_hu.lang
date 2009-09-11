@@ -56,6 +56,7 @@ automatically generated notification	sitemgr	hu	Automatikusan generált értesí
 back to module manager	sitemgr	hu	Vissza a modulkezelőhöz
 back to the list of languages	sitemgr	hu	Vissza a nyelvek listához
 basic settings	sitemgr	hu	Alapbeállítások
+before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr-link	hu	Mielőtt a nyilvános webhelyet megtekinthetné, több helyet és tulajdonságot be kell állítania. Kérem lépjen a SiteManager Beállítások oldalára követve a hivatkozást:
 block not found.	sitemgr	hu	Blokk nem található.
 block reloaded	sitemgr	hu	Blokk újratöltve
 block returned no content.	sitemgr	hu	A blokk nem tartalmaz adatot.
@@ -156,7 +157,7 @@ entry deleted	sitemgr	hu	Bejegyzés törölve
 entry duplicated.	sitemgr	hu	Bejegyzés duplikált.
 entry saved	sitemgr	hu	Bejegyzés elmentve
 entry saved.	sitemgr	hu	Bejegyzés elmentve.
-error accessing page	common	hu	Hiva a lap elérésekor
+error accessing page	common	hu	Hiba a lap elérésekor
 error deleting the element.	sitemgr	hu	Hiba az elem törlésekor.
 error deleting the entry!!!	sitemgr	hu	Bejegyzés törlése közben hiba történt!!!
 error saving the entry!!!	sitemgr	hu	Bejegyzés mentése közben hiba történt!!!
@@ -233,7 +234,6 @@ manage site content	sitemgr	hu	Weblap tartalom kezelése
 manage site-wide content	sitemgr	hu	Weblapon érvényes tartalmak kezelése
 manage site-wide module properties	sitemgr	hu	Weblapon érvényes modulbeállítások kezelése
 manage translations	sitemgr	hu	Fordítások kezelése
-manange notifications	sitemgr	hu	Értesítések kezelése
 migrating data for %1 to %2	sitemgr	hu	Adatok migrálása innen: %1 ide: %2
 module %1 is not permitted in this context!	sitemgr	hu	%1 modul nem engedélyezett ebben a környezetben!
 module manager	sitemgr	hu	Modulkezelő
@@ -258,6 +258,7 @@ no template file found.	sitemgr	hu	Nem található sablon fájl.
 no templates found.	sitemgr	hu	Nem találhatók sablonok.
 no thumbnail availible	sitemgr	hu	Bélyegkép nem található
 not	common	hu	nem
+note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr-link	hu	Megjegyzendő, hogy azért kaphatta ezt az üzenetet, mert a beállításai között valami hibásan szerepel. Például ha a config.inc.php nem található abban a könyvtárban, amit beállított webhelynek.
 on all pages	sitemgr	hu	összes oldalon
 only on the first page	sitemgr	hu	csak az első oldalon
 page	sitemgr	hu	Lap
@@ -298,6 +299,7 @@ scope	sitemgr	hu	Hatókör
 select a category	sitemgr	hu	Kategória kiválasztása
 site	sitemgr	hu	Webhely
 sitemgr	common	hu	SiteManager
+sitemgr setup page	sitemgr-link	hu	SiteManager Beállítások oldala
 sitemgr-link	common	hu	Webhely
 size	sitemgr	hu	Méret
 state	sitemgr	hu	Állapot
@@ -324,12 +326,8 @@ wiki startpage	sitemgr	hu	Wiki kezdőoldal
 write permission	sitemgr	hu	Írási jogosultság
 xml browser	sitemgr	hu	XML böngésző
 yes, please delete it	sitemgr	hu	Igen, törölje
+your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr-link	hu	Az ön adminisztrátora nem állított be működő webhelyet a nyilvánosság számára. Értesítse az adminisztrátort (és vágatlanul az eredeti, mert jó: "Go bug your administrator to get their butt in gear.")
 your calendar	sitemgr	hu	Az ön naptárja
 your comment	sitemgr	hu	Az ön hozzászólása
 your connection is not safe.	sitemgr	hu	Az ön kapcsolata nem biztonságos.
 your name	sitemgr	hu	Az ön neve
-before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr-link	hu	Mielőtt a nyilvános webhelyet megtekinthetné, több helyet és tulajdonságot be kell állítania. Kérem lépjen a SiteManager Beállítások oldalára követve a hivatkozást:
-note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr-link	hu	Megjegyzendő, hogy azért kaphatta ezt az üzenetet, mert a beállításai között valami hibásan szerepel. Például ha a config.inc.php nem található abban a könyvtárban, amit beállított webhelynek.
-sitemgr setup page	sitemgr-link	hu	SiteManager Beállítások oldala
-you need to make sure the sitemgr-link app is in the egroupware directory.  if you made a symbolic link... it isn't working.	sitemgr-link	hu	Biztosnak kell lenni abban, hogy a sitemgr-link modul az egroupware könyvtárban van. Ha ez egy szimbolikus link...... akkor ez bizony jelenleg nem működik (pedig jó lenne).
-your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr-link	hu	Az ön adminisztrátora nem állított be működő webhelyet a nyilvánosság számára. Értesítse az adminisztrátort (és vágatlanul az eredeti, mert jó: "Go bug your administrator to get their butt in gear.")
