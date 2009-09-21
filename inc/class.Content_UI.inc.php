@@ -152,24 +152,27 @@
 					$block->sort_order = $inputblocksort;
 					$block->view = $inputblockview;
 
-					foreach($element as $version_id => &$content)
+					if (isset($element))	// not all blocks have elements (eg. Administration)
 					{
-						if (isset($GLOBALS['egw_unset_vars']["_POST[element][$version_id][i18n][htmlcontent]"]) && !isset($content['i18n']['htmlcontent']))
+						foreach($element as $version_id => &$content)
 						{
-							if ($this->acl->is_admin())
+							if (isset($GLOBALS['egw_unset_vars']["_POST[element][$version_id][i18n][htmlcontent]"]) && !isset($content['i18n']['htmlcontent']))
 							{
-								$content['i18n']['htmlcontent'] =& $GLOBALS['egw_unset_vars']["_POST[element][$version_id][i18n][htmlcontent]"];
-								unset($GLOBALS['egw_unset_vars']["_POST[element][$version_id][i18n][htmlcontent]"]);
+								if ($this->acl->is_admin())
+								{
+									$content['i18n']['htmlcontent'] =& $GLOBALS['egw_unset_vars']["_POST[element][$version_id][i18n][htmlcontent]"];
+									unset($GLOBALS['egw_unset_vars']["_POST[element][$version_id][i18n][htmlcontent]"]);
+								}
+								else
+								{
+									$this->errormsg[] = lang('You need to be an administrator of this website to enter javascript!');
+								}
 							}
-							else
+							// run all htmlcontent through htmlpurifier, if user is no site-admin
+							elseif(isset($content['i18n']['htmlcontent']) && !$this->acl->is_admin())
 							{
-								$this->errormsg[] = lang('You need to be an administrator of this website to enter javascript!');
+								$content['i18n']['htmlcontent'] = html::purify($content['i18n']['htmlcontent']);
 							}
-						}
-						// run all htmlcontent through htmlpurifier, if user is no site-admin
-						elseif(isset($content['i18n']['htmlcontent']) && !$this->acl->is_admin())
-						{
-							$content['i18n']['htmlcontent'] = html::purify($content['i18n']['htmlcontent']);
 						}
 					}
 				}
@@ -649,7 +652,7 @@
 				$editorstandardelements = array(
 					array('label' => lang('Title'),
 							'form' => ('<input type="text" name="inputblocktitle" value="' .
-							($block->title ? $block->title : $moduleobject->title) . '" />')
+							htmlspecialchars(isset($block->title) ? $block->title : $moduleobject->title) . '" />')
 					),
 					array('label' => lang('Seen by'),
 							'form' => ('<select name="inputblockview">' .
