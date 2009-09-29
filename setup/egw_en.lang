@@ -216,6 +216,7 @@ headlines	sitemgr	en	Headlines
 hello	sitemgr	en	Hello
 hello world	sitemgr	en	Hello world
 helps you respect html/xhtml standards.	sitemgr	en	Helps you respect HTML/XHTML standards.
+highlight current page	sitemgr	en	Highlight current page
 horizontal	sitemgr	en	Horizontal
 html frame	sitemgr	en	HTML Frame
 html module	sitemgr	en	HTML module
@@ -268,7 +269,6 @@ migrating data for %1 to %2	sitemgr	en	Migrating data for %1 to %2
 module %1 is not permitted in this context!	sitemgr	en	Module %1 is not permitted in this context!
 module '%1' not found in: %2! --> exiting	sitemgr	en	Module '%1' not found in: %2! --> exiting
 module manager	sitemgr	en	Module manager
-module returns api version or an arbitrary string.	sitemgr	en	Module returns API version or an arbitrary string.
 module: %1, scope: %2, contentarea: %3, viewable: %4	sitemgr	en	Module: %1, Scope: %2, Contentarea: %3, Viewable: %4
 move block down (increase sort order)	sitemgr	en	Move block down (increase sort order)
 move block up (decrease sort order)	sitemgr	en	Move block up (decrease sort order)
@@ -383,6 +383,7 @@ select the templates the user is allowed to see	sitemgr	en	Select the templates 
 select type of navigation	sitemgr	en	Select type of Navigation
 selected template %1 does not exist.	sitemgr	en	Selected template %1 does not exist.
 selected theme %1 does not exist.	sitemgr	en	Selected theme %1 does not exist.
+send emailcopy to receiver	sitemgr	en	Send emailcopy to receiver
 seperate cats / pages of one tab by :	sitemgr	en	Seperate Cats / Pages of one tab by :
 shipping address	sitemgr	en	Shipping address
 should the file be viewed in the browser or downloaded	sitemgr	en	Should the file be viewed in the browser or downloaded

@@ -216,6 +216,7 @@ headlines	sitemgr	de	Kopfzeilen
 hello	sitemgr	de	Hallo
 hello world	sitemgr	de	Hello World
 helps you respect html/xhtml standards.	sitemgr	de	Hilft den HTML/XHTML Standard einzuhalten.
+highlight current page	sitemgr	de	Aktuelle Seite Hervorheben
 horizontal	sitemgr	de	Horizontal
 html frame	sitemgr	de	HTML Rahmen (iframe)
 html module	sitemgr	de	HTML Modul
@@ -382,6 +383,7 @@ select the templates the user is allowed to see	sitemgr	de	Designvorlagen auswä
 select type of navigation	sitemgr	de	Typ der Navigation auswählen
 selected template %1 does not exist.	sitemgr	de	Das ausgewählte Design %1 ist nicht verfügbar.
 selected theme %1 does not exist.	sitemgr	de	Das ausgewählte Thema %1 ist nicht verfügbar.
+send emailcopy to receiver	sitemgr	de	E-Mail auch an angegebenen Adressat senden
 seperate cats / pages of one tab by :	sitemgr	de	Unterteile Kategorien / Seiten eines Kartenreiters mit:
 shipping address	sitemgr	de	Versandadresse
 should the file be viewed in the browser or downloaded	sitemgr	de	Soll die Datei im Browser angezeigt oder heruntergelanden werden
