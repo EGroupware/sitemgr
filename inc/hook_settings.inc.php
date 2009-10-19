@@ -21,10 +21,11 @@ $GLOBALS['settings'] = array(
 		'values' => array(
 			'simple'   => lang('Simple'),
 			'extended' => lang('Regular'),
-			'advanced' => lang('Everything'), 
+			'advanced' => lang('Everything'),
 		),
 		'help'   => 'You can customize how many icons and toolbars the editor shows.',
 		'xmlrpc' => True,
-		'admin'  => False
+		'admin'  => False,
+		'default'=> 'extended',
 	),
 );
