@@ -43,6 +43,10 @@ class module_download extends Module
 				'label' => lang('The text for the link, if empty the module returns the raw URL (without a link)').' '.
 					lang('(only used in case of single file)'),
 			),
+			'upload' => array(
+				'type' => 'checkbox',
+				'label' => lang('Show a file upload (if user has write rights to current directory)'),
+			),
 /*			disabled, because currently not working
 			'op' => array (
 				'type' => 'select',
@@ -57,14 +61,14 @@ class module_download extends Module
 		$this->post = array (
 			'subdir' => array ('type' => 'textfield'),
 		);
-		$this->get = array ('subdir');
+		$this->get = array ('subdir','uploading');
 		$this->title = lang('File download');
 		$this->description = lang('This module create a link for downloading a file(s) from the VFS');
 	}
 
 	function get_content(&$arguments, $properties)
 	{
-		$GLOBALS['egw']->translation->add_app('filemanager');
+		translation::add_app('filemanager');
 
 		if (substr($arguments['path'],-1) == '/')
 		{
@@ -74,15 +78,40 @@ class module_download extends Module
 		switch ($arguments['format'])
 		{
 			case 'dirnsub' :
-				if ($arguments['subdir']) {
+				if ($arguments['subdir'])
+				{
 					$arguments['path'] = $arguments['path'].'/'.$arguments['subdir'];
-				}
-				if ($arguments['showpath']) {
-					$out = lang('Path').': '.$arguments['path'].'<hr>';
 				}
 				// fall through
 			case 'dir' :
 			case 'recursive':
+				if (!egw_vfs::file_exists($arguments['path']) || !egw_vfs::is_readable($arguments['path']))
+				{
+					return '<p style="color: red;"><i>'.lang('The requested path %1 is not available.',htmlspecialchars($query['path']))."</i></p>\n";
+				}
+				//$out .= '<pre>'.print_r($arguments,true)."</pre>\n";
+				if ($arguments['uploading'] && $arguments['upload'] && egw_vfs::is_writable($arguments['path']))
+				{
+					foreach((array)$_FILES['upload'] as $name => $data)
+					{
+						$upload[$name] = $data[$this->block->id];
+					}
+					$to = $arguments['path'].'/'.$upload['name'];
+					if (is_uploaded_file($upload['tmp_name']) &&
+						(egw_vfs::is_writable($arguments['path']) || egw_vfs::is_writable($to)) &&
+						copy($upload['tmp_name'],egw_vfs::PREFIX.$to))
+					{
+						$out .= '<p style="color: red;"><i>'.lang('File successful uploaded.')."</i></p>\n";
+					}
+					else
+					{
+						$out .= '<p style="color: red;"><i>'.lang('Error uploading file!').'<br />'.filemanager_ui::max_upload_size_message()."</i></p>\n";
+					}
+				}
+				if ($arguments['showpath'])
+				{
+					$out .= '<p>'.lang('Path').': '.htmlspecialchars($arguments['path']).'</p><hr />';
+				}
 				$ls_dir = egw_vfs::find($arguments['path'],array(
 					'need_mime' => true,
 					'maxdepth' => $arguments['format'] != 'recursive' ? 1 : null,
@@ -148,6 +177,17 @@ class module_download extends Module
 						</tr>';
 				}
 				$out .= '</table>';
+
+				if ($arguments['upload'] && egw_vfs::is_writable($arguments['path']))
+				{
+					$out .= '<hr />';
+					$out .= '<form name="upload" action="'.$this->link(array(
+						'subdir' => $arguments['subdir'],
+						'uploading' => 1,	// mark form submit as fileupload, to be able to detect when it failed (eg. because of upload limits)
+					)).'" method="POST" enctype="multipart/form-data">';
+					$out .= html::input('upload['.$this->block->id.']','','file',' onchange="this.form.submit();"');
+					$out .= "</form>\n";
+				}
 				return $out;
 
 			case 'file' :
