@@ -34,6 +34,20 @@ class module_download extends Module
 				'type' => 'textfield',
 				'label' => lang('The path to the file to be downloaded'),
 			),
+			'order' => array(
+				'type' => 'select',
+				'label' => lang('Sort files by'),
+				'options' => array(
+					'name asc'   => lang('Name').': '.lang('ascending'),
+					'name desc'  => lang('Name').': '.lang('descending'),
+					'mime asc'   => lang('Type').': '.lang('ascending'),
+					'mime desc'  => lang('Type').': '.lang('descending'),
+					'size asc'   => lang('Size').': '.lang('ascending'),
+					'size desc'  => lang('Size').': '.lang('descending'),
+					'mtime asc'  => lang('Date').': '.lang('oldest first'),
+					'mtime desc' => lang('Date').': '.lang('newest first'),
+				),
+			),
 			'file' => array (
 				'type' => 'textfield',
 				'label' => lang('The file to be downloaded').' '.lang('(only used in case of single file)'),
@@ -112,10 +126,14 @@ class module_download extends Module
 				{
 					$out .= '<p>'.lang('Path').': '.htmlspecialchars($arguments['path']).'</p><hr />';
 				}
+				list($order,$sort) = explode(' ',$arguments['order']);
+
 				$ls_dir = egw_vfs::find($arguments['path'],array(
 					'need_mime' => true,
 					'maxdepth' => $arguments['format'] != 'recursive' ? 1 : null,
 					'type' => $arguments['format'] != 'dirnsub' ? 'f' : null,
+					'order' => $order ? $order : 'name',
+					'sort' => $sort == 'desc' ? 'DESC' : 'ASC',
 				),true);
 
 				$out .= '<table class="moduletable">
