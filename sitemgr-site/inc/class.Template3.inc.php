@@ -49,7 +49,7 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 					include_once($transformerfile);
 					if (class_exists('draft_transform'))
 					{
-						$this->draft_transformer =& new draft_transform();
+						$this->draft_transformer = new draft_transform();
 					}
 				}
 				break;
@@ -65,7 +65,7 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 					include_once($transformerfile);
 					if (class_exists('edit_transform'))
 					{
-						$this->edit_transformer =& new edit_transform();
+						$this->edit_transformer = new edit_transform();
 					}
 				}
 				break;
@@ -206,7 +206,7 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 				include_once($transformerfile);
 				if (class_exists($transformername))
 				{
-					$transformer =& new $transformername;
+					$transformer = new $transformername;
 				}
 			}
 			//compatibility with former sideblocks template
@@ -215,7 +215,7 @@ require_once(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'inc' . SEP . 'class.mod
 				$t =& Createobject('phpgwapi.Template');
 				$t->set_root($this->root);
 				$t->set_file('SideBlock','sideblock.tpl');
-				$transformer =& new sideblock_transform($t);
+				$transformer = new sideblock_transform($t);
 			}
 			$content = '';
 

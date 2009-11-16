@@ -150,7 +150,7 @@
 			$result = array();
 			while (($row = $this->db->row(true)))
 			{
-				$result[$row['id']] =& new Block_SO($row);
+				$result[$row['id']] = new Block_SO($row);
 			}
 			return $result;
 		}
@@ -191,7 +191,7 @@
 			$result = array();
 			while (($row = $this->db->row(true)))
 			{
-				$result[$row['id']] =& new Block_SO($row);
+				$result[$row['id']] = new Block_SO($row);
 			}
 			return $result;
 		}
@@ -290,7 +290,7 @@
 				//in cnt we retrieve the numbers of versions that are commitable for a block,
 				//i.e. if there are more than one, it should normally be a prepublished version
 				//that will replace a preunpublished version
-				$result[$row['id']] =& new Block_SO($row);
+				$result[$row['id']] = new Block_SO($row);
 			}
 			return $result;
 		}
@@ -344,7 +344,7 @@
 			$result = array();
 			while (($row = $this->db->row(true)))
 			{
-				$result[$row['id']] =& new Block_SO($row);
+				$result[$row['id']] = new Block_SO($row);
 			}
 			return $result;
 		}

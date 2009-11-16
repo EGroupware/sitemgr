@@ -61,7 +61,7 @@
 		// like this: '//index.php?blahblahblah' -- so the code below will remove
 		// the inappropriate double slashes and leave appropriate ones
 		$url = $GLOBALS['sitemgr_info']['site_url'] . $url;
-		$url = substr(ereg_replace('([^:])//','\1/','s'.$url),1);
+		$url = substr(preg_replace('/([^:])\\/\\//','\1/','s'.$url),1);
 
 		if (!isset($GLOBALS['egw_info']['server']['usecookies']) || !$GLOBALS['egw_info']['server']['usecookies'])
 		{

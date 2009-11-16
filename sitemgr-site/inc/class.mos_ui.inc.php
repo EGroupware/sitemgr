@@ -144,7 +144,7 @@
 		{
 			$themesel = $GLOBALS['sitemgr_info']['themesel'];
 			$this->templateroot = $GLOBALS['sitemgr_info']['site_dir'] . SEP . 'templates' . SEP . $themesel;
-			$this->t =& new Template3($this->templateroot);
+			$this->t = new Template3($this->templateroot);
 			$this->t->transformer_root = $this->mos_compat_dir = realpath(dirname(__FILE__).'/../mos-compat');
 		}
 

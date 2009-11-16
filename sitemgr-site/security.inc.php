@@ -14,7 +14,7 @@
 	// Security precaution: prevent script tags: <script>, <javascript "">, etc.
 	foreach ($_GET as $secvalue)
 	{
-		if (eregi("<[^>]*script*\"?[^>]*>", $secvalue)) 
+		if (preg_match('/'."<[^>]*script*\"?[^>]*>".'/i', $secvalue)) 
 		{
 			die("A security breach has been attempted and refused.");
 		}
