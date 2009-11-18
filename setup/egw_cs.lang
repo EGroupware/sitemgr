@@ -216,6 +216,7 @@ headlines	sitemgr	cs	Nadpisy
 hello	sitemgr	cs	Ahoj
 hello world	sitemgr	cs	Ahoj světe
 helps you respect html/xhtml standards.	sitemgr	cs	Pomáhá dodržovat HTML/XHTML standardy.
+highlight current page	sitemgr	cs	Zvýraznit aktuální stránku
 horizontal	sitemgr	cs	Vodorovný
 html frame	sitemgr	cs	HTML rámec
 html module	sitemgr	cs	HTML modul
@@ -382,6 +383,7 @@ select the templates the user is allowed to see	sitemgr	cs	Vyberte šablony, kte
 select type of navigation	sitemgr	cs	Vyberte typ navigace
 selected template %1 does not exist.	sitemgr	cs	Vybraná šablona %1 neexistuje.
 selected theme %1 does not exist.	sitemgr	cs	Vybrané téma %1 neexistuje.
+send emailcopy to receiver	sitemgr	cs	Poslat kopii e-mailu příjemci
 seperate cats / pages of one tab by :	sitemgr	cs	Oddělit kategorie / stránky jedné záložky (čím):
 shipping address	sitemgr	cs	Dodací adresa
 should the file be viewed in the browser or downloaded	sitemgr	cs	Má být soubor zobrazen v prohlížeči nebo stažen
@@ -423,6 +425,7 @@ size	sitemgr	cs	Velikost
 sorry, no content found for you search criteria	sitemgr	cs	Lituji, žádný obsah neodpovídá zadaným kritériím vyhledávání
 sort order	sitemgr	cs	Pořadí řazení
 state	sitemgr	cs	Stav
+string to return (default api version)	sitemgr	cs	Řetězec, který má být vrácen (standardně verze API)
 strip html from block content?	sitemgr	cs	Odstranit HTML z obsahu bloku?
 subcategories	sitemgr	cs	Podkategorie
 subsections:	sitemgr	cs	Podsekce:
@@ -487,7 +490,7 @@ this module create a link for downloading a file(s) from the vfs	sitemgr	cs	Tent
 this module demonstrates how handling data stored in xml and building an interacvite interface from it	sitemgr	cs	Tento modul demonstruje manipulaci s daty uloženými v XML a vytváření interaktivních rozhraní z těchto dat
 this module displays a login form	sitemgr	cs	Tento modul zobrazuje formulář pro přihlášení
 this module displays any kind of navigation element.	sitemgr	cs	Tento modul zobrazuje libovolný druh navigačního prvku
-this module displays bookmarks in a javascript based tree	sitemgr	cs	Tento modul zobrazuje záložky v javaskriptovém stromu
+this module displays bookmarks in a javascript based tree	sitemgr	cs	Tento modul zobrazuje záložky v javascriptovém stromu
 this module displays the current month	sitemgr	cs	Tento modul zobrazuje aktuální měsíc
 this module displays the egw forums on the web site	sitemgr	cs	Tento modul zobrazuje na webu eGroupWare fóra
 this module displays the root categories in one block each, with pages and subcategories (incl. their pages if activated).	sitemgr	cs	Tento modul zobrazuje kořenové kategorie, každou v jednom bloku, se stránkami a podkategoriemi (včetně jejich stránek, pokud je aktivováno)
@@ -504,6 +507,7 @@ this module lets you show a given url inside an iframe in the page.	sitemgr	cs	T
 this module permits browsing through xml files stored in a directory, and transformed by xslt	sitemgr	cs	Tento modul umožňuje procházení XML soubory uloženými v adresáři a transformovanými pomocí XSLT
 this module provides a complete table of contents, it is automatically used by the toc and category_id get parameters	sitemgr	cs	Tento modul poskytuje kompletní obsah, je automaticky používán GET parametry toc a category_id
 this module provides a condensed table of contents, meant for side areas	sitemgr	cs	Tento modul poskytuje zhuštěný obsah a je určen pro postranní oblasti
+this module provides an xml sitemap (see www.sitemap.org)	sitemgr	cs	Tento modul poskytuje XML mapu stránek (více na www.sitemap.org)
 this module provides tabs	sitemgr	cs	Tento modul poskytuje záložky
 this module provides the path to the element currently shown	sitemgr	cs	Tento modul poskytuje cestu k aktuálně zobrazenému prvku
 this module provides the site index, it is automatically used by the index get parameter	sitemgr	cs	Tento modul poskytuje index webu, je automaticky používán GET parametrem index
