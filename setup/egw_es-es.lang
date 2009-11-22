@@ -268,6 +268,7 @@ migrating data for %1 to %2	sitemgr	es-es	Migrar datos para %1 a %2
 module %1 is not permitted in this context!	sitemgr	es-es	El módulo %1 no está permitido en este contexto
 module '%1' not found in: %2! --> exiting	sitemgr	es-es	¡No se encontró el módulo '%1' en %2! Saliendo
 module manager	sitemgr	es-es	Administrador de módulos
+module returns api version or an arbitrary string.	sitemgr	es-es	El módulo devuelve la versión de API o una cadena arbitraria.
 module: %1, scope: %2, contentarea: %3, viewable: %4	sitemgr	es-es	Módulo: %1, ámbito: %2, área de contenido: %3, visible: %4
 move block down (increase sort order)	sitemgr	es-es	Mover bloque hacia abajo (incrementar el orden)
 move block up (decrease sort order)	sitemgr	es-es	Mover bloque hacia arriba (decrementar el orden)
@@ -423,6 +424,7 @@ size	sitemgr	es-es	Tamaño
 sorry, no content found for you search criteria	sitemgr	es-es	Lo sentimos, no se encontró contenido para su criterio de búsqueda
 sort order	sitemgr	es-es	Orden en la página
 state	sitemgr	es-es	Estado
+string to return (default api version)	sitemgr	es-es	Cadena a devolver (versión predeterminada de API)
 strip html from block content?	sitemgr	es-es	¿Separar HTML del contenido por bloques?
 subcategories	sitemgr	es-es	Subcategorías
 subsections:	sitemgr	es-es	Subsecciones:
@@ -504,6 +506,7 @@ this module lets you show a given url inside an iframe in the page.	sitemgr	es-e
 this module permits browsing through xml files stored in a directory, and transformed by xslt	sitemgr	es-es	Este módulo permite navegar a través de los ficheros XML almacenados en un directorio, y transformados por XSLT
 this module provides a complete table of contents, it is automatically used by the toc and category_id get parameters	sitemgr	es-es	Este módulo proporciona una tabla de contenidos completa. Se usa automáticamente por los parámetros GET toc y category_id
 this module provides a condensed table of contents, meant for side areas	sitemgr	es-es	Este módulo proporciona una tabla de contenidos condensada, indicada para áreas laterales
+this module provides an xml sitemap (see www.sitemap.org)	sitemgr	es-es	Este módulo proporciona un mapa del sitio en XML (vea www.sitemap.org)
 this module provides tabs	sitemgr	es-es	Este módulo proporciona pestañas
 this module provides the path to the element currently shown	sitemgr	es-es	Este módulo proporciona la ruta al elemento mostrado actualmente
 this module provides the site index, it is automatically used by the index get parameter	sitemgr	es-es	Este módulo proporciona el índice del sitio. Lo usa automáticamente el parámetro GET índice.
