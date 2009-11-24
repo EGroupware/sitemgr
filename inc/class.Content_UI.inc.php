@@ -156,7 +156,7 @@
 					{
 						foreach($element as $version_id => &$content)
 						{
-							if (isset($GLOBALS['egw_unset_vars']["_POST[element][$version_id][i18n][htmlcontent]"]) && !isset($content['i18n']['htmlcontent']))
+							if (isset($GLOBALS['egw_unset_vars']["_POST[element][$version_id][i18n][htmlcontent]"])) // && !isset($content['i18n']['htmlcontent']))
 							{
 								if ($this->acl->is_admin())
 								{
