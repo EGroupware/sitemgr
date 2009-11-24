@@ -507,6 +507,7 @@ this module provides a condensed table of contents, meant for side areas	sitemgr
 this module provides tabs	sitemgr	nl	Deze module biedt tabbladen
 this module provides the path to the element currently shown	sitemgr	nl	Deze module biedt u een pad naar het huidige getoonde element
 this module provides the site index, it is automatically used by the index get parameter	sitemgr	nl	Deze module biedt u site index, hij wordt automatisch gebruikt door de index GET parameter
+this module search throw the content (page title/description and html content)	sitemgr	nl	Deze module zoekt in alle inhoud (Pagina titel, omschrijving en html inhoud)
 this module show the status / percentage of the translation of egw	sitemgr	nl	Deze module toont de status / het percentage van de vertaling van eGW
 this must be an absolute directory location.  <b>no trailing slash</b>.	sitemgr	nl	Dit moet een absolute directory locatie zijn. <b>Geen afsluitende slash</b>.
 this should be a comma-separated list of language-codes.	sitemgr	nl	Dit moet een kommagescheiden lijst van taalcodes zijn.
