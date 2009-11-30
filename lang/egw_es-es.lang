@@ -216,6 +216,7 @@ headlines	sitemgr	es-es	Titulares
 hello	sitemgr	es-es	Hola
 hello world	sitemgr	es-es	Hola, mundo
 helps you respect html/xhtml standards.	sitemgr	es-es	Ayuda a respetar los estándares HTML/XHTML
+highlight current page	sitemgr	es-es	Resaltar la página actual
 horizontal	sitemgr	es-es	Horizontal
 html frame	sitemgr	es-es	Marco HTML
 html module	sitemgr	es-es	Módulo HTML
@@ -382,6 +383,7 @@ select the templates the user is allowed to see	sitemgr	es-es	Seleccionar las pl
 select type of navigation	sitemgr	es-es	Seleccionar tipo de navegación
 selected template %1 does not exist.	sitemgr	es-es	La plantilla seleccionada %1 no existe
 selected theme %1 does not exist.	sitemgr	es-es	El tema seleccionado %1 no existe.
+send emailcopy to receiver	sitemgr	es-es	Enviar copia por correo al destinatario
 seperate cats / pages of one tab by :	sitemgr	es-es	Separar las categorías / páginas de una pestaña por:
 shipping address	sitemgr	es-es	Dirección de suministro
 should the file be viewed in the browser or downloaded	sitemgr	es-es	¿Ver el fichero en el navegador o descargarlo?
@@ -423,6 +425,7 @@ size	sitemgr	es-es	Tamaño
 sorry, no content found for you search criteria	sitemgr	es-es	Lo sentimos, no se encontró contenido para su criterio de búsqueda
 sort order	sitemgr	es-es	Orden en la página
 state	sitemgr	es-es	Estado
+string to return (default api version)	sitemgr	es-es	Cadena a devolver (versión predeterminada de API)
 strip html from block content?	sitemgr	es-es	¿Separar HTML del contenido por bloques?
 subcategories	sitemgr	es-es	Subcategorías
 subsections:	sitemgr	es-es	Subsecciones:
@@ -504,6 +507,7 @@ this module lets you show a given url inside an iframe in the page.	sitemgr	es-e
 this module permits browsing through xml files stored in a directory, and transformed by xslt	sitemgr	es-es	Este módulo permite navegar a través de los ficheros XML almacenados en un directorio, y transformados por XSLT
 this module provides a complete table of contents, it is automatically used by the toc and category_id get parameters	sitemgr	es-es	Este módulo proporciona una tabla de contenidos completa. Se usa automáticamente por los parámetros GET toc y category_id
 this module provides a condensed table of contents, meant for side areas	sitemgr	es-es	Este módulo proporciona una tabla de contenidos condensada, indicada para áreas laterales
+this module provides an xml sitemap (see www.sitemap.org)	sitemgr	es-es	Este módulo proporciona un XML sitemap (ver www.sitemap.org)
 this module provides tabs	sitemgr	es-es	Este módulo proporciona pestañas
 this module provides the path to the element currently shown	sitemgr	es-es	Este módulo proporciona la ruta al elemento mostrado actualmente
 this module provides the site index, it is automatically used by the index get parameter	sitemgr	es-es	Este módulo proporciona el índice del sitio. Lo usa automáticamente el parámetro GET índice.
