@@ -103,7 +103,7 @@
 
 		function PagetoID($page_name)
 		{
-			$cats =& CreateObject('phpgwapi.categories', -1, 'sitemgr');
+			$cats = new categories(categories::GLOBAL_ACCOUNT, 'sitemgr');
 			$cat_list = $cats->return_sorted_array(0, False, '', '', '', False, CURRENT_SITE_ID);
 			
 			if($cat_list)

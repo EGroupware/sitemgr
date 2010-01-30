@@ -134,7 +134,7 @@
 
 		function add($site)
 		{
-			$cats =& CreateObject('phpgwapi.categories',-1,'sitemgr');
+			$cats = new categories(categories::GLOBAL_ACCOUNT,'sitemgr');
 			$site_id =  $cats->add(array(
 				'name'		=> $site['name'],
 				'descr'		=> '',
