@@ -30,7 +30,7 @@
 		
 		function Categories_SO()
 		{
-			$this->cats = new categories(-1,'sitemgr');
+			$this->cats = new categories(categories::GLOBAL_ACCOUNT,'sitemgr');
 			$this->db = clone($GLOBALS['egw']->db);
 			$this->db->set_app('sitemgr');
 			$this->state_table = 'egw_sitemgr_categories_state';
@@ -124,7 +124,7 @@
 
 		function getCategory($cat_id,$lang=False)
 		{
-			list($cat) = $this->cats->return_single($cat_id);
+			$cat = categories::read($cat_id);
 
 			if (is_array($cat))
 			{
