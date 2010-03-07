@@ -269,9 +269,22 @@
 				$tabs .= '<tr><td colspan="2"><i>'. $description. '</i></td></tr>';
 				if(count($this->nav_args[$id]) >= 1)
 				{
+					// only add content for the active nav_type, as otherwise we can NOT longer uncheck checkboxes,
+					// if the same name is used for multiple nav_type's
+					if ($id != $this->block->arguments['nav_type'])
+					{
+						$save_args =& $this->block->arguments;
+						unset($this->block->arguments);
+					}
 					foreach (parent::get_user_interface() as $param)
 					{
 						$tabs .= '<tr><td>'.$param['label'].'</td><td>'.$param['form'].'</td></tr>';
+					}
+					// restore arguments
+					if ($save_args)
+					{
+						$this->block->arguments =& $save_args;
+						unset($save_args);
 					}
 				}
 				else
@@ -500,7 +513,7 @@
 					}
 				}
 				array_push($cat_tree,$cat_id); array_push($cat_tree_data,$cat);
-				
+
 				if($arguments['expand'] && $cat_id == $this->page->cat_id && $cat['depth'] >= $arguments['max_cat_depth'])
 				{
 					$cat_tree2 = $cat_tree;	$cat_tree_data2 = $cat_tree_data;
