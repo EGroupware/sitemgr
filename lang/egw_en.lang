@@ -24,6 +24,8 @@ add new page to this category	sitemgr	en	Add new page to this category
 add page	sitemgr	en	Add Page
 add page to category	sitemgr	en	Add page to category
 add website	sitemgr	en	Add Website
+address line 2	sitemgr	en	address line 2
+addressbook the contact should be shown	sitemgr	en	Addressbook the contact should be shown
 administration	sitemgr	en	Administration
 administrative menu	sitemgr	en	Administrative Menu
 administrators	sitemgr	en	administrators
@@ -57,6 +59,7 @@ are contributors allowed to define new guestbooks?	sitemgr	en	Are contributors a
 are you sure you want to delete site %1 and all its content? you cannot retrieve it if you continue.	sitemgr	en	Are you sure you want to delete site %1 and all its content? You cannot retrieve it if you continue.
 are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	en	Are you sure you want to delete the category %1 and all of its associated pages?  You cannot retrieve the deleted pages if you continue.
 as	common	en	as
+ascending	sitemgr	en	ascending
 asin[=title] pairs (title is optional)	sitemgr	en	ASIN[=title] pairs (title is optional)
 ask customer	sitemgr	en	Ask customer
 attempt to access information outside current website	sitemgr	en	Attempt to access information outside current website
@@ -95,6 +98,7 @@ choose template	sitemgr	en	Choose template
 choose the categories to display	sitemgr	en	Choose the categories to display
 choose the valid html type (note: not all icons are available):	sitemgr	en	Choose the VALID HTML type (note: not all icons are available):
 choose your site's theme or template.  note that if you changed the above checkbox you need to save before choosing a theme or template.	sitemgr	en	Choose your site's theme or template.  Note that if you changed the above checkbox you need to save before choosing a theme or template.
+city	sitemgr	en	city
 click here to login through a safe connection.	sitemgr	en	Click here to login through a safe connection.
 code file	sitemgr	en	Code file
 codebase url	sitemgr	en	Codebase URL
@@ -105,6 +109,7 @@ common prefix of the image-name (a number starting with 1 will be appended)	site
 configure module properties	sitemgr	en	Configure module properties
 configure sitemgr	sitemgr	en	Configure SiteMgr
 configure website	sitemgr	en	Configure Website
+contact fields to show	sitemgr	en	Contact fields to show
 contact the administrator.	sitemgr	en	Contact the administrator.
 content areas	sitemgr	en	Content areas
 content blocks	sitemgr	en	Content blocks
@@ -113,11 +118,13 @@ content manager	sitemgr	en	Content Manager
 contentarea	sitemgr	en	Contentarea
 contributor menu	sitemgr	en	Contributor Menu
 copyright	sitemgr	en	Copyright
+country	sitemgr	en	country
 create new version	sitemgr	en	Create new version
 css styles	sitemgr	en	CSS styles
 currency code of the value specified in amount (eg. usd, eur)	sitemgr	en	Currency code of the value specified in amount (eg. USD, EUR)
 current section	sitemgr	en	Current Section
 custom	sitemgr	en	custom
+custom etemplate for the contactform	sitemgr	en	Custom eTemplate for the contactform
 default	sitemgr	en	Default
 default home page id number	sitemgr	en	Default home page ID number
 define websites	common	en	Define websites
@@ -129,9 +136,12 @@ delete this block	sitemgr	en	Delete this block
 delete this guestbook	sitemgr	en	Delete this guestbook
 delete version	sitemgr	en	Delete Version
 deleting all data for %1	sitemgr	en	Deleting all data for %1
+department	sitemgr	en	Department
+descending	sitemgr	en	descending
 details for language %1 (%2)	sitemgr	en	Details for language %1 (%2)
 directory is not writable by the webserver --> disabling upload	sitemgr	en	Directory is NOT writable by the webserver --> disabling upload
 discussions	sitemgr	en	Discussions
+display contact	sitemgr	en	Display Contact
 display link to autoregistration below login form?	sitemgr	en	Display link to autoregistration below login form?
 do you realy want to delete the selected categories (including all pages), pages and blocks?	sitemgr	en	Do you realy want to delete the selected Categories (including all pages), Pages and Blocks?
 do you realy want to delete this block?	sitemgr	en	Do you realy want to delete this block?
@@ -178,15 +188,18 @@ error accessing page	common	en	Error accessing page
 error deleting the element.	sitemgr	en	Error deleting the element.
 error deleting the entry!!!	sitemgr	en	Error deleting the entry!!!
 error saving the entry!!!	sitemgr	en	Error saving the entry!!!
+error uploading file!	sitemgr	en	Error uploading file!
 error writing to the database.	sitemgr	en	Error writing to the database.
 error writing to the database: %1.	sitemgr	en	Error writing to the database: %1.
 everybody	sitemgr	en	Everybody
 exact phrase	sitemgr	en	Exact Phrase
 expand current category	sitemgr	en	Expand current category
+fax	sitemgr	en	fax
 file %1 is not readable by the webserver !!!	sitemgr	en	File %1 is not readable by the webserver !!!
 file %1 is outside the docroot of the webserver !!!<br>this module does not allow - for security reasons - to open files outside the docroot.	sitemgr	en	File %1 is outside the docroot of the webserver !!!<br>This module does NOT allow - for security reasons - to open files outside the docroot.
 file contents	sitemgr	en	File contents
 file download	sitemgr	en	File download
+file successful uploaded.	sitemgr	en	File successful uploaded.
 filename	sitemgr	en	Filename
 filesystem path of the directory where xml files are stored	sitemgr	en	Filesystem path of the directory where XML files are stored
 filesystem path of the image-directory	sitemgr	en	Filesystem path of the image-directory
@@ -217,6 +230,7 @@ hello	sitemgr	en	Hello
 hello world	sitemgr	en	Hello world
 helps you respect html/xhtml standards.	sitemgr	en	Helps you respect HTML/XHTML standards.
 highlight current page	sitemgr	en	Highlight current page
+home phone	sitemgr	en	home phone
 horizontal	sitemgr	en	Horizontal
 html frame	sitemgr	en	HTML Frame
 html module	sitemgr	en	HTML module
@@ -266,9 +280,11 @@ message not found !!!	sitemgr	en	Message not found !!!
 message text:	sitemgr	en	Message text:
 messages are defined for all site languages.	sitemgr	en	Messages are defined for all site languages.
 migrating data for %1 to %2	sitemgr	en	Migrating data for %1 to %2
+mobile phone	sitemgr	en	mobile phone
 module %1 is not permitted in this context!	sitemgr	en	Module %1 is not permitted in this context!
 module '%1' not found in: %2! --> exiting	sitemgr	en	Module '%1' not found in: %2! --> exiting
 module manager	sitemgr	en	Module manager
+module returns api version or an arbitrary string.	sitemgr	en	Module returns API version or an arbitrary string.
 module: %1, scope: %2, contentarea: %3, viewable: %4	sitemgr	en	Module: %1, Scope: %2, Contentarea: %3, Viewable: %4
 move block down (increase sort order)	sitemgr	en	Move block down (increase sort order)
 move block up (decrease sort order)	sitemgr	en	Move block up (decrease sort order)
@@ -281,6 +297,7 @@ name of the tabs (comma seperated)	sitemgr	en	Name of the tabs (comma seperated)
 new application	sitemgr	en	New application
 new guestbook	sitemgr	en	New guestbook
 new sitemgr site	sitemgr	en	New sitemgr site
+newest first	sitemgr	en	newest first
 no additional arguments required	sitemgr	en	No additional arguments required
 no anonymous user accounts installed.  notify the administrator.	sitemgr	en	NO ANONYMOUS USER ACCOUNTS INSTALLED.  NOTIFY THE ADMINISTRATOR.
 no content areas found in selected template	sitemgr	en	No content areas found in selected template
@@ -306,6 +323,7 @@ note that you may get this message if your preferences are incorrect.  for examp
 notification message not found !!!	sitemgr	en	Notification Message not found !!!
 notification not found !!!	sitemgr	en	Notification not found !!!
 number of results	sitemgr	en	Number of results
+oldest first	sitemgr	en	oldest first
 on all pages	sitemgr	en	on all pages
 only gallery	sitemgr	en	Only gallery
 only on the first page	sitemgr	en	only on the first page
@@ -342,6 +360,7 @@ plain selectbox	sitemgr	en	Plain selectbox
 please enter a name for that site !	sitemgr	en	Please enter a name for that site !
 please sign the guestbook	sitemgr	en	Please sign the guestbook
 post a message to this thread	sitemgr	en	Post A Message To This Thread
+prefix	sitemgr	en	Prefix
 prepublished	sitemgr	en	prepublished
 preunpublished	sitemgr	en	preunpublished
 previous	sitemgr	en	Previous
@@ -387,6 +406,7 @@ send emailcopy to receiver	sitemgr	en	Send emailcopy to receiver
 seperate cats / pages of one tab by :	sitemgr	en	Seperate Cats / Pages of one tab by :
 shipping address	sitemgr	en	Shipping address
 should the file be viewed in the browser or downloaded	sitemgr	en	Should the file be viewed in the browser or downloaded
+show a file upload (if user has write rights to current directory)	sitemgr	en	Show a file upload (if user has write rights to current directory)
 show a template-gallery (thumbnail and informations)	sitemgr	en	Show a template-gallery (thumbnail and informations)
 show contents of a directory	sitemgr	en	Show contents of a directory
 show contents of a directory with subdirectories	sitemgr	en	Show contents of a directory with subdirectories
@@ -423,8 +443,10 @@ sitemgr websites	sitemgr	en	Sitemgr Websites
 sitemgr-link	common	en	Website
 size	sitemgr	en	Size
 sorry, no content found for you search criteria	sitemgr	en	Sorry, no content found for you search criteria
+sort files by	sitemgr	en	Sort files by
 sort order	sitemgr	en	Sort Order
 state	sitemgr	en	State
+street	sitemgr	en	street
 string to return (default api version)	sitemgr	en	String to return (default API version)
 strip html from block content?	sitemgr	en	Strip HTML from block content?
 subcategories	sitemgr	en	Subcategories
@@ -443,6 +465,7 @@ template select	sitemgr	en	Template select
 text allignment	sitemgr	en	Text allignment
 text of page links	sitemgr	en	Text of page links
 textarea	sitemgr	en	textarea
+the anonymous user needs read it!	sitemgr	en	The anonymous user needs read it!
 the category to display, 0 for complete table of contents	sitemgr	en	The category to display, 0 for complete table of contents
 the complete url or path to a file to be included	sitemgr	en	The complete URL or path to a file to be included
 the config.inc.php file needs to be edited to point to the egroupware directory. copy the config.inc.php.template file to config.inc.php and then edit it.	sitemgr	en	The config.inc.php file needs to be edited to point to the eGroupWare directory. Copy the config.inc.php.template file to config.inc.php and then edit it.
@@ -455,6 +478,7 @@ the page name must be unique.	sitemgr	en	The page name must be unique.
 the page was successfully saved.	sitemgr	en	The page was successfully saved.
 the path to the file to be downloaded	sitemgr	en	The path to the file to be downloaded
 the person to say hello to	sitemgr	en	The person to say hello to
+the requested path %1 is not available.	sitemgr	en	The requested path %1 is not available.
 the second directory is the sitemgr-site directory.  this can be moved <i>anywhere</i>.  it can also be named <i>anything</i>.  wherever it winds up, when you point a web browser to it, you will get the generated website.  assuming, of course, that you've accurately completed the setup fields below and also <b><i>edited the config.inc.php</i></b> file.	sitemgr	en	The second directory is the sitemgr-site directory.  This can be moved <i>anywhere</i>.  It can also be named <i>anything</i>.  Wherever it winds up, when you point a web browser to it, you will get the generated website.  Assuming, of course, that you've accurately completed the setup fields below and also <b><i>edited the config.inc.php</i></b> file.
 the text for the link, if empty the module returns the raw url (without a link)	sitemgr	en	The text for the link, if empty the module returns the raw URL (without a link)
 the url can be relative or absolute.  name must end in a slash.	sitemgr	en	The URL can be relative or absolute.  Name must end in a slash.
@@ -490,6 +514,7 @@ this module create a link for downloading a file(s) from the vfs	sitemgr	en	This
 this module demonstrates how handling data stored in xml and building an interacvite interface from it	sitemgr	en	This module demonstrates how handling data stored in XML and building an interacvite interface from it
 this module displays a login form	sitemgr	en	This module displays a login form
 this module displays any kind of navigation element.	sitemgr	en	This module displays any kind of navigation element.
+this module displays block from a adddressbook group.	sitemgr	en	This module displays Block from a Adddressbook Group.
 this module displays bookmarks in a javascript based tree	sitemgr	en	This module displays bookmarks in a javascript based tree
 this module displays the current month	sitemgr	en	This module displays the current month
 this module displays the egw forums on the web site	sitemgr	en	This module displays the eGW forums on the web site
@@ -557,6 +582,7 @@ which main categories should be included (comma separated list, empty for all)	s
 wiki	sitemgr	en	Wiki
 wiki startpage	sitemgr	en	Wiki startpage
 with which view should the module be displayed in the beginning?	sitemgr	en	With which view should the module be displayed in the beginning?
+work phone	sitemgr	en	work phone
 write permission	sitemgr	en	Write Permission
 xml browser	sitemgr	en	XML browser
 yes, please delete it	sitemgr	en	Yes, please delete it
@@ -586,3 +612,4 @@ your calendar	sitemgr	en	Your Calendar
 your comment	sitemgr	en	Your comment
 your connection is not safe.	sitemgr	en	Your connection is not safe.
 your name	sitemgr	en	Your name
+zip code	sitemgr	en	zip code
