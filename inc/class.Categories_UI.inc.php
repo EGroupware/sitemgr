@@ -19,13 +19,13 @@ class Categories_UI
 	var $isadmin;
 	var $t;
 	var $sitelanguages;
-	
+
 	var $public_functions = array
 	(
 		'edit' => True,
 		'delete' => True
 	);
-		
+
 	function Categories_UI()
 	{
 		$this->common_ui =& CreateObject('sitemgr.Common_UI',True);
@@ -44,27 +44,29 @@ class Categories_UI
 			$GLOBALS['egw']->redirect($GLOBALS['egw']->link('/index.php','menuaction=sitemgr.Outline_UI.manage'));
 			return False;
 		}
-	
+
 		$GLOBALS['Common_BO']->globalize(array(
 			'inputcatname','inputcatdesc','inputcatid','inputsortorder','inputparent','inputstate',
 			'inputindexpage','inputparentold','savelanguage','inputgetparentpermissions','inputapplypermissionstosubs',
 			'inputgroupaccessread','inputgroupaccesswrite','inputindividualaccessread','inputindividualaccesswrite'
 		));
-		
+
 		global $btnSave, $inputcatid,$inputcatname,$inputcatdesc,$inputsortorder,$inputparent,$inputparentold,$inputindexpage,$inputstate;
 		global $inputgroupaccessread, $inputgroupaccesswrite, $inputindividualaccessread, $inputindividualaccesswrite;
 		global $savelanguage, $inputgetparentpermissions,$inputapplypermissionstosubs;
 		$cat_id = $inputcatid ? $inputcatid : $_GET['cat_id'];
-		
+
 		if ($_POST['btnDelete'])
 		{
 			return $this->delete($cat_id);
 		}
 		$focus_reload_close = 'window.focus();';
-		
+
 		if ($_POST['btnSave'] || $_POST['btnApply'])
 		{
-			if ($inputcatname == '' || $inputcatdesc == '')
+			if ($inputcatname == '' || $inputcatdesc == '' ||
+				!($inputgetparentpermissions && $inputparent ||
+				  $inputgroupaccessread || $inputgroupaccesswrite || $inputindividualaccessread || $inputindividualaccesswrite))
 			{
 				$error = lang('You failed to fill in one or more required fields.');
 				$this->t->set_var('message',$error);
@@ -72,7 +74,7 @@ class Categories_UI
 			else
 			{
 				$cat_id =  $cat_id ? $cat_id : $this->cat_bo->addCategory('','');
-				
+
 				$groupaccess = array_merge_recursive((array)$inputgroupaccessread, (array)$inputgroupaccesswrite);
 				$individualaccess = array_merge_recursive((array)$inputindividualaccessread, (array)$inputindividualaccesswrite);
 				$savelanguage = $savelanguage ? $savelanguage : $this->sitelanguages[0];
@@ -97,17 +99,17 @@ class Categories_UI
 				}
 			}
 		}
-		
+
 		if ($cat_id)
 		{
 			//we use force here since we might edit an archive category
 			$cat = $this->cat_bo->getCategory($cat_id,$savelanguage,True);
 		}
-		
+
 		$GLOBALS['egw']->common->egw_header();
 		$this->t->set_file('EditCategory', 'edit_category.tpl');
 		$this->t->set_block('EditCategory','GroupBlock', 'GBlock');
-		
+
 		if (count($this->sitelanguages) > 1)
 		{
 			$select = lang('as') . ' <select name="savelanguage">';
@@ -166,7 +168,7 @@ class Categories_UI
 			'lang_applypermissionstosubs' => lang('Apply permissions also to subcategories?'),
 			'lang_required' => lang('Required Fields'),
 		));
-		
+
 		$acct =& CreateObject('phpgwapi.accounts');
 		$grouplist = $this->acl->get_group_list();
 		$permissionlist = ($cat_id ? $this->acl->get_group_permission_list($cat_id) : array());
@@ -187,9 +189,9 @@ class Categories_UI
 				{
 					$permission_id = 0;
 				}
-				
+
 				$this->t->set_var('groupname', $account_name);
-				if ($permission_id & EGW_ACL_READ)  
+				if ($permission_id & EGW_ACL_READ)
 				{
 					$this->t->set_var('checkedgroupread','CHECKED="1"');
 				}
@@ -205,7 +207,7 @@ class Categories_UI
 				{
 					$this->t->set_var('checkedgroupwrite','');
 				}
-				
+
 				$this->t->parse('GBlock', 'GroupBlock', True);
 			}
 		}
@@ -213,9 +215,9 @@ class Categories_UI
 		{
 			$this->t->set_var('groupname',lang("No groups defined."));
 		}
-		
+
 		$this->t->set_block('EditCategory','UserBlock', 'UBlock');
-		
+
 		$userlist = $this->acl->get_user_list();
 		$userpermissionlist = $this->acl->get_user_permission_list($cat_id);
 		if($userlist)
@@ -233,7 +235,7 @@ class Categories_UI
 					$user_permission_id = 0;
 				}
 				$this->t->set_var('user_id', $user_id);
-				
+
 				$this->t->set_var('username', $user_name);
 				if ($user_permission_id & EGW_ACL_READ )
 				{
@@ -258,12 +260,12 @@ class Categories_UI
 		{
 			$this->t->set_var('username',lang("No users defined."));
 		}
-		
+
 		$this->t->pfp('out','EditCategory');
-		
+
 		$this->common_ui->DisplayFooter();
 	}
-	
+
 	function getParentOptions($selected_id=0,$skip_id=0)
 	{
 		$option_list=$this->cat_bo->getCategoryOptionList();
@@ -288,7 +290,7 @@ class Categories_UI
 		$retval.='</SELECT>';
 		return $retval;
 	}
-	
+
 	function delete($cat_id = 0)
 	{
 		if (!$this->isadmin)
@@ -296,11 +298,11 @@ class Categories_UI
 			$GLOBALS['egw']->redirect($GLOBALS['egw']->link('/index.php','menuaction=sitemgr.Outline_UI.manage'));
 			return;
 		}
-		
+
 		$standalone = $_GET['standalone'] || $cat_id; // standalone => close this window after deleting
-		
+
 		if (!$cat_id) $cat_id = $_GET['cat_id'];
-		
+
 		if ($_POST['btnDelete'] || $_POST['btnCancel'] || $standalone)
 		{
 			if ($_POST['btnDelete'] || $standalone)
@@ -323,9 +325,9 @@ class Categories_UI
 			}
 			$GLOBALS['egw']->redirect_link('/index.php','menuaction=sitemgr.Outline_UI.manage');
 		}
-		
+
 		$this->common_ui->DisplayHeader();
-		
+
 		$cat = $this->cat_bo->getCategory($cat_id,$this->sitelanguages[0]);
 		$this->t->set_file('ConfirmDelete','confirmdelete.tpl');
 		$this->t->set_var('deleteheader',lang('Are you sure you want to delete the category %1 and all of its associated pages?  You cannot retrieve the deleted pages if you continue.',$cat->name));

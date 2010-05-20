@@ -44,7 +44,7 @@
 		<td colspan="2"><input name="inputapplypermissionstosubs" type="checkbox">{lang_applypermissionstosubs}</td>
 	</tr>
 	<tr>
-		<td colspan="2"><b><u>{lang_groupaccess}</u></b></td>
+		<td colspan="2"><b><u>{lang_groupaccess} <font size='2' color='#ff0000'><b>*</b></font></u></b></td>
 	</tr>
 	<tr>
 		<td colspan="2">
