@@ -24,6 +24,8 @@ add new page to this category	sitemgr	de	Eine neue Seite zu dieser Kategorie hin
 add page	sitemgr	de	Seite hinzufügen
 add page to category	sitemgr	de	Eine Seite zu dieser Kategorie hinzufügen
 add website	sitemgr	de	Website hinzufügen
+address line 2	sitemgr	de	2. Adresszeile
+addressbook the contact should be shown	sitemgr	de	Adressbuch dessen Kontakte angezeigt werden sollen
 administration	sitemgr	de	Administration
 administrative menu	sitemgr	de	Administrations Menü
 administrators	sitemgr	de	Administratoren
@@ -57,6 +59,7 @@ are contributors allowed to define new guestbooks?	sitemgr	de	Dürfen Bearbeiter
 are you sure you want to delete site %1 and all its content? you cannot retrieve it if you continue.	sitemgr	de	Sind Sie sicher das Sie Website %1 und den kompletten Inhalt löschen möchten? Ein Wiederherstellen ist nicht möglich, wenn Sie fortfahren.
 are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	de	Sind sie sicher das Sie die Kategorie %1 und alle dazugehörigen Seiten löschen möchten?  Diese Seiten werden hiermit endgültig gelöscht.
 as	common	de	als
+ascending	sitemgr	de	absteigend
 asin[=title] pairs (title is optional)	sitemgr	de	ASIN=[Titel] Paare (Titel ist optional)
 ask customer	sitemgr	de	Kunden fragen
 attempt to access information outside current website	sitemgr	de	Versuch auf Informationen ausserhalb der aktuellen  Website zuzugreifen
@@ -95,6 +98,7 @@ choose template	sitemgr	de	Designvorlage auswählen
 choose the categories to display	sitemgr	de	Wählen Sie die anzuzeigende Kategorie aus
 choose the valid html type (note: not all icons are available):	sitemgr	de	Wählen Sie den gültigen HTML Typ (bitte beachten: nicht für alle sind Icons verfügbar)
 choose your site's theme or template.  note that if you changed the above checkbox you need to save before choosing a theme or template.	sitemgr	de	Wählen Sie eine Designvorlage. Beachten Sie bitte: Wenn Sie die Einstellung darüber verändert haben, müssen Sie diese zuerst speichern, bevor Sie eine Vorlage wählen können.
+city	sitemgr	de	Stadt
 click here to login through a safe connection.	sitemgr	de	Hier klicken für eine sichere Verbindung.
 code file	sitemgr	de	Datei mit Programmcode
 codebase url	sitemgr	de	Programmcode Basis URL
@@ -105,6 +109,7 @@ common prefix of the image-name (a number starting with 1 will be appended)	site
 configure module properties	sitemgr	de	Modul Eigenschaften konfigurieren
 configure sitemgr	sitemgr	de	SiteMgr konfigurieren
 configure website	sitemgr	de	Website konfigurieren
+contact fields to show	sitemgr	de	Kontaktfelder die angezeigt werden sollen
 contact the administrator.	sitemgr	de	Kontaktieren Sie den Administrator
 content areas	sitemgr	de	Inhaltsbereiche
 content blocks	sitemgr	de	Inhaltsblock
@@ -113,11 +118,13 @@ content manager	sitemgr	de	Inhaltsmanager
 contentarea	sitemgr	de	Inhaltsbereich
 contributor menu	sitemgr	de	Autoren Menü
 copyright	sitemgr	de	Copyright
+country	sitemgr	de	Land
 create new version	sitemgr	de	Neue Version erstellen
 css styles	sitemgr	de	CSS Stile
 currency code of the value specified in amount (eg. usd, eur)	sitemgr	de	Währungscode der angegebenen Betrages (zB. USD, EUR)
 current section	sitemgr	de	Gegenwärtiger Abschnitt
 custom	sitemgr	de	Benutzerdefiniert
+custom etemplate for the contactform	sitemgr	de	Angepasstes eTemplate für das Kontaktformular
 default	sitemgr	de	Standard
 default home page id number	sitemgr	de	Standard Home Page ID Nummer
 define websites	common	de	Websites definieren
@@ -129,9 +136,12 @@ delete this block	sitemgr	de	Diesen Block löschen
 delete this guestbook	sitemgr	de	Diese Gästebuch löschen
 delete version	sitemgr	de	Version löschen
 deleting all data for %1	sitemgr	de	Alle Daten für %1 werden gelöscht
+department	sitemgr	de	Abteilung
+descending	sitemgr	de	Absteigend
 details for language %1 (%2)	sitemgr	de	Details für die Sprache %1 (%2)
 directory is not writable by the webserver --> disabling upload	sitemgr	de	Verzeichnis ist NICHT vom Webserver beschreibbar --> schalte Upload aus
 discussions	sitemgr	de	Diskussionen
+display contact	sitemgr	de	Konakte anzeigen
 display link to autoregistration below login form?	sitemgr	de	Link auf Autoregistrierung unterhalb des Login anzeigen?
 do you realy want to delete the selected categories (including all pages), pages and blocks?	sitemgr	de	Wollen Sie die ausgewählten Kategorien (einschließlich aller Seiten), Seiten und Blöcke wirklich löschen?
 do you realy want to delete this block?	sitemgr	de	Wollen Sie diesen Block wirklich löschen?
@@ -178,15 +188,18 @@ error accessing page	common	de	Fehler beim Aufruf der Seite
 error deleting the element.	sitemgr	de	Fehler beim Löschen des Elements.
 error deleting the entry!!!	sitemgr	de	Fehler beim Löschen des Eintrags!!!
 error saving the entry!!!	sitemgr	de	Fehler beim Speichern des Eintrags!!!
+error uploading file!	sitemgr	de	Fehler beim Hochladen der Datei!
 error writing to the database.	sitemgr	de	Fehler beim Schreiben der Datenbank.
 error writing to the database: %1.	sitemgr	de	Fehler beim Schreiben der Datenbank: %1.
 everybody	sitemgr	de	Jedermann
 exact phrase	sitemgr	de	Exakter Treffer
 expand current category	sitemgr	de	Aktuelle Kategorie expandieren
+fax	sitemgr	de	Fax
 file %1 is not readable by the webserver !!!	sitemgr	de	Die Datei %1 ist vom Webserver nicht lesbar !!!
 file %1 is outside the docroot of the webserver !!!<br>this module does not allow - for security reasons - to open files outside the docroot.	sitemgr	de	Die Datei %1 ist außerhalb des Dokumentenwurzelverzeichnisses (docroot) des Webserver !!!<br>Diese Modul erlaubt - aus Sicherheitsgründen - nicht Dateien ausserhalb der docroot zu öffnen.
 file contents	sitemgr	de	Datei Inhalt
 file download	sitemgr	de	Datei herunterladen
+file successful uploaded.	sitemgr	de	Datei erfolgreich hochgeladen.
 filename	sitemgr	de	Dateiname
 filesystem path of the directory where xml files are stored	sitemgr	de	Der Pfad im zum Ordner in welchem XML Dateien gespeichert werden
 filesystem path of the image-directory	sitemgr	de	Dateisystem Pfad zum Ordner der Bilder
@@ -217,6 +230,7 @@ hello	sitemgr	de	Hallo
 hello world	sitemgr	de	Hello World
 helps you respect html/xhtml standards.	sitemgr	de	Hilft den HTML/XHTML Standard einzuhalten.
 highlight current page	sitemgr	de	Aktuelle Seite Hervorheben
+home phone	sitemgr	de	Telefon Privat
 horizontal	sitemgr	de	Horizontal
 html frame	sitemgr	de	HTML Rahmen (iframe)
 html module	sitemgr	de	HTML Modul
@@ -266,9 +280,11 @@ message not found !!!	sitemgr	de	Nachricht nicht gefunden !!!
 message text:	sitemgr	de	Text der Nachricht:
 messages are defined for all site languages.	sitemgr	de	Meldungen sind für alle Sprachen der Seite definiert.
 migrating data for %1 to %2	sitemgr	de	Daten für %1 werden nach %2 übertragen
+mobile phone	sitemgr	de	Mobiltelefon
 module %1 is not permitted in this context!	sitemgr	de	Module %1 ist in diesem Kontext nicht erlaubt!
 module '%1' not found in: %2! --> exiting	sitemgr	de	Modul '%1' nicht gefunden in: %2! --> Abbruch
 module manager	sitemgr	de	Module verwalten
+module returns api version or an arbitrary string.	sitemgr	de	Dieses Modul gibt die API Version oder einen beliebigen String zurück
 module: %1, scope: %2, contentarea: %3, viewable: %4	sitemgr	de	Modul: %1, Anwendungsbereich: %2, Inhaltsbereich: %3, Sichtbar für: %4
 move block down (increase sort order)	sitemgr	de	Block nach unten verschieben (Sortierreihenfolge erhöhen)
 move block up (decrease sort order)	sitemgr	de	Block nach oben verschieben (Sortierreihenfolge verringern)
@@ -281,6 +297,7 @@ name of the tabs (comma seperated)	sitemgr	de	Namen für die Kartenreiter (durch
 new application	sitemgr	de	Neue Applikation
 new guestbook	sitemgr	de	Neues Gästebuch
 new sitemgr site	sitemgr	de	Neue SiteMgr Website
+newest first	sitemgr	de	neueste zuerst
 no additional arguments required	sitemgr	de	Kein zusätzlicher Parameter benötigt
 no anonymous user accounts installed.  notify the administrator.	sitemgr	de	KEINE ANONYME BENUTZERKENNUNG INSTALLIERT. BENACHRICHTIGEN SIE DEN ADMINISTRATOR.
 no content areas found in selected template	sitemgr	de	Keine Inhaltsbereich in der ausgewählten Designvorlage gefunden.
@@ -306,6 +323,7 @@ note that you may get this message if your preferences are incorrect.  for examp
 notification message not found !!!	sitemgr	de	Benachrichtigungsmeldung nicht gefunden !!!
 notification not found !!!	sitemgr	de	Benachrichtigung nicht gefunden !!!
 number of results	sitemgr	de	Anzahl der Ergebnisse
+oldest first	sitemgr	de	älteste zuerst
 on all pages	sitemgr	de	auf allen Seiten
 only gallery	sitemgr	de	Nur Galerie
 only on the first page	sitemgr	de	nur auf der ersten Seite
@@ -342,6 +360,7 @@ plain selectbox	sitemgr	de	Einfache Auswahlbox
 please enter a name for that site !	sitemgr	de	Bitte geben sie einen Namen für die Website an !
 please sign the guestbook	sitemgr	de	Bitte tragen Sie sich im Gästebuch ein
 post a message to this thread	sitemgr	de	Eine Nachricht in diesem Thread posten.
+prefix	sitemgr	de	Anrede
 prepublished	sitemgr	de	zu veröffentlichen
 preunpublished	sitemgr	de	zu archivieren
 previous	sitemgr	de	Vorhergehend
@@ -387,6 +406,7 @@ send emailcopy to receiver	sitemgr	de	E-Mail auch an angegebenen Adressat senden
 seperate cats / pages of one tab by :	sitemgr	de	Unterteile Kategorien / Seiten eines Kartenreiters mit:
 shipping address	sitemgr	de	Versandadresse
 should the file be viewed in the browser or downloaded	sitemgr	de	Soll die Datei im Browser angezeigt oder heruntergelanden werden
+show a file upload (if user has write rights to current directory)	sitemgr	de	Zeige den Datei-Upload Dialog (Nur wenn der Benutzter schreibrechte auf das aktuelle Verzeichnis besitzt)
 show a template-gallery (thumbnail and informations)	sitemgr	de	Galerie mit Designvorlagen (Bilder und Informationen) anzeigen
 show contents of a directory	sitemgr	de	Zeigt den Inhalt eines Verzeichnisses
 show contents of a directory with subdirectories	sitemgr	de	Zeigt den Inhalt eines Verzeichnisses mit Unterverzeichnissen
@@ -423,8 +443,10 @@ sitemgr websites	sitemgr	de	SiteMgr Websites
 sitemgr-link	common	de	Website
 size	sitemgr	de	Größe
 sorry, no content found for you search criteria	sitemgr	de	Ihre Suche ergab keine Treffer
+sort files by	sitemgr	de	Sortiere Dateien nach
 sort order	sitemgr	de	Sortierreihenfolge
 state	sitemgr	de	Zustand
+street	sitemgr	de	Strasse
 string to return (default api version)	sitemgr	de	Zeichenkette zum zurückgeben (Standart ist die API Version)
 strip html from block content?	sitemgr	de	Entferne HTML aus dem Block Content
 subcategories	sitemgr	de	Unterkategorien
@@ -443,6 +465,7 @@ template select	sitemgr	de	Designvorlage auswählen
 text allignment	sitemgr	de	Ausrichtung des Textes
 text of page links	sitemgr	de	Text der Verweise auf Seiten
 textarea	sitemgr	de	Textfeld
+the anonymous user needs read it!	sitemgr	de	Der anonyme Benutzer benötigt Leserechte
 the category to display, 0 for complete table of contents	sitemgr	de	Die Kategorie welche angezeigt werden soll. 0 für alle Themengebiete
 the complete url or path to a file to be included	sitemgr	de	Die komplette URL (Webadresse) oder der Pfad der einzubindenden Datei
 the config.inc.php file needs to be edited to point to the egroupware directory. copy the config.inc.php.template file to config.inc.php and then edit it.	sitemgr	de	Die config.inc.php Datei muss bearbeitet werden damit die Pfade auf das eGroupWare Verzeichnis verweisen. Kopieren Sie bitte die config.inc.php.template Datei nach config.inc.php und bearbeiten Sie anschliesend diese
@@ -455,6 +478,7 @@ the page name must be unique.	sitemgr	de	Der Seiten Name muss einmalig sein.
 the page was successfully saved.	sitemgr	de	Die Seite wurde erfolgreich gespeichert.
 the path to the file to be downloaded	sitemgr	de	Der Pfad zur Datei die heruntergelanden werden soll
 the person to say hello to	sitemgr	de	Die Person welche hello gesagt wird
+the requested path %1 is not available.	sitemgr	de	Der angeforderte Pfad %1 steht nicht zur Verfügung.
 the second directory is the sitemgr-site directory.  this can be moved <i>anywhere</i>.  it can also be named <i>anything</i>.  wherever it winds up, when you point a web browser to it, you will get the generated website.  assuming, of course, that you've accurately completed the setup fields below and also <b><i>edited the config.inc.php</i></b> file.	sitemgr	de	Das zweite Verzeichnis ist das sitemmgr-site Verzeichnis. Dieses können Sie an einen <i>beliebigen</i> Platz verschieben. Sie können diesem Verzeichnis auch einen <i>beliebigen</i> Namen geben. Unabhängig vom Namen und dem Ort an welchem es sich befindet wird die erzeugte Seite angezeigt. Bedingung hierfür ist jedoch das die Setup Informationen vollständig und richtig eingegeben wurden und die Datei <b>config.inc.php</b> bearbeitet wurde.
 the text for the link, if empty the module returns the raw url (without a link)	sitemgr	de	Der Text für den Link, wenn leer gibt das Modul die rohe URL aus (ohne einen Link)
 the url can be relative or absolute.  name must end in a slash.	sitemgr	de	Die URL kann absolute oder relativ angegeben werden. Der Pfad muss mit einem Slash "/" enden.
@@ -490,6 +514,7 @@ this module create a link for downloading a file(s) from the vfs	sitemgr	de	Dies
 this module demonstrates how handling data stored in xml and building an interacvite interface from it	sitemgr	de	Dieses Modul zeigt wie interaktives Interface erzeugen kann mit Informationen, welche im XML Format gespeichert sind
 this module displays a login form	sitemgr	de	Dieses Modul bietet ein Anmelde Formular
 this module displays any kind of navigation element.	sitemgr	de	Diese Module liefert alle Arten von Navigationselementen.
+this module displays block from a adddressbook group.	sitemgr	de	Dieses Modul zeigt Adressen von einen Adressbuch als Block an.
 this module displays bookmarks in a javascript based tree	sitemgr	de	Diese Modul zeigt Lesezeichen (Bookmarks) in einer javascript basierenden Baumansicht
 this module displays the current month	sitemgr	de	Dieses Modul zeigt den aktuellen Monat an
 this module displays the egw forums on the web site	sitemgr	de	Dieses Module stellt eGroupWare Foren auf der Website dar
@@ -557,6 +582,7 @@ which main categories should be included (comma separated list, empty for all)	s
 wiki	sitemgr	de	Wiki
 wiki startpage	sitemgr	de	Wiki Startseite
 with which view should the module be displayed in the beginning?	sitemgr	de	In welcher Ansicht soll das Modul beim Start angezeigt werden
+work phone	sitemgr	de	Telefon geschäftlich
 write permission	sitemgr	de	Schreibrechte
 xml browser	sitemgr	de	XML Browser
 yes, please delete it	sitemgr	de	Ja, löschen
@@ -586,3 +612,4 @@ your calendar	sitemgr	de	Ihr Kalendar
 your comment	sitemgr	de	Ihr Kommentar
 your connection is not safe.	sitemgr	de	Ihre Verbindung ist nicht sicher.
 your name	sitemgr	de	Ihr Name
+zip code	sitemgr	de	PLZ
