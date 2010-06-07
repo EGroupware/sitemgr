@@ -24,8 +24,8 @@
 
 	if (!$CommonUI->do_sites_exist && $GLOBALS['egw_info']['user']['apps']['admin'])
 	{
-		$GLOBALS['egw']->redirect_link('/index.php',array('menuaction'=>'sitemgr.Sites_UI.edit'));
+		egw::redirect_link('/index.php',array('menuaction'=>'sitemgr.Sites_UI.edit'));
 	}
 	$CommonUI->DisplayIFrame();
 
-	$GLOBALS['egw']->common->egw_footer();
+	common::egw_footer();

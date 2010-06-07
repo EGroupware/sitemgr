@@ -25,9 +25,9 @@
  */
 
 	$menu_title = lang('Website') . ' ' . $GLOBALS['Common_BO']->sites->current_site['site_name'];
-	$file = $GLOBALS['Common_BO']->sitemenu;
+	$file = $GLOBALS['Common_BO']->get_sitemenu();
 	display_sidebox($appname,$menu_title,$file);
-	$file = $GLOBALS['Common_BO']->othermenu;
+	$file = $GLOBALS['Common_BO']->get_othermenu();
 	if ($file)
 	{
 		$menu_title = lang('Other websites');
@@ -39,4 +39,3 @@
 	);
 	display_sidebox($appname,$menu_title,$file);
 }
-?>

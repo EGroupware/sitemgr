@@ -97,42 +97,39 @@
 			return $returnValue;
 		}
 
-		function set_menus()
-		{
-			$this->sitemenu = $this->get_sitemenu();
-			$this->othermenu = $this->get_othermenu();
-		}
-
 		function get_sitemenu()
 		{
 			if ($GLOBALS['Common_BO']->acl->is_admin())
 			{
-				$file['Configure Website'] = $GLOBALS['egw']->link('/index.php','menuaction=sitemgr.Common_UI.DisplayPrefs');
+				$file['Configure Website'] = egw::link('/index.php','menuaction=sitemgr.Common_UI.DisplayPrefs');
 				$link_data['cat_id'] = CURRENT_SITE_ID;
 				$link_data['menuaction'] = "sitemgr.Modules_UI.manage";
-				$file['Manage site-wide module properties'] = $GLOBALS['egw']->link('/index.php',$link_data);
+				$file['Manage site-wide module properties'] = egw::link('/index.php',$link_data);
 /* not longer show, as it can be done via Edit-mode now
 				$link_data['page_id'] = 0;
 				$link_data['menuaction'] = "sitemgr.Content_UI.manage";
-				$file['Manage site-wide content'] = $GLOBALS['egw']->link('/index.php',$link_data);
+				$file['Manage site-wide content'] = egw::link('/index.php',$link_data);
 */
-				$file['Manage Notifications'] = $GLOBALS['egw']->link('/index.php', 'menuaction=sitemgr.uinotifications.index&site_id='.CURRENT_SITE_ID);
+				$file['Manage Notifications'] = egw::link('/index.php', 'menuaction=sitemgr.uinotifications.index&site_id='.CURRENT_SITE_ID);
 			}
-//      $file['Manage Categories and pages'] = $GLOBALS['egw']->link('/index.php', 'menuaction=sitemgr.Outline_UI.manage');
-			$file['Manage Translations'] = $GLOBALS['egw']->link('/index.php', 'menuaction=sitemgr.Translations_UI.manage');
-			$file['Commit Changes'] = $GLOBALS['egw']->link('/index.php', 'menuaction=sitemgr.Content_UI.commit');
-			$file['Manage archived content'] = $GLOBALS['egw']->link('/index.php', 'menuaction=sitemgr.Content_UI.archive');
+//			$file['Manage Categories and pages'] = egw::link('/index.php', 'menuaction=sitemgr.Outline_UI.manage');
+			$file['Manage Translations'] = egw::link('/index.php', 'menuaction=sitemgr.Translations_UI.manage');
+			$file['Commit Changes'] = egw::link('/index.php', 'menuaction=sitemgr.Content_UI.commit');
+			$file['Manage archived content'] = egw::link('/index.php', 'menuaction=sitemgr.Content_UI.archive');
 
-			$file['Manage Notification Messages'] = $GLOBALS['egw']->link('/index.php', 'menuaction=sitemgr.uintfmess.index&site_id='.CURRENT_SITE_ID);
+			$file['Manage Notification Messages'] = egw::link('/index.php', 'menuaction=sitemgr.uintfmess.index&site_id='.CURRENT_SITE_ID);
 			if (($site = $this->sites->read(CURRENT_SITE_ID)) && $site['site_url'])
 			{
 				$file[] = '_NewLine_';
-				$file['View generated Site'] = $site['site_url'].'?mode=Production'.
-					'&sessionid='.@$GLOBALS['egw_info']['user']['sessionid'] .
-					'&kp3=' . @$GLOBALS['egw_info']['user']['kp3'] .
-					'&domain=' . @$GLOBALS['egw_info']['user']['domain'];
-
-				$file['Edit Site'] = $GLOBALS['egw']->link('/sitemgr/');
+				$file[] = array(
+					'text' => 'View generated Site',
+					'link' => $site['site_url'].'?mode=Production'.
+						'&sessionid='.@$GLOBALS['egw_info']['user']['sessionid'] .
+						'&kp3=' . @$GLOBALS['egw_info']['user']['kp3'] .
+						'&domain=' . @$GLOBALS['egw_info']['user']['domain'],
+					'target' => '_blank',
+				);
+				$file['Edit Site'] = egw::link('/sitemgr/index.php');
 			}
 			return $file;
 		}
@@ -158,7 +155,7 @@
 						$file[] = array(
 							'text' => $site['site_name'],
 							'no_lang' => True,
-							'link' => $GLOBALS['egw']->link('/index.php',$link_data)
+							'link' => egw::link('/index.php',$link_data)
 						);
 					}
 				}
@@ -169,9 +166,8 @@
 			}
 			if ($isadmin)
 			{
-				$file['Define websites'] = $GLOBALS['egw']->link('/index.php','menuaction=sitemgr.Sites_UI.list_sites');
+				$file['Define websites'] = egw::link('/index.php','menuaction=sitemgr.Sites_UI.list_sites');
 			}
 			return $file;
 		}     
 	}
-?>

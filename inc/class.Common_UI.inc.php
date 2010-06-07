@@ -30,7 +30,6 @@
 			$this->theme = &$GLOBALS['Common_BO']->theme;
 			$this->pages_bo = &$GLOBALS['Common_BO']->pages;
 			$this->cat_bo = &$GLOBALS['Common_BO']->cats;
-			$GLOBALS['Common_BO']->set_menus();
 		}
 
 
@@ -41,8 +40,7 @@
 			$this->t->set_block('MainMenu','switch','switchhandle');
 			$this->t->set_block('MainMenu','menuentry','entry');
 			$this->t->set_var('lang_sitemenu',lang('Website') . ' ' . $GLOBALS['Common_BO']->sites->current_site['site_name']);
-			reset($GLOBALS['Common_BO']->sitemenu);
-			while (list($display,$value) = @each($GLOBALS['Common_BO']->sitemenu))
+			foreach($GLOBALS['Common_BO']->get_sitemenu() as $display => $value)
 			{
 				if ($display == '_NewLine_')
 				{
@@ -51,10 +49,10 @@
 				$this->t->set_var(array('value'=>$value,'display'=>lang($display)));
 				$this->t->parse('sitemenu','menuentry', true);
 			}
-			if ($GLOBALS['Common_BO']->othermenu)
+			if (($othermenu = $GLOBALS['Common_BO']->get_othermenu()))
 			{
 				$this->t->set_var('lang_othermenu',lang('Other websites'));
-				foreach($GLOBALS['Common_BO']->othermenu as $display => $value)
+				foreach($othermenu as $display => $value)
 				{
 					if ($display === '_NewLine_')
 					{
@@ -90,11 +88,18 @@
 		{
 			if (($site = $GLOBALS['Common_BO']->sites->read(CURRENT_SITE_ID)) && $site['site_url'])
 			{
-				$this->displayHeader($site['site_name']);
 				$site['site_url'] .= '?mode=Edit&sessionid='.@$GLOBALS['egw_info']['user']['sessionid'] .
 					'&kp3=' . @$GLOBALS['egw_info']['user']['kp3'] .
 					'&domain=' . @$GLOBALS['egw_info']['user']['domain'];
+				
+				// jdots already uses an iframe, so no need to create an other one
+				if ($GLOBALS['egw']->framework->template == 'jdots')
+				{
+					egw::redirect($site['site_url']);
+				}
 
+				common::egw_header();
+				parse_navbar();
 				echo "\n".'<div style="width: 100%; height: 100%; min-width: 800px; height: 600px">';
 				echo "\n\t".'<iframe src="'.$site['site_url'].'" name="site" width="100%" height="100%" frameborder="0" marginwidth="0" marginheight="0"><a href="'.$site['site_url'].'">'.$site['site_url'].'</a></iframe>';
 				echo "\n</div>\n";
@@ -400,14 +405,14 @@
 		{
 			$GLOBALS['egw_info']['flags']['app_header'] = $GLOBALS['egw_info']['apps']['sitemgr']['title'].
 				($extra_title ? ' - '.$extra_title : '');
-			$GLOBALS['egw']->common->egw_header();
+			common::egw_header();
 
 			if ($this->do_sites_exist && $GLOBALS['egw_info']['server']['template_set'] != 'idots')
 			{
 				$this->t->set_file('sitemgr_header','sitemgr_header.tpl');
 				$this->t->set_block('sitemgr_header','switch','switchhandle');
 				$this->t->set_var('menulist',$this->menuselectlist());
-				if ($GLOBALS['Common_BO']->othermenu)
+				if ($GLOBALS['Common_BO']->get_othermenu())
 				{
 					$this->t->set_var('sitelist',$this->siteselectlist());
 					$this->t->parse('switchhandle','switch');
@@ -418,7 +423,7 @@
 				}
 				$GLOBALS['egw_info']['flags']['app_header'] .= $this->t->parse('out','sitemgr_header');
 			}
-			echo parse_navbar();
+			parse_navbar();
 		}
 
 		function DisplayFooter()
