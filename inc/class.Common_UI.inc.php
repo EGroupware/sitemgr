@@ -92,17 +92,19 @@
 					'&kp3=' . @$GLOBALS['egw_info']['user']['kp3'] .
 					'&domain=' . @$GLOBALS['egw_info']['user']['domain'];
 				
+				common::egw_header();
 				// jdots already uses an iframe, so no need to create an other one
 				if ($GLOBALS['egw']->framework->template == 'jdots')
 				{
-					egw::redirect($site['site_url']);
+					echo "<script type='text/javascript'>\nwindow.setTimeout(\"location='{$site['site_url']}';\",10);\n</script>\n";
 				}
-
-				common::egw_header();
-				parse_navbar();
-				echo "\n".'<div style="width: 100%; height: 100%; min-width: 800px; height: 600px">';
-				echo "\n\t".'<iframe src="'.$site['site_url'].'" name="site" width="100%" height="100%" frameborder="0" marginwidth="0" marginheight="0"><a href="'.$site['site_url'].'">'.$site['site_url'].'</a></iframe>';
-				echo "\n</div>\n";
+				else
+				{
+					parse_navbar();
+					echo "\n".'<div style="width: 100%; height: 100%; min-width: 800px; height: 600px">';
+					echo "\n\t".'<iframe src="'.$site['site_url'].'" name="site" width="100%" height="100%" frameborder="0" marginwidth="0" marginheight="0"><a href="'.$site['site_url'].'">'.$site['site_url'].'</a></iframe>';
+					echo "\n</div>\n";
+				}
 			}
 			else
 			{
