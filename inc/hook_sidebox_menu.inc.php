@@ -24,6 +24,10 @@
 	display_sidebox can be called as much as you like
  */
 
+	if (!isset($GLOBALS['Common_BO']) || !is_object($GLOBALS['Common_BO']))
+	{
+		$GLOBALS['Common_BO'] = CreateObject('sitemgr.Common_BO');
+	}
 	$menu_title = lang('Website') . ' ' . $GLOBALS['Common_BO']->sites->current_site['site_name'];
 	$file = $GLOBALS['Common_BO']->get_sitemenu();
 	display_sidebox($appname,$menu_title,$file);
