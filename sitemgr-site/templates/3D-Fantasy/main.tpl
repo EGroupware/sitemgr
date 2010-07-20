@@ -33,7 +33,14 @@
 			<table width="100%" border="0" align="center" bgcolor="#ffffff">
 			<tr>
 				<td>
-					<a href="index.php"><img src="templates/3D-Fantasy/images/logo.gif" border="0" alt="Welcome to {sitename}"></a>
+<script type="text/javascript">
+var Aussage = "{sitedesc}";
+var Ergebnis = Aussage.search(/##.+/);
+if (Ergebnis != -1)
+  document.write("<a href=\"index.php\"><img src=\""+Aussage.slice(Ergebnis+2,Aussage.lastIndexOf("##"))+"\" border=\"0\" title=\"{sitename}\" /></a>");
+if (Ergebnis == -1)
+  document.write("<a href=\"index.php\"><img src=\"templates/3D-Fantasy/images/logo.gif\" border=\"0\" alt=\"Welcome to {sitename}\"></a>");
+</script>
 				</td><td>
 					{contentarea:header}
 				</td>
