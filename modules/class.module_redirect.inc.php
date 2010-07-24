@@ -18,9 +18,19 @@ class module_redirect extends Module
 		$this->arguments = array(
 			'URL' => array(
 				'type' => 'textfield',
-				'params' => array('size' => 100),
-				'label' => lang('The URL to redirect to')
-			)
+				'params' => array('size' => 50),
+				'label' => lang('The URL to redirect to'),
+			),
+			'timeout' => array(
+				'type' => 'textfield',
+				'params' => array('size' => 1),
+				'default' => 0,
+				'label' => lang('Seconds before redirect'),
+			),
+			'showLink' => array(
+				'type' => 'checkbox',
+				'label' => lang('Show the link as text?'),
+			),
 		);
 		$this->title = lang('Redirection');
 		$this->description = lang('This module lets you define pages that redirect to another URL, if you use it, there should be no other block defined for the page');
@@ -28,14 +38,51 @@ class module_redirect extends Module
 
 	function get_content(&$arguments,$properties)
 	{
+		$showLink = ((isset($arguments['showLink'])) && ($arguments['showLink'] == true));
 		if ($GLOBALS['sitemgr_info']['mode'] != 'Edit')
 		{
-			ob_end_clean();		// for mos templates, stop the output buffering
-			$GLOBALS['egw']->redirect($arguments['URL']);
+			if ($arguments['timeout'] == 0)
+			{
+				ob_end_clean();		// for mos templates, stop the output buffering
+				$GLOBALS['egw']->redirect($arguments['URL']);
+			}
+			else
+			{
+				/* While it would be possible to use http-equiv=refresh, a javascript is added here
+				 * because the meta data has already been sent..
+				 */
+				$html = '<script type="text/javascript">'."\n";
+				$html .= 'window.setTimeout("js_redirect()", '.($arguments['timeout'] * 1000).');'."\n";
+				$html .= 'function js_redirect()'."\n";
+				$html .= '{'."\n";
+				$html .= '	window.location.href="'.$arguments['URL'].'";'."\n";
+				$html .= '}'."\n";
+				$html .= '</script>'."\n";
+				if (! $showLink)
+				{
+					$html .= '<noscript>'."\n";
+				}
+				$html .= "<div>".lang('The URL to redirect to').': <a href="'.$arguments['URL'].'">'.$arguments['URL'].'</a></div>';
+				if (! $showLink)
+				{
+					$html .= '</noscript>'."\n";
+				}
+				return $html;
+			}
 		}
 		else
 		{
-			return lang('The URL to redirect to').': <a href="'.$arguments['URL'].'">'.$arguments['URL'].'</a>';
+			$html = "";
+			if (! $showLink)
+			{
+				$html .= "(";
+			}
+			$html .= lang('The URL to redirect to').': <a href="'.$arguments['URL'].'">'.$arguments['URL'].'</a>';
+			if (! $showLink)
+			{
+				$html .= ")";
+			}
+			return $html;
 		}
 	}
 }
