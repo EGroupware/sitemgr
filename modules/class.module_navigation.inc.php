@@ -881,7 +881,8 @@
 					$this->showcat($topcats) .
 					'</table>' .
 					"\n";
-				$content .= '<br><a href="'.sitemgr_link('toc=1').'"><font size="1">(' . lang('Table of contents') . ')</font></a>';
+				//$content .= '<br><a href="'.sitemgr_link('toc=1').'"><font size="1">(' . lang('Table of contents') . ')</font></a>';
+				$content .= '<br><a href="'.sitemgr_link2('/index.php','index=1').'"><font size="1">(' . lang('Table of contents') . ')</font></a>';
 			}
 			return $content;
 		}
