@@ -65,7 +65,7 @@ class module_filecontents extends Module
 		}
 		else
 		{
-			$ret = file_read_contents($path);
+			$ret = file_get_contents($path);
 		}
 		if ($is_html)
 		{
