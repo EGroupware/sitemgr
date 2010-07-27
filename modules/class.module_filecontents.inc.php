@@ -39,7 +39,7 @@ class module_filecontents extends Module
 			return $this->validation_error;
 		}
 		$is_html = preg_match('/\.html?$/i',$path);
-
+		
 		if ($this->is_script($path) || @$url['scheme'])
 		{
 			if (!@$url['scheme'])
@@ -56,7 +56,7 @@ class module_filecontents extends Module
 					$ret .= fread($fp,1024);
 				}
 				fclose ($fp);
-				$is_html = True;
+				$is_html = substr($path,-4) != '.txt';
 			}
 			else
 			{
@@ -65,7 +65,7 @@ class module_filecontents extends Module
 		}
 		else
 		{
-			$ret = implode('', file($path));
+			$ret = file_read_contents($path);
 		}
 		if ($is_html)
 		{
@@ -79,6 +79,10 @@ class module_filecontents extends Module
 			{
 				$ret = $GLOBALS['egw']->translation->convert($ret,$parts[1]);
 			}
+		}
+		elseif(substr($path,-4) == '.txt')
+		{
+			$ret = "<pre>\n$ret\n</pre>\n";
 		}
 		return $ret;
 	}
