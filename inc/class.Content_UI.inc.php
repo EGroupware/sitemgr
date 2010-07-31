@@ -557,6 +557,11 @@
 		function inputmoduleselect($modules)
 		{
 			$returnValue = '';
+			static $label_sort;
+
+			if (!isset($label_sort)) $label_sort = create_function('$a,$b', 'return strcasecmp($a["module_name"],$b["module_name"]);');
+			uasort($modules,$label_sort);
+
 			foreach($modules as $id => $module)
 			{
 				$returnValue.='<option title="' . lang($module['description']) . '" value="'.$id.'">'.
