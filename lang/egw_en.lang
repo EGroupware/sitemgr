@@ -98,7 +98,6 @@ choose template	sitemgr	en	Choose template
 choose the categories to display	sitemgr	en	Choose the categories to display
 choose the valid html type (note: not all icons are available):	sitemgr	en	Choose the VALID HTML type (note: not all icons are available):
 choose your site's theme or template.  note that if you changed the above checkbox you need to save before choosing a theme or template.	sitemgr	en	Choose your site's theme or template.  Note that if you changed the above checkbox you need to save before choosing a theme or template.
-city	sitemgr	en	city
 click here to login through a safe connection.	sitemgr	en	Click here to login through a safe connection.
 code file	sitemgr	en	Code file
 codebase url	sitemgr	en	Codebase URL
@@ -118,7 +117,6 @@ content manager	sitemgr	en	Content Manager
 contentarea	sitemgr	en	Contentarea
 contributor menu	sitemgr	en	Contributor Menu
 copyright	sitemgr	en	Copyright
-country	sitemgr	en	country
 create new version	sitemgr	en	Create new version
 css styles	sitemgr	en	CSS styles
 currency code of the value specified in amount (eg. usd, eur)	sitemgr	en	Currency code of the value specified in amount (eg. USD, EUR)
@@ -230,7 +228,6 @@ hello	sitemgr	en	Hello
 hello world	sitemgr	en	Hello world
 helps you respect html/xhtml standards.	sitemgr	en	Helps you respect HTML/XHTML standards.
 highlight current page	sitemgr	en	Highlight current page
-home phone	sitemgr	en	home phone
 horizontal	sitemgr	en	Horizontal
 html frame	sitemgr	en	HTML Frame
 html module	sitemgr	en	HTML module
@@ -280,7 +277,6 @@ message not found !!!	sitemgr	en	Message not found !!!
 message text:	sitemgr	en	Message text:
 messages are defined for all site languages.	sitemgr	en	Messages are defined for all site languages.
 migrating data for %1 to %2	sitemgr	en	Migrating data for %1 to %2
-mobile phone	sitemgr	en	mobile phone
 module %1 is not permitted in this context!	sitemgr	en	Module %1 is not permitted in this context!
 module '%1' not found in: %2! --> exiting	sitemgr	en	Module '%1' not found in: %2! --> exiting
 module manager	sitemgr	en	Module manager
@@ -392,6 +388,7 @@ search keyword	sitemgr	en	search keyword
 search language options	sitemgr	en	Search language options
 search modes	sitemgr	en	Search modes
 search with	sitemgr	en	Search with
+seconds before redirect	sitemgr	en	Seconds before redirect
 seen by	sitemgr	en	Seen by
 select a category	sitemgr	en	Select a category
 select a forum	sitemgr	en	Select a forum
@@ -418,6 +415,7 @@ show path?	sitemgr	en	show path?
 show searchbox	sitemgr	en	Show searchbox
 show site index	sitemgr	en	Show Site Index
 show subcategories	sitemgr	en	Show subcategories
+show the link as text?	sitemgr	en	Show the link as text?
 show the title of the wiki page	sitemgr	en	Show the title of the wiki page
 simple: only selected mode, no more options displayed	sitemgr	en	Simple: Only selected mode, no more options displayed
 single file download	sitemgr	en	Single file download
@@ -446,7 +444,6 @@ sorry, no content found for you search criteria	sitemgr	en	Sorry, no content fou
 sort files by	sitemgr	en	Sort files by
 sort order	sitemgr	en	Sort Order
 state	sitemgr	en	State
-street	sitemgr	en	street
 string to return (default api version)	sitemgr	en	String to return (default API version)
 strip html from block content?	sitemgr	en	Strip HTML from block content?
 subcategories	sitemgr	en	Subcategories
@@ -582,7 +579,6 @@ which main categories should be included (comma separated list, empty for all)	s
 wiki	sitemgr	en	Wiki
 wiki startpage	sitemgr	en	Wiki startpage
 with which view should the module be displayed in the beginning?	sitemgr	en	With which view should the module be displayed in the beginning?
-work phone	sitemgr	en	work phone
 write permission	sitemgr	en	Write Permission
 xml browser	sitemgr	en	XML browser
 yes, please delete it	sitemgr	en	Yes, please delete it
