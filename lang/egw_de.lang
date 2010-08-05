@@ -98,7 +98,6 @@ choose template	sitemgr	de	Designvorlage auswählen
 choose the categories to display	sitemgr	de	Wählen Sie die anzuzeigende Kategorie aus
 choose the valid html type (note: not all icons are available):	sitemgr	de	Wählen Sie den gültigen HTML Typ (bitte beachten: nicht für alle sind Icons verfügbar)
 choose your site's theme or template.  note that if you changed the above checkbox you need to save before choosing a theme or template.	sitemgr	de	Wählen Sie eine Designvorlage. Beachten Sie bitte: Wenn Sie die Einstellung darüber verändert haben, müssen Sie diese zuerst speichern, bevor Sie eine Vorlage wählen können.
-city	sitemgr	de	Stadt
 click here to login through a safe connection.	sitemgr	de	Hier klicken für eine sichere Verbindung.
 code file	sitemgr	de	Datei mit Programmcode
 codebase url	sitemgr	de	Programmcode Basis URL
@@ -118,7 +117,6 @@ content manager	sitemgr	de	Inhaltsmanager
 contentarea	sitemgr	de	Inhaltsbereich
 contributor menu	sitemgr	de	Autoren Menü
 copyright	sitemgr	de	Copyright
-country	sitemgr	de	Land
 create new version	sitemgr	de	Neue Version erstellen
 css styles	sitemgr	de	CSS Stile
 currency code of the value specified in amount (eg. usd, eur)	sitemgr	de	Währungscode der angegebenen Betrages (zB. USD, EUR)
@@ -230,7 +228,6 @@ hello	sitemgr	de	Hallo
 hello world	sitemgr	de	Hello World
 helps you respect html/xhtml standards.	sitemgr	de	Hilft den HTML/XHTML Standard einzuhalten.
 highlight current page	sitemgr	de	Aktuelle Seite Hervorheben
-home phone	sitemgr	de	Telefon Privat
 horizontal	sitemgr	de	Horizontal
 html frame	sitemgr	de	HTML Rahmen (iframe)
 html module	sitemgr	de	HTML Modul
@@ -280,7 +277,6 @@ message not found !!!	sitemgr	de	Nachricht nicht gefunden !!!
 message text:	sitemgr	de	Text der Nachricht:
 messages are defined for all site languages.	sitemgr	de	Meldungen sind für alle Sprachen der Seite definiert.
 migrating data for %1 to %2	sitemgr	de	Daten für %1 werden nach %2 übertragen
-mobile phone	sitemgr	de	Mobiltelefon
 module %1 is not permitted in this context!	sitemgr	de	Module %1 ist in diesem Kontext nicht erlaubt!
 module '%1' not found in: %2! --> exiting	sitemgr	de	Modul '%1' nicht gefunden in: %2! --> Abbruch
 module manager	sitemgr	de	Module verwalten
@@ -392,6 +388,7 @@ search keyword	sitemgr	de	Schlüsselworte suchen
 search language options	sitemgr	de	Sprachoptionen suchen
 search modes	sitemgr	de	Suchmodi
 search with	sitemgr	de	Suchen mit
+seconds before redirect	sitemgr	de	Sekunden bis zur Weiterleitung
 seen by	sitemgr	de	Sichtbar für
 select a category	sitemgr	de	Eine Kategorie auswählen
 select a forum	sitemgr	de	Ein Forum auswählen
@@ -418,6 +415,7 @@ show path?	sitemgr	de	Pfad anzeigen?
 show searchbox	sitemgr	de	Suchfeld anzeigen
 show site index	sitemgr	de	Site Inhaltsverzeichnis anzeigen
 show subcategories	sitemgr	de	Unterkategorien anzeigen
+show the link as text?	sitemgr	de	Link als Text anzeigen?
 show the title of the wiki page	sitemgr	de	Titel der Wiki Seite anzeigen
 simple: only selected mode, no more options displayed	sitemgr	de	Einfach: nur der ausgewählte Modus, keine weiteren Optionen anzeigen
 single file download	sitemgr	de	Herunterladen einer einzigen Datei
@@ -446,7 +444,6 @@ sorry, no content found for you search criteria	sitemgr	de	Ihre Suche ergab kein
 sort files by	sitemgr	de	Sortiere Dateien nach
 sort order	sitemgr	de	Sortierreihenfolge
 state	sitemgr	de	Zustand
-street	sitemgr	de	Strasse
 string to return (default api version)	sitemgr	de	Zeichenkette zum zurückgeben (Standart ist die API Version)
 strip html from block content?	sitemgr	de	Entferne HTML aus dem Block Content
 subcategories	sitemgr	de	Unterkategorien
@@ -582,7 +579,6 @@ which main categories should be included (comma separated list, empty for all)	s
 wiki	sitemgr	de	Wiki
 wiki startpage	sitemgr	de	Wiki Startseite
 with which view should the module be displayed in the beginning?	sitemgr	de	In welcher Ansicht soll das Modul beim Start angezeigt werden
-work phone	sitemgr	de	Telefon geschäftlich
 write permission	sitemgr	de	Schreibrechte
 xml browser	sitemgr	de	XML Browser
 yes, please delete it	sitemgr	de	Ja, löschen
