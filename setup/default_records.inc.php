@@ -20,7 +20,7 @@ $oProc->query("UPDATE {$GLOBALS['egw_setup']->cats_table} SET cat_main = $site_i
 $oProc->query("SELECT config_value FROM {$GLOBALS['egw_setup']->config_table} WHERE config_name='webserver_url'");
 $oProc->next_record();
 $siteurl = $oProc->f('config_value') . '/sitemgr/sitemgr-site/';	// url always uses slashes, dont use SEP!!!
-$sitedir = $GLOBALS['egw_setup']->db->db_addslashes(EGW_INCLUDE_ROOT . SEP . 'sitemgr' . SEP . 'sitemgr-site');
+$sitedir = $GLOBALS['egw_setup']->db->db_addslashes('sitemgr' . SEP . 'sitemgr-site');
 $oProc->query("INSERT INTO {$sitemgr_table_prefix}_sites (site_id,site_name,site_url,site_dir,themesel,site_languages,home_page_id,anonymous_user,anonymous_passwd) VALUES ($site_id,'Default Website','$siteurl','$sitedir','idots','en,de',0,'anonymous','anonymous')");
 
 // give Admins group rights vor sitemgr and for the created default-site

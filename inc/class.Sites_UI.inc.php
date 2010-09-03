@@ -172,12 +172,16 @@
 					$site['url'] .= '/';
 				}
 				$site['anonuser'] = $GLOBALS['egw']->accounts->id2name($site['anonuser']);
-
+				
+				if (($site_dir=$site['dir']) == 'sitemgr'.SEP.'sitemgr-site')
+				{
+					$site_dir = EGW_SERVER_ROOT.SEP.'sitemgr'.SEP.'sitemgr-site';
+				}
 				if (!$site['name'])
 				{
 					$GLOBALS['egw']->template->set_var('message','<font color="red">'.lang('Please enter a name for that site !').'</font>');
 				}
-				elseif (!is_dir($site['dir']) || !is_readable($site['dir'].'/config.inc.php'))
+				elseif (!is_dir($site_dir) || !is_readable($site_dir.'/config.inc.php'))
 				{
 					$GLOBALS['egw']->template->set_var('message','<font color="red">'.lang("'%1' is no valid sitemgr-site directory !!!",$site['dir']).'</font>');
 				}
@@ -209,12 +213,16 @@
 			if ($site_id && !isset($site))
 			{
 				$site = $this->bo->read($site_id);
+				if (substr($site['site_dir'],-20) == 'sitemgr'.SEP.'sitemgr-site')
+				{
+					$site['site_dir'] = 'sitemgr'.SEP.'sitemgr-site';
+				}
 			}
 			else
 			{
 				$site = array(
 					'site_name' => $site['name'] ? $site['name'] : '',
-					'site_dir' => $site['dir'] ? $site['dir'] : EGW_SERVER_ROOT . '/sitemgr/sitemgr-site',
+					'site_dir' => $site['dir'] ? $site['dir'] : 'sitemgr'.SEP.'sitemgr-site',
 					'site_url' => $site['url'] ? $site['url'] : $GLOBALS['egw_info']['server']['webserver_url'] . '/sitemgr/sitemgr-site/',
 					'anonymous_user' => $site['anonuser'] ? $site['anonuser'] : 'anonymous',
 					'anonymous_passwd' => $site['anonpasswd'] ? $site['anonpasswd'] : 'anonymous',
