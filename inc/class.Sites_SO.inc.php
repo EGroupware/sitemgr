@@ -14,6 +14,10 @@
 
 	class Sites_SO
 	{
+		/**
+		 * 
+		 * @var egw_db
+		 */
 		var $db;
 		var $sites_table = 'egw_sitemgr_sites';	// only reference to the db-prefix
 		
@@ -42,7 +46,7 @@
 				if ($query)
 				{
 					$query = $this->db->quote('%'.$query.'%');
-					$whereclause = "site_name LIKE $query OR site_url LIKE $query OR site_dir LIKE $query";
+					$whereclause = "site_name LIKE $query OR site_url LIKE $query";
 				}
 				if (preg_match('/^[a-z_0-9]+$/i',$order) && preg_match('/^(asc|desc)*$/i',$sort))
 				{
@@ -81,55 +85,37 @@
 
 		function urltoid($url)
 		{
-			$this->db->select($this->sites_table,'site_id',array(
+			return $this->db->select($this->sites_table,'site_id',array(
 					'site_url' => $url,
-				),__LINE__,__FILE__);
-
-			return $this->db->next_record() ? $this->db->f('site_id') : False;
+				),__LINE__,__FILE__)->fetchColumn();
 		}
 
-		function read($site_id)
+		function read($site_id,$only_url_dir=false)
 		{
-			$this->db->select($this->sites_table,'*',array(
+			if (($ret = $this->db->select($this->sites_table,'*',array(
 					'site_id' => $site_id,
-				),__LINE__,__FILE__);
-
-			if ($this->db->next_record())
+				),__LINE__,__FILE__)->fetch()))
 			{
-				foreach(
-					array(
-						'site_id', 'site_name', 'site_url', 'site_dir', 'themesel',
-						'site_languages', 'home_page_id', 'anonymous_user','anonymous_passwd',
-						'upload_dir','upload_url'
-					) as $col
-				)
+				// if we run inside sitemgr, use the script dir as site-dir
+				// fixes problems if sitemgr-site directory got moved
+				if (isset($GLOBALS['site_id']) && file_exists(dirname($_SERVER['SCRIPT_FILENAME']).'/config.inc.php'))
 				{
-					$site[$col] = $this->db->f($col);
+					$ret['site_dir'] = dirname($_SERVER['SCRIPT_FILENAME']);
 				}
-				return $site;
+				elseif($ret['site_dir'] = 'sitemgr'.SEP.'sitemgr-site')
+				{
+					$ret['site_dir'] = EGW_SERVER_ROOT.SEP.$ret['site_dir'];
+				}
 			}
-			return false;
+			return !$only_url_dir ? $ret : array(
+				'site_url' => $ret['site_url'],
+				'site_dir' => $ret['site_dir'],
+			);
 		}
 
 		function read2($site_id)
 		{
-			$this->db->select($this->sites_table,'site_url,site_dir',array(
-					'site_id' => $site_id,
-				),__LINE__,__FILE__);
-
-			if ($this->db->next_record())
-			{
-				foreach(
-					array(
-						'site_url', 'site_dir'
-					) as $col
-				)
-				{
-					$site[$col] = $this->db->f($col);
-				}
-				return $site;
-			}
-			return false;
+			return $this->read($site_id,true);
 		}
 
 		function add($site)
