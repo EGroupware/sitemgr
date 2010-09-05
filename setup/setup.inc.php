@@ -11,7 +11,7 @@
 
 $setup_info['sitemgr']['name']      = 'sitemgr';
 $setup_info['sitemgr']['title']     = 'SiteMgr Web Content Management';
-$setup_info['sitemgr']['version']   = '1.6';
+$setup_info['sitemgr']['version']   = '1.8';
 $setup_info['sitemgr']['app_order'] = 14;
 $setup_info['sitemgr']['tables']    = array('egw_sitemgr_pages','egw_sitemgr_pages_lang','egw_sitemgr_categories_state','egw_sitemgr_categories_lang','egw_sitemgr_modules','egw_sitemgr_blocks','egw_sitemgr_blocks_lang','egw_sitemgr_content','egw_sitemgr_content_lang','egw_sitemgr_active_modules','egw_sitemgr_properties','egw_sitemgr_sites','egw_sitemgr_notifications','egw_sitemgr_notify_messages');
 $setup_info['sitemgr']['enable']    = 1;
@@ -56,11 +56,11 @@ $setup_info['sitemgr']['hooks'][] = 'settings';
 /* Dependencies for this app to work */
 $setup_info['sitemgr']['depends'][] = array(
 	'appname'  => 'phpgwapi',
-	'versions' => Array('1.4','1.5','1.6','1.7')
+	'versions' => Array('1.7','1.8','1.9')
 );
 $setup_info['sitemgr']['depends'][] = array(
 	'appname'  => 'etemplate',
-	'versions' => Array('1.4','1.5','1.6','1.7')
+	'versions' => Array('1.7','1.8','1.9')
 );
 
 /**
@@ -68,7 +68,7 @@ $setup_info['sitemgr']['depends'][] = array(
  */
 $setup_info['sitemgr-link']['name']      = 'sitemgr-link';
 $setup_info['sitemgr-link']['title']     = 'Website';
-$setup_info['sitemgr-link']['version']   = '1.6';
+$setup_info['sitemgr-link']['version']   = '1.8';
 $setup_info['sitemgr-link']['app_order'] = 9;
 $setup_info['sitemgr-link']['tables']    = array();
 $setup_info['sitemgr-link']['enable']    = 1;
@@ -82,9 +82,9 @@ $setup_info['sitemgr-link']['license']  = $setup_info['sitemgr']['license'];
 /* Dependencies for this app to work */
 $setup_info['sitemgr-link']['depends'][] = array(
 	'appname'  => 'phpgwapi',
-	'versions' => Array('1.5','1.6','1.7')
+	'versions' => Array('1.7','1.8','1.9')
 );
 $setup_info['sitemgr-link']['depends'][] = array(
 	'appname' => 'sitemgr',
-	'versions' => array('1.5','1.6','1.7')
+	'versions' => array('1.7','1.8','1.9')
 );

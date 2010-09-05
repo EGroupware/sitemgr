@@ -994,3 +994,9 @@ function sitemgr_upgrade1_5_002()
 {
 	return $GLOBALS['setup_info']['sitemgr']['currentver'] = '1.6';
 }
+
+
+function sitemgr_upgrade1_6()
+{
+	return $GLOBALS['setup_info']['sitemgr']['currentver'] = '1.8';
+}
