@@ -137,7 +137,14 @@
 	$GLOBALS['egw']->translation->add_app('common');	// as we run as sitemgr-site
 	$GLOBALS['egw']->translation->add_app('sitemgr');	// as we run as sitemgr-site
 
-	$templateroot = $GLOBALS['sitemgr_info']['site_dir'] . SEP . 'templates' . SEP . $GLOBALS['sitemgr_info']['themesel'];
+	if ($GLOBALS['sitemgr_info']['themesel'][0] == '/')
+	{
+		$templateroot = $GLOBALS['egw_info']['server']['files_dir'] . $GLOBALS['sitemgr_info']['themesel'];
+	}
+	else
+	{
+		$templateroot = $GLOBALS['sitemgr_info']['site_dir'] . SEP . 'templates' . SEP . $GLOBALS['sitemgr_info']['themesel'];
+	}
 
 	include_once './inc/class.Template3.inc.php';
 	if (file_exists($templateroot.'/main.tpl'))			// native sitemgr template

@@ -14,10 +14,6 @@
 
 	class Theme_BO
 	{
-		function Theme_BO()
-		{
-		}
-
 		function getAvailableThemes()
 		{
 			$templates_dir = $GLOBALS['Common_BO']->sites->current_site['site_dir'] . SEP . 'templates' . SEP;
@@ -27,7 +23,7 @@
 			{
 				while ($file = readdir($handle))
 				{
-					if (is_dir($templates_dir . $file) && $file != '..' && $file != '.' && $file != 'CVS')
+					if (is_dir($templates_dir . $file) && $file != '..' && $file != '.' && $file != 'CVS' && $file != '.svn')
 					{
 						if ($info = $this->getThemeInfos($file))
 						{

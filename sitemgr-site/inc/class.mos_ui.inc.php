@@ -143,7 +143,14 @@
 		function ui()
 		{
 			$themesel = $GLOBALS['sitemgr_info']['themesel'];
-			$this->templateroot = $GLOBALS['sitemgr_info']['site_dir'] . SEP . 'templates' . SEP . $themesel;
+			if ($themesel[0] == '/')
+			{
+				$this->templateroot = $GLOBALS['egw_info']['server']['files_dir'] . $themesel;
+			}
+			else
+			{
+				$this->templateroot = $GLOBALS['sitemgr_info']['site_dir'] . SEP . 'templates' . SEP . $themesel;
+			}
 			$this->t = new Template3($this->templateroot);
 			$this->t->transformer_root = $this->mos_compat_dir = realpath(dirname(__FILE__).'/../mos-compat');
 		}
@@ -225,4 +232,3 @@
 			echo preg_replace('@<!-- metadata.tpl starts here -->.*?<!-- metadata.tpl ends here -->@si',$objui->t->parse(),$website);
 		}
 	}
-?>
