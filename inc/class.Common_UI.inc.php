@@ -13,7 +13,13 @@
 
 	class Common_UI
 	{
-		var $t, $acl, $theme, $do_sites_exist, $menu;
+		var $t, $acl, $do_sites_exist, $menu;
+		/**
+		 * Instance of theme class
+		 * 
+		 * @var Theme_BO
+		 */
+		var $theme;
 		var $public_functions = array
 		(
 			'DisplayPrefs' => True,
@@ -181,9 +187,25 @@
 
 					$oldsitelanguages = $oldsitelanguages ? explode(',',$oldsitelanguages) : array("en");
 
-					$GLOBALS['Common_BO']->sites->saveprefs($_POST['pref']);
+					$prefs = $_POST['pref'];
+					if ($prefs['default_theme'] == 'custom')
+					{
+						$themedir = $GLOBALS['egw_info']['server']['files_dir'].'/'.$prefs['themedir'];
+						if (empty($prefs['themedir']) || !file_exists($themedir) || !is_dir($themedir))
+						{
+							$error = lang('Custom template directory does NOT exist or is NOT accessible by webserver!');
+						}
+						$prefs['themesel'] = '/'.$prefs['themedir'];
+					}
+					else
+					{
+						$prefs['themesel'] = $prefs['default_theme'];
+					}
+					unset($prefs['default_theme']);
+					unset($prefs['themedir']);
+					if (!$error) $GLOBALS['Common_BO']->sites->saveprefs($prefs);
 
-					echo '<p><b>' . lang('Changes Saved.') . '</b></p>';
+					echo '<p><b>' . ($error ? '<font color="red">'.$error.'</font>' : lang('Changes Saved.')) . '</b></p>';
 				}
 
 				foreach ($GLOBALS['Common_BO']->sites->current_site['sitelanguages'] as $lang)
@@ -208,6 +230,7 @@
 					'options'=>$this->pages_bo->getPageOptionList()
 				);
 				$theme = $GLOBALS['Common_BO']->sites->current_site['default_theme'];
+				if ($theme[0] == '/') $GLOBALS['Common_BO']->sites->current_site['default_theme'] = 'custom';
 				$theme_info = $GLOBALS['egw']->link('/sitemgr/theme_info.php');
 				$theme_info .= (strpos($theme_info,'?') !== false ? '&' : '?').'theme=';
 				$preferences['default_theme'] = array(
@@ -216,12 +239,28 @@
 						lang('<b>Want more templates?</b><br />Just download one from the template gallery at %1www.eGroupWare.org%2 or use a %3Mambo Open Source%4 Version 4.5 compatible template eg. from %5. Unpack the downloaded template in your templates directory (%6).',
 							'<a href="http://www.eGroupWare.org/sitemgr" target="_blank">','</a>',
 							'<a href="http://www.mamboserver.com" target="_blank">','</a>',
-							'<a href="http://www.mamboserver.com/component/weblinks/MOS_Templates/" target="_blank">www.mamboserver.com</a>',
+							'<a href="http://templates.mamboserver.com/" target="_blank">www.mamboserver.com</a>',
 							$GLOBALS['Common_BO']->sites->current_site['site_dir'] . SEP . 'templates'),
 					'input'=>'option',
-					'options'=>$this->theme->getAvailableThemes(),
-					'extra'=> 'onchange="frames.TemplateInfo.location=\''.$theme_info.'\'+this.value"',
-					'below' => '<iframe name="TemplateInfo" width="100%" height="180" src="'.$theme_info.($theme ? $theme : 'idots').'" frameborder="0" scrolling="auto"></iframe>',
+					'options'=>$this->theme->getAvailableThemes()+array(
+							'custom' => array(
+								'value' => 'custom',
+								'display' => lang('Custom template directory'),
+							),
+					),
+					'extra'=> 'onchange="'.
+						" document.getElementById('themedir').style.display=this.value=='custom'?'block':'none';".
+						" document.getElementById('TemplateInfoIframe').style.display=this.value!='custom'?'block':'none';".
+						" if(this.value!='custom')frames.TemplateInfo.location='$theme_info'+this.value;".'"',
+					'below' => '<iframe name="TemplateInfo" id="TemplateInfoIframe" style="display:'.
+						($theme[0]=='/'?'none':'block').'" width="100%" height="180" src="'.
+						$theme_info.($theme ? $theme : 'idots').'" frameborder="0" scrolling="auto"></iframe>'.
+						'<div id="themedir"'.($theme[0] != '/' ? ' style="display: none"' : '').'>'.
+						'<p>'.lang("Template directory is relative to EGroupware's files directory. You have to map that direcotory with an alias, so it is accessible like any stock template!")."</p>\n".
+						htmlspecialchars($GLOBALS['egw_info']['server']['files_dir']).'/'.
+						'<input name="pref[themedir]" value="'.($theme[0] == '/' ? htmlspecialchars(substr($theme,1)) : '').'" maxlength="55" size="55" />'.
+						($error ? '<br /><font color="red">'.$error.'</font>' : '').
+						'</div>',
 					'default'=>'idots'
 				);
 				$preferences['upload_dir'] = array(
@@ -319,7 +358,7 @@
 			}
 
 			return '<input type="text" size="'.$size.
-				'" name="pref['.$name.']" value="'.$val.'">';
+				'" name="pref['.$name.']" value="'.htmlspecialchars($val).'">';
 		}
 
 		function inputtextarea($name,$cols=80,$rows=5,$default='')

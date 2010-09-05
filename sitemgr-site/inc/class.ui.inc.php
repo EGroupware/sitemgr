@@ -13,13 +13,22 @@
 
 	class ui
 	{
+		/**
+		 * @var Template3
+		 */
 		var $t;
-		
 
 		function ui()
 		{
 			$themesel = $GLOBALS['sitemgr_info']['themesel'];
-			$templateroot = $GLOBALS['sitemgr_info']['site_dir'] . SEP . 'templates' . SEP . $themesel;
+			if ($themesel[0] == '/')
+			{
+				$templateroot = $GLOBALS['egw_info']['server']['files_dir'] . $themesel;
+			}
+			else
+			{
+				$templateroot = $GLOBALS['sitemgr_info']['site_dir'] . SEP . 'templates' . SEP . $themesel;
+			}
 			$this->t = new Template3($templateroot);
 		}
 
@@ -66,6 +75,4 @@
 
 			echo $this->t->parse();
 		}
-
 	}
-?>
