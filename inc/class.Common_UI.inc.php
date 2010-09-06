@@ -270,11 +270,17 @@
 						'</div>',
 					'default'=>'idots'
 				);
-				$preferences['upload_dir'] = array(
-					'title'=>lang('Image directory relative to document root (use / !), example:').' /images',
-					'note'=> lang('An existing AND by the webserver readable directory enables the image browser and upload.').'<br />'.
-						lang('Upload requires the directory to be writable by the webserver!').
-						$this->check_upload_dir($GLOBALS['Common_BO']->sites->current_site['upload_dir']),
+				$preferences['upload_dir'] = array(                                                                                                           
+					'title' => lang('Startdirectory in VFS for image uploads'),                                            
+					'note'  => lang("This directory is in EGroupware's virtual filesystem, NOT in the filesystem of the webserver!").'<br />'.
+						lang('The given directory should be readable by the anonymous user for a regular public website!'),
+				);
+				$preferences['htaccess_rewrite'] = array(
+					'title' => lang('Generate search engine friendly URLs'),
+					'note'  => lang('Generates "%1" instead of "%2" URLs.','/name','/index.php?page_name=name').'<br />'.
+						'<b>'.lang('You have to enable URL rewriting on the webserver!').'</b><br />'.
+						lang('Eg. be renaming %1 to %2 in the %3 directory for an Apache.','htacces','.htaccess','sitemgr-site'),
+					'input' => 'checkbox',
 				);
 				$preferences['site_languages'] = array(
 					'title'=>lang('Languages the site user can choose from'),
@@ -334,22 +340,6 @@
 				echo lang("You must be an administrator to setup the Site Manager.") . "<br><br>";
 			}
 			$this->DisplayFooter();
-		}
-
-		function check_upload_dir($dir)
-		{
-			if ($dir)
-			{
-				if (!is_dir($_SERVER['DOCUMENT_ROOT'].$dir) || !file_exists($_SERVER['DOCUMENT_ROOT'].$dir.'/.'))
-				{
-					$msg = lang('Directory does not exist, is not readable by the webserver or is not relative to the document root!');
-				}
-				elseif(!is_writable($_SERVER['DOCUMENT_ROOT'].$dir))
-				{
-					$msg = lang('Directory is NOT writable by the webserver --> disabling upload');
-				}
-			}
-			return $msg ? '<br /><font color="red">'.$msg.'</font>'  : '';
 		}
 
 		function inputText($name='',$size=40,$default='')
