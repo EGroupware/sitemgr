@@ -131,7 +131,11 @@
 		$GLOBALS['egw']->preferences->change('sitemgr','currentsite', $Common_BO->sites->urltoid($site_url));
 		$GLOBALS['egw']->preferences->save_repository(True);
 	}
-	$sitemgr_info = array_merge($sitemgr_info,$Common_BO->sites->current_site);
+	$sitemgr_info = $sitemgr_info + $Common_BO->sites->current_site;
+	if ($Common_BO->sites->current_site['htaccess_rewrite'])
+	{
+		$sitemgr_info['htaccess_rewrite'] = $Common_BO->sites->current_site['htaccess_rewrite'];
+	}
 	$sitemgr_info['sitelanguages'] = explode(',',$sitemgr_info['site_languages']);
 	$objbo->setsitemgrPreferredLanguage();
 	$GLOBALS['egw']->translation->add_app('common');	// as we run as sitemgr-site

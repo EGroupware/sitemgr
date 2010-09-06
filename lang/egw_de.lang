@@ -123,6 +123,8 @@ currency code of the value specified in amount (eg. usd, eur)	sitemgr	de	Währun
 current section	sitemgr	de	Gegenwärtiger Abschnitt
 custom	sitemgr	de	Benutzerdefiniert
 custom etemplate for the contactform	sitemgr	de	Angepasstes eTemplate für das Kontaktformular
+custom template directory	sitemgr	de	Benutzerdefiniertes Template Verzeichnis
+custom template directory does not exist or is not accessible by webserver!	sitemgr	de	Benutzerdefiniertes Template-Verzeichnis existiert NICHT oder ist für Webserver NICHT zugänglich!
 default	sitemgr	de	Standard
 default home page id number	sitemgr	de	Standard Home Page ID Nummer
 define websites	common	de	Websites definieren
@@ -137,7 +139,6 @@ deleting all data for %1	sitemgr	de	Alle Daten für %1 werden gelöscht
 department	sitemgr	de	Abteilung
 descending	sitemgr	de	Absteigend
 details for language %1 (%2)	sitemgr	de	Details für die Sprache %1 (%2)
-directory is not writable by the webserver --> disabling upload	sitemgr	de	Verzeichnis ist NICHT vom Webserver beschreibbar --> schalte Upload aus
 discussions	sitemgr	de	Diskussionen
 display contact	sitemgr	de	Konakte anzeigen
 display link to autoregistration below login form?	sitemgr	de	Link auf Autoregistrierung unterhalb des Login anzeigen?
@@ -168,6 +169,7 @@ edit site	sitemgr	de	Website bearbeiten
 edit site header and footer	common	de	Seiten Kopf- und Fusszeile editieren
 edit this block	sitemgr	de	Diesen Block bearbeiten
 edit website	sitemgr	de	Website bearbeiten
+eg. be renaming %1 to %2 in the %3 directory for an apache.	sitemgr	de	Zum Beispiel durch Umbennennen von %1 nach %2 im %3 Verzeichnis für den Apache.
 egw users	sitemgr	de	eGroupWare Benutzer
 element successfully deleted.	sitemgr	de	Element erfolgreich gelöscht.
 email address	sitemgr	de	EMailadresse
@@ -213,6 +215,8 @@ galerie	sitemgr	de	Galerie
 gallery plus chooser	sitemgr	de	Galerie plus Auswahl
 gallery plus chooser and download	sitemgr	de	Galerie plus Auswahl und Download
 gallery plus download	sitemgr	de	Galerie plus Download
+generate search engine friendly urls	sitemgr	de	Erzeuge suchmaschinen-freundliche URLs
+generates "%1" instead of "%2" urls.	sitemgr	de	Erzeugt "%1" statt "%2" URLs.
 go	sitemgr	de	Los
 go back to page manager	sitemgr	de	Zurück zum Seiten Manager
 go back to the category manager.	sitemgr	de	Zurück zum Kategorie Manager gehen
@@ -443,6 +447,7 @@ size	sitemgr	de	Größe
 sorry, no content found for you search criteria	sitemgr	de	Ihre Suche ergab keine Treffer
 sort files by	sitemgr	de	Sortiere Dateien nach
 sort order	sitemgr	de	Sortierreihenfolge
+startdirectory in vfs for image uploads	sitemgr	de	Anfangsverzeichnis im VFS für Bilder Uploads
 state	sitemgr	de	Zustand
 string to return (default api version)	sitemgr	de	Zeichenkette zum zurückgeben (Standart ist die API Version)
 strip html from block content?	sitemgr	de	Entferne HTML aus dem Block Content
@@ -458,6 +463,7 @@ suppress the current category	sitemgr	de	Aktuelle Kategorie unterdrücken
 suppress the current page	sitemgr	de	Aktuelle Seite unterdrücken
 table of contents	sitemgr	de	Themengebiete
 template based navigation module	sitemgr	de	Template basierende Navigation
+template directory is relative to egroupware's files directory. you have to map that direcotory with an alias, so it is accessible like any stock template!	sitemgr	de	Das Template Verzeichnis ist relativ zu EGroupware's Datei Verzeichnis. Sie müssen dieses Verzeichnis mit einem "Alias" mappen, so das es wie die regulären Template Verzeichnisse erreichbar ist!
 template select	sitemgr	de	Designvorlage auswählen
 text allignment	sitemgr	de	Ausrichtung des Textes
 text of page links	sitemgr	de	Text der Verweise auf Seiten
@@ -469,6 +475,7 @@ the config.inc.php file needs to be edited to point to the egroupware directory.
 the file to be downloaded	sitemgr	de	Die Datei die heruntergeladen werden soll
 the filesystem path to your sitemgr-site directory '%1' is probably wrong. go to sitemgr --> define websites and edit/fix the concerned site.	sitemgr	de	Der Dateisystempfad zu Ihrem sitemgr-site Verzeichnis '%1' ist vermutlich falsch. Gehen Sie zu SiteMgr --> Webseiten definieren und bearbeiten/fixen sie die entsprechende Website.
 the first directory to think about is sitemgr-link.  if you move this to the parent directory of sitemgr (your egroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  if you don't want this icon, there's no reason to ever bother with the directory.	sitemgr	de	Das erste Verzeichnis über welches Sie sich Gedanken machen sollten ist sitemgr-link. Wenn Sie dieses Verzeichnis in das Root Verzeichnis Ihrer eGroupWare installation verschieben, können Sie Setup benutzen um diese Applikation zu installieren. Durch Rechtezuweisung für sitemgr-link erscheint das sitemgr-link Icon in der Navigationsleiste des Beutzers. Dieser kann dann direkt auf die öffentlich zugängliche sitemgr installation zugreifen. Wenn Sie dieses Icon nicht in der Navigationsleite haben möchten, besteht kein Grund dieses in das Root Verzeichnis von eGroupWare zu verschieben.
+the given directory should be readable by the anonymous user for a regular public website!	sitemgr	de	Das angegebenen Verzeichnis sollte vom anonymen Benutzer lesbar sein für eine reguläre öffentliche Webseite!
 the messages for changes in this language will use the default text, if available.	sitemgr	de	Die Nachricht über Änderungen in dieser Sprache wird den Vorgabetext verwenden, wenn verfügbar.
 the name field cannot contain punctuation or spaces (field modified).	sitemgr	de	Das Feld Name darf keine Punkte oder Leerzeichen enthalten (field modified).
 the page name must be unique.	sitemgr	de	Der Seiten Name muss einmalig sein.
@@ -502,6 +509,7 @@ there was an error writing to the database.	sitemgr	de	Beim schreiben in die Dat
 this block displays a javascript based tree menu	sitemgr	de	Diese Block zeigt eine Javascript basierende Baumansicht
 this block displays the current section's table of contents	sitemgr	de	Dieser Block zeigt das Inhaltsverzeichnis der aktuellen Kategorie an
 this category has no pages.	sitemgr	de	Diese Kategorie hat keine Seiten.
+this directory is in egroupware's virtual filesystem, not in the filesystem of the webserver!	sitemgr	de	Dieses Verezeichnis ist in EGroupware's virtuallem Filesystem, nicht im Filesystem des Webservers!
 this is a simple sample module	sitemgr	de	Dies ist ein einfaches Beispiel Modul
 this is only used as an internal name for the website.	sitemgr	de	Dies wird nur als interner Name der Website verwendet.
 this is used chiefly for meta data and the title bar. if you change the site languages below you have to save before being able to set this preference for a new language.	sitemgr	de	Dieser Eintrag wird hauptsächlich für die META-Daten und den Seiten Titel benutzt. Wenn Sie weiter unten die Seitensprache ändern, müssen Sie zuerst speichern bevor Sie diese Einstellungen für eine andere Sprache eintragen können.
@@ -595,6 +603,7 @@ you don't have permission to write in the category	sitemgr	de	Sie haben keine Re
 you don't have permission to write to that category.	sitemgr	de	Sie haben nicht die Rechte in diese Kategorie zu schreiben.
 you failed to fill in one or more required fields.	sitemgr	de	Sie haben eines oder mehrere benötigte Felder nicht ausgefüllt.
 you have no rights to view wiki content or the wiki is not installed at all !!!	sitemgr	de	Sie haben keine Berechtigung Wiki Inhalte zu betrachten oder das Wiki ist überhaupt nicht installiert !!!
+you have to enable url rewriting on the webserver!	sitemgr	de	Sie müssen das Umschreiben der URLs auf dem Webserver einschalten!
 you may have deinstalled the used template '%1'. reinstall it or go to sitemgr --> configure website and select an other one.	sitemgr	de	Sie haben eventuell die benützte Designvorlage '%1' entfernt. Installieren Sie sie wieder oder gehen Sie zu SiteMgr --> Website konfigurieren und wählen Sie eine andere aus.
 you must be an admin to edit categories.	sitemgr	de	Sie benötigen Administrator Rechte zum Editieren der Kategorien.
 you must be an admin to edit the site header and footer.	sitemgr	de	Sie müssen Admin Rechte  haben zum editieren der Seiten Kopf oder Fusszeile

@@ -123,6 +123,8 @@ currency code of the value specified in amount (eg. usd, eur)	sitemgr	en	Currenc
 current section	sitemgr	en	Current Section
 custom	sitemgr	en	custom
 custom etemplate for the contactform	sitemgr	en	Custom eTemplate for the contactform
+custom template directory	sitemgr	en	Custom template directory
+custom template directory does not exist or is not accessible by webserver!	sitemgr	en	Custom template directory does NOT exist or is NOT accessible by webserver!
 default	sitemgr	en	Default
 default home page id number	sitemgr	en	Default home page ID number
 define websites	common	en	Define websites
@@ -137,7 +139,6 @@ deleting all data for %1	sitemgr	en	Deleting all data for %1
 department	sitemgr	en	Department
 descending	sitemgr	en	descending
 details for language %1 (%2)	sitemgr	en	Details for language %1 (%2)
-directory is not writable by the webserver --> disabling upload	sitemgr	en	Directory is NOT writable by the webserver --> disabling upload
 discussions	sitemgr	en	Discussions
 display contact	sitemgr	en	Display Contact
 display link to autoregistration below login form?	sitemgr	en	Display link to autoregistration below login form?
@@ -168,6 +169,7 @@ edit site	sitemgr	en	Edit Site
 edit site header and footer	common	en	Edit Site Header and Footer
 edit this block	sitemgr	en	Edit this block
 edit website	sitemgr	en	Edit Website
+eg. be renaming %1 to %2 in the %3 directory for an apache.	sitemgr	en	Eg. be renaming %1 to %2 in the %3 directory for an Apache.
 egw users	sitemgr	en	Egw users
 element successfully deleted.	sitemgr	en	Element successfully deleted.
 email address	sitemgr	en	Email address
@@ -213,6 +215,8 @@ galerie	sitemgr	en	Galerie
 gallery plus chooser	sitemgr	en	Gallery plus chooser
 gallery plus chooser and download	sitemgr	en	Gallery plus chooser and download
 gallery plus download	sitemgr	en	Gallery plus download
+generate search engine friendly urls	sitemgr	en	Generate search engine friendly URLs
+generates "%1" instead of "%2" urls.	sitemgr	en	Generates "%1" instead of "%2" URLs.
 go	sitemgr	en	Go
 go back to page manager	sitemgr	en	Go back to Page Manager
 go back to the category manager.	sitemgr	en	Go back to the category manager.
@@ -443,6 +447,7 @@ size	sitemgr	en	Size
 sorry, no content found for you search criteria	sitemgr	en	Sorry, no content found for you search criteria
 sort files by	sitemgr	en	Sort files by
 sort order	sitemgr	en	Sort Order
+startdirectory in vfs for image uploads	sitemgr	en	Startdirectory in VFS for image uploads
 state	sitemgr	en	State
 string to return (default api version)	sitemgr	en	String to return (default API version)
 strip html from block content?	sitemgr	en	Strip HTML from block content?
@@ -458,6 +463,7 @@ suppress the current category	sitemgr	en	Suppress the current category
 suppress the current page	sitemgr	en	Suppress the current page
 table of contents	sitemgr	en	Table of Contents
 template based navigation module	sitemgr	en	Template based navigation module
+template directory is relative to egroupware's files directory. you have to map that direcotory with an alias, so it is accessible like any stock template!	sitemgr	en	Template directory is relative to EGroupware's files directory. You have to map that direcotory with an alias, so it is accessible like any stock template!
 template select	sitemgr	en	Template select
 text allignment	sitemgr	en	Text allignment
 text of page links	sitemgr	en	Text of page links
@@ -469,6 +475,7 @@ the config.inc.php file needs to be edited to point to the egroupware directory.
 the file to be downloaded	sitemgr	en	The file to be downloaded
 the filesystem path to your sitemgr-site directory '%1' is probably wrong. go to sitemgr --> define websites and edit/fix the concerned site.	sitemgr	en	The filesystem path to your sitemgr-site directory '%1' is probably wrong. Go to SiteMgr --> Define Websites and edit/fix the concerned Site.
 the first directory to think about is sitemgr-link.  if you move this to the parent directory of sitemgr (your egroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  if you don't want this icon, there's no reason to ever bother with the directory.	sitemgr	en	The first directory to think about is sitemgr-link.  If you move this to the parent directory of sitemgr (your egroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  If you don't want this icon, there's no reason to ever bother with the directory.
+the given directory should be readable by the anonymous user for a regular public website!	sitemgr	en	The given directory should be readable by the anonymous user for a regular public website!
 the messages for changes in this language will use the default text, if available.	sitemgr	en	The messages for changes in this language will use the default text, if available.
 the name field cannot contain punctuation or spaces (field modified).	sitemgr	en	The Name field cannot contain punctuation or spaces (field modified).
 the page name must be unique.	sitemgr	en	The page name must be unique.
@@ -502,6 +509,7 @@ there was an error writing to the database.	sitemgr	en	There was an error writin
 this block displays a javascript based tree menu	sitemgr	en	This block displays a javascript based tree menu
 this block displays the current section's table of contents	sitemgr	en	This block displays the current section's table of contents
 this category has no pages.	sitemgr	en	This category has no pages.
+this directory is in egroupware's virtual filesystem, not in the filesystem of the webserver!	sitemgr	en	This directory is in EGroupware's virtual filesystem, NOT in the filesystem of the webserver!
 this is a simple sample module	sitemgr	en	This is a simple sample module
 this is only used as an internal name for the website.	sitemgr	en	This is only used as an internal name for the website.
 this is used chiefly for meta data and the title bar. if you change the site languages below you have to save before being able to set this preference for a new language.	sitemgr	en	This is used chiefly for meta data and the title bar. If you change the site languages below you have to save before being able to set this preference for a new language.
@@ -595,6 +603,7 @@ you don't have permission to write in the category	sitemgr	en	You don't have per
 you don't have permission to write to that category.	sitemgr	en	You don't have permission to write to that category.
 you failed to fill in one or more required fields.	sitemgr	en	You failed to fill in one or more required fields.
 you have no rights to view wiki content or the wiki is not installed at all !!!	sitemgr	en	You have no rights to view wiki content or the wiki is not installed at all !!!
+you have to enable url rewriting on the webserver!	sitemgr	en	You have to enable URL rewriting on the webserver!
 you may have deinstalled the used template '%1'. reinstall it or go to sitemgr --> configure website and select an other one.	sitemgr	en	You may have deinstalled the used template '%1'. Reinstall it or go to SiteMgr --> Configure Website and select an other one.
 you must be an admin to edit categories.	sitemgr	en	You must be an admin to edit categories.
 you must be an admin to edit the site header and footer.	sitemgr	en	You must be an admin to edit the site header and footer.

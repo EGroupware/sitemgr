@@ -1000,3 +1000,34 @@ function sitemgr_upgrade1_6()
 {
 	return $GLOBALS['setup_info']['sitemgr']['currentver'] = '1.8';
 }
+
+function sitemgr_upgrade1_8()
+{
+	$GLOBALS['egw_setup']->oProc->DropColumn('egw_sitemgr_sites',array(
+		'fd' => array(
+			'site_id' => array('type' => 'int','precision' => '4','nullable' => False),
+			'site_name' => array('type' => 'varchar','precision' => '255'),
+			'site_url' => array('type' => 'varchar','precision' => '255'),
+			'site_dir' => array('type' => 'varchar','precision' => '255'),
+			'themesel' => array('type' => 'varchar','precision' => '50'),
+			'site_languages' => array('type' => 'varchar','precision' => '50'),
+			'home_page_id' => array('type' => 'int','precision' => '4'),
+			'anonymous_user' => array('type' => 'varchar','precision' => '50'),
+			'anonymous_passwd' => array('type' => 'varchar','precision' => '50')
+		),
+		'pk' => array('site_id'),
+		'fk' => array(),
+		'ix' => array('site_url'),
+		'uc' => array()
+	),'upload_url');
+	$GLOBALS['egw_setup']->oProc->AlterColumn('egw_sitemgr_sites','themesel',array(
+		'type' => 'varchar',
+		'precision' => '255'
+	));
+	$GLOBALS['egw_setup']->oProc->AddColumn('egw_sitemgr_sites','htaccess_rewrite',array(
+		'type' => 'bool'
+	));
+
+	return $GLOBALS['setup_info']['sitemgr']['currentver'] = '1.9.001';
+}
+
