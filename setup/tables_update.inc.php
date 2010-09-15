@@ -1000,3 +1000,37 @@ function sitemgr_upgrade1_6()
 {
 	return $GLOBALS['setup_info']['sitemgr']['currentver'] = '1.8';
 }
+
+/**
+ * Downgrade from Trunk
+ * 
+ * @return string
+ */
+function sitemgr_upgrade1_9_001()
+{
+	$GLOBALS['egw_setup']->oProc->AddColumn('egw_sitemgr_sites','upload_url',array(
+		'type' => 'varchar',
+		'precision' => '255',
+	));
+	$GLOBALS['egw_setup']->oProc->DropColumn('egw_sitemgr_sites',array(
+		'fd' => array(
+			'site_id' => array('type' => 'int','precision' => '4','nullable' => False),
+			'site_name' => array('type' => 'varchar','precision' => '255'),
+			'site_url' => array('type' => 'varchar','precision' => '255'),
+			'site_dir' => array('type' => 'varchar','precision' => '255'),
+			'themesel' => array('type' => 'varchar','precision' => '50'),
+			'site_languages' => array('type' => 'varchar','precision' => '50'),
+			'home_page_id' => array('type' => 'int','precision' => '4'),
+			'anonymous_user' => array('type' => 'varchar','precision' => '50'),
+			'anonymous_passwd' => array('type' => 'varchar','precision' => '50'),
+			'upload_dir' => array('type' => 'varchar','precision' => '255'),
+			'upload_url' => array('type' => 'varchar','precision' => '255')
+		),
+		'pk' => array('site_id'),
+		'fk' => array(),
+		'ix' => array('site_url'),
+		'uc' => array()
+	),'htaccess_rewrite');
+
+	return $GLOBALS['setup_info']['sitemgr']['currentver'] = '1.8';
+}
