@@ -59,7 +59,6 @@
 			}
 			$site_id = $GLOBALS['egw']->db->f('site_id');
 				
-			$GLOBALS['egw']->session->appsession('referer', 'login', $_SERVER['HTTP_REFERER']);
 			//echo "<p>sitemgr_get_site('$site_url') site_id=$site_id, anon_account=".print_r($anon_account,true)."</p>\n";
 			return true;
 		}
