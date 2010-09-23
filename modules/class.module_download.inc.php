@@ -151,9 +151,9 @@ class module_download extends Module
 				{
 					$out .= '<tr>
 							<td>..</td>
-							<td><a href="'.$this->link(array ('subdir' => strrchr($arguments['subdir'], '/') ?
+							<td><a href="'.htmlspecialchars($this->link(array ('subdir' => strrchr($arguments['subdir'], '/') ?
 								substr($arguments['subdir'], 0, strlen($arguments['subdir']) - strlen(strrchr($arguments['subdir'], '/'))) :
-								 false)).'">'.lang('parent directory').'</a>
+								 false))).'">'.lang('parent directory').'</a>
 							</td><!--td></td--><td></td><td></td><td></td>
 						</tr>';
 				}
@@ -169,8 +169,8 @@ class module_download extends Module
 						{
 							$out .= '<tr>
 									<td>'.egw_vfs::mime_icon($file['mime'],false).'</td>
-									<td><a href="'.$this->link(array ('subdir' => $arguments['subdir'] ?
-										$arguments['subdir'].'/'.$file['name'] : $file['name'])).'">'.$file['name'].'</a>
+									<td><a href="'.htmlspecialchars($this->link(array ('subdir' => $arguments['subdir'] ?
+										$arguments['subdir'].'/'.$file['name'] : $file['name']))).'">'.$file['name'].'</a>
 									</td>
 									<!--td>'.$file['comment'].'</td-->
 									<td align="right">'./*egw_vfs::hsize($file['size']).*/'</td>
@@ -184,10 +184,11 @@ class module_download extends Module
 
 				foreach ($ls_dir as $num => $file)
 				{
-					$link = $GLOBALS['egw']->link(egw_vfs::download_url($arguments['path'].'/'.$file['name'],$arguments['op'] == 2));
+					$link = egw_vfs::download_url($arguments['path'].'/'.$file['name'],$arguments['op'] == 2);
+					if ($link[0] == '/') $link = egw::link($link);
 					$out .= '<tr>
 							<td>'.egw_vfs::mime_icon($file['mime'],false).'</td>
-							<td><a href="'.$link.'">'.$file['name'].'</a></td>
+							<td><a href="'.htmlspecialchars($link).'">'.$file['name'].'</a></td>
 							<!--td>'.$file['comment'].'</td-->
 							<td align="right">'.egw_vfs::hsize($file['size']).'</td>
 							<td>'. date($dateformat,$file['mtime'] ? $file['mtime'] : $file['ctime']).'</td>
@@ -210,8 +211,9 @@ class module_download extends Module
 
 			case 'file' :
 			default :
-				$link = $GLOBALS['egw']->link(egw_vfs::download_url($arguments['path'].'/'.$arguments['file'],$arguments['op'] == 2));
-				return $arguments['text'] ? ('<a href="'.$link.'">'.$arguments['text'].'</a>') : $link;
+				$link = egw_vfs::download_url($arguments['path'].'/'.$arguments['file'],$arguments['op'] == 2);
+				if ($link[0] == '/') $link = egw::link($link);
+				return $arguments['text'] ? ('<a href="'.htmlspecialchars($link).'">'.$arguments['text'].'</a>') : $link;
 		}
 	}
 }
