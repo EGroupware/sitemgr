@@ -61,6 +61,10 @@ class module_download extends Module
 				'type' => 'checkbox',
 				'label' => lang('Show a file upload (if user has write rights to current directory)'),
 			),
+			'showcomments' => array (
+				'type' => 'checkbox',
+				'label' => lang('Show comments?'),
+			),
 /*			disabled, because currently not working
 			'op' => array (
 				'type' => 'select',
@@ -140,9 +144,9 @@ class module_download extends Module
 						<tr>
 							<td width="1%">'./*mime png*/ ''.'</td>
 							<td>'.lang('Filename').'</td>
-							<!--td>'.lang('Comment').'</td-->
+							'.($arguments['showcomments'] ? '<td>'.lang('Comment').'</td>' : '').'
 							<td align="right">'.lang('Size').'</td>
-							<td>'.lang('Date').'</td>
+							<td align="center">'.lang('Date').'</td>
 							<td>'./*action*/ ''.'</td>
 						</tr>
 						<tr><td height="1px" colspan="6"><hr></td></tr>';
@@ -161,35 +165,45 @@ class module_download extends Module
 				$dateformat = $GLOBALS['egw_info']['user']['preferences']['common']['dateformat'].
 					($GLOBALS['egw_info']['user']['preferences']['common']['timeformat'] != 12 ? ' H:i' : 'h:ia');
 
-				foreach ($ls_dir as $num => $file)
+				if ($arguments['showcomments'])	// query properties / comments
 				{
+					$props = egw_vfs::propfind(array_keys($ls_dir));
+				}
+				foreach ($ls_dir as $path => &$file)
+				{
+					if ($props && isset($props[$path]))
+					{
+						foreach($props[$path] as $prop)
+						{
+							$file[$prop['name']] = $prop['val'];
+						}
+					}
 					if ($file['mime'] == egw_vfs::DIR_MIME_TYPE)
 					{
 						if ($arguments['format'] == 'dirnsub' && $file['name'])
 						{
 							$out .= '<tr>
 									<td>'.egw_vfs::mime_icon($file['mime'],false).'</td>
-									<td><a href="'.htmlspecialchars($this->link(array ('subdir' => $arguments['subdir'] ?
-										$arguments['subdir'].'/'.$file['name'] : $file['name']))).'">'.$file['name'].'</a>
+									<td><a href="'.htmlspecialchars($this->link(array ('subdir' => $path))).'">'.urldecode($file['name']).'</a>
 									</td>
-									<!--td>'.$file['comment'].'</td-->
+									'.($arguments['showcomments'] ? '<td>'.$file['comment'].'</td>' : '').'
 									<td align="right">'./*egw_vfs::hsize($file['size']).*/'</td>
 									<td>'. date($dateformat,$file['mtime'] ? $file['mtime'] : $file['ctime']).'</td>
 									<td></td>
 								</tr>';
 						}
-						unset ($ls_dir[$num]);
+						unset ($ls_dir[$path]);
 					}
 				}
 
-				foreach ($ls_dir as $num => $file)
+				foreach ($ls_dir as $path => &$file)
 				{
-					$link = egw_vfs::download_url($arguments['path'].'/'.$file['name'],$arguments['op'] == 2);
+					$link = egw_vfs::download_url($path,$arguments['op'] == 2);
 					if ($link[0] == '/') $link = egw::link($link);
 					$out .= '<tr>
 							<td>'.egw_vfs::mime_icon($file['mime'],false).'</td>
-							<td><a href="'.htmlspecialchars($link).'">'.$file['name'].'</a></td>
-							<!--td>'.$file['comment'].'</td-->
+							<td><a href="'.htmlspecialchars($link).'">'.urldecode($file['name']).'</a></td>
+							'.($arguments['showcomments'] ? '<td>'.$file['comment'].'</td>' : '').'
 							<td align="right">'.egw_vfs::hsize($file['size']).'</td>
 							<td>'. date($dateformat,$file['mtime'] ? $file['mtime'] : $file['ctime']).'</td>
 							<td></td>
