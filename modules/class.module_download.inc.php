@@ -105,7 +105,7 @@ class module_download extends Module
 			case 'recursive':
 				if (!egw_vfs::file_exists($arguments['path']) || !egw_vfs::is_readable($arguments['path']))
 				{
-					return '<p style="color: red;"><i>'.lang('The requested path %1 is not available.',htmlspecialchars($query['path']))."</i></p>\n";
+					return '<p style="color: red;"><i>'.lang('The requested path %1 is not available.',htmlspecialchars($arguments['path']))."</i></p>\n";
 				}
 				//$out .= '<pre>'.print_r($arguments,true)."</pre>\n";
 				if ($arguments['uploading'] && $arguments['upload'] && egw_vfs::is_writable($arguments['path']))
@@ -184,8 +184,9 @@ class module_download extends Module
 						{
 							$out .= '<tr>
 									<td>'.egw_vfs::mime_icon($file['mime'],false).'</td>
-									<td><a href="'.htmlspecialchars($this->link(array ('subdir' => $path))).'">'.urldecode($file['name']).'</a>
-									</td>
+									<td><a href="'.$this->link(array ('subdir' => $arguments['subdir'] ? 
+										$arguments['subdir'].'/'.$file['name'] : $file['name'])).'">'.
+										urldecode($file['name']).'</a></td>
 									'.($arguments['showcomments'] ? '<td>'.$file['comment'].'</td>' : '').'
 									<td align="right">'./*egw_vfs::hsize($file['size']).*/'</td>
 									<td>'. date($dateformat,$file['mtime'] ? $file['mtime'] : $file['ctime']).'</td>
