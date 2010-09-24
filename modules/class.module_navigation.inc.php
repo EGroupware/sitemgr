@@ -343,8 +343,8 @@
 				case 2 : // Index
 					$out .= "index\">\n";
 					$arguments = array_merge($arguments, array(
-						'max_cat_depth' => '2',
-						'max_pages_depth' => '2',
+						'max_cat_depth' => '999',	// *full* index is expected to be infinit
+						'max_pages_depth' => '999',
 						'showhidden' => true,
 						'suppress_parent' => true,
 						'suppress_show_all' => true,
