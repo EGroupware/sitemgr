@@ -338,6 +338,7 @@
 						'showhidden' => false,
 						'no_full_index' => true,
 						'show_subcats_above' => true,
+						'no-nav-cat-block-divs' => true,
 					));
 					break;
 				case 2 : // Index
@@ -377,7 +378,8 @@
 						'show_edit_icons' => true,
 						'show_cat_description' => true,
 						'suppress_parent' => true,
-						));
+						'no-nav-cat-block-divs' => true,
+					));
 					// Topic overview
 					if((int)$arguments['category_id'] == 0)
 					{
@@ -426,6 +428,7 @@
 						'suppress_show_all' => true,
 						'path_only' => true,
 						'no_full_index' => true,
+						'no-nav-cat-block-divs' => true,
 					));
 					break;
 
@@ -434,6 +437,9 @@
 					$out .= "class=\"alignment-". $arguments['alignment'].";";
 					$out .= "textalign-". $arguments['textalign']."\"";
 					$out .= ">\n";
+					$arguments = array_merge($arguments, array(
+						'no-nav-cat-block-divs' => true,
+					));
 					break;
 				case 10 : // tabs
 					$out .= "tabs\">\n";
@@ -481,9 +487,8 @@
 						$this->encapsulate($arguments,$catlinks,'cat',(int)$this->page->cat_id);
 					$out .= "\n<br />\n";
 				}
-
 			}
-
+			
 			if($arguments['nav_title'])
 			{
 				$out .= "\n<span class=\"nav-title\">".$arguments['nav_title']."</span>\n";
@@ -613,6 +618,16 @@
 			}
 
 			$out .= "  </div>\n<!-- navigation context ends here -->\n</div>\n";
+			
+			/* uncomment, if you want to debug/check opening and closing div-tags
+			$div_opened = count(explode('<div',$out))-1;
+			$div_closed = count(explode('</div>',$out))-1;
+			if ($div_opened != $div_closed)
+			{
+				error_log(__METHOD__."(".array2string($arguments).") unbalanced div tags: $div_opened opened != $div_closed closed");
+				return "<div style='position: absolute; background-color: white; color: black; z-index: 9999;'><p style='color: red; font-weight: bold'>unbalanced div tags: $div_opened opened != $div_closed closed<br />arguments = ".array2string($arguments)."</p>\n<pre style='border: 3px dashed red;'>".htmlspecialchars($out)."</pre></div>\n";
+			}
+			*/
 			return $out;
 		}
 
@@ -631,7 +646,9 @@
 		{
 			//error_log(__METHOD__."(...,".array2string($data).",$type,$cat_id,$depth,called from line $line)");
 			$out = '';
-			if(empty($arguments['main_cats_to_include']) && $arguments['nav_type'] != 6) {
+			// some navigation types need opening and closing tags per category, others not
+			if(!$arguments['no-nav-cat-block-divs'] && empty($arguments['main_cats_to_include']))
+			{
 				// do we have to start or finish a block?
 				if ($type == 'cat')
 				{
