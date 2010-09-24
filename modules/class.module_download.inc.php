@@ -203,7 +203,7 @@ class module_download extends Module
 					if ($link[0] == '/') $link = egw::link($link);
 					$out .= '<tr>
 							<td>'.egw_vfs::mime_icon($file['mime'],false).'</td>
-							<td><a href="'.htmlspecialchars($link).'">'.urldecode($file['name']).'</a></td>
+							<td><a href="'.htmlspecialchars($link).'" target="_blank">'.urldecode($file['name']).'</a></td>
 							'.($arguments['showcomments'] ? '<td>'.$file['comment'].'</td>' : '').'
 							<td align="right">'.egw_vfs::hsize($file['size']).'</td>
 							<td>'. date($dateformat,$file['mtime'] ? $file['mtime'] : $file['ctime']).'</td>
@@ -228,7 +228,7 @@ class module_download extends Module
 			default :
 				$link = egw_vfs::download_url($arguments['path'].'/'.$arguments['file'],$arguments['op'] == 2);
 				if ($link[0] == '/') $link = egw::link($link);
-				return $arguments['text'] ? ('<a href="'.htmlspecialchars($link).'">'.$arguments['text'].'</a>') : $link;
+				return $arguments['text'] ? ('<a href="'.htmlspecialchars($link).'" target="_blank">'.$arguments['text'].'</a>') : $link;
 		}
 	}
 }
