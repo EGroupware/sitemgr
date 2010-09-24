@@ -77,7 +77,8 @@ class module_download extends Module
 */
 		);
 		$this->post = array (
-			'subdir' => array ('type' => 'textfield'),
+			'subdir' => array('type' => 'textfield'),
+			'delete' => array('type' => 'textfield')
 		);
 		$this->get = array ('subdir','uploading');
 		$this->title = lang('File download');
@@ -107,8 +108,10 @@ class module_download extends Module
 				{
 					return '<p style="color: red;"><i>'.lang('The requested path %1 is not available.',htmlspecialchars($arguments['path']))."</i></p>\n";
 				}
+				$show_upload = $arguments['upload'] && egw_vfs::is_writable($arguments['path']);
+				
 				//$out .= '<pre>'.print_r($arguments,true)."</pre>\n";
-				if ($arguments['uploading'] && $arguments['upload'] && egw_vfs::is_writable($arguments['path']))
+				if ($arguments['uploading'] && $show_upload)
 				{
 					foreach((array)$_FILES['upload'] as $name => $data)
 					{
@@ -123,8 +126,13 @@ class module_download extends Module
 					}
 					else
 					{
-						$out .= '<p style="color: red;"><i>'.lang('Error uploading file!').'<br />'.filemanager_ui::max_upload_size_message()."</i></p>\n";
+						$out .= '<p style="color: red;"><i>'.lang('Error uploading file!').'<br />'.etemplate::max_upload_size_message()."</i></p>\n";
 					}
+				}
+				if ($show_upload && $GLOBALS['egw_info']['user']['apps']['filemanager'] && $arguments['delete'])
+				{
+					translation::add_app('filemanager');
+					$out .= '<p style="color: red;"><i>'.filemanager_ui::do_delete(array($arguments['delete']))."</i></p>\n";
 				}
 				if ($arguments['showpath'])
 				{
@@ -140,25 +148,32 @@ class module_download extends Module
 					'sort' => $sort == 'desc' ? 'DESC' : 'ASC',
 				),true);
 
+				if ($show_upload)
+				{
+					translation::add_app('filemanager');
+					$out .= '<form name="upload" action="'.$this->link(array(
+						'subdir' => $arguments['subdir'],
+					)).'" method="POST" enctype="multipart/form-data">';
+				}
 				$out .= '<table class="moduletable">
 						<tr>
 							<td width="1%">'./*mime png*/ ''.'</td>
 							<td>'.lang('Filename').'</td>
-							'.($arguments['showcomments'] ? '<td>'.lang('Comment').'</td>' : '').'
+							<td>'.($arguments['showcomments'] ? lang('Comment') : '').'</td>
 							<td align="right">'.lang('Size').'</td>
 							<td align="center">'.lang('Date').'</td>
-							<td>'./*action*/ ''.'</td>
+							<td>'.($show_upload && $GLOBALS['egw_info']['user']['apps']['filemanager'] ? lang('Action') : '').'</td>
 						</tr>
-						<tr><td height="1px" colspan="6"><hr></td></tr>';
+						<tr><td height="1px" colspan="6"><hr /></td></tr>';
 
 				if ($arguments['subdir'] && $arguments['format'] == 'dirnsub')
 				{
 					$out .= '<tr>
 							<td>..</td>
-							<td><a href="'.htmlspecialchars($this->link(array ('subdir' => strrchr($arguments['subdir'], '/') ?
+							<td colspan="5"><a href="'.htmlspecialchars($this->link(array ('subdir' => strrchr($arguments['subdir'], '/') ?
 								substr($arguments['subdir'], 0, strlen($arguments['subdir']) - strlen(strrchr($arguments['subdir'], '/'))) :
 								 false))).'">'.lang('parent directory').'</a>
-							</td><!--td></td--><td></td><td></td><td></td>
+							</td>
 						</tr>';
 				}
 
@@ -178,6 +193,19 @@ class module_download extends Module
 							$file[$prop['name']] = $prop['val'];
 						}
 					}
+					if ($show_upload && $GLOBALS['egw_info']['user']['apps']['filemanager'])
+					{
+						$file['action'] = html::submit_button('block['.$this->block->id.'][delete]',$path,
+							"return confirm('".lang('Delete this file or directory')."?')",
+							false,'title="'.lang('Delete').'"','delete');
+						$link = egw::link('/index.php',array(
+							'menuaction' => 'filemanager.filemanager_ui.file',
+							'path' => $path,
+						));
+						$file['action'] .= html::submit_button('','Edit',
+							"egw_openWindowCentered2('$link', 'fileprefs', 495, 425, 'yes'); return false;",
+							false,'title="'.lang('Edit').'"','edit');
+					}
 					if ($file['mime'] == egw_vfs::DIR_MIME_TYPE)
 					{
 						if ($arguments['format'] == 'dirnsub' && $file['name'])
@@ -187,10 +215,10 @@ class module_download extends Module
 									<td><a href="'.$this->link(array ('subdir' => $arguments['subdir'] ? 
 										$arguments['subdir'].'/'.$file['name'] : $file['name'])).'">'.
 										urldecode($file['name']).'</a></td>
-									'.($arguments['showcomments'] ? '<td>'.$file['comment'].'</td>' : '').'
+									<td>'.$file['comment'].'</td>
 									<td align="right">'./*egw_vfs::hsize($file['size']).*/'</td>
 									<td>'. date($dateformat,$file['mtime'] ? $file['mtime'] : $file['ctime']).'</td>
-									<td></td>
+									<td>'.$file['action'].'</td>
 								</tr>';
 						}
 						unset ($ls_dir[$path]);
@@ -204,10 +232,10 @@ class module_download extends Module
 					$out .= '<tr>
 							<td>'.egw_vfs::mime_icon($file['mime'],false).'</td>
 							<td><a href="'.htmlspecialchars($link).'" target="_blank">'.urldecode($file['name']).'</a></td>
-							'.($arguments['showcomments'] ? '<td>'.$file['comment'].'</td>' : '').'
+							<td>'.$file['comment'].'</td>
 							<td align="right">'.egw_vfs::hsize($file['size']).'</td>
 							<td>'. date($dateformat,$file['mtime'] ? $file['mtime'] : $file['ctime']).'</td>
-							<td></td>
+							<td>'.$file['action'].'</td>
 						</tr>';
 				}
 				$out .= '</table>';
@@ -215,11 +243,8 @@ class module_download extends Module
 				if ($arguments['upload'] && egw_vfs::is_writable($arguments['path']))
 				{
 					$out .= '<hr />';
-					$out .= '<form name="upload" action="'.$this->link(array(
-						'subdir' => $arguments['subdir'],
-						'uploading' => 1,	// mark form submit as fileupload, to be able to detect when it failed (eg. because of upload limits)
-					)).'" method="POST" enctype="multipart/form-data">';
-					$out .= html::input('upload['.$this->block->id.']','','file',' onchange="this.form.submit();"');
+					// uploading=1 --> mark form submit as fileupload, to be able to detect when it failed (eg. because of upload limits)
+					$out .= html::input('upload['.$this->block->id.']','','file',' onchange="this.form.action+=\'&block['.$this->block->id.'][uploading]=1\'; this.form.submit();"');
 					$out .= "</form>\n";
 				}
 				return $out;
