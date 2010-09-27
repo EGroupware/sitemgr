@@ -6,7 +6,7 @@
  * @package sitemgr
  * @subpackage setup
  * @author RalfBecker@outdoor-training.de
- * @copyright (c) 2004-8 by RalfBecker@outdoor-training.de
+ * @copyright (c) 2004-10 by RalfBecker@outdoor-training.de
  * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
  * @version $Id$
  */
@@ -78,11 +78,11 @@ while(($app = $dir->read()))
 		$d = dir($moddir);
 		while (($file = $d->read()))
 		{
-			if (preg_match ("/class\.module_(.*)\.inc\.php$/", $file, $module))
+			if (preg_match ('/class\.module_(.*)\.inc\.php$/', $file, $module))
 			{
 				$module = $module[1];
 
-				if (ereg('\$this->description = lang\(\'([^'."\n".']*)\'\);',implode("\n",file($moddir.'/'.$file)),$parts))
+				if (preg_match('/\$this->description = lang\(\'([^'."\n".']*)\'\);/',file_get_contents($moddir.'/'.$file),$parts))
 				{
 					$description = $GLOBALS['egw_setup']->db->db_addslashes(str_replace("\\'","'",$parts[1]));
 				}
