@@ -11,6 +11,9 @@
  * @version $Id$
  */
 
+/**
+ * Download from VFS block
+ */
 class module_download extends Module
 {
 	function module_download()
@@ -132,7 +135,7 @@ class module_download extends Module
 				if ($show_upload && $GLOBALS['egw_info']['user']['apps']['filemanager'] && $arguments['delete'])
 				{
 					translation::add_app('filemanager');
-					$out .= '<p style="color: red;"><i>'.filemanager_ui::do_delete(array($arguments['delete']))."</i></p>\n";
+					$out .= '<p style="color: red;"><i>'.filemanager_ui::do_delete(array_flip($arguments['delete']))."</i></p>\n";
 				}
 				if ($arguments['showpath'])
 				{
@@ -195,7 +198,7 @@ class module_download extends Module
 					}
 					if ($show_upload && $GLOBALS['egw_info']['user']['apps']['filemanager'])
 					{
-						$file['action'] = html::submit_button('block['.$this->block->id.'][delete]',$path,
+						$file['action'] = html::submit_button('block['.$this->block->id.'][delete]['.$path.']',lang('Delete'),
 							"return confirm('".lang('Delete this file or directory')."?')",
 							false,'title="'.lang('Delete').'"','delete');
 						$link = egw::link('/index.php',array(
