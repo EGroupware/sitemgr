@@ -55,7 +55,7 @@
 					'type'  => 'SiteMgr',
 				);
 			}
-			elseif (file_exists($dir . SEP . 'index.php'))
+			elseif (file_exists($dir . SEP . 'index.php') && file_exists($xml_details = $dir . SEP . 'templateDetails.xml'))
 			{
 				$info = array(
 					'value'=> $theme,
@@ -64,10 +64,9 @@
 			}
 			if ($info)
 			{
-				if (file_exists($xml_details = $dir . SEP . 'templateDetails.xml'))
+				if (file_exists($xml_details) && ($details = file_get_contents($xml_details)))
 				{
-					//if (ereg('<description>(.*)</description>',$info['xml']=implode("\n",file($xml_details)),$parts))
-					if (preg_match_all('/<(description|author|authorEmail|authorUrl|copyright|version|name|creationDate)>([^>]+)</',implode("\n",file($xml_details)),$matches))
+					if (preg_match_all('/<(description|author|authorEmail|authorUrl|copyright|version|name|creationDate)>([^>]+)</',$details,$matches))
 					{
 						foreach($matches[1] as $n => $name)
 						{
@@ -77,6 +76,11 @@
 						if ($info['authorUrl'] && substr($info['authorUrl'],0,4) != 'http')
 						{
 							$info['authorUrl'] = 'http://'.$info['authorUrl'];
+						}
+						// test for joomla 1.0 or 1.5
+						if (preg_match('/<install version="([0-9.]+)" type="template">/',$details,$matches))
+						{
+							$info['type'] = 'Joomla '.$matches[1];
 						}
 					}
 				}
