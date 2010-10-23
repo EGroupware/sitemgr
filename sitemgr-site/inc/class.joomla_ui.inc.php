@@ -100,10 +100,21 @@ class ui extends dummy_obj
 		// attributes used by Joomla 1.5
 		$this->template = basename($themesel);
 		$this->baseurl = $GLOBALS['sitemgr_info']['site_url'];
-		$this->params = new JParameter(file_get_contents($this->templateroot.SEP.'params.ini'));
 		$this->sitename = $this->t->get_meta('sitename').': '.$this->t->get_meta('title');
 		if (in_array($dir=lang('language_direction_rtl'),array('rtl','ltr'))) $this->direction = $dir;
 		$this->language = $this->t->get_meta('lang');
+
+		// init JParameter from EGroupware config or ini.file
+		$config = config::read('sitemgr');
+		if (isset($config['params_'.$this->template]))
+		{
+			$ini_string = $config['params_'.$this->template];
+		}
+		else
+		{
+			$ini_string = file_get_contents($this->templateroot.SEP.'params.ini');
+		}
+		$this->params = new JParameter($ini_string);
 	}
 
 	/**
@@ -401,6 +412,28 @@ class JParameter extends dummy_obj
 		}
 		return true;
 	}
+	
+	/**
+	 * Get INI string from registry
+	 * 
+	 * @param string $namespace=null default $this->_defaultNameSpace
+	 * @return string
+	 */
+	function getINI($namespace = null)
+	{
+		if (is_null($namespace)) $namespace = $this->_defaultNameSpace;
+		
+		$ini = '';
+		foreach($this->values as $key => $value)
+		{
+			list($ns,$name) = explode('.',$key,2);
+			if ($ns == $namespace)
+			{
+				$ini .= $name.'='.$value."\n";
+			}
+		}
+		return $ini;
+	}
 
 	/**
 	 * Set a value
@@ -448,23 +481,18 @@ class JParameter extends dummy_obj
 	 */
 	function toArray($namespace = null)
 	{
-/*
-		// If namespace is not set, get the default namespace
-		if ($namespace == null) {
-			$namespace = $this->_defaultNameSpace;
-		}
-
-		// Get the namespace
-		$ns = & $this->_registry[$namespace]['data'];
-*/
-		$array = array();
-/*		foreach (get_object_vars( $ns ) as $k => $v) {
-			$array[$k] = $v;
-		}*/
-
-		if ($this->debug) error_log(__METHOD__.'() return array() '.function_backtrace());
+		if (is_null($namespace)) $namespace = $this->_defaultNameSpace;
 		
-		return $array;
+		$arr = array();
+		foreach($this->values as $key => $value)
+		{
+			list($ns,$name) = explode('.',$key,2);
+			if ($ns == $namespace)
+			{
+				$arr[$name] = $value;
+			}
+		}
+		return $arr;
 	}
 }
 

@@ -13,7 +13,9 @@
 			<br />
 			<b>{lang_author}</b>: {author}, <a href="{authorUrl}" target="_blank">{authorUrl}</a><br />
 			<br />
-			<b>{lang_copyright}</b>:<br />{copyright}</p>
+			<b>{lang_copyright}</b>:<br />{copyright}<br />
+			<br />
+			<b>{lang_license}</b>: {license}</p>
 		</td>
 	</tr>
 <!-- END info_block -->

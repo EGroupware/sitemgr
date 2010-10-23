@@ -142,3 +142,8 @@ This code would produce 100% complability with old module, but looks ugly in cas
 	background-color: #ffffff; 
 }
 
+/**
+ * Joomla 1.5 template support
+ */
+table.moduletable {
+	width: 100%;

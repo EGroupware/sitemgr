@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!-- $Id$ -->
+<overlay>
+	<template id="sitemgr.templateprefs" template="" lang="" group="0" version="1.8.001">
+		<grid>
+			<columns>
+				<column/>
+			</columns>
+			<rows>
+				<row disabled="!@msg">
+					<description id="msg" class="redItalic"/>
+				</row>
+				<row>
+					<description id="name" class="templateName"/>
+				</row>
+				<row>
+					<customfields/>
+				</row>
+				<row>
+					<hbox>
+						<button label="Save" id="button[save]"/>
+						<button id="button[apply]" label="Apply"/>
+						<button id="button[cancel]" label="Cancel" onclick="window.close(); return false;"/>
+					</hbox>
+				</row>
+			</rows>
+		</grid>
+		<styles>
+			.templateName {
+   font-weight: bold;
+   font-size: 120%;
+}
+tr &gt; td {
+   white-space: nowrap;
+}
+.th {
+   font-weight: bold;
+}
+		</styles>
+	</template>
+</overlay>
