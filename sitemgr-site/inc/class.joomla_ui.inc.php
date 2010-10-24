@@ -334,6 +334,12 @@ class dummy_obj
 		return null;
 	}
 		
+	/**
+	 * Called for all static method calls, requires PHP5.3 !!!
+	 *
+	 * @param string $name
+	 * @param array $params
+	 */
 	public static function __callstatic($name,$params)
 	{
 		if (self::$debug_static) error_log(__METHOD__."('$name',".array2string($params).') '.function_backtrace());
@@ -352,11 +358,35 @@ class JFactory extends dummy_obj
 		return null;
 	}*/
 	
-	public static function getDBO()
+	/*public static function getDBO()
 	{
 		if (self::$debug_static) error_log(__METHOD__."('$name',".array2string($params).') '.function_backtrace());
 		
 		return new dummy_obj();
+	}*/
+	
+	/**
+	 * JFactory static method return only objects, requires PHP5.3 !!!
+	 *
+	 * @param string $name
+	 * @param array $params
+	 */
+	public static function __callstatic($name,$params)
+	{
+		if (self::$debug_static) error_log(__METHOD__."('$name',".array2string($params).') '.function_backtrace());
+		
+		return new dummy_obj();
+	}
+
+	private $instance;
+	
+	public static function getInstance()
+	{
+		if (is_null($instance))
+		{
+			$instance = new JURI();
+		}
+		return $instance;
 	}
 }
 
@@ -381,18 +411,11 @@ class JParameter extends dummy_obj
 	 */
 	function __construct($data, $path = '')
 	{
-		error_log(__METHOD__."('$data','$path') ".function_backtrace());
+		if ($this->debug) error_log(__METHOD__."('$data','$path') ".function_backtrace());
 
 		if (trim( $data )) {
 			$this->loadINI($data);
 		}
-/*
-		if ($path) {
-			$this->loadSetupFile($path);
-		}
-
-		$this->_raw = $data;
-		*/
 	}
 
 	/**
@@ -517,16 +540,7 @@ class JHTML extends dummy_obj
 
 class JURI extends dummy_obj
 {
-	private $instance;
-	
-	public static function getInstance()
-	{
-		if (is_null($instance))
-		{
-			$instance = new JURI();
-		}
-		return $instance;
-	}
+
 }
 
 class JText extends dummy_obj
@@ -553,4 +567,27 @@ class JConfig extends dummy_obj
 		}
 		return parent::__get($name);
 	}
+}
+
+class JMenu extends dummy_obj
+{
+	
+}
+
+class JSite extends dummy_obj
+{
+	function getMenu()
+	{
+		return new JSite();
+	}
+
+	function getItems()
+	{
+		return array();
+	}
+}
+
+class JRoute extends dummy_obj
+{
+	
 }
