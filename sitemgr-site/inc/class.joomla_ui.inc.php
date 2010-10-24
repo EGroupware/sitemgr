@@ -104,11 +104,10 @@ class ui extends dummy_obj
 		if (in_array($dir=lang('language_direction_rtl'),array('rtl','ltr'))) $this->direction = $dir;
 		$this->language = $this->t->get_meta('lang');
 
-		// init JParameter from EGroupware config or ini.file
-		$config = config::read('sitemgr');
-		if (isset($config['params_'.$this->template]))
+		// init JParameter from site or ini.file
+		if (!empty($GLOBALS['Common_BO']->sites->current_site['params_ini']))
 		{
-			$ini_string = $config['params_'.$this->template];
+			$ini_string = $GLOBALS['Common_BO']->sites->current_site['params_ini'];
 		}
 		else
 		{
@@ -201,6 +200,13 @@ class ui extends dummy_obj
 		if (file_exists($this->templateroot.'/metadata.tpl'))
 		{
 			$this->t->loadfile($this->templateroot.'/metadata.tpl');
+		}
+		
+		// inject custom CSS (incl. site logo)
+		$custom_css = $GLOBALS['Common_BO']->get_custom_css();
+		if (!empty($custom_css))
+		{
+			$website = str_replace('</head>',"\t".'<style type="text/css">'."\n".$custom_css."\n\t</style>\n</head>",$website);
 		}
 		echo preg_replace('@<!-- metadata.tpl starts here -->.*?<!-- metadata.tpl ends here -->@si',$this->t->parse(),$website);
 	}

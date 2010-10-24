@@ -14,14 +14,51 @@
  */
 class Common_UI
 {
-	var $t, $acl, $do_sites_exist, $menu;
 	/**
-	 * Instance of theme class
+	 * Instance of template class
+	 * 
+	 * @var Template
+	 */
+	public $t;
+	/**
+	 * Reference to ACL object of Common_BO
+	 * 
+	 * @var ACL_BO
+	 */
+	public $acl;
+	/**
+	 * Reference to themes object of Common_BO
 	 * 
 	 * @var Theme_BO
 	 */
-	var $theme;
-	var $public_functions = array(
+	public $theme;
+	/**
+	 * Reference to ACL pages of Common_BO
+	 * 
+	 * @var Pages_BO
+	 */
+	public $pages_bo;
+	/**
+	 * Reference to cats object of Common_BO
+	 * 
+	 * @var Categories_BO
+	 */
+	public $cat_bo;
+	/**
+	 * Reference to cats sites of Common_BO
+	 * 
+	 * @var Sites_BO
+	 */
+	public $sites;
+	
+	public $do_sites_exist, $menu;
+	
+	/**
+	 * Functions callable via menuaction $_GET parameter
+	 *
+	 * @var array name => true
+	 */
+	public $public_functions = array(
 		'DisplayPrefs' => True,
 		'DisplayMenu' => True,
 		'DisplayIFrame' => True,
@@ -31,7 +68,7 @@ class Common_UI
 	/**
 	 * Constructor
 	 */
-	function __construct()
+	public function __construct()
 	{
 		$GLOBALS['Common_BO'] = CreateObject('sitemgr.Common_BO');
 		$this->do_sites_exist = $GLOBALS['Common_BO']->sites->set_currentsite(False,'Administration');
@@ -40,6 +77,7 @@ class Common_UI
 		$this->theme = $GLOBALS['Common_BO']->theme;
 		$this->pages_bo = $GLOBALS['Common_BO']->pages;
 		$this->cat_bo = $GLOBALS['Common_BO']->cats;
+		$this->sites = $GLOBALS['Common_BO']->sites;
 	}
 	
 	/**
@@ -59,16 +97,17 @@ class Common_UI
 			}
 			else
 			{
-				if ($content['params'])
-				{
-					self::store_params_as_cf($content['params'],$content['directory']);
-					$content += self::get_params($content['value'],$content['params'],$content['directory']);
-				}
-				else
+				if (!$content['params'] || !is_array($content['params']))
 				{
 					$msg = lang('Template has no parameters!');
-					$readonlys['button[save]'] = $readonlys['button[apply]'] = true;
+					$content['tabs'] = 'css';
+					$content['params'] = array();
 				}
+				self::store_params_as_cf($content['params'],$content['directory']);
+				$content += $this->get_params($content['value'],$content['params'],$content['directory']);
+				
+				$content['custom_css_help'] = lang('Custom CSS will be included in each page as last style-sheet in the header.').'<br />'.
+					lang('You can use %1 to fetch the above defined URL of your logo.','$$logo_url$$');
 			}
 		}
 		elseif ($content['button'])
@@ -80,7 +119,7 @@ class Common_UI
 			{
 				case 'save':
 				case 'apply':
-					self::set_params($content['value'],$content);
+					$this->set_params($content['value'],$content);
 					$msg = lang('Parameters saved.');
 					break;
 			}
@@ -93,8 +132,8 @@ class Common_UI
 		$content['msg'] = $msg;
 
 		$GLOBALS['egw_info']['flags']['app_header'] = lang('Edit template preferences for %1',$content['name']);
-		unset($GLOBALS['Common_BO']);	// otherwise etemplate thinks it runs inside sitemgr!
 		$tpl = new etemplate('sitemgr.templateprefs');
+		$tpl->sitemgr = false;	// otherwise etemplate thinks it runs inside sitemgr (because of Common_BO)!
 		$tpl->exec('sitemgr.Common_UI.templatePrefs',$content,$sel_options,$readonlys,$content,2);
 	}
 	
@@ -103,8 +142,9 @@ class Common_UI
 	 *
 	 * @param string $template template-name
 	 * @param array $content param names prefixed with '#' like custom fields
+	 * @param int $site_id=null
 	 */
-	static function set_params($template,array $content)
+	public function set_params($template,array $content,$site_id=null)
 	{
 		require_once(EGW_SERVER_ROOT.'/sitemgr/sitemgr-site/inc/class.joomla_ui.inc.php');
 		$jparam = new JParameter('');
@@ -116,29 +156,40 @@ class Common_UI
 				$jparam->set(substr($name,1),$value);
 			}
 		}
-		config::save_value('params_'.$template,$jparam->getINI(),'sitemgr');
-	}
+		if (is_null($site_id)) $site_id = $this->sites->current_site['site_id'];
 
+		return $this->sites->so->update_logo_css_params($site_id,array(
+			'logo_url' => $content['logo_url'],
+			'custom_css' => $content['custom_css'] == Common_BO::CUSTOM_CSS_DEFAULT ? null : $content['custom_css'],
+			'params_ini' => $jparam->getINI(),
+		));
+	}
+	
 	/**
 	 * Read parameters from ini file and sitemgr configuration
 	 *
 	 * @param string $template template-name
 	 * @param array $params
 	 * @param string $template_dir directory of template for ini-file
+	 * @param int $site_id=null
 	 * @return array params with names prefixed with '#' like custom fields
 	 */
-	static function get_params($template,array $params,$template_dir)
+	public function get_params($template,array $params,$template_dir,$site_id=null)
 	{
-		
 		if (file_exists($ini_file=$template_dir.SEP.'params.ini'))
 		{
 			$ini_string = file_get_contents($ini_file);
 		}
-		$config = config::read('sitemgr');
-		if (isset($config['params_'.$template]))
+		if (is_null($site_id))
 		{
-			$ini_string .= $config['params_'.$template];
+			$site = $this->sites->current_site;
 		}
+		else
+		{
+			$site = $this->sites->read($site_id);
+		}
+		$ini_string .= $site['params_ini'];
+
 		require_once(EGW_SERVER_ROOT.'/sitemgr/sitemgr-site/inc/class.joomla_ui.inc.php');
 		$jparam = new JParameter($ini_string);
 		$arr = array();
@@ -153,13 +204,19 @@ class Common_UI
 				$arr['#'.$param['name']] = $param['default'];
 			}
 		}
+		
+		// query custom css and logo-url
+		$arr['custom_css'] = $GLOBALS['Common_BO']->get_custom_css(false,$arr['logo_url']);
+
 		return $arr;
 	}
 
 	/**
-	 * Store Joomla template parameters as EGroupware custom fields
+	 * Store supported Joomla template parameters as EGroupware custom fields, 
+	 * to be able to use eTemplate custom field widget to edit them
 	 *
 	 * @param array $params
+	 * @param string $template_dir
 	 */
 	static function store_params_as_cf(array $params,$template_dir)
 	{
@@ -192,7 +249,7 @@ class Common_UI
 				case 'list':
 				case 'radio':
 					$cfs[$param['name']] = array(
-						'type' => /*$param['type'] == 'radio' ? 'radio' :*/ 'select',
+						'type' => /*$param['type'] == 'radio' ? 'radio' :*/ 'select',	// radio looks ugly currently
 						'label' => $param['label'],
 						'order' => ++$order,
 						'values' => $param['option'],

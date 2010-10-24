@@ -53,6 +53,12 @@ class Theme_BO
 	 */
 	function getThemeInfos($theme)
 	{
+		static $info;	// some caching in the request
+		
+		if (is_array($info) && $info['value'] === $theme)
+		{
+			return $info;
+		}
 		//echo "<p>Theme_BO::getThemeInfos('$theme')</p>";
 		if ($theme[0] == '/')
 		{

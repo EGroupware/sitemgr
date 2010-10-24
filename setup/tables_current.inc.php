@@ -156,7 +156,10 @@ $phpgw_baseline = array(
 			'anonymous_user' => array('type' => 'varchar','precision' => '50'),
 			'anonymous_passwd' => array('type' => 'varchar','precision' => '50'),
 			'upload_dir' => array('type' => 'varchar','precision' => '255'),
-			'htaccess_rewrite' => array('type' => 'bool')
+			'htaccess_rewrite' => array('type' => 'bool'),
+			'logo_url' => array('type' => 'varchar','precision' => '255'),
+			'params_ini' => array('type' => 'text'),
+			'custom_css' => array('type' => 'text')
 		),
 		'pk' => array('site_id'),
 		'fk' => array(),
