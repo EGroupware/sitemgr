@@ -264,7 +264,9 @@ class Common_UI
 					);
 					break;
 				default:
-					throw new egw_exception_assertion_failed("Not yet implemented Joomla template parameter type '$param[type]'!");
+					//throw new egw_exception_assertion_failed("Not yet implemented Joomla template parameter type '$param[type]'!");
+					error_log("Not yet implemented Joomla template parameter type '$param[type]' --> ignored!");
+					break;
 			}
 		}
 		config::save_value('custom_fields', $cfs, 'sitemgr');
