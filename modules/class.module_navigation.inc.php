@@ -638,7 +638,7 @@
 		 * @param $data
 		 * @param $type string 'cat' or 'page'
 		 * @param $cat_id of cat itselve or of cat page belongs to.
-		 * @param $dept=1h logical deps of cat or page.
+		 * @param $depth=1 logical deps of cat or page.
 		 * @param $line='other' line number of call
 		 *
 		 */
@@ -672,8 +672,14 @@
 				}
 			}
 			$out .= "    <div class=\"nav-".$type."-entry depth-".$depth."\">\n";
-			$out .= "      <ul>\n";
-
+			if ($depth == 1 && $arguments['nav_type'] != 8)	// menu class for Joomla 1.5 (not for breadcrumb path)
+			{
+				$out .= "      <ul class=\"menu\">\n";
+			}
+			else
+			{
+				$out .= "      <ul>\n";
+			}
 			if (is_array($data))
 			foreach($data as $id => $entry)
 			{
@@ -687,8 +693,14 @@
 				{
 					$entry['link'] = "<div class=\"nav-highlight_current_page\">".$entry['link'].'</div>';
 				}
-
-				$out .= "        <li>\n";
+				if ($id == $this->page->cat_id && $type != 'page')	// active class for current cat in Joomla 1.5
+				{
+					$out .= "        <li class=\"active\">\n";
+				}
+				else
+				{
+					$out .= "        <li>\n";
+				}
 				$out .= "          ".$entry['link']."\n";
 
 				if($arguments['show_edit_icons'])

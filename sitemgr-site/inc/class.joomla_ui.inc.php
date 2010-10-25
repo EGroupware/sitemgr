@@ -114,6 +114,9 @@ class ui extends dummy_obj
 			$ini_string = file_get_contents($this->templateroot.SEP.'params.ini');
 		}
 		$this->params = new JParameter($ini_string);
+		
+		// global mainframe object used by some templates
+		$GLOBALS['mainframe'] = new dummy_obj();
 	}
 
 	/**
@@ -187,6 +190,13 @@ class ui extends dummy_obj
 		
 		ini_set('include_path',$this->mos_compat_dir.(strtoupper(substr(PHP_OS, 0, 3)) == 'WIN' ? ';' : ':').ini_get('include_path'));
 
+		// read module helpers: modChrome_* functions
+		require_once $GLOBALS['sitemgr_info']['site_dir'] . SEP . 'templates/system/html/modules.php';
+		if (file_exists($file = $this->templateroot.'/html/modules.php'))
+		{
+			require_once $file;
+		}
+
 		ob_start();
 		include($this->templateroot.'/index.php');
 		$website = ob_get_contents();
@@ -202,8 +212,16 @@ class ui extends dummy_obj
 			$this->t->loadfile($this->templateroot.'/metadata.tpl');
 		}
 		
+		$custom_css = '';
+		// replace breadcrump li bullet with arrow, as Joomla does it
+		if (file_exists($this->templateroot.'/images/arrow.png'))
+		{
+			$custom_css .= "#navigation-path-nosep ul li {
+	background: transparent url($this->baseurl/templates/$this->template/images/arrow.png) no-repeat scroll 10px 7px;	
+}\n";
+		}
 		// inject custom CSS (incl. site logo)
-		$custom_css = $GLOBALS['Common_BO']->get_custom_css();
+		$custom_css .= $GLOBALS['Common_BO']->get_custom_css();
 		if (!empty($custom_css))
 		{
 			$website = str_replace('</head>',"\t".'<style type="text/css">'."\n".$custom_css."\n\t</style>\n</head>",$website);
@@ -225,7 +243,12 @@ class ui extends dummy_obj
 			switch($type)
 			{
 				case 'modules':		// content-area $name
-					return "<!-- BEGIN: CONTENTAREA $name -->\n".$this->t->process_blocks($name)."\n<!-- END: CONTENTAREA $name -->";
+					$style = null;
+					if (preg_match('/style="([^"]+)"/',$all,$m))
+					{
+						$style = $m[1];
+					}
+					return "<!-- BEGIN: CONTENTAREA $name -->\n".$this->t->process_blocks($name,$style)."\n<!-- END: CONTENTAREA $name -->";
 					
 				case 'component':	// load the center module
 					if (!file_exists($file = $objui->templateroot.'/mainbody.tpl'))
@@ -263,16 +286,34 @@ class ui extends dummy_obj
 	 */
 	
 	/**
-	 * Count blocks in content-area
-	 * 
-	 * @param string $contentarea
-	 * @return int
+	 * Count the modules based on the given condition
+	 *
+	 * @param  string 	$condition	The condition to use, eg. "user2", "left and right", "user1 or user2 or user3"  
+	 * @return integer  Number of modules found
 	 */
-	function countModules($contentarea)
+	function countModules($condition)
 	{
-		return (int)$this->t->count_blocks($contentarea);
+		$words = explode(' ', $condition);
+		for($i = 0; $i < count($words); $i+=2)
+		{
+			// odd parts (modules)
+			$name		= strtolower($words[$i]);
+			$words[$i]	= (int)$this->t->count_blocks($name);
+		}
+		
+		if (count($words) == 1)
+		{
+			$ret = $words[0];
+		}
+		else
+		{
+			$str = 'return '.implode(' ', $words).';';
+			$ret = eval($str);
+		}
+		//error_log(__METHOD__."('$condition') returning ".($str ? "eval('$str') = " : '').array2string($ret));
+		return $ret;
 	}
-	
+
 	/**
 	 * Get URL of template directory
 	 * 
@@ -283,6 +324,65 @@ class ui extends dummy_obj
 		$GLOBALS['sitemgr_info']['site_url'].$this->template.'/';
 	}
 }
+
+/**
+ * Block transformer for contentarea left, right or center
+ * 
+ * Uses modChrome_$style from templates/server/html/module.php or templates/$template/html/module.php
+ */
+class joomla_transformer
+{
+	/**
+	 * Style to apply to blocks
+	 *
+	 * @var string
+	 */
+	private $style = 'none';
+
+	/**
+	 * Constructor
+	 *
+	 * @param string $style=null style attribute from '<jdoc:include  style="...">'
+	 */
+	public function __construct($style=null)
+	{
+		if ($style) $this->style = $style;
+	}
+
+	public function apply_transform($title,$content)
+	{
+		/**
+		 * @var ui
+		 */
+		global $objui;
+		
+		$module = (object)array(
+			'title'   => $title,
+			'content' => $content,
+			'style'   => $this->style,
+			'showtitle' => !empty($title),
+		);
+		foreach(explode(' ', $this->style) as $style)
+		{
+			$chromeMethod = 'modChrome_'.$style;
+
+			// Apply chrome and render module
+			if (function_exists($chromeMethod))
+			{
+				$attribs = array();
+				ob_start();
+				$chromeMethod($module, $objui->params, $attribs);
+				$module->content = ob_get_contents();
+				ob_end_clean();
+			}
+		}
+		return $module->content;
+	}
+}
+
+class left_bt extends joomla_transformer { }
+class right_bt extends joomla_transformer { }
+class center_bt extends joomla_transformer { }
 
 /**
  * Object which allows to call every method (returning null) and set and read every property
@@ -379,17 +479,6 @@ class JFactory extends dummy_obj
 		if (self::$debug_static) error_log(__METHOD__."('$name',".array2string($params).') '.function_backtrace());
 		
 		return new dummy_obj();
-	}
-
-	private $instance;
-	
-	public static function getInstance()
-	{
-		if (is_null($instance))
-		{
-			$instance = new JURI();
-		}
-		return $instance;
 	}
 }
 
@@ -543,7 +632,16 @@ class JHTML extends dummy_obj
 
 class JURI extends dummy_obj
 {
-
+	private $instance;
+	
+	public static function getInstance()
+	{
+		if (is_null($instance))
+		{
+			$instance = new JURI();
+		}
+		return $instance;
+	}
 }
 
 class JText extends dummy_obj
