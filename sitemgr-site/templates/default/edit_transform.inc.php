@@ -46,10 +46,8 @@ class edit_transform
 	function area_transform($contentarea,$content,$page)
 	{
 		$frame = '<div class="editContentarea"><div class="editIcons">';
-		//$frame .= html::image('sitemgr','question.button',
-		//	lang('Contentarea').': '.$contentarea);
 		$frame .= '<span class="editIconText" title="'.lang('Contentarea').': '.$contentarea.'">'.$contentarea."</span>\n";
-
+		
 		$permittedmodules = $this->modulebo->getcascadingmodulepermissions($contentarea,$page->cat_id);
 
 		$link_data['menuaction'] = 'sitemgr.Content_UI.manage';
@@ -70,6 +68,34 @@ class edit_transform
 				'</select>';
 		}
 		$frame .= "</div>\n";
+
+		if ($contentarea == 'center')
+		{
+			global $objbo;
+
+			$frame .= '<div class="editIconsPage">'.lang('Page').': '.$page->title."\n";
+
+			if ($page->id)
+			{
+				if ($page->cat_id && ($cat = $GLOBALS['Common_BO']->cats->getCategory($page->cat_id)) && $cat->index_page_id == $page->id)
+				{
+					$GLOBALS['cat'] = $cat;
+				}
+				$frame .= $objbo->getEditIconsPage($page->id,$page->cat_id).
+					// if the page is an index-page for a cat, add the cat-icons too
+					(isset($GLOBALS['cat']) && is_object($GLOBALS['cat']) ?
+					' - '.lang('Category').': '.$GLOBALS['cat']->name.' '.$objbo->getEditIconsCat($page->cat_id) : '');
+			}
+			elseif ($page->cat_id && $page->cat_id != CURRENT_SITE_ID)
+			{
+				$frame .= $objbo->getEditIconsCat($page->cat_id);
+			}
+			else
+			{
+				$frame .= $objbo->getEditIconsTop();
+			}
+			$frame .= "\n</div>\n";
+		}
 		return $frame . $content . '</div>';
 	}
 }

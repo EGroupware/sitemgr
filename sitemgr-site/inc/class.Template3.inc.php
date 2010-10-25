@@ -469,29 +469,7 @@ class Template3
 			case 'page_title':
 				return $page->title;
 			case 'editicons':
-				// add icons to edit the page/cat, if we are in edit-mode
-				if ($GLOBALS['sitemgr_info']['mode'] == 'Edit')
-				{
-					if ($page->id)
-					{
-						if ($page->cat_id && ($cat = $GLOBALS['Common_BO']->cats->getCategory($page->cat_id)) && $cat->index_page_id == $page->id)
-						{
-							$GLOBALS['cat'] = $cat;
-						}
-						return $objbo->getEditIconsPage($page->id,$page->cat_id).
-							// if the page is an index-page for a cat, add the cat-icons too
-							(isset($GLOBALS['cat']) && is_object($GLOBALS['cat']) ?
-							' - '.lang('Category').' '.$GLOBALS['cat']->name.' '.$objbo->getEditIconsCat($page->cat_id) : '');
-					}
-					elseif ($page->cat_id && $page->cat_id != CURRENT_SITE_ID)
-					{
-						return $objbo->getEditIconsCat($page->cat_id);
-					}
-					else
-					{
-						return $objbo->getEditIconsTop();
-					}
-				}
+				// edit icons are now displayed by edit_transform of contentarea center
 				return '';
 			case 'subtitle':
 			case 'page_subtitle':
