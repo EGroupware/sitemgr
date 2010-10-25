@@ -18,7 +18,8 @@
 		var $public_functions = array(
 			'list_sites' => True,
 			'edit'         => True,
-			'delete'       => True
+			'delete'       => True,
+			'export'	=> True,
 		);
 
 		var $start = 0;
@@ -106,6 +107,7 @@
 				'th_bg' => $GLOBALS['egw_info']['theme']['th_bg'],
 				'lang_edit' => lang('Edit'),
 				'lang_delete' => lang('Delete'),
+				'lang_export' => lang('Export'),
 				'sort_name' => $this->nextmatchs->show_sort_order(
 					$this->sort,'site_name',$this->order,'/index.php',lang('Name'),'&menuaction=sitemgr.Sites_UI.list_sites'
 				),
@@ -125,7 +127,9 @@
 					'edit' => $GLOBALS['egw']->link('/index.php','menuaction=sitemgr.Sites_UI.edit&site_id=' . $site_id),
 					'lang_edit_entry' => lang('Edit'),
 					'delete' => $GLOBALS['egw']->link('/index.php','menuaction=sitemgr.Sites_UI.delete&site_id=' . $site_id),
-					'lang_delete_entry' => lang('Delete')
+					'lang_delete_entry' => lang('Delete'),
+					'export' => $GLOBALS['egw']->link('/index.php','menuaction=sitemgr.Sites_UI.export&site_id=' . $site_id),
+					'lang_export_entry' => lang('Export')
 				));
 				$GLOBALS['egw']->template->parse('list','site_list',True);
 			}
@@ -338,6 +342,27 @@
 					'yes' => lang('Yes'),
 				));
 				$GLOBALS['egw']->template->pparse('phpgw_body','site_delete');
+			}
+		}
+
+		public function export()
+		{
+			if (!$GLOBALS['egw']->acl->check('run',1,'admin'))
+			{
+				$GLOBALS['egw']->common->egw_header();
+				echo parse_navbar();
+				$this->deny();
+			}
+
+			$site_id = get_var('site_id',array('POST','GET'));
+			if($site_id) {
+				$site = $this->bo->read($site_id);
+				$name = urlencode($site['site_name']);
+				header('Content-type: application/xml');
+				header("Content-Disposition: attachment; filename=$name.xml");
+				$writer = xmlwriter_open_uri('php://output');
+				$export = new sitemgr_export_xml($writer);
+				$export->export_record($site_id);
 			}
 		}
 
