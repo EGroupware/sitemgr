@@ -569,21 +569,169 @@ class JConfig extends dummy_obj
 	}
 }
 
-class JMenu extends dummy_obj
-{
-	
-}
-
 class JSite extends dummy_obj
 {
-	function getMenu()
+	public static function getRouter()
 	{
-		return new JSite();
+		if (self::$debug_static) error_log(__METHOD__.substr(array2string(func_get_args()),5));
+		
+		return new dummy_obj();
 	}
-
-	function getItems()
+	
+	public static function getMenu()
 	{
-		return array();
+		static $menu;
+		
+		if (self::$debug_static) error_log(__METHOD__.substr(array2string(func_get_args()),5));
+		
+		if (is_null($menu)) $menu = new JMenu();
+		
+		return $menu;
+	}
+}
+	
+class JMenu extends dummy_obj
+{
+	public $debug = true;
+	
+	/**
+	 * Gets menu items by attribute
+	 *
+	 * @access public
+	 * @param string 	The field name
+	 * @param string 	The value of the field
+	 * @param boolean 	If true, only returns the first item found
+	 * @return array
+	 */
+	function getItems($attribute, $value, $firstonly = false)
+	{
+		if ($this->debug) error_log(__METHOD__.substr(array2string(func_get_args()),5));
+
+		$cat_id = 0;
+		$depth = 0;
+		$tree = array();	// stack/path mit cat_id's
+		foreach($GLOBALS['objbo']->getIndex(false,false,true) as $page)
+		{
+			//_debug_array($page);
+			$id = 2 * $page['cat_id'];			// cat's have even id's
+			if ($id != $cat_id)		// new cat
+			{
+				$cat_id = $id;
+				if($depth == $page['catdepth'])	// same level -> remove last element
+				{
+					array_pop($tree);
+				}
+				elseif($depth > $page['catdepth'])	// we are going back (maybe multiple levels)
+				{
+					$tree = array_slice($tree,0,$page['catdepth']-1);
+				}
+				$tree[] = $cat_id;
+				$depth = $page['catdepth'];
+				$cat_path = implode('/',$tree);
+				$parent = (int)$tree[$depth-2];
+				$name = $page['catname'];
+				$title = $page['catdescrip']?$page['catdescrip']:$page['catname'];
+				$url = $page['cat_url'];
+				$rows[] = (object)$this->set_menu($page,$parent,$depth,$tree,$name,$id,$url,$title);
+				//echo "<p>new cat $page[cat_id]=$cat_id ($depth: /$cat_path, parent=$parent): $page[catname]:</p>\n";
+			}
+			if ($page['page_id'])
+			{
+				$id = 2 * $page['page_id'] + 1;	// pages have odd id's
+				$page_path = $cat_path.'/'.$id;
+				$name=$page['pagetitle']?$page['pagetitle']:$page['pagename'];
+				$parent = (int)$tree[$depth-1];
+				$url= $page['page_url'];
+				$rows[] = (object)$this->set_menu($page,$parent,$depth,$tree,$name,$id,$url);
+				//echo "- page: $page[page_id]=$id (".($depth+1).": /$page_path, parent=$cat_id): $page[pagename]<br/>\n";
+			}
+		}
+		//_debug_array($rows);
+		return $rows;
+	}
+	
+	/**
+	 * Generate one category or page entry
+	 *
+	 * @param array $page as returned by objbo->getIndex()
+	 * @param int $parent parent cat_id
+	 * @param int $sublevel
+	 * @param array $tree cat_id "path"
+	 * @param string $name page or category name
+	 * @param int $id unique id (cat's use event, pages odd numbers)
+	 * @param string $url for the a href
+	 * @param string $title
+	 * @return array
+	 */
+	private function set_menu($page,$parent,$sublevel,$tree,$name,$id,$url,$title=null)
+	{
+		return array(
+			'id' => $id,
+			'menutype' => 'mainmenu',
+			'name' => $name,
+			'alias' => $name,
+			'link' => $url,
+			'title' => $title ? $title : $name,
+	  		'type' => 'url',	//'component' uses JSite::getRouter()->getMode(), while 'url' is left alone!
+			'published' => 1,
+			'parent' => $parent,
+			'componentid' => 20,
+			'sublevel' => $sublevel,
+			'ordering' => 1,
+			'checked_out' => 0,
+			'checked_out_time' => '0000-00-00 00:00:00',
+			'pollid' => 0,
+			'browserNav' => 0,
+			'access' => 0,
+			'utaccess' => 3,
+			/* seems NOT to be used
+ 			'params' => 'show_page_title=1
+page_title=Welcome to the Frontpage
+show_description=0
+show_description_image=0
+num_leading_articles=1
+num_intro_articles=4
+num_columns=2
+num_links=4
+show_title=1
+pageclass_sfx=
+menu_image=-1
+secure=0
+orderby_pri=
+orderby_sec=front
+show_pagination=2
+show_pagination_results=1
+show_noauth=0
+link_titles=0
+show_intro=1
+show_section=0
+link_section=0
+show_category=0
+link_category=0
+show_author=1
+show_create_date=1
+show_modify_date=1
+show_item_navigation=0
+show_readmore=1
+show_vote=0
+show_icons=1
+show_pdf_icon=1
+show_print_icon=1
+show_email_icon=1
+show_hits=1
+
+
+',*/
+			'lft' => 0,
+			'rgt' => 0,
+			'home' => 0,//1,	// home == link to home-page, replaces link with JURI::base()
+			'component' => 'com_content',
+			'tree' => $tree,
+		  	'route' => 'home',
+		  	'query' => array('option' => 'com_content','view' => 'frontpage'),
+			'url'  => $url,	// will be overwritten by 'link' value!
+			'_idx' => 0,
+		);
 	}
 }
 
