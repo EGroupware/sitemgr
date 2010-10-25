@@ -239,6 +239,9 @@ class ui extends dummy_obj
 					$this->t->loadfile(realpath(dirname(__FILE__).'/../mos-compat/metadata.tpl'));
 					return "\t\t<title>".$this->t->get_meta('sitename').': '.$this->t->get_meta('title')."</title>\n".
 						$this->t->parse();
+						
+				case 'message':		// not sure what is supposted to be in here, returning empty string for now
+					return '';
 					
 				case 'module':
 					switch($name)
@@ -592,8 +595,6 @@ class JSite extends dummy_obj
 	
 class JMenu extends dummy_obj
 {
-	public $debug = true;
-	
 	/**
 	 * Gets menu items by attribute
 	 *
