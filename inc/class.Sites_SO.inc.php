@@ -17,7 +17,7 @@ class Sites_SO
 {
 	/**
 	 * Own instance of DB object
-	 * 
+	 *
 	 * @var egw_db
 	 */
 	private $db;
@@ -27,7 +27,13 @@ class Sites_SO
 	 * @var string
 	 */
 	private $sites_table = 'egw_sitemgr_sites';
-	
+	/**
+	 * Cache last read site on a per request base
+	 *
+	 * @var array
+	 */
+	private static $site_cache;
+
 	/**
 	 * Constructor
 	 */
@@ -39,7 +45,7 @@ class Sites_SO
 
 	/**
 	 * Get site_id of all available sites
-	 * 
+	 *
 	 * @return array
 	 */
 	public function list_siteids()
@@ -54,7 +60,7 @@ class Sites_SO
 
 	/**
 	 * Get available sites
-	 * 
+	 *
 	 * @param int $limit
 	 * @param int $start
 	 * @param string $sort
@@ -97,7 +103,7 @@ class Sites_SO
 
 	/**
 	 * Get number of defined sites
-	 * 
+	 *
 	 * @return int
 	 */
 	public function getnumberofsites()
@@ -127,11 +133,9 @@ class Sites_SO
 	 */
 	public function read($site_id,$only_url_dir=false)
 	{
-		static $ret;	// to query it only once per request
-		
-		if (!is_array($ret) || $ret['site_id'] != $site_id)
+		if (!is_array(self::$site_cache) || self::$site_cache['site_id'] != $site_id)
 		{
-			if (($ret = $this->db->select($this->sites_table,'*',array(
+			if ((self::$site_cache = $this->db->select($this->sites_table,'*',array(
 					'site_id' => $site_id,
 				),__LINE__,__FILE__)->fetch()))
 			{
@@ -139,32 +143,33 @@ class Sites_SO
 				// fixes problems if sitemgr-site directory got moved
 				if (isset($GLOBALS['site_id']) && file_exists(dirname($_SERVER['SCRIPT_FILENAME']).'/config.inc.php'))
 				{
-					$ret['site_dir'] = dirname($_SERVER['SCRIPT_FILENAME']);
+					self::$site_cache['site_dir'] = dirname($_SERVER['SCRIPT_FILENAME']);
 				}
-				elseif($ret['site_dir'] = 'sitemgr'.SEP.'sitemgr-site')
+				elseif(self::$site_cache['site_dir'] = 'sitemgr'.SEP.'sitemgr-site')
 				{
-					$ret['site_dir'] = EGW_SERVER_ROOT.SEP.$ret['site_dir'];
+					self::$site_cache['site_dir'] = EGW_SERVER_ROOT.SEP.self::$site_cache['site_dir'];
 				}
 			}
 			// for database schema version < 1.9.002 read logo, css & params from configuration
 			if (version_compare($GLOBALS['egw_info']['apps']['sitemgr']['version'], '1.9.002', '<') ||
-				is_null($ret['logo_url']) && is_null($ret['custom_css']) && is_null($ret['params_ini']))
+				is_null(self::$site_cache['logo_url']) && is_null(self::$site_cache['custom_css']) &&
+					is_null(self::$site_cache['params_ini']))
 			{
 				$config = config::read('sitemgr');
-				$ret['logo_url'] = $config['logo_url_'.$site_id];
-				$ret['custom_css'] = $config['custom_css_'.$site_id];
-				$ret['params_ini'] = $config['params_ini_'.$site_id];
+				self::$site_cache['logo_url'] = $config['logo_url_'.$site_id];
+				self::$site_cache['custom_css'] = $config['custom_css_'.$site_id];
+				self::$site_cache['params_ini'] = $config['params_ini_'.$site_id];
 			}
 		}
-		return !$only_url_dir ? $ret : array(
-			'site_url' => $ret['site_url'],
-			'site_dir' => $ret['site_dir'],
+		return !$only_url_dir ? self::$site_cache : array(
+			'site_url' => self::$site_cache['site_url'],
+			'site_dir' => self::$site_cache['site_dir'],
 		);
 	}
 
 	/**
 	 * Read only site_url for given site_id
-	 * 
+	 *
 	 * @deprecated use read($site_id,true)
 	 * @param int $site_id
 	 * @return array 'site_url' => $value
@@ -176,7 +181,7 @@ class Sites_SO
 
 	/**
 	 * Add new site via define websites: name, url, dir, anon user & password
-	 * 
+	 *
 	 * @param array $site
 	 * @return int site_id
 	 */
@@ -204,13 +209,15 @@ class Sites_SO
 
 	/**
 	 * Update data from define websites: name, url, dir, anon user & password
-	 * 
+	 *
 	 * @param int $site_id
 	 * @param array $site
 	 * @return int affected rows
 	 */
 	public function update($site_id,array $site)
 	{
+		if ($site_id == self::$site_cache['site_id']) self::$site_cache = null;
+
 		return $this->db->update($this->sites_table,array(
 				'site_name' => $site['name'],
 				'site_url'  => $site['url'],
@@ -221,19 +228,21 @@ class Sites_SO
 				'site_id' => $site_id
 			),__LINE__,__FILE__);
 	}
-	
+
 	/**
 	 * Update logo-url, custom css and template parameters for given site_id
 	 *
 	 * If SiteMgr version is >= 1.9.002 data is stored in sites-table, otherwise
 	 * in SiteMgr configuration.
-	 *  
+	 *
 	 * @param int $site_id
 	 * @param array $data
 	 * @return int number or updated rows
 	 */
 	public function update_logo_css_params($site_id,array $data)
 	{
+		if ($site_id == self::$site_cache['site_id']) self::$site_cache = null;
+
 		// for database schema version < 1.9.002 store as configuration
 		if (version_compare($GLOBALS['egw_info']['apps']['sitemgr']['version'], '1.9.002', '<'))
 		{
@@ -257,10 +266,12 @@ class Sites_SO
 	 * Delete a site(s) from sites table
 	 *
 	 * @param int|array $site_id
-	 * @return int number of affected rows 
+	 * @return int number of affected rows
 	 */
 	public function delete($site_id)
 	{
+		if ($site_id == self::$site_cache['site_id']) self::$site_cache = null;
+
 		return $this->db->delete($this->sites_table,array(
 				'site_id' => $site_id
 			),__LINE__,__FILE__);
@@ -275,6 +286,8 @@ class Sites_SO
 	 */
 	public function saveprefs(array $prefs,$site_id=CURRENT_SITE_ID)
 	{
+		if ($site_id == self::$site_cache['site_id']) self::$site_cache = null;
+
 		return $this->db->update($this->sites_table,array(
 				'themesel' => $prefs['themesel'],
 				'site_languages' => $prefs['site_languages'],
