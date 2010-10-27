@@ -16,7 +16,7 @@
 		var $t, $acl, $do_sites_exist, $menu;
 		/**
 		 * Instance of theme class
-		 * 
+		 *
 		 * @var Theme_BO
 		 */
 		var $theme;
@@ -97,7 +97,7 @@
 				$site['site_url'] .= '?mode=Edit&sessionid='.@$GLOBALS['egw_info']['user']['sessionid'] .
 					'&kp3=' . @$GLOBALS['egw_info']['user']['kp3'] .
 					'&domain=' . @$GLOBALS['egw_info']['user']['domain'];
-				
+
 				common::egw_header();
 				parse_navbar();
 				// jdots already uses an iframe, so no need to create an other one
@@ -270,8 +270,8 @@
 						'</div>',
 					'default'=>'idots'
 				);
-				$preferences['upload_dir'] = array(                                                                                                           
-					'title' => lang('Startdirectory in VFS for image uploads'),                                            
+				$preferences['upload_dir'] = array(
+					'title' => lang('Startdirectory in VFS for image uploads'),
 					'note'  => lang("This directory is in EGroupware's virtual filesystem, NOT in the filesystem of the webserver!").'<br />'.
 						lang('The given directory should be readable by the anonymous user for a regular public website!'),
 				);
@@ -380,19 +380,18 @@
 			$val = $GLOBALS['Common_BO']->sites->current_site[$name];
 			if ($val)
 			{
-				$checked_yes = ' CHECKED';
+				$checked_yes = ' checked="1"';
 				$checked_no = '';
 			}
 			else
 			{
 				$checked_yes = '';
-				$checked_no = ' CHECKED';
+				$checked_no = ' checked="1"';
 			}
-			return '<INPUT TYPE="radio" NAME="pref['.$name.']" VALUE="1"'.
-				$checked_yes.'>Yes</INPUT>'."\n".
-				'<INPUT TYPE="radio" NAME="'.$name.'" VALUE="0"'.
-				$checked_no.'>No</INPUT>'."\n";
-
+			return '<input type="radio" name="pref['.$name.']" value="1"'.
+				$checked_yes.'>Yes</input>'."\n".
+				'<input type="radio" name="pref['.$name.']" value="0"'.
+				$checked_no.'>No</input>'."\n";
 		}
 
 		function inputOption($name = '', $options='', $default = '',$extra='')
