@@ -16,43 +16,43 @@ class Common_UI
 {
 	/**
 	 * Instance of template class
-	 * 
+	 *
 	 * @var Template
 	 */
 	public $t;
 	/**
 	 * Reference to ACL object of Common_BO
-	 * 
+	 *
 	 * @var ACL_BO
 	 */
 	public $acl;
 	/**
 	 * Reference to themes object of Common_BO
-	 * 
+	 *
 	 * @var Theme_BO
 	 */
 	public $theme;
 	/**
 	 * Reference to ACL pages of Common_BO
-	 * 
+	 *
 	 * @var Pages_BO
 	 */
 	public $pages_bo;
 	/**
 	 * Reference to cats object of Common_BO
-	 * 
+	 *
 	 * @var Categories_BO
 	 */
 	public $cat_bo;
 	/**
 	 * Reference to cats sites of Common_BO
-	 * 
+	 *
 	 * @var Sites_BO
 	 */
 	public $sites;
-	
+
 	public $do_sites_exist, $menu;
-	
+
 	/**
 	 * Functions callable via menuaction $_GET parameter
 	 *
@@ -79,7 +79,7 @@ class Common_UI
 		$this->cat_bo = $GLOBALS['Common_BO']->cats;
 		$this->sites = $GLOBALS['Common_BO']->sites;
 	}
-	
+
 	/**
 	 * Edit Joomla 1.5+ template preferences
 	 *
@@ -105,7 +105,7 @@ class Common_UI
 				}
 				self::store_params_as_cf($content['params'],$content['directory']);
 				$content += $this->get_params($content['value'],$content['params'],$content['directory']);
-				
+
 				$content['custom_css_help'] = lang('Custom CSS will be included in each page as last style-sheet in the header.').'<br />'.
 					lang('You can use %1 to fetch the above defined URL of your logo.','$$logo_url$$');
 			}
@@ -114,7 +114,7 @@ class Common_UI
 		{
 			list($button) = each($content['button']);
 			unset($content['button']);
-			
+
 			switch($button)
 			{
 				case 'save':
@@ -136,7 +136,7 @@ class Common_UI
 		$tpl->sitemgr = false;	// otherwise etemplate thinks it runs inside sitemgr (because of Common_BO)!
 		$tpl->exec('sitemgr.Common_UI.templatePrefs',$content,$sel_options,$readonlys,$content,2);
 	}
-	
+
 	/**
 	 * Store parameter in sitemgr configuration
 	 *
@@ -164,7 +164,7 @@ class Common_UI
 			'params_ini' => $jparam->getINI(),
 		));
 	}
-	
+
 	/**
 	 * Read parameters from ini file and sitemgr configuration
 	 *
@@ -204,7 +204,7 @@ class Common_UI
 				$arr['#'.$param['name']] = $param['default'];
 			}
 		}
-		
+
 		// query custom css and logo-url
 		$arr['custom_css'] = $GLOBALS['Common_BO']->get_custom_css(false,$arr['logo_url']);
 
@@ -212,7 +212,7 @@ class Common_UI
 	}
 
 	/**
-	 * Store supported Joomla template parameters as EGroupware custom fields, 
+	 * Store supported Joomla template parameters as EGroupware custom fields,
 	 * to be able to use eTemplate custom field widget to edit them
 	 *
 	 * @param array $params
@@ -330,7 +330,7 @@ class Common_UI
 			$site['site_url'] .= '?mode=Edit&sessionid='.@$GLOBALS['egw_info']['user']['sessionid'] .
 				'&kp3=' . @$GLOBALS['egw_info']['user']['kp3'] .
 				'&domain=' . @$GLOBALS['egw_info']['user']['domain'];
-			
+
 			common::egw_header();
 			parse_navbar();
 			// jdots already uses an iframe, so no need to create an other one
@@ -509,8 +509,8 @@ class Common_UI
 					'</div>',
 				'default'=>'idots'
 			);
-			$preferences['upload_dir'] = array(                                                                                                           
-				'title' => lang('Startdirectory in VFS for image uploads'),                                            
+			$preferences['upload_dir'] = array(
+				'title' => lang('Startdirectory in VFS for image uploads'),
 				'note'  => lang("This directory is in EGroupware's virtual filesystem, NOT in the filesystem of the webserver!").'<br />'.
 					lang('The given directory should be readable by the anonymous user for a regular public website!'),
 			);
@@ -615,19 +615,18 @@ class Common_UI
 		$val = $GLOBALS['Common_BO']->sites->current_site[$name];
 		if ($val)
 		{
-			$checked_yes = ' CHECKED';
+			$checked_yes = ' checked="1"';
 			$checked_no = '';
 		}
 		else
 		{
 			$checked_yes = '';
-			$checked_no = ' CHECKED';
+			$checked_no = ' checked="1"';
 		}
-		return '<INPUT TYPE="radio" NAME="pref['.$name.']" VALUE="1"'.
-			$checked_yes.'>Yes</INPUT>'."\n".
-			'<INPUT TYPE="radio" NAME="'.$name.'" VALUE="0"'.
-			$checked_no.'>No</INPUT>'."\n";
-
+		return '<input type="radio" name="pref['.$name.']" value="1"'.
+			$checked_yes.'>Yes</input>'."\n".
+			'<input type="radio" name="pref['.$name.']" value="0"'.
+			$checked_no.'>No</input>'."\n";
 	}
 
 	function inputOption($name = '', $options='', $default = '',$extra='')
