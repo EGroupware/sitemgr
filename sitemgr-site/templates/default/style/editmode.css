@@ -1,8 +1,25 @@
+/**
+ * EGroupware SiteMgr CMS - Style sheet for edit mode
+ *
+ * @link http://www.egroupware.org
+ * @package sitemgr
+ * @subpackage sitemgr-site
+ * @author Ralf Becker <RalfBecker-AT-outdoor-training.de>
+ * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
+ * @copyright Ralf Becker <RalfBecker-AT-outdoor-training.de>
+ * @version $Id$
+ */
+
 /* red dotted lines around blocks in edit-mode */
 .edit {
 	border: thin dotted red;
 	margin-top: 10px;
 	padding: 2px;
+}
+
+/* in case block transformer (eg. ja_purity) sets a float, which makes all UI elements inaccessible otherwise! */
+.edit div {
+	float: none ! important;
 }
 
 /* red dashed lines around contentareas in edit-mode */
