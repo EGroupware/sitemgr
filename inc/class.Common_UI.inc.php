@@ -146,8 +146,18 @@ class Common_UI
 	 */
 	public function set_params($template,array $content,$site_id=null)
 	{
+		if (is_null($site_id))
+		{
+			$site = $this->sites->current_site;
+		}
+		else
+		{
+			$site = $this->sites->read($site_id);
+		}
 		require_once(EGW_SERVER_ROOT.'/sitemgr/sitemgr-site/inc/class.joomla_ui.inc.php');
-		$jparam = new JParameter('');
+		$jparam = new JParameter('','',$template);
+		$jparam->loadINI($site['params_ini'],JParameter::ALL_NAMESPACES);
+
 		$arr = array();
 		foreach($content as $name => $value)
 		{
@@ -156,12 +166,10 @@ class Common_UI
 				$jparam->set(substr($name,1),$value);
 			}
 		}
-		if (is_null($site_id)) $site_id = $this->sites->current_site['site_id'];
-
-		return $this->sites->so->update_logo_css_params($site_id,array(
+		return $this->sites->so->update_logo_css_params($site['site_id'],array(
 			'logo_url' => $content['logo_url'],
 			'custom_css' => $content['custom_css'] == Common_BO::CUSTOM_CSS_DEFAULT ? null : $content['custom_css'],
-			'params_ini' => $jparam->getINI(),
+			'params_ini' => $jparam->getINI(JParameter::ALL_NAMESPACES),
 		));
 	}
 
@@ -176,10 +184,8 @@ class Common_UI
 	 */
 	public function get_params($template,array $params,$template_dir,$site_id=null)
 	{
-		if (file_exists($ini_file=$template_dir.SEP.'params.ini'))
-		{
-			$ini_string = file_get_contents($ini_file);
-		}
+		require_once(EGW_SERVER_ROOT.'/sitemgr/sitemgr-site/inc/class.joomla_ui.inc.php');
+		$jparam = new JParameter(@file_get_contents($template_dir.SEP.'params.ini'),'',$template);
 		if (is_null($site_id))
 		{
 			$site = $this->sites->current_site;
@@ -188,10 +194,11 @@ class Common_UI
 		{
 			$site = $this->sites->read($site_id);
 		}
-		$ini_string .= $site['params_ini'];
+		if (!empty($site['params_ini']))
+		{
+			$jparam->loadINI($site['params_ini'],JParameter::ALL_NAMESPACES);
+		}
 
-		require_once(EGW_SERVER_ROOT.'/sitemgr/sitemgr-site/inc/class.joomla_ui.inc.php');
-		$jparam = new JParameter($ini_string);
 		$arr = array();
 		foreach($jparam->toArray() as $name => $value)
 		{

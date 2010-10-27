@@ -37,49 +37,49 @@ class ui extends dummy_obj
 	 * @var string
 	 */
 	protected $mos_compat_dir;
-	
+
 	/**
 	 * Template name
-	 * 
+	 *
 	 * @var string
 	 */
 	public $template;
-	
+
 	/**
 	 * Url of SiteMgr site
 	 *
 	 * @var string
 	 */
 	public $baseurl;
-	
+
 	/**
 	 * Param store
 	 *
 	 * @var JParameter
 	 */
 	public $params;
-	
+
 	/**
 	 * Current site language
 	 *
 	 * @var string
 	 */
 	public $language = 'en';
-	
+
 	/**
 	 * Language direction: ltr or rtl
 	 *
 	 * @var string
 	 */
 	public $direction = 'ltr';
-	
+
 	/**
 	 * Site name
 	 *
 	 * @var string
 	 */
 	public $sitename;
-	
+
 	/**
 	 * Constructor
 	 */
@@ -96,7 +96,7 @@ class ui extends dummy_obj
 		}
 		$this->t = new Template3($this->templateroot);
 		$this->t->transformer_root = $this->mos_compat_dir = realpath(dirname(__FILE__).'/../mos-compat');
-		
+
 		// attributes used by Joomla 1.5
 		$this->template = basename($themesel);
 		$this->baseurl = $GLOBALS['sitemgr_info']['site_url'];
@@ -104,17 +104,17 @@ class ui extends dummy_obj
 		if (in_array($dir=lang('language_direction_rtl'),array('rtl','ltr'))) $this->direction = $dir;
 		$this->language = $this->t->get_meta('lang');
 
-		// init JParameter from site or ini.file
-		if (!empty($GLOBALS['Common_BO']->sites->current_site['params_ini']))
+		// init JParameter from site or ini.file, if site has no prefs for this template
+		if (strpos($GLOBALS['Common_BO']->sites->current_site['params_ini'],'['.$this->template.']') !== false)
 		{
 			$ini_string = $GLOBALS['Common_BO']->sites->current_site['params_ini'];
 		}
 		else
 		{
-			$ini_string = file_get_contents($this->templateroot.SEP.'params.ini');
+			$ini_string = @file_get_contents($this->templateroot.SEP.'params.ini');
 		}
-		$this->params = new JParameter($ini_string);
-		
+		$this->params = new JParameter($ini_string,'',$this->template);
+
 		// global mainframe object used by some templates
 		$GLOBALS['mainframe'] = new dummy_obj();
 	}
@@ -187,7 +187,7 @@ class ui extends dummy_obj
 		// Joomla 1.5 defines
 		define( '_JEXEC', True );
 		define('DS',DIRECTORY_SEPARATOR);
-		
+
 		ini_set('include_path',$this->mos_compat_dir.(strtoupper(substr(PHP_OS, 0, 3)) == 'WIN' ? ';' : ':').ini_get('include_path'));
 
 		// read module helpers: modChrome_* functions
@@ -201,23 +201,23 @@ class ui extends dummy_obj
 		include($this->templateroot.'/index.php');
 		$website = ob_get_contents();
 		ob_clean();
-	
+
 		// replace <jdoc:include type="modules" name="XXXX" /> with content of content-area XXXX
 		$website = preg_replace_callback('/<jdoc:([a-z]+) type="([^"]+)" (name="([^"]+)")?[^>]*>/', array($this,'jdoc_replace'), $website);
-		
+
 		// regenerate header (e.g. js includes)
 		$this->t->loadfile(realpath(dirname(__FILE__).'/../mos-compat/metadata.tpl'));
 		if (file_exists($this->templateroot.'/metadata.tpl'))
 		{
 			$this->t->loadfile($this->templateroot.'/metadata.tpl');
 		}
-		
+
 		$custom_css = '';
 		// replace breadcrump li bullet with arrow, as Joomla does it
 		if (file_exists($this->templateroot.'/images/arrow.png'))
 		{
 			$custom_css .= "#navigation-path-nosep ul li {
-	background: transparent url($this->baseurl/templates/$this->template/images/arrow.png) no-repeat scroll 10px 7px;	
+	background: transparent url($this->baseurl/templates/$this->template/images/arrow.png) no-repeat scroll 10px 7px;
 }\n";
 		}
 		// inject custom CSS (incl. site logo)
@@ -228,16 +228,16 @@ class ui extends dummy_obj
 		}
 		echo preg_replace('@<!-- metadata.tpl starts here -->.*?<!-- metadata.tpl ends here -->@si',$this->t->parse(),$website);
 	}
-	
+
 	/**
-	 * Replaces <jdoc:include 
-	 * 
+	 * Replaces <jdoc:include
+	 *
 	 * @param array $matches 0: whole jdoc tag, 1: jdoc:type, eg. "include", 2: type, eg. "module", 4: name of content-area
 	 */
 	public function jdoc_replace($matches)
 	{
 		list($all,$jdoc_type,$type,,$name) = $matches;
-		
+
 		if ($jdoc_type == 'include')
 		{
 			switch($type)
@@ -249,7 +249,7 @@ class ui extends dummy_obj
 						$style = $m[1];
 					}
 					return "<!-- BEGIN: CONTENTAREA $name -->\n".$this->t->process_blocks($name,$style)."\n<!-- END: CONTENTAREA $name -->";
-					
+
 				case 'component':	// load the center module
 					if (!file_exists($file = $objui->templateroot.'/mainbody.tpl'))
 					{
@@ -257,15 +257,15 @@ class ui extends dummy_obj
 					}
 					$this->t->loadfile($file);
 					return $this->t->parse();
-					
+
 				case 'head':
 					$this->t->loadfile(realpath(dirname(__FILE__).'/../mos-compat/metadata.tpl'));
 					return "\t\t<title>".$this->t->get_meta('sitename').': '.$this->t->get_meta('title')."</title>\n".
 						$this->t->parse();
-						
+
 				case 'message':		// not sure what is supposted to be in here, returning empty string for now
 					return '';
-					
+
 				case 'module':
 					switch($name)
 					{
@@ -280,15 +280,15 @@ class ui extends dummy_obj
 		error_log(__METHOD__.'('.array2string($matches).') unknown jdoc tag!');
 		return $matches[0];
 	}
-	
+
 	/**
 	 * JDocumentHTML compatibility methods
 	 */
-	
+
 	/**
 	 * Count the modules based on the given condition
 	 *
-	 * @param  string 	$condition	The condition to use, eg. "user2", "left and right", "user1 or user2 or user3"  
+	 * @param  string 	$condition	The condition to use, eg. "user2", "left and right", "user1 or user2 or user3"
 	 * @return integer  Number of modules found
 	 */
 	function countModules($condition)
@@ -300,7 +300,7 @@ class ui extends dummy_obj
 			$name		= strtolower($words[$i]);
 			$words[$i]	= (int)$this->t->count_blocks($name);
 		}
-		
+
 		if (count($words) == 1)
 		{
 			$ret = $words[0];
@@ -316,7 +316,7 @@ class ui extends dummy_obj
 
 	/**
 	 * Get URL of template directory
-	 * 
+	 *
 	 * @return string
 	 */
 	function templateurl()
@@ -327,7 +327,7 @@ class ui extends dummy_obj
 
 /**
  * Block transformer for contentarea left, right or center
- * 
+ *
  * Uses modChrome_$style from templates/server/html/module.php or templates/$template/html/module.php
  */
 class joomla_transformer
@@ -355,7 +355,7 @@ class joomla_transformer
 		 * @var ui
 		 */
 		global $objui;
-		
+
 		$module = (object)array(
 			'title'   => $title,
 			'content' => $content,
@@ -386,7 +386,7 @@ class center_bt extends joomla_transformer { }
 
 /**
  * Object which allows to call every method (returning null) and set and read every property
- * 
+ *
  * All access or calls can be logged via error_log()
  */
 class dummy_obj
@@ -395,7 +395,7 @@ class dummy_obj
 	 * Store for attribute values
 	 */
 	protected $data = array();
-	
+
 	/**
 	 * Enable or disable logging
 	 *
@@ -408,35 +408,35 @@ class dummy_obj
 	 * @var boolean
 	 */
 	static protected $debug_static = false;
-	
+
 	public function __get($name)
 	{
 		if ($this->debug) error_log(__METHOD__."('$name') returning ".array2string($this->data[$name]).' '.function_backtrace());
 
 		return $this->data[$name];
 	}
-	
+
 	public function __set($name,$value)
 	{
 		if ($this->debug) error_log(__METHOD__."('$name',".array2string($value).') '.function_backtrace());
 
 		$this->data[$name] = $value;
 	}
-	
+
 	public function __isset($name)
 	{
 		if ($this->debug) error_log(__METHOD__."('$name') returning ".array2string(isset($this->data[$name])).' '.function_backtrace());
-		
+
 		return isset($this->data[$name]);
 	}
-	
+
 	public function __call($name,$params)
 	{
 		if ($this->debug) error_log(__METHOD__."('$name',".array2string($params).') '.function_backtrace());
-		
+
 		return null;
 	}
-		
+
 	/**
 	 * Called for all static method calls, requires PHP5.3 !!!
 	 *
@@ -446,7 +446,7 @@ class dummy_obj
 	public static function __callstatic($name,$params)
 	{
 		if (self::$debug_static) error_log(__METHOD__."('$name',".array2string($params).') '.function_backtrace());
-		
+
 		return null;
 	}
 }
@@ -460,14 +460,14 @@ class JFactory extends dummy_obj
 	{
 		return null;
 	}*/
-	
+
 	/*public static function getDBO()
 	{
 		if (self::$debug_static) error_log(__METHOD__."('$name',".array2string($params).') '.function_backtrace());
-		
+
 		return new dummy_obj();
 	}*/
-	
+
 	/**
 	 * JFactory static method return only objects, requires PHP5.3 !!!
 	 *
@@ -477,7 +477,7 @@ class JFactory extends dummy_obj
 	public static function __callstatic($name,$params)
 	{
 		if (self::$debug_static) error_log(__METHOD__."('$name',".array2string($params).') '.function_backtrace());
-		
+
 		return new dummy_obj();
 	}
 }
@@ -485,7 +485,7 @@ class JFactory extends dummy_obj
 class JParameter extends dummy_obj
 {
 	protected $_defaultNameSpace = '_default';
-	
+
 	/**
 	 * Store for parameter values
 	 *
@@ -501,21 +501,29 @@ class JParameter extends dummy_obj
 	 * @param	string Path to the xml setup file
 	 * @since	1.5
 	 */
-	function __construct($data, $path = '')
+	function __construct($data, $path = '', $_defaultNamespace = '_default')
 	{
-		if ($this->debug) error_log(__METHOD__."('$data','$path') ".function_backtrace());
+		if ($this->debug) error_log(__METHOD__."('$data','$path','$_defaultNamespace') ".function_backtrace());
 
-		if (trim( $data )) {
+
+		$this->_defaultNameSpace = $_defaultNamespace;
+		//echo "<p>__construct(,,'$_defaultNamespace)</p>\n";
+
+		if (trim( $data ))
+		{
 			$this->loadINI($data);
 		}
 	}
+
+	const ALL_NAMESPACES='*all*';
 
 	/**
 	 * Load an INI string into the registry into the given namespace [or default if a namespace is not given]
 	 *
 	 * @access	public
 	 * @param	string	$data		INI formatted string to load into the registry
-	 * @param	string	$namespace	Namespace to load the INI string into [optional]
+	 * @param	string	$namespace	Namespace to load, default $this->_defaultNameSpace
+	 * 	or self::ALL_NAMESPACES to read all sections
 	 * @return	boolean True on success
 	 * @since	1.5
 	 */
@@ -523,36 +531,57 @@ class JParameter extends dummy_obj
 	{
 		if ($data === false) return false;
 
+		if (is_null($namespace)) $namespace = $this->_defaultNameSpace;
+		$section = $namespace == self::ALL_NAMESPACES ? $this->_defaultNameSpace : $namespace;
+
 		foreach(preg_split("/[\n\r]+/", (string)$data) as $line)
 		{
 			if ($line)
 			{
-				list($key,$value) = explode('=',$line,2);
-				$this->set($key,$value,$namespace ? $namespace : $this->_defaultNameSpace);
+				if ($line[0] == '[' && substr($line,-1) == ']')	// section header
+				{
+					$section = substr($line,1,-1);
+					continue;
+				}
+				if ($namespace == self::ALL_NAMESPACES || $section == $namespace)
+				{
+					list($key,$value) = explode('=',$line,2);
+					$this->set($key,$value,$section);
+				}
 			}
 		}
+		//echo "loadINI('$data','$namespace') default=$this->_defaultNameSpace, values="; _debug_array($this->values);
 		return true;
 	}
-	
+
 	/**
 	 * Get INI string from registry
-	 * 
-	 * @param string $namespace=null default $this->_defaultNameSpace
+	 *
+	 * @param string $namespace=null default $this->_defaultNameSpace or
+	 * 	self::ALL_NAMESPACES to return each namespace as separate section: [namespace]
 	 * @return string
 	 */
 	function getINI($namespace = null)
 	{
 		if (is_null($namespace)) $namespace = $this->_defaultNameSpace;
-		
-		$ini = '';
+
+		if ($namespace === self::ALL_NAMESPACES) ksort($this->values);
+		//echo "getINI('$namespace') values="; _debug_array($this->values);
+
+		$ini = $section = '';
 		foreach($this->values as $key => $value)
 		{
 			list($ns,$name) = explode('.',$key,2);
-			if ($ns == $namespace)
+			if ($namespace == self::ALL_NAMESPACES && $section != $ns)
+			{
+				$ini .= '['.($section=$ns)."]\n";
+			}
+			if ($namespace == self::ALL_NAMESPACES || $ns == $namespace)
 			{
 				$ini .= $name.'='.$value."\n";
 			}
 		}
+		//echo "ini:<pre>$ini</pre>\n";
 		return $ini;
 	}
 
@@ -565,11 +594,13 @@ class JParameter extends dummy_obj
 	 * @return	string The set value
 	 * @since	1.5
 	 */
-	function set($key, $value = '', $group = '_default')
+	function set($key, $value = '', $ns = null)
 	{
-		if ($this->debug) error_log(__METHOD__."('$key','$value','$group')");
-		
-		return $this->values[$group.'.'.$key] = (string) $value;
+		if (is_null($ns)) $ns = $this->_defaultNameSpace;
+
+		if ($this->debug) error_log(__METHOD__."('$key','$value','$ns')");
+
+		return $this->values[$ns.'.'.$key] = (string) $value;
 	}
 
 	/**
@@ -581,14 +612,16 @@ class JParameter extends dummy_obj
 	 * @return	string
 	 * @since	1.5
 	 */
-	function get($key, $default = '', $group = '_default')
+	function get($key, $default = '', $ns=null)
 	{
-		$value = $this->values[$group.'.'.$key];
-		
+		if (is_null($ns)) $ns = $this->_defaultNameSpace;
+
+		$value = $this->values[$ns.'.'.$key];
+
 		$result = (empty($value) && ($value !== 0) && ($value !== '0')) ? $default : $value;
-		
-		if ($this->debug) error_log(__METHOD__."('$key','$default','$group') returning ".array2string($result));
-		
+
+		if ($this->debug) error_log(__METHOD__."('$key','$default','$ns') returning ".array2string($result));
+
 		return $result;
 	}
 
@@ -603,7 +636,7 @@ class JParameter extends dummy_obj
 	function toArray($namespace = null)
 	{
 		if (is_null($namespace)) $namespace = $this->_defaultNameSpace;
-		
+
 		$arr = array();
 		foreach($this->values as $key => $value)
 		{
@@ -627,13 +660,13 @@ class JRequest extends dummy_obj
 
 class JHTML extends dummy_obj
 {
-	
+
 }
 
 class JURI extends dummy_obj
 {
 	private $instance;
-	
+
 	public static function getInstance()
 	{
 		if (is_null($instance))
@@ -641,6 +674,21 @@ class JURI extends dummy_obj
 			$instance = new JURI();
 		}
 		return $instance;
+	}
+
+	/**
+	 * Get base url of site
+	 *
+	 * @return string
+	 */
+	public static function base()
+	{
+		/**
+		 * @var ui
+		 */
+		global $objui;
+
+		return $objui->baseurl;
 	}
 }
 
@@ -659,12 +707,12 @@ class JConfig extends dummy_obj
 		/**
 		 * @var ui
 		 */
-		global $objbo;
+		global $objui;
 
 		switch($name)
 		{
 			case 'sitename':
-				return $objbo->sitename;
+				return $objui->sitename;
 		}
 		return parent::__get($name);
 	}
@@ -675,22 +723,22 @@ class JSite extends dummy_obj
 	public static function getRouter()
 	{
 		if (self::$debug_static) error_log(__METHOD__.substr(array2string(func_get_args()),5));
-		
+
 		return new dummy_obj();
 	}
-	
+
 	public static function getMenu()
 	{
 		static $menu;
-		
+
 		if (self::$debug_static) error_log(__METHOD__.substr(array2string(func_get_args()),5));
-		
+
 		if (is_null($menu)) $menu = new JMenu();
-		
+
 		return $menu;
 	}
 }
-	
+
 class JMenu extends dummy_obj
 {
 	/**
@@ -748,7 +796,7 @@ class JMenu extends dummy_obj
 		//_debug_array($rows);
 		return $rows;
 	}
-	
+
 	/**
 	 * Generate one category or page entry
 	 *
@@ -836,5 +884,5 @@ show_hits=1
 
 class JRoute extends dummy_obj
 {
-	
+
 }
