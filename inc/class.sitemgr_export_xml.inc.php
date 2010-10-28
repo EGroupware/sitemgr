@@ -164,6 +164,8 @@ class sitemgr_export_xml implements importexport_iface_export_plugin {
 				xmlwriter_write_element($this->writer, 'area', $area);
 			}
 			xmlwriter_end_element($this->writer);
+		} else {
+			throw new egw_exception($content_areas);
 		}
 
 		$this->common->cats->setcurrentcats();
@@ -319,6 +321,10 @@ class sitemgr_export_xml implements importexport_iface_export_plugin {
 		$arguments = $this->common->content->getversion($content['id'], $lang);
 		if($block->arguments) {
 			$arguments = array_diff($arguments, $block->arguments);
+		}
+		if(array_key_exists(0, $arguments) && !$arguments[0]) {
+			// Not sure where this comes from, but it's not in the DB
+			unset($arguments[0]);
 		}
 
 		if($arguments) {
