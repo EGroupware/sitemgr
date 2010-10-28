@@ -47,6 +47,11 @@
      <td><form method="POST" action="{doneurl}">
        <input type="submit" name="done" value="{lang_done}">
      </form></td>
+     <td />
+     <td />
+     <td align="right"><form method="POST" action="{import_action}">
+       <input type="submit" name="import" value="{lang_import}">
+     </form></td>
    </tr>
 <!-- END add -->
 

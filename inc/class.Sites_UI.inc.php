@@ -20,6 +20,7 @@
 			'edit'         => True,
 			'delete'       => True,
 			'export'	=> True,
+			'import'	=> True,
 		);
 
 		var $start = 0;
@@ -82,7 +83,9 @@
 			$GLOBALS['egw']->template->set_block('site_list_t','site_list','list');
 
 			$GLOBALS['egw']->template->set_var('add_action',$GLOBALS['egw']->link('/index.php','menuaction=sitemgr.Sites_UI.edit'));
+			$GLOBALS['egw']->template->set_var('import_action',$GLOBALS['egw']->link('/index.php','menuaction=sitemgr.Sites_UI.import'));
 			$GLOBALS['egw']->template->set_var('lang_add',lang('Add'));
+			$GLOBALS['egw']->template->set_var('lang_import',lang('Import'));
 			$GLOBALS['egw']->template->set_var('title_sites',lang('Sitemgr Websites'));
 			$GLOBALS['egw']->template->set_var('lang_search',lang('Search'));
 			$GLOBALS['egw']->template->set_var('actionurl',$GLOBALS['egw']->link('/index.php','menuaction=sitemgr.Sites_UI.list_sites'));
@@ -364,6 +367,19 @@
 				$export = new sitemgr_export_xml($writer);
 				$export->export_record($site_id);
 			}
+		}
+
+		public function import()
+		{
+			if (!$GLOBALS['egw']->acl->check('run',1,'admin'))
+			{
+				$GLOBALS['egw']->common->egw_header();
+				echo parse_navbar();
+				$this->deny();
+			}
+			$GLOBALS['egw']->redirect_link('/index.php', array(
+				'menuaction' => 'sitemgr.sitemgr_import_xml.ui_import',
+			));
 		}
 
 		function deny()
