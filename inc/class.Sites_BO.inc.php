@@ -181,11 +181,21 @@
 		}
 
 
+		/**
+		* Set the site that will be worked with during this request.
+		* It cannot be changed during this request after this.
+		*
+		* @param site_url Site ID or url
+		* @param mode One of Administration, ...?
+		*/
 		function set_currentsite($site_url,$mode)
 		{
 			if ($site_url)
 			{
-				$this->current_site = $this->read($this->urltoid($site_url));
+				if(!is_numeric($site_url)) {
+					$site_url = $this->urltoid($site_url);
+				}
+				$this->current_site = $this->read($site_url);
 			}
 			else
 			{
