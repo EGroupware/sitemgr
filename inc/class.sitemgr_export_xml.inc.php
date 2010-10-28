@@ -123,7 +123,7 @@ class sitemgr_export_xml implements importexport_iface_export_plugin {
 	// Actual building of XML
 	public function export_record($site_id) {
 		$site = $this->common->sites->read($site_id);
-		$this->common->sites->set_currentsite($site['site_url']);
+		$this->common->sites->set_currentsite($site['site_url'], 'Administration');
 		
 		xmlwriter_start_element($this->writer, 'site');
 
@@ -276,45 +276,56 @@ class sitemgr_export_xml implements importexport_iface_export_plugin {
 
 	protected function export_block(Block_SO $block) {
 		$langs = $this->common->content->getlangarrayforblocktitle($block->id);
-		$block = $this->common->content->getblock($block->id, 'en');
-
+		$block = $this->common->content->getblock($block->id, True);
+		$versions = $this->common->content->getallversionsforblock($block->id, false);
+		$block->arguments = $this->common->content->getversion(end(array_keys($versions)), false);
 		xmlwriter_start_element($this->writer, 'block');
-		
 		xmlwriter_write_element($this->writer, 'area', $block->area);
 		xmlwriter_write_element($this->writer, 'module', $block->module_name);
-		//xmlwriter_write_element($this->writer, 'arguments', $block->arguments); // This looks always empty
+		if($block->arguments) {
+			xmlwriter_start_element($this->writer, 'arguments');
+			xmlwriter_write_cdata($this->writer, serialize($block->arguments));
+			xmlwriter_end_element($this->writer);
+		}
 		xmlwriter_write_element($this->writer, 'sort_order', $block->sort_order);
 		xmlwriter_write_element($this->writer, 'view', $block->view);
 		foreach($langs as $lang) {
+			$block = $this->common->content->getblock($block->id, $lang);
 			$title = $this->common->content->getlangblocktitle($block->id, $lang);
 			xmlwriter_start_element($this->writer, 'title');
 			xmlwriter_write_attribute($this->writer, 'lang', $lang);
 			xmlwriter_text($this->writer, $title);
 			xmlwriter_end_element($this->writer);
-		}
 
-		$contents = $this->common->content->getallversionsforblock($block->id, False);
-		xmlwriter_start_element($this->writer, 'contents');
-		foreach($contents as $content) {
-			$this->export_content($content);
+			$contents = $this->common->content->getallversionsforblock($block->id, $lang);
+			xmlwriter_start_element($this->writer, 'contents');
+			foreach($contents as $content) {
+				$this->export_content($block->id, $content, $lang);
+			}
+			xmlwriter_end_element($this->writer); // End content
 		}
-		xmlwriter_end_element($this->writer); // End content
 		xmlwriter_end_element($this->writer); // End block
 	}
 
-	protected function export_content($content) {
+	protected function export_content($block_id, $content, $lang) {
 		xmlwriter_start_element($this->writer, 'content');
+		xmlwriter_write_attribute($this->writer, 'lang', $lang);
 		xmlwriter_write_element($this->writer, 'state', $content['state']);
 
-		$langs = $this->common->content->getlangarrayforversion($content['id']);
-		foreach($langs as $lang) {
-			$arguments = $this->common->content->getversion($content['id'], $lang);
+		// A little mangling to avoid problems in importing - separate the block arguments from the lang arguments
+		$block = $this->common->content->getblock($block_id, $lang);
+		$versions = $this->common->content->getallversionsforblock($block->id, false);
+		$block->arguments = $this->common->content->getversion(end(array_keys($versions)), false);
+		$arguments = $this->common->content->getversion($content['id'], $lang);
+		if($block->arguments) {
+			$arguments = array_diff($arguments, $block->arguments);
+		}
+
+		if($arguments) {
 			xmlwriter_start_element($this->writer, 'arguments');
-			xmlwriter_write_attribute($this->writer, 'lang', $lang);
-			xmlwriter_write_cdata($this->writer, serialize($content['arguments']));
+			xmlwriter_write_cdata($this->writer, serialize($arguments));
 			xmlwriter_end_element($this->writer);
 		}
-		
 		xmlwriter_end_element($this->writer);
 	}
 
