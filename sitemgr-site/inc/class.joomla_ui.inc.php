@@ -438,14 +438,40 @@ class dummy_obj
 	}
 
 	/**
+	 * By __callstatic already (in this request) added static methods
+	 *
+	 * @var array
+	 */
+	protected static $already_added = array();
+	/**
+	 * Code to add, if __callstatic can add the method to this file
+	 *
+	 * @var string
+	 */
+	public static $call_static_code = 'return null;';
+
+	/**
 	 * Called for all static method calls, requires PHP5.3 !!!
+	 *
+	 * To overcome PHP5.3 requirement, the class adds the method to this file, IF it is writable.
 	 *
 	 * @param string $name
 	 * @param array $params
+	 *
 	 */
 	public static function __callstatic($name,$params)
 	{
-		if (self::$debug_static) error_log(__METHOD__."('$name',".array2string($params).') '.function_backtrace());
+		$method = get_called_class().'::'.$name;
+		if (self::$debug_static) ;error_log($method."('$name',".array2string($params).') '.function_backtrace());
+
+		// add called static methods to class, to be able to use it with PHP < 5.3 not supporting __callstatic()
+		if (is_writable(__FILE__) && !in_array($method,self::$already_added))
+		{
+			$file = file_get_contents(__FILE__);
+			$file = preg_replace('/(class '.preg_quote(get_called_class()).' extends dummy_obj'."\n{)/m",
+				'$1'."\n\tpublic static function $name() { ".self::$call_static_code.' }',$file);
+			file_put_contents(__FILE__, $file);
+		}
 
 		return null;
 	}
@@ -456,17 +482,9 @@ class dummy_obj
  */
 class JFactory extends dummy_obj
 {
-	/*public static function getApplication($what)
-	{
-		return null;
-	}*/
-
-	/*public static function getDBO()
-	{
-		if (self::$debug_static) error_log(__METHOD__."('$name',".array2string($params).') '.function_backtrace());
-
-		return new dummy_obj();
-	}*/
+	public static function getApplication() { return new dummy_obj(); }
+	public static function getUser() { return new dummy_obj(); }
+	public static function getDBO() { return new dummy_obj(); }
 
 	/**
 	 * JFactory static method return only objects, requires PHP5.3 !!!
@@ -476,7 +494,10 @@ class JFactory extends dummy_obj
 	 */
 	public static function __callstatic($name,$params)
 	{
-		if (self::$debug_static) error_log(__METHOD__."('$name',".array2string($params).') '.function_backtrace());
+		$backup = parent::$call_static_code;
+		parent::$call_static_code = 'return new dummy_obj();';
+		parent::__callstatic($name, $params);
+		parent::$call_static_code = $backup;
 
 		return new dummy_obj();
 	}
@@ -652,28 +673,40 @@ class JParameter extends dummy_obj
 
 class JRequest extends dummy_obj
 {
-	/*public static function getInt($what)
-	{
-		return null;
-	}*/
+	public static function getURI() { return null; }
+	public static function getCmd() { return null; }
+	public static function getInt() { return null; }
+	public static function getVar() { return null; }
+
 }
 
 class JHTML extends dummy_obj
 {
+	public static function _() { return null; }
 
 }
 
 class JURI extends dummy_obj
 {
-	private $instance;
+	/**
+	 * Instance returned by singleton
+	 *
+	 * @var JMenu
+	 */
+	private static $instance;
 
+	/**
+	 * Singelton
+	 *
+	 * @return JMenu
+	 */
 	public static function getInstance()
 	{
-		if (is_null($instance))
+		if (is_null(self::$instance))
 		{
-			$instance = new JURI();
+			self::$instance = new JMenu();
 		}
-		return $instance;
+		return self::$instance;
 	}
 
 	/**
@@ -729,18 +762,35 @@ class JSite extends dummy_obj
 
 	public static function getMenu()
 	{
-		static $menu;
-
 		if (self::$debug_static) error_log(__METHOD__.substr(array2string(func_get_args()),5));
 
-		if (is_null($menu)) $menu = new JMenu();
-
-		return $menu;
+		return JMenu::getInstance();
 	}
 }
 
 class JMenu extends dummy_obj
 {
+	/**
+	 * Instance returned by singleton
+	 *
+	 * @var JMenu
+	 */
+	private static $instance;
+
+	/**
+	 * Singelton
+	 *
+	 * @return JMenu
+	 */
+	public static function getInstance()
+	{
+		if (is_null(self::$instance))
+		{
+			self::$instance = new JMenu();
+		}
+		return self::$instance;
+	}
+
 	/**
 	 * Gets menu items by attribute
 	 *
@@ -884,5 +934,6 @@ show_hits=1
 
 class JRoute extends dummy_obj
 {
+	public static function _() { return null; }
 
 }
