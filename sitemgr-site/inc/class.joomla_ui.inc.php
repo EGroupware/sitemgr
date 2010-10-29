@@ -16,7 +16,7 @@
  *
  * It also emulates some of the JDocumentHTML methods
  */
-class ui extends dummy_obj
+class ui extends JObject
 {
 	/**
 	 * Instance of template object
@@ -116,7 +116,7 @@ class ui extends dummy_obj
 		$this->params = new JParameter($ini_string,'',$this->template);
 
 		// global mainframe object used by some templates
-		$GLOBALS['mainframe'] = new dummy_obj();
+		$GLOBALS['mainframe'] = new JObject();
 	}
 
 	/**
@@ -186,6 +186,8 @@ class ui extends dummy_obj
 
 		// Joomla 1.5 defines
 		define( '_JEXEC', True );
+		define('JVERSION','1.5');
+		define('JPATH_SITE',$GLOBALS['sitemgr_info']['site_dir']);
 		define('DS',DIRECTORY_SEPARATOR);
 
 		ini_set('include_path',$this->mos_compat_dir.(strtoupper(substr(PHP_OS, 0, 3)) == 'WIN' ? ';' : ':').ini_get('include_path'));
@@ -196,7 +198,23 @@ class ui extends dummy_obj
 		{
 			require_once $file;
 		}
-
+/*
+		// support for JA T3 framework installed as Joomla plugin
+		if (file_exists($this->templateroot.'/info.xml') &&	// check if template is a JA T3 template
+			file_exists($file = $GLOBALS['sitemgr_info']['site_dir'].'/plugins/system/jat3.php'))
+		{
+			define('T3_ACTIVE_TEMPLATE',$this->template);
+			include_once($file);
+			$t3 = new plgSystemJAT3($jdispatcher = new JObject(),array());
+			$t3->onAfterInitialise();
+			$t3->onAfterRoute();
+			//$t3->onAfterRender();
+			t3import('core.extendable');
+			t3import('core.parameter');
+			t3import('core.cache');
+			t3import('core.template');
+		}
+*/
 		ob_start();
 		include($this->templateroot.'/index.php');
 		$website = ob_get_contents();
@@ -321,8 +339,30 @@ class ui extends dummy_obj
 	 */
 	function templateurl()
 	{
-		$GLOBALS['sitemgr_info']['site_url'].$this->template.'/';
+		return $this->baseurl.'templates/'.$this->template;
 	}
+
+	/**
+	 * Get path of template directory
+	 *
+	 * @return string
+	 */
+	function templatepath()
+	{
+		return $this->templateroot;
+	}
+}
+
+/**
+ * Import a Joomla class: ignores all requests to import files!
+ *
+ * @param string $name
+ */
+function jimport($name)
+{
+	global $objui;
+
+	if ($objui->debug) error_log(__FUNCTION__."('$name')");
 }
 
 /**
@@ -389,7 +429,7 @@ class center_bt extends joomla_transformer { }
  *
  * All access or calls can be logged via error_log()
  */
-class dummy_obj
+class JObject
 {
 	/**
 	 * Store for attribute values
@@ -462,13 +502,13 @@ class dummy_obj
 	public static function __callstatic($name,$params)
 	{
 		$method = get_called_class().'::'.$name;
-		if (self::$debug_static) ;error_log($method."('$name',".array2string($params).') '.function_backtrace());
+		if (self::$debug_static) error_log($method."('$name',".array2string($params).') '.function_backtrace());
 
 		// add called static methods to class, to be able to use it with PHP < 5.3 not supporting __callstatic()
 		if (is_writable(__FILE__) && !in_array($method,self::$already_added))
 		{
 			$file = file_get_contents(__FILE__);
-			$file = preg_replace('/(class '.preg_quote(get_called_class()).' extends dummy_obj'."\n{)/m",
+			$file = preg_replace('/(class '.preg_quote(get_called_class()).' extends JObject'."\n{)/m",
 				'$1'."\n\tpublic static function $name() { ".self::$call_static_code.' }',$file);
 			file_put_contents(__FILE__, $file);
 		}
@@ -480,11 +520,11 @@ class dummy_obj
 /**
  * Joomla 1.5 compatibilty classes
  */
-class JFactory extends dummy_obj
+class JFactory extends JObject
 {
-	public static function getApplication() { return new dummy_obj(); }
-	public static function getUser() { return new dummy_obj(); }
-	public static function getDBO() { return new dummy_obj(); }
+	public static function getApplication() { return new JObject(); }
+	public static function getUser() { return new JObject(); }
+	public static function getDBO() { return new JObject(); }
 
 	/**
 	 * JFactory static method return only objects, requires PHP5.3 !!!
@@ -495,15 +535,15 @@ class JFactory extends dummy_obj
 	public static function __callstatic($name,$params)
 	{
 		$backup = parent::$call_static_code;
-		parent::$call_static_code = 'return new dummy_obj();';
+		parent::$call_static_code = 'return new JObject();';
 		parent::__callstatic($name, $params);
 		parent::$call_static_code = $backup;
 
-		return new dummy_obj();
+		return new JObject();
 	}
 }
 
-class JParameter extends dummy_obj
+class JParameter extends JObject
 {
 	protected $_defaultNameSpace = '_default';
 
@@ -671,7 +711,7 @@ class JParameter extends dummy_obj
 	}
 }
 
-class JRequest extends dummy_obj
+class JRequest extends JObject
 {
 	public static function getURI() { return null; }
 	public static function getCmd() { return null; }
@@ -680,13 +720,13 @@ class JRequest extends dummy_obj
 
 }
 
-class JHTML extends dummy_obj
+class JHTML extends JObject
 {
 	public static function _() { return null; }
 
 }
 
-class JURI extends dummy_obj
+class JURI extends JObject
 {
 	/**
 	 * Instance returned by singleton
@@ -704,7 +744,7 @@ class JURI extends dummy_obj
 	{
 		if (is_null(self::$instance))
 		{
-			self::$instance = new JMenu();
+			self::$instance = new JURI();
 		}
 		return self::$instance;
 	}
@@ -725,7 +765,7 @@ class JURI extends dummy_obj
 	}
 }
 
-class JText extends dummy_obj
+class JText extends JObject
 {
 	public function _($str)
 	{
@@ -733,7 +773,7 @@ class JText extends dummy_obj
 	}
 }
 
-class JConfig extends dummy_obj
+class JConfig extends JObject
 {
 	function __get($name)
 	{
@@ -751,13 +791,13 @@ class JConfig extends dummy_obj
 	}
 }
 
-class JSite extends dummy_obj
+class JSite extends JObject
 {
 	public static function getRouter()
 	{
 		if (self::$debug_static) error_log(__METHOD__.substr(array2string(func_get_args()),5));
 
-		return new dummy_obj();
+		return new JObject();
 	}
 
 	public static function getMenu()
@@ -768,7 +808,7 @@ class JSite extends dummy_obj
 	}
 }
 
-class JMenu extends dummy_obj
+class JMenu extends JObject
 {
 	/**
 	 * Instance returned by singleton
@@ -932,8 +972,44 @@ show_hits=1
 	}
 }
 
-class JRoute extends dummy_obj
+class JRoute extends JObject
 {
 	public static function _() { return null; }
+
+}
+
+class JPlugin extends JObject
+{
+
+	/**
+	 * Required as JA T3 plugin calls parent::__construct()
+	 *
+	 * @param JObject $subject
+	 * @param array $config
+	 */
+	public function __construct(JObject $subject,array $config)
+	{
+
+	}
+}
+
+class JCache extends JObject
+{
+
+}
+
+class JFolder extends JObject
+{
+
+}
+
+class JUtility extends JObject
+{
+	public static function getToken() { return null; }
+
+}
+
+class JPluginHelper extends JObject
+{
 
 }
