@@ -488,7 +488,7 @@
 					$out .= "\n<br />\n";
 				}
 			}
-			
+
 			if($arguments['nav_title'])
 			{
 				$out .= "\n<span class=\"nav-title\">".$arguments['nav_title']."</span>\n";
@@ -618,7 +618,7 @@
 			}
 
 			$out .= "  </div>\n<!-- navigation context ends here -->\n</div>\n";
-			
+
 			/* uncomment, if you want to debug/check opening and closing div-tags
 			$div_opened = count(explode('<div',$out))-1;
 			$div_closed = count(explode('</div>',$out))-1;
@@ -672,7 +672,7 @@
 				}
 			}
 			$out .= "    <div class=\"nav-".$type."-entry depth-".$depth."\">\n";
-			if ($depth == 1 && $arguments['nav_type'] != 8)	// menu class for Joomla 1.5 (not for breadcrumb path)
+			if ($depth == 1 && $arguments['nav_type'] == 3)	// menu class for Joomla 1.5 (only for index_block)
 			{
 				$out .= "      <ul class=\"menu\">\n";
 			}
