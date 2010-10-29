@@ -222,6 +222,7 @@ class Common_UI
 	 * Store supported Joomla template parameters as EGroupware custom fields,
 	 * to be able to use eTemplate custom field widget to edit them
 	 *
+	 * @link http://docs.joomla.org/Standard_parameter_types
 	 * @param array $params
 	 * @param string $template_dir
 	 */
@@ -232,6 +233,14 @@ class Common_UI
 		{
 			switch($param['type'])
 			{
+				case 'japaramhelper':
+					if ($param['name'] != '@title')
+					{
+						//error_log("Not yet implemented Joomla template parameter type '$param[type]' with name '$param[name] --> ignored!");
+						break;
+					}
+					$param['default'] = $param['label'];
+					// fall through
 				case 'spacer':
 					$cfs[] = array(
 						'type' => 'label',
@@ -239,18 +248,31 @@ class Common_UI
 						'order' => ++$order,
 					);
 					break;
+				case 'filelist':
 				case 'folderlist':
-					$param['option'] = array(
-						''   => '- '.lang('Default').' -',
-						'-1' => '- '.lang('None selected').' -',
-					);
+				case 'imagelist':
+					$param['option'] = array();
+					if (!isset($param['hide_default']) || !$param['hide_default'])
+					{
+						$param['option'][''] = '- '.lang('Use default').' -';
+					}
+					if (!isset($param['hide_none']) || !$param['hide_none'])
+					{
+						$param['option']['-1'] = '- '.lang('None selected').' -';
+					}
 					$dir = $template_dir.SEP.implode('/',array_slice(explode('/',$param['directory']),2));
 					foreach(scandir($dir) as $file)
 					{
-						if ($file[0] != '.' && $file != 'index.html')
+						if ($file[0] == '.' || $file == 'index.html') continue;
+						if (is_dir($dir.'/'.$file) != ($param['type'] == 'folderlist')) continue;
+						if ($param['type'] == 'imagelist' && !preg_match('/\.(jpe?g|png|gif|ico|bmp)$/i',$file)) continue;
+						if (isset($param['filter']) && !preg_match('/'.$param['filter'].'/',$file)) continue;
+						if (isset($param['exclude']) && preg_match('/'.$param['exclude'].'/',$file)) continue;
+						if (isset($param['stripext']) && $param['stripext'] && preg_match('/^(.*)\.[^.]+$/',$file,$matches))
 						{
-							$param['option'][$file] = $file;
+							$file = $matches[1];
 						}
+						$param['option'][$file] = $file;
 					}
 					// fall through
 				case 'list':
@@ -263,11 +285,38 @@ class Common_UI
 					);
 					break;
 				case 'text':
+				case 'textarea':
+				case 'password':	// password is NOT implemented as cf
 					$cfs[$param['name']] = array(
 						'type' => 'text',
 						'label' => $param['label'],
 						'order' => ++$order,
-						'len' => $param['size'],
+						'len' => $param['type'] == 'textarea' ? $param['cols'] : $param['size'],
+						'rows' => $param['rows'],
+					);
+					break;
+				case 'integer':
+					$options = array();
+					if ((int)$param['first'] <= (int)$param['last'])
+					{
+						for ($n = (int)$params['first']; $n <= (int)$params['last']; $n += (int)$params['step'] ? (int)$params['step'] : 1)
+						{
+							$options[(string)$n] = (string)$n;
+						}
+					}
+					$cfs[$param['name']] = array(
+						'type' => 'select',
+						'label' => $param['label'],
+						'order' => ++$order,
+						'values' => $options,
+					);
+					break;
+				case 'calendar':
+					$cfs[$param['name']] = array(
+						'type' => 'date',
+						'label' => $param['label'],
+						'order' => ++$order,
+						'format' => empty($param['format']) ? 'Y-m-d' : str_replace('%','',$param['format']),
 					);
 					break;
 				default:
