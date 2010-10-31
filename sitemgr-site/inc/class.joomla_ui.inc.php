@@ -235,7 +235,7 @@ class ui extends JObject
 		if (file_exists($this->templateroot.'/images/arrow.png'))
 		{
 			$custom_css .= "#navigation-path-nosep ul li {
-	background: transparent url($this->baseurl/templates/$this->template/images/arrow.png) no-repeat scroll 10px 7px;
+	background: transparent url({$this->baseurl}templates/$this->template/images/arrow.png) no-repeat scroll 10px 7px;
 }\n";
 		}
 		// inject custom CSS (incl. site logo)
@@ -250,6 +250,7 @@ class ui extends JObject
 	/**
 	 * Replaces <jdoc:include
 	 *
+	 * @link http://docs.joomla.org/Jdoc_statements
 	 * @param array $matches 0: whole jdoc tag, 1: jdoc:type, eg. "include", 2: type, eg. "module", 4: name of content-area
 	 */
 	public function jdoc_replace($matches)
@@ -281,7 +282,7 @@ class ui extends JObject
 					return "\t\t<title>".$this->t->get_meta('sitename').': '.$this->t->get_meta('title')."</title>\n".
 						$this->t->parse();
 
-				case 'message':		// not sure what is supposted to be in here, returning empty string for now
+				case 'message':		// used for error-messages in Joomla
 					return '';
 
 				case 'module':
@@ -722,8 +723,54 @@ class JRequest extends JObject
 
 class JHTML extends JObject
 {
-	public static function _() { return null; }
+	public static function _($what)
+	{
+		switch($what)
+		{
+			case 'behavior.mootools':
+				self::script('mootools.js');
+				break;
+			case 'behavior.caption':
+				self::script('caption.js');
+				break;
+		}
+		return null;
+	}
 
+	/**
+	 * Write a <script></script> element
+	 *
+	 * @param	string 	The name of the script file
+	 * @param	string 	The relative or absolute path of the script file
+	 * @param	boolean If true, the mootools library will be loaded
+	 * @since	1.5
+	 */
+	function script($filename, $path = 'templates/system/js/', $mootools = true)
+	{
+		static $loaded = array();
+		/**
+		 * @var ui
+		 */
+		global $objui;
+
+		if (in_array($path.$filename,$loaded))
+		{
+			return;
+		}
+		$loaded[] = $path.$filename;
+
+		if ($mootools && $filename != 'mootools.js')
+		{
+			self::_('behavior.mootools');
+		}
+		if (strpos($path, 'http') !== 0 && !file_exists($file=$GLOBALS['sitemgr_info']['site_dir'].SEP.$path.$filename))
+		{
+			error_log(__METHOD__."('$filename', '$path', $mootools) $file NOT found!");
+			return;
+		}
+		echo '<script type="text/javascript" src="'.htmlspecialchars(
+			(strpos($path, 'http') !== 0 ? $objui->baseurl : '').$path.$filename).'"></script>'."\n";
+	}
 }
 
 class JURI extends JObject
