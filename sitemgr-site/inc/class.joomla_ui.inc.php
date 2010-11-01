@@ -188,6 +188,7 @@ class ui extends JObject
 		define( '_JEXEC', True );
 		define('JVERSION','1.5');
 		define('JPATH_SITE',$GLOBALS['sitemgr_info']['site_dir']);
+		define('JPATH_BASE',$GLOBALS['sitemgr_info']['site_dir']);
 		define('DS',DIRECTORY_SEPARATOR);
 
 		ini_set('include_path',$this->mos_compat_dir.(strtoupper(substr(PHP_OS, 0, 3)) == 'WIN' ? ';' : ':').ini_get('include_path'));
@@ -355,7 +356,9 @@ class ui extends JObject
 }
 
 /**
- * Import a Joomla class: ignores all requests to import files!
+ * Import a Joomla class: ignores most requests to import files!
+ *
+ * File have to be in sitemgr/sitemgr-site/mos-compat which get added to PHP include_path
  *
  * @param string $name
  */
@@ -363,7 +366,16 @@ function jimport($name)
 {
 	global $objui;
 
-	if ($objui->debug) error_log(__FUNCTION__."('$name')");
+	switch($name)
+	{
+		case 'libraries.joomla.utilities.date':
+			require_once str_replace('.', SEP, $name).'.php';
+			break;
+
+		default:
+			if ($objui->debug) error_log(__FUNCTION__."('$name')");
+			break;
+	}
 }
 
 /**
@@ -521,6 +533,11 @@ class JObject
 /**
  * Joomla 1.5 compatibilty classes
  */
+class JVersion extends JObject
+{
+
+}
+
 class JFactory extends JObject
 {
 	public static function getApplication() { return new JObject(); }

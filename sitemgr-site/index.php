@@ -56,7 +56,7 @@ function sitemgr_get_site(&$anon_account)
 			die(lang('NO ANONYMOUS USER ACCOUNTS INSTALLED.  NOTIFY THE ADMINISTRATOR.'));
 		}
 		$site_id = $GLOBALS['egw']->db->f('site_id');
-			
+
 		//echo "<p>sitemgr_get_site('$site_url') site_id=$site_id, anon_account=".print_r($anon_account,true)."</p>\n";
 		return true;
 	}
@@ -156,7 +156,20 @@ if (file_exists($templateroot.'/main.tpl'))			// native sitemgr template
 }
 elseif (file_exists($templateroot.'/index.php'))	// Joomla or Mambo Open Source template
 {
-	if (file_exists($templateroot.'/component.php'))	// joomla 1.5+ template
+	$version =& egw_cache::getSession('sitemgr', 'template_version');
+	if (!is_null($version) || !isset($version[$GLOBALS['sitemgr_info']['themesel']]))
+	{
+		if (file_exists($filename=$templateroot.'/templateDetails.xml') &&
+			preg_match('/<install version="([0-9.]+)" type="template">/m',file_get_contents($filename),$matches))
+		{
+			$version[$GLOBALS['sitemgr_info']['themesel']] = $matches[1];
+		}
+		else
+		{
+			$version[$GLOBALS['sitemgr_info']['themesel']] = '1.0';
+		}
+	}
+	if (version_compare($version[$GLOBALS['sitemgr_info']['themesel']], '1.5','>='))	// joomla 1.5+ template
 	{
 		include_once './inc/class.joomla_ui.inc.php';
 	}
