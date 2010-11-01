@@ -17,7 +17,7 @@ class Theme_BO
 {
 	/**
 	 * List installed templates
-	 * 
+	 *
 	 * @return array name => template-infos from getTemplateInfos
 	 */
 	function getAvailableThemes()
@@ -54,7 +54,7 @@ class Theme_BO
 	function getThemeInfos($theme)
 	{
 		static $info;	// some caching in the request
-		
+
 		if (is_array($info) && $info['value'] === $theme)
 		{
 			return $info;
@@ -97,6 +97,7 @@ class Theme_BO
 					if ($name == 'type' && $value != 'template') return false;
 					if ($name == 'version')
 					{
+						$info['joomla-version'] = (string)$value;
 						$info['type'] = 'Joomla '.$value;
 					}
 				}

@@ -156,18 +156,11 @@ if (file_exists($templateroot.'/main.tpl'))			// native sitemgr template
 }
 elseif (file_exists($templateroot.'/index.php'))	// Joomla or Mambo Open Source template
 {
-	$version =& egw_cache::getSession('sitemgr', 'template_version');
-	if (!is_null($version) || !isset($version[$GLOBALS['sitemgr_info']['themesel']]))
+	$version =& egw_cache::getSession('sitemgr', 'template_version');	// cache it in session
+	if (is_null($version) || !isset($version[$GLOBALS['sitemgr_info']['themesel']]))
 	{
-		if (file_exists($filename=$templateroot.'/templateDetails.xml') &&
-			preg_match('/<install version="([0-9.]+)" type="template">/m',file_get_contents($filename),$matches))
-		{
-			$version[$GLOBALS['sitemgr_info']['themesel']] = $matches[1];
-		}
-		else
-		{
-			$version[$GLOBALS['sitemgr_info']['themesel']] = '1.0';
-		}
+		$theme_info = $Common_BO->theme->getThemeInfos($GLOBALS['sitemgr_info']['themesel']);
+		$version[$GLOBALS['sitemgr_info']['themesel']] = $theme_info['joomla-version'];
 	}
 	if (version_compare($version[$GLOBALS['sitemgr_info']['themesel']], '1.5','>='))	// joomla 1.5+ template
 	{
