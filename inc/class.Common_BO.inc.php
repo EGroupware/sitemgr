@@ -56,7 +56,7 @@ class Common_BO
 	 * @var Modules_BO
 	 */
 	public $modules;
-	
+
 	/**
 	 * Labels for states: draft, (pre)published, preunpublished, archived
 	 *
@@ -69,7 +69,7 @@ class Common_BO
 	 * @var array
 	 */
 	public $visiblestates;
-	
+
 	/**
 	 * Constructor
 	 */
@@ -96,20 +96,23 @@ class Common_BO
 			SITEMGR_VIEWABLE_ANONYMOUS => lang('anonymous')
 		);
 	}
-	
+
 	/**
 	 * Default for custom CSS
-	 * 
+	 *
 	 * Can be overwritten by user (stored in DB) or per template in a 'custom_css_default.css' file
 	 *
 	 * @var string
 	 */
-	const CUSTOM_CSS_DEFAULT = 
+	const CUSTOM_CSS_DEFAULT =
 '/**
- * Custom CSS to set logo for joomlart templates, div with id="logo"
+ * Custom CSS to set logo for joomlart templates
  */
-h1.logo a, div#logo, #logo {
+h1.logo a, div#logo, #logo, div#ja-header h1, div#header h1 {
 	background: url("$$logo_url$$") no-repeat left center;
+}
+div#ja-header h1 a img, div#header h1 a img, div#header h1 img {
+	visibility: hidden;
 }
 ';
 
@@ -133,7 +136,7 @@ h1.logo a, div#logo, #logo {
 			$site = $this->sites->read($site_id);
 		}
 		if (is_null($template)) $template = $site['themesel'];
-		
+
 		$logo_url = $site['logo_url'];
 		$custom_css = $site['custom_css'];
 		if (empty($custom_css))
@@ -284,5 +287,5 @@ h1.logo a, div#logo, #logo {
 			$file['Define websites'] = egw::link('/index.php','menuaction=sitemgr.Sites_UI.list_sites');
 		}
 		return $file;
-	}     
+	}
 }
