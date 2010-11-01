@@ -95,7 +95,7 @@ class Template3
 			if (class_exists('draft_transform'))
 			{
 				$this->draft_transformer = new draft_transform();
-			}			
+			}
 			break;
 
 		case 'Edit':
@@ -193,6 +193,7 @@ class Template3
 	 */
 	function parse()
 	{
+		global $page;
 		//get block content for contentareas
 		$str = preg_replace_callback(
 			"/\{contentarea:([^{ ]+)\}/",
@@ -399,6 +400,7 @@ class Template3
 	function exec_module($vars)
 	{
 		global $page;
+		$this->permitted_modules = array_keys($this->modulebo->getcascadingmodulepermissions('__PAGE__',$page->cat_id));
 		list(,$modulename,$query) = $vars;
 		$moduleid = $this->modulebo->getmoduleid($modulename);
 		if (!in_array($moduleid,$this->permitted_modules))

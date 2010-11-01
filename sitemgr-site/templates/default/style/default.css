@@ -155,7 +155,6 @@ This code would produce 100% complability with old module, but looks ugly in cas
 table.moduletable {
 	width: 100%;
 }
-/* SiteMgr sets margin-top: 10px for ul, messing up the breakcrumb navication */
-#navigation-path-nosep .nav-cat-entry ul, li {
-	margin: 0px;
-}
+/* pathway per direct module include should behave inline */
+#pathway div, #pathway ul, #ja-pathway div, #ja-pathway ul { display: inline; }
+#pathway li, #ja-pathway li { float: none ! important; display: inline; }

@@ -162,7 +162,7 @@ elseif (file_exists($templateroot.'/index.php'))	// Joomla or Mambo Open Source 
 		$theme_info = $Common_BO->theme->getThemeInfos($GLOBALS['sitemgr_info']['themesel']);
 		$version[$GLOBALS['sitemgr_info']['themesel']] = $theme_info['joomla-version'];
 	}
-	if (version_compare($version[$GLOBALS['sitemgr_info']['themesel']], '1.5','>='))	// joomla 1.5+ template
+	if (version_compare($version[$GLOBALS['sitemgr_info']['themesel']], '1.3','>='))	// joomla 1.5+ template
 	{
 		include_once './inc/class.joomla_ui.inc.php';
 	}
