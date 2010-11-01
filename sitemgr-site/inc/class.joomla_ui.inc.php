@@ -540,6 +540,7 @@ class JVersion extends JObject
 
 class JFactory extends JObject
 {
+	public static function getConfig() { return new JObject(); }
 	public static function getApplication() { return new JObject(); }
 	public static function getUser() { return new JObject(); }
 	public static function getDBO() { return new JObject(); }
@@ -740,6 +741,7 @@ class JRequest extends JObject
 
 class JHTML extends JObject
 {
+	public static function stylesheet() { return null; }
 	public static function _($what)
 	{
 		switch($what)
