@@ -70,6 +70,12 @@ class module_filecontents extends Module
 				'params' => array('size' => 50),
 			);
 		}
+		$this->arguments['cache_time'] = array(
+			'type' => 'textfield',
+			'label' => lang('How long to cache downloaded content (seconds)'),
+			'params' => array('size' => 5),
+
+		);
 		$this->title = lang('File contents');
 		$this->description = lang('This module includes the contents of an URL or file (readable by the webserver and in its docroot !)');
 	}
@@ -84,6 +90,11 @@ class module_filecontents extends Module
 	 */
 	function get_content(&$arguments,$properties)
 	{
+		if ((int)$arguments['cache_time'] &&
+			($ret = egw_cache::getInstance('sitemgr', $cache_token = md5(serialize($arguments)))))
+		{
+			return $ret;
+		}
 		$url = parse_url($path = $arguments['filepath']);
 
 		if (empty($path))
@@ -163,6 +174,10 @@ class module_filecontents extends Module
 		if(substr($path,-4) == '.txt')
 		{
 			$ret = "<pre>\n$ret\n</pre>\n";
+		}
+		if (isset($cache_token))
+		{
+			$ok = egw_cache::setInstance('sitemgr', $cache_token, $ret, (int)$arguments['cache_time']);
 		}
 		return $ret;
 	}
