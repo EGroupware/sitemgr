@@ -292,7 +292,7 @@ class Module
 		}
 		else
 		{
-			$default = strtr($GLOBALS['egw']->strip_html($default),$trans);
+			$default = strtr(htmlspecialchars($default),$trans);
 		}
 	}
 
