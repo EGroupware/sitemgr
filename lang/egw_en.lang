@@ -118,6 +118,7 @@ contentarea	sitemgr	en	Contentarea
 contributor menu	sitemgr	en	Contributor Menu
 copyright	sitemgr	en	Copyright
 create new version	sitemgr	en	Create new version
+css selector for part of html (does not use regular expression)	sitemgr	en	CSS selector for part of html (does NOT use regular expression)
 css styles	sitemgr	en	CSS styles
 currency code of the value specified in amount (eg. usd, eur)	sitemgr	en	Currency code of the value specified in amount (eg. USD, EUR)
 current section	sitemgr	en	Current Section
@@ -126,6 +127,8 @@ custom etemplate for the contactform	sitemgr	en	Custom eTemplate for the contact
 custom template directory	sitemgr	en	Custom template directory
 custom template directory does not exist or is not accessible by webserver!	sitemgr	en	Custom template directory does NOT exist or is NOT accessible by webserver!
 default	sitemgr	en	Default
+default %1 (content of first brackets)	sitemgr	en	default %1 (content of first brackets)
+default for html is "%1"	sitemgr	en	default for html is "%1"
 default home page id number	sitemgr	en	Default home page ID number
 define websites	common	en	Define websites
 delete block	sitemgr	en	Delete block
@@ -169,6 +172,7 @@ edit site	sitemgr	en	Edit Site
 edit site header and footer	common	en	Edit Site Header and Footer
 edit this block	sitemgr	en	Edit this block
 edit website	sitemgr	en	Edit Website
+eg. %1 or %2	sitemgr	en	eg. %1 or %2
 eg. be renaming %1 to %2 in the %3 directory for an apache.	sitemgr	en	Eg. be renaming %1 to %2 in the %3 directory for an Apache.
 egw users	sitemgr	en	Egw users
 element successfully deleted.	sitemgr	en	Element successfully deleted.
@@ -374,8 +378,11 @@ redirection	sitemgr	en	Redirection
 refresh	sitemgr	en	Refresh
 register for one now.	sitemgr	en	Register for one now.
 register new modules	sitemgr	en	Register new modules
+regular expression modifier "%1" in "%2" is not allowed!	sitemgr	en	Regular expression modifier "%1" in "%2" is NOT allowed!
+regular expression, if only parts should be used	sitemgr	en	Regular expression, if only parts should be used
 reload	sitemgr	en	Reload
 remember me	common	en	remember me
+replace above regular expressions with	sitemgr	en	Replace above regular expressions with
 replies	sitemgr	en	Replies
 required	sitemgr	en	Required
 required fields	sitemgr	en	Required Fields
