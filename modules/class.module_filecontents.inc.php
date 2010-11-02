@@ -13,17 +13,6 @@
 /**
  * Filecontents module: displays/includes content of files or urls
  *
- * Regular expressions:
- * @see http://www.php.net/manual/en/reference.pcre.pattern.syntax.php
- *
- * To replace the read content with an in brackets enclosed part, you have to make sure the
- * regular expression matches the whole text, eg: '/^.*<body[^>]*>(.*)<\/body>.*$/si'
- * ('/<body[^>]*>(.*)<\/body>/si' will only remove the body tags, not the rest before and after!)
- * The 's' modifier is neccessary as .* does not match newlines without!
- *
- * The 'e' modifier (eval) is NOT allowed for security reasons!
- *
- * CSS query:
  * If Zend Framework is install, you can also use a css query to get a part of the included html.
  * Eg. "div#id" or "div.class"
  */
@@ -47,25 +36,13 @@ class module_filecontents extends Module
 				'label' => lang('The complete URL or path to a file to be included'),
 				'params' => array('size' => 50),
 			),
-			'preg' => array(
-				'type' => 'textfield',
-				'label' => lang('Regular expression, if only parts should be used').'<br />'.
-					lang('default for html is "%1"',self::GRAB_BODY),
-				'params' => array('size' => 50),
-			),
-			'replace' => array(
-				'type' => 'textfield',
-				'label' => lang('Replace above regular expressions with').'<br />'.
-					lang('default %1 (content of first brackets)','$1'),
-				'params' => array('size' => 50),
-			),
 		);
 		// if Zend Framework is installed, allow css queries to get parts of html
 		if (@include_once('Zend/Dom/Query.php'))
 		{
 			$this->arguments['css_query'] = array(
 				'type' => 'textfield',
-				'label' => lang('CSS selector for part of html (does NOT use regular expression)').'<br />'.
+				'label' => lang('CSS selector to use only part of html file').'<br />'.
 					lang('eg. %1 or %2','"div#id", "table.classname"','"div[attr=\'value\'] > h1"'),
 				'params' => array('size' => 50),
 			);
@@ -134,43 +111,37 @@ class module_filecontents extends Module
 		{
 			$ret = file_get_contents($path);
 		}
-		if ($is_html && preg_match('/<meta http-equiv="content-type" content="text\/html; ?charset=([^"]+)"/i',$ret,$parts))
+		if ($is_html)
 		{
-			$ret = translation::convert($ret,$parts[1]);
-		}
-
-		// for html use css query if given AND Zend Framework available
-		if ($is_html && $arguments['css_query'] && @include_once('Zend/Dom/Query.php'))
-		{
-			$dom = new Zend_Dom_Query($ret);
-			$ret = '';
-			foreach($dom->query($arguments['css_query']) as $element)
+			if (preg_match('/<meta http-equiv="content-type" content="text\/html; ?charset=([^"]+)"/i',$ret,$parts))
 			{
-				$ret .= simplexml_import_dom($element)->asXML()."\n";
+				$ret = translation::convert($ret,$parts[1]);
+			}
+
+			// for html use css query if given AND Zend Framework available
+			if ($arguments['css_query'] && @include_once('Zend/Dom/Query.php'))
+			{
+				$dom = new Zend_Dom_Query();	// specifying document direct in constructor uses Xml,
+				$dom->setDocumentHtml($ret);	// if document has xml head and does NOT work, if not valid xml
+				$ret = '';
+				foreach($dom->query($arguments['css_query']) as $element)
+				{
+					$ret .= simplexml_import_dom($element)->asXML()."\n";
+				}
+			}
+			elseif (preg_match('/<body>(.*)<\/body>/si',$ret,$matches))
+			{
+				$ret = $matches[1];
+			}
+			// replace images and links with correct host
+			if ($is_html && ($url['scheme'] == 'http' || $url['scheme'] == 'https'))
+			{
+				$ret = strtr($ret,array(
+					'src="/' => 'src="'.$url['scheme'].'://'.$url['host'].'/',
+					'href="/' => 'href="'.$url['scheme'].'://'.$url['host'].'/',
+				));
 			}
 		}
-		else
-		{
-			// use given regular expression (or default) to use only part of the content
-			$preg = $arguments['preg'];
-			// html default: only use what's between the body tags
-			if ($is_html && empty($preg)) $preg = self::GRAB_BODY;
-
-			if (!empty($preg))
-			{
-				$ret = preg_replace($preg, empty($arguments['replace']) ? '$1' : $arguments['replace'], $ret);
-			}
-		}
-
-		// replace images and links with correct host
-		if ($is_html && ($url['scheme'] == 'http' || $url['scheme'] == 'https'))
-		{
-			$ret = strtr($ret,array(
-				'src="/' => 'src="'.$url['scheme'].'://'.$url['host'].'/',
-				'href="/' => 'href="'.$url['scheme'].'://'.$url['host'].'/',
-			));
-		}
-
 		if(substr($path,-4) == '.txt')
 		{
 			$ret = "<pre>\n$ret\n</pre>\n";
@@ -179,6 +150,8 @@ class module_filecontents extends Module
 		{
 			$ok = egw_cache::setInstance('sitemgr', $cache_token, $ret, (int)$arguments['cache_time']);
 		}
+		if (empty($ret)) $ret = ' ';	// otherwise block outline is not display and block can not be edited
+
 		return $ret;
 	}
 
