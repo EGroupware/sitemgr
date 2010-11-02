@@ -118,6 +118,7 @@ contentarea	sitemgr	de	Inhaltsbereich
 contributor menu	sitemgr	de	Autoren Menü
 copyright	sitemgr	de	Copyright
 create new version	sitemgr	de	Neue Version erstellen
+css selector for part of html (does not use regular expression)	sitemgr	de	CSS Selektor für einen Teil des HTML (verwendet NICHT den regulären Ausdruck)
 css styles	sitemgr	de	CSS Stile
 currency code of the value specified in amount (eg. usd, eur)	sitemgr	de	Währungscode der angegebenen Betrages (zB. USD, EUR)
 current section	sitemgr	de	Gegenwärtiger Abschnitt
@@ -126,6 +127,8 @@ custom etemplate for the contactform	sitemgr	de	Angepasstes eTemplate für das K
 custom template directory	sitemgr	de	Benutzerdefiniertes Template Verzeichnis
 custom template directory does not exist or is not accessible by webserver!	sitemgr	de	Benutzerdefiniertes Template-Verzeichnis existiert NICHT oder ist für Webserver NICHT zugänglich!
 default	sitemgr	de	Standard
+default %1 (content of first brackets)	sitemgr	de	Vorgabe %1 (Inhalt der ersten Klammer)
+default for html is "%1"	sitemgr	de	Vorgabe für HTML ist "%1"
 default home page id number	sitemgr	de	Standard Home Page ID Nummer
 define websites	common	de	Websites definieren
 delete block	sitemgr	de	Block löschen
@@ -169,6 +172,7 @@ edit site	sitemgr	de	Website bearbeiten
 edit site header and footer	common	de	Seiten Kopf- und Fusszeile editieren
 edit this block	sitemgr	de	Diesen Block bearbeiten
 edit website	sitemgr	de	Website bearbeiten
+eg. %1 or %2	sitemgr	de	z.B. %1 oder %2
 eg. be renaming %1 to %2 in the %3 directory for an apache.	sitemgr	de	Zum Beispiel durch Umbennennen von %1 nach %2 im %3 Verzeichnis für den Apache.
 egw users	sitemgr	de	eGroupWare Benutzer
 element successfully deleted.	sitemgr	de	Element erfolgreich gelöscht.
@@ -374,8 +378,11 @@ redirection	sitemgr	de	Umlenkung
 refresh	sitemgr	de	Aktualisieren
 register for one now.	sitemgr	de	Hier können Sie sich registrieren.
 register new modules	sitemgr	de	Neue Module registrieren
+regular expression modifier "%1" in "%2" is not allowed!	sitemgr	de	Regulärer Ausdruck Modifier "%1" in "%2" ist NICHT erlaubt!
+regular expression, if only parts should be used	sitemgr	de	Regulärer Ausdruck, wenn nur ein Teil benutzt werden soll
 reload	sitemgr	de	Nachladen
 remember me	common	de	Automatisch anmelden
+replace above regular expressions with	sitemgr	de	Ersetze obigen regulären Ausdruck mit
 replies	sitemgr	de	Antworten
 required	sitemgr	de	Benötigt
 required fields	sitemgr	de	Benötigte Felder
