@@ -303,16 +303,46 @@ class Module
 		{
 			$default = $input['default'];
 		}
-		if ($default && $input['type'] != 'htmlarea')	// htmlarea does its own escape !!!
+		$params = (array)$input['params'];
+		$params['name'] = $elementname . ($input['multiple'] ? '[]' : '');
+		$params['id'] = str_replace(array('[',']'),array('_',''),$elementname);
+
+		// hide / show certain input elements depending on their name
+		if (isset($input['*switch-hide*']))
 		{
-			$this->escape_default($default);
+			$params['onchange'] = "switch_hide('$params[id]',".json_encode($input['*switch-hide*']).");";
+			egw_framework::set_onload($params['onchange']);
+			$js = '<script type="text/javascript">
+function switch_hide(id,params)
+{
+	var select = document.getElementById(id);
+	var hide = params["*default*"];
+	for(var pname in params)
+	{
+		if (pname == select.value) { hide = params[pname]; break; }
+	}
+	var name_start = id.lastIndexOf("_")+1;
+	var prefix = id.substr(0,name_start);
+	for(var n in select.form.elements)
+	{
+		var elem = select.form.elements[n];
+		if (!elem || !elem.id || elem.id == id || elem.id.substr(0,name_start) != prefix) continue;
+		var ename = elem.id.substr(name_start);
+		var display = "";
+		for (var i in hide) if (hide[i] == ename) { display = "none"; break; }
+		elem.parentNode.parentNode.style.display = display;
+	}
+}
+</script>
+';
 		}
-		$paramstring = '';
-		while (list($param,$value) = @each($input['params']))
+
+		$inputdef = '';
+		foreach($params as $param => $value)
 		{
-			$paramstring .= $param . '="' . $value . '" ';
+			$inputdef .= ' '.$param . '="' . htmlspecialchars($value) . '" ';
+			unset($params[$param]);
 		}
-		$inputdef = $paramstring . ' name="' . $elementname . ($input['multiple'] ? '[]' : '') . '"';
 		switch($input['type'])
 		{
 			case 'htmlarea':
@@ -325,11 +355,15 @@ class Module
 			case 'textarea':
 				return '<textarea ' . $inputdef . '>' . $default . '</textarea>';
 			case 'textfield':
-				return '<input type="text" ' . $inputdef . ' value ="' . $default . '" />';
+				$params['type'] = 'text';
+				$params['value'] = $default;
+				break;
 			case 'checkbox':
-				return '<input type="checkbox" ' . $inputdef . ($default ? 'checked="1"' :'') . ' />';
+				$params['type'] = 'checkbox';
+				if ($default) $params['checked'] = 1;
+				break;
 			case 'select':
-				$select = '<select ' .($input['multiple'] ? 'multiple="1"'.($input['multiple'] > 1 ? ' size="'.$input['multiple'].'"' : '') : '') . $inputdef . '>';
+				$select = $js.'<select ' .($input['multiple'] ? 'multiple="1"'.($input['multiple'] > 1 ? ' size="'.$input['multiple'].'"' : '') : '') . $inputdef . '>';
 				foreach ($input['options'] as $value => $display)
 				{
 					$title = '';
@@ -338,12 +372,11 @@ class Module
 						$title = @$display['title'] ? ' title="'.htmlspecialchars($display['titel']).'"' : '';
 						$display = $display['name'];
 					}
+					// selecting first option, if none is selected, so switch-hide always has one selected
+					if (!is_array($default) && (string)$default === '') $default = $value;
 					$selected='';
-					if
-					(
-						($input['multiple'] && is_array($default) && in_array($value,$default)) ||
-						(!$input['multiple'] && ($default == $value))
-					)
+					if ($input['multiple'] && is_array($default) && in_array($value,$default) ||
+						!$input['multiple'] && $default == $value)
 					{
 						$selected = ' selected="1"';
 					}
@@ -352,10 +385,19 @@ class Module
 				$select .= '</select>';
 				return $select;
 			case 'submit':
-				return '<input type="submit" ' . $inputdef .' value ="' . $input['value'] . '" />';
+				$params['type'] = 'submit';
+				$params['value'] = $input['value'];
+				break;
 			case 'image':
-				return '<input type="image" ' . $inputdef .' src ="' . $input['src'] . '" />';
+				$params['type'] = 'image';
+				$params['src']  = $input['src'];
+				break;
 		}
+		foreach($params as $param => $value)
+		{
+			$inputdef .= ' '.$param . '="' . htmlspecialchars($value) . '" ';
+		}
+		return $js.'<input '.$inputdef.'/>';
 	}
 
 	function validate(&$data)
