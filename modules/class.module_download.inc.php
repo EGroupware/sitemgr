@@ -28,14 +28,19 @@ class module_download extends Module
 					'dirnsub' => lang('Show contents of a directory with subdirectories'),
 					'recursive' => lang('Show files including the ones from subdirectories'),
 				),
-			),
-			'showpath' => array (
-				'type' => 'checkbox',
-				'label' => lang('show path?'),
+				'*switch-hide*' => array(
+					'file' => array('showpath','order','upload','showcomments'),
+					'*default*' => array('file','text'),
+				)
 			),
 			'path' => array (
 				'type' => 'textfield',
 				'label' => lang('The path to the file to be downloaded'),
+				'params' => array('size' => 60),
+			),
+			'showpath' => array (
+				'type' => 'checkbox',
+				'label' => lang('show path?'),
 			),
 			'order' => array(
 				'type' => 'select',
@@ -53,12 +58,12 @@ class module_download extends Module
 			),
 			'file' => array (
 				'type' => 'textfield',
-				'label' => lang('The file to be downloaded').' '.lang('(only used in case of single file)'),
+				'label' => lang('The file to be downloaded'),
 			),
 			'text' => array (
 				'type' => 'textfield',
-				'label' => lang('The text for the link, if empty the module returns the raw URL (without a link)').' '.
-					lang('(only used in case of single file)'),
+				'label' => lang('The text for the link, if empty the module returns the raw URL (without a link)'),
+				'params' => array('size' => 60),
 			),
 			'upload' => array(
 				'type' => 'checkbox',
@@ -68,16 +73,11 @@ class module_download extends Module
 				'type' => 'checkbox',
 				'label' => lang('Show comments?'),
 			),
-/*			disabled, because currently not working
-			'op' => array (
-				'type' => 'select',
-				'label' => lang('Should the file be viewed in the browser or downloaded'),
-				'options' => array (
-					1 => lang('viewed'),
-					2 => lang('downloaded'),
-				),
+			'confirmation' => array (
+				'type' => 'textfield',
+				'label' => lang('Text for optional confirmation message, before download get displayed'),
+				'params' => array('size' => 60),
 			),
-*/
 		);
 		$this->post = array (
 			'subdir' => array('type' => 'textfield'),
@@ -112,7 +112,7 @@ class module_download extends Module
 					return '<p style="color: red;"><i>'.lang('The requested path %1 is not available.',htmlspecialchars($arguments['path']))."</i></p>\n";
 				}
 				$show_upload = $arguments['upload'] && egw_vfs::is_writable($arguments['path']);
-				
+
 				//$out .= '<pre>'.print_r($arguments,true)."</pre>\n";
 				if ($arguments['uploading'] && $show_upload)
 				{
@@ -215,7 +215,7 @@ class module_download extends Module
 						{
 							$out .= '<tr>
 									<td>'.egw_vfs::mime_icon($file['mime'],false).'</td>
-									<td><a href="'.$this->link(array ('subdir' => $arguments['subdir'] ? 
+									<td><a href="'.$this->link(array ('subdir' => $arguments['subdir'] ?
 										$arguments['subdir'].'/'.$file['name'] : $file['name'])).'">'.
 										urldecode($file['name']).'</a></td>
 									<td>'.$file['comment'].'</td>
@@ -250,13 +250,26 @@ class module_download extends Module
 					$out .= html::input('upload['.$this->block->id.']','','file',' onchange="this.form.action+=\'&block['.$this->block->id.'][uploading]=1\'; this.form.submit();"');
 					$out .= "</form>\n";
 				}
-				return $out;
+				break;
 
 			case 'file' :
 			default :
 				$link = egw_vfs::download_url($arguments['path'].'/'.$arguments['file'],$arguments['op'] == 2);
 				if ($link[0] == '/') $link = egw::link($link);
-				return $arguments['text'] ? ('<a href="'.htmlspecialchars($link).'" target="_blank">'.$arguments['text'].'</a>') : $link;
+				$out = $arguments['text'] ? ('<a href="'.htmlspecialchars($link).'" target="_blank">'.$arguments['text'].'</a>') : $link;
+				break;
 		}
+		// if (optional) confirmation text given, hide download until user checks confirmation message
+		if ($arguments['confirmation'])
+		{
+			$div_id = 'content['.$this->block->id.']';
+			$check_id = 'confirm['.$this->block->id.']';
+			$onchange = "document.getElementById('$div_id').style.display = this.checked ? 'block' : 'none';";
+
+			$out = html::div(html::input('','1','checkbox',' id="'.htmlspecialchars($check_id).'" onchange="'.$onchange.'"')."\n".
+				html::label($arguments['confirmation'],$check_id)."\n".
+				html::div($out,' id="'.$div_id.'" style="display: none;"'));
+		}
+		return $out;
 	}
 }
