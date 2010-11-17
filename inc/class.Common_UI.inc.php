@@ -536,13 +536,17 @@ class Common_UI
 			$preferences['default_theme'] = array(
 				'title'=>lang('Template select'),
 				'note'=>lang('Choose your site\'s theme or template.  Note that if you changed the above checkbox you need to save before choosing a theme or template.').'<br /><br />'.
-					lang('<b>Want more templates?</b><br />Just download one from the template gallery at %1www.eGroupWare.org%2 or use a %3Mambo Open Source%4 Version 4.5 compatible template eg. from %5. Unpack the downloaded template in your templates directory (%6).',
-						'<a href="http://www.eGroupWare.org/sitemgr" target="_blank">','</a>',
-						'<a href="http://www.mamboserver.com" target="_blank">','</a>',
-						'<a href="http://templates.mamboserver.com/" target="_blank">www.mamboserver.com</a>',
+					'<b>'.lang('Want more templates?')."</b><br />\n".
+					lang('Just download one from our %1template gallery%2 on %3.',
+						'<a href="http://www.eGroupWare.org/sitemgr" target="_blank"><b>','</b>','www.egroupware.org</a>').' '.
+					lang('Or use a template compatible with %1.',
+						'<a href="http://www.joomla.org" target="_blank">Joomla 1.0-1.5</a> '.lang('or').' '.
+						'<a href="http://www.mamboserver.com" target="_blank">Mambo Open Source 4.5</a>')."<br />\n".
+					lang('Unpack the downloaded template in your templates directory (%1) or use a custom template directory.',
 						$GLOBALS['Common_BO']->sites->current_site['site_dir'] . SEP . 'templates').
-					'<p><b>'.lang('Template Preferences').'</b> '.html::input('template_prefs',lang('Edit'),'button',
-						'onclick="egw_openWindowCentered2(\''.$edit_link.'\'+this.form.elements[\'pref[default_theme]\'].value,\'_blank\',640,480); return false;"').'</p>',
+					'<p><b>'.lang('Template preferences and custom CSS').'</b><br />'.
+						html::input('template_prefs',lang('Edit'),'button',
+						'onclick="egw_openWindowCentered2(\''.$edit_link.'\'+this.form.elements[\'pref[default_theme]\'].value,\'_blank\',720,530); return false;"').'</p>',
 				'input'=>'option',
 				'options'=>$this->theme->getAvailableThemes()+array(
 						'custom' => array(
