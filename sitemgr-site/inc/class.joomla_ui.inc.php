@@ -190,6 +190,7 @@ class ui extends JObject
 		define('JPATH_SITE',$GLOBALS['sitemgr_info']['site_dir']);
 		define('JPATH_BASE',$GLOBALS['sitemgr_info']['site_dir']);
 		define('DS',DIRECTORY_SEPARATOR);
+		global $mainframe;
 
 		ini_set('include_path',$this->mos_compat_dir.(strtoupper(substr(PHP_OS, 0, 3)) == 'WIN' ? ';' : ':').ini_get('include_path'));
 
@@ -564,6 +565,8 @@ class JFactory extends JObject
 
 class JParameter extends JObject
 {
+	public static function def() { return null; }
+
 	protected $_defaultNameSpace = '_default';
 
 	/**
