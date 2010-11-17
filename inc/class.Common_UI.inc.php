@@ -727,63 +727,12 @@ class Common_UI
 		$GLOBALS['egw_info']['flags']['app_header'] = $GLOBALS['egw_info']['apps']['sitemgr']['title'].
 			($extra_title ? ' - '.$extra_title : '');
 		common::egw_header();
-
-		if ($this->do_sites_exist && $GLOBALS['egw_info']['server']['template_set'] != 'idots')
-		{
-			$this->t->set_file('sitemgr_header','sitemgr_header.tpl');
-			$this->t->set_block('sitemgr_header','switch','switchhandle');
-			$this->t->set_var('menulist',$this->menuselectlist());
-			if ($GLOBALS['Common_BO']->get_othermenu())
-			{
-				$this->t->set_var('sitelist',$this->siteselectlist());
-				$this->t->parse('switchhandle','switch');
-			}
-			else
-			{
-				$this->t->set_var('switchhandle','');
-			}
-			$GLOBALS['egw_info']['flags']['app_header'] .= $this->t->parse('out','sitemgr_header');
-		}
 		parse_navbar();
 	}
 
 	function DisplayFooter()
 	{
 		// is empty atm
-		// $this->t->set_file('sitemgr_footer','sitemgr_footer.tpl');
-		// $this->t->pfp('out','sitemgr_footer');
-	}
-
-	function siteselectlist()
-	{
-		$selectlist= '<option>' . lang('Other websites') . '</option>';
-		while(list($display,$value) = @each($GLOBALS['Common_BO']->othermenu))
-		{
-			if ($display == '_NewLine_')
-			{
-				continue;
-			}
-			else
-			{
-				$selectlist .= '<option onClick="location.href=this.value" value="' . $value . '">' . lang($display) . '</option>' . "\n";
-			}
-		}
-		return $selectlist;
-	}
-
-	function menuselectlist()
-	{
-		reset($GLOBALS['Common_BO']->sitemenu);
-		$selectlist= '<option>' . lang('Website') . ' ' . $GLOBALS['Common_BO']->sites->current_site['site_name'] . '</option>';
-		while(list($display,$value) = @each($GLOBALS['Common_BO']->sitemenu))
-		{
-			if ($display == '_NewLine_')
-			{
-				continue;
-			}
-			$selectlist .= '<option onClick="location.href=this.value" value="' . $value . '">' . lang($display) . '</option>' . "\n";
-		}
-		return $selectlist;
 	}
 }
 
