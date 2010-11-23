@@ -179,6 +179,9 @@ foreach(array(
 $reader = new XMLReader();
 $reader->open(dirname(__FILE__).'/default-site.xml');
 $import = new sitemgr_import_xml($reader);
+define('EGW_ACL_READ',1);
+define('EGW_ACL_ADD',2);
+
 $import->import_record(array($admingroup),array(
 	$admingroup   => EGW_ACL_READ|EGW_ACL_ADD,
 	$defaultgroup => EGW_ACL_READ,
