@@ -149,19 +149,19 @@ class Sites_SO
 				{
 					self::$site_cache['site_dir'] = EGW_SERVER_ROOT.SEP.self::$site_cache['site_dir'];
 				}
-			}
-			// for database schema version < 1.9.002 read logo, css & params from configuration
-			if (version_compare($GLOBALS['egw_info']['apps']['sitemgr']['version'], '1.9.002', '<') ||
-				is_null(self::$site_cache['logo_url']) && is_null(self::$site_cache['custom_css']) &&
-					is_null(self::$site_cache['params_ini']))
-			{
-				$config = config::read('sitemgr');
-				self::$site_cache['logo_url'] = $config['logo_url_'.$site_id];
-				self::$site_cache['custom_css'] = $config['custom_css_'.$site_id];
-				self::$site_cache['params_ini'] = $config['params_ini_'.$site_id];
+				// for database schema version < 1.9.002 read logo, css & params from configuration
+				if (version_compare($GLOBALS['egw_info']['apps']['sitemgr']['version'], '1.9.002', '<') ||
+					is_null(self::$site_cache['logo_url']) && is_null(self::$site_cache['custom_css']) &&
+						is_null(self::$site_cache['params_ini']))
+				{
+					$config = config::read('sitemgr');
+					self::$site_cache['logo_url'] = $config['logo_url_'.$site_id];
+					self::$site_cache['custom_css'] = $config['custom_css_'.$site_id];
+					self::$site_cache['params_ini'] = $config['params_ini_'.$site_id];
+				}
 			}
 		}
-		return !$only_url_dir ? self::$site_cache : array(
+		return !$only_url_dir || !self::$site_cache ? self::$site_cache : array(
 			'site_url' => self::$site_cache['site_url'],
 			'site_dir' => self::$site_cache['site_dir'],
 		);
