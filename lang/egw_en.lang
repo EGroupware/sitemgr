@@ -97,7 +97,7 @@ choose template	sitemgr	en	Choose template
 choose the categories to display	sitemgr	en	Choose the categories to display
 choose the valid html type (note: not all icons are available):	sitemgr	en	Choose the VALID HTML type (note: not all icons are available):
 choose your site's theme or template.  note that if you changed the above checkbox you need to save before choosing a theme or template.	sitemgr	en	Choose your site's theme or template.  Note that if you changed the above checkbox you need to save before choosing a theme or template.
-click here to login through a safe connection.	sitemgr	en	Click here to login through a safe connection.
+click here to login through a secure connection.	sitemgr	en	Click here to login through a secure connection.
 code file	sitemgr	en	Code file
 codebase url	sitemgr	en	Codebase URL
 collapse threads	sitemgr	en	Collapse Threads
@@ -267,7 +267,7 @@ last entries to the guestbook	sitemgr	en	Last entries to the guestbook
 latest reply	sitemgr	en	Latest Reply
 links for the tabs (comma seperated)	sitemgr	en	Links for the tabs (comma seperated)
 list of permitted modules specific to content area %1	sitemgr	en	List of permitted modules specific to content area %1
-loged in as:	sitemgr	en	Loged in as:
+logged in as:	sitemgr	en	Logged in as:
 login	sitemgr	en	Login
 login name	sitemgr	en	Login Name
 logo url	sitemgr	en	Logo URL
@@ -645,6 +645,6 @@ you will remove the message in the following language from your notification sys
 your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr-link	en	Your administrator has not yet setup the web content manager for public viewing.  Go bug your administrator to get their butt in gear.
 your calendar	sitemgr	en	Your Calendar
 your comment	sitemgr	en	Your comment
-your connection is not safe.	sitemgr	en	Your connection is not safe.
+your connection is not secure.	sitemgr	en	Your connection is not secure.
 your name	sitemgr	en	Your name
 zip code	sitemgr	en	zip code

@@ -97,7 +97,7 @@ choose template	sitemgr	de	Designvorlage auswählen
 choose the categories to display	sitemgr	de	Wählen Sie die anzuzeigende Kategorie aus
 choose the valid html type (note: not all icons are available):	sitemgr	de	Wählen Sie den gültigen HTML Typ (bitte beachten: nicht für alle sind Icons verfügbar)
 choose your site's theme or template.  note that if you changed the above checkbox you need to save before choosing a theme or template.	sitemgr	de	Wählen Sie eine Designvorlage. Beachten Sie bitte: Wenn Sie die Einstellung darüber verändert haben, müssen Sie diese zuerst speichern, bevor Sie eine Vorlage wählen können.
-click here to login through a safe connection.	sitemgr	de	Hier klicken für eine sichere Verbindung.
+click here to login through a secure connection.	sitemgr	de	Hier klicken für eine sichere Verbindung.
 code file	sitemgr	de	Datei mit Programmcode
 codebase url	sitemgr	de	Programmcode Basis URL
 collapse threads	sitemgr	de	Threads kolabieren
@@ -267,7 +267,7 @@ last entries to the guestbook	sitemgr	de	Letzten Einträge im Gästebuch
 latest reply	sitemgr	de	Letzte Antwort
 links for the tabs (comma seperated)	sitemgr	de	Links für die Kartenreiter (durch Komma getrennt)
 list of permitted modules specific to content area %1	sitemgr	de	Liste der erlaubten Module speziell für den Inhaltsbereich %1
-loged in as:	sitemgr	de	Angemeldet als:
+logged in as:	sitemgr	de	Angemeldet als:
 login	sitemgr	de	Login
 login name	sitemgr	de	Anmeldename
 logo url	sitemgr	de	Logo Adresse
@@ -645,6 +645,6 @@ you will remove the message in the following language from your notification sys
 your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr-link	de	Ihr Administrator hat das Kontentmanagementsystem noch nicht für die freie Betrachtung von aussen konfiguriert. Kontaktieren Sie bitte den Administrator.
 your calendar	sitemgr	de	Ihr Kalendar
 your comment	sitemgr	de	Ihr Kommentar
-your connection is not safe.	sitemgr	de	Ihre Verbindung ist nicht sicher.
+your connection is not secure.	sitemgr	de	Ihre Verbindung ist nicht sicher.
 your name	sitemgr	de	Ihr Name
 zip code	sitemgr	de	PLZ
