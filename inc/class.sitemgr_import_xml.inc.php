@@ -47,7 +47,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 	protected $block_id = array();
 	protected $page_id = array();
 
-	private static $debug = 1;
+	private static $debug = 0;
 
 	// Due to limitations in creating Sites_UI, make the import directly accessable
 	public $public_functions = array(
@@ -90,10 +90,12 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 			$this->reader->open($_FILES['exec']['tmp_name']['file']);
 			$this->import_record();
 			$data['message'] = lang('Imported') . "\n".implode("\n", $this->errors);
-			$GLOBALS['egw']->redirect_link('/index.php', array(
-				'menuaction' => 'sitemgr.Sites_UI.edit',
-				'site_id' => CURRENT_SITE_ID
-			));
+			if(!self::$debug) {
+				$GLOBALS['egw']->redirect_link('/index.php', array(
+					'menuaction' => 'sitemgr.Sites_UI.edit',
+					'site_id' => CURRENT_SITE_ID
+				));
+			}
 		}
 		common::egw_header();
 		echo parse_navbar();
@@ -197,7 +199,6 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 	public function import_record(array $admins=null,array $cat_acl=null,$ignore_acl=false)
 	{
 		if (is_null($admins)) $admins = array($GLOBALS['egw_info']['user']['account_id']);
-
 		while ($this->reader->read()) {
 			if($this->reader->nodeType == XMLReader::ELEMENT) {
 				switch($this->reader->name) {
@@ -208,7 +209,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 						$this->import_category($cat_acl);
 						break;
 					default:
-						echo $this->reader->name . '<br />';
+						echo 'Do not know how to deal with ' . $this->reader->name . ' at the top level.<br />';
 				}
 			}
 		}
@@ -224,7 +225,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 	protected function import_site(array $admins=null,array $cat_acl=null,$ignore_acl=false)
 	{
 		if(self::$debug >= 1) {
-			echo 'Import site ---<br />' ;
+			echo '<div class="site">Import site ---<br />' ;
 		}
 		$site = array();
 		$lang_array = array();
@@ -270,11 +271,14 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 			$this->common->acl->__construct(true);
 		}
 		// Site is a special category
-		//$this->import_category();
+		//$this->import_category($cat_acl);
 		$this->import_children('site',$cat_acl);
 
 		// Set home page
 
+		if(self::$debug >= 1) {
+			echo '</div>' ;
+		}
 	}
 
 	/**
@@ -295,7 +299,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 
 		if(self::$debug >= 1) {
 			$name = $category['name'] ? $category['name'] : $lang_array[$this->lang]['name'];
-			echo 'Import category --- ' . $name . '<br />';
+			echo '<div class="category">Import category --- ' . $name . '<br />';
 		}
 		// Save category
 		if(count($category) > 0) {
@@ -334,6 +338,9 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 		if(!($this->reader->name == 'category' && $this->reader->nodeType == XMLReader::END_ELEMENT)) {
 			$this->import_children('category',$cat_acl);
 		}
+		if(self::$debug >= 1) {
+			echo 'Done with category --- ' . $name . '<br /></div>';
+		}
 		array_pop($this->cat_id);
 	}
 
@@ -349,7 +356,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 			$tag = $this->reader->name;
 		}
 		if(self::$debug >= 1) {
-			echo 'Import children of ' . $tag . ' ---<br />';
+			echo '<div class="children">Import children of ' . $tag . ' ---<br />';
 		}
 
 		// Children
@@ -370,26 +377,27 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 						break;
 					default:
 						// categories, blocks, pages
-
+						if(self::$debug > 1) echo $this->reader->name . '-moving on...<br />';
 						break;
 				}
 			} else if($this->reader->nodeType == XMLReader::END_ELEMENT) {
 				//echo 'Done with ' . $this->reader->name . '<br />';
 				// Blocks are the last one, so just end
 				//if($this->reader->name == 'blocks') break;
-			} else {
-				break;
+			} else if(self::$debug) {
+				// Unexpected node
+				echo 'Unexpected node: ' . $this->reader->name . ' = ' . $this->reader->value . '<br />';
 			}
 		}
 
 		if(self::$debug >= 1) {
-			echo 'Done with children of ' . $tag . ' ---<br />';
+			echo 'Done with children of ' . $tag . ' ---<br /></div>';
 		}
 	}
 
 	protected function import_block() {
 		if(self::$debug >= 1) {
-			echo 'Import block ---<br />';
+			echo '<div class="block">Import block ---<br />';
 		}
 		$block = array();
 		$lang_array = array();
@@ -439,12 +447,15 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 			}
 		}
 
+		if(self::$debug >= 1) {
+			echo '</div>';
+		}
 		array_pop($this->block_id);
 	}
 
 	protected function import_content($lang) {
 		if(self::$debug >= 1) {
-			echo 'Import content ---<br />';
+			echo '<div class="content">Import content ---<br />';
 		}
 		$content = array();
 		$lang_array = array();
@@ -476,11 +487,14 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 			}
 			$this->common->content->so->saveversionstate($block_obj->id, $version_id, $content['state']);
 		}
+		if(self::$debug >= 1) {
+			echo '</div>';
+		}
 	}
 
 	protected function import_page() {
 		if(self::$debug >= 1) {
-			echo 'Import page ---<br />';
+			echo '<div class="page">Import page ---<br />';
 		}
 		$page = array();
 		$lang_array = array();
@@ -522,18 +536,22 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 		if(!($this->reader->name == 'page' && $this->reader->nodeType == XMLReader::END_ELEMENT)) {
 			$this->import_children('page');
 		}
+		if(self::$debug >= 1) {
+			echo '</div>';
+		}
 		array_pop($this->page_id);
 	}
 
 	protected function read_node($stop_tags, &$data, &$lang_array) {
 		if(self::$debug >= 1) {
-			echo 'Read node (' . $this->reader->name . ') ---<br />' ;
+			echo '<div class="node">Read node (' . $this->reader->name . ') ---<br />' ;
 		}
 		$start_tag = $this->reader->name;
 		$current_tag = null;
 		$dest = null;
 
 		while($this->reader->read()) {
+			if(self::$debug >= 2) echo $this->reader->name . '=' . $this->reader->value . '<br />';
 			if(in_array($this->reader->name, $stop_tags) ||
 					$this->reader->name == $start_tag && $this->reader->nodeType == XMLReader::END_ELEMENT) {
 				break;
@@ -551,6 +569,10 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 				}
 				$dest .= $this->reader->value;
 			}
+		}
+		if(self::$debug >= 1) {
+			if(self::$debug >= 2) _debug_array($data);
+			echo '</div>';
 		}
 	}
 }
