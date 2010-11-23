@@ -76,12 +76,12 @@ class Common_BO
 	function __construct()
 	{
 		$this->sites   = CreateObject('sitemgr.Sites_BO',True);
-		$this->acl     = CreateObject('sitemgr.ACL_BO',True);
-		$this->theme   = CreateObject('sitemgr.Theme_BO',True);
-		$this->pages   = CreateObject('sitemgr.Pages_BO',True);
-		$this->cats    = CreateObject('sitemgr.Categories_BO',True);
-		$this->content = CreateObject('sitemgr.Content_BO',True);
-		$this->modules = CreateObject('sitemgr.Modules_BO',True);
+		$this->acl     = CreateObject('sitemgr.ACL_BO');
+		$this->theme   = CreateObject('sitemgr.Theme_BO');
+		$this->pages   = CreateObject('sitemgr.Pages_BO');
+		$this->cats    = CreateObject('sitemgr.Categories_BO');
+		$this->content = CreateObject('sitemgr.Content_BO');
+		$this->modules = CreateObject('sitemgr.Modules_BO');
 		$this->state = array(
 			SITEMGR_STATE_DRAFT => lang('draft'),
 			SITEMGR_STATE_PREPUBLISH => lang('prepublished'),

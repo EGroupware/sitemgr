@@ -13,6 +13,9 @@
 
 	class Pages_BO
 	{
+		/**
+		 * @var Pages_SO
+		 */
 		var $so;
 
 		function Pages_BO()

@@ -1,0 +1,203 @@
+<?xml version="1.0"?>
+<site>
+	<!--Export of eGroupWare SiteMgr website 'Default Website' on 2010-11-23-->
+	<name>Default Website</name>
+	<url>/egroupware/sitemgr/sitemgr-site/</url>
+	<directory>/opt/local/apache2/htdocs/egroupware/sitemgr/sitemgr-site</directory>
+	<themesel>idots</themesel>
+	<default_theme>idots</default_theme>
+	<anonymous_user>anonymous</anonymous_user>
+	<anonymous_password>anonymous</anonymous_password>
+	<upload_directory/>
+	<htaccess_rewrite/>
+	<logo_url/>
+	<custom_css><![CDATA[]]></custom_css>
+	<params_ini/>
+	<name lang="en"></name>
+	<description lang="en"></description>
+	<name lang="de"></name>
+	<description lang="de"></description>
+	<categories>
+		<category>
+			<sort_order>0</sort_order>
+			<state>2</state>
+			<name lang="en">sample</name>
+			<description lang="en">sample category</description>
+			<categories>
+				<category>
+					<sort_order>0</sort_order>
+					<state>2</state>
+					<name lang="en">sub-sample</name>
+					<description lang="en">just a sub for sample</description>
+				</category>
+			</categories>
+			<pages>
+				<page>
+					<name>sample-page</name>
+					<sort_order>0</sort_order>
+					<hidden>0</hidden>
+					<state>2</state>
+					<title lang="en">Sample page</title>
+					<subtitle lang="en">just a sample</subtitle>
+					<blocks>
+						<block>
+							<area>center</area>
+							<module>html</module>
+							<sort_order>11</sort_order>
+							<view>0</view>
+							<title lang="en">HTML Module</title>
+							<contents>
+								<content lang="en">
+									<state>2</state>
+									<arguments><![CDATA[a:1:{s:11:"htmlcontent";s:35:"some sample <b>HTML</b> content ...";}]]></arguments>
+								</content>
+							</contents>
+						</block>
+					</blocks>
+				</page>
+			</pages>
+		</category>
+		<category>
+			<sort_order>0</sort_order>
+			<state>2</state>
+			<name lang="en">other</name>
+			<description lang="en">one more</description>
+		</category>
+	</categories>
+	<blocks>
+		<block>
+			<area>left</area>
+			<module>navigation</module>
+			<arguments><![CDATA[a:2:{s:8:"sub_cats";s:2:"on";s:8:"nav_type";i:3;}]]></arguments>
+			<sort_order>0</sort_order>
+			<view>0</view>
+			<title lang="en">Root Site Index</title>
+			<contents>
+				<content lang="en">
+					<state>2</state>
+					<arguments><![CDATA[a:1:{s:11:"htmlcontent";N;}]]></arguments>
+				</content>
+			</contents>
+		</block>
+		<block>
+			<area>left</area>
+			<module>template</module>
+			<arguments><![CDATA[a:2:{s:4:"show";i:8;s:3:"zip";s:3:"zip";}]]></arguments>
+			<sort_order>1</sort_order>
+			<view>0</view>
+			<title lang="en">Choose template</title>
+			<contents>
+				<content lang="en">
+					<state>2</state>
+					<arguments><![CDATA[a:1:{s:11:"htmlcontent";N;}]]></arguments>
+				</content>
+			</contents>
+		</block>
+		<block>
+			<area>right</area>
+			<module>navigation</module>
+			<arguments><![CDATA[a:1:{s:8:"nav_type";i:1;}]]></arguments>
+			<sort_order>2</sort_order>
+			<view>0</view>
+			<title lang="en">Current Section</title>
+			<contents>
+				<content lang="en">
+					<state>2</state>
+					<arguments><![CDATA[a:1:{s:11:"htmlcontent";N;}]]></arguments>
+				</content>
+			</contents>
+		</block>
+		<block>
+			<area>right</area>
+			<module>administration</module>
+			<sort_order>3</sort_order>
+			<view>2</view>
+			<title lang="en">Administration</title>
+			<contents>
+				<content lang="en">
+					<state>2</state>
+					<arguments><![CDATA[a:1:{s:11:"htmlcontent";N;}]]></arguments>
+				</content>
+			</contents>
+		</block>
+		<block>
+			<area>right</area>
+			<module>lang_block</module>
+			<sort_order>4</sort_order>
+			<view>0</view>
+			<title lang="en">Select language</title>
+			<contents>
+				<content lang="en">
+					<state>2</state>
+					<arguments><![CDATA[a:1:{s:11:"htmlcontent";N;}]]></arguments>
+				</content>
+			</contents>
+		</block>
+		<block>
+			<area>right</area>
+			<module>calendar</module>
+			<sort_order>5</sort_order>
+			<view>1</view>
+			<title lang="en">Calendar</title>
+			<contents>
+				<content lang="en">
+					<state>2</state>
+					<arguments><![CDATA[a:1:{s:11:"htmlcontent";N;}]]></arguments>
+				</content>
+			</contents>
+		</block>
+		<block>
+			<area>right</area>
+			<module>login</module>
+			<sort_order>7</sort_order>
+			<view>3</view>
+			<title lang="en">Login</title>
+			<contents>
+				<content lang="en">
+					<state>2</state>
+					<arguments><![CDATA[a:1:{s:11:"htmlcontent";N;}]]></arguments>
+				</content>
+			</contents>
+		</block>
+		<block>
+			<area>right</area>
+			<module>amazon</module>
+			<arguments><![CDATA[a:1:{s:6:"search";i:1;}]]></arguments>
+			<sort_order>8</sort_order>
+			<view>0</view>
+			<title lang="en"></title>
+			<contents>
+				<content lang="en">
+					<state>2</state>
+					<arguments><![CDATA[a:1:{i:0;s:10:"Amazon.com";}]]></arguments>
+				</content>
+			</contents>
+		</block>
+		<block>
+			<area>header</area>
+			<module>html</module>
+			<sort_order>9</sort_order>
+			<view>0</view>
+			<title lang="en">HTML Module</title>
+			<contents>
+				<content lang="en">
+					<state>2</state>
+					<arguments><![CDATA[a:1:{s:11:"htmlcontent";s:21:"<h1>SiteMgr Demo</h1>";}]]></arguments>
+				</content>
+			</contents>
+		</block>
+		<block>
+			<area>footer</area>
+			<module>html</module>
+			<sort_order>10</sort_order>
+			<view>0</view>
+			<title lang="en">HTML Module</title>
+			<contents>
+				<content lang="en">
+					<state>2</state>
+					<arguments><![CDATA[a:1:{s:11:"htmlcontent";s:252:"Powered by eGroupWare's <b>SiteMgr</b>. Please visit our Homepage <a href="http://www.egroupware.org" target="_blank">www.eGroupWare.org</a> and our <a href="http://www.sourceforge.net/projects/egroupware/" target="_blank">Sourceforge Project page</a>.";}]]></arguments>
+				</content>
+			</contents>
+		</block>
+	</blocks>
+</site>

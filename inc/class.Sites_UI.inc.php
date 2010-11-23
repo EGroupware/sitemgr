@@ -162,7 +162,7 @@
 
 			$site_id = get_var('site_id',array('POST','GET'));
 			if(!is_numeric($site_id)) $site_id = false;
-			
+
 			$GLOBALS['egw']->template->set_file(array('form' => 'site_form.tpl'));
 			$GLOBALS['egw']->template->set_block('form','add','addhandle');
 			$GLOBALS['egw']->template->set_block('form','edit','edithandle');
@@ -179,7 +179,7 @@
 					$site['url'] .= '/';
 				}
 				$site['anonuser'] = $GLOBALS['egw']->accounts->id2name($site['anonuser']);
-				
+
 				if (($site_dir=$site['dir']) == 'sitemgr'.SEP.'sitemgr-site')
 				{
 					$site_dir = EGW_SERVER_ROOT.SEP.'sitemgr'.SEP.'sitemgr-site';
@@ -237,7 +237,7 @@
 				);
 			}
 			$GLOBALS['egw']->template->set_var('title_sites',$site_id ? lang('Edit Website') : lang('Add Website'));
-			
+
 			$GLOBALS['egw']->template->set_var('actionurl',$GLOBALS['egw']->link('/index.php','menuaction=sitemgr.Sites_UI.edit'));
 
 			$GLOBALS['egw']->template->set_var(array(
@@ -289,7 +289,7 @@
 		function adminlist($site_id,$admins='')
 		{
 			if (!$admins) $admins = array();
-			
+
 			if (!$site_id)
 			{
 				if (($admin_grp = $GLOBALS['egw']->accounts->name2id('Admins')) && !in_array($admin_grp,$admins))
@@ -364,8 +364,11 @@
 				header('Content-type: application/xml');
 				header("Content-Disposition: attachment; filename=$name.xml");
 				$writer = xmlwriter_open_uri('php://output');
+				xmlwriter_set_indent_string($writer, "\t");
+				xmlwriter_set_indent($writer, true);
 				$export = new sitemgr_export_xml($writer);
 				$export->export_record($site_id);
+				common::egw_exit();
 			}
 		}
 

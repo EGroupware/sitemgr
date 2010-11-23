@@ -18,10 +18,12 @@
  * stores it into the stream
  */
 class sitemgr_export_xml implements importexport_iface_export_plugin {
-	
-	
+
+
 	/**
 	 * Reference to common sitemgr object.  We should be able to get at everything from here.
+	 *
+	 * @var Common_BO
 	 */
 	protected $common;
 
@@ -82,7 +84,7 @@ class sitemgr_export_xml implements importexport_iface_export_plugin {
 	 * return etemplate components for options.
 	 * @abstract We can't deal with etemplate objects here, as an uietemplate
 	 * objects itself are scipt orientated and not "dialog objects"
-	 * 
+	 *
 	 * @return array (
 	 *              name            => string,
 	 *              content         => array,
@@ -124,7 +126,7 @@ class sitemgr_export_xml implements importexport_iface_export_plugin {
 	public function export_record($site_id) {
 		$site = $this->common->sites->read($site_id);
 		$this->common->sites->set_currentsite($site['site_url'], 'Administration');
-		
+
 		xmlwriter_start_element($this->writer, 'site');
 
 		$comment = "Export of eGroupWare SiteMgr website '{$site['site_name']}' on " . date('Y-m-d');
@@ -156,18 +158,6 @@ class sitemgr_export_xml implements importexport_iface_export_plugin {
 			xmlwriter_end_element($this->writer);
 		}
 
-		// Read content areas, dump the list here
-		$content_areas = $this->common->content->getContentAreas();
-		if(is_array($content_areas) && count($content_areas) > 0) {
-			xmlwriter_start_element($this->writer, 'content_areas');
-			foreach($content_areas as $area) {
-				xmlwriter_write_element($this->writer, 'area', $area);
-			}
-			xmlwriter_end_element($this->writer);
-		} else {
-			throw new egw_exception($content_areas);
-		}
-
 		$this->common->cats->setcurrentcats();
 
 		// A site is a special category
@@ -182,7 +172,7 @@ class sitemgr_export_xml implements importexport_iface_export_plugin {
 	}
 
 	protected function export_category($cat_id, $include_cat = True) {
-		
+
 		// Category info
 		$cat = $this->common->cats->getCategory($cat_id, False, True);
 		if($cat && $include_cat) {
@@ -229,13 +219,13 @@ class sitemgr_export_xml implements importexport_iface_export_plugin {
 		$pages = $this->common->pages->getPageIDList($cat_id);
 		if(count($pages) > 0) {
 			xmlwriter_start_element($this->writer, 'pages');
-		
+
 			foreach($pages as $page_id) {
 				$this->export_page($page_id);
 			}
 			xmlwriter_end_element($this->writer); // End pages
 		}
-		
+
 		// Close tag
 		if($include_cat) {
 			xmlwriter_full_end_element($this->writer); // End category
@@ -263,7 +253,7 @@ class sitemgr_export_xml implements importexport_iface_export_plugin {
 			xmlwriter_text($this->writer, $page->subtitle);
 			xmlwriter_end_element($this->writer);
 		}
-		
+
 		$blocks = $this->common->content->getblocksforscope($page->cat_id, $page->id);
 		if(count($blocks) > 0) {
 			xmlwriter_start_element($this->writer, 'blocks');
@@ -338,7 +328,7 @@ class sitemgr_export_xml implements importexport_iface_export_plugin {
         /**
          * destructor
          *
-         * @return 
+         * @return
          */
         public function __destruct( ) {
 		if($this->writer) {

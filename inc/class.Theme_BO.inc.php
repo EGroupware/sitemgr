@@ -25,7 +25,7 @@ class Theme_BO
 		$templates_dir = $GLOBALS['Common_BO']->sites->current_site['site_dir'] . SEP . 'templates' . SEP;
 		$result_array=array();
 
-		if ($handle = @opendir($templates_dir))
+		if ($handle = opendir($templates_dir))
 		{
 			while ($file = readdir($handle))
 			{

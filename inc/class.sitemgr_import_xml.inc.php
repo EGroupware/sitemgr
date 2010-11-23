@@ -13,11 +13,11 @@
 
 /**
  * class import_xml
- * 
+ *
  * Import a site.
  */
 class sitemgr_import_xml implements importexport_iface_import_plugin {
-	
+
 	/**
 	 * List of errors encountered
 	 */
@@ -28,7 +28,17 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 	 */
 	protected $results = array();
 
+	/**
+	 * @var Common_BO
+	 */
 	protected $common = null;
+
+	/**
+	 * XMLReader to use
+	 *
+	 * @var XMLReader
+	 */
+	protected $reader;
 
 	/**
 	* Key queues to keep track of where we are
@@ -36,7 +46,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 	protected $cat_id = array();
 	protected $block_id = array();
 	protected $page_id = array();
-	
+
 	private static $debug = 1;
 
 	// Due to limitations in creating Sites_UI, make the import directly accessable
@@ -44,7 +54,21 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 		'ui_import' => true
 	);
 
-	public function __construct() {
+	/**
+	 * Constructor
+	 *
+	 * @param XMLReader $reader XMLReader opened for xml to import
+	 */
+	public function __construct(XMLReader $reader=null)
+	{
+		if (!is_null($reader))
+		{
+			$this->reader = $reader;
+		}
+		else
+		{
+			$this->reader = new XMLReader();
+		}
 		$this->common = $GLOBALS['Common_BO'] = CreateObject('sitemgr.Common_BO');
 	}
 
@@ -57,13 +81,12 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 	*/
 	public function ui_import() {
 		if (!$GLOBALS['egw']->acl->check('run',1,'admin')) {
-			$GLOBALS['egw']->common->egw_header();
+			common::egw_header();
 			echo parse_navbar();
 			return;
 		}
 		$data = array();
 		if($_FILES['exec']) {
-			$this->reader = new XMLReader();
 			$this->reader->open($_FILES['exec']['tmp_name']['file']);
 			$this->import_record();
 			$data['message'] = lang('Imported') . "\n".implode("\n", $this->errors);
@@ -72,7 +95,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 				'site_id' => CURRENT_SITE_ID
 			));
 		}
-		$GLOBALS['egw']->common->egw_header();
+		common::egw_header();
 		echo parse_navbar();
 		$template = new etemplate('sitemgr.import_ui');
 		echo $template->exec('sitemgr.sitemgr_import_xml.ui_import', $data, array(), array());
@@ -87,7 +110,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 	 */
 	public function import( $_stream, importexport_definition $_definition ) {
 	}
-	
+
 	/**
 	 * returns translated name of plugin
 	 *
@@ -96,7 +119,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 	public static function get_name() {
 		return lang('Import site');
 	}
-	
+
 	/**
 	 * returns translated (user) description of plugin
 	 *
@@ -105,7 +128,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 	public static function get_description() {
 		return lang('Import a SiteMgr website');
 	}
-	
+
 	/**
 	 * retruns file suffix(s) plugin can handle (e.g. csv)
 	 *
@@ -114,12 +137,12 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 	public static function get_filesuffix() {
 		return 'xml';
 	}
-	
+
 	/**
 	 * return etemplate components for options.
 	 * @abstract We can't deal with etemplate objects here, as an uietemplate
 	 * objects itself are scipt orientated and not "dialog objects"
-	 * 
+	 *
 	 * @return array (
 	 * 		name 		=> string,
 	 * 		content		=> array,
@@ -130,7 +153,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 	public function get_options_etpl() {
 		return array();
 	}
-	
+
 	/**
 	 * returns etemplate name for slectors of this plugin
 	 *
@@ -165,17 +188,24 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 	}
 
 	/**
-	* Read the XML stream and import the site(s)
-	*/
-	public function import_record() {
+	 * Read the XML stream and import the site(s)
+	 *
+	 * @param array $admins=null which users to make site-admins, default current user
+	 * @param array $cat_acl=null array of user => EGW_ACL_READ|EGW_ACL_ADD, default current user
+	 * @param boolean $ignore_acl=false ignore acl of current user
+	 */
+	public function import_record(array $admins=null,array $cat_acl=null,$ignore_acl=false)
+	{
+		if (is_null($admins)) $admins = array($GLOBALS['egw_info']['user']['account_id']);
+
 		while ($this->reader->read()) {
 			if($this->reader->nodeType == XMLReader::ELEMENT) {
 				switch($this->reader->name) {
 					case 'site':
-						$this->import_site();
+						$this->import_site($admins,$cat_acl,$ignore_acl);
 						break;
 					case 'category':
-						$this->import_category();
+						$this->import_category($cat_acl);
 						break;
 					default:
 						echo $this->reader->name . '<br />';
@@ -184,7 +214,15 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 		}
 	}
 
-	protected function import_site() {
+	/**
+	 * Import the site
+	 *
+	 * @param array $admins=null which users to make site-admins, default current user
+	 * @param array $cat_acl=null array of user => EGW_ACL_READ|EGW_ACL_ADD, default current user
+	 * @param boolean $ignore_acl=false ignore acl of current user
+	 */
+	protected function import_site(array $admins=null,array $cat_acl=null,$ignore_acl=false)
+	{
 		if(self::$debug >= 1) {
 			echo 'Import site ---<br />' ;
 		}
@@ -216,7 +254,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 		$this->common->modules->savemodulepermissions('__PAGE__',$this->site_id,array_keys($this->common->modules->getallmodules()));
 
 		// Set current user as an admin and refresh so the rest of the import works
-		$this->common->acl->set_adminlist($this->site_id, array($GLOBALS['egw_info']['user']['account_id']));
+		$this->common->acl->set_adminlist($this->site_id, $admins);
 		$this->common->acl->acl->read_repository();
 
 		// Skip content areas for now
@@ -226,15 +264,28 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 			}
 			$this->reader->read(); // On to next element
 		}
+		// tell instance of ACL_BO to always return true for is_admin
+		if ($ignore_acl)
+		{
+			$this->common->acl->__construct(true);
+		}
 		// Site is a special category
 		//$this->import_category();
-		$this->import_children('site');
+		$this->import_children('site',$cat_acl);
 
 		// Set home page
-		
+
 	}
 
-	protected function import_category() {
+	/**
+	 * Import a category
+	 *
+	 * @param array $cat_acl=null array of user => EGW_ACL_READ|EGW_ACL_ADD, default current user
+	 */
+	protected function import_category(array $cat_acl=null)
+	{
+		if (is_null($cat_acl)) $cat_acl = array($GLOBALS['egw_info']['user']['account_id'] => EGW_ACL_READ|EGW_ACL_ADD);
+
 		$category = array();
 		$lang_array = array();
 		$current_tag = null;
@@ -259,15 +310,19 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 			}
 
 			// Set current user as an admin, so the rest of the import works
-			$this->common->acl->grant_permissions($GLOBALS['egw_info']['user']['account_id'], end($this->cat_id), true, true);
+			foreach($cat_acl as $user => $rights)
+			{
+				$this->common->acl->grant_permissions($user, end($this->cat_id),
+					$rights & EGW_ACL_READ, $rights & EGW_ACL_ADD);
+			}
 			$this->common->acl->acl->read_repository();
 
 			foreach($lang_array as $lang => $data) {
 				$this->common->cats->saveCategoryInfo(
-					end($this->cat_id), 
-					$data['name'], 
-					$data['description'], 
-					$lang, 
+					end($this->cat_id),
+					$data['name'],
+					$data['description'],
+					$lang,
 					$category['sort_order'],
 					$category['state'],
 					$parent_id
@@ -277,15 +332,19 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 		$this->common->cats->setcurrentcats();
 
 		if(!($this->reader->name == 'category' && $this->reader->nodeType == XMLReader::END_ELEMENT)) {
-			$this->import_children('category');
+			$this->import_children('category',$cat_acl);
 		}
 		array_pop($this->cat_id);
 	}
 
 	/**
-	* Many of the elements can have the same children, so abstract the search and handling
-	*/
-	protected function import_children($tag) {
+	 * Many of the elements can have the same children, so abstract the search and handling
+	 *
+	 * @param string $tag tag-name
+	 * @param array $cat_acl=null array of user => EGW_ACL_READ|EGW_ACL_ADD, default current user
+	 */
+	protected function import_children($tag,array $cat_acl=null)
+	{
 		if(!$tag) {
 			$tag = $this->reader->name;
 		}
@@ -301,7 +360,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 			if($this->reader->nodeType == XMLReader::ELEMENT) {
 				switch($this->reader->name) {
 					case 'category':
-						$this->import_category();
+						$this->import_category($cat_acl);
 						break;
 					case 'block':
 						$this->import_block();
@@ -350,7 +409,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 			if($block['arguments']) {
 				$block_obj->arguments = unserialize($block['arguments']);
 			}
-			
+
 			$result = $this->common->content->addblock($block_obj);
 			if($result) {
 				$this->block_id[] = $result;
@@ -379,7 +438,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 				$this->import_content($this->reader->getAttribute('lang'));
 			}
 		}
-		
+
 		array_pop($this->block_id);
 	}
 
@@ -399,7 +458,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 			$block_obj = $this->common->content->getblock(end($this->block_id), $lang);
 			foreach($content as $key => &$value) {
 				if($value == serialize(false)) {
-					$value = false; 
+					$value = false;
 					continue;
 				} else {
 					$unserialized = unserialize(trim($value));
@@ -413,12 +472,12 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 			unset($versions[$version_id]['state']);
 			$state = array($version_id => $content['state']);
 			if($versions[$version_id]) {
-				$result = $this->common->content->saveversiondatalang($block_obj->id, $version_id, $versions[$version_id], $lang); 
+				$result = $this->common->content->saveversiondatalang($block_obj->id, $version_id, $versions[$version_id], $lang);
 			}
-			$this->common->content->so->saveversionstate($block_obj->id, $version_id, $content['state']); 
+			$this->common->content->so->saveversionstate($block_obj->id, $version_id, $content['state']);
 		}
 	}
-	
+
 	protected function import_page() {
 		if(self::$debug >= 1) {
 			echo 'Import page ---<br />';
@@ -431,7 +490,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 		if(count($page) > 0) {
 			$result = $this->common->pages->addPage(end($this->cat_id));
 			if(!$result) {
-				$this->errors[] = "Unable to add page '{$page['name']}'";
+				$this->errors[] = "Unable to add page '{$page['name']}'!";
 				return;
 			} else {
 				$this->page_id[] = $result;
@@ -445,7 +504,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 			foreach($lang_array as $lang => $data) {
 				foreach($data as $key => &$value) {
 					if($value == serialize(false)) {
-						$value = false; 
+						$value = false;
 						continue;
 					} else {
 						$unserialized = unserialize($value);
@@ -475,7 +534,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 		$dest = null;
 
 		while($this->reader->read()) {
-			if(in_array($this->reader->name, $stop_tags) || 
+			if(in_array($this->reader->name, $stop_tags) ||
 					$this->reader->name == $start_tag && $this->reader->nodeType == XMLReader::END_ELEMENT) {
 				break;
 			}
@@ -495,4 +554,3 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 		}
 	}
 }
-?>

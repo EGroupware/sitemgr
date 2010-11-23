@@ -12,6 +12,7 @@
  */
 
 $sitemgr_table_prefix = 'egw_sitemgr';
+/*
 $global_cat_owner = categories::GLOBAL_ACCOUNT;
 $oProc->query("INSERT INTO {$GLOBALS['egw_setup']->cats_table} (cat_parent,cat_owner,cat_access,cat_appname,cat_name,cat_description,last_mod) VALUES (0,$global_cat_owner,'public','sitemgr','Default Website','This website has been added by setup',".time().")");
 $site_id = $oProc->m_odb->get_last_insert_id($GLOBALS['egw_setup']->cats_table,'cat_id');
@@ -22,7 +23,7 @@ $oProc->next_record();
 $siteurl = $oProc->f('config_value') . '/sitemgr/sitemgr-site/';	// url always uses slashes, dont use SEP!!!
 $sitedir = $GLOBALS['egw_setup']->db->db_addslashes('sitemgr' . SEP . 'sitemgr-site');
 $oProc->query("INSERT INTO {$sitemgr_table_prefix}_sites (site_id,site_name,site_url,site_dir,themesel,site_languages,home_page_id,anonymous_user,anonymous_passwd) VALUES ($site_id,'Default Website','$siteurl','$sitedir','idots','en,de',0,'anonymous','anonymous')");
-
+*/
 // give Admins group rights vor sitemgr and for the created default-site
 $admingroup = $GLOBALS['egw_setup']->add_account('Admins','Admin','Group',False,False);
 $GLOBALS['egw_setup']->add_acl('sitemgr','run',$admingroup);
@@ -82,7 +83,7 @@ while(($app = $dir->read()))
 			{
 				$module = $module[1];
 
-				if (preg_match('/\$this->description = lang\(\'([^'."\n".']*)\'\);/',file_get_contents($moddir.'/'.$file),$parts))
+				if (preg_match('/\$this->description = lang\([\'"]([^'."\n".']*)[\'"]\);/',file_get_contents($moddir.'/'.$file),$parts))
 				{
 					$description = $GLOBALS['egw_setup']->db->db_addslashes(str_replace("\\'","'",$parts[1]));
 				}
@@ -92,12 +93,15 @@ while(($app = $dir->read()))
 				}
 				$oProc->query("INSERT INTO {$sitemgr_table_prefix}_modules (module_name,description) VALUES ('$module','$description')",__LINE__,__FILE__);
 				$id = $module_id[$module] = $oProc->m_odb->get_last_insert_id($sitemgr_table_prefix.'_modules','module_id');
-				if (isset($areas[$module]))
+
+				// allow to display all modules, not mentioned above, on __PAGE__
+				if (!isset($areas[$module]) && !in_array($module,array('hello','translation_status','xml')))
 				{
-					foreach($areas[$module] as $area)
-					{
-						$oProc->query("INSERT INTO {$sitemgr_table_prefix}_active_modules (area,cat_id,module_id) VALUES ('$area',$site_id,$id)",__LINE__,__FILE__);
-					}
+					$areas[$module] = array('__PAGE__');
+				}
+				foreach((array)$areas[$module] as $area)
+				{
+					$oProc->query("INSERT INTO {$sitemgr_table_prefix}_active_modules (area,cat_id,module_id) VALUES ('$area',$site_id,$id)",__LINE__,__FILE__);
 				}
 			}
 		}
@@ -105,7 +109,7 @@ while(($app = $dir->read()))
 	}
 }
 $dir->close();
-
+/*
 // create some sample categories for the site
 foreach(array(
 	'other'  => 'one more',
@@ -171,3 +175,12 @@ foreach(array(
 		$oProc->query("INSERT INTO {$sitemgr_table_prefix}_content_lang (version_id,lang,arguments_lang) VALUES ($version_id,'en','".$GLOBALS['egw_setup']->db->db_addslashes(serialize($content_en))."')",__LINE__,__FILE__);
 	}
 }
+*/
+$reader = new XMLReader();
+$reader->open(dirname(__FILE__).'/default-site.xml');
+$import = new sitemgr_import_xml($reader);
+$import->import_record(array($admingroup),array(
+	$admingroup   => EGW_ACL_READ|EGW_ACL_ADD,
+	$defaultgroup => EGW_ACL_READ,
+	$anonymous    => EGW_ACL_READ,
+),true);	// true = ignore acl
