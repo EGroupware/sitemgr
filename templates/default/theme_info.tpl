@@ -11,7 +11,7 @@
 			<p style="font-size: 10pt;"><b>{name}</b>: Version {version} ({creationDate})<br />
 			{title}<br />
 			<br />
-			<b>{lang_author}</b>: {author}, <a href="{authorUrl}" target="_blank">{authorUrl}</a><br />
+			<b>{lang_author}</b>: {author}, <a href="{authorUrl2}" target="_blank">{authorUrl}</a><br />
 			<br />
 			<b>{lang_copyright}</b>:<br />{copyright}<br />
 			<br />
