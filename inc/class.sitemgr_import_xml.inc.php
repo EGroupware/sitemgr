@@ -31,7 +31,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 	/**
 	 * @var Common_BO
 	 */
-	protected $common = null;
+	public $common = null;
 
 	/**
 	 * XMLReader to use
@@ -195,6 +195,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 	 * @param array $admins=null which users to make site-admins, default current user
 	 * @param array $cat_acl=null array of user => EGW_ACL_READ|EGW_ACL_ADD, default current user
 	 * @param boolean $ignore_acl=false ignore acl of current user
+	 * @return integer site_id, so call can use it to eg. update some settings
 	 */
 	public function import_record(array $admins=null,array $cat_acl=null,$ignore_acl=false)
 	{
@@ -213,6 +214,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 				}
 			}
 		}
+		return $this->site_id;
 	}
 
 	/**
@@ -232,6 +234,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 		$current_tag = null;
 		$dest = null;
 		$this->read_node(array('content_areas', 'categories', 'blocks', 'pages'), $site, $lang_array);
+
 		reset($lang_array);
 
 		$site['site_name'] = $site['name'];
@@ -271,10 +274,13 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 			$this->common->acl->__construct(true);
 		}
 		// Site is a special category
-		//$this->import_category($cat_acl);
-		$this->import_children('site',$cat_acl);
+		$site += $this->import_children('site',$cat_acl,array('home_page'));
 
 		// Set home page
+		if ($site['home_page'])
+		{
+			$this->common->sites->saveHomePage($this->site_id,$site['home_page']);
+		}
 
 		if(self::$debug >= 1) {
 			echo '</div>' ;
@@ -336,8 +342,15 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 		$this->common->cats->setcurrentcats();
 
 		if(!($this->reader->name == 'category' && $this->reader->nodeType == XMLReader::END_ELEMENT)) {
-			$this->import_children('category',$cat_acl);
+			$category += $this->import_children('category',$cat_acl,array('index_page'));
 		}
+
+		// setting an index page
+		if ($category['index_page'])
+		{
+			$this->common->cats->saveCategoryIndex(end($this->cat_id),$category['index_page']);
+		}
+
 		if(self::$debug >= 1) {
 			echo 'Done with category --- ' . $name . '<br /></div>';
 		}
@@ -349,8 +362,10 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 	 *
 	 * @param string $tag tag-name
 	 * @param array $cat_acl=null array of user => EGW_ACL_READ|EGW_ACL_ADD, default current user
+	 * @param array $read_extra read named extra elements / tags on same level
+	 * @return array with extra elements on the same level (NOT children)
 	 */
-	protected function import_children($tag,array $cat_acl=null)
+	protected function import_children($tag,array $cat_acl=null,array $read_extra=array())
 	{
 		if(!$tag) {
 			$tag = $this->reader->name;
@@ -358,6 +373,9 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 		if(self::$debug >= 1) {
 			echo '<div class="children">Import children of ' . $tag . ' ---<br />';
 		}
+
+		$current_depth = $this->reader->depth;
+		$extra_elements = array();
 
 		// Children
 		while($this->reader->read()) {
@@ -378,6 +396,10 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 					default:
 						// categories, blocks, pages
 						if(self::$debug > 1) echo $this->reader->name . '-moving on...<br />';
+						if ($this->reader->depth == $current_depth && $read_extra && in_array($this->reader->name,$read_extra))
+						{
+							$extra_elements[$this->reader->name] = $this->reader->readString();
+						}
 						break;
 				}
 			} else if($this->reader->nodeType == XMLReader::END_ELEMENT) {
@@ -393,6 +415,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 		if(self::$debug >= 1) {
 			echo 'Done with children of ' . $tag . ' ---<br /></div>';
 		}
+		return $extra_elements;
 	}
 
 	protected function import_block() {

@@ -156,6 +156,21 @@ class Sites_BO
 		$this->current_site = $this->read($site_id);
 	}
 
+	/**
+	 * Save named page as home page
+	 *
+	 * @param int $site_id
+	 * @param int|string $page
+	 */
+	function saveHomePage($site_id,$page)
+	{
+		if (!is_numeric($page_id=$page))
+		{
+			$page_id = $GLOBALS['Common_BO']->pages->so->PageToID($page);
+		}
+		$this->so->saveHomePage($site_id,$page_id);
+	}
+
 	function delete($id)
 	{
 		if (!$GLOBALS['egw']->acl->check('run',1,'admin'))

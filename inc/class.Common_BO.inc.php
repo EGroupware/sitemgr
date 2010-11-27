@@ -15,9 +15,9 @@
 class Common_BO
 {
 	/**
-	 * Instance of Site_BO object
+	 * Instance of Sites_BO object
 	 *
-	 * @var Site_BO
+	 * @var Sites_BO
 	 */
 	public $sites;
 	/**

@@ -1,55 +1,813 @@
 <?xml version="1.0"?>
 <site>
-	<!--Export of eGroupWare SiteMgr website 'Default Website' on 2010-11-23-->
+	<!--Export of eGroupWare SiteMgr website 'Default Website' on 2010-11-27-->
 	<name>Default Website</name>
 	<url>/egroupware/sitemgr/sitemgr-site/</url>
-	<directory>/opt/local/apache2/htdocs/egroupware/sitemgr/sitemgr-site</directory>
-	<themesel>idots</themesel>
-	<default_theme>idots</default_theme>
+	<directory>sitemgr/sitemgr-site</directory>
+	<themesel>ja_purity</themesel>
+	<default_theme>ja_purity</default_theme>
 	<anonymous_user>anonymous</anonymous_user>
 	<anonymous_password>anonymous</anonymous_password>
 	<upload_directory/>
-	<htaccess_rewrite/>
-	<logo_url/>
-	<custom_css><![CDATA[]]></custom_css>
-	<params_ini/>
-	<name lang="en"></name>
+	<htaccess_rewrite>0</htaccess_rewrite>
+	<logo_url>http://sitemgr.egroupware.de/egw/phpgwapi/templates/default/images/logo.png</logo_url>
+	<custom_css><![CDATA[/**
+ * Custom CSS to set logo for joomlart templates
+ */
+h1.logo a, div#logo, #logo, div#ja-header h1, div#header h1 {
+	background: url("$$logo_url$$") no-repeat left center;
+}
+div#ja-header h1 a img, div#header h1 a img, div#header h1 img {
+	visibility: hidden;
+}
+]]></custom_css>
+	<params_ini>[ja_purity]
+excludeModules=38
+horNav=1
+horNavType=moo
+ja_font=3
+ja_screen=fluid
+ja_screen_width=90
+logoText=Joomla!
+logoType=image
+rightCollapseDefault=show
+rightCollapsible=1
+showComponent=1
+sloganText=...because open source matters
+theme_background=lighter
+theme_elements=red
+theme_header=green
+</params_ini>
+	<name lang="en">Neue SiteMgr Website</name>
 	<description lang="en"></description>
-	<name lang="de"></name>
+	<name lang="de">Neue SiteMgr Website</name>
 	<description lang="de"></description>
 	<categories>
 		<category>
 			<sort_order>0</sort_order>
 			<state>2</state>
-			<name lang="en">sample</name>
-			<description lang="en">sample category</description>
-			<categories>
-				<category>
-					<sort_order>0</sort_order>
-					<state>2</state>
-					<name lang="en">sub-sample</name>
-					<description lang="en">just a sub for sample</description>
-				</category>
-			</categories>
+			<name lang="en">Home</name>
+			<description lang="en">Home</description>
 			<pages>
 				<page>
-					<name>sample-page</name>
-					<sort_order>0</sort_order>
-					<hidden>0</hidden>
+					<name>Home</name>
+					<sort_order>1</sort_order>
+					<hidden>1</hidden>
 					<state>2</state>
-					<title lang="en">Sample page</title>
-					<subtitle lang="en">just a sample</subtitle>
+					<title lang="de">Webseite erstellen mit EGroupware</title>
+					<subtitle lang="de"></subtitle>
+					<title lang="en">Create a website with EGroupware</title>
+					<subtitle lang="en"></subtitle>
 					<blocks>
 						<block>
 							<area>center</area>
 							<module>html</module>
-							<sort_order>11</sort_order>
+							<sort_order>0</sort_order>
 							<view>0</view>
-							<title lang="en">HTML Module</title>
+							<title lang="en"> What can I do with SiteManager?</title>
 							<contents>
 								<content lang="en">
 									<state>2</state>
-									<arguments><![CDATA[a:1:{s:11:"htmlcontent";s:35:"some sample <b>HTML</b> content ...";}]]></arguments>
+									<arguments><![CDATA[a:1:{s:11:"htmlcontent";s:1290:"<h3>
+	What <span>can</span> I do <span>with</span> <span>SiteManager</span>?</h3>
+<ul>
+	<li>
+		<span>Create</span> <span>and</span> <span>publish</span> <span>websites</span> <span>directly</span> in your <span>EGroupware</span></li>
+	<li>
+		Manage <span>access</span> <span>rights</span> <span>for</span> <span>website</span> <span>editors</span></li>
+	<li>
+		Limit / <span>restrict</span> <span>parts</span> <span>of</span> <span>the</span> <span>website</span> <span>for</span> <span>registered</span> <span>users</span> <span>only</span></li>
+	<li>
+		Manage <span>the</span> <span>content</span> <span>independently</span> <span>of</span> <span>the</span> <span>design</span></li>
+	<li>
+		<span>Publish</span> <span>content</span> <span>of</span> <span>other</span> <span>EGroupware</span> <span>applications</span> <span>e.g</span>. News, <span>files</span> <span>and</span> <span>folders</span> <span>from</span> File Manager, <span>Calendars</span>, <span>Addressbook</span> <span>contact</span> <span>data</span>...</li>
+	<li>
+		<span>Create</span> <span>contact</span> <span>forms</span> <span>and</span> <span>receive</span> <span>data</span> <span>directly</span> <span>into</span> <span>EGroupware&#39;s</span> <span>address</span> <span>book</span>.</li>
+</ul>
+";}]]></arguments>
+								</content>
+							</contents>
+						</block>
+						<block>
+							<area>center</area>
+							<module>html</module>
+							<sort_order>0</sort_order>
+							<view>0</view>
+							<title lang="en"> </title>
+							<contents>
+								<content lang="en">
+									<state>2</state>
+									<arguments><![CDATA[a:1:{s:11:"htmlcontent";s:421:"<h3>
+	<br />
+	Preview available templates</h3>
+<p>
+	Most of the templates have much more options to create blocks and links to different places. This content is available for all templates, so there is only a minimum amount of content blocks as example. <span>Preview</span> <span>available</span> <span>templates</span> <span>by</span> selecting templates from &quot;Choose Template&quot; block.<br />
+	&nbsp;</p>
+";}]]></arguments>
+								</content>
+							</contents>
+						</block>
+						<block>
+							<area>right</area>
+							<module>html</module>
+							<sort_order>0</sort_order>
+							<view>0</view>
+							<title lang="en">Test EGroupware</title>
+							<contents>
+								<content lang="en">
+									<state>2</state>
+									<arguments><![CDATA[a:1:{s:11:"htmlcontent";s:372:"<p style="text-align: center;">
+	<br />
+	<a href="http://www.stylite.de/egroupware_hosting_trial" target="_blank"><img alt="" src="http://sitemgr.egroupware.de/uploads/banner_egroupware_trial_en.jpg" style="width: 100%;" /></a><br />
+	<br />
+	<a href="http://www.stylite.de" target="_blank"><img alt="" src="/uploads/logo_stylite.png" style="width: 100%;" /></a></p>
+";}]]></arguments>
+								</content>
+							</contents>
+						</block>
+					</blocks>
+				</page>
+			</pages>
+			<index_page>Home</index_page>
+		</category>
+		<category>
+			<sort_order>1</sort_order>
+			<state>2</state>
+			<name lang="de">Inhalt</name>
+			<description lang="de">EGroupware Sitemanager Inhalt</description>
+			<name lang="en">Inhalt</name>
+			<description lang="en">EGroupware Sitemanager Inhalt</description>
+			<categories>
+				<category>
+					<sort_order>1</sort_order>
+					<state>2</state>
+					<name lang="de">Kategorien und Seiten</name>
+					<description lang="de">Kategorien und Seiten hinzufügen</description>
+					<name lang="en">Categories and pages</name>
+					<description lang="en">Adding categories and pages</description>
+					<pages>
+						<page>
+							<name>categories_and_pages</name>
+							<sort_order>1</sort_order>
+							<hidden>1</hidden>
+							<state>2</state>
+							<title lang="de">Kategorien und Seiten hinzufügen oder bearbeiten</title>
+							<subtitle lang="de"></subtitle>
+							<title lang="en">Create, add or edit categories and pages</title>
+							<subtitle lang="en"></subtitle>
+							<blocks>
+								<block>
+									<area>center</area>
+									<module>html</module>
+									<sort_order>0</sort_order>
+									<view>0</view>
+									<title lang="en"> </title>
+									<contents>
+										<content lang="en">
+											<state>2</state>
+											<arguments><![CDATA[a:1:{s:11:"htmlcontent";s:5196:"<p>
+	The content inside a sitemgr website is organised using categories and pages. Categories may contain other categories, creating a hierachical category-tree this way. Each category may contain pages, too. At the top-level (the site) you cannot create pages, you have to create at least one category first. Pages themselves contain the content, provided by the modules, which may be visible for the page only, for the category or for the whole site (site-wide).<br />
+	<br />
+	<br />
+	To structure a web site the Sitemanager uses categories and pages. The content itself is regularly added using blocks. The following points show how to create, add and edit categories or pages:</p>
+<p>
+	&nbsp;</p>
+<ul style="margin-top: 0px; margin-bottom: 0px;">
+	<li>
+		<strong>Create a new category</strong>:&nbsp;<span class="Apple-style-span" style="font-weight: normal;">In order to create a new category use the content manager, respectively edit mode. Access this mode using &quot;Edit site&quot; from the general menu or switching to edit mode if you have an administration module available in your web site. To create a new category click &quot;View full index&quot; inside the navigation module first and then click the small icon next to &quot;Site index&quot; to get to &nbsp;yourdomain//<span>idex.php</span>?menuaction=<span>sitemgr.Categories_UI.edit</span>.</span></li>
+	<li>
+		<strong>Edit a category</strong>:&nbsp;Access the edit mode (see above) and click on &quot;Edit category&quot; next to the category name. Edit:
+		<ul style="margin-top: 0px; margin-bottom: 0px;">
+			<li>
+				Category Name: Shown in navigation elements.</li>
+			<li>
+				Sort order: Relevant for navigation elements.</li>
+			<li>
+				Parent: Use to change this category into a subcategory of the chosen parent-category.</li>
+			<li>
+				Category description: Used in Navigation elements as additional information.</li>
+			<li>
+				Index: Which page should be displayed as the index of the category? Default is an &quot;Automatic Index&quot;.</li>
+			<li>
+				State: Categories are part of the publishing workflow.</li>
+			<li>
+				Permissions: Set the permissions (read/write) on group- and user-level (for a public site use anonymous).</li>
+		</ul>
+	</li>
+	<li>
+		<strong>Delete a category</strong>: Press the delete button next to the category. Make sure you don&#39;t need any of the associated pages anymore.</li>
+	<li>
+		<strong>Create a new page</strong>:&nbsp;Looking on the full index in edit mode (see above) click the &quot;add page to category&quot; icon next to the category.</li>
+	<li>
+		<strong>Edit a page</strong>:&nbsp;Access the edit mode (see above) and click on &quot;Edit page&quot; next to the page name. Edit:
+		<ul style="margin-top: 0px; margin-bottom: 0px;">
+			<li>
+				Name: Used as an ID and for the URL (?page_name=...).</li>
+			<li>
+				Ttile: Displayed in navigation modules and in the block.</li>
+			<li>
+				Subtitle: Displayed in the block.</li>
+			<li>
+				Sortorder: Define the order of the blocks.</li>
+			<li>
+				Category: Where should this page be visible and which access permissions should be applied?</li>
+			<li>
+				State: Concerning the publishing workflow.</li>
+			<li>
+				Checkbox to hide form condensed site index: The site is hidden in all navigation elements if checked.</li>
+		</ul>
+	</li>
+	<li>
+		<strong>Editing page content</strong>:&nbsp;There are two interfaces for creating and editing content blocks. The first one is called &ldquo;content manager&rdquo; and works inside the EGroupware interface, the second works in interaction with the generated web site and is called &ldquo;editing mode&rdquo;.
+		<ul style="margin-top: 0px; margin-bottom: 0px;">
+			<li>
+				<strong>The content manager</strong>:&nbsp;The interface for creating content blocks is the same on each level of scope, besides that when editing blocks on a lower level you can see all the blocks that have been defined on a higher level. They will be displayed on the web site together with the blocks you are editing.&nbsp;<br />
+				In each content manager, there is a section for each content area to add blocks selected from a menu of all available blocks. Once a new block is added it appears amidst all other blocks of the content area. Those defined on higher level scopes are only displayed (viewed). Those pertaining to the scope (site-wide, category or page) you are managing are editable.</li>
+			<li>
+				<strong>Editing mode</strong>: In order to use editing mode add a site-wide administration block to your web site (viewable only by registered users). This block has a dropdown menu to switch between &quot;production mode&quot; (viewing the web site in its public state), &quot;draft mode&quot; (viewing the web site in the prepublished state - means you only see prepublished elements, no draft-status or archived) and edit mode. In &quot;edit mode&quot; the same content as in draft mode and draft-status elements are displayed, but in front of each content block you find a link &ldquo;Edit block&rdquo; to pop up a new window for editing the content (category, page or block).</li>
+		</ul>
+	</li>
+</ul>
+";}]]></arguments>
+										</content>
+									</contents>
+								</block>
+							</blocks>
+						</page>
+					</pages>
+					<index_page>categories_and_pages</index_page>
+				</category>
+				<category>
+					<sort_order>2</sort_order>
+					<state>2</state>
+					<name lang="de">Blöcke</name>
+					<description lang="de">Blöcke hinzufügen oder bearbeiten</description>
+					<name lang="en">Blocks</name>
+					<description lang="en">Adding and editing blocks</description>
+					<pages>
+						<page>
+							<name>blocks</name>
+							<sort_order>0</sort_order>
+							<hidden>0</hidden>
+							<state>2</state>
+							<title lang="de">Blöcke hinzufügen oder bearbeiten</title>
+							<subtitle lang="de"></subtitle>
+							<title lang="en">Create, add and edit blocks</title>
+							<subtitle lang="en"></subtitle>
+							<blocks>
+								<block>
+									<area>left</area>
+									<module>login</module>
+									<sort_order>0</sort_order>
+									<view>0</view>
+								</block>
+								<block>
+									<area>center</area>
+									<module>html</module>
+									<sort_order>0</sort_order>
+									<view>0</view>
+									<title lang="en">  </title>
+									<contents>
+										<content lang="en">
+											<state>2</state>
+											<arguments><![CDATA[a:1:{s:11:"htmlcontent";s:1759:"<p>
+	In both methodes of editing page content (the content manager and the editing window that opens in editing mode) the interface for editing the block is the same. There are three standard interface elements you can edit for each block:<br />
+	&nbsp;</p>
+<ul style="margin-top: 0px; margin-bottom: 0px;">
+	<li>
+		<strong>Title:</strong> Each module defines a default title for blocks it generates. The block title is not necessarily displayed in each content area. It depends on the block transformer defined for the content area by the site template you use. Here you can override the default title with a customized title that will only be used by the block you are editing. Or you just insert for the title a space.</li>
+	<li>
+		<strong>Seenby:</strong> You can control the visibility of each block for the different user roles defined by Sitemanager<br />
+		(site administrators, EGroupware users (which include site administrators) and the anonymous user). Evidently you can also make the block visible for everyone, which is the default.</li>
+	<li>
+		<strong>Sortorder:</strong> Here you can change the order in which the blocks are displayed by defining a different integer for each block.</li>
+</ul>
+<p>
+	When you first create a content block, Sitemanager automatically creates a new&nbsp;<strong>version </strong>for it. A block always shows the highest version. You can edit for each version all block specific arguments. <strong>Block specific arguments</strong> can be of different types: e.g. checkboxes, selectboxes, urls,&nbsp;textareas or&nbsp;textfields.<br />
+	<br />
+	<strong>Using different blocks</strong><br />
+	A list of all available blocks and the most common blocks are described in detail on the next pages.</p>
+";}]]></arguments>
+										</content>
+									</contents>
+								</block>
+							</blocks>
+						</page>
+						<page>
+							<name>available_blocks</name>
+							<sort_order>0</sort_order>
+							<hidden>0</hidden>
+							<state>2</state>
+							<title lang="de">Vorhandene Blöcke</title>
+							<subtitle lang="de"></subtitle>
+							<title lang="en">Available blocks</title>
+							<subtitle lang="en"></subtitle>
+							<blocks>
+								<block>
+									<area>center</area>
+									<module>html</module>
+									<sort_order>-1</sort_order>
+									<view>0</view>
+									<title lang="en"> </title>
+									<contents>
+										<content lang="en">
+											<state>2</state>
+											<arguments><![CDATA[a:1:{s:11:"htmlcontent";s:4967:"<p>
+	Even if not all blocks may make sense for each content area, the content manager does not impose on itself any constraints which modules can be used for which area. Administrators can restrict the available modules for categories and content areas. For example use modules that are optimized for side block areas in the side areas and use a simple html content block on the central area. The following modules are shipped with Sitemgr:</p>
+<ul>
+	<li>
+		<strong>addressbook_contactform</strong>: creates a contact form, which adds contacts directly into the selected EGroupware addressbook and sends a notification via mail to the given email addresses.</li>
+	<li>
+		<strong>addressbook_display</strong>: shows the contacts of the selected addressbook, e.g for references or subscribed members.</li>
+	<li>
+		<strong>administration: </strong>simply creates a link to Sitemgr&#39;s administration interface. Thus probably would not want to be made visible for anonymous user&#39;s but only for EGroupware users or adminstrator.</li>
+	<li>
+		<strong>amazon:</strong> shows ads for books on the Amazon web site. There is a comment in the modules source file about how it works.</li>
+	<li>
+		<strong>appdir:</strong> a demonstration of how Sitemgr&#39;s architecture can be used to realize a simple application for creating a directory of information. It should be adaptable to other needs. At the moment the&nbsp;PHP&#39;s XSLT extension is needed to use this module.</li>
+	<li>
+		<strong>bookmarks:</strong> shows content from EGroupware&#39;s bookmark application</li>
+	<li>
+		<strong>calendar:</strong> produces the small navigation calendar and each days can link to EGroupware&#39;s calendar application (list, month or planner view)</li>
+	<li>
+		<strong>calendar_list</strong>: shows the list view of the calendar of the selected users or groups and categories</li>
+	<li>
+		<strong>calendar_month</strong>: shows the month or several weeks of the selected users or groups and categories</li>
+	<li>
+		<strong>calendar_planner</strong>: shows the planner of the selected users or groups and categories. There are different modes possible for yearly planner, planner by category or planner by user.</li>
+	<li>
+		<strong>download:</strong> can be used for creating links to files</li>
+	<li>
+		<strong>filecontents:</strong> includes the content of a file on the web server into the web site</li>
+	<li>
+		<strong>frame</strong>: shows the given URL in an iFrame&nbsp;with the given width and height.</li>
+	<li>
+		<strong>gallery or gallery_imageblock:</strong> works only, if the gallery-application is installed! Than the gallery can be used to show images or different image folders.</li>
+	<li>
+		<strong>google:</strong> displays a form for querying the Google web site.</li>
+	<li>
+		<strong>html:</strong> Probably the most important module, because text and images can be added simply. And its also possible to add there tables, listings, numerations or links to other pages (in the Sitemanager or to other web sites).</li>
+	<li>
+		<strong>lang_block:&nbsp;</strong>displays a select box for changing the user&#39;s site language.</li>
+	<li>
+		<strong>login:&nbsp;</strong>displays a login block for login into your EGroupware</li>
+	<li>
+		<strong>navigation</strong>: the navigation block allows to add different modes of navigation like current section, site index, index or side tree. The most common modes are described more detailed in the corresponding menu item.</li>
+	<li>
+		<strong>news_admin:</strong> publishes news coming from EGroupware&#39;s news_admin application. The categories which should be displayed can be configured as well as the content. E.g. showing only the header or header and teaser etc.</li>
+	<li>
+		<strong>redirect:&amp;</strong> makes the page redirect to another URL. This is useful, if you want an entry in your menus that links to a page outside your Sitemgr site. If you use this module you shouldn&#39;t put any other blocks on the same page.</li>
+	<li>
+		<strong>template:</strong> enables web site visitors to change the layout-template, great for designing web sites together with the customer</li>
+	<li>
+		<strong>wiki: </strong>displays Wiki articles. The web site reader will be able to navigate all articles using the links and it can provide a Wiki search, too. It&#39;s better to disable Wiki Links (Wiki Site Configuration, &quot;Enable Wiki Links: No&quot;), otherwise URLS containing capital letters will be interpreted as &quot;Words Smashed together&quot;. This module is a very nice way to give people the possibility to edit the content of the web site, without needing to bother about the Sitemanager. Just like the News application can be used to edit news for the Sitemanager news-module.</li>
+</ul>
+<p>
+	There are other modules available, which are not described here, because they are more or less only useful for development or testing issues.</p>
+";}]]></arguments>
+										</content>
+									</contents>
+								</block>
+								<block>
+									<area>center</area>
+									<module>navigation</module>
+									<sort_order>0</sort_order>
+									<view>0</view>
+								</block>
+							</blocks>
+						</page>
+						<page>
+							<name>html_block</name>
+							<sort_order>0</sort_order>
+							<hidden>0</hidden>
+							<state>2</state>
+							<title lang="de">Text und Bilder</title>
+							<subtitle lang="de"></subtitle>
+							<title lang="en">Add text and images</title>
+							<subtitle lang="en"></subtitle>
+							<blocks>
+								<block>
+									<area>center</area>
+									<module>html</module>
+									<sort_order>0</sort_order>
+									<view>0</view>
+									<title lang="en">HTML module</title>
+									<contents>
+										<content lang="en">
+											<state>2</state>
+											<arguments><![CDATA[a:1:{s:11:"htmlcontent";s:1481:"<p>
+	Probably the most important module, because text and images can be added simply. And its also possible to add there tables, listings, numerations or links to other pages (in the Sitemanager or to other web sites).</p>
+<h3>
+	Add text and images</h3>
+<p>
+	<img alt="" src="http://sitemgr.egroupware.de/uploads/ralfbecker.jpeg" style="width: 133px; height: 200px;" /><br />
+	&nbsp;</p>
+<p>
+	Ralf Becker<br />
+	Manager of software development<br />
+	Stylite GmbH</p>
+<h3>
+	<br />
+	Add tabels</h3>
+<table align="left" border="1" cellpadding="1" cellspacing="1" style="width: 400px;">
+	<thead>
+		<tr>
+			<th scope="row">
+				&nbsp;</th>
+			<th scope="col">
+				&nbsp;</th>
+			<th scope="col">
+				&nbsp;</th>
+			<th scope="col">
+				&nbsp;</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th scope="row">
+				&nbsp;</th>
+			<td>
+				&nbsp;</td>
+			<td>
+				&nbsp;</td>
+			<td>
+				&nbsp;</td>
+		</tr>
+		<tr>
+			<th scope="row">
+				&nbsp;</th>
+			<td>
+				&nbsp;</td>
+			<td>
+				&nbsp;</td>
+			<td>
+				&nbsp;</td>
+		</tr>
+	</tbody>
+</table>
+<br />
+<br />
+<br />
+<br />
+<br />
+<h3>
+	<br />
+	Add links</h3>
+<p>
+	<a href="http://www.egroupware.org" target="_blank">www.egroupware.org</a><br />
+	&nbsp;</p>
+<h3>
+	Add lists</h3>
+<ul>
+	<li>
+		Addressbook</li>
+	<li>
+		InfoLog</li>
+	<li>
+		Calendar</li>
+</ul>
+<ol>
+	<li>
+		Day view</li>
+	<li>
+		Week view</li>
+	<li>
+		Month view</li>
+</ol>
+<br />
+<br />
+<br />
+";}]]></arguments>
+										</content>
+									</contents>
+								</block>
+							</blocks>
+						</page>
+						<page>
+							<name>calendar</name>
+							<sort_order>1</sort_order>
+							<hidden>0</hidden>
+							<state>2</state>
+							<title lang="de">Kalender</title>
+							<subtitle lang="de"></subtitle>
+							<title lang="en">Add calendar</title>
+							<subtitle lang="en"></subtitle>
+							<blocks>
+								<block>
+									<area>center</area>
+									<module>html</module>
+									<sort_order>0</sort_order>
+									<view>0</view>
+									<title lang="en"> </title>
+									<contents>
+										<content lang="en">
+											<state>2</state>
+											<arguments><![CDATA[a:1:{s:11:"htmlcontent";s:307:"<p>
+	Using the <strong>calendar blocks</strong> the calendar of EGroupware can be shown on the web site. E.g. for showing the availability of resoures or the yearly planner of a club, like the image below.</p>
+<p>
+	<img alt="" src="/uploads/calendar_year.png" style="width: 100%;" /><br />
+	&nbsp;</p>
+";}]]></arguments>
+										</content>
+									</contents>
+								</block>
+							</blocks>
+						</page>
+						<page>
+							<name>contact_form</name>
+							<sort_order>4</sort_order>
+							<hidden>0</hidden>
+							<state>2</state>
+							<title lang="de">Kontakt Formular</title>
+							<subtitle lang="de"></subtitle>
+							<title lang="en">Add contact form</title>
+							<subtitle lang="en"></subtitle>
+							<blocks>
+								<block>
+									<area>center</area>
+									<module>html</module>
+									<sort_order>-1</sort_order>
+									<view>0</view>
+									<title lang="en"></title>
+									<contents>
+										<content lang="en">
+											<state>2</state>
+											<arguments><![CDATA[a:1:{s:11:"htmlcontent";s:644:"<p>
+	<strong>Addressbook contactform</strong>&nbsp;creates a contact form, which adds contacts directly into the selected EGroupware Addressbook&nbsp;(done below for the Default group) and sends a notification via mail to the given email addresses. For the example of the contact form below, its only necessary to insert Name and email address, but this can be configured different in the block, e.g. for having also the possibility to add comany name or phone numbers.<br />
+	<br />
+	The second Adressbook block (addressbook_display) shows the contacts of a given Addressbook, e.g for references or subscribed members.</p>
+<p>
+	&nbsp;</p>";}]]></arguments>
+										</content>
+									</contents>
+								</block>
+								<block>
+									<area>center</area>
+									<module>addressbook_contactform</module>
+									<arguments><![CDATA[a:6:{s:4:"arg1";s:2:"-1";s:4:"arg4";s:0:"";s:4:"arg6";s:11:"Contactform";s:4:"arg2";a:3:{i:0;s:4:"n_fn";i:1;s:5:"email";i:2;s:4:"note";}s:4:"arg3";s:28:"Thank you for contacting us.";s:4:"arg5";s:23:"addressbook.contactform";}]]></arguments>
+									<sort_order>0</sort_order>
+									<view>0</view>
+									<title lang="en"></title>
+									<contents>
+										<content lang="en">
+											<state>2</state>
+										</content>
+									</contents>
+								</block>
+							</blocks>
+						</page>
+						<page>
+							<name>news</name>
+							<sort_order>5</sort_order>
+							<hidden>0</hidden>
+							<state>2</state>
+							<title lang="de">Nachrichten</title>
+							<subtitle lang="de"></subtitle>
+							<title lang="en">Add news</title>
+							<subtitle lang="en"></subtitle>
+							<blocks>
+								<block>
+									<area>center</area>
+									<module>html</module>
+									<sort_order>-1</sort_order>
+									<view>0</view>
+									<title lang="en"> </title>
+									<contents>
+										<content lang="en">
+											<state>2</state>
+											<arguments><![CDATA[a:1:{s:11:"htmlcontent";s:381:"<p>
+	<strong>news_admin:&nbsp;</strong>publishes news coming from <span>EGroupware&#39;s</span> news_admin application. The categories which should be displayed can be configured as well as the content. <span>E.g</span>. showing only the header or header and teaser etc.</p>
+<p>
+	Examples below are news of www.egroupware.org</p>
+<p>
+	&nbsp;</p>
+<h2>
+	EGroupware News</h2>
+";}]]></arguments>
+										</content>
+									</contents>
+								</block>
+								<block>
+									<area>center</area>
+									<module>html</module>
+									<sort_order>0</sort_order>
+									<view>0</view>
+								</block>
+								<block>
+									<area>center</area>
+									<module>news_admin</module>
+									<arguments><![CDATA[a:5:{s:8:"category";a:1:{i:0;s:2:"24";}s:4:"show";a:4:{i:0;s:8:"datetime";i:1;s:5:"title";i:2;s:6:"teaser";i:3;s:4:"more";}s:5:"limit";s:2:"10";s:8:"linkpage";s:0:"";s:5:"items";s:0:"";}]]></arguments>
+									<sort_order>0</sort_order>
+									<view>0</view>
+									<title lang="en">News Admin module</title>
+									<contents>
+										<content lang="en">
+											<state>2</state>
+										</content>
+									</contents>
+								</block>
+							</blocks>
+						</page>
+						<page>
+							<name>add_file_manager</name>
+							<sort_order>5</sort_order>
+							<hidden>0</hidden>
+							<state>2</state>
+							<title lang="de">Ordner und Dateien</title>
+							<subtitle lang="de"></subtitle>
+							<title lang="en">Add folders and files</title>
+							<subtitle lang="en"></subtitle>
+							<blocks>
+								<block>
+									<area>center</area>
+									<module>html</module>
+									<sort_order>-1</sort_order>
+									<view>0</view>
+									<title lang="en"> </title>
+									<contents>
+										<content lang="en">
+											<state>2</state>
+											<arguments><![CDATA[a:1:{s:11:"htmlcontent";s:877:"<p>
+	<strong>Download:&nbsp;</strong>can be used&nbsp;<span>for</span> <span>creating</span> links to files <span>and</span> directories stored in&nbsp;<span>EGroupware&#39;s</span> <span>Filemanager</span>. To display&nbsp; a folder <span>the</span>&nbsp;used path should be like &quot;/home/<span>yourfolder</span>/&quot; <span>The</span> user will be able to navigate all <span>sub-folders</span>, too if this is selected. Make sure that <span>the</span> <span>Filemanager</span> <span>app</span> is activated&nbsp;<span>for</span> <span>the</span> anonymous user <span>and</span> that he has <span>the</span> needed <span>Filemanager</span> (read) permissions <span>for</span> <span>the</span> folders which <span>should</span> be displayed. F<span>or</span> non-public web sites, there <span>is</span> no need to give permissions to <span>the</span> anonymous user.</p>
+";}]]></arguments>
+										</content>
+									</contents>
+								</block>
+								<block>
+									<area>center</area>
+									<module>download</module>
+									<arguments><![CDATA[a:6:{s:6:"format";s:3:"dir";s:4:"path";s:8:"/uploads";s:5:"order";s:8:"name asc";s:4:"file";s:0:"";s:4:"text";s:0:"";s:12:"confirmation";s:0:"";}]]></arguments>
+									<sort_order>0</sort_order>
+									<view>0</view>
+									<title lang="en">File download</title>
+									<contents>
+										<content lang="en">
+											<state>2</state>
+										</content>
+									</contents>
+								</block>
+							</blocks>
+						</page>
+						<page>
+							<name>siteindex</name>
+							<sort_order>6</sort_order>
+							<hidden>0</hidden>
+							<state>2</state>
+							<title lang="de">Navigation und Gesamtindex</title>
+							<subtitle lang="de"></subtitle>
+							<title lang="en">Add navigation and site index</title>
+							<subtitle lang="en"></subtitle>
+							<blocks>
+								<block>
+									<area>center</area>
+									<module>html</module>
+									<sort_order>-1</sort_order>
+									<view>0</view>
+									<title lang="en"> </title>
+									<contents>
+										<content lang="en">
+											<state>2</state>
+											<arguments><![CDATA[a:1:{s:11:"htmlcontent";s:567:"<h3>
+	The most common navigation elements are</h3>
+<ul>
+	<li>
+		<strong>currentsection:</strong> produces an index of the pages in the current section.</li>
+	<li>
+		<strong>index_block:</strong> a index of the whole site, formatted for peripheral areas of your web site.</li>
+	<li>
+		<strong>index:</strong> is automatically used with the index GET parameter. You probably would not have to use this block otherwise.</li>
+	<li>
+		<strong>sitetree:</strong> displays a tree like menu to the web site.</li>
+</ul>
+<p>
+	&nbsp;</p>
+<h3>
+	Index block:</h3>
+";}]]></arguments>
+										</content>
+									</contents>
+								</block>
+								<block>
+									<area>center</area>
+									<module>navigation</module>
+									<arguments><![CDATA[a:1:{s:8:"nav_type";s:1:"2";}]]></arguments>
+									<sort_order>0</sort_order>
+									<view>0</view>
+									<title lang="en">Navigation element</title>
+									<contents>
+										<content lang="en">
+											<state>2</state>
+										</content>
+									</contents>
+								</block>
+								<block>
+									<area>center</area>
+									<module>html</module>
+									<sort_order>0</sort_order>
+									<view>0</view>
+								</block>
+								<block>
+									<area>center</area>
+									<module>navigation</module>
+									<sort_order>0</sort_order>
+									<view>0</view>
+								</block>
+							</blocks>
+						</page>
+					</pages>
+					<index_page>blocks</index_page>
+				</category>
+			</categories>
+			<pages>
+				<page>
+					<name>egroupware_sitemanager_content</name>
+					<sort_order>0</sort_order>
+					<hidden>1</hidden>
+					<state>2</state>
+					<title lang="de">Kategorien und Seiten hinzufügen oder bearbeiten</title>
+					<subtitle lang="de"></subtitle>
+					<title lang="en">Create, add or edit categories and pages</title>
+					<subtitle lang="en"></subtitle>
+					<blocks>
+						<block>
+							<area>center</area>
+							<module>html</module>
+							<sort_order>0</sort_order>
+							<view>0</view>
+						</block>
+						<block>
+							<area>center</area>
+							<module>html</module>
+							<sort_order>0</sort_order>
+							<view>0</view>
+							<title lang="en">Manage categories and pages</title>
+							<contents>
+								<content lang="en">
+									<state>2</state>
+									<arguments><![CDATA[a:1:{s:11:"htmlcontent";s:5196:"<p>
+	The content inside a sitemgr website is organised using categories and pages. Categories may contain other categories, creating a hierachical category-tree this way. Each category may contain pages, too. At the top-level (the site) you cannot create pages, you have to create at least one category first. Pages themselves contain the content, provided by the modules, which may be visible for the page only, for the category or for the whole site (site-wide).<br />
+	<br />
+	<br />
+	To structure a web site the Sitemanager uses categories and pages. The content itself is regularly added using blocks. The following points show how to create, add and edit categories or pages:</p>
+<p>
+	&nbsp;</p>
+<ul style="margin-top: 0px; margin-bottom: 0px;">
+	<li>
+		<strong>Create a new category</strong>:&nbsp;<span class="Apple-style-span" style="font-weight: normal;">In order to create a new category use the content manager, respectively edit mode. Access this mode using &quot;Edit site&quot; from the general menu or switching to edit mode if you have an administration module available in your web site. To create a new category click &quot;View full index&quot; inside the navigation module first and then click the small icon next to &quot;Site index&quot; to get to &nbsp;yourdomain//<span>idex.php</span>?menuaction=<span>sitemgr.Categories_UI.edit</span>.</span></li>
+	<li>
+		<strong>Edit a category</strong>:&nbsp;Access the edit mode (see above) and click on &quot;Edit category&quot; next to the category name. Edit:
+		<ul style="margin-top: 0px; margin-bottom: 0px;">
+			<li>
+				Category Name: Shown in navigation elements.</li>
+			<li>
+				Sort order: Relevant for navigation elements.</li>
+			<li>
+				Parent: Use to change this category into a subcategory of the chosen parent-category.</li>
+			<li>
+				Category description: Used in Navigation elements as additional information.</li>
+			<li>
+				Index: Which page should be displayed as the index of the category? Default is an &quot;Automatic Index&quot;.</li>
+			<li>
+				State: Categories are part of the publishing workflow.</li>
+			<li>
+				Permissions: Set the permissions (read/write) on group- and user-level (for a public site use anonymous).</li>
+		</ul>
+	</li>
+	<li>
+		<strong>Delete a category</strong>: Press the delete button next to the category. Make sure you don&#39;t need any of the associated pages anymore.</li>
+	<li>
+		<strong>Create a new page</strong>:&nbsp;Looking on the full index in edit mode (see above) click the &quot;add page to category&quot; icon next to the category.</li>
+	<li>
+		<strong>Edit a page</strong>:&nbsp;Access the edit mode (see above) and click on &quot;Edit page&quot; next to the page name. Edit:
+		<ul style="margin-top: 0px; margin-bottom: 0px;">
+			<li>
+				Name: Used as an ID and for the URL (?page_name=...).</li>
+			<li>
+				Ttile: Displayed in navigation modules and in the block.</li>
+			<li>
+				Subtitle: Displayed in the block.</li>
+			<li>
+				Sortorder: Define the order of the blocks.</li>
+			<li>
+				Category: Where should this page be visible and which access permissions should be applied?</li>
+			<li>
+				State: Concerning the publishing workflow.</li>
+			<li>
+				Checkbox to hide form condensed site index: The site is hidden in all navigation elements if checked.</li>
+		</ul>
+	</li>
+	<li>
+		<strong>Editing page content</strong>:&nbsp;There are two interfaces for creating and editing content blocks. The first one is called &ldquo;content manager&rdquo; and works inside the EGroupware interface, the second works in interaction with the generated web site and is called &ldquo;editing mode&rdquo;.
+		<ul style="margin-top: 0px; margin-bottom: 0px;">
+			<li>
+				<strong>The content manager</strong>:&nbsp;The interface for creating content blocks is the same on each level of scope, besides that when editing blocks on a lower level you can see all the blocks that have been defined on a higher level. They will be displayed on the web site together with the blocks you are editing.&nbsp;<br />
+				In each content manager, there is a section for each content area to add blocks selected from a menu of all available blocks. Once a new block is added it appears amidst all other blocks of the content area. Those defined on higher level scopes are only displayed (viewed). Those pertaining to the scope (site-wide, category or page) you are managing are editable.</li>
+			<li>
+				<strong>Editing mode</strong>: In order to use editing mode add a site-wide administration block to your web site (viewable only by registered users). This block has a dropdown menu to switch between &quot;production mode&quot; (viewing the web site in its public state), &quot;draft mode&quot; (viewing the web site in the prepublished state - means you only see prepublished elements, no draft-status or archived) and edit mode. In &quot;edit mode&quot; the same content as in draft mode and draft-status elements are displayed, but in front of each content block you find a link &ldquo;Edit block&rdquo; to pop up a new window for editing the content (category, page or block).</li>
+		</ul>
+	</li>
+</ul>
+";}]]></arguments>
 								</content>
 							</contents>
 						</block>
@@ -58,118 +816,763 @@
 			</pages>
 		</category>
 		<category>
-			<sort_order>0</sort_order>
+			<sort_order>2</sort_order>
 			<state>2</state>
-			<name lang="en">other</name>
-			<description lang="en">one more</description>
+			<name lang="de">Konfiguration</name>
+			<description lang="de">Sitemanager konfigurieren</description>
+			<name lang="en">Configuration</name>
+			<description lang="en">Sitemanager configuration</description>
+			<pages>
+				<page>
+					<name>templates</name>
+					<sort_order>0</sort_order>
+					<hidden>0</hidden>
+					<state>2</state>
+					<title lang="de">Template auswählen</title>
+					<subtitle lang="de"></subtitle>
+					<title lang="en">Select template</title>
+					<subtitle lang="en"></subtitle>
+					<blocks>
+						<block>
+							<area>center</area>
+							<module>html</module>
+							<sort_order>-2</sort_order>
+							<view>0</view>
+							<title lang="en"> </title>
+							<contents>
+								<content lang="en">
+									<state>2</state>
+									<arguments><![CDATA[a:1:{s:11:"htmlcontent";s:705:"<h3>
+	Selecting templates from the template gallery</h3>
+<ul>
+	<li>
+		To purchase templates (own installation)&nbsp;follow the link at http://www.egroupware.org/sitemgr</li>
+	<li>
+		All templates are included to Stylite EGroupware Hosting packages:
+		<ul>
+			<li>
+				<a href="http://www.stylite.de/egroupware_hosting" target="_blank">EGroupware Hosting</a></li>
+			<li>
+				<a href="http://www.stylite.de/egroupware_hosting_plus_email" target="_blank">EGroupware Hosting + email</a></li>
+			<li>
+				<a href="http://www.stylite.de/egroupware_special_offers" target="_blank">Special offers: eFAMILY&nbsp;and&nbsp;FLAT|RATE for schools, universities, NGOs...</a></li>
+		</ul>
+	</li>
+</ul>
+";}]]></arguments>
+								</content>
+							</contents>
+						</block>
+						<block>
+							<area>center</area>
+							<module>html</module>
+							<sort_order>-2</sort_order>
+							<view>0</view>
+							<title lang="en"></title>
+							<contents>
+								<content lang="en">
+									<state>2</state>
+									<arguments><![CDATA[a:1:{s:11:"htmlcontent";s:2341:"<p>
+	The new template engine within EGroupware allows to use several Joomla templates.&nbsp;The following templates are recommend to use for the purpose of</p>
+<h3>
+	Company web site (e.g. Intranet or Internet)</h3>
+<table border="0" cellpadding="1" cellspacing="1" style="width: 100%; ">
+	<tbody>
+		<tr>
+			<td>
+				<p>
+					<strong>JA Zibal</strong></p>
+				<p>
+					<img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Zibal.jpg" style="width: 200px; height: 130px; " /></p>
+			</td>
+			<td>
+				<p>
+					<strong>Ja Iolite</strong></p>
+				<p>
+					<img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Iolite.jpg" style="width: 200px; height: 130px; " /></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<strong>JA Mageia</strong></p>
+				<p>
+					<img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Mageia.jpg" style="width: 200px; height: 130px; " /></p>
+			</td>
+			<td>
+				<p>
+					<strong>JA Sulfur</strong></p>
+				<p>
+					<img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Sulfur.jpg" style="width: 200px; height: 130px; " /></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	&nbsp;</p>
+<h3>
+	Club or Society web site</h3>
+<table border="0" cellpadding="1" cellspacing="1" style="width: 100%; ">
+	<tbody>
+		<tr>
+			<td>
+				<p>
+					<strong>JA Halite</strong></p>
+				<p>
+					<img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Halite.jpg" style="width: 200px; height: 130px; " /></p>
+			</td>
+			<td>
+				<p>
+					<strong>JA Purity</strong></p>
+				<p>
+					<img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Purity.jpg" style="width: 200px; height: 130px; " /></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	&nbsp;</p>
+<h3>
+	Personal web site (e.g.&nbsp;blog)</h3>
+<table border="0" cellpadding="1" cellspacing="1" style="width: 100%; ">
+	<tbody>
+		<tr>
+			<td>
+				<p>
+					<strong>JA&nbsp;Zinc</strong></p>
+				<p>
+					<img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Zinc.jpg" style="cursor: default; width: 200px; height: 130px; " /></p>
+			</td>
+			<td>
+				<p>
+					<strong>JA&nbsp;Olyra</strong></p>
+				<p>
+					<img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Olyra.jpg" style="cursor: default; width: 200px; height: 130px; " /></p>
+				<div>
+					&nbsp;</div>
+			</td>
+		</tr>
+	</tbody>
+</table>";}]]></arguments>
+								</content>
+							</contents>
+						</block>
+					</blocks>
+				</page>
+				<page>
+					<name>site_configuration</name>
+					<sort_order>1</sort_order>
+					<hidden>0</hidden>
+					<state>2</state>
+					<title lang="de">Webseite konfigurieren</title>
+					<subtitle lang="de"></subtitle>
+					<title lang="en">Configure website</title>
+					<subtitle lang="en"></subtitle>
+					<blocks>
+						<block>
+							<area>center</area>
+							<module>html</module>
+							<sort_order>0</sort_order>
+							<view>0</view>
+							<title lang="en"> </title>
+							<contents>
+								<content lang="en">
+									<state>2</state>
+									<arguments><![CDATA[a:1:{s:11:"htmlcontent";s:1227:"<h3>
+	Sitemanager configuration</h3>
+Log in as&nbsp;one of the users you gave administrator rights for the website. Go to the&nbsp;Sitemanager&nbsp;application and select &quot;Configure <span class="wiki">Sitemanager</span>&quot;. Set different values that affect how the&nbsp;site will be presented.<br />
+<br />
+<meta content="text/html;charset=UTF-8" http-equiv="Content-Type" />
+<ul>
+	<li>
+		<strong>Site_name: </strong>Is used mainly for metadata.</li>
+	<li>
+		<strong>Site_description:</strong>&nbsp;Is used mainly for metadata.</li>
+	<li>
+		<strong>Default_home_page:</strong><strong><span class="Apple-style-span" style="font-weight: normal; "><strong>&nbsp;</strong></span></strong>Select the page that will show up first one your website. Evidently there won&#39;t be any choice until some pages have been created.</li>
+	<li>
+		<strong>Template_select:</strong>&nbsp;Choose between the different site designs that come with Sitemanager.&nbsp;</li>
+	<li>
+		<strong>Site_languages:</strong>&nbsp;Select languages for a multilingual site to use the translation interface for translating the content. Insert a selection box on your website for visitors to choose between different languages.</li>
+</ul>
+";}]]></arguments>
+								</content>
+							</contents>
+						</block>
+					</blocks>
+				</page>
+				<page>
+					<name>egroupware_sitemanager</name>
+					<sort_order>3</sort_order>
+					<hidden>0</hidden>
+					<state>2</state>
+					<title lang="de">Webseite definieren</title>
+					<subtitle lang="de"></subtitle>
+					<title lang="en">Manage websites</title>
+					<subtitle lang="en"></subtitle>
+					<blocks>
+						<block>
+							<area>center</area>
+							<module>html</module>
+							<sort_order>0</sort_order>
+							<view>0</view>
+							<title lang="en"> </title>
+							<contents>
+								<content lang="en">
+									<state>2</state>
+									<arguments><![CDATA[a:1:{s:11:"htmlcontent";s:2423:"<p>
+	You can manage different websites with the Sitemanager. The first thing to do is to define the new website.&nbsp;<a class="wiki" href="http://www.egroupware.org/egroupware/index.php?menuaction=wiki.wiki_ui.view&amp;page=SiteMgr" style="cursor: pointer; color: rgb(0, 48, 117); text-decoration: none; ">S</a>itemanager defines a default website upon installation, but you will probably have to redefine it or add a new&nbsp;website. Log in as&nbsp;Egroupware&nbsp;administrator, go into EGroupware&#39;s admin application and choose &ldquo;Define websites&rdquo; in the Sitemanager&nbsp;section. In the now listed default website choose to edit it or add a new website.<br />
+	A website is defined by the following values:</p>
+<div class="VARIABLELIST" style="font-size: 12px; ">
+	<ul>
+		<li>
+			<strong>Site_name</strong>:&nbsp;This is not used on the website. The site name just helps identify a website inside the administration interface.</li>
+		<li>
+			<span class="Apple-style-span" style="white-space: nowrap; "><strong>Filesystem_path_to_sitemgr-site_directory</strong>:&nbsp;</span>If the Sitemanager site-directory has not been moved this path can be left unchanged.&nbsp;</li>
+		<li>
+			<strong>U<span class="Apple-style-span" style="white-space: nowrap; ">RL_to_sitemgr-site</span></strong><span class="Apple-style-span" style="white-space: nowrap; ">: This URL can also be left&nbsp;</span>unchanged if you want to access your public website with a URL that looks like&nbsp;<a href="http://www.egroupware.org/your.eGW.url/sitemgr/sitemgr-site" style="cursor: pointer; color: rgb(0, 48, 117); text-decoration: none; " target="_blank">http:/your.eGW.url/sitemgr/sitemgr-site</a>. For a different URL either move the sitemgr-site directory or use an alias or a virtual server in the&nbsp;webserver&#39;s configuration.</li>
+		<li>
+			<strong>Anonymous_user&#39;s_username</strong>: The account name you created above.</li>
+		<li>
+			<span class="Apple-style-span" style="white-space: nowrap; "><strong>Anonymous_user&#39;s_password</strong>: T</span>he corresponding password for the anonymous user.</li>
+		<li>
+			<span class="Apple-style-span" style="white-space: nowrap; "><strong>Site_administrators</strong>: C</span>hoose the users and/or groups that should have administrator rights for the website. They do not have to be adminstrators in EGroupware&#39;s sense.</li>
+	</ul>
+</div>
+";}]]></arguments>
+								</content>
+							</contents>
+						</block>
+					</blocks>
+				</page>
+				<page>
+					<name>faq</name>
+					<sort_order>4</sort_order>
+					<hidden>0</hidden>
+					<state>2</state>
+					<title lang="de">FAQ</title>
+					<subtitle lang="de"></subtitle>
+					<title lang="en">FAQ </title>
+					<subtitle lang="en"></subtitle>
+					<blocks>
+						<block>
+							<area>center</area>
+							<module>html</module>
+							<sort_order>0</sort_order>
+							<view>0</view>
+							<title lang="en"></title>
+							<contents>
+								<content lang="en">
+									<state>2</state>
+									<arguments><![CDATA[a:1:{s:11:"htmlcontent";s:5248:"<h3>
+	Frequently asked questions about Sitemanager</h3>
+<ul style="margin-top: 0px; margin-bottom: 0px; ">
+	<li>
+		<strong>How&nbsp;to&nbsp;move the generated website in the docroot?</strong>
+		<ul style="margin-top: 0px; margin-bottom: 0px; ">
+			<li>
+				Copy the&nbsp;Sitemanager-site directory to the&nbsp;docroot, eg. cd egroupware/sitemgr/sitemgr-site; cp -r * ../../..</li>
+			<li>
+				Edit the copied config.inc.php file in the docroot and change phpgw_path to point to the&nbsp;eGW install dir, eg. &#39;egroupware&#39;.</li>
+			<li>
+				Go to Sitemanager -&gt; define website and edit the existing website (or create a new one) to use the URL &#39;/&#39; or &#39;<a href="http://mydomain/" style="cursor: pointer; color: rgb(0, 48, 117); text-decoration: none; " target="_blank">http://mydomain/</a>&#39; and as path use the path to the docroot.</li>
+		</ul>
+	</li>
+</ul>
+<br />
+<ul style="margin-top: 0px; margin-bottom: 0px; ">
+	<li>
+		<strong>How&nbsp;to&nbsp;have the nice URLs with only the page-names instead of index.php?pagename=XYZ</strong>
+		<ul style="margin-top: 0px; margin-bottom: 0px; ">
+			<li>
+				Edit the config.inc.php file in the&nbsp;sitemgr-site directory (or whereever&nbsp;copied&nbsp;from) and set htaccess_rewrite to True,</li>
+			<li>
+				Rename the &#39;htaccess&#39; file in the same dir to &#39;.htaccess&#39;&nbsp;and</li>
+			<li>
+				Configure the webserver to read .htaccess files and&nbsp;AllowOverride<strong> </strong>FileInfo&nbsp;for that directory.</li>
+		</ul>
+	</li>
+</ul>
+<br />
+<ul style="margin-top: 0px; margin-bottom: 0px; ">
+	<li>
+		<strong>Sitemanager&nbsp;first page or I dont want to have an automatic site index on my startpage / homepage</strong>
+		<ul style="margin-top: 0px; margin-bottom: 0px; ">
+			<li>
+				Go&nbsp;to the site-coniguration (admin only) and&nbsp;create a page (in whatever category) and assign it as startpage (page to use if no page is requested).&nbsp;</li>
+			<li>
+				That page can have only a HTML module, with not automatic index. But it will have all site-wide modules which can&#39;t be suppressed. Each page has the site-wide module, the modules of its category&nbsp;&nbsp;(and all its parent categories) plus the modules of the page.</li>
+		</ul>
+	</li>
+</ul>
+<br />
+<ul style="margin-top: 0px; margin-bottom: 0px; ">
+	<li>
+		<strong>Can I have multiple sites in Sub-directories, eg.&nbsp;<a href="http://domain.com/" style="cursor: pointer; color: rgb(0, 48, 117); text-decoration: none; " target="_blank">http://domain.com</a>,&nbsp;<a href="http://domain.com/site-A/" style="cursor: pointer; color: rgb(0, 48, 117); text-decoration: none; " target="_blank">http://domain.com/site-A/</a>&nbsp;and&nbsp;<a href="http://domain.com/site-B/" style="cursor: pointer; color: rgb(0, 48, 117); text-decoration: none; " target="_blank">http://domain.com/site-B/</a></strong>
+		<ul style="margin-top: 0px; margin-bottom: 0px; ">
+			<li>
+				It is&nbsp;possible:&nbsp;the site handling the root-dir has to be the last one created, as it&#39;s URL would also match the URL&#39;s of the other sites. Atm. there is no other way to influence the searching.</li>
+			<li>
+				An other way to handle that situation is assigning each of the&nbsp;sub-sites an own category and giving that user / group&nbsp;read- or&nbsp;edit rights only for that category.&nbsp;</li>
+		</ul>
+	</li>
+</ul>
+<br />
+<ul style="margin-top: 0px; margin-bottom: 0px; ">
+	<li>
+		<strong>Anonymous access to a Sitemanager site</strong>
+		<ul style="margin-top: 0px; margin-bottom: 0px; ">
+			<li>
+				Create a user WITH a password (it does NOT work without) and enter that user&#39;s name &amp; password&nbsp;when you define or edit the website. Setup creates a user named &#39;anonymous&#39; in group &#39;NoGroup<a href="http://www.egroupware.org/egroupware/index.php?menuaction=wiki.wiki_ui.edit&amp;page=NoGroup" style="cursor: pointer; color: rgb(0, 48, 117); text-decoration: none; ">?</a>&#39; for that purpose.</li>
+			<li>
+				The anonymous&nbsp;user needs to have access to &#39;sitemgr-link&#39; application (NOT sitemgr).</li>
+			<li>
+				The anonymous&nbsp;user needs to have read-access to the parts of the site he should be able to see!!!</li>
+		</ul>
+	</li>
+</ul>
+<br />
+<ul style="margin-top: 0px; margin-bottom: 0px; ">
+	<li>
+		<strong>How is it possible to share an user calendar on the Sitemanager?</strong>
+		<ul style="margin-top: 0px; margin-bottom: 0px; ">
+			<li>
+				Give the anonymous&nbsp;user read access to the user&#39;s (or group&#39;s) calendar. Do NOT give access to the calendar application to the anonymous&nbsp;user (or else, everyone will be able to file events).</li>
+			<li>
+				Within the web site, add a block calendar_list for a calendar list or calendar_month for a grid (register the modules in Sitemanager,&nbsp;they are not selectable)</li>
+			<li>
+				Configure the new module to your needs, e.g. by selecting the user (or group) whose calendar should be shown.</li>
+			<li>
+				For calendar_list, adapt your website&#39;s stylesheet. Refer to file calendar/sitemgr/class.module_calendar_list.inc.php which includes an example style sheet.</li>
+		</ul>
+	</li>
+</ul>
+";}]]></arguments>
+								</content>
+							</contents>
+						</block>
+					</blocks>
+				</page>
+			</pages>
+			<index_page>templates</index_page>
+		</category>
+		<category>
+			<sort_order>5</sort_order>
+			<state>2</state>
+			<name lang="de">Support</name>
+			<description lang="de">Support anfordern</description>
+			<name lang="en">Support</name>
+			<description lang="en">Get support</description>
+			<pages>
+				<page>
+					<name>stylite_support</name>
+					<sort_order>0</sort_order>
+					<hidden>0</hidden>
+					<state>2</state>
+					<title lang="de">Stylite Support</title>
+					<subtitle lang="de"></subtitle>
+					<title lang="en">Stylite support</title>
+					<subtitle lang="en"></subtitle>
+					<blocks>
+						<block>
+							<area>center</area>
+							<module>html</module>
+							<sort_order>0</sort_order>
+							<view>0</view>
+							<title lang="en"> </title>
+							<contents>
+								<content lang="en">
+									<state>2</state>
+									<arguments><![CDATA[a:1:{s:11:"htmlcontent";s:1763:"<p>
+	<img alt="" src="http://sitemgr.egroupware.de/uploads/support_stylite.jpg" style="width: 100%;" /></p>
+<h3>
+	On Demand Support</h3>
+<ul>
+	<li>
+		<strong>Training, consulting and support </strong>for EGroupware users and installations on base of prepaid packages</li>
+	<li>
+		Systems support for EGroupware migration, updating, troubleshooting and change management</li>
+	<li>
+		Linux, security and general systems consulting</li>
+	<li>
+		Support given by Stylite&#39;s EGroupware developers, consultants and Linux system experts</li>
+	<li>
+		Services via <strong>telephone, desktop sharing or remote access</strong></li>
+	<li>
+		<a href="http://www.stylite.de/egroupware_consulting_and_support" target="_blank">Read more</a></li>
+</ul>
+<br />
+<h3>
+	Classroom Training</h3>
+<ul>
+	<li>
+		Face-to-face training</li>
+	<li>
+		Individual agreement about training subjects: general overview, customising of modules, administration</li>
+	<li>
+		max 8 <span>persons</span></li>
+	<li>
+		8 hours a day</li>
+	<li>
+		<a href="http://www.stylite.de/egroupware_consulting_and_support" target="_blank">Read more</a></li>
+</ul>
+<br />
+<h3>
+	Starter Workshop</h3>
+<ul>
+	<li>
+		<a href="http://www.stylite.de/egroupware_special_offers" target="_blank" title="Special offer for EGroupware Starter workshop"> Starter workshop</a> for new EGroupware Premium Line customers</li>
+	<li>
+		<a href="http://www.stylite.de/implementation_guideline" target="_blank" title="Implementation guideline for EGroupware starter workshops">Implementation guideline</a> for Stylite workshops</li>
+</ul>
+<br />
+<h3>
+	Contact Stylite</h3>
+<ul>
+	<li>
+		Tel:&nbsp; +49 (0) 63 52 706 29 0</li>
+	<li>
+		Fax: +49 (0) 63 52 706 29 30</li>
+</ul>
+<br />
+";}]]></arguments>
+								</content>
+							</contents>
+						</block>
+					</blocks>
+				</page>
+				<page>
+					<name>community_support</name>
+					<sort_order>3</sort_order>
+					<hidden>0</hidden>
+					<state>2</state>
+					<title lang="de">Community Support</title>
+					<subtitle lang="de"></subtitle>
+					<title lang="en">Community support</title>
+					<subtitle lang="en"></subtitle>
+					<blocks>
+						<block>
+							<area>center</area>
+							<module>html</module>
+							<sort_order>0</sort_order>
+							<view>0</view>
+							<title lang="en">  </title>
+							<contents>
+								<content lang="en">
+									<state>2</state>
+									<arguments><![CDATA[a:1:{s:11:"htmlcontent";s:2171:"<p>
+	EGroupware is a global project. Many people all over the world helping others, discussing any kind of questions regarding EGroupware, software operation and customisation.</p>
+<p>
+	<strong>By asking for community support in the user forum, please keep in mind, that you are not paying for this support. The people helping you, spending their free time. You&#39;ll increase your chance of getting support, by taking notice of the below mentioned conventions:</strong></p>
+<ul>
+	<li>
+		First have a look into the currently existing resources:
+		<ul>
+			<li>
+				Read the <a href="http://www.stylite.de/egroupware_manuals" target="_blank">manual</a> and search the other articles in the <a href="http://www.egroupware.org/wiki" target="_blank">Wiki.</a></li>
+		</ul>
+		<ul>
+			<li>
+				Search the <a href="http://www.egroupware.org/forum" target="_blank">Forum</a> for your topic, maybe it&#39;s already answered.</li>
+		</ul>
+	</li>
+	<li>
+		Do not contact community members or developers privately.</li>
+	<li>
+		Don&#39;t crosspost your issue to multiple lists.</li>
+</ul>
+<p>
+	<strong>The relation of the user forum and the commercial support of Stylite&#39;s EGroupware Developers</strong></p>
+<ul>
+	<li>
+		The Stylite EGroupware developers are members of the project community and involved in the user forum. They analyse problems and requests from users worldwide, comiting solutions to the current code base.</li>
+	<li>
+		Stylite&#39;s development team works professionally full-time on EGroupware. <strong>Stylite usually doesn&#39;t reply to support requests in the user forum</strong>, but provides information and gives feedback to actual EGroupware issues and software development.</li>
+	<li>
+		Stylite offers <a href="http://www.stylite.de/EGroupware_consulting_and_support" target="_blank">support services for customers worldwide</a>, regarding EGroupware operation, Linux engineering, training and customisation. Customers are in direct touch with Stylite&#39;s EGroupware developers and system experts.</li>
+	<li>
+		Discussion and exchange with other EGroupware developers takes place in the developer forum.</li>
+</ul>
+";}]]></arguments>
+								</content>
+							</contents>
+						</block>
+					</blocks>
+				</page>
+			</pages>
+			<index_page>stylite_support</index_page>
+		</category>
+		<category>
+			<sort_order>6</sort_order>
+			<state>2</state>
+			<name lang="de">Kontakt</name>
+			<description lang="de">Kontakt Stylite</description>
+			<name lang="en">Contact</name>
+			<description lang="en">Contact Stylite</description>
+			<pages>
+				<page>
+					<name>impressum</name>
+					<sort_order>1</sort_order>
+					<hidden>0</hidden>
+					<state>2</state>
+					<title lang="de">Impressum</title>
+					<subtitle lang="de"></subtitle>
+					<title lang="en">Imprint</title>
+					<subtitle lang="en"></subtitle>
+					<blocks>
+						<block>
+							<area>center</area>
+							<module>html</module>
+							<sort_order>-1</sort_order>
+							<view>0</view>
+							<title lang="de"> </title>
+							<contents>
+								<content lang="de">
+									<state>2</state>
+									<arguments><![CDATA[a:1:{s:11:"htmlcontent";s:882:"<p>
+	Diese Webseite diehnt Pr&auml;sentationszwecken des Content Management Systems (Sitemanager) von EGroupware.</p>
+<p>
+	&nbsp;</p>
+<p>
+	<strong>Stylite GmbH&nbsp;</strong> |&nbsp; Morschheimer Strasse 15&nbsp; |&nbsp; 67292 Kirchheimbolanden&nbsp; |&nbsp; GERMANY<br />
+	<br />
+	Tel. +49 (0)63 52 706 29 0<br />
+	Fax. +49 (0)63 52 706 29 30<br />
+	Email&nbsp; info(at)stylite.de<br />
+	www.stylite.de<br />
+	www.egroupware.org<br />
+	<br />
+	Amtsgericht Kaiserslautern<br />
+	HRB 30575<br />
+	UST ID Nr: DE 214280951<br />
+	<br />
+	Gesch&auml;ftsf&uuml;hrer: Andr&eacute; Keller, Gudrun M&uuml;ller, Ralf Becker<br />
+	V.i.S.d.P.: Andr&eacute; Keller<br />
+	<br />
+	<a href="http://sitemgr.egroupware.de/?page_name=site_terms">Nutzungsbedingungen</a><br />
+	<a href="http://sitemgr.egroupware.de/?page_name=privacy_policy">Datenschutzerkl&auml;rung</a></p>
+";}]]></arguments>
+								</content>
+							</contents>
+							<title lang="en"> </title>
+							<contents>
+								<content lang="en">
+									<state>2</state>
+									<arguments><![CDATA[a:1:{s:11:"htmlcontent";s:919:"<p>
+	This website is for presentation purpose regarding EGroupware&#39;s Content Management System, Sitemanager.</p>
+<p>
+	&nbsp;</p>
+<p>
+	<strong>Stylite GmbH</strong>&nbsp; |&nbsp; Morschheimer Strasse 15&nbsp; |&nbsp; 67292 Kirchheimbolanden&nbsp; |&nbsp; GERMANY<br />
+	<br />
+	Tel. +49 (0)63 52 706 29 0<br />
+	Fax. +49 (0)63 52 706 29 30<br />
+	Email&nbsp; info(at)stylite.de<br />
+	www.stylite.de<br />
+	www.egroupware.org<br />
+	<br />
+	Registered Jurisdiction: Kaiserslautern<br />
+	Trade Register Number: HRB 30575<br />
+	VAT Number: DE 214280951<br />
+	<br />
+	Directors: Andr&eacute; Keller,<font size="2"> Gudrun M&uuml;ller, Ralf Becker<br />
+	V.i.S.d.P.: Andr&eacute; Keller<br />
+	<br />
+	<a href="http://sitemgr.egroupware.de/?page_name=site_terms">Site terms</a><br />
+	<a href="http://sitemgr.egroupware.de/?page_name=privacy_policy">Privacy policy</a><br />
+	&nbsp;</font></p>
+";}]]></arguments>
+								</content>
+							</contents>
+						</block>
+					</blocks>
+				</page>
+				<page>
+					<name>privacy_policy</name>
+					<sort_order>1</sort_order>
+					<hidden>1</hidden>
+					<state>2</state>
+					<title lang="de">Datenschutzerklärung</title>
+					<subtitle lang="de"></subtitle>
+					<title lang="en">Privacy policy</title>
+					<subtitle lang="en"></subtitle>
+					<blocks>
+						<block>
+							<area>center</area>
+							<module>html</module>
+							<sort_order>0</sort_order>
+							<view>0</view>
+							<title lang="de"> </title>
+							<contents>
+								<content lang="de">
+									<state>2</state>
+									<arguments><![CDATA[a:1:{s:11:"htmlcontent";s:1064:"Stylite ist dem Schutz personenbezogener Daten in besonderer Weise verpflichtet.<br />
+				<br />
+				Bei der Benutzung der Stylite Webseiten, Internetshops und sonstiger internetbasierter Dienstleistungen werden Zugriffsdaten gespeichert. Diese sind insbesondere:
+				<ul>
+					<li>
+						Name der verwendeten Datei</li>
+					<li>
+						Zeitstempel des Zugriffs</li>
+					<li>
+						&Uuml;bertragenes Datenvolumen</li>
+					<li>
+						Informationen &uuml;ber durchgef&uuml;hrte Downloads</li>
+				</ul>
+				Die gespeicherten Daten dienen ausschliesslich statistischen Zwecken und werden nicht an Dritte weitergegeben. Weitergehende Informationen (Adressdaten, IP-Adressen u.a.) speichert Stylite ausschliesslich zu technischen Zwecken, um mit Kontaktpersonen zu korrespondieren.<br />
+				Jegliche Information, die Stylite &uuml;ber das Internet oder auf anderem Wege erreicht, insbesondere personenbezogene Daten werden unter Beachtung der geltenden Datenschutzbestimmungen vertraulich behandelt und sind nur legitimierten Personen zug&auml;nglich.";}]]></arguments>
+								</content>
+							</contents>
+							<title lang="en"> </title>
+							<contents>
+								<content lang="en">
+									<state>2</state>
+									<arguments><![CDATA[a:1:{s:11:"htmlcontent";s:1050:"<p>
+	Whenever a user accesses a page from our website or downloads a file, information regarding this activity is saved in a log file. Specifically, the following information is stored for each download:</p>
+<ul>
+	<li>
+		Name of the file accessed</li>
+	<li>
+		Date and time of the access</li>
+	<li>
+		Transferred data volume</li>
+	<li>
+		Information whether the download was successful</li>
+</ul>
+<p>
+	The saved data is only used for statistical purposes. This information is not provided to any third parties. In addition, information about the IP-address and the e-mail address (when recommending the site), are temporarily stored for technical reasons; an analysis of user information is not performed. When you send us an e-mail, the mail and your e-mail address are used exclusively for corresponding with you. All information or requests that reach us through the internet, as well as all other personal information, are treated with the strictest confidence. Laws regarding privacy and confidentiality are strictly observed.</p>
+";}]]></arguments>
+								</content>
+							</contents>
+						</block>
+					</blocks>
+				</page>
+				<page>
+					<name>site_terms</name>
+					<sort_order>3</sort_order>
+					<hidden>1</hidden>
+					<state>2</state>
+					<title lang="de">Nutzungsbedingungen</title>
+					<subtitle lang="de"></subtitle>
+					<title lang="en">Site terms</title>
+					<subtitle lang="en"></subtitle>
+					<blocks>
+						<block>
+							<area>center</area>
+							<module>html</module>
+							<sort_order>0</sort_order>
+							<view>0</view>
+							<title lang="de"> </title>
+							<contents>
+								<content lang="de">
+									<state>2</state>
+									<arguments><![CDATA[a:1:{s:11:"htmlcontent";s:652:"<p>
+	<strong>HAFTUNGSHINWEISE </strong></p>
+<p>
+	Trotz sorgf&auml;ltiger inhaltlicher Kontrolle &uuml;bernehmen wir keine Haftung f&uuml;r die Inhalte externer Links. F&uuml;r den Inhalt der verlinkten Seiten sind ausschlie&szlig;lich deren Betreiber verantwortlich.</p>
+<p>
+	<strong>COPYRIGHT</strong></p>
+<p>
+	Das Vervielf&auml;ltigen und/oder Ver&ouml;ffentlichen von Texten und Grafiken, sowie insbesondere von Fotos und sonstiger Gestaltungselemente ist ohne ausdr&uuml;ckliche Genehmigung von Stylite GmbH grunds&auml;tzlich untersagt. Die Stylite Firmen- und Identit&auml;tsmerkmale sind marken- und urheberrechtlich gesch&uuml;tzt.</p>
+";}]]></arguments>
+								</content>
+							</contents>
+							<title lang="en"> </title>
+							<contents>
+								<content lang="en">
+									<state>2</state>
+									<arguments><![CDATA[a:1:{s:11:"htmlcontent";s:584:"<p>
+	<strong>LIABILITY WAIWER</strong></p>
+<p>
+	Despite careful monitoring and controlling, we cannot accept any responsibility for the contents of external links. The owner of the linked pages maintains full responsibility for their contents.</p>
+<p>
+	<strong>COPYRIGHT</strong></p>
+<p>
+	The reproduction and/or publication of texts and images, especially photos and other layout elements is prohibited without the express written approval of Stylite GmbH. Our corporate identity (including logo and other identifying characteristics) are trademarks and are copyrighted.</p>
+";}]]></arguments>
+								</content>
+							</contents>
+						</block>
+					</blocks>
+				</page>
+			</pages>
+			<index_page>impressum</index_page>
 		</category>
 	</categories>
 	<blocks>
 		<block>
 			<area>left</area>
 			<module>navigation</module>
-			<arguments><![CDATA[a:2:{s:8:"sub_cats";s:2:"on";s:8:"nav_type";i:3;}]]></arguments>
+			<arguments><![CDATA[a:6:{s:8:"nav_type";s:1:"3";s:8:"sub_cats";s:2:"on";s:13:"no_full_index";s:2:"on";s:6:"expand";s:2:"on";s:14:"page_link_text";s:1:"0";s:20:"main_cats_to_include";s:0:"";}]]></arguments>
 			<sort_order>0</sort_order>
 			<view>0</view>
-			<title lang="en">Root Site Index</title>
+			<title lang="en">Navigation</title>
 			<contents>
 				<content lang="en">
 					<state>2</state>
-					<arguments><![CDATA[a:1:{s:11:"htmlcontent";N;}]]></arguments>
 				</content>
 			</contents>
 		</block>
 		<block>
 			<area>left</area>
+			<module>lang_block</module>
+			<arguments><![CDATA[a:1:{s:6:"layout";s:5:"plain";}]]></arguments>
+			<sort_order>0</sort_order>
+			<view>0</view>
+			<title lang="de">Choose language</title>
+			<contents>
+				<content lang="de">
+					<state>2</state>
+				</content>
+			</contents>
+			<title lang="en">Choose language</title>
+			<contents>
+				<content lang="en">
+					<state>2</state>
+				</content>
+			</contents>
+		</block>
+		<block>
+			<area>breadcrumb</area>
+			<module>navigation</module>
+			<arguments><![CDATA[a:1:{s:8:"nav_type";s:1:"8";}]]></arguments>
+			<sort_order>0</sort_order>
+			<view>0</view>
+			<title lang="de">Navigation element</title>
+			<contents>
+				<content lang="de">
+					<state>0</state>
+				</content>
+			</contents>
+		</block>
+		<block>
+			<area>user1</area>
+			<module>html</module>
+			<sort_order>0</sort_order>
+			<view>0</view>
+		</block>
+		<block>
+			<area>left</area>
 			<module>template</module>
-			<arguments><![CDATA[a:2:{s:4:"show";i:8;s:3:"zip";s:3:"zip";}]]></arguments>
-			<sort_order>1</sort_order>
+			<arguments><![CDATA[a:3:{s:7:"allowed";a:96:{i:0;s:10:"3D-Fantasy";i:1;s:4:"beez";i:2;s:5:"idots";i:3;s:9:"ja_altair";i:4;s:10:"ja_antares";i:5;s:11:"ja_archenar";i:6;s:13:"ja_avian_ii_d";i:7;s:13:"ja_avian_ii_l";i:8;s:8:"ja_avior";i:9;s:9:"ja_barite";i:10;s:12:"ja_bellatrix";i:11;s:8:"ja_beryl";i:12;s:18:"ja_cooper_business";i:13;s:9:"ja_corona";i:14;s:10:"ja_dravity";i:15;s:9:"ja_drimia";i:16;s:10:"ja_edenite";i:17;s:8:"ja_erica";i:18;s:8:"ja_fagus";i:19;s:9:"ja_fedora";i:20;s:9:"ja_galena";i:21;s:10:"ja_genista";i:22;s:15:"ja_genista_xmas";i:23;s:8:"ja_hadar";i:24;s:9:"ja_halite";i:25;s:9:"ja_hedera";i:26;s:8:"ja_helio";i:27;s:9:"ja_iolite";i:28;s:7:"ja_iris";i:29;s:11:"ja_justicia";i:30;s:9:"ja_koniga";i:31;s:9:"ja_kruger";i:32;s:11:"ja_kulanite";i:33;s:10:"ja_kyanite";i:34;s:8:"ja_labra";i:35;s:8:"ja_larix";i:36;s:7:"ja_lead";i:37;s:7:"ja_lime";i:38;s:9:"ja_mageia";i:39;s:11:"ja_mesolite";i:40;s:14:"ja_mesolite_ii";i:41;s:7:"ja_mica";i:42;s:7:"ja_mona";i:43;s:8:"ja_nagya";i:44;s:9:"ja_nerine";i:45;s:9:"ja_nickel";i:46;s:9:"ja_norite";i:47;s:10:"ja_olivine";i:48;s:8:"ja_olyra";i:49;s:7:"ja_opal";i:50;s:7:"ja_ores";i:51;s:10:"ja_pariiti";i:52;s:8:"ja_pluto";i:53;s:10:"ja_polaris";i:54;s:9:"ja_pollux";i:55;s:9:"ja_purity";i:56;s:9:"ja_pyrite";i:57;s:7:"ja_pyro";i:58;s:9:"ja_quartz";i:59;s:11:"ja_quillaja";i:60;s:8:"ja_raite";i:61;s:9:"ja_rasite";i:62;s:13:"ja_regulus_ex";i:63;s:9:"ja_rochea";i:64;s:7:"ja_ruby";i:65;s:9:"ja_rutile";i:66;s:11:"ja_sanidine";i:67;s:19:"ja_sanidineii_light";i:68;s:9:"ja_sargas";i:69;s:9:"ja_seleni";i:70;s:10:"ja_senecio";i:71;s:14:"ja_shopping_ii";i:72;s:8:"ja_spica";i:73;s:9:"ja_sulfur";i:74;s:9:"ja_teline";i:75;s:12:"ja_teline_ii";i:76;s:8:"ja_topaz";i:77;s:8:"ja_trona";i:78;s:7:"ja_tube";i:79;s:8:"ja_urani";i:80;s:12:"ja_utahia_ii";i:81;s:8:"ja_uvite";i:82;s:10:"ja_vauxite";i:83;s:10:"ja_villadi";i:84;s:10:"ja_wistery";i:85;s:11:"ja_xenia_ii";i:86;s:10:"ja_zebrina";i:87;s:10:"ja_zeolite";i:88;s:13:"ja_zeolite_ii";i:89;s:8:"ja_zibal";i:90;s:7:"ja_zinc";i:91;s:8:"NukeNews";i:92;s:6:"realss";i:93;s:13:"rhuk_milkyway";i:94;s:20:"rhuk_orange_smoothie";i:95;s:12:"simple_plain";}s:4:"show";s:1:"1";s:3:"zip";s:3:"zip";}]]></arguments>
+			<sort_order>0</sort_order>
 			<view>0</view>
 			<title lang="en">Choose template</title>
 			<contents>
 				<content lang="en">
 					<state>2</state>
-					<arguments><![CDATA[a:1:{s:11:"htmlcontent";N;}]]></arguments>
 				</content>
 			</contents>
 		</block>
 		<block>
-			<area>right</area>
-			<module>navigation</module>
-			<arguments><![CDATA[a:1:{s:8:"nav_type";i:1;}]]></arguments>
-			<sort_order>2</sort_order>
-			<view>0</view>
-			<title lang="en">Current Section</title>
-			<contents>
-				<content lang="en">
-					<state>2</state>
-					<arguments><![CDATA[a:1:{s:11:"htmlcontent";N;}]]></arguments>
-				</content>
-			</contents>
-		</block>
-		<block>
-			<area>right</area>
+			<area>left</area>
 			<module>administration</module>
-			<sort_order>3</sort_order>
-			<view>2</view>
+			<sort_order>5</sort_order>
+			<view>1</view>
 			<title lang="en">Administration</title>
 			<contents>
 				<content lang="en">
 					<state>2</state>
-					<arguments><![CDATA[a:1:{s:11:"htmlcontent";N;}]]></arguments>
-				</content>
-			</contents>
-		</block>
-		<block>
-			<area>right</area>
-			<module>lang_block</module>
-			<sort_order>4</sort_order>
-			<view>0</view>
-			<title lang="en">Select language</title>
-			<contents>
-				<content lang="en">
-					<state>2</state>
-					<arguments><![CDATA[a:1:{s:11:"htmlcontent";N;}]]></arguments>
-				</content>
-			</contents>
-		</block>
-		<block>
-			<area>right</area>
-			<module>calendar</module>
-			<sort_order>5</sort_order>
-			<view>1</view>
-			<title lang="en">Calendar</title>
-			<contents>
-				<content lang="en">
-					<state>2</state>
-					<arguments><![CDATA[a:1:{s:11:"htmlcontent";N;}]]></arguments>
-				</content>
-			</contents>
-		</block>
-		<block>
-			<area>right</area>
-			<module>login</module>
-			<sort_order>7</sort_order>
-			<view>3</view>
-			<title lang="en">Login</title>
-			<contents>
-				<content lang="en">
-					<state>2</state>
-					<arguments><![CDATA[a:1:{s:11:"htmlcontent";N;}]]></arguments>
-				</content>
-			</contents>
-		</block>
-		<block>
-			<area>right</area>
-			<module>amazon</module>
-			<arguments><![CDATA[a:1:{s:6:"search";i:1;}]]></arguments>
-			<sort_order>8</sort_order>
-			<view>0</view>
-			<title lang="en"></title>
-			<contents>
-				<content lang="en">
-					<state>2</state>
-					<arguments><![CDATA[a:1:{i:0;s:10:"Amazon.com";}]]></arguments>
 				</content>
 			</contents>
 		</block>
@@ -199,5 +1602,19 @@
 				</content>
 			</contents>
 		</block>
+		<block>
+			<area>center</area>
+			<module>navigation</module>
+			<arguments><![CDATA[a:1:{s:8:"nav_type";s:1:"2";}]]></arguments>
+			<sort_order>100</sort_order>
+			<view>2</view>
+			<title lang="en">Navigation element</title>
+			<contents>
+				<content lang="en">
+					<state>0</state>
+				</content>
+			</contents>
+		</block>
 	</blocks>
+	<home_page>Home</home_page>
 </site>

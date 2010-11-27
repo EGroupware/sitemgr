@@ -27,7 +27,7 @@
 		 */
 		var $db;
 		var $site_id;
-		
+
 		function Categories_SO()
 		{
 			$this->cats = new categories(categories::GLOBAL_ACCOUNT,'sitemgr');
@@ -47,7 +47,7 @@
 				'cat_id' => $cat_id,
 				'state'  => $states,
 			),__LINE__,__FILE__);
-			
+
 			return $this->db->num_rows();
 		}
 
@@ -100,6 +100,19 @@
 			),array('cat_id'=>$cat_info->id),__LINE__,__FILE__);
 		}
 
+		/**
+		 * Save named page as category index
+		 *
+		 * @param int $cat_id
+		 * @param int $page
+		 */
+		function saveCategoryIndex($cat_id,$page)
+		{
+			$this->db->update($this->state_table,array(
+					'index_page_id' => $page,
+				),array('cat_id' => $cat_id),__LINE__,__FILE__);
+		}
+
 		function saveCategoryLang($cat_id, $cat_name, $cat_description, $lang)
 		{
 			return $this->db->insert($this->lang_table,array(
@@ -114,10 +127,9 @@
 		function getlangarrayforcategory($cat_id)
 		{
 			$retval = array();
-			$this->db->select($this->lang_table,'lang',array('cat_id'=>$cat_id),__LINE__,__FILE__);
-			while ($this->db->next_record())
+			foreach($this->db->select($this->lang_table,'lang',array('cat_id'=>$cat_id),__LINE__,__FILE__) as $row)
 			{
-				$retval[] = $this->db->f('lang');
+				$retval[] = $row['lang'];
 			}
 			return $retval;
 		}

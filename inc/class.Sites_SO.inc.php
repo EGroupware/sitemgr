@@ -298,4 +298,19 @@ class Sites_SO
 				'site_id' => $site_id
 			),__LINE__,__FILE__);
 	}
+
+	/**
+	 * Save named page as home page
+	 *
+	 * @param int $site_id
+	 * @param int $page
+	 */
+	function saveHomePage($site_id,$page)
+	{
+		if ($site_id == self::$site_cache['site_id']) self::$site_cache = null;
+
+		$this->db->update($this->sites_table,array(
+				'home_page_id' => $page,
+			),array('site_id' => $site_id),__LINE__,__FILE__);
+	}
 }
