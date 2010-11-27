@@ -164,8 +164,8 @@ class sitemgr_export_xml implements importexport_iface_export_plugin {
 		$this->export_category($site_id, False);
 
 		// Export by name, after all pages are written
-		if($site['home_page_id']) {
-			$page = $this->common->pages->getPage($site['home_page_id']);
+		if($site['home_page_id'] && ($page = $this->common->pages->getPage($site['home_page_id'])))
+		{
 			xmlwriter_write_element($this->writer, 'home_page', $page->name);
 		}
 		xmlwriter_end_element($this->writer); // End site
@@ -224,6 +224,11 @@ class sitemgr_export_xml implements importexport_iface_export_plugin {
 				$this->export_page($page_id);
 			}
 			xmlwriter_end_element($this->writer); // End pages
+		}
+		// eporting indexpage name, after all pages are written
+		if ($cat->index_page_id && ($page = $this->common->pages->getPage($cat->index_page_id)))
+		{
+			xmlwriter_write_element($this->writer, 'index_page', $page->name);
 		}
 
 		// Close tag
