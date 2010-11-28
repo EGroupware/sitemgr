@@ -578,7 +578,7 @@ class Common_UI
 				'title' => lang('Generate search engine friendly URLs'),
 				'note'  => lang('Generates "%1" instead of "%2" URLs.','/name','/index.php?page_name=name').'<br />'.
 					'<b>'.lang('You have to enable URL rewriting on the webserver!').'</b><br />'.
-					lang('Eg. be renaming %1 to %2 in the %3 directory for an Apache.','htacces','.htaccess','sitemgr-site'),
+					lang('Eg. by renaming %1 to %2 in the %3 directory for an Apache.','htacces','.htaccess','sitemgr-site'),
 				'input' => 'checkbox',
 			);
 			$preferences['site_languages'] = array(

@@ -174,7 +174,7 @@ edit template preferences for %1	sitemgr	en	Edit template preferences for %1
 edit this block	sitemgr	en	Edit this block
 edit website	sitemgr	en	Edit Website
 eg. %1 or %2	sitemgr	en	eg. %1 or %2
-eg. be renaming %1 to %2 in the %3 directory for an apache.	sitemgr	en	Eg. be renaming %1 to %2 in the %3 directory for an Apache.
+eg. by renaming %1 to %2 in the %3 directory for an apache.	sitemgr	en	Eg. by renaming %1 to %2 in the %3 directory for an Apache.
 egw users	sitemgr	en	Egw users
 element successfully deleted.	sitemgr	en	Element successfully deleted.
 email address	sitemgr	en	Email address
