@@ -1031,3 +1031,20 @@ function sitemgr_upgrade1_8()
 	return $GLOBALS['setup_info']['sitemgr']['currentver'] = '1.9.001';
 }
 
+
+function sitemgr_upgrade1_9_001()
+{
+	$GLOBALS['egw_setup']->oProc->AddColumn('egw_sitemgr_sites','logo_url',array(
+		'type' => 'varchar',
+		'precision' => '255'
+	));
+	$GLOBALS['egw_setup']->oProc->AddColumn('egw_sitemgr_sites','params_ini',array(
+		'type' => 'text'
+	));
+	$GLOBALS['egw_setup']->oProc->AddColumn('egw_sitemgr_sites','custom_css',array(
+		'type' => 'text'
+	));
+
+	return $GLOBALS['setup_info']['sitemgr']['currentver'] = '1.9.002';
+}
+

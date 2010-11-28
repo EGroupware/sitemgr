@@ -25,6 +25,7 @@
 	<td>{sort_url}</td>
     <td align="center">{lang_edit}</td>
     <td align="center">{lang_delete}</td>
+    <td align="center">{lang_export}</td>
    </tr>
 
 <!-- BEGIN site_list -->
@@ -33,6 +34,7 @@
 	<td>{site_url}</td>
     <td align="center"><a href="{edit}">{lang_edit_entry}</a></td>
     <td align="center"><a href="{delete}">{lang_delete_entry}</a></td>
+    <td align="center"><a href="{export}">{lang_export_entry}</a></td>
    </tr>
 <!-- END site_list -->
 
@@ -44,6 +46,11 @@
      </form></td>
      <td><form method="POST" action="{doneurl}">
        <input type="submit" name="done" value="{lang_done}">
+     </form></td>
+     <td />
+     <td />
+     <td align="right"><form method="POST" action="{import_action}">
+       <input type="submit" name="import" value="{lang_import}">
      </form></td>
    </tr>
 <!-- END add -->

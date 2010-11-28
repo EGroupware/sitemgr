@@ -24,6 +24,8 @@ add new page to this category	sitemgr	es-es	Añadir una página nueva a esta cat
 add page	sitemgr	es-es	Añadir página
 add page to category	sitemgr	es-es	Añadir página a la categoría
 add website	sitemgr	es-es	Añadir sitio web
+address line 2	sitemgr	es-es	Dirección, línea 2
+addressbook the contact should be shown	sitemgr	es-es	Libreta de direcciones que se muestra al contacto
 administration	sitemgr	es-es	Administración
 administrative menu	sitemgr	es-es	Menú administrativo
 administrators	sitemgr	es-es	administradores
@@ -57,6 +59,7 @@ are contributors allowed to define new guestbooks?	sitemgr	es-es	¿Permitir a lo
 are you sure you want to delete site %1 and all its content? you cannot retrieve it if you continue.	sitemgr	es-es	¿Seguro que desea borrar el sitio %1 y todo su contenido? No podrá recuperarlo si continúa.
 are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	es-es	¿Seguro que desea borrar la categoría %1 y todas sus páginas asociadas? No podrá recuperar las páginas borradas si continúa.
 as	common	es-es	como
+ascending	sitemgr	es-es	ascendente
 asin[=title] pairs (title is optional)	sitemgr	es-es	pares ASIN[=título] (el título es opcional)
 ask customer	sitemgr	es-es	Preguntrar al cliente
 attempt to access information outside current website	sitemgr	es-es	Intento de acceder a la información fuera del sitio web actual
@@ -105,6 +108,7 @@ common prefix of the image-name (a number starting with 1 will be appended)	site
 configure module properties	sitemgr	es-es	Configurar las propiedades del módulo
 configure sitemgr	sitemgr	es-es	Configurar el Administrador de sitios web
 configure website	sitemgr	es-es	Configurar sitio web
+contact fields to show	sitemgr	es-es	Campos del contacto a mostrar
 contact the administrator.	sitemgr	es-es	Póngase en contacto con el administrador
 content areas	sitemgr	es-es	Areas de contenido
 content blocks	sitemgr	es-es	Bloques de contenido
@@ -118,6 +122,7 @@ css styles	sitemgr	es-es	Estilos CSS
 currency code of the value specified in amount (eg. usd, eur)	sitemgr	es-es	Código monetario del valor especificado en la cantidad (p. ej. USD, EUR)
 current section	sitemgr	es-es	Sección actual
 custom	sitemgr	es-es	personalizado
+custom etemplate for the contactform	sitemgr	es-es	Plantilla personalizada para el formulario de contacto
 default	sitemgr	es-es	Predeterminado
 default home page id number	sitemgr	es-es	Número de ID de la página de inicio predeterminada
 define websites	common	es-es	Definir sitios web
@@ -129,9 +134,12 @@ delete this block	sitemgr	es-es	Borrar este bloque
 delete this guestbook	sitemgr	es-es	Borrar este libro de invitados
 delete version	sitemgr	es-es	Borrar versión
 deleting all data for %1	sitemgr	es-es	Borrar todos los datos de %1
+department	sitemgr	es-es	Departamento
+descending	sitemgr	es-es	descendente
 details for language %1 (%2)	sitemgr	es-es	Detalles para el idioma %1 (%2)
 directory is not writable by the webserver --> disabling upload	sitemgr	es-es	El directorio NO tiene permiso de escritura para el servidor web -> se desactiva poder subir ficheros
 discussions	sitemgr	es-es	Discusiones
+display contact	sitemgr	es-es	Mostrar contacto
 display link to autoregistration below login form?	sitemgr	es-es	¿Mostrar el enlace para registrarse automáticamente debajo del formulario?
 do you realy want to delete the selected categories (including all pages), pages and blocks?	sitemgr	es-es	¿Realmente quiere borrar las categorías (incluyendo todas las páginas), páginas y bloques seleccionados?
 do you realy want to delete this block?	sitemgr	es-es	¿Realmente desea borrar este bloque?
@@ -178,15 +186,18 @@ error accessing page	common	es-es	Error al acceder a la página
 error deleting the element.	sitemgr	es-es	Error al borrar el elemento.
 error deleting the entry!!!	sitemgr	es-es	Error al borrar el elemento!!!
 error saving the entry!!!	sitemgr	es-es	Error guardando el elemento!!!
+error uploading file!	sitemgr	es-es	¡Error al subir el fichero!
 error writing to the database.	sitemgr	es-es	Error al escribir en la base de datos.
 error writing to the database: %1.	sitemgr	es-es	Error al escribir en la base de datos: %1.
 everybody	sitemgr	es-es	todo el mundo
 exact phrase	sitemgr	es-es	Frase exacta
 expand current category	sitemgr	es-es	Expandir la categoría actual
+fax	sitemgr	es-es	fax
 file %1 is not readable by the webserver !!!	sitemgr	es-es	¡¡ El servidor web no puede leer el fichero %1!!
 file %1 is outside the docroot of the webserver !!!<br>this module does not allow - for security reasons - to open files outside the docroot.	sitemgr	es-es	¡¡El fichero %1 está fuera de la raíz del servidor!!<br>Este módulo NO permite, por motivos de seguridad, abrir ficheros fuera de la raíz del servidor.
 file contents	sitemgr	es-es	Contenido del fichero
 file download	sitemgr	es-es	Descarga del fichero
+file successful uploaded.	sitemgr	es-es	El fichero se ha subido correctamente
 filename	sitemgr	es-es	Nombre del fichero
 filesystem path of the directory where xml files are stored	sitemgr	es-es	Ruta del directorio donde se almacenan los ficheros XML
 filesystem path of the image-directory	sitemgr	es-es	Ruta en el sistema de archivos al directorio de imágenes
@@ -269,6 +280,7 @@ migrating data for %1 to %2	sitemgr	es-es	Migrar datos para %1 a %2
 module %1 is not permitted in this context!	sitemgr	es-es	El módulo %1 no está permitido en este contexto
 module '%1' not found in: %2! --> exiting	sitemgr	es-es	¡No se encontró el módulo '%1' en %2! Saliendo
 module manager	sitemgr	es-es	Administrador de módulos
+module returns api version or an arbitrary string.	sitemgr	es-es	El módulo devuelve la versión de API o una cadena arbitraria
 module: %1, scope: %2, contentarea: %3, viewable: %4	sitemgr	es-es	Módulo: %1, ámbito: %2, área de contenido: %3, visible: %4
 move block down (increase sort order)	sitemgr	es-es	Mover bloque hacia abajo (incrementar el orden)
 move block up (decrease sort order)	sitemgr	es-es	Mover bloque hacia arriba (decrementar el orden)
@@ -281,6 +293,7 @@ name of the tabs (comma seperated)	sitemgr	es-es	Nombre de las pestañas (separa
 new application	sitemgr	es-es	Nueva aplicación
 new guestbook	sitemgr	es-es	Nuevo libro de invitados
 new sitemgr site	sitemgr	es-es	Nuevo sitio web
+newest first	sitemgr	es-es	los más recientes primero
 no additional arguments required	sitemgr	es-es	No se requieren argumentos adicionales
 no anonymous user accounts installed.  notify the administrator.	sitemgr	es-es	NO HAY INSTALADAS CUENTAS DE USUARIO ANONIMAS. NOTIFIQUELO AL ADMINISTRADOR.
 no content areas found in selected template	sitemgr	es-es	No se encontraron áreas de contenido en la plantilla seleccionada
@@ -306,6 +319,7 @@ note that you may get this message if your preferences are incorrect.  for examp
 notification message not found !!!	sitemgr	es-es	Mensaje de notificación no encontrado !!!
 notification not found !!!	sitemgr	es-es	Notificación no encontrada !!!
 number of results	sitemgr	es-es	Número de resultados
+oldest first	sitemgr	es-es	los más antiguos primero
 on all pages	sitemgr	es-es	en todas las páginas
 only gallery	sitemgr	es-es	Sólo galería
 only on the first page	sitemgr	es-es	sólo en la primera página
@@ -342,6 +356,7 @@ plain selectbox	sitemgr	es-es	Caja de selección plana
 please enter a name for that site !	sitemgr	es-es	Por favor, introduzca un nombre para ese sitio
 please sign the guestbook	sitemgr	es-es	Por favor, firme en el libro de invitados
 post a message to this thread	sitemgr	es-es	Publicar un mensaje en esta conversación
+prefix	sitemgr	es-es	Prefijo
 prepublished	sitemgr	es-es	publicado previamente
 preunpublished	sitemgr	es-es	sin publicar previamente
 previous	sitemgr	es-es	Anterior
@@ -373,6 +388,7 @@ search keyword	sitemgr	es-es	palabra clave para la búsqueda
 search language options	sitemgr	es-es	Opciones para buscar idioma
 search modes	sitemgr	es-es	Modos de búsqueda
 search with	sitemgr	es-es	Buscar con
+seconds before redirect	sitemgr	es-es	Segundos antes de redirigir
 seen by	sitemgr	es-es	Visto por
 select a category	sitemgr	es-es	Seleccionar una categoría
 select a forum	sitemgr	es-es	Seleccionar un foro
@@ -387,6 +403,7 @@ send emailcopy to receiver	sitemgr	es-es	Enviar copia por correo al destinatario
 seperate cats / pages of one tab by :	sitemgr	es-es	Separar las categorías / páginas de una pestaña por:
 shipping address	sitemgr	es-es	Dirección de suministro
 should the file be viewed in the browser or downloaded	sitemgr	es-es	¿Ver el fichero en el navegador o descargarlo?
+show a file upload (if user has write rights to current directory)	sitemgr	es-es	Mostrar la subida de un fichero (si el usuario tiene derechos de escritura en el directorio actual)
 show a template-gallery (thumbnail and informations)	sitemgr	es-es	Mostrar una galería de plantillas (diapositiva e información)
 show contents of a directory	sitemgr	es-es	Mostrar el contenido de un directorio
 show contents of a directory with subdirectories	sitemgr	es-es	Mostrar el contenido de un directorio con subdirectorios
@@ -398,6 +415,7 @@ show path?	sitemgr	es-es	¿Mostrar ruta?
 show searchbox	sitemgr	es-es	Mostrar recuadro de buscar
 show site index	sitemgr	es-es	Mostrar el índice del sitio
 show subcategories	sitemgr	es-es	Mostrar subcategorías
+show the link as text?	sitemgr	es-es	¿Mostrar el enlace como texto?
 show the title of the wiki page	sitemgr	es-es	Mostrar el título de la página del wiki
 simple: only selected mode, no more options displayed	sitemgr	es-es	Simple: sólo el modo seleccionado, no se muestran más operaciones
 single file download	sitemgr	es-es	Descarga de un único fichero
@@ -423,6 +441,7 @@ sitemgr websites	sitemgr	es-es	Sitios web
 sitemgr-link	common	es-es	Sitio web
 size	sitemgr	es-es	Tamaño
 sorry, no content found for you search criteria	sitemgr	es-es	Lo sentimos, no se encontró contenido para su criterio de búsqueda
+sort files by	sitemgr	es-es	Ordenar ficheros por
 sort order	sitemgr	es-es	Orden en la página
 state	sitemgr	es-es	Estado
 string to return (default api version)	sitemgr	es-es	Cadena a devolver (versión predeterminada de API)
@@ -443,6 +462,7 @@ template select	sitemgr	es-es	Selección de plantilla
 text allignment	sitemgr	es-es	Alineación del texto
 text of page links	sitemgr	es-es	Texto de enlaces de la página
 textarea	sitemgr	es-es	Area de texto
+the anonymous user needs read it!	sitemgr	es-es	¡El usuario anónimo necesita leerlo!
 the category to display, 0 for complete table of contents	sitemgr	es-es	La categoría a mostrar. 0 para toda la tabla de contenidos
 the complete url or path to a file to be included	sitemgr	es-es	La URL completa o ruta al fichero a incluir
 the config.inc.php file needs to be edited to point to the egroupware directory. copy the config.inc.php.template file to config.inc.php and then edit it.	sitemgr	es-es	El fichero config.inc.php necesita editarse para apuntar al directorio de eGroupWare. Copie el fichero config.inc.php.template a config.inc.php y luego edítelo.
@@ -455,6 +475,7 @@ the page name must be unique.	sitemgr	es-es	El nombre de la página debe ser ún
 the page was successfully saved.	sitemgr	es-es	La página se guardó correctamente
 the path to the file to be downloaded	sitemgr	es-es	La ruta al fichero que se va a descargar
 the person to say hello to	sitemgr	es-es	La persona a la que saludar
+the requested path %1 is not available.	sitemgr	es-es	La ruta solicitada %1 no está disponible
 the second directory is the sitemgr-site directory.  this can be moved <i>anywhere</i>.  it can also be named <i>anything</i>.  wherever it winds up, when you point a web browser to it, you will get the generated website.  assuming, of course, that you've accurately completed the setup fields below and also <b><i>edited the config.inc.php</i></b> file.	sitemgr	es-es	El segundo directorio es el directorio sitemgr-site. Se puede mover <i>a cualquier sitio</i>. También se puede llamar <i>de cualquier forma</i>. Donde se quede finalmente, cuando el navegador vaya ahí, obtendrá el sitio web generado. Asumiendo, por supuesto, que ha completado adecuadamente los pasos de configuración previos y también <b><i>editado el fichero config.inc.php</i></b>.
 the text for the link, if empty the module returns the raw url (without a link)	sitemgr	es-es	El texto para el enlace. Si está vacío, el módulo devuelve la URL (sin enlace)
 the url can be relative or absolute.  name must end in a slash.	sitemgr	es-es	La URL puede ser relativa o absoluta. El nombre debe acabar en una barra invertida ("/").
@@ -490,6 +511,7 @@ this module create a link for downloading a file(s) from the vfs	sitemgr	es-es	E
 this module demonstrates how handling data stored in xml and building an interacvite interface from it	sitemgr	es-es	Este módulo demuestra cómo manejar los datos almacenados en XML y constuir una interfaz interactiva desde ahí.
 this module displays a login form	sitemgr	es-es	Este módulo muestra un formulario para iniciar la sesión
 this module displays any kind of navigation element.	sitemgr	es-es	Este módulo muestra cualquier clase de elemento de navegación.
+this module displays block from a adddressbook group.	sitemgr	es-es	Este módulo muestra Bloque de un grupo de la libreta de direcciones.
 this module displays bookmarks in a javascript based tree	sitemgr	es-es	Este módulo muestra los marcadores en forma de árbol mediante javascript
 this module displays the current month	sitemgr	es-es	Este módulo muestra el mes actual
 this module displays the egw forums on the web site	sitemgr	es-es	Este módulo muestra los foros eGW en el sitio web
@@ -586,3 +608,4 @@ your calendar	sitemgr	es-es	Su calendario
 your comment	sitemgr	es-es	Su comentario
 your connection is not safe.	sitemgr	es-es	Su conexión no es segura.
 your name	sitemgr	es-es	Su nombre
+zip code	sitemgr	es-es	código zip

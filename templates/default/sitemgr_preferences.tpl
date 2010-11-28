@@ -1,21 +1,8 @@
 <!-- BEGIN sitemgr_prefs -->
-
-	<b>{setup_instructions}</b>
-	<p>{lang_subdir}
-	</p>
-	<p>{lang_first_directory}
-	</p>
-	<p>{lang_second_directory}
-	</p>
-	<p>{lang_edit_config_inc}
-	<p>
-	<hr>
-	<b>{options}</b>
-	</p>
-	<p>
-	<form action="{formaction}" method="post">
+<p><b>{options}</b></p>
+<form action="{formaction}" method="post">
 <center>
-<table border="0" width="90%" cellspacing="8">
+<table border="0" width="95%" cellspacing="8">
 <!-- BEGIN PrefBlock -->
 	<tr>
 		<td>
@@ -40,6 +27,6 @@
 </table>
 </center>
 
-	<input type="submit" name="btnSave" value="{lang_save}">
-	</form>
+<input type="submit" name="btnSave" value="{lang_save}">
+</form>
 <!-- END sitemgr_prefs -->

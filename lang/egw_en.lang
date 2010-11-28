@@ -10,7 +10,6 @@
 1 month	common	en	1 Month
 1 week	common	en	1 Week
 <b>autoregistration is not enabled / configured in the registration app !!!</b><br>you need to do so, to get the autoregistration link working.	sitemgr	en	<b>Autoregistration is not enabled / configured in the registration app !!!</b><br>You need to do so, to get the autoregistration link working.
-<b>want more templates?</b><br />just download one from the template gallery at %1www.egroupware.org%2 or use a %3mambo open source%4 version 4.5 compatible template eg. from %5. unpack the downloaded template in your templates directory (%6).	sitemgr	en	<b>Want more templates?</b><br />Just download one from the template gallery at %1www.eGroupWare.org%2 or use a %3Mambo Open Source%4 Version 4.5 compatible template eg. from %5. Unpack the downloaded template in your templates directory (%6).
 a simple picture galery	sitemgr	en	A simple picture galery
 actif	sitemgr	en	Actif
 actions	sitemgr	en	Actions
@@ -98,7 +97,7 @@ choose template	sitemgr	en	Choose template
 choose the categories to display	sitemgr	en	Choose the categories to display
 choose the valid html type (note: not all icons are available):	sitemgr	en	Choose the VALID HTML type (note: not all icons are available):
 choose your site's theme or template.  note that if you changed the above checkbox you need to save before choosing a theme or template.	sitemgr	en	Choose your site's theme or template.  Note that if you changed the above checkbox you need to save before choosing a theme or template.
-click here to login through a safe connection.	sitemgr	en	Click here to login through a safe connection.
+click here to login through a secure connection.	sitemgr	en	Click here to login through a secure connection.
 code file	sitemgr	en	Code file
 codebase url	sitemgr	en	Codebase URL
 collapse threads	sitemgr	en	Collapse Threads
@@ -117,12 +116,14 @@ content manager	sitemgr	en	Content Manager
 contentarea	sitemgr	en	Contentarea
 contributor menu	sitemgr	en	Contributor Menu
 copyright	sitemgr	en	Copyright
+could not add block %1	sitemgr	en	Could not add block %1
 create new version	sitemgr	en	Create new version
 css selector to use only part of html file	sitemgr	en	CSS selector to use only part of html file
 css styles	sitemgr	en	CSS styles
 currency code of the value specified in amount (eg. usd, eur)	sitemgr	en	Currency code of the value specified in amount (eg. USD, EUR)
 current section	sitemgr	en	Current Section
 custom	sitemgr	en	custom
+custom css will be included in each page as last style-sheet in the header.	sitemgr	en	Custom CSS will be included in each page as last style-sheet in the header.
 custom etemplate for the contactform	sitemgr	en	Custom eTemplate for the contactform
 custom template directory	sitemgr	en	Custom template directory
 custom template directory does not exist or is not accessible by webserver!	sitemgr	en	Custom template directory does NOT exist or is NOT accessible by webserver!
@@ -134,6 +135,7 @@ delete category	sitemgr	en	Delete category
 delete page	sitemgr	en	Delete page
 delete this application	sitemgr	en	Delete this application
 delete this block	sitemgr	en	Delete this block
+delete this file or directory	sitemgr	en	Delete this file or directory
 delete this guestbook	sitemgr	en	Delete this guestbook
 delete version	sitemgr	en	Delete Version
 deleting all data for %1	sitemgr	en	Deleting all data for %1
@@ -168,10 +170,11 @@ edit page	sitemgr	en	Edit Page
 edit properties of module %1 for %2 with scope %3	sitemgr	en	Edit properties of module %1 for %2 with scope %3
 edit site	sitemgr	en	Edit Site
 edit site header and footer	common	en	Edit Site Header and Footer
+edit template preferences for %1	sitemgr	en	Edit template preferences for %1
 edit this block	sitemgr	en	Edit this block
 edit website	sitemgr	en	Edit Website
 eg. %1 or %2	sitemgr	en	eg. %1 or %2
-eg. be renaming %1 to %2 in the %3 directory for an apache.	sitemgr	en	Eg. be renaming %1 to %2 in the %3 directory for an Apache.
+eg. by renaming %1 to %2 in the %3 directory for an apache.	sitemgr	en	Eg. by renaming %1 to %2 in the %3 directory for an Apache.
 egw users	sitemgr	en	Egw users
 element successfully deleted.	sitemgr	en	Element successfully deleted.
 email address	sitemgr	en	Email address
@@ -196,6 +199,8 @@ error writing to the database: %1.	sitemgr	en	Error writing to the database: %1.
 everybody	sitemgr	en	Everybody
 exact phrase	sitemgr	en	Exact Phrase
 expand current category	sitemgr	en	Expand current category
+export	sitemgr	en	Export
+export a sitemgr site	sitemgr	en	Export a SiteMgr site
 fax	sitemgr	en	fax
 file %1 is not readable by the webserver !!!	sitemgr	en	File %1 is not readable by the webserver !!!
 file %1 is outside the docroot of the webserver !!!<br>this module does not allow - for security reasons - to open files outside the docroot.	sitemgr	en	File %1 is outside the docroot of the webserver !!!<br>This module does NOT allow - for security reasons - to open files outside the docroot.
@@ -245,11 +250,16 @@ if nonsecure redirect to:	sitemgr	en	If nonsecure redirect to:
 if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	en	If you haven't done so already, create a user that will be used for public viewing of the site.  Recommended name: anonymous.
 image type	sitemgr	en	image type
 implies read permission	sitemgr	en	implies read permission
+import	sitemgr	en	Import
+import a sitemgr website	sitemgr	en	Import a SiteMgr website
+import site	sitemgr	en	Import site
+imported	sitemgr	en	Imported
 index	sitemgr	en	Index
 individual access permission	sitemgr	en	Individual Access Permission
 individual access permissions	sitemgr	en	Individual Access Permissions
 interface to google website	sitemgr	en	Interface to google website
 invalid template directory '%1' !!!	sitemgr	en	Invalid template directory '%1' !!!
+just download one from our %1template gallery%2 on %3.	sitemgr	en	Just download one from our %1template gallery%2 on %3.
 knowledge base	sitemgr	en	Knowledge Base
 language:	sitemgr	en	Language:
 languages the site user can choose from	sitemgr	en	Languages the site user can choose from
@@ -257,9 +267,11 @@ last entries to the guestbook	sitemgr	en	Last entries to the guestbook
 latest reply	sitemgr	en	Latest Reply
 links for the tabs (comma seperated)	sitemgr	en	Links for the tabs (comma seperated)
 list of permitted modules specific to content area %1	sitemgr	en	List of permitted modules specific to content area %1
-loged in as:	sitemgr	en	Loged in as:
+logged in as:	sitemgr	en	Logged in as:
 login	sitemgr	en	Login
 login name	sitemgr	en	Login Name
+logo url	sitemgr	en	Logo URL
+logo, custom css	sitemgr	en	Logo, Custom CSS
 main content	sitemgr	en	Main content
 mains	sitemgr	en	Mains
 manage archived content	sitemgr	en	Manage archived content
@@ -320,6 +332,7 @@ no users defined.	sitemgr	en	No users defined.
 no websites defined	sitemgr	en	No websites defined
 no, chooser only (for side-areas)	sitemgr	en	No, chooser only (for side-areas)
 no, chooser with preview	sitemgr	en	No, chooser with preview
+none selected	sitemgr	en	None selected
 not	common	en	not
 not yet translated	sitemgr	en	not yet translated
 note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr-link	en	Note that you may get this message if your preferences are incorrect.  For example, if config.inc.php is not found in the directory that you specified.
@@ -332,6 +345,7 @@ only gallery	sitemgr	en	Only gallery
 only on the first page	sitemgr	en	only on the first page
 options in search result page	sitemgr	en	Options in search result page
 or enter the title for a new guestbook	sitemgr	en	or enter the title for a new guestbook
+or use a template compatible with %1.	sitemgr	en	Or use a template compatible with %1.
 other websites	sitemgr	en	Other websites
 overview of all available categories	sitemgr	en	Overview of all available categories
 overview of one specific category	sitemgr	en	Overview of one specific category
@@ -346,6 +360,7 @@ page subtitle	sitemgr	en	Page Subtitle
 page title	sitemgr	en	Page Title
 pages	sitemgr	en	Pages
 pages:	sitemgr	en	Pages:
+parameters saved.	sitemgr	en	Parameters saved.
 parent	sitemgr	en	Parent
 parent directory	sitemgr	en	parent directory
 parent section:	sitemgr	en	Parent Section:
@@ -377,6 +392,7 @@ redirection	sitemgr	en	Redirection
 refresh	sitemgr	en	Refresh
 register for one now.	sitemgr	en	Register for one now.
 register new modules	sitemgr	en	Register new modules
+regular expression modifier "%1" in "%2" is not allowed!	sitemgr	en	Regular expression modifier "%1" in "%2" is NOT allowed!
 reload	sitemgr	en	Reload
 remember me	common	en	remember me
 replies	sitemgr	en	Replies
@@ -412,6 +428,7 @@ shipping address	sitemgr	en	Shipping address
 should the file be viewed in the browser or downloaded	sitemgr	en	Should the file be viewed in the browser or downloaded
 show a file upload (if user has write rights to current directory)	sitemgr	en	Show a file upload (if user has write rights to current directory)
 show a template-gallery (thumbnail and informations)	sitemgr	en	Show a template-gallery (thumbnail and informations)
+show comments?	sitemgr	en	Show comments?
 show contents of a directory	sitemgr	en	Show contents of a directory
 show contents of a directory with subdirectories	sitemgr	en	Show contents of a directory with subdirectories
 show current section only	sitemgr	en	Show current section only
@@ -431,6 +448,7 @@ site %1 has been added, you need to %2configure the site%3 now	sitemgr	en	Site %
 site %1 has been updated	sitemgr	en	Site %1 has been updated
 site administrators	sitemgr	en	Site administrators
 site description	sitemgr	en	Site description
+site export	sitemgr	en	Site export
 site format manager	sitemgr	en	Site Format Manager
 site index	sitemgr	en	Site Index
 site language	sitemgr	en	Site Language
@@ -467,8 +485,12 @@ suppress the current page	sitemgr	en	Suppress the current page
 table of contents	sitemgr	en	Table of Contents
 template based navigation module	sitemgr	en	Template based navigation module
 template directory is relative to egroupware's files directory. you have to map that direcotory with an alias, so it is accessible like any stock template!	sitemgr	en	Template directory is relative to EGroupware's files directory. You have to map that direcotory with an alias, so it is accessible like any stock template!
+template has no parameters!	sitemgr	en	Template has no parameters!
+template preferences	sitemgr	en	Template preferences
+template preferences and custom css	sitemgr	en	Template preferences and custom CSS
 template select	sitemgr	en	Template select
 text allignment	sitemgr	en	Text allignment
+text for optional confirmation message, before download get displayed	sitemgr	en	Text for optional confirmation message, before download get displayed
 text of page links	sitemgr	en	Text of page links
 textarea	sitemgr	en	textarea
 the anonymous user needs read it!	sitemgr	en	The anonymous user needs read it!
@@ -496,6 +518,7 @@ the web	sitemgr	en	the web
 the website has changed. too see the change, follow this url: $url.	sitemgr	en	The website has changed. Too see the change, follow this URL: $URL.
 the whole page	sitemgr	en	the whole page
 the xml files' common name	sitemgr	en	the XML files' common name
+theme "%1" not found!	sitemgr	en	Theme "%1" not found!
 theme or template select	sitemgr	en	Theme or template select
 there are %1 elements in the list.	sitemgr	en	There are %1 elements in the list.
 there are no categories	sitemgr	en	There are no categories
@@ -558,6 +581,7 @@ translate page	sitemgr	en	Translate Page
 translate site-wide content blocks	sitemgr	en	Translate site-wide content blocks
 translation manager	sitemgr	en	Translation Manager
 translation status	sitemgr	en	Translation Status
+unpack the downloaded template in your templates directory (%1) or use a custom template directory.	sitemgr	en	Unpack the downloaded template in your templates directory (%1) or use a custom template directory.
 unsubscribe	sitemgr	en	Unsubscribe
 up to parent	sitemgr	en	Up to parent
 up to table of contents	sitemgr	en	Up to table of contents
@@ -566,6 +590,7 @@ updating to new category system	sitemgr	en	Updating to new category system
 url pointing to the image-directory	sitemgr	en	URL pointing to the image-directory
 url to sitemgr-site	sitemgr	en	URL to sitemgr-site
 use current user selected language	sitemgr	en	Use current user selected language
+use default	sitemgr	en	Use default
 use phpnuke themes instead of templates	sitemgr	en	Use phpNuke themes instead of templates
 use this module for displaying book ads for the amazon web site	sitemgr	en	Use this module for displaying book ads for the amazon web site
 use this module for displaying wiki-pages	sitemgr	en	Use this module for displaying wiki-pages
@@ -578,6 +603,7 @@ view generated site	sitemgr	en	View Generated Site
 view template on this site	sitemgr	en	View template on this site
 view threads	sitemgr	en	View Threads
 viewed	sitemgr	en	viewed
+want more templates?	sitemgr	en	Want more templates?
 web content manager	common	en	SiteMgr Web Content Manager
 web content manager administration	sitemgr	en	Web Content Manager Administration
 web site manager	sitemgr	en	Web Site Manager
@@ -599,6 +625,7 @@ you are not entitled to edit block %1	sitemgr	en	You are not entitled to edit bl
 you can choose the modules that can be used on the site. the first list is a sort of master list, that is consulted if you do not configure lists specific to contentareas or (sub)categories. then you can choose lists specific to each content area. in the category manager these lists can be overriden for each (sub)category.	sitemgr	en	You can choose the modules that can be used on the site. The first list is a sort of master list, that is consulted if you do not configure lists specific to contentareas or (sub)categories. Then you can choose lists specific to each content area. In the category manager these lists can be overriden for each (sub)category.
 you can either migrate them to a new language or delete them	sitemgr	en	You can either migrate them to a new language or delete them
 you can override each content blocks default title. be aware that not in all content areas the block title will be visible.	sitemgr	en	You can override each content blocks default title. Be aware that not in all content areas the block title will be visible.
+you can use %1 to fetch the above defined url of your logo.	sitemgr	en	You can use %1 to fetch the above defined URL of your logo.
 you did not choose a module.	sitemgr	en	You did not choose a module.
 you do not have access to any content on this site.	sitemgr	en	You do not have access to any content on this site.
 you do not have write permissions for any site categories.	sitemgr	en	You do not have write permissions for any site categories.
@@ -618,6 +645,6 @@ you will remove the message in the following language from your notification sys
 your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr-link	en	Your administrator has not yet setup the web content manager for public viewing.  Go bug your administrator to get their butt in gear.
 your calendar	sitemgr	en	Your Calendar
 your comment	sitemgr	en	Your comment
-your connection is not safe.	sitemgr	en	Your connection is not safe.
+your connection is not secure.	sitemgr	en	Your connection is not secure.
 your name	sitemgr	en	Your name
 zip code	sitemgr	en	zip code

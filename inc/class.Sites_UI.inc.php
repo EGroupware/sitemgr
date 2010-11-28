@@ -18,7 +18,9 @@
 		var $public_functions = array(
 			'list_sites' => True,
 			'edit'         => True,
-			'delete'       => True
+			'delete'       => True,
+			'export'	=> True,
+			'import'	=> True,
 		);
 
 		var $start = 0;
@@ -81,7 +83,9 @@
 			$GLOBALS['egw']->template->set_block('site_list_t','site_list','list');
 
 			$GLOBALS['egw']->template->set_var('add_action',$GLOBALS['egw']->link('/index.php','menuaction=sitemgr.Sites_UI.edit'));
+			$GLOBALS['egw']->template->set_var('import_action',$GLOBALS['egw']->link('/index.php','menuaction=sitemgr.Sites_UI.import'));
 			$GLOBALS['egw']->template->set_var('lang_add',lang('Add'));
+			$GLOBALS['egw']->template->set_var('lang_import',lang('Import'));
 			$GLOBALS['egw']->template->set_var('title_sites',lang('Sitemgr Websites'));
 			$GLOBALS['egw']->template->set_var('lang_search',lang('Search'));
 			$GLOBALS['egw']->template->set_var('actionurl',$GLOBALS['egw']->link('/index.php','menuaction=sitemgr.Sites_UI.list_sites'));
@@ -106,6 +110,7 @@
 				'th_bg' => $GLOBALS['egw_info']['theme']['th_bg'],
 				'lang_edit' => lang('Edit'),
 				'lang_delete' => lang('Delete'),
+				'lang_export' => lang('Export'),
 				'sort_name' => $this->nextmatchs->show_sort_order(
 					$this->sort,'site_name',$this->order,'/index.php',lang('Name'),'&menuaction=sitemgr.Sites_UI.list_sites'
 				),
@@ -125,7 +130,9 @@
 					'edit' => $GLOBALS['egw']->link('/index.php','menuaction=sitemgr.Sites_UI.edit&site_id=' . $site_id),
 					'lang_edit_entry' => lang('Edit'),
 					'delete' => $GLOBALS['egw']->link('/index.php','menuaction=sitemgr.Sites_UI.delete&site_id=' . $site_id),
-					'lang_delete_entry' => lang('Delete')
+					'lang_delete_entry' => lang('Delete'),
+					'export' => $GLOBALS['egw']->link('/index.php','menuaction=sitemgr.Sites_UI.export&site_id=' . $site_id),
+					'lang_export_entry' => lang('Export')
 				));
 				$GLOBALS['egw']->template->parse('list','site_list',True);
 			}
@@ -155,7 +162,7 @@
 
 			$site_id = get_var('site_id',array('POST','GET'));
 			if(!is_numeric($site_id)) $site_id = false;
-			
+
 			$GLOBALS['egw']->template->set_file(array('form' => 'site_form.tpl'));
 			$GLOBALS['egw']->template->set_block('form','add','addhandle');
 			$GLOBALS['egw']->template->set_block('form','edit','edithandle');
@@ -172,7 +179,7 @@
 					$site['url'] .= '/';
 				}
 				$site['anonuser'] = $GLOBALS['egw']->accounts->id2name($site['anonuser']);
-				
+
 				if (($site_dir=$site['dir']) == 'sitemgr'.SEP.'sitemgr-site')
 				{
 					$site_dir = EGW_SERVER_ROOT.SEP.'sitemgr'.SEP.'sitemgr-site';
@@ -230,7 +237,7 @@
 				);
 			}
 			$GLOBALS['egw']->template->set_var('title_sites',$site_id ? lang('Edit Website') : lang('Add Website'));
-			
+
 			$GLOBALS['egw']->template->set_var('actionurl',$GLOBALS['egw']->link('/index.php','menuaction=sitemgr.Sites_UI.edit'));
 
 			$GLOBALS['egw']->template->set_var(array(
@@ -282,7 +289,7 @@
 		function adminlist($site_id,$admins='')
 		{
 			if (!$admins) $admins = array();
-			
+
 			if (!$site_id)
 			{
 				if (($admin_grp = $GLOBALS['egw']->accounts->name2id('Admins')) && !in_array($admin_grp,$admins))
@@ -339,6 +346,43 @@
 				));
 				$GLOBALS['egw']->template->pparse('phpgw_body','site_delete');
 			}
+		}
+
+		public function export()
+		{
+			if (!$GLOBALS['egw']->acl->check('run',1,'admin'))
+			{
+				$GLOBALS['egw']->common->egw_header();
+				echo parse_navbar();
+				$this->deny();
+			}
+
+			$site_id = get_var('site_id',array('POST','GET'));
+			if($site_id) {
+				$site = $this->bo->read($site_id);
+				$name = urlencode($site['site_name']);
+				header('Content-type: application/xml');
+				header("Content-Disposition: attachment; filename=$name.xml");
+				$writer = xmlwriter_open_uri('php://output');
+				xmlwriter_set_indent_string($writer, "\t");
+				xmlwriter_set_indent($writer, true);
+				$export = new sitemgr_export_xml($writer);
+				$export->export_record($site_id);
+				common::egw_exit();
+			}
+		}
+
+		public function import()
+		{
+			if (!$GLOBALS['egw']->acl->check('run',1,'admin'))
+			{
+				$GLOBALS['egw']->common->egw_header();
+				echo parse_navbar();
+				$this->deny();
+			}
+			$GLOBALS['egw']->redirect_link('/index.php', array(
+				'menuaction' => 'sitemgr.sitemgr_import_xml.ui_import',
+			));
 		}
 
 		function deny()

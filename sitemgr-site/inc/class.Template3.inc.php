@@ -76,37 +76,44 @@ class Template3
 		$this->addcontent = $GLOBALS['egw']->session->appsession('addcontent','sitemgr');
 		$GLOBALS['egw']->session->appsession('addcontent','sitemgr',false);
 
+		// Mode specific {edit|draft}_transformer can be already loaded, supplied by template or default one is used
 		switch ($GLOBALS['sitemgr_info']['mode'])
 		{
 		case 'Draft':
-			$transformerfile = $this->root . SEP . 'draft_transform.inc.php';
-			if (!file_exists($transformerfile))
+			if (!class_exists('draft_transform'))
 			{
-				$transformerfile = EGW_SERVER_ROOT . '/sitemgr/sitemgr-site/templates/default/draft_transform.inc.php';
-			}
-			if (file_exists($transformerfile))
-			{
-				include_once($transformerfile);
-				if (class_exists('draft_transform'))
+				$transformerfile = $this->root . SEP . 'draft_transform.inc.php';
+				if (!file_exists($transformerfile))
 				{
-					$this->draft_transformer = new draft_transform();
+					$transformerfile = EGW_SERVER_ROOT . '/sitemgr/sitemgr-site/templates/default/draft_transform.inc.php';
 				}
+				if (file_exists($transformerfile))
+				{
+					include_once($transformerfile);
+				}
+			}
+			if (class_exists('draft_transform'))
+			{
+				$this->draft_transformer = new draft_transform();
 			}
 			break;
 
 		case 'Edit':
-			$transformerfile = $this->root . SEP . 'edit_transform.inc.php';
-			if (!file_exists($transformerfile))
+			if (!class_exists('edit_transform'))
 			{
-				$transformerfile = EGW_SERVER_ROOT . '/sitemgr/sitemgr-site/templates/default/edit_transform.inc.php';
-			}
-			if (file_exists($transformerfile))
-			{
-				include_once($transformerfile);
-				if (class_exists('edit_transform'))
+				$transformerfile = $this->root . SEP . 'edit_transform.inc.php';
+				if (!file_exists($transformerfile))
 				{
-					$this->edit_transformer = new edit_transform();
+					$transformerfile = EGW_SERVER_ROOT . '/sitemgr/sitemgr-site/templates/default/edit_transform.inc.php';
 				}
+				if (file_exists($transformerfile))
+				{
+					include_once($transformerfile);
+				}
+			}
+			if (class_exists('edit_transform'))
+			{
+				$this->edit_transformer = new edit_transform();
 			}
 			break;
 		}
@@ -186,6 +193,7 @@ class Template3
 	 */
 	function parse()
 	{
+		global $page;
 		//get block content for contentareas
 		$str = preg_replace_callback(
 			"/\{contentarea:([^{ ]+)\}/",
@@ -259,10 +267,10 @@ class Template3
 	* processes all blocks for a given contentarea
 	*
 	* @param $vars string contenarea name
-	* @param $_mos_style
+	* @param $style=null passed to transformer constructor, currently only used for Joomla 1.5 templates
 	* @return string html content
 	*/
-	function process_blocks($vars)
+	function process_blocks($vars,$style=null)
 	{
 		global $page;
 		global $objbo;
@@ -278,13 +286,13 @@ class Template3
 		$transformername = $areaname . '_bt';
 
 		$transformerfile = $this->transformer_root . SEP . $transformername . '.inc.php';
-		if (file_exists($transformerfile))
+		if (!class_exists($transformername) && file_exists($transformerfile))
 		{
 			include_once($transformerfile);
-			if (class_exists($transformername))
-			{
-				$transformer = new $transformername;
-			}
+		}
+		if (class_exists($transformername))
+		{
+			$transformer = new $transformername($style);
 		}
 		//compatibility with former sideblocks template
 		elseif (($areaname == "left" || $areaname == "right") && file_exists($this->root . SEP . 'sideblock.tpl'))
@@ -392,6 +400,7 @@ class Template3
 	function exec_module($vars)
 	{
 		global $page;
+		$this->permitted_modules = array_keys($this->modulebo->getcascadingmodulepermissions('__PAGE__',$page->cat_id));
 		list(,$modulename,$query) = $vars;
 		$moduleid = $this->modulebo->getmoduleid($modulename);
 		if (!in_array($moduleid,$this->permitted_modules))
@@ -462,29 +471,7 @@ class Template3
 			case 'page_title':
 				return $page->title;
 			case 'editicons':
-				// add icons to edit the page/cat, if we are in edit-mode
-				if ($GLOBALS['sitemgr_info']['mode'] == 'Edit')
-				{
-					if ($page->id)
-					{
-						if ($page->cat_id && ($cat = $GLOBALS['Common_BO']->cats->getCategory($page->cat_id)) && $cat->index_page_id == $page->id)
-						{
-							$GLOBALS['cat'] = $cat;
-						}
-						return $objbo->getEditIconsPage($page->id,$page->cat_id).
-							// if the page is an index-page for a cat, add the cat-icons too
-							(isset($GLOBALS['cat']) && is_object($GLOBALS['cat']) ?
-							' - '.lang('Category').' '.$GLOBALS['cat']->name.' '.$objbo->getEditIconsCat($page->cat_id) : '');
-					}
-					elseif ($page->cat_id && $page->cat_id != CURRENT_SITE_ID)
-					{
-						return $objbo->getEditIconsCat($page->cat_id);
-					}
-					else
-					{
-						return $objbo->getEditIconsTop();
-					}
-				}
+				// edit icons are now displayed by edit_transform of contentarea center
 				return '';
 			case 'subtitle':
 			case 'page_subtitle':

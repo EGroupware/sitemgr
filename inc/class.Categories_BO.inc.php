@@ -226,6 +226,21 @@
 			return false;
 		}
 
+		/**
+		 * Save named page as category index
+		 *
+		 * @param int $cat_id
+		 * @param int|string $page
+		 */
+		function saveCategoryIndex($cat_id,$page)
+		{
+			if (!is_numeric($page_id=$page))
+			{
+				$page_id = $GLOBALS['Common_BO']->pages->so->PageToID($page);
+			}
+			$this->so->saveCategoryIndex($cat_id,$page_id);
+		}
+
 		function saveCategoryLang($cat_id, $cat_name, $cat_description, $lang)
 		{
 			$this->NotifyUsers($lang, $cat_id, -1, $cat_name);

@@ -267,6 +267,7 @@
 				));
 				$this->showblock($block,True,True,True);
 				$GLOBALS['egw']->common->egw_header();
+				$this->t->unknowns='keep';
 				$this->t->pfp('out','Block');
 				$GLOBALS['egw']->common->egw_exit();
 				return;
@@ -556,6 +557,11 @@
 		function inputmoduleselect($modules)
 		{
 			$returnValue = '';
+			static $label_sort;
+
+			if (!isset($label_sort)) $label_sort = create_function('$a,$b', 'return strcasecmp($a["module_name"],$b["module_name"]);');
+			uasort($modules,$label_sort);
+
 			foreach($modules as $id => $module)
 			{
 				$returnValue.='<option title="' . lang($module['description']) . '" value="'.$id.'">'.

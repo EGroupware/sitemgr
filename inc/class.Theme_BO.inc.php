@@ -1,98 +1,169 @@
 <?php
-	/**************************************************************************\
-	* eGroupWare SiteMgr - Web Content Management                              *
-	* http://www.egroupware.org                                                *
-	* Written and (c) by RalfBecker@outdoor-training.de                        *
-	* --------------------------------------------                             *
-	*  This program is free software; you can redistribute it and/or modify it *
-	*  under the terms of the GNU General Public License as published by the   *
-	*  Free Software Foundation; either version 2 of the License, or (at your  *
-	*  option) any later version.                                              *
-	\**************************************************************************/
+/**
+ * EGroupware SiteMgr CMS - Site templates aka themes
+ *
+ * @link http://www.egroupware.org
+ * @package sitemgr
+ * @author Ralf Becker <RalfBecker-AT-outdoor-training.de>
+ * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
+ * @copyright Ralf Becker <RalfBecker-AT-outdoor-training.de>
+ * @version $Id$
+ */
 
-	/* $Id$ */
-
-	class Theme_BO
+/**
+ * Site templates aka themes
+ */
+class Theme_BO
+{
+	/**
+	 * List installed templates
+	 *
+	 * @return array name => template-infos from getTemplateInfos
+	 */
+	function getAvailableThemes()
 	{
-		function getAvailableThemes()
-		{
-			$templates_dir = $GLOBALS['Common_BO']->sites->current_site['site_dir'] . SEP . 'templates' . SEP;
-			$result_array=array();
+		$templates_dir = $GLOBALS['Common_BO']->sites->current_site['site_dir'] . SEP . 'templates' . SEP;
+		$result_array=array();
 
-			if ($handle = @opendir($templates_dir))
+		if ($handle = opendir($templates_dir))
+		{
+			while ($file = readdir($handle))
 			{
-				while ($file = readdir($handle))
+				if (is_dir($templates_dir . $file) && $file != '..' && $file != '.' && $file != 'CVS' && $file != '.svn')
 				{
-					if (is_dir($templates_dir . $file) && $file != '..' && $file != '.' && $file != 'CVS' && $file != '.svn')
+					if ($info = $this->getThemeInfos($file))
 					{
-						if ($info = $this->getThemeInfos($file))
-						{
-							$result_array[$file] = $info;
-						}
+						$result_array[$file] = $info;
 					}
 				}
-				closedir($handle);
-
-				uksort($result_array,'strcasecmp');
 			}
-			//echo "<p>Theme_BO::getAvailableThemes('$templates_dir')=".print_r(array_keys($result_array),true)."</p>";
-			return $result_array ? $result_array : array(array('value'=>'','display'=>lang('No templates found.')));
+			closedir($handle);
+
+			uksort($result_array,'strcasecmp');
 		}
+		//echo "<p>Theme_BO::getAvailableThemes('$templates_dir')=".print_r(array_keys($result_array),true)."</p>";
+		return $result_array ? $result_array : array(array('value'=>'','display'=>lang('No templates found.')));
+	}
 
-		function getThemeInfos($theme)
+	/**
+	 * Get information ab a template
+	 *
+	 * @param string $theme template name
+	 * @return array
+	 */
+	function getThemeInfos($theme)
+	{
+		static $info;	// some caching in the request
+
+		if (is_array($info) && $info['value'] === $theme)
 		{
-			//echo "<p>Theme_BO::getThemeInfos('$theme')</p>";
-			$templates_dir = $GLOBALS['Common_BO']->sites->current_site['site_dir'] . SEP . 'templates' . SEP;
-			$info = False;
-			if (!is_dir($dir = $templates_dir . $theme))
-			{
-				return False;
-			}
-			if (file_exists($dir . SEP . 'main.tpl'))
-			{
-				$info = array(
-					'value' => $theme,
-					'type'  => 'SiteMgr',
-				);
-			}
-			elseif (file_exists($dir . SEP . 'index.php'))
-			{
-				$info = array(
-					'value'=> $theme,
-					'type'  => 'Mambo',
-				);
-			}
-			if ($info)
-			{
-				if (file_exists($xml_details = $dir . SEP . 'templateDetails.xml'))
-				{
-					//if (ereg('<description>(.*)</description>',$info['xml']=implode("\n",file($xml_details)),$parts))
-					if (preg_match_all('/<(description|author|authorEmail|authorUrl|copyright|version|name|creationDate)>([^>]+)</',implode("\n",file($xml_details)),$matches))
-					{
-						foreach($matches[1] as $n => $name)
-						{
-							$info[$name] = $matches[2][$n];
-						}
-						$info['title'] = $info['description'];
-						if ($info['authorUrl'] && substr($info['authorUrl'],0,4) != 'http')
-						{
-							$info['authorUrl'] = 'http://'.$info['authorUrl'];
-						}
-					}
-				}
-				if (file_exists($dir . SEP . 'template_thumbnail.png'))
-				{
-					$info['thumbnail'] = $GLOBALS['Common_BO']->sites->current_site['site_url']."templates/$theme/template_thumbnail.png";
-				}
-				if (!isset($info['name']) || !$info['name'])
-				{
-					$info['name'] = $info['value'];
-				}
-				// "create" some nicer names
-				$info['name'] = ucwords(str_replace('_',' ',$info['name']));
-				$info['display'] = $info['name'] . " ($info[type])";
-			}
 			return $info;
 		}
+		//echo "<p>Theme_BO::getThemeInfos('$theme')</p>";
+		if ($theme[0] == '/')
+		{
+			$dir = $GLOBALS['egw_info']['server']['files_dir'];
+		}
+		else
+		{
+			$dir = $GLOBALS['Common_BO']->sites->current_site['site_dir'] . SEP . 'templates' . SEP;
+		}
+		if (!is_dir($dir .= $theme))
+		{
+			return False;
+		}
+		$info = array(
+			'value' => $theme,
+			'directory' => $dir,
+			'version' => '',
+			'author' => '',
+			'creationDate' => '',
+			'authorUrl' => '',
+			'authorUrl2' => '',
+			'copyright' => '',
+			'license' => '',
+		);
+		if (file_exists($dir . SEP . 'main.tpl'))
+		{
+			$info['type'] = 'SiteMgr';
+		}
+		elseif (file_exists($dir . SEP . 'index.php') && file_exists($xml_details = $dir . SEP . 'templateDetails.xml'))
+		{
+			$info['type'] = 'Mambo';
+		}
+		else
+		{
+			$info = false;
+		}
+		if ($info)
+		{
+			if (file_exists($xml_details) && ($details = simplexml_load_file($xml_details)))
+			{
+				foreach($details->attributes() as $name => $value)
+				{
+					if ($name == 'type' && $value != 'template') return false;
+					if ($name == 'version')
+					{
+						$info['joomla-version'] = (string)$value;
+						$info['type'] = 'Joomla '.$value;
+					}
+				}
+				foreach($details as $name => $value)
+				{
+					if(!$value->children())
+					{
+						if ($name == 'description') $name = 'title';
+						$info[$name] = (string)$value;
+						if ($name == 'authorUrl')
+						{
+							if (substr($info['authorUrl'],0,4) != 'http')
+							{
+								$info['authorUrl'] = 'http://'.$info['authorUrl'];
+							}
+							static $replace = array(
+								'http://www.joomlart.com' => 'http://www.joomlart.com/affiliate/idevaffiliate.php?id=1520'
+							);
+							$info['authorUrl2'] = strtr($info['authorUrl'],$replace);
+							$info['authorUrl'] = parse_url($info['authorUrl'],PHP_URL_HOST);
+						}
+					}
+					elseif($name == 'params')
+					{
+						//_debug_array($value);
+						$info['params'] = array();
+						foreach($value as $param)
+						{
+							$arr = array();
+							foreach($param->attributes() as $name => $val)
+							{
+								$arr[$name] = (string)$val;
+							}
+							foreach($param as $name => $val)
+							{
+								$val = (array)$val;
+								if ($name == 'option') $arr[$name][(string)$val['@attributes']['value']] = (string)$val[0];
+							}
+							$info['params'][] = $arr;
+						}
+					}
+				}
+			}
+			foreach(array('copyright','license','author','version') as $name)
+			{
+				$info[$name.'_style'] = empty($info[$name]) ? ' style="display: none"' : '';
+			}
+			if (file_exists($dir . SEP . 'template_thumbnail.png'))
+			{
+				$info['thumbnail'] = $GLOBALS['Common_BO']->sites->current_site['site_url']."templates/$theme/template_thumbnail.png";
+			}
+			if (!isset($info['name']) || !$info['name'])
+			{
+				$info['name'] = $info['value'];
+			}
+			// "create" some nicer names
+			$info['name'] = ucwords(str_replace('_',' ',$info['name']));
+			$info['display'] = $info['name'] . " ($info[type])";
+		}
+		return $info;
 	}
-?>
+}

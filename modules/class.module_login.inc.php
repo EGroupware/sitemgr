@@ -141,9 +141,9 @@ class module_login extends Module
 				$content .= '</font></center></form>';
 			}
 			else {
-				$content .= '<center><font class="content">'. lang("Your connection is not safe.") .'<br>  ';
+				$content .= '<center><font class="content">'. lang("Your connection is not secure.") .'<br>  ';
 				$content .= '<a href="'.$arguments['security_redirect'].'">';
-				$content .= lang('Click here to login through a safe connection.') . '</a></font></center><br><br>';
+				$content .= lang('Click here to login through a secure connection.') . '</a></font></center><br><br>';
 			}
 			if (file_exists(EGW_SERVER_ROOT . '/registration') && $arguments['registration'])
 			{
@@ -155,7 +155,7 @@ class module_login extends Module
 		else
 		{
 			$content  = '<form name="login" action="'.phpgw_link('/logout.php').'" method="post">';
-			$content .= '<font class="content">'. lang('Loged in as:') .'<br>';
+			$content .= '<font class="content">'. lang('Logged in as:') .'<br>';
 			$content .= ' ['.$GLOBALS['egw_info']['user']['userid']. '] '. $GLOBALS['egw_info']['user']['fullname'];
 			$content .= '</font><br><br><center>';
 			$content .= '<input type="submit" value="' . lang('Logout') .'" name="submitit">';
