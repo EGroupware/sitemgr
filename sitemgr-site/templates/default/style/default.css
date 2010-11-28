@@ -1,3 +1,15 @@
+/**
+ * EGroupware SiteMgr CMS - Style sheet for edit mode
+ *
+ * @link http://www.egroupware.org
+ * @package sitemgr
+ * @subpackage sitemgr-site
+ * @author Ralf Becker <RalfBecker-AT-outdoor-training.de>
+ * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
+ * @copyright Ralf Becker <RalfBecker-AT-outdoor-training.de>
+ * @version $Id$
+ */
+
 /*--------------------------------*/
 /*| styles for navigation module |*/
 /*--------------------------------*/
@@ -27,8 +39,6 @@
 #navigation-index .depth-3 { margin-left: 35px; }
 #navigation-index .depth-4 { margin-left: 50px; }
 #navigation-index .depth-5 { margin-left: 65px; }
-#navigation-index li { list-style-image:url("../../../images/pix.gif"); }
-#navigation-index li:before { content: "\B7" " ";}
 
 /*#navigation-index_block .depth-1 li { list-style-type: none; }
 This code would produce 100% complability with old module, but looks ugly in case of cat collaps*/
@@ -41,14 +51,12 @@ This code would produce 100% complability with old module, but looks ugly in cas
 #navigation-index_block .nav-cat-entry.depth-3 a:after { content: ' ...'; }
 #navigation-index_block .nav-cat-entry.depth-4 a:after { content: ' ...'; }
 
-#navigation-toc .nav-cat-entry ul, li { padding-left: 0px; }
+#navigation-toc .nav-cat-entry ul, li { padding-left: 15px; }
 #navigation-toc .nav-page-entry ul, li { padding-left: 0px; }
 #navigation-toc .depth-2 { margin-left: 15px; }
 #navigation-toc .depth-3 { margin-left: 30px; }
 #navigation-toc .depth-4 { margin-left: 45px; }
 #navigation-toc .depth-5 { margin-left: 60px; }
-#navigation-toc li { list-style-image:url("../../../images/pix.gif"); }
-#navigation-toc li:before { content: "\B7" " ";}
 
 #navigation-toc_block .nav-cat-entry ul, li { padding-left: 0px; }
 #navigation-toc_block .nav-page-entry ul, li { padding-left: 0px; }
@@ -56,8 +64,6 @@ This code would produce 100% complability with old module, but looks ugly in cas
 #navigation-toc_block .depth-3 { margin-left: 30px; }
 #navigation-toc_block .depth-4 { margin-left: 45px; }
 #navigation-toc_block .depth-5 { margin-left: 60px; }
-#navigation-toc_block li { list-style-image:url("../../../images/pix.gif"); }
-#navigation-toc_block li:before { content: "\B7" " ";}
 
 #navigation-path .nav-cat-entry ul, li { padding-left: 0px; }
 #navigation-path .nav-page-entry ul, li { padding-left: 0px; }
@@ -142,3 +148,13 @@ This code would produce 100% complability with old module, but looks ugly in cas
 	background-color: #ffffff; 
 }
 
+/**
+ * Joomla 1.5 template support
+ */
+/* Joomla modules get wrapped by that table, some SiteMgr Modules scale to parent width */
+table.moduletable {
+	width: 100%;
+}
+/* pathway per direct module include should behave inline */
+#pathway div, #pathway ul, #ja-pathway div, #ja-pathway ul { display: inline; }
+#pathway li, #ja-pathway li { float: none ! important; display: inline; }
