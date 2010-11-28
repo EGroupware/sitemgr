@@ -23,7 +23,7 @@
 	// Security precaution: don't let anyone call xxx.inc.php files or
 		// construct URLs with relative paths (ie, /dir1/../dir2/)
 	// also deny direct access to blocks.
-		if (preg_match('/'."\.inc\.php".'/i',$_SERVER['PHP_SELF']) || preg_match('/'."block-.*\.php".'/i',$_SERVER['PHP_SELF']) || preg_match('/'."\.\.".'/',$_SERVER['PHP_SELF'])) 
+		if (preg_match('/\.inc\.php/i',$_SERVER['PHP_SELF']) || preg_match('/block-.*\.php/i',$_SERVER['PHP_SELF']) || preg_match('/\.\./',$_SERVER['PHP_SELF'])) 
 	{
 		die("Invalid URL");
 	}

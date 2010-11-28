@@ -267,6 +267,7 @@
 				));
 				$this->showblock($block,True,True,True);
 				$GLOBALS['egw']->common->egw_header();
+				$this->t->unknowns='keep';
 				$this->t->pfp('out','Block');
 				$GLOBALS['egw']->common->egw_exit();
 				return;
