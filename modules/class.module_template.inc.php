@@ -62,8 +62,7 @@
 			{
 				$zip = @$arguments['zip'] ? $arguments['zip'] : 'zip';
 				ob_end_clean();	// discard all previous output
-				$browser =& CreateObject('phpgwapi.browser');
-				$browser->content_header($download.'.zip','application/zip');
+				html::content_header($download.'.zip','application/zip');
 				passthru('cd '.$GLOBALS['sitemgr_info']['site_dir'].'/templates; '.$zip.' -qr - '.$download);
 				exit;
 			}
@@ -103,13 +102,12 @@
 				}
 				if ($show & 2)	// gallery
 				{
-					$t =& CreateObject('phpgwapi.Template',$GLOBALS['egw']->common->get_tpl_dir('sitemgr'));
+					$t = new Template($GLOBALS['egw']->common->get_tpl_dir('sitemgr'),'remove');
 					$t->set_file('theme_info','theme_info.tpl');
 					$t->set_block('theme_info','info_block');
 					$content .= '<table>'."\n";
 					foreach ($this->themes as $name => $info)
 					{
-//if ($name == 'realss' || $name == 'peeklime') echo "$name=<pre>".print_r($info,true)."</pre>\n";
 						if ($arguments['only_allowed'] && !in_array($name,$arguments['allowed']))
 						{
 							continue;
@@ -127,14 +125,15 @@
 
 						if ($show & 4)	// download
 						{
-							$info['copyright'] .= '<p style="font-size: 10pt;"><a href="'.
+							$info['license'] .= "</p>\n".'<p><a href="'.
 								sitemgr_link(array('download'=>$name)+$_GET).'">'.'<img src="images/zip.gif" border="0" /> '.
-								lang('download as ZIP-archiv').'</a></p>'."\n";
+								lang('download as ZIP-archiv').'</a>';
 						}
 						$t->set_var($info);
 						$t->set_var(array(
 							'lang_author' => lang('Author'),
 							'lang_copyright' => lang('Copyright'),
+							'lang_license' => lang('License'),
 						));
 						$content .= $t->parse('out','info_block');
 					}

@@ -23,10 +23,6 @@ include('../header.inc.php');
 $GLOBALS['Common_BO'] = CreateObject('sitemgr.Common_BO');
 $GLOBALS['Common_BO']->sites->set_currentsite(False,'Administration');
 
-$replace = array(
-	'http://www.joomlart.com' => 'http://www.joomlart.com/affiliate/idevaffiliate.php?id=1520'
-);
-
 $GLOBALS['egw']->template->set_file('theme_info','theme_info.tpl');
 if ($_GET['theme'] && ($info = $GLOBALS['Common_BO']->theme->getThemeInfos($_GET['theme'])))
 {
@@ -36,7 +32,6 @@ if ($_GET['theme'] && ($info = $GLOBALS['Common_BO']->theme->getThemeInfos($_GET
 		'lang_author' => lang('Author'),
 		'lang_copyright' => lang('Copyright'),
 		'lang_license' => lang('License'),
-		'authorUrl2' => strtr($info['authorUrl'], $replace),
 	));
 }
 $GLOBALS['egw']->template->pfp('out','theme_info');

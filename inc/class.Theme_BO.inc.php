@@ -75,6 +75,13 @@ class Theme_BO
 		$info = array(
 			'value' => $theme,
 			'directory' => $dir,
+			'version' => '',
+			'author' => '',
+			'creationDate' => '',
+			'authorUrl' => '',
+			'authorUrl2' => '',
+			'copyright' => '',
+			'license' => '',
 		);
 		if (file_exists($dir . SEP . 'main.tpl'))
 		{
@@ -107,9 +114,17 @@ class Theme_BO
 					{
 						if ($name == 'description') $name = 'title';
 						$info[$name] = (string)$value;
-						if ($name == 'authorUrl' && substr($info['authorUrl'],0,4) != 'http')
+						if ($name == 'authorUrl')
 						{
-							$info['authorUrl'] = 'http://'.$info['authorUrl'];
+							if (substr($info['authorUrl'],0,4) != 'http')
+							{
+								$info['authorUrl'] = 'http://'.$info['authorUrl'];
+							}
+							static $replace = array(
+								'http://www.joomlart.com' => 'http://www.joomlart.com/affiliate/idevaffiliate.php?id=1520'
+							);
+							$info['authorUrl2'] = strtr($info['authorUrl'],$replace);
+							$info['authorUrl'] = parse_url($info['authorUrl'],PHP_URL_HOST);
 						}
 					}
 					elseif($name == 'params')
@@ -132,6 +147,10 @@ class Theme_BO
 						}
 					}
 				}
+			}
+			foreach(array('copyright','license','author','version') as $name)
+			{
+				$info[$name.'_style'] = empty($info[$name]) ? ' style="display: none"' : '';
 			}
 			if (file_exists($dir . SEP . 'template_thumbnail.png'))
 			{
