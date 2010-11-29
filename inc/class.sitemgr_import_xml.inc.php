@@ -87,6 +87,18 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 		}
 		$data = array();
 		if($_FILES['exec']) {
+			if(self::$debug) {
+				echo '<style type = "text/css">
+					.site, .category, .block, .page, .node {
+						border: 1px solid black;
+						margin: 1ex;
+						padding: 1ex;
+					}
+					.node {
+						display: none;
+					}
+				</style>';
+			}
 			$this->reader->open($_FILES['exec']['tmp_name']['file']);
 			$this->import_record();
 			$data['message'] = lang('Imported') . "\n".implode("\n", $this->errors);
@@ -315,6 +327,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 			$result = $this->common->cats->addCategory($name, $description, $parent_id);
 			if($result) {
 				$this->cat_id[] = $result;
+				if(self::$debug) echo "cat_id: $result<br />";
 			} else {
 				die('Bad cat');
 			}
@@ -463,10 +476,12 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 		}
 
 		// Content areas
-		while($this->reader->read()) {
-			if(in_array($this->reader->name, array('block', 'contents')) && $this->reader->nodeType == XMLReader::END_ELEMENT) break;
-			if($this->reader->name == 'content') {
-				$this->import_content($this->reader->getAttribute('lang'));
+		if($this->reader->name != 'block' && $this->reader->nodeType != XMLReader::END_ELEMENT) {
+			while($this->reader->read()) {
+				if(in_array($this->reader->name, array('block', 'contents')) && $this->reader->nodeType == XMLReader::END_ELEMENT) break;
+				if($this->reader->name == 'content') {
+					$this->import_content($this->reader->getAttribute('lang'));
+				}
 			}
 		}
 
@@ -517,13 +532,18 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 
 	protected function import_page() {
 		if(self::$debug >= 1) {
-			echo '<div class="page">Import page ---<br />';
+			echo '<div class="page">Import page ';
 		}
 		$page = array();
 		$lang_array = array();
 		$current_tag = null;
 		$dest = null;
 		$this->read_node(array('page', 'blocks', 'categories'), $page, $lang_array);
+
+		if(self::$debug >= 1) {
+			echo $page['name'] . ' ---<br />';
+		}
+
 		if(count($page) > 0) {
 			$result = $this->common->pages->addPage(end($this->cat_id));
 			if(!$result) {
