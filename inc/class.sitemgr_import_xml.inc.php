@@ -514,7 +514,12 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 					if($unserialized !== false) {
 						$value = $unserialized;
 					}
+					// import unserialized html blocks (as we do in the database), to allow eg. manual editing
+					elseif($block_obj->module_name == 'html' && $key == 'arguments')
+					{
+						$value = array('htmlcontent' => $value);
 				}
+			}
 			}
 			$versions[$version_id] = $content['arguments'];//array_merge($versions[$version_id], $content);
 			unset($versions[$version_id]['id']);

@@ -324,7 +324,15 @@ class sitemgr_export_xml implements importexport_iface_export_plugin {
 
 		if($arguments) {
 			xmlwriter_start_element($this->writer, 'arguments');
+			// export html blocks without serializing (as we do in the database), to allow eg. manual editing
+			if (count($arguments) == 1 && isset($arguments['htmlcontent']))
+			{
+				xmlwriter_write_cdata($this->writer, $arguments['htmlcontent']);
+			}
+			else
+			{
 			xmlwriter_write_cdata($this->writer, serialize($arguments));
+			}
 			xmlwriter_end_element($this->writer);
 		}
 		xmlwriter_end_element($this->writer);
