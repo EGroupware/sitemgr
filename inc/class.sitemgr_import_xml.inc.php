@@ -476,7 +476,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 		}
 
 		// Content areas
-		if($this->reader->name != 'block' && $this->reader->nodeType != XMLReader::END_ELEMENT) {
+		if(!(in_array($this->reader->name, array('block', 'blocks', 'contents')) && $this->reader->nodeType == XMLReader::END_ELEMENT)) {
 			while($this->reader->read()) {
 				if(in_array($this->reader->name, array('block', 'contents')) && $this->reader->nodeType == XMLReader::END_ELEMENT) break;
 				if($this->reader->name == 'content') {
