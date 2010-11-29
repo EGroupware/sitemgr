@@ -87,18 +87,6 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 		}
 		$data = array();
 		if($_FILES['exec']) {
-			if(self::$debug) {
-				echo '<style type = "text/css">
-					.site, .category, .block, .page, .node {
-						border: 1px solid black;
-						margin: 1ex;
-						padding: 1ex;
-					}
-					.node {
-						display: none;
-					}
-				</style>';
-			}
 			$this->reader->open($_FILES['exec']['tmp_name']['file']);
 			$this->import_record();
 			$data['message'] = lang('Imported') . "\n".implode("\n", $this->errors);
@@ -211,6 +199,18 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 	 */
 	public function import_record(array $admins=null,array $cat_acl=null,$ignore_acl=false)
 	{
+		if(self::$debug) {
+			echo '<style type = "text/css">
+				.site, .category, .block, .page, .node {
+					border: 1px solid black;
+					margin: 1ex;
+					padding: 1ex;
+				}
+				.node {
+					display: none;
+				}
+			</style>';
+		}
 		if (is_null($admins)) $admins = array($GLOBALS['egw_info']['user']['account_id']);
 		while ($this->reader->read()) {
 			if($this->reader->nodeType == XMLReader::ELEMENT) {
@@ -338,7 +338,6 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 				$this->common->acl->grant_permissions($user, end($this->cat_id),
 					$rights & EGW_ACL_READ, $rights & EGW_ACL_ADD);
 			}
-			$this->common->acl->acl->read_repository();
 
 			foreach($lang_array as $lang => $data) {
 				$this->common->cats->saveCategoryInfo(
@@ -476,12 +475,9 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 		}
 
 		// Content areas
-		if(!(in_array($this->reader->name, array('block', 'blocks', 'contents')) && $this->reader->nodeType == XMLReader::END_ELEMENT)) {
-			while($this->reader->read()) {
-				if(in_array($this->reader->name, array('block', 'contents')) && $this->reader->nodeType == XMLReader::END_ELEMENT) break;
-				if($this->reader->name == 'content') {
-					$this->import_content($this->reader->getAttribute('lang'));
-				}
+		while(!(in_array($this->reader->name, array('block', 'blocks', 'contents')) && $this->reader->nodeType == XMLReader::END_ELEMENT) && $this->reader->read()) {
+			if($this->reader->name == 'content') {
+				$this->import_content($this->reader->getAttribute('lang'));
 			}
 		}
 
@@ -557,7 +553,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 			} else {
 				$this->page_id[] = $result;
 			}
-			$page_obj = $this->common->pages->getPage($result);
+			$page_obj = $this->common->pages->getPage($result, False, true);
 			foreach($page as $key => $value) {
 				if(property_exists($page_obj, $key)) {
 					$page_obj->$key = $value;
