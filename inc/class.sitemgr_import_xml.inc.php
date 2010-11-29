@@ -199,6 +199,18 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 	 */
 	public function import_record(array $admins=null,array $cat_acl=null,$ignore_acl=false)
 	{
+		if(self::$debug) {
+			echo '<style type = "text/css">
+				.site, .category, .block, .page, .node {
+					border: 1px solid black;
+					margin: 1ex;
+					padding: 1ex;
+				}
+				.node {
+					display: none;
+				}
+			</style>';
+		}
 		if (is_null($admins)) $admins = array($GLOBALS['egw_info']['user']['account_id']);
 		while ($this->reader->read()) {
 			if($this->reader->nodeType == XMLReader::ELEMENT) {
@@ -315,6 +327,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 			$result = $this->common->cats->addCategory($name, $description, $parent_id);
 			if($result) {
 				$this->cat_id[] = $result;
+				if(self::$debug) echo "cat_id: $result<br />";
 			} else {
 				die('Bad cat');
 			}
@@ -325,7 +338,6 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 				$this->common->acl->grant_permissions($user, end($this->cat_id),
 					$rights & EGW_ACL_READ, $rights & EGW_ACL_ADD);
 			}
-			$this->common->acl->acl->read_repository();
 
 			foreach($lang_array as $lang => $data) {
 				$this->common->cats->saveCategoryInfo(
@@ -463,8 +475,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 		}
 
 		// Content areas
-		while($this->reader->read()) {
-			if(in_array($this->reader->name, array('block', 'contents')) && $this->reader->nodeType == XMLReader::END_ELEMENT) break;
+		while(!(in_array($this->reader->name, array('block', 'blocks', 'contents')) && $this->reader->nodeType == XMLReader::END_ELEMENT) && $this->reader->read()) {
 			if($this->reader->name == 'content') {
 				$this->import_content($this->reader->getAttribute('lang'));
 			}
@@ -499,7 +510,12 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 					if($unserialized !== false) {
 						$value = $unserialized;
 					}
+					// import unserialized html blocks (as we do in the database), to allow eg. manual editing
+					elseif($block_obj->module_name == 'html' && $key == 'arguments')
+					{
+						$value = array('htmlcontent' => $value);
 				}
+			}
 			}
 			$versions[$version_id] = $content['arguments'];//array_merge($versions[$version_id], $content);
 			unset($versions[$version_id]['id']);
@@ -517,13 +533,18 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 
 	protected function import_page() {
 		if(self::$debug >= 1) {
-			echo '<div class="page">Import page ---<br />';
+			echo '<div class="page">Import page ';
 		}
 		$page = array();
 		$lang_array = array();
 		$current_tag = null;
 		$dest = null;
 		$this->read_node(array('page', 'blocks', 'categories'), $page, $lang_array);
+
+		if(self::$debug >= 1) {
+			echo $page['name'] . ' ---<br />';
+		}
+
 		if(count($page) > 0) {
 			$result = $this->common->pages->addPage(end($this->cat_id));
 			if(!$result) {
@@ -532,7 +553,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 			} else {
 				$this->page_id[] = $result;
 			}
-			$page_obj = $this->common->pages->getPage($result);
+			$page_obj = $this->common->pages->getPage($result, False, true);
 			foreach($page as $key => $value) {
 				if(property_exists($page_obj, $key)) {
 					$page_obj->$key = $value;

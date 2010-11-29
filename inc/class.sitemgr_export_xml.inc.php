@@ -286,6 +286,8 @@ class sitemgr_export_xml implements importexport_iface_export_plugin {
 		}
 		xmlwriter_write_element($this->writer, 'sort_order', $block->sort_order);
 		xmlwriter_write_element($this->writer, 'view', $block->view);
+
+		// Titles
 		foreach($langs as $lang) {
 			$block = $this->common->content->getblock($block->id, $lang);
 			$title = $this->common->content->getlangblocktitle($block->id, $lang);
@@ -293,14 +295,17 @@ class sitemgr_export_xml implements importexport_iface_export_plugin {
 			xmlwriter_write_attribute($this->writer, 'lang', $lang);
 			xmlwriter_text($this->writer, $title);
 			xmlwriter_end_element($this->writer);
+		}
 
+		// Contents
+		xmlwriter_start_element($this->writer, 'contents');
+		foreach($langs as $lang) {
 			$contents = $this->common->content->getallversionsforblock($block->id, $lang);
-			xmlwriter_start_element($this->writer, 'contents');
 			foreach($contents as $content) {
 				$this->export_content($block->id, $content, $lang);
 			}
-			xmlwriter_end_element($this->writer); // End content
 		}
+		xmlwriter_end_element($this->writer); // End content
 		xmlwriter_end_element($this->writer); // End block
 	}
 
@@ -324,7 +329,15 @@ class sitemgr_export_xml implements importexport_iface_export_plugin {
 
 		if($arguments) {
 			xmlwriter_start_element($this->writer, 'arguments');
+			// export html blocks without serializing (as we do in the database), to allow eg. manual editing
+			if (count($arguments) == 1 && isset($arguments['htmlcontent']))
+			{
+				xmlwriter_write_cdata($this->writer, $arguments['htmlcontent']);
+			}
+			else
+			{
 			xmlwriter_write_cdata($this->writer, serialize($arguments));
+			}
 			xmlwriter_end_element($this->writer);
 		}
 		xmlwriter_end_element($this->writer);
