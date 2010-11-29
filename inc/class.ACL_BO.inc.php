@@ -35,6 +35,11 @@ class ACL_BO
 	protected  $ignore_acl=false;
 
 	/**
+	 * Local cache of category ACLs
+	 */
+	protected static $cat_cache = array();
+
+	/**
 	 * Constructor
 	 *
 	 * @param boolean $ignore_acl=false true: calls to is_admin() always return true
@@ -110,6 +115,9 @@ class ACL_BO
 			$rights = ($rights | EGW_ACL_ADD);
 		}
 
+		// Update cat cache
+		self::$cat_cache[$category_id] = $rights;
+
 		if ($rights == 0)
 		{
 			return $this->acl->delete_repository('sitemgr','L'.$category_id,$user);
@@ -151,19 +159,17 @@ class ACL_BO
 	 */
 	function category_acl($category_id)
 	{
-		static $cache;
-
-		if (isset($cache[$category_id])) return $cache[$category_id];
+		if (isset(self::$cat_cache[$category_id])) return self::$cat_cache[$category_id];
 
 		if ($category_id == CURRENT_SITE_ID)
 		{
-			$cache[$category_id] = $this->is_admin() ? EGW_ACL_READ | EGW_ACL_ADD : 0;
+			self::$cat_cache[$category_id] = $this->is_admin() ? EGW_ACL_READ | EGW_ACL_ADD : 0;
 		}
 		else
 		{
-			$cache[$category_id] = $this->acl->get_rights('L'.$category_id,'sitemgr');
+			self::$cat_cache[$category_id] = $this->acl->get_rights('L'.$category_id,'sitemgr');
 		}
-		return $cache[$category_id];
+		return self::$cat_cache[$category_id];
 	}
 
 	/**
