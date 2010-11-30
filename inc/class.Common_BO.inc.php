@@ -153,6 +153,19 @@ div#ja-header h1 a img, div#header h1 a img, div#header h1 img {
 		}
 		if ($return_parsed)
 		{
+			if (empty($logo_url))	// if no logo specified use EGroupware logo
+			{
+				if (substr($GLOBALS['egw_info']['server']['login_logo_file'],0,4) == 'http' ||
+					$GLOBALS['egw_info']['server']['login_logo_file'][0] == '/')
+				{
+					$logo_url = $GLOBALS['egw_info']['server']['login_logo_file'];
+				}
+				else
+				{
+					$logo_url = common::image('phpgwapi',$GLOBALS['egw_info']['server']['login_logo_file'] ?
+						$GLOBALS['egw_info']['server']['login_logo_file'] : 'logo');
+				}
+			}
 			$custom_css = str_replace('$$logo_url$$',$logo_url,$custom_css);
 		}
 		return $custom_css;
