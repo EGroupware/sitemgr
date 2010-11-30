@@ -286,9 +286,9 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 			$this->common->acl->__construct(true);
 		}
 		// Site is a special category
-		$site += $this->import_children('site',$cat_acl,array('home_page'));
+		$this->import_children('site',$cat_acl);
 
-		// Set home page
+		// Set home page, after all pages are stored
 		if ($site['home_page'])
 		{
 			$this->common->sites->saveHomePage($this->site_id,$site['home_page']);
@@ -354,10 +354,10 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 		$this->common->cats->setcurrentcats();
 
 		if(!($this->reader->name == 'category' && $this->reader->nodeType == XMLReader::END_ELEMENT)) {
-			$category += $this->import_children('category',$cat_acl,array('index_page'));
+			$this->import_children('category',$cat_acl);
 		}
 
-		// setting an index page
+		// set index page, after all pages are stored
 		if ($category['index_page'])
 		{
 			$this->common->cats->saveCategoryIndex(end($this->cat_id),$category['index_page']);
@@ -374,10 +374,8 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 	 *
 	 * @param string $tag tag-name
 	 * @param array $cat_acl=null array of user => EGW_ACL_READ|EGW_ACL_ADD, default current user
-	 * @param array $read_extra read named extra elements / tags on same level
-	 * @return array with extra elements on the same level (NOT children)
 	 */
-	protected function import_children($tag,array $cat_acl=null,array $read_extra=array())
+	protected function import_children($tag,array $cat_acl=null)
 	{
 		if(!$tag) {
 			$tag = $this->reader->name;
@@ -408,10 +406,6 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 					default:
 						// categories, blocks, pages
 						if(self::$debug > 1) echo $this->reader->name . '-moving on...<br />';
-						if ($this->reader->depth == $current_depth && $read_extra && in_array($this->reader->name,$read_extra))
-						{
-							$extra_elements[$this->reader->name] = $this->reader->readString();
-						}
 						break;
 				}
 			} else if($this->reader->nodeType == XMLReader::END_ELEMENT) {
@@ -427,7 +421,6 @@ class sitemgr_import_xml implements importexport_iface_import_plugin {
 		if(self::$debug >= 1) {
 			echo 'Done with children of ' . $tag . ' ---<br /></div>';
 		}
-		return $extra_elements;
 	}
 
 	protected function import_block() {
