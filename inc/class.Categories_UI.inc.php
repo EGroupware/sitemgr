@@ -100,6 +100,14 @@ class Categories_UI
 			}
 		}
 
+		if(!$savelanguage && in_array($GLOBALS['egw_info']['user']['preferences']['common']['lang'], $this->sitelanguages))
+		{
+			$savelanguage = $GLOBALS['egw_info']['user']['preferences']['common']['lang'];
+		}
+		else
+		{
+			$savelanguage = $savelanguage ? $savelanguage : $this->sitelanguages[0];
+		}
 		if ($cat_id)
 		{
 			//we use force here since we might edit an archive category
@@ -112,17 +120,12 @@ class Categories_UI
 
 		if (count($this->sitelanguages) > 1)
 		{
-			$select = lang('as') . ' <select name="savelanguage">';
+			$langs = array();
 			foreach ($this->sitelanguages as $lang)
 			{
-				$selected= '';
-				if ($lang == $savelanguage)
-				{
-					$selected = 'selected="selected" ';
-				}
-				$select .= '<option ' . $selected .'value="' . $lang . '">'. $GLOBALS['Common_BO']->getlangname($lang) . '</option>';
+				$langs[$lang] = $GLOBALS['Common_BO']->getlangname($lang);
 			}
-			$select .= '</select> ';
+			$select = html::select('savelanguage',$savelanguage,$langs,false,' onchange="this.form.submit()"');
 			$this->t->set_var('savelang',$select);
 		}
 		$indexpageselect = '';

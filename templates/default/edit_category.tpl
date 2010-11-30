@@ -85,12 +85,14 @@
 		</td>
 	</tr>
 	<tr>
-		<td colspan="2" align="center">
-			<input type="submit" name="btnSave" value="{lang_save}" /> {savelang}
-			<input type="submit" name="btnApply" value="{lang_apply}" /> &nbsp;
-			<input type="submit" name="btnReload" value="{lang_reload}" /> &nbsp;
-			<input type="submit" name="btnDelete" value="{lang_delete}" onClick="return confirm('{lang_confirm}');" /> &nbsp;
+		<td align="left">
+			<input type="submit" name="btnSave" value="{lang_save}" />
+			<input type="submit" name="btnApply" value="{lang_apply}" />
 			<input type="reset" value="{lang_cancel}" onClick="self.close();" />
+		</td>
+		<td align="center">{savelang}</td>
+		<td align="right">
+			<input type="submit" name="btnDelete" value="{lang_delete}" onClick="return confirm('{lang_confirm}');" /> &nbsp;
 		</td>
 	</tr>
 </table>
