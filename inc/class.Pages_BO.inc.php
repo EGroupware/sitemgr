@@ -136,6 +136,15 @@
 				return lang("You don't have permission to write to that category.");
 			}
 
+			// Check to see if category changed, move any blocks on the page too
+			if($page_Info->id && $oldpage->cat_id != $page_Info->cat_id) {
+				$blocks = $GLOBALS['Common_BO']->content->getblocksforscope($oldpage->cat_id, $page_Info->id);
+				foreach($blocks as &$block) {
+					$block->cat_id = $page_Info->cat_id;
+					$GLOBALS['Common_BO']->content->so->updatescope($block->id, $block->cat_id, $page_Info->id);
+				}
+			}
+
 			$fixed_name = strtr($page_Info->name, '!@#$%^&*()=+ /?><,.\\\'":;|`~{}[]','                               ');
 			$fixed_name = str_replace(' ', '', $fixed_name);
 			if ($fixed_name != $page_Info->name)
