@@ -2,7 +2,7 @@
 <site>
 	<!--Export of eGroupWare SiteMgr website 'Default Website' on 2010-12-01-->
 	<name>Default Website</name>
-	<url>http://test.local/egroupware/sitemgr/sitemgr-site/</url>
+	<url>/egroupware/sitemgr/sitemgr-site/</url>
 	<directory>/opt/local/apache2/htdocs/egroupware/sitemgr/sitemgr-site</directory>
 	<themesel>ja_purity</themesel>
 	<default_theme>ja_purity</default_theme>
@@ -37,6 +37,23 @@ sloganText=...because open source matters
 theme_background=lighter
 theme_elements=red
 theme_header=green
+[ja_sulfur]
+ja_color=default
+ja_font=3
+ja_menu=css
+ja_menu_effect=1
+logoText=JA Sulfur
+logoType=image
+menutype=mainmenu
+sloganText=1st June 09 JA Template
+usertool_color=4
+[ja_zibal]
+ModuleCollapsible=1
+ja_color=default
+ja_font=3
+ja_menu=2
+ja_screen=wide
+usertool=7
 </params_ini>
 	<name lang="en">Neue SiteMgr Website</name>
 	<description lang="en"></description>
@@ -127,6 +144,10 @@ theme_header=green
 	<span class="Apple-style-span" style="font-size: 14px; font-weight: bold; ">Die Ansicht verf&uuml;gbarer&nbsp;<span class="Apple-style-span" style="white-space: nowrap;">Designvorlagen</span>&nbsp;(Templates)</span></p>
 <h3>
 	<span class="Apple-style-span" style="font-weight: normal; font-size: 12px; ">Der SiteManager erzeugt Webseiten auf der Basis von Templates. Die meisten Templates bieten eine Vielzahl an M&ouml;glichkeiten, Bl&ouml;cke und Links zu anderen Seiten zu erstellen. Die hier gezeigten Beispiele stellen lediglich eine Auswahl dar. Alle verf&uuml;gbaren Templates werden in &quot;Konfiguration - Template ausw&auml;hlen&quot; angezeigt.</span></h3>
+<p>
+	&nbsp;</p>
+<h2>
+	EGroupware News</h2>
 ]]></arguments>
 								</content>
 								<content lang="en">
@@ -137,18 +158,22 @@ theme_header=green
 <p>
 	Most of the templates have much more options to create blocks and links to different places. This content is available for all templates, so there is only a minimum amount of content blocks as example. <span>Preview</span> <span>available</span> <span>templates</span> <span>by</span> selecting templates from the &quot;Choose Template&quot; block.<br />
 	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<h2>
+	EGroupware News</h2>
 ]]></arguments>
 								</content>
 							</contents>
 						</block>
 						<block>
-							<area>left</area>
-							<module>login</module>
-							<arguments><![CDATA[a:3:{s:17:"security_redirect";s:0:"";s:10:"login_dest";s:7:"sitemgr";s:2:"go";s:0:"";}]]></arguments>
-							<sort_order>99</sort_order>
-							<view>3</view>
-							<title lang="de">Login</title>
-							<title lang="en">Login</title>
+							<area>center</area>
+							<module>news_admin</module>
+							<arguments><![CDATA[a:3:{s:4:"show";a:3:{i:0;s:8:"datetime";i:1;s:5:"title";i:2;s:6:"teaser";}s:5:"limit";s:1:"5";s:8:"linkpage";s:0:"";}]]></arguments>
+							<sort_order>3</sort_order>
+							<view>0</view>
+							<title lang="de"></title>
+							<title lang="en">Nachrichten Module</title>
 							<contents>
 								<content lang="de">
 									<state>2</state>
@@ -190,13 +215,6 @@ theme_header=green
 							<title lang="en">Create, add and edit blocks</title>
 							<subtitle lang="en"></subtitle>
 							<blocks>
-								<block>
-									<area>left</area>
-									<module>login</module>
-									<sort_order>0</sort_order>
-									<view>0</view>
-									<contents/>
-								</block>
 								<block>
 									<area>center</area>
 									<module>html</module>
@@ -419,7 +437,7 @@ theme_header=green
 										<content lang="de">
 											<state>2</state>
 											<arguments><![CDATA[<p>
-	Ein sehr wichtiger und wahrscheinlich&nbsp;der am h&auml;ufigsten genutzte Block, um neben Text und Bildern&nbsp;auch Tabellen, Aufz&auml;hlungen oder Numerierungen in eine&nbsp;Webseite einzuf&uuml;gen. Des Weiteren erm&ouml;glicht der HTML-Block das Erstellen&nbsp;von&nbsp;Links (Verkn&uuml;pfungen) zu anderen Webseiten oder Seiten innerhalb des SiteManagers.&nbsp;</p>
+	Der HTML-Block ist&nbsp;sehr wichtiger und wahrscheinlich&nbsp;der am h&auml;ufigsten genutzte Block, um neben Text und Bildern&nbsp;auch Tabellen, Aufz&auml;hlungen oder Numerierungen in eine&nbsp;Webseite einzuf&uuml;gen. Des Weiteren erm&ouml;glicht der HTML-Block das Erstellen&nbsp;von&nbsp;Links (Verkn&uuml;pfungen) zu anderen Webseiten oder Seiten innerhalb des SiteManagers.&nbsp;</p>
 <p>
 	<span class="Apple-style-span" style="font-size: 14px; font-weight: bold; ">Text und Bilder&nbsp;hinzuf&uuml;gen</span></p>
 <p>
@@ -502,7 +520,7 @@ theme_header=green
 										<content lang="en">
 											<state>2</state>
 											<arguments><![CDATA[<p>
-	An important module to add text and images as simply as tables, listings, numerations or links to other pages (in the&nbsp;SiteManager&nbsp;or to other&nbsp;websites).</p>
+	The HTML-block is an important module to add text and images as simply as tables, listings, numerations or links to other pages (in the&nbsp;SiteManager&nbsp;or to other&nbsp;websites).</p>
 <p>
 	<span class="Apple-style-span" style="font-size: 14px; font-weight: bold; ">Add text and images</span></p>
 <p>
@@ -613,7 +631,7 @@ theme_header=green
 	Nutzen Sie die Kalender Bl&ouml;cke, um einen EGroupware Kalender auf der Webseite anzuzeigen. Der Block kann zum Beispiel hilfreich sein, wenn man die Verf&uuml;gbarkeit von Ressourcen&nbsp;oder die Jahresplanung eines Vereins (wie im Bild unten gezeigt)&nbsp;aufzeigen&nbsp;m&ouml;chte.&nbsp;</p>
 <meta content="text/html;charset=UTF-8" http-equiv="Content-Type" />
 <p>
-	<img alt="" src="/uploads/calendar_year.png" style="width: 100%;" /><br />
+	<img alt="" src="http://sitemgr.egroupware.de/uploads/calendar_year.png" style="width: 705px; height: 464px; " /><br />
 	&nbsp;</p>
 ]]></arguments>
 										</content>
@@ -622,7 +640,7 @@ theme_header=green
 											<arguments><![CDATA[<p>
 	Use the <strong>calendar blocks</strong>&nbsp;to display the Calendar of EGroupware&nbsp;on the website. This block is helpful to e.g. show the availability of resources or the yearly planner of a club (image below).</p>
 <p>
-	<img alt="" src="/uploads/calendar_year.png" style="width: 100%;" /><br />
+	<img alt="" src="http://sitemgr.egroupware.de/uploads/calendar_year.png" style="width: 100%; " /><br />
 	&nbsp;</p>
 ]]></arguments>
 										</content>
@@ -776,7 +794,9 @@ theme_header=green
 										<content lang="de">
 											<state>2</state>
 											<arguments><![CDATA[<p>
-	Erstellen von Links zu Dateien und Verzeichnissen, die im EGroupware Dateimanager gespeichert sind. Zur Anzeige eines Verzeichnisses&nbsp;sieht der Pfad folgenderma&szlig;en aus: &quot;/home/meinVerzeichnis/&quot;. Der Webseiten-Leser kann dann im Download-Block zu allen Unterverzeichnissen browsen, wenn dieses in der Konfiguration des Blocks als Option markiert ist. Es ist sicherzustellen, dass&nbsp;der Benutzer &quot;anonymous&quot; &nbsp;Zugriff auf die Anwendung des Dateimanagers&nbsp;und mindestens Leserecht auf die entsprechenden Verzeichnisse&nbsp;hat. F&uuml;r nicht-&ouml;ffentliche Webseiten (z.B. eine Intranet-Seite)&nbsp;ist es nicht notwendig,&nbsp;Berechtigungen f&uuml;r den Benutzer &quot;anonymous&quot; zu vergeben.</p>
+	Erstellen von Links zu Dateien und Verzeichnissen, die im EGroupware Dateimanager gespeichert sind. Zur Anzeige eines Verzeichnisses&nbsp;sieht der Pfad folgenderma&szlig;en aus: &quot;/home/meinVerzeichnis/&quot;. Der Webseiten-Leser kann dann im Download-Block zu allen Unterverzeichnissen browsen, wenn dieses in der Konfiguration des Blocks als Option markiert ist. Es ist sicherzustellen, dass&nbsp;der Benutzer &quot;anonymous&quot; &nbsp;Zugriff auf die Anwendung des Dateimanagers&nbsp;und mindestens Leserecht auf die entsprechenden Verzeichnisse&nbsp;hat. F&uuml;r nicht-&ouml;ffentliche Webseiten (z.B. eine Intranet-Seite)&nbsp;ist es nicht notwendig,&nbsp;Berechtigungen f&uuml;r den Benutzer &quot;anonymous&quot;&nbsp;zu vergeben.</p>
+<p>
+	<a href="http://sitemgr.egroupware.de/?page_name=add_file_manager"><img alt="" src="http://sitemgr.egroupware.de/uploads/downloads.png" style="width: 561px; height: 396px; " /></a></p>
 <meta content="text/html;charset=UTF-8" http-equiv="Content-Type" />
 <p>
 	&nbsp;</p>
@@ -787,6 +807,8 @@ theme_header=green
 											<state>2</state>
 											<arguments><![CDATA[<p>
 	Create&nbsp;links to files&nbsp;<span>and</span>&nbsp;directories stored in&nbsp;<span>EGroupware&#39;s</span>&nbsp;<span>Filemanager with the&nbsp;</span><strong>download block.</strong>&nbsp;To display&nbsp; a folder <span>the</span>&nbsp;used path should be &quot;/home/<span>yourfolder</span>/&quot;.&nbsp;<span>The</span> user will be able to navigate all <span>sub-folders as well</span>&nbsp;if this is selected. Make sure&nbsp;<span>the</span> <span>Filemanager</span> <span>application</span> is activated&nbsp;<span>for</span> <span>the</span> anonymous user <span>and</span> that the anonymous user has <span>the</span> needed <span>Filemanager</span> (read) permissions <span>for</span> <span>the</span> folders which <span>should</span> be displayed. F<span>or</span> non-public web sites, there <span>is</span> no need to give permissions to <span>the</span> anonymous user.</p>
+<p>
+	<a href="http://sitemgr.egroupware.de/?page_name=add_file_manager"><img alt="" src="http://sitemgr.egroupware.de/uploads/downloads.png" style="width: 561px; height: 396px; " /></a></p>
 <meta content="text/html;charset=UTF-8" http-equiv="Content-Type" />
 ]]></arguments>
 										</content>
@@ -1374,15 +1396,15 @@ theme_header=green
 		&nbsp;</p>
 	<ul>
 		<li>
-			<strong>Site_name: </strong>Wird haupts&auml;chlich f&uuml;r Metadaten<strong> </strong>genutzt.</li>
+			<strong>Webseiten Name (Mehrsprachig): </strong>Wird haupts&auml;chlich f&uuml;r Metadaten<strong> </strong>genutzt.</li>
 		<li>
-			<strong>Site_description:</strong>&nbsp;Wird haupts&auml;chlich f&uuml;r Metadaten genutzt.</li>
+			<strong>Beschreibung der Webseite (Mehrsprachig):</strong>&nbsp;Wird haupts&auml;chlich f&uuml;r Metadaten genutzt.</li>
 		<li>
-			<strong>Default_home_page:</strong><strong><span class="Apple-style-span" style="font-weight: normal; "><strong>&nbsp;</strong></span></strong><span class="Apple-style-span" style="font-weight: normal; ">Durch Auswahl einer Default Homepage wird die Seite ausgew&auml;hlt, mit der die Webseite sich &ouml;ffnet. Erst nach dem Erstellen mehrerer Seiten gibt es eine Auswahlm&ouml;glichkeit</span>.</li>
+			<strong>Standard Home Page (ID oder Name der Seite):</strong><strong><span class="Apple-style-span" style="font-weight: normal; "><strong>&nbsp;</strong></span></strong><span class="Apple-style-span" style="font-weight: normal; ">Durch Auswahl einer Default Homepage wird die Seite ausgew&auml;hlt, mit der die Webseite sich &ouml;ffnet. Erst nach dem Erstellen mehrerer Seiten gibt es eine Auswahlm&ouml;glichkeit</span>.</li>
 		<li>
-			<strong>Template_select:</strong>&nbsp;Auswahl der vom SiteManager angebotenen Designvorlagen f&uuml;r Webseiten.&nbsp;</li>
+			<strong>Designvorlage ausw&auml;hlen:</strong>&nbsp;Auswahl der vom SiteManager angebotenen Designvorlagen f&uuml;r Webseiten.&nbsp;</li>
 		<li>
-			<strong>Site_languages:</strong>&nbsp;Sprachauswahl f&uuml;r multilinguale Webseiten, die das &Uuml;bersetzungs-Interface zum &Uuml;bersetzen des Seiteninhalts nutzen. Durch Einf&uuml;gen eines Auswahl-Men&uuml;s k&ouml;nnen Besucher Ihrer Webseite zwischen den verschiedenen Sprachen w&auml;hlen.&nbsp;</li>
+			<strong>Sprachen, die der Benutzer ausw&auml;hlen kann:</strong>&nbsp;Sprachauswahl f&uuml;r multilinguale Webseiten, die das &Uuml;bersetzungs-Interface zum &Uuml;bersetzen des Seiteninhalts nutzen. Durch Einf&uuml;gen eines Auswahl-Men&uuml;s k&ouml;nnen Besucher Ihrer Webseite zwischen den verschiedenen Sprachen w&auml;hlen.&nbsp;</li>
 	</ul>
 </div>
 ]]></arguments>
@@ -2174,6 +2196,19 @@ theme_header=green
 			</contents>
 		</block>
 		<block>
+			<area>left</area>
+			<module>template</module>
+			<arguments><![CDATA[a:3:{s:7:"allowed";a:96:{i:0;s:10:"3D-Fantasy";i:1;s:4:"beez";i:2;s:5:"idots";i:3;s:9:"ja_altair";i:4;s:10:"ja_antares";i:5;s:11:"ja_archenar";i:6;s:13:"ja_avian_ii_d";i:7;s:13:"ja_avian_ii_l";i:8;s:8:"ja_avior";i:9;s:9:"ja_barite";i:10;s:12:"ja_bellatrix";i:11;s:8:"ja_beryl";i:12;s:18:"ja_cooper_business";i:13;s:9:"ja_corona";i:14;s:10:"ja_dravity";i:15;s:9:"ja_drimia";i:16;s:10:"ja_edenite";i:17;s:8:"ja_erica";i:18;s:8:"ja_fagus";i:19;s:9:"ja_fedora";i:20;s:9:"ja_galena";i:21;s:10:"ja_genista";i:22;s:15:"ja_genista_xmas";i:23;s:8:"ja_hadar";i:24;s:9:"ja_halite";i:25;s:9:"ja_hedera";i:26;s:8:"ja_helio";i:27;s:9:"ja_iolite";i:28;s:7:"ja_iris";i:29;s:11:"ja_justicia";i:30;s:9:"ja_koniga";i:31;s:9:"ja_kruger";i:32;s:11:"ja_kulanite";i:33;s:10:"ja_kyanite";i:34;s:8:"ja_labra";i:35;s:8:"ja_larix";i:36;s:7:"ja_lead";i:37;s:7:"ja_lime";i:38;s:9:"ja_mageia";i:39;s:11:"ja_mesolite";i:40;s:14:"ja_mesolite_ii";i:41;s:7:"ja_mica";i:42;s:7:"ja_mona";i:43;s:8:"ja_nagya";i:44;s:9:"ja_nerine";i:45;s:9:"ja_nickel";i:46;s:9:"ja_norite";i:47;s:10:"ja_olivine";i:48;s:8:"ja_olyra";i:49;s:7:"ja_opal";i:50;s:7:"ja_ores";i:51;s:10:"ja_pariiti";i:52;s:8:"ja_pluto";i:53;s:10:"ja_polaris";i:54;s:9:"ja_pollux";i:55;s:9:"ja_purity";i:56;s:9:"ja_pyrite";i:57;s:7:"ja_pyro";i:58;s:9:"ja_quartz";i:59;s:11:"ja_quillaja";i:60;s:8:"ja_raite";i:61;s:9:"ja_rasite";i:62;s:13:"ja_regulus_ex";i:63;s:9:"ja_rochea";i:64;s:7:"ja_ruby";i:65;s:9:"ja_rutile";i:66;s:11:"ja_sanidine";i:67;s:19:"ja_sanidineii_light";i:68;s:9:"ja_sargas";i:69;s:9:"ja_seleni";i:70;s:10:"ja_senecio";i:71;s:14:"ja_shopping_ii";i:72;s:8:"ja_spica";i:73;s:9:"ja_sulfur";i:74;s:9:"ja_teline";i:75;s:12:"ja_teline_ii";i:76;s:8:"ja_topaz";i:77;s:8:"ja_trona";i:78;s:7:"ja_tube";i:79;s:8:"ja_urani";i:80;s:12:"ja_utahia_ii";i:81;s:8:"ja_uvite";i:82;s:10:"ja_vauxite";i:83;s:10:"ja_villadi";i:84;s:10:"ja_wistery";i:85;s:11:"ja_xenia_ii";i:86;s:10:"ja_zebrina";i:87;s:10:"ja_zeolite";i:88;s:13:"ja_zeolite_ii";i:89;s:8:"ja_zibal";i:90;s:7:"ja_zinc";i:91;s:8:"NukeNews";i:92;s:6:"realss";i:93;s:13:"rhuk_milkyway";i:94;s:20:"rhuk_orange_smoothie";i:95;s:12:"simple_plain";}s:4:"show";s:1:"8";s:3:"zip";s:3:"zip";}]]></arguments>
+			<sort_order>0</sort_order>
+			<view>0</view>
+			<title lang="en">Choose template</title>
+			<contents>
+				<content lang="en">
+					<state>2</state>
+				</content>
+			</contents>
+		</block>
+		<block>
 			<area>right</area>
 			<module>html</module>
 			<sort_order>0</sort_order>
@@ -2240,19 +2275,6 @@ theme_header=green
 		</block>
 		<block>
 			<area>left</area>
-			<module>template</module>
-			<arguments><![CDATA[a:3:{s:7:"allowed";a:96:{i:0;s:10:"3D-Fantasy";i:1;s:4:"beez";i:2;s:5:"idots";i:3;s:9:"ja_altair";i:4;s:10:"ja_antares";i:5;s:11:"ja_archenar";i:6;s:13:"ja_avian_ii_d";i:7;s:13:"ja_avian_ii_l";i:8;s:8:"ja_avior";i:9;s:9:"ja_barite";i:10;s:12:"ja_bellatrix";i:11;s:8:"ja_beryl";i:12;s:18:"ja_cooper_business";i:13;s:9:"ja_corona";i:14;s:10:"ja_dravity";i:15;s:9:"ja_drimia";i:16;s:10:"ja_edenite";i:17;s:8:"ja_erica";i:18;s:8:"ja_fagus";i:19;s:9:"ja_fedora";i:20;s:9:"ja_galena";i:21;s:10:"ja_genista";i:22;s:15:"ja_genista_xmas";i:23;s:8:"ja_hadar";i:24;s:9:"ja_halite";i:25;s:9:"ja_hedera";i:26;s:8:"ja_helio";i:27;s:9:"ja_iolite";i:28;s:7:"ja_iris";i:29;s:11:"ja_justicia";i:30;s:9:"ja_koniga";i:31;s:9:"ja_kruger";i:32;s:11:"ja_kulanite";i:33;s:10:"ja_kyanite";i:34;s:8:"ja_labra";i:35;s:8:"ja_larix";i:36;s:7:"ja_lead";i:37;s:7:"ja_lime";i:38;s:9:"ja_mageia";i:39;s:11:"ja_mesolite";i:40;s:14:"ja_mesolite_ii";i:41;s:7:"ja_mica";i:42;s:7:"ja_mona";i:43;s:8:"ja_nagya";i:44;s:9:"ja_nerine";i:45;s:9:"ja_nickel";i:46;s:9:"ja_norite";i:47;s:10:"ja_olivine";i:48;s:8:"ja_olyra";i:49;s:7:"ja_opal";i:50;s:7:"ja_ores";i:51;s:10:"ja_pariiti";i:52;s:8:"ja_pluto";i:53;s:10:"ja_polaris";i:54;s:9:"ja_pollux";i:55;s:9:"ja_purity";i:56;s:9:"ja_pyrite";i:57;s:7:"ja_pyro";i:58;s:9:"ja_quartz";i:59;s:11:"ja_quillaja";i:60;s:8:"ja_raite";i:61;s:9:"ja_rasite";i:62;s:13:"ja_regulus_ex";i:63;s:9:"ja_rochea";i:64;s:7:"ja_ruby";i:65;s:9:"ja_rutile";i:66;s:11:"ja_sanidine";i:67;s:19:"ja_sanidineii_light";i:68;s:9:"ja_sargas";i:69;s:9:"ja_seleni";i:70;s:10:"ja_senecio";i:71;s:14:"ja_shopping_ii";i:72;s:8:"ja_spica";i:73;s:9:"ja_sulfur";i:74;s:9:"ja_teline";i:75;s:12:"ja_teline_ii";i:76;s:8:"ja_topaz";i:77;s:8:"ja_trona";i:78;s:7:"ja_tube";i:79;s:8:"ja_urani";i:80;s:12:"ja_utahia_ii";i:81;s:8:"ja_uvite";i:82;s:10:"ja_vauxite";i:83;s:10:"ja_villadi";i:84;s:10:"ja_wistery";i:85;s:11:"ja_xenia_ii";i:86;s:10:"ja_zebrina";i:87;s:10:"ja_zeolite";i:88;s:13:"ja_zeolite_ii";i:89;s:8:"ja_zibal";i:90;s:7:"ja_zinc";i:91;s:8:"NukeNews";i:92;s:6:"realss";i:93;s:13:"rhuk_milkyway";i:94;s:20:"rhuk_orange_smoothie";i:95;s:12:"simple_plain";}s:4:"show";s:1:"8";s:3:"zip";s:3:"zip";}]]></arguments>
-			<sort_order>0</sort_order>
-			<view>0</view>
-			<title lang="en">Choose template</title>
-			<contents>
-				<content lang="en">
-					<state>2</state>
-				</content>
-			</contents>
-		</block>
-		<block>
-			<area>left</area>
 			<module>administration</module>
 			<sort_order>5</sort_order>
 			<view>1</view>
@@ -2288,6 +2310,23 @@ theme_header=green
 					<arguments><![CDATA[<p>
 	Powered by Stylite&#39;s EGroupware&nbsp;<b>SiteManager</b>. Please visit our Homepage <a href="http://www.egroupware.org" target="_blank">www.EGroupware.org</a> and <a href="http://www.stylite.de" target="_blank">www.stylite.de</a></p>
 ]]></arguments>
+				</content>
+			</contents>
+		</block>
+		<block>
+			<area>left</area>
+			<module>login</module>
+			<arguments><![CDATA[a:3:{s:17:"security_redirect";s:0:"";s:10:"login_dest";s:7:"sitemgr";s:2:"go";s:0:"";}]]></arguments>
+			<sort_order>99</sort_order>
+			<view>3</view>
+			<title lang="de">Login</title>
+			<title lang="en">Login</title>
+			<contents>
+				<content lang="de">
+					<state>2</state>
+				</content>
+				<content lang="en">
+					<state>2</state>
 				</content>
 			</contents>
 		</block>
