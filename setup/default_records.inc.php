@@ -12,15 +12,14 @@
  */
 
 $sitemgr_table_prefix = 'egw_sitemgr';
-// give Admins group rights vor sitemgr and for the created default-site
+// give Admins group rights for sitemgr and for the created default-site
 $admingroup = $GLOBALS['egw_setup']->add_account('Admins','Admin','Group',False,False);
 $GLOBALS['egw_setup']->add_acl('sitemgr','run',$admingroup);
-$GLOBALS['egw_setup']->add_acl('sitemgr',"L$site_id",$admingroup);
-// give Default group rights vor sitemgr-link
+// give Default group rights for sitemgr-link
 $defaultgroup = $GLOBALS['egw_setup']->add_account('Default','Default','Group',False,False);
 $GLOBALS['egw_setup']->add_acl('sitemgr-link','run',$defaultgroup);
 
-// Create anonymous user for sitemgr
+// Create anonymous user and NoGroup group for sitemgr
 $GLOBALS['egw_setup']->add_account('NoGroup','No','Rights',False,False);
 $anonymous = $GLOBALS['egw_setup']->add_account($anonuser='anonymous','SiteMgr','User',$anonpasswd='anonymous','NoGroup');
 // give the anonymous user only sitemgr-link-rights
