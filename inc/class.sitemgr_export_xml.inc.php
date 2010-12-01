@@ -11,7 +11,7 @@
  */
 
 // define empty interface, if it does not exists (eg. 1.8 or importexport not installed)
-if (!class_exists('importexport_iface_export_plugin'))
+if (!interface_exists('importexport_iface_export_plugin'))
 {
 	interface importexport_iface_export_plugin { }
 }
