@@ -2,8 +2,8 @@
 <site>
 	<!--Export of eGroupWare SiteMgr website 'Default Website' on 2010-12-01-->
 	<name>Default Website</name>
-	<url>/</url>
-	<directory>/var/www/epl-10.1/sitemgr/sitemgr-site</directory>
+	<url>http://test.local/egroupware/sitemgr/sitemgr-site/</url>
+	<directory>/opt/local/apache2/htdocs/egroupware/sitemgr/sitemgr-site</directory>
 	<themesel>ja_purity</themesel>
 	<default_theme>ja_purity</default_theme>
 	<anonymous_user>anonymous</anonymous_user>
@@ -28,7 +28,7 @@ horNavType=moo
 ja_font=3
 ja_screen=fluid
 ja_screen_width=90
-logoText=Joomla!
+logoText=EGroupware
 logoType=image
 rightCollapseDefault=show
 rightCollapsible=1
@@ -37,23 +37,6 @@ sloganText=...because open source matters
 theme_background=lighter
 theme_elements=red
 theme_header=green
-[ja_sulfur]
-ja_color=default
-ja_font=3
-ja_menu=css
-ja_menu_effect=1
-logoText=JA Sulfur
-logoType=image
-menutype=mainmenu
-sloganText=1st June 09 JA Template
-usertool_color=4
-[ja_zibal]
-ModuleCollapsible=1
-ja_color=default
-ja_font=3
-ja_menu=2
-ja_screen=wide
-usertool=7
 </params_ini>
 	<name lang="en">Neue SiteMgr Website</name>
 	<description lang="en"></description>
@@ -175,9 +158,11 @@ usertool=7
 								</content>
 							</contents>
 						</block>
-</blocks>				</page>
+					</blocks>
+				</page>
 			</pages>
-</category>		<category>
+		</category>
+		<category>
 			<sort_order>1</sort_order>
 			<state>2</state>
 			<name lang="de">Inhalt</name>
@@ -277,7 +262,8 @@ usertool=7
 									<view>0</view>
 									<contents/>
 								</block>
-</blocks>						</page>
+							</blocks>
+						</page>
 						<page>
 							<name>available_blocks</name>
 							<sort_order>0</sort_order>
@@ -410,7 +396,8 @@ usertool=7
 										</content>
 									</contents>
 								</block>
-</blocks>						</page>
+							</blocks>
+						</page>
 						<page>
 							<name>html_block</name>
 							<sort_order>0</sort_order>
@@ -600,7 +587,8 @@ usertool=7
 										</content>
 									</contents>
 								</block>
-</blocks>						</page>
+							</blocks>
+						</page>
 						<page>
 							<name>calendar</name>
 							<sort_order>1</sort_order>
@@ -640,7 +628,8 @@ usertool=7
 										</content>
 									</contents>
 								</block>
-</blocks>						</page>
+							</blocks>
+						</page>
 						<page>
 							<name>contact_form</name>
 							<sort_order>4</sort_order>
@@ -694,7 +683,8 @@ usertool=7
 										</content>
 									</contents>
 								</block>
-</blocks>						</page>
+							</blocks>
+						</page>
 						<page>
 							<name>news</name>
 							<sort_order>5</sort_order>
@@ -763,7 +753,8 @@ usertool=7
 										</content>
 									</contents>
 								</block>
-</blocks>						</page>
+							</blocks>
+						</page>
 						<page>
 							<name>add_file_manager</name>
 							<sort_order>5</sort_order>
@@ -814,7 +805,8 @@ usertool=7
 										</content>
 									</contents>
 								</block>
-</blocks>						</page>
+							</blocks>
+						</page>
 						<page>
 							<name>siteindex</name>
 							<sort_order>6</sort_order>
@@ -897,9 +889,12 @@ usertool=7
 									<view>0</view>
 									<contents/>
 								</block>
-</blocks>						</page>
+							</blocks>
+						</page>
 					</pages>
-</category></categories>			<pages>
+				</category>
+			</categories>
+			<pages>
 				<page>
 					<name>categories_and_pages</name>
 					<sort_order>1</sort_order>
@@ -1059,9 +1054,11 @@ usertool=7
 								</content>
 							</contents>
 						</block>
-</blocks>				</page>
+					</blocks>
+				</page>
 			</pages>
-</category>		<category>
+		</category>
+		<category>
 			<sort_order>2</sort_order>
 			<state>2</state>
 			<name lang="de">Konfiguration</name>
@@ -1347,7 +1344,8 @@ usertool=7
 								</content>
 							</contents>
 						</block>
-</blocks>				</page>
+					</blocks>
+				</page>
 				<page>
 					<name>site_configuration</name>
 					<sort_order>1</sort_order>
@@ -1413,7 +1411,8 @@ usertool=7
 								</content>
 							</contents>
 						</block>
-</blocks>				</page>
+					</blocks>
+				</page>
 				<page>
 					<name>egroupware_sitemanager</name>
 					<sort_order>3</sort_order>
@@ -1484,7 +1483,8 @@ usertool=7
 								</content>
 							</contents>
 						</block>
-</blocks>				</page>
+					</blocks>
+				</page>
 				<page>
 					<name>faq</name>
 					<sort_order>4</sort_order>
@@ -1683,9 +1683,11 @@ usertool=7
 								</content>
 							</contents>
 						</block>
-</blocks>				</page>
+					</blocks>
+				</page>
 			</pages>
-</category>		<category>
+		</category>
+		<category>
 			<sort_order>5</sort_order>
 			<state>2</state>
 			<name lang="de">Support</name>
@@ -1828,7 +1830,8 @@ usertool=7
 								</content>
 							</contents>
 						</block>
-</blocks>				</page>
+					</blocks>
+				</page>
 				<page>
 					<name>community_support</name>
 					<sort_order>3</sort_order>
@@ -1925,9 +1928,11 @@ usertool=7
 								</content>
 							</contents>
 						</block>
-</blocks>				</page>
+					</blocks>
+				</page>
 			</pages>
-</category>		<category>
+		</category>
+		<category>
 			<sort_order>6</sort_order>
 			<state>2</state>
 			<name lang="de">Kontakt</name>
@@ -2007,7 +2012,8 @@ usertool=7
 								</content>
 							</contents>
 						</block>
-</blocks>				</page>
+					</blocks>
+				</page>
 				<page>
 					<name>privacy_policy</name>
 					<sort_order>1</sort_order>
@@ -2064,7 +2070,8 @@ usertool=7
 								</content>
 							</contents>
 						</block>
-</blocks>				</page>
+					</blocks>
+				</page>
 				<page>
 					<name>site_terms</name>
 					<sort_order>3</sort_order>
@@ -2101,7 +2108,8 @@ usertool=7
 								</content>
 							</contents>
 						</block>
-</blocks>				</page>
+					</blocks>
+				</page>
 				<page>
 					<name>404NotFound</name>
 					<sort_order>100</sort_order>
@@ -2142,9 +2150,12 @@ usertool=7
 								</content>
 							</contents>
 						</block>
-</blocks>				</page>
+					</blocks>
+				</page>
 			</pages>
-</category></categories>	<blocks>
+		</category>
+	</categories>
+	<blocks>
 		<block>
 			<area>left</area>
 			<module>navigation</module>
@@ -2230,4 +2241,68 @@ usertool=7
 		<block>
 			<area>left</area>
 			<module>template</module>
-			<arguments><![CDATA[a:3:{s:7:"allowed";a:96:{i:0;s:10:"3D-Fantasy";i:1;s:4:"beez";i:2;s:5:"idots";i:3;s:9:"ja_altair";i:4;s:10:"ja_antares";i:5;s:11:"ja_archenar";i:6;s:13:"ja_avian_ii_d";i:7;s:13:"ja_avian_ii_l";i:8;s:8:"ja_avior";i:9;s:9:"ja_barite";i:10;s:12:"ja_bellatrix";i:11;s:8:"ja_beryl";i:12;s:18:"ja_cooper_business";i:13;s:9:"ja_corona";i:14;s:10:"ja_dravity";i:15;s:9:"ja_drimia";i:16;s:10:"ja_edenite";i:17;s:8:"ja_erica";i:18;s:8:"ja_fagus";i:19;s:9:"ja_fedora";i:20;s:9:"ja_galena";i:21;s:10:"ja_genista";i:22;s:15:"ja_genista_xmas";i:23;s:8:"ja_hadar";i:24;s:9:"ja_halite";i:25;s:9:"ja_hedera";i:26;s:8:"ja_helio";i:27;s:9:"ja_iolite";i:28;s:7:"ja_iris";i:29;s:11:"ja_justicia";i:30;s:9:"ja_koniga";i:31;s:9:"ja_kruger";i:32;s:11:"ja_kulanite";i:33;s:10:"ja_kyanite";i:34;s:8:"ja_labra";i:35;s:8:"ja_larix";i:36;s:7:"ja_lead";i:37;s:7:"ja_lime";i:38;s:9:"ja_mageia";i:39;s:11:"ja_mesolite";i:40;s:14:"ja_mesolite_ii";i:41;s:7:"ja_mica";i:42;s:7:"ja_mona";i:43;s:8:"ja_nagya";i:44;s:9:"ja_nerine";i:45;s:9:"ja_nickel";i:46;s:9:"ja_norite";i:47;s:10:"ja_olivine";i:48;s:8:"ja_olyra";i:49;s:7:"ja_opal";i:50;s:7:"ja_ores";i:51;s:10:"ja_pariiti";i:52;s:8:"ja_pluto";i:53;s:10:"ja_polaris";i:54;s:9:"ja_pollux";i:55;s:9:"ja_purity";i:56;s:9:"ja_pyrite";i:57;s:7:"ja_pyro";i:58;s:9:"ja_quartz";i:59;s:11:"ja_quillaja";i:60;s:8:"ja_raite";i:61;s:9:"ja_rasite";i:62;s:13:"ja_regulus_ex";i:63;s:9:"ja_rochea";i:64;s:7:"ja_ruby";i:65;s:9:"ja_rutile";i:66;s:11:"ja_sanidine";i:67;s:19:"ja_sanidineii_light";i:68;s:9:"ja_sargas";i:69;s:9:"ja_seleni";i:70;s:10:"ja_senecio";i:71;s:14:"ja_shopping_ii";i:72;s:8:"ja_spica";i:73;s:9:"ja_sulfur";i:74;s:9:"ja_teline";i:75;s:12:"ja_teline_ii";i:76;s:8:"ja_topaz";i:77;s:8:"ja_trona";i:78;s:7:"ja_tube";i:79;s:8:"ja_urani";i:80;s:12:"ja_utahia_ii";i:81;s:8:"ja_uvite";i:82;s:10:"ja_vauxite";i:83;s:10:"ja_villadi";i:84;s:10:"ja_wistery";i:85;s:11:"ja_xenia_ii";i:86;s:10:"ja_zebrina";i:87;s:10:"ja_zeolite";i:88;s:13:"ja_zeolite_ii";i:89;s:8:"ja_zibal";i:90;s:7:"ja_zinc";i:91;s:8:"NukeNews";i:92;s:6:"realss";i:93;s:13:"rhuk_milkyway";i:94;s:20:"rhuk_orange_smoothie";i:95;s:12:"simple_plain";}s:4:"show";s:1:"8";s:3:"zip";s:3:"zip";}
+			<arguments><![CDATA[a:3:{s:7:"allowed";a:96:{i:0;s:10:"3D-Fantasy";i:1;s:4:"beez";i:2;s:5:"idots";i:3;s:9:"ja_altair";i:4;s:10:"ja_antares";i:5;s:11:"ja_archenar";i:6;s:13:"ja_avian_ii_d";i:7;s:13:"ja_avian_ii_l";i:8;s:8:"ja_avior";i:9;s:9:"ja_barite";i:10;s:12:"ja_bellatrix";i:11;s:8:"ja_beryl";i:12;s:18:"ja_cooper_business";i:13;s:9:"ja_corona";i:14;s:10:"ja_dravity";i:15;s:9:"ja_drimia";i:16;s:10:"ja_edenite";i:17;s:8:"ja_erica";i:18;s:8:"ja_fagus";i:19;s:9:"ja_fedora";i:20;s:9:"ja_galena";i:21;s:10:"ja_genista";i:22;s:15:"ja_genista_xmas";i:23;s:8:"ja_hadar";i:24;s:9:"ja_halite";i:25;s:9:"ja_hedera";i:26;s:8:"ja_helio";i:27;s:9:"ja_iolite";i:28;s:7:"ja_iris";i:29;s:11:"ja_justicia";i:30;s:9:"ja_koniga";i:31;s:9:"ja_kruger";i:32;s:11:"ja_kulanite";i:33;s:10:"ja_kyanite";i:34;s:8:"ja_labra";i:35;s:8:"ja_larix";i:36;s:7:"ja_lead";i:37;s:7:"ja_lime";i:38;s:9:"ja_mageia";i:39;s:11:"ja_mesolite";i:40;s:14:"ja_mesolite_ii";i:41;s:7:"ja_mica";i:42;s:7:"ja_mona";i:43;s:8:"ja_nagya";i:44;s:9:"ja_nerine";i:45;s:9:"ja_nickel";i:46;s:9:"ja_norite";i:47;s:10:"ja_olivine";i:48;s:8:"ja_olyra";i:49;s:7:"ja_opal";i:50;s:7:"ja_ores";i:51;s:10:"ja_pariiti";i:52;s:8:"ja_pluto";i:53;s:10:"ja_polaris";i:54;s:9:"ja_pollux";i:55;s:9:"ja_purity";i:56;s:9:"ja_pyrite";i:57;s:7:"ja_pyro";i:58;s:9:"ja_quartz";i:59;s:11:"ja_quillaja";i:60;s:8:"ja_raite";i:61;s:9:"ja_rasite";i:62;s:13:"ja_regulus_ex";i:63;s:9:"ja_rochea";i:64;s:7:"ja_ruby";i:65;s:9:"ja_rutile";i:66;s:11:"ja_sanidine";i:67;s:19:"ja_sanidineii_light";i:68;s:9:"ja_sargas";i:69;s:9:"ja_seleni";i:70;s:10:"ja_senecio";i:71;s:14:"ja_shopping_ii";i:72;s:8:"ja_spica";i:73;s:9:"ja_sulfur";i:74;s:9:"ja_teline";i:75;s:12:"ja_teline_ii";i:76;s:8:"ja_topaz";i:77;s:8:"ja_trona";i:78;s:7:"ja_tube";i:79;s:8:"ja_urani";i:80;s:12:"ja_utahia_ii";i:81;s:8:"ja_uvite";i:82;s:10:"ja_vauxite";i:83;s:10:"ja_villadi";i:84;s:10:"ja_wistery";i:85;s:11:"ja_xenia_ii";i:86;s:10:"ja_zebrina";i:87;s:10:"ja_zeolite";i:88;s:13:"ja_zeolite_ii";i:89;s:8:"ja_zibal";i:90;s:7:"ja_zinc";i:91;s:8:"NukeNews";i:92;s:6:"realss";i:93;s:13:"rhuk_milkyway";i:94;s:20:"rhuk_orange_smoothie";i:95;s:12:"simple_plain";}s:4:"show";s:1:"8";s:3:"zip";s:3:"zip";}]]></arguments>
+			<sort_order>0</sort_order>
+			<view>0</view>
+			<title lang="en">Choose template</title>
+			<contents>
+				<content lang="en">
+					<state>2</state>
+				</content>
+			</contents>
+		</block>
+		<block>
+			<area>left</area>
+			<module>administration</module>
+			<sort_order>5</sort_order>
+			<view>1</view>
+			<title lang="en">Administration</title>
+			<contents>
+				<content lang="en">
+					<state>2</state>
+				</content>
+			</contents>
+		</block>
+		<block>
+			<area>header</area>
+			<module>html</module>
+			<sort_order>9</sort_order>
+			<view>0</view>
+			<title lang="en">HTML Module</title>
+			<contents>
+				<content lang="en">
+					<state>2</state>
+					<arguments><![CDATA[<h1>SiteMgr Demo</h1>]]></arguments>
+				</content>
+			</contents>
+		</block>
+		<block>
+			<area>footer</area>
+			<module>html</module>
+			<sort_order>10</sort_order>
+			<view>0</view>
+			<title lang="en"> </title>
+			<contents>
+				<content lang="en">
+					<state>2</state>
+					<arguments><![CDATA[<p>
+	Powered by Stylite&#39;s EGroupware&nbsp;<b>SiteManager</b>. Please visit our Homepage <a href="http://www.egroupware.org" target="_blank">www.EGroupware.org</a> and <a href="http://www.stylite.de" target="_blank">www.stylite.de</a></p>
+]]></arguments>
+				</content>
+			</contents>
+		</block>
+		<block>
+			<area>center</area>
+			<module>navigation</module>
+			<arguments><![CDATA[a:1:{s:8:"nav_type";s:1:"2";}]]></arguments>
+			<sort_order>100</sort_order>
+			<view>2</view>
+			<title lang="en">Navigation element</title>
+			<contents>
+				<content lang="en">
+					<state>0</state>
+				</content>
+			</contents>
+		</block>
+	</blocks>
+</site>
