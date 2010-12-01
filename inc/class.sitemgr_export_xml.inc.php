@@ -10,6 +10,12 @@
  * @version $Id$
  */
 
+// define empty interface, if it does not exists (eg. 1.8 or importexport not installed)
+if (!class_exists('importexport_iface_export_plugin'))
+{
+	interface importexport_iface_export_plugin { }
+}
+
 /**
  * class export_xml
  * This exports an entire web site
@@ -17,9 +23,8 @@
  * No matter where the records come from, at the end export_entry
  * stores it into the stream
  */
-class sitemgr_export_xml implements importexport_iface_export_plugin {
-
-
+class sitemgr_export_xml implements importexport_iface_export_plugin
+{
 	/**
 	 * Reference to common sitemgr object.  We should be able to get at everything from here.
 	 *
