@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <site>
-	<!--Export of eGroupWare SiteMgr website 'Default Website' on 2010-11-30-->
+	<!--Export of eGroupWare SiteMgr website 'Default Website' on 2010-12-01-->
 	<name>Default Website</name>
 	<url>/</url>
 	<directory>/var/www/epl-10.1/sitemgr/sitemgr-site</directory>
@@ -37,6 +37,23 @@ sloganText=...because open source matters
 theme_background=lighter
 theme_elements=red
 theme_header=green
+[ja_sulfur]
+ja_color=default
+ja_font=3
+ja_menu=css
+ja_menu_effect=1
+logoText=JA Sulfur
+logoType=image
+menutype=mainmenu
+sloganText=1st June 09 JA Template
+usertool_color=4
+[ja_zibal]
+ModuleCollapsible=1
+ja_color=default
+ja_font=3
+ja_menu=2
+ja_screen=wide
+usertool=7
 </params_ini>
 	<name lang="en">Neue SiteMgr Website</name>
 	<description lang="en"></description>
@@ -126,7 +143,7 @@ theme_header=green
 									<arguments><![CDATA[<p>
 	<span class="Apple-style-span" style="font-size: 14px; font-weight: bold; ">Die Ansicht verf&uuml;gbarer&nbsp;<span class="Apple-style-span" style="white-space: nowrap;">Designvorlagen</span>&nbsp;(Templates)</span></p>
 <h3>
-	<span class="Apple-style-span" style="font-weight: normal; font-size: 12px; ">Der Sitemanager erzeugt Webseiten auf der Basis von Templates. Die meisten Templates bieten eine Vielzahl an M&ouml;glichkeiten, Bl&ouml;cke und Links zu anderen Seiten zu erstellen. Die hier gezeigten Beispiele stellen lediglich eine Auswahl dar. Alle verf&uuml;gbaren Templates werden in &quot;Konfiguration - Template ausw&auml;hlen&quot; angezeigt.</span></h3>
+	<span class="Apple-style-span" style="font-weight: normal; font-size: 12px; ">Der SiteManager erzeugt Webseiten auf der Basis von Templates. Die meisten Templates bieten eine Vielzahl an M&ouml;glichkeiten, Bl&ouml;cke und Links zu anderen Seiten zu erstellen. Die hier gezeigten Beispiele stellen lediglich eine Auswahl dar. Alle verf&uuml;gbaren Templates werden in &quot;Konfiguration - Template ausw&auml;hlen&quot; angezeigt.</span></h3>
 ]]></arguments>
 								</content>
 								<content lang="en">
@@ -145,11 +162,15 @@ theme_header=green
 							<area>left</area>
 							<module>login</module>
 							<arguments><![CDATA[a:3:{s:17:"security_redirect";s:0:"";s:10:"login_dest";s:7:"sitemgr";s:2:"go";s:0:"";}]]></arguments>
-							<sort_order>0</sort_order>
+							<sort_order>99</sort_order>
 							<view>3</view>
 							<title lang="de">Login</title>
+							<title lang="en">Login</title>
 							<contents>
 								<content lang="de">
+									<state>2</state>
+								</content>
+								<content lang="en">
 									<state>2</state>
 								</content>
 							</contents>
@@ -202,21 +223,21 @@ theme_header=green
 										<content lang="de">
 											<state>2</state>
 											<arguments><![CDATA[<p>
-	Der Inhalt von Seite kann hinzugef&uuml;gt oder bearbeitet werden, in dem entweder der Inhaltsmanager (Interface innerhalb von&nbsp;EGroupware) oder der Bearbeitungsmodus (&uuml;ber die definierte Webseite zug&auml;nglich) genutzt wird. Die Benutzeroberfl&auml;che ist in beiden F&auml;llen identisch. Die folgenden Punkte sind in den meisten&nbsp;Bl&ouml;cken verf&uuml;gbar:</p>
+	Der Inhalt von Seiten&nbsp;kann hinzugef&uuml;gt oder bearbeitet werden, in dem entweder der Inhaltsmanager (Interface innerhalb von&nbsp;EGroupware) oder der Bearbeitungsmodus (&uuml;ber die definierte Webseite zug&auml;nglich) genutzt wird. Die Benutzeroberfl&auml;che ist in beiden F&auml;llen identisch. Die folgenden Punkte sind in den meisten&nbsp;Bl&ouml;cken verf&uuml;gbar:</p>
 <ul style="margin-top: 0px; margin-bottom: 0px;">
 	<li>
-		<strong>Title:</strong>&nbsp;Jeder Block definiert automatisch einen Default Titel (z.B. HTM Modul f&uuml;r einen HTML Block). Der Titel wird nicht zwangsl&auml;ufig in allen&nbsp;Inhaltsbereichen angezeigt, die Anzeige kann &uuml;ber CSS gesteuert werden - zum Beispiel durch das ausgew&auml;hlte Template. Wenn ein anderer Titel angegeben wird, wird&nbsp;dieser f&uuml;r den bearbeiteten Block genutzt. Der&nbsp;Titel darf nicht leer sein, daher im Zweifelsfall ein Leerzeichen eingeben.</li>
+		<strong>Titel:</strong>&nbsp;Jeder Block definiert automatisch einen Default Titel (z.B. HTM Modul f&uuml;r einen HTML Block). Der Titel wird nicht zwangsl&auml;ufig in allen&nbsp;Inhaltsbereichen angezeigt, die Anzeige kann &uuml;ber CSS gesteuert werden - zum Beispiel durch das ausgew&auml;hlte Template. Wenn ein anderer Titel angegeben wird, wird&nbsp;dieser f&uuml;r den bearbeiteten Block genutzt. Der&nbsp;Titel darf nicht leer sein, daher im Zweifelsfall ein Leerzeichen eingeben.</li>
 	<li>
-		<strong>Sichtbar f&uuml;r:&nbsp;</strong>&nbsp;Der Default ist &quot;Jedermann&quot;. Die Sichtbarkeit der Bl&ouml;cke kann &uuml;ber&nbsp;unterschiedlichen Benutzer &quot;Rollen&quot; des Sitemanagers gesteuert werden: &quot;Webseiten Administratoren&quot;,&nbsp;&quot;EGroupware Benutzer&quot; (inklusive Administratoren) und der Benutzer &quot;anonymous&quot;.</li>
+		<strong>Sichtbar f&uuml;r:&nbsp;</strong>&nbsp;Der Default ist &quot;Jedermann&quot;. Die Sichtbarkeit der Bl&ouml;cke kann &uuml;ber&nbsp;die&nbsp;unterschiedlichen Benutzer&nbsp;-&quot;Rollen&quot; des Sitemanagers gesteuert werden: &quot;Webseiten Administratoren&quot;,&nbsp;&quot;EGroupware Benutzer&quot; (inklusive Administratoren) und der Benutzer &quot;anonymous&quot;.</li>
 	<li>
-		<strong>Sortierreihenfolge:</strong> Definiert die Reihenfolge der Bl&ouml;cke &uuml;ber&nbsp;die eingegebene Zahl (je gr&ouml;&szlig;er desto weiter unten)</li>
+		<strong>Sortierreihenfolge:</strong> Definiert die Reihenfolge der Bl&ouml;cke &uuml;ber&nbsp;die eingegebene Zahl (je gr&ouml;&szlig;er desto weiter unten).</li>
 	<li>
-		<strong>Anwendungsbereich</strong>: zeigt alle Kategorien und Webseiten an, sowie webseitenweit</li>
+		<strong>Anwendungsbereich</strong>: Zeigt alle Kategorien und Webseiten&nbsp;sowie webseitenweit&nbsp;an.</li>
 	<li>
-		<strong>Version und Status</strong>: zeigt die aktuelle Version und den Status bezogen auf den Ver&ouml;ffentlichungs-Prozess</li>
+		<strong>Version und Status</strong>: Zeigt die aktuelle Version und den Status bezogen auf den Ver&ouml;ffentlichungs-Prozess an.</li>
 </ul>
 <p>
-	Beim Erstellen eines Inhaltsblocks generiert der SiteManager automatisch eine neue Versionsnummer f&uuml;r diesen Block. Es wird pro Block immer die h&ouml;chste Versionsnummer angezeigt. Jede Version kann&nbsp;unterschiedliche Block Spezifikationen enthalten. Die Block Spezifikationen k&ouml;nnen ganz verschiedene Informationen enthalten bzw. abfragen: Markierungsfelder, Auswahlboxen, URLs&nbsp;oder Textfelder. &nbsp;&nbsp;<br />
+	Beim Erstellen eines Inhaltsblocks generiert der SiteManager automatisch eine neue Versionsnummer f&uuml;r diesen Block. Es wird pro Block immer die h&ouml;chste Versionsnummer angezeigt. Jede Version kann&nbsp;unterschiedliche Block-Spezifikationen enthalten. Die Block-Spezifikationen k&ouml;nnen ganz verschiedene Informationen enthalten bzw. abfragen: Markierungsfelder, Auswahlboxen, URLs&nbsp;oder Textfelder. &nbsp;&nbsp;<br />
 	<br />
 	<strong>Vorhandene Bl&ouml;cke</strong><br />
 	Eine Liste aller verf&uuml;gbaren Bl&ouml;cke und Detail-Beschreibungen der&nbsp;am h&auml;ufigsten gebrauchten Bl&ouml;cke sind auf den folgenden Seiten beschrieben.</p>
@@ -272,63 +293,63 @@ theme_header=green
 									<module>html</module>
 									<sort_order>-1</sort_order>
 									<view>0</view>
-									<title lang="de">HTML Modul</title>
+									<title lang="de"> </title>
 									<title lang="en"> </title>
 									<contents>
 										<content lang="de">
 											<state>2</state>
 											<arguments><![CDATA[<p>
-	Der Inhaltsmanager macht keine EInschr&auml;nkungen, welche Bl&ouml;cke f&uuml;r welche Bereiche geeignet oder zul&auml;ssig sind. SiteManager Admistratoren k&ouml;nnen die Verf&uuml;gbarkeit von Bl&ouml;cken in den einzelnen Bereichen (z.B. Inhaltsblock &quot;center&quot;) vorgeben bzw. einschr&auml;nken. So macht es zum Beispiel Sinn, das f&uuml;r die Anzeige von Seiten-Bereichen optimierte Bl&ouml;cke (wie z.B. ein Navigationsblock) in den Seiten (Links oder Rechts) genutzt werden, w&auml;hrend der mittlere Bereich (Center) HTML-Bl&ouml;cke nutzen kann. Die folgenden Bl&ouml;cke werden mit dem EGroupware SiteManger ausgeliefert:</p>
+	Der Inhaltsmanager macht keine Einschr&auml;nkungen, welche Bl&ouml;cke f&uuml;r welche Bereiche geeignet oder zul&auml;ssig sind. SiteManager Administratoren k&ouml;nnen die Verf&uuml;gbarkeit von Bl&ouml;cken in den einzelnen Bereichen (z.B. Inhaltsblock &quot;center&quot;) vorgeben bzw. einschr&auml;nken. So macht es zum Beispiel Sinn, dass&nbsp;f&uuml;r die Anzeige von Seiten-Bereichen optimierte Bl&ouml;cke (wie z.B. ein Navigationsblock) in den Seiten (links oder&nbsp;rechts) genutzt werden, w&auml;hrend der mittlere Bereich (Center) HTML-Bl&ouml;cke nutzen kann. Die folgenden Bl&ouml;cke werden mit dem EGroupware SiteManager ausgeliefert:</p>
 <ul>
 	<li>
-		<strong>Addressbook_contactform</strong>: Erstellt ein Kontaktformular, das Konatkte in ein vorgegebenes EGroupwareAddressbuch hinzuf&uuml;gt. Zus&auml;tzlich keine ein Mail-Benachrichtigung erfolgen an die eingetragenen Email-Adressen.&nbsp;</li>
+		<strong>Addressbook_contactform</strong>: Erstellt ein Kontaktformular, das Kontakte in ein vorgegebenes EGroupware Adressbuch hinzuf&uuml;gt. Zus&auml;tzlich kann&nbsp;eine&nbsp;Mail-Benachrichtigung&nbsp;an die eingetragenen Email-Adressen&nbsp;<span class="Apple-style-span" style="white-space: nowrap; ">erfolgen</span>.&nbsp;</li>
 	<li>
 		<strong>Addressbook_display</strong>: Zeigt die Kontakte des ausgew&auml;hlten Adressbuchs an, zum Beispiel um Referenzen oder Mitgliederlisten anzuzeigen.&nbsp;</li>
 	<li>
-		<strong>Administration: </strong>Erstellt einen Link zum Inhaltsmanager und zum Abmelden an EGroupware. Zus&auml;tzlich wird eine Auswahlbox zum umschalten zwischen Produktionsmodus, Entwurfsmodus und Bearbeitungsmodus angezeigt. Dieser Block sollte webseitenweit eingef&uuml;gt werden und nur sichtbar f&uuml;r Administratoren oder angemeldete Benutzer.&nbsp;</li>
+		<strong>Administration: </strong>Erstellt einen Link zum Inhaltsmanager und zum Abmelden an EGroupware. Zus&auml;tzlich wird eine Auswahlbox zum&nbsp;Umschalten zwischen Produktionsmodus, Entwurfsmodus und Bearbeitungsmodus angezeigt. Dieser Block sollte webseitenweit eingef&uuml;gt werden und nur sichtbar f&uuml;r Administratoren oder angemeldete Benutzer sein.&nbsp;</li>
 	<li>
 		<strong>Amazon:</strong>&nbsp;Zeigt B&uuml;cher-Anzeigen von der Amazon-Webseite an. Die Einstellungen sind im Block selbst beschrieben.&nbsp;</li>
 	<li>
-		<strong>Bookmarks:</strong>&nbsp;Shows contents of&nbsp;EGroupware&#39;s bookmark application.</li>
+		<strong>Bookmarks:</strong>&nbsp;Zeigt den Inhalt (oder Teile)&nbsp;der Lesezeichen-Anwendung von EGroupware an.</li>
 	<li>
-		<strong>Calendar:</strong>&nbsp;Produces the small navigation calendar with each days linked to EGroupware&#39;s&nbsp;Calendar application (list, month or planner view).</li>
+		<strong>Calendar:</strong>&nbsp;Erzeugt den kleinen Navigations-Kalender, wobei Tage oder Wochen mit den anderen Kalender-Bl&ouml;cken (Listen, Planer oder Wochenansicht) verkn&uuml;pft werden k&ouml;nnen an.&nbsp;</li>
 	<li>
-		<strong>Calendar_list</strong>: Shows the list view of the Calendar of the selected users or groups and categories.</li>
+		<strong>Calendar_list</strong>: Zeigt die Listen-Ansicht des Kalenders entsprechend den Vorgaben von Benutzer, Gruppen, Status-Filter und Kategorien an.</li>
 	<li>
-		<strong>Calendar_month</strong>: Shows the month or several weeks of the selected users or groups and categories.</li>
+		<strong>Calendar_month</strong>:&nbsp;Zeigt&nbsp;die Mehrwochen- oder Monats-Ansicht&nbsp;des&nbsp;Kalenders entsprechend den Vorgaben&nbsp;von&nbsp;Benutzer, Gruppen, Status-Filter&nbsp;und&nbsp;Kategorien an.</li>
 	<li>
-		<strong>Calendar_planner</strong>: Shows the planner of the selected users or groups and categories. There are different modes possible for yearly planner, planner by category or planner by user.</li>
+		<strong>Calendar_planner</strong>:&nbsp;Zeigt&nbsp;die Planer-Ansicht&nbsp;des&nbsp;Kalenders entsprechend den Vorgaben&nbsp;von&nbsp;Benutzer, Gruppen, Status-Filter&nbsp;und&nbsp;Kategorien an.&nbsp;Hier stehen verschiedene Ansichtsm&ouml;glichkeiten zur Verf&uuml;gung: Jahresplaner, Planer nach Kategorien oder Planer nach Benutzer.</li>
 	<li>
-		<strong>Download:</strong>&nbsp;Can be used for creating links to files.</li>
+		<strong>Download:</strong>&nbsp;Zeigt&nbsp;Dateien und Verzeichnissen, die im EGroupware Dateimanager gespeichert sind, zum Download an. Zur Anzeige eines Verzeichnisses&nbsp;sieht der Pfad folgenderma&szlig;en aus: &quot;/home/meinVerzeichnis/&quot;. Der Webseiten-Leser kann dann im Download-Block zu allen Unterverzeichnissen browsen, wenn die Option in der Konfiguration des Blocks markiert ist.&nbsp;</li>
 	<li>
-		<strong>File contents:</strong>&nbsp;Includes the content of a file on the web server into the website.</li>
+		<strong>File contents:</strong>&nbsp;Bindet den Inhalt einer Datei entsprechend der eingegebenen URL (Webadresse)&nbsp;in die&nbsp;Webseite&nbsp;ein.</li>
 	<li>
-		<strong>Frame</strong>: Shows the given URL in an iFrame&nbsp;with the given width and height.</li>
+		<strong>Frame</strong>: Zeigt die angegebene Webadresse (URL) in einem sogenannten iframe mit der&nbsp;vorgegebenen H&ouml;he und Breite an.&nbsp;</li>
 	<li>
-		<strong>Gallery or gallery_image block:</strong>&nbsp;Shows images or different image folders. To use this module the installation of the gallery application is needed.</li>
+		<strong>Gallery or gallery_image block:</strong>&nbsp;Zeigt Bilder oder&nbsp;unterschiedliche Bilder-Verzeichnisse der Gallery an. Dieser Block ben&ouml;tigt zwangsl&auml;ufig die Installation der Gallery-Anwendung.&nbsp;</li>
 	<li>
-		<strong>Google:</strong>&nbsp;Displays a form for querying the Google web site.</li>
+		<strong>Google:</strong>&nbsp;Erzeugt ein&nbsp;google-Suchfenster, das entweder auf der vorgegebenen Webseite oder im gesamten Internet sucht.&nbsp;</li>
 	<li>
-		<strong>HTML:</strong> An important module to add text and images as simply as tables, listings, numerations or links to other pages (in the SiteManager or to other websites).</li>
+		<strong>HTML:</strong>&nbsp;Ein sehr wichtiger (und wohl am h&auml;ufigsten genutzter) Block, um neben Text und Bildern&nbsp;auch Tabellen, Aufz&auml;hlungen oder Numerierungen in eine&nbsp;Webseite einzustellen. Des Weiteren erm&ouml;glicht der HTML-Block das Hinzuf&uuml;gen von&nbsp;Links (Verkn&uuml;pfungen) zu anderen Webseiten oder Seiten innerhalb des SiteManagers.&nbsp;</li>
 	<li>
-		<strong>Lang_block: </strong>Displays a select box for changing the user&#39;s site language.</li>
+		<strong>Lang_block</strong>: Zeigt entweder&nbsp;eine Auswahlbox der vorhanden Sprachen oder die zugeh&ouml;rigen Flaggen an.</li>
 	<li>
-		<strong>Login:</strong> Displays a login block for log in to your EGroupware.</li>
+		<strong>Login:</strong>&nbsp;Erzeugt einen&nbsp;Login-Block f&uuml;r&nbsp;EGroupware.</li>
 	<li>
-		<strong>Navigation</strong>: Allows to add different modes of navigation like current section, site index, index or side tree. Look at the corresponding menu items for more details.&nbsp;</li>
+		<strong>Navigation</strong>: Erlaubt das Hinzuf&uuml;gen unterschiedlicher Navigationselemente, wie z.B. &quot;currentsection&quot;&nbsp;(Inhaltsverzeichnis der aktuellen Kategorie<i>)</i>, index_block, index oder sitetree (Javascript basierende Baumansicht). Eine Detail-Beschreibung&nbsp;befindet sich im zugeh&ouml;rigen Men&uuml;punkt .&nbsp;</li>
 	<li>
-		<strong>News_admin:</strong>&nbsp;Publishes news coming from EGroupware&#39;s&nbsp;News Admin application. The categories to be displayed can be configured as well as the content.&nbsp;</li>
+		<strong>News_admin:</strong>&nbsp;Ver&ouml;ffentlicht Nachrichten, die mit der News-Anwendung von EGroupware verfasst wurden. Die anzuzeigenden Kategorien k&ouml;nnen&nbsp;ebenso wie der&nbsp;Inhalt konfiguriert werden.&nbsp;</li>
 	<li>
-		Phpbrain:</li>
+		<strong>Phpbrain</strong>: Der neue Name der Anwendung ist im Englischen Knowledge Base - zu Deutsch Wissensdatenbank. Hiermit k&ouml;nnen Artikel der Wissensdatenbank auf der Webseite ver&ouml;ffentlicht werden.</li>
 	<li>
-		<strong>Redirect: </strong>Creates a redirection&nbsp;to another URL, useful to link an entry in your menus to a page outside your SiteManager site. Using this module you should not put any other blocks on the same page.</li>
+		<strong>Redirect</strong>: Erzeugt eine&nbsp;&quot;Umleitung&quot; (redirection) zu einer anderen Webseite per vorgegebener URL. N&uuml;tzlich, um zum Beispiel eine externe Webseite in die Egroupware SiteManager Webseite einzubinden. Bei Nutzung dieses Blocks sollte kein weiterer Block auf dieser Seite eingebunden werden!&nbsp;</li>
 	<li>
-		<strong>Template:</strong>&nbsp;Enables website visitors to change the layout-template, great for designing websites together with the customer.</li>
+		<strong>Template:</strong>&nbsp;Erm&ouml;glicht &uuml;ber die Template-Gallery das&nbsp;Ver&auml;ndern des Layouts&nbsp;der erstellten Webseite. Gut geeignet f&uuml;r&nbsp;die Erstellung von&nbsp;Webseiten in Zusammenarbeit mit dem entsprechenden&nbsp;Kunden.&nbsp;</li>
 	<li>
-		<strong>Wiki: </strong>Displays Wiki articles. It allows the website reader to navigate all articles using the links and provides a Wiki search. To avoid a misinterpretation of URLs containing capital letters please disable Wiki links (Wiki site configuration, &quot;enable Wiki links: no&quot;).&nbsp;</li>
+		<strong>Wiki: </strong>Zeigt&nbsp;mit EGroupware&nbsp;erstellte Wiki Artikel an. Der Block erlaubt den Webseiten-Lesern innerhalb der Artikel bzw. Wiki-Seiten &uuml;ber die Wiki-Links (Verkn&uuml;pfungen der Seiten untereinander) und die&nbsp;Wiki-Suche&nbsp;zu&nbsp;navigieren&nbsp;. Um Falsch-Interpretationen der&nbsp;URLs&nbsp;(mit Gro&szlig;- und Kleinschreibung) zu vermeiden, sollte in der Wiki-Konfiguration das&nbsp;Erzeugen von Wiki-Links &uuml;ber &quot;PrettyPrint&quot;-Schreibweise verhindert werden&nbsp;(Wiki Konfiguration, &quot;Wiki Links erlauben: Nein&quot;).&nbsp;</li>
 </ul>
 <p>
-	More modules useful for development or testing issues are available.&nbsp;</p>
+	Dar&uuml;ber hinaus gibt es weitere Bl&ouml;cke, die speziell zum Testen oder&nbsp;f&uuml;r Entwickler vorhanden sind - hier aber nicht n&auml;her beschrieben werden.</p>
 ]]></arguments>
 										</content>
 										<content lang="en">
@@ -337,7 +358,7 @@ theme_header=green
 	The content manager does not impose any constraints which modules to be used for which area. Administrators can restrict the available modules for categories and content areas. For example use modules that are optimized for side block areas in the side areas and use a simple HTML content block on the central area. The following modules are shipped with SiteManager:</p>
 <ul>
 	<li>
-		<strong>Addressbook_contact form</strong>: Creates a contact form which adds contacts directly into the selected EGroupware&nbsp;Addressbook and sends a notification via email to the given email addresses.</li>
+		<strong>Addressbook_contactform</strong>: Creates a contact form which adds contacts directly into the selected EGroupware&nbsp;Addressbook and sends a notification via email to the given email addresses.</li>
 	<li>
 		<strong>Addressbook_display</strong>: Shows the contacts of the selected Addressbook, e.g for references or subscribed members.</li>
 	<li>
@@ -355,7 +376,7 @@ theme_header=green
 	<li>
 		<strong>Calendar_planner</strong>: Shows the planner of the selected users or groups and categories. There are different modes possible for yearly planner, planner by category or planner by user.</li>
 	<li>
-		<strong>Download:</strong>&nbsp;Can be used for creating links to files.</li>
+		<strong>Download:</strong>&nbsp;Create&nbsp;links to files&nbsp;<span>and</span>&nbsp;directories stored in&nbsp;<span>EGroupware&#39;s</span>&nbsp;<span>Filemanager with the&nbsp;</span><strong>download block.</strong>&nbsp;To display&nbsp; a folder&nbsp;<span>the</span>&nbsp;used path should be &quot;/home/<span>yourfolder</span>/&quot;.&nbsp;<span>The</span>&nbsp;user will be able to navigate all&nbsp;<span>sub-folders as well</span>&nbsp;if this is selected.</li>
 	<li>
 		<strong>File contents:</strong>&nbsp;Includes the content of a file on the web server into the website.</li>
 	<li>
@@ -405,8 +426,92 @@ theme_header=green
 									<module>html</module>
 									<sort_order>0</sort_order>
 									<view>0</view>
+									<title lang="de"> </title>
 									<title lang="en">HTML module</title>
 									<contents>
+										<content lang="de">
+											<state>2</state>
+											<arguments><![CDATA[<p>
+	Ein sehr wichtiger und wahrscheinlich&nbsp;der am h&auml;ufigsten genutzte Block, um neben Text und Bildern&nbsp;auch Tabellen, Aufz&auml;hlungen oder Numerierungen in eine&nbsp;Webseite einzuf&uuml;gen. Des Weiteren erm&ouml;glicht der HTML-Block das Erstellen&nbsp;von&nbsp;Links (Verkn&uuml;pfungen) zu anderen Webseiten oder Seiten innerhalb des SiteManagers.&nbsp;</p>
+<p>
+	<span class="Apple-style-span" style="font-size: 14px; font-weight: bold; ">Text und Bilder&nbsp;hinzuf&uuml;gen</span></p>
+<p>
+	<img alt="" src="http://sitemgr.egroupware.de/uploads/ralfbecker.jpeg" style="width: 133px; height: 200px;" /><br />
+	&nbsp;</p>
+<p>
+	Ralf Becker<br />
+	Gesch&auml;ftsf&uuml;hrer Software Entwicklung<br />
+	Stylite GmbH</p>
+<h3>
+	<br />
+	Tabelle hinzuf&uuml;gen</h3>
+<table align="left" border="1" cellpadding="1" cellspacing="1" style="width: 400px;">
+	<thead>
+		<tr>
+			<th scope="row">
+				&nbsp;</th>
+			<th scope="col">
+				&nbsp;</th>
+			<th scope="col">
+				&nbsp;</th>
+			<th scope="col">
+				&nbsp;</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th scope="row">
+				&nbsp;</th>
+			<td>
+				&nbsp;</td>
+			<td>
+				&nbsp;</td>
+			<td>
+				&nbsp;</td>
+		</tr>
+		<tr>
+			<th scope="row">
+				&nbsp;</th>
+			<td>
+				&nbsp;</td>
+			<td>
+				&nbsp;</td>
+			<td>
+				&nbsp;</td>
+		</tr>
+	</tbody>
+</table>
+<br />
+<br />
+<br />
+<br />
+<br />
+<h3>
+	<br />
+	Link (Verkn&uuml;pfung) hinzuf&uuml;gen</h3>
+<p>
+	<a href="http://www.egroupware.org" target="_blank">www.egroupware.org</a><br />
+	&nbsp;</p>
+<h3>
+	Aufz&auml;hlung oder Nummerierung hinzuf&uuml;gen</h3>
+<ul>
+	<li>
+		Addressbook</li>
+	<li>
+		InfoLog</li>
+	<li>
+		Calendar</li>
+</ul>
+<ol>
+	<li>
+		Day view</li>
+	<li>
+		Week view</li>
+	<li>
+		Month view</li>
+</ol>
+]]></arguments>
+										</content>
 										<content lang="en">
 											<state>2</state>
 											<arguments><![CDATA[<p>
@@ -511,8 +616,19 @@ theme_header=green
 									<module>html</module>
 									<sort_order>0</sort_order>
 									<view>0</view>
+									<title lang="de"> </title>
 									<title lang="en"> </title>
 									<contents>
+										<content lang="de">
+											<state>2</state>
+											<arguments><![CDATA[<p>
+	Nutzen Sie die Kalender Bl&ouml;cke, um einen EGroupware Kalender auf der Webseite anzuzeigen. Der Block kann zum Beispiel hilfreich sein, wenn man die Verf&uuml;gbarkeit von Ressourcen&nbsp;oder die Jahresplanung eines Vereins (wie im Bild unten gezeigt)&nbsp;aufzeigen&nbsp;m&ouml;chte.&nbsp;</p>
+<meta content="text/html;charset=UTF-8" http-equiv="Content-Type" />
+<p>
+	<img alt="" src="/uploads/calendar_year.png" style="width: 100%;" /><br />
+	&nbsp;</p>
+]]></arguments>
+										</content>
 										<content lang="en">
 											<state>2</state>
 											<arguments><![CDATA[<p>
@@ -540,8 +656,20 @@ theme_header=green
 									<module>html</module>
 									<sort_order>-1</sort_order>
 									<view>0</view>
+									<title lang="de"> </title>
 									<title lang="en"></title>
 									<contents>
+										<content lang="de">
+											<state>2</state>
+											<arguments><![CDATA[<p>
+	Das Adressbuch Kontaktformular&nbsp;erstellt ein Kontaktformular, das Kontakte in ein vorgegebenes EGroupware Adressbuch hinzuf&uuml;gt. Im Beispiel unterhalb&nbsp;werden die Adressen in das Adressbuch der Default-Gruppe hinzugef&uuml;gt. Zus&auml;tzlich kann&nbsp;eine&nbsp;Mail-Benachrichtigung&nbsp;an die eingetragenen Email-Adressen&nbsp;erfolgen. Im Block&nbsp;wird ausgew&auml;hlt, welche Felder vom Webseiten-Leser ausgef&uuml;llt werden sollen bzw. m&uuml;ssen. Im Beispiel unten sind nur Name und Email-Adresse von Interesse, eine abweichende Konfiguration ist im Block selbst m&ouml;glich.</p>
+<meta content="text/html;charset=UTF-8" http-equiv="Content-Type" />
+<p>
+	&nbsp;</p>
+<p>
+	Der zweite Adressbuch Block (addressbook_display) zeigt die Kontakte eines vorgegebenen Adressbuchs, z.B. um Referenzen oder Mitgliederlisten zu ver&ouml;ffentlichen.&nbsp;</p>
+]]></arguments>
+										</content>
 										<content lang="en">
 											<state>2</state>
 											<arguments><![CDATA[<p>
@@ -582,8 +710,21 @@ theme_header=green
 									<module>html</module>
 									<sort_order>-1</sort_order>
 									<view>0</view>
+									<title lang="de"> </title>
 									<title lang="en"> </title>
 									<contents>
+										<content lang="de">
+											<state>2</state>
+											<arguments><![CDATA[<p>
+	Ver&ouml;ffentlichung von News aus der Nachrichten-Anwendung von&nbsp;EGroupware&nbsp;auf der Webseite. Sowohl die Kategorie&nbsp;als auch der Inhalt (z.B. Headline mit Link, Anrei&szlig;er und Inhalt) k&ouml;nnen im Block eingestellt werden.&nbsp;</p>
+<p>
+	Das Beispiel unterhalb zeigt die Nachrichten von www.egroupware.org</p>
+<p>
+	&nbsp;</p>
+<h2>
+	EGroupware News</h2>
+]]></arguments>
+										</content>
 										<content lang="en">
 											<state>2</state>
 											<arguments><![CDATA[<p>
@@ -608,11 +749,15 @@ theme_header=green
 								<block>
 									<area>center</area>
 									<module>news_admin</module>
-									<arguments><![CDATA[a:5:{s:8:"category";a:1:{i:0;s:2:"24";}s:4:"show";a:4:{i:0;s:8:"datetime";i:1;s:5:"title";i:2;s:6:"teaser";i:3;s:4:"more";}s:5:"limit";s:2:"10";s:8:"linkpage";s:0:"";s:5:"items";s:0:"";}]]></arguments>
+									<arguments><![CDATA[a:3:{s:4:"show";a:4:{i:0;s:8:"datetime";i:1;s:5:"title";i:2;s:6:"teaser";i:3;s:4:"more";}s:5:"limit";s:1:"5";s:8:"linkpage";s:0:"";}]]></arguments>
 									<sort_order>0</sort_order>
 									<view>0</view>
+									<title lang="de">News Admin module</title>
 									<title lang="en">News Admin module</title>
 									<contents>
+										<content lang="de">
+											<state>2</state>
+										</content>
 										<content lang="en">
 											<state>2</state>
 										</content>
@@ -634,8 +779,19 @@ theme_header=green
 									<module>html</module>
 									<sort_order>-1</sort_order>
 									<view>0</view>
+									<title lang="de"> </title>
 									<title lang="en"> </title>
 									<contents>
+										<content lang="de">
+											<state>2</state>
+											<arguments><![CDATA[<p>
+	Erstellen von Links zu Dateien und Verzeichnissen, die im EGroupware Dateimanager gespeichert sind. Zur Anzeige eines Verzeichnisses&nbsp;sieht der Pfad folgenderma&szlig;en aus: &quot;/home/meinVerzeichnis/&quot;. Der Webseiten-Leser kann dann im Download-Block zu allen Unterverzeichnissen browsen, wenn dieses in der Konfiguration des Blocks als Option markiert ist. Es ist sicherzustellen, dass&nbsp;der Benutzer &quot;anonymous&quot; &nbsp;Zugriff auf die Anwendung des Dateimanagers&nbsp;und mindestens Leserecht auf die entsprechenden Verzeichnisse&nbsp;hat. F&uuml;r nicht-&ouml;ffentliche Webseiten (z.B. eine Intranet-Seite)&nbsp;ist es nicht notwendig,&nbsp;Berechtigungen f&uuml;r den Benutzer &quot;anonymous&quot; zu vergeben.</p>
+<meta content="text/html;charset=UTF-8" http-equiv="Content-Type" />
+<p>
+	&nbsp;</p>
+<meta content="text/html;charset=UTF-8" http-equiv="Content-Type" />
+]]></arguments>
+										</content>
 										<content lang="en">
 											<state>2</state>
 											<arguments><![CDATA[<p>
@@ -674,8 +830,31 @@ theme_header=green
 									<module>html</module>
 									<sort_order>-1</sort_order>
 									<view>0</view>
+									<title lang="de"> </title>
 									<title lang="en"> </title>
 									<contents>
+										<content lang="de">
+											<state>2</state>
+											<arguments><![CDATA[<h3>
+	Die am h&auml;ufigsten genutzten Navigationselemente sind</h3>
+<meta content="text/html;charset=UTF-8" http-equiv="Content-Type" />
+<meta content="text/html;charset=UTF-8" http-equiv="Content-Type" />
+<ul>
+	<li>
+		<strong>Current section:</strong>&nbsp;Zeigt das Inhaltsverzeichnis der aktuellen Kategorie an, z.B. alle enthaltenen Seiten und Unterkategorien.&nbsp;</li>
+	<li>
+		<strong>Index_block:</strong>&nbsp;Zeigt das Inhaltsverzeichnis der kompletten Webseite an, optimiert f&uuml;r die Seitenbereiche (links oder rechts).&nbsp;</li>
+	<li>
+		<strong>Index:</strong>&nbsp;Wird automatisch mit dem &quot;index GET parameter&quot;&nbsp;genutzt, ben&ouml;tigt daher keine weiteren Parameter. Kann gut&nbsp;als&nbsp;Gesamtindex&nbsp;der&nbsp;Webseite in den mittleren Block (Center) eingebaut werden.</li>
+	<li>
+		<strong>Site Tree:</strong>&nbsp;Javascript basierende Baumansicht, die sich als Navigationsmen&uuml;&nbsp;in den Seitenbereichen der Webseite eignet.&nbsp;</li>
+</ul>
+<p>
+	&nbsp;</p>
+<h3>
+	Inhaltsverzeichnis der kompletten&nbsp;Webseite / Gesamtindex:</h3>
+]]></arguments>
+										</content>
 										<content lang="en">
 											<state>2</state>
 											<arguments><![CDATA[<h3>
@@ -736,13 +915,13 @@ theme_header=green
 							<module>html</module>
 							<sort_order>0</sort_order>
 							<view>0</view>
-							<title lang="de">HTML Modul</title>
+							<title lang="de"> </title>
 							<title lang="en"> </title>
 							<contents>
 								<content lang="de">
 									<state>2</state>
 									<arguments><![CDATA[<p>
-	Der Sitemanager organisiert die Inhalte einer Webseite mit Hilfe von Kategorien und Seiten.</p>
+	Der SiteManager organisiert die Inhalte einer Webseite mit Hilfe von Kategorien und Seiten.</p>
 <div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; background-color: rgb(255, 255, 255); ">
 	<p style="color: rgb(34, 34, 34); ">
 		Die Kategorien k&ouml;nnen andere Unterkategorien beinhalten, wobei die Unterkategorien der Hauptkategorie hierarchisch untergeordnet&nbsp;werden. Jede Kategorie kann au&szlig;erdem Seiten beinhalten. Lediglich auf dem h&ouml;chsten&nbsp;Level k&ouml;nnen&nbsp;keine Seiten erstellt werden, dort muss zun&auml;chst mindestens eine&nbsp;Kategorie angelegt werden.&nbsp;</p>
@@ -752,21 +931,21 @@ theme_header=green
 		Die folgenden Punkte beschreiben das&nbsp;Erstellen, Hinzuf&uuml;gen&nbsp;und Bearbeiten von Kategorien und Seiten:&nbsp;</p>
 	<ul style="margin-top: 0px; margin-bottom: 0px; ">
 		<li style="color: rgb(34, 34, 34); ">
-			<strong>Erstellen einer neuen&nbsp;Kategorie:&nbsp;</strong>Nutzen&nbsp;Sie den Inhaltmanager oder den Bearbeitungsmodus, um eine neue Kategorie zu erstellen. In den Bearbeitungsmodus&nbsp;gelangen Sie &uuml;ber &quot;Webseite bearbeiten&quot; im Hauptmen&uuml; des Sitemanagers&nbsp;oder wenn f&uuml;r Sie verf&uuml;gbar durch Auswahl des Bearbeitungsmodus direkt im Administrationsmodul. Zum Erstellen einer neuen Kategorie zuerst im Nagivationsmodul auf&nbsp;&quot;Gesamtindex&quot; klicken. Dann f&uuml;hrt Sie der Klick auf den Icon neben dem Text &quot;Seite: Website Inhaltsverzeichnis&quot; zum Erstellen bzw. Bearbeiten der Kategorie (yourdomain//<span>index.php</span>?menuaction=<span>sitemgr.Categories_UI.edit)</span>.</li>
+			<strong>Erstellen einer neuen&nbsp;Kategorie:&nbsp;</strong>Nutzen&nbsp;Sie den Inhaltsmanager oder den Bearbeitungsmodus, um eine neue Kategorie zu erstellen. In den Bearbeitungsmodus&nbsp;gelangen Sie &uuml;ber &quot;Webseite bearbeiten&quot; im Hauptmen&uuml; des SiteManagers&nbsp;oder wenn f&uuml;r Sie verf&uuml;gbar durch Auswahl des Bearbeitungsmodus direkt im Administrationsblock. Zum Erstellen einer neuen Kategorie zuerst im Navigationsblock&nbsp;auf&nbsp;&quot;Gesamtindex&quot; klicken. Dort&nbsp;f&uuml;hrt Sie der Klick auf den Icon neben dem Text &quot;Seite: Website Inhaltsverzeichnis&quot; zum Erstellen bzw. Bearbeiten der Kategorie (yourdomain//<span>index.php</span>?menuaction=<span>sitemgr.Categories_UI.edit)</span>.</li>
 		<li>
 			<strong style="color: rgb(34, 34, 34); ">Bearbeiten einer Kategorie: </strong>Gehen Sie in den Bearbeitungsmodus (siehe oben) und klicken Sie auf &quot;Kategorie bearbeiten&quot; neben dem&nbsp;Kategorienamen. Hier k&ouml;nnen Sie folgende Parameter bearbeiten:
 			<ul>
 				<li style="color: rgb(34, 34, 34); ">
 					Kategoriename: Wird in der Navigation&nbsp;angezeigt.</li>
 				<li style="color: rgb(34, 34, 34); ">
-					Sortierreihenfolge: Wird von der Navigation&nbsp;genutzt zur Sortierung der Kategorien.</li>
+					Sortierreihenfolge: Wird von der Navigation&nbsp;zur Sortierung der Kategorien&nbsp;<span class="Apple-style-span" style="white-space: nowrap; ">genutzt.</span></li>
 				<li style="color: rgb(34, 34, 34); ">
-					&Uuml;bergeordnet: Eine leere &uuml;bergeordnete Kategorie bedeutet, es handelt sich um eine Hauptkategorie. Zum Umwandeln&nbsp;einer&nbsp;Kategorie&nbsp;in eine Unterkategorie, wird die &uuml;bergeordnete Kategorie (auch&nbsp;Elternkategorie genannt)&nbsp;hier ausgew&auml;hlt.</li>
+					&Uuml;bergeordnet: Eine leere &uuml;bergeordnete Kategorie bedeutet&nbsp;es handelt sich um eine Hauptkategorie. Zum Umwandeln&nbsp;einer&nbsp;Kategorie&nbsp;in eine Unterkategorie&nbsp;wird die &uuml;bergeordnete Kategorie (auch&nbsp;Elternkategorie genannt)&nbsp;hier ausgew&auml;hlt.</li>
 				<li style="color: rgb(34, 34, 34); ">
 					Kategoriebeschreibung: Wird in der Navigation&nbsp;als zus&auml;tzliche Information (Tooltip) genutzt, sobald sich&nbsp;der Mauszeiger &uuml;ber der Kategorie befindet.&nbsp;</li>
 				<li>
 					Inhaltsverzeichnis: Welche Seite&nbsp;soll als Inhaltsverzeichnis&nbsp;der Kategorie angezeigt werden?<br />
-					Die Default Einstellung ist ein &quot;automatisches Inhaltsverzeichnis&quot;, d.h. es werden alle Unterkategorien&nbsp;und Seiten als Inhalt angezeigt. Alternativ kann eine einzelne Seite als Inhaltsverzeichnis ausgew&auml;hlt werden, d.h. beim Klicken auf die Kategorie, wird die Seite direkt angezeigt.</li>
+					Die Default Einstellung ist ein &quot;automatisches Inhaltsverzeichnis&quot;, d.h. es werden alle Unterkategorien&nbsp;und Seiten als Inhalt angezeigt. Alternativ kann eine einzelne Seite als Inhaltsverzeichnis ausgew&auml;hlt werden, d.h. beim Klicken auf die Kategorie&nbsp;wird die Seite direkt angezeigt.</li>
 				<li style="color: rgb(34, 34, 34); ">
 					Status: Kategorien sind Teil des&nbsp;Ver&ouml;ffentlichungs-Prozesses, d.h. Sie k&ouml;nnen eine Kategorie mit Seiten und Bl&ouml;cken erstellen und&nbsp;&uuml;ber die Kategorie steuern, ab wann die Kategorie&nbsp;produktiv bzw. sichtbar sein soll.</li>
 				<li style="color: rgb(34, 34, 34); ">
@@ -778,7 +957,7 @@ theme_header=green
 		<li style="color: rgb(34, 34, 34); ">
 			<strong>Hinzuf&uuml;gen einer&nbsp;neuen Seite</strong>: Klicken Sie&nbsp;auf&nbsp;den &quot;Seite zur Kategorie hinzuf&uuml;gen&quot; Icon neben der&nbsp;Kategorie im Gesamtindex des Bearbeitungsmodus&nbsp;(siehe oben). &nbsp;</li>
 		<li style="color: rgb(34, 34, 34); ">
-			<strong>Bearbeiten einer Seite</strong>: Gehen Sie&nbsp;den Bearbeitungsmodus&nbsp;(siehe oben) und klicken&nbsp;Sie auf &quot;Seite bearbeiten&quot; neben dem Seitennamen. Hier k&ouml;nnen Sie folgende Parameter bearbeiten:
+			<strong>Bearbeiten einer Seite</strong>: Klicken&nbsp;Sie&nbsp;im Bearbeitungsmodus (siehe oben)&nbsp;auf &quot;Seite bearbeiten&quot; neben dem Seitennamen. Hier k&ouml;nnen Sie folgende Parameter bearbeiten:
 			<ul style="margin-top: 0px; margin-bottom: 0px; ">
 				<li>
 					Name: Wird als ID f&uuml;r die URL&nbsp;(?page_name=...) genutzt.&nbsp;</li>
@@ -800,10 +979,10 @@ theme_header=green
 			<strong>&nbsp;Bearbeiten des Seiteninhalts:</strong>&nbsp;Es gibt zwei Oberfl&auml;chen zum Erstellen und Bearbeiten&nbsp;von Inhaltsbl&ouml;cken: den Inhaltsmanager, welcher im Interface&nbsp;von&nbsp;EGroupware arbeitet, sowie den Bearbeitungsmodus, welcher in Interaktion mit der generierten Webseite arbeitet.
 			<ul style="margin-top: 0px; margin-bottom: 0px; ">
 				<li>
-					<strong>Inhaltmanager</strong>: Die Benutzeroberfl&auml;che zum Erstellen eines Blocks ist&nbsp;immer gleich, egal ob ein Block nur auf einer Seite, einer Kategorie oder webseitenweit sichtbar ist. Sichtbar sind immer alle Bl&ouml;cke&nbsp;des aktuellen Bereichs (z.B. der aktuellen Seite) und die Bl&ouml;cke der &uuml;bergeordneten Ebenen (z.B. der zugeh&ouml;rigen Kategorie bzw. webseitenweit)&nbsp;<br />
-					Im Inhaltsmanager gibt es unterschiedliche Bereiche, in denen Bl&ouml;cke hinzugef&uuml;gt werden k&ouml;nnen. Die Bl&ouml;cke k&ouml;nnen aus einer Liste der verf&uuml;gbaren Bl&ouml;cke ausgew&auml;hlt werden, die&nbsp;von Seitens der Administration konfiguriert werden kann. &nbsp;Sobald ein neuer Block erstellt wird, wird er zusammen mit den anderen bereits angelegten Bl&ouml;cken angezeigt. Bl&ouml;cke des aktuellen Bereichs (Seite, Kategorie oder webseitenweit) sind bearbeitbar, in dem&nbsp;das Bearbeiten-Icon angeklickt wird.&nbsp;Bl&ouml;cke, die zu einer &uuml;bergeordneten Ebene (z.B. Kategorie) geh&ouml;ren, k&ouml;nnen nur auf der&nbsp;entsprechenden Ebene bearbeitet werden &nbsp;(d.h. beim&nbsp;Anzeigen der entsprechenden&nbsp;Kategorie).</li>
+					<strong>Inhaltsmanager</strong>: Die Benutzeroberfl&auml;che zum Erstellen eines Blocks ist&nbsp;immer gleich, egal ob ein Block nur auf einer Seite, einer Kategorie oder webseitenweit sichtbar ist. Sichtbar sind immer alle Bl&ouml;cke&nbsp;des aktuellen Bereichs (z.B. der aktuellen Seite) und die Bl&ouml;cke der &uuml;bergeordneten Ebenen (z.B. der zugeh&ouml;rigen Kategorie bzw. webseitenweit).&nbsp;<br />
+					Im Inhaltsmanager gibt es unterschiedliche Bereiche, in denen Bl&ouml;cke hinzugef&uuml;gt werden k&ouml;nnen. Die Bl&ouml;cke k&ouml;nnen aus einer Liste der verf&uuml;gbaren Bl&ouml;cke ausgew&auml;hlt werden, welche von der Administration konfiguriert werden kann. &nbsp;Sobald ein neuer Block erstellt wird, wird er zusammen mit den anderen bereits angelegten Bl&ouml;cken angezeigt. Bl&ouml;cke des aktuellen Bereichs (Seite, Kategorie oder webseitenweit) sind&nbsp;durch Anklicken des Bearbeiten-Icons bearbeitbar. &nbsp;Bl&ouml;cke, die zu einer &uuml;bergeordneten Ebene (z.B. Kategorie) geh&ouml;ren, k&ouml;nnen nur auf der&nbsp;entsprechenden Ebene bearbeitet werden &nbsp;(d.h. beim&nbsp;Anzeigen der entsprechenden&nbsp;Kategorie).</li>
 				<li>
-					<strong>Bearbeitungsmodus</strong>: Um den Bearbeitungsmodus nutzen zu k&ouml;nnen, muss ein Admistrations-Block hinzugef&uuml;gt werden - am Besten Webseiten weit und nur sichtbar f&uuml;r angemeldete Benutzer oder Administartoren. &nbsp;Der Block stellt eine Auswahlbox zur&nbsp;Verf&uuml;gung, mit der zwischen Produktionsmodus (zeigt die produktive&nbsp;Webseite an), Entwurfsmodus und Bearbeitungsmodus&nbsp;umgeschaltet werden kann. Im Bearbeitungsmodus sind&nbsp;die identischen Bl&ouml;cke vorhanden, wie im&nbsp;Entwurfsmodus, es wird aber zus&auml;tzlich am Kopf&nbsp;das Icon zum&nbsp;Bearbeiten des Blocks angezeigt. Das Bearbeiten-Fenster wird&nbsp;immer als Popup ge&ouml;ffnet, egal ob es&nbsp;sich um Kategorien, Seiten oder Bl&ouml;cke handelt.</li>
+					<strong>Bearbeitungsmodus</strong>: Um den Bearbeitungsmodus nutzen zu k&ouml;nnen, muss ein Administrations-Block hinzugef&uuml;gt werden - am Besten&nbsp;webseitenweit und nur sichtbar f&uuml;r angemeldete Benutzer oder Administratoren. &nbsp;Der Block stellt eine Auswahlbox zur&nbsp;Verf&uuml;gung, mit der zwischen Produktionsmodus (zeigt die produktive&nbsp;Webseite an), Entwurfsmodus und Bearbeitungsmodus&nbsp;umgeschaltet werden kann. Im Bearbeitungsmodus sind&nbsp;die identischen Bl&ouml;cke vorhanden&nbsp;wie im&nbsp;Entwurfsmodus, es wird aber zus&auml;tzlich am Kopf&nbsp;der Icon zum&nbsp;Bearbeiten des Blocks angezeigt. Das Bearbeiten-Fenster wird&nbsp;immer als Popup ge&ouml;ffnet, egal ob es&nbsp;sich um Kategorien, Seiten oder Bl&ouml;cke handelt.</li>
 			</ul>
 		</li>
 	</ul>
@@ -906,8 +1085,30 @@ theme_header=green
 							<module>html</module>
 							<sort_order>-2</sort_order>
 							<view>0</view>
+							<title lang="de"></title>
 							<title lang="en"> </title>
 							<contents>
+								<content lang="de">
+									<state>2</state>
+									<arguments><![CDATA[<h3>
+	Auswahl eines Templates zur &Auml;nderung des Layout der Webseite &uuml;ber die Template Gallerie</h3>
+<ul>
+	<li>
+		Zur Auswahl und Beschaffung eines Templates (Installation auf eigenem Server) nutzen Sie den folgenden Link auf http://www.egroupware.org/sitemgr.</li>
+	<li>
+		Alle Templates sind in den Stylite&nbsp;EGroupware Hosting Paketen bereits enthalten:
+		<ul>
+			<li>
+				<a href="http://www.stylite.de/egroupware_hosting" target="_blank">EGroupware Hosting</a></li>
+			<li>
+				<a href="http://www.stylite.de/egroupware_hosting_plus_email" target="_blank">EGroupware Hosting + email</a></li>
+			<li>
+				<a href="http://www.stylite.de/egroupware_special_offers" target="_blank">Special offers: eFAMILY&nbsp;and&nbsp;FLAT|RATE for schools, universities, NGOs...</a></li>
+		</ul>
+	</li>
+</ul>
+]]></arguments>
+								</content>
 								<content lang="en">
 									<state>2</state>
 									<arguments><![CDATA[<h3>
@@ -936,8 +1137,92 @@ theme_header=green
 							<module>html</module>
 							<sort_order>0</sort_order>
 							<view>0</view>
+							<title lang="de"> </title>
 							<title lang="en"></title>
 							<contents>
+								<content lang="de">
+									<state>2</state>
+									<arguments><![CDATA[<p>
+	Die neue Template Gallery im EGroupware&nbsp;SiteManager erlaubt die Nutzung von vielen Joomla&nbsp;Templates. Die folgenden Templates empfehlen wir f&uuml;r die Nutzung in den Bereichen</p>
+<h3>
+	Unternehmens Darstellung&nbsp;(z.B. Intranet oder Internet)</h3>
+<table border="0" cellpadding="1" cellspacing="1" style="width: 100%;">
+	<tbody>
+		<tr>
+			<td>
+				<p>
+					<a href="http://sitemgr.egroupware.de/?themesel=ja_zibal"><strong>JA Zibal</strong></a></p>
+				<p>
+					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_zibal"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Zibal.jpg" style="width: 200px; height: 130px;" /></a></p>
+			</td>
+			<td>
+				<p>
+					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_lolite"><strong>JA&nbsp;Iolite</strong></a></p>
+				<p>
+					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_iolite"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Iolite.jpg" style="width: 200px; height: 130px;" /></a></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_mageia"><strong>JA Mageia</strong></a></p>
+				<p>
+					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_mageia"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Mageia.jpg" style="width: 200px; height: 130px;" /></a></p>
+			</td>
+			<td>
+				<p>
+					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_sulfur"><strong>JA Sulfur</strong></a></p>
+				<p>
+					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_sulfur"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Sulfur.jpg" style="width: 200px; height: 130px;" /></a></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	&nbsp;</p>
+<h3>
+	Webseite eines Vereins oder von sozialen Einrichtungen</h3>
+<table border="0" cellpadding="1" cellspacing="1" style="width: 100%;">
+	<tbody>
+		<tr>
+			<td>
+				<p>
+					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_halite"><strong>JA Halite</strong></a></p>
+				<p>
+					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_halite"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Halite.jpg" style="width: 200px; height: 130px;" /></a></p>
+			</td>
+			<td>
+				<p>
+					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_purity"><strong>JA Purity</strong></a></p>
+				<p>
+					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_purity"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Purity.jpg" style="width: 200px; height: 130px;" /></a></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	&nbsp;</p>
+<h3>
+	Pers&ouml;nliche Webseite (z.B.&nbsp;blog)</h3>
+<table border="0" cellpadding="1" cellspacing="1" style="width: 100%;">
+	<tbody>
+		<tr>
+			<td>
+				<p>
+					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_zinc"><strong>JA&nbsp;Zinc</strong></a></p>
+				<p>
+					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_zinc"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Zinc.jpg" style="cursor: default; width: 200px; height: 130px;" /></a></p>
+			</td>
+			<td>
+				<p>
+					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_olyra"><strong>JA&nbsp;Olyra</strong></a></p>
+				<p>
+					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_olyra"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Olyra.jpg" style="cursor: default; width: 200px; height: 130px;" /></a></p>
+			</td>
+		</tr>
+	</tbody>
+</table>]]></arguments>
+								</content>
 								<content lang="en">
 									<state>2</state>
 									<arguments><![CDATA[<p>
@@ -1001,7 +1286,7 @@ theme_header=green
 <p>
 	&nbsp;</p>
 <h3>
-	Personal website (e.g.&nbsp;block)</h3>
+	Personal website (e.g.&nbsp;blog)</h3>
 <table border="0" cellpadding="1" cellspacing="1" style="width: 100%;">
 	<tbody>
 		<tr>
@@ -1019,8 +1304,7 @@ theme_header=green
 			</td>
 		</tr>
 	</tbody>
-</table>
-]]></arguments>
+</table>]]></arguments>
 								</content>
 							</contents>
 						</block>
@@ -1029,8 +1313,15 @@ theme_header=green
 							<module>html</module>
 							<sort_order>4</sort_order>
 							<view>0</view>
+							<title lang="de"> </title>
 							<title lang="en">HTML module</title>
 							<contents>
+								<content lang="de">
+									<state>2</state>
+									<arguments><![CDATA[<h3>
+	Template Gallery mit allen installierten Templates</h3>
+]]></arguments>
+								</content>
 								<content lang="en">
 									<state>2</state>
 									<arguments><![CDATA[<h3>
@@ -1072,8 +1363,32 @@ theme_header=green
 							<module>html</module>
 							<sort_order>0</sort_order>
 							<view>0</view>
+							<title lang="de"> </title>
 							<title lang="en"> </title>
 							<contents>
+								<content lang="de">
+									<state>2</state>
+									<arguments><![CDATA[<p>
+	<span class="Apple-style-span" style="font-size: 14px; font-weight: bold; ">Konfiguration des&nbsp;SiteManagers</span></p>
+<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+	<p>
+		Melden Sie sich als einer der Benutzer mit Administrationsrecht f&uuml;r die Webseite an. Gehen Sie dann auf den SiteManager und w&auml;hlen Sie &quot;SiteManager konfigurieren&quot;. Sie k&ouml;nnen nun folgende Parameter bez&uuml;glich der Pr&auml;sentation der Seite bearbeiten:&nbsp;<br />
+		&nbsp;</p>
+	<ul>
+		<li>
+			<strong>Site_name: </strong>Wird haupts&auml;chlich f&uuml;r Metadaten<strong> </strong>genutzt.</li>
+		<li>
+			<strong>Site_description:</strong>&nbsp;Wird haupts&auml;chlich f&uuml;r Metadaten genutzt.</li>
+		<li>
+			<strong>Default_home_page:</strong><strong><span class="Apple-style-span" style="font-weight: normal; "><strong>&nbsp;</strong></span></strong><span class="Apple-style-span" style="font-weight: normal; ">Durch Auswahl einer Default Homepage wird die Seite ausgew&auml;hlt, mit der die Webseite sich &ouml;ffnet. Erst nach dem Erstellen mehrerer Seiten gibt es eine Auswahlm&ouml;glichkeit</span>.</li>
+		<li>
+			<strong>Template_select:</strong>&nbsp;Auswahl der vom SiteManager angebotenen Designvorlagen f&uuml;r Webseiten.&nbsp;</li>
+		<li>
+			<strong>Site_languages:</strong>&nbsp;Sprachauswahl f&uuml;r multilinguale Webseiten, die das &Uuml;bersetzungs-Interface zum &Uuml;bersetzen des Seiteninhalts nutzen. Durch Einf&uuml;gen eines Auswahl-Men&uuml;s k&ouml;nnen Besucher Ihrer Webseite zwischen den verschiedenen Sprachen w&auml;hlen.&nbsp;</li>
+	</ul>
+</div>
+]]></arguments>
+								</content>
 								<content lang="en">
 									<state>2</state>
 									<arguments><![CDATA[<h3>
@@ -1114,8 +1429,36 @@ theme_header=green
 							<module>html</module>
 							<sort_order>0</sort_order>
 							<view>0</view>
+							<title lang="de"> </title>
 							<title lang="en"> </title>
 							<contents>
+								<content lang="de">
+									<state>2</state>
+									<arguments><![CDATA[<p>
+	Mit dem EGroupware SiteManager k&ouml;nnen mehrere Webseiten verwaltet und gestaltet werden. Der SiteManager erstellt&nbsp;w&auml;hrend der EGroupware Installation&nbsp;eine&nbsp;Default&nbsp;Webseite, aber Sie m&uuml;ssen diese wahrscheinlich f&uuml;r die eigenen Belange umdefinieren bzw. eine neue Webseite anlegen. Die Default Webseite enth&auml;lt die Inhalte (Kategorien, Seiten und Bl&ouml;cke), die Sie gerade sehen. Zum Anlegen einer neuen Webseite&nbsp;m&uuml;ssen Sie sich als Administrator in EGroupware anmelden. Dann gehen Sie in die Administration des SiteManagers und klicken den Link &quot;Webseite definieren&quot; an. Sie erhalten eine Auflistung aller vorhandenen Webseiten (wahrscheinlich nur die Default Webseite), die Sie bearbeiten k&ouml;nnen oder Sie f&uuml;gen eine neue Webseite hinzu.&nbsp;</p>
+<meta content="text/html;charset=UTF-8" http-equiv="Content-Type" />
+<p>
+	Eine Webseite wird &uuml;ber die folgenden Parameter definiert:</p>
+<div class="VARIABLELIST" style="font-size: 12px; ">
+	<ul>
+		<li>
+			<strong>Webseiten Name</strong>: Der Name wird nicht in der Webseite selbst genutzt, sondern hilft, die Webseite in der Administrations-Oberfl&auml;che zu identifizieren.</li>
+		<li>
+			<span class="Apple-style-span" style="white-space: nowrap; "><strong>Dateisystem Pfad zum sitemgr-site Ordner</strong>:&nbsp;</span>Wenn das sitemgr-site-Verzeichnis nicht verschoben wurde, erhalten Sie die korrekte Vorgabe automatisch.&nbsp;</li>
+		<li>
+			<span class="Apple-style-span" style="white-space: nowrap; "><strong>Webadresse zur sitemgr-site</strong>: Diese URL kann auch unver&auml;ndert bleiben, wenn die Webseite unter der vorgegeben<br />
+			URL angesprochen werden kann:&nbsp;</span>&nbsp;<a href="http://www.egroupware.org/your.eGW.url/sitemgr/sitemgr-site" style="cursor: pointer; color: rgb(0, 48, 117); text-decoration: none; " target="_blank">http:/your.eGW.url/sitemgr/sitemgr-site</a>. Wenn Sie eine andere (allgemein &uuml;blichere) Webseiten-Adresse nutzen wollen, m&uuml;ssen Sie entweder das &nbsp;sitemgr-site-Verzeichnis verschieben, einen Alias nutzen oder einen virtuellen Server in der Konfiguration Ihres Webservers eintragen.&nbsp;</li>
+		<li>
+			<strong>Anonymer Benutzer Username</strong>:&nbsp;Falls es nicht schon bei der Installation erfolgt ist legen Sie bitte im Administrationsmen&uuml; einen Benutzer an, der als Benutzer f&uuml;r den &ouml;ffentlichen Teil der Seite genutzt wird. Empfohlener Benutzername: &quot;anonymous&quot;</li>
+		<li>
+			<strong>Anonymer Benutzer </strong><strong>P</strong><span class="Apple-style-span" style="white-space: nowrap; "><strong>assword</strong></span><span class="Apple-style-span" style="white-space: nowrap; ">: Das zugeh&ouml;rige Password f&uuml;r den Benutzer &quot;anonymous&quot;</span>.</li>
+		<li>
+			<span class="Apple-style-span" style="white-space: nowrap; "><strong>Webseiten Administratoren</strong>: W&auml;hlen Sie Benutzer und/oder Gruppen aus, die Administrationsrechte f&uuml;r die<br />
+			Webseite haben </span><span class="Apple-style-span" style="white-space: nowrap; ">sollen. Diese m&uuml;ssen nicht zwangsweise auch EGroupware Administratoren sein.</span></li>
+	</ul>
+</div>
+]]></arguments>
+								</content>
 								<content lang="en">
 									<state>2</state>
 									<arguments><![CDATA[<p>
@@ -1126,9 +1469,9 @@ theme_header=green
 		<li>
 			<strong>Site_name</strong>:&nbsp;This is not used on the website. The site name just helps identify a website inside the administration interface.</li>
 		<li>
-			<span class="Apple-style-span" style="white-space: nowrap; "><strong>Filesystem_path_to_sitemgr-site_directory</strong>:&nbsp;</span>If the SiteManager site-directory has not been moved this path can be left unchanged.&nbsp;</li>
+			<span class="Apple-style-span" style="white-space: nowrap; "><strong>Filesystem_path_to_sitemgr-site_directory</strong>:&nbsp;</span>If the sitemgr-site-directory has not been moved this path can be left unchanged.&nbsp;</li>
 		<li>
-			<strong>U<span class="Apple-style-span" style="white-space: nowrap; ">RL_to_sitemgr-site</span></strong><span class="Apple-style-span" style="white-space: nowrap; ">: This URL can also be left&nbsp;</span>unchanged if you want to access your public website with a URL that looks like&nbsp;<a href="http://www.egroupware.org/your.eGW.url/sitemgr/sitemgr-site" style="cursor: pointer; color: rgb(0, 48, 117); text-decoration: none; " target="_blank">http:/your.eGW.url/sitemgr/sitemgr-site</a>. For a different URL either move the SiteManager site directory or use an alias or a virtual server in the&nbsp;webserver&#39;s configuration.</li>
+			<strong>U<span class="Apple-style-span" style="white-space: nowrap; ">RL_to_sitemgr-site</span></strong><span class="Apple-style-span" style="white-space: nowrap; ">: This URL can also be left&nbsp;</span>unchanged if you want to access your public website with a URL that looks like&nbsp;<a href="http://www.egroupware.org/your.eGW.url/sitemgr/sitemgr-site" style="cursor: pointer; color: rgb(0, 48, 117); text-decoration: none; " target="_blank">http:/your.eGW.url/sitemgr/sitemgr-site</a>. For a different URL either move the sitemgr-site- directory or use an alias or a virtual server in the&nbsp;webserver&#39;s configuration.</li>
 		<li>
 			<strong>Anonymous_user&#39;s_username</strong>: The account name you created above.</li>
 		<li>
@@ -1157,8 +1500,100 @@ theme_header=green
 							<module>html</module>
 							<sort_order>0</sort_order>
 							<view>0</view>
+							<title lang="de"> </title>
 							<title lang="en"></title>
 							<contents>
+								<content lang="de">
+									<state>2</state>
+									<arguments><![CDATA[<h3>
+	H&auml;ufige Fragen zum&nbsp;SiteManager</h3>
+<ul style="margin-top: 0px; margin-bottom: 0px; ">
+	<li>
+		<strong>Wie verschiebt man die erzeugte Webseite in das Wurzelverzeichnis (docroot) des Webservers?</strong>
+		<ul style="margin-top: 0px; margin-bottom: 0px; ">
+			<li>
+				<span class="Apple-style-span" style="white-space: normal;">Kopieren Sie das &#39;</span><span class="Apple-style-span" style="white-space: normal;">sitemgr</span>-site&#39;-Verzeichnis in die docroot, z.B.<br />
+				cd egroupware/sitemgr/sitemgr-site; cp -r * ../../..</li>
+			<li>
+				Bearbeiten Sie die (in das&nbsp;docroot) kopierte &#39;config.inc.php&#39; Datei und &auml;ndern Sie den &#39;phpgw_path&#39;&nbsp;(Pfad), sodass er auf das EGroupware-Installations-Verzeichnis (z.B. &#39;egroupware&#39;) verweist.</li>
+			<li>
+				Gehen Sie in die&nbsp;SiteManager Administration -&gt; Webseite definieren und bearbeiten Sie die bestehende Webseite (oder erstellen ein neue), sodass&nbsp;&#39;/&#39; oder &#39;<a href="http://mydomain/" style="cursor: pointer; color: rgb(0, 48, 117); text-decoration: none; " target="_blank">http://mydomain/</a>&#39; genutzt wird. Als Pfad setzen Sie den Pfad zum docroot ein.</li>
+		</ul>
+	</li>
+</ul>
+<br />
+<ul style="margin-top: 0px; margin-bottom: 0px; ">
+	<li>
+		<strong>Wie erh&auml;lt man Benutzer freundliche URLs, die nur den Seitennamen enthalten, anstatt index.php?pagename=XYZ?</strong>
+		<ul style="margin-top: 0px; margin-bottom: 0px; ">
+			<li>
+				Bearbeiten Sie die &#39;config.inc.php&#39; Datei im&nbsp;sitemgr-site-Verzeichnis (oder dem verschobenen Verzeichnis) und setzen Sie &#39;htaccess_rewrite&#39; auf &#39;True&#39;.</li>
+			<li>
+				Benennen Sie die &#39;htaccess&#39; Datei im gleichen Verzeichnis&nbsp;um in &#39;.htaccess&#39;.</li>
+			<li>
+				Konfigurieren Sie den Webserver so, dass die &#39;.htaccess&#39; Datei gelesen wird und &#39;AllowOverride<strong> </strong>FileInfo&#39; f&uuml;r dieses Verzeichnis gegeben ist.</li>
+		</ul>
+	</li>
+</ul>
+<br />
+<ul style="margin-top: 0px; margin-bottom: 0px; ">
+	<li>
+		<strong>SiteManager&nbsp;Startseite oder wie erh&auml;lt man eine Startseite ohne automatisches Inhaltsverzeichnis (Home)?</strong>
+		<ul style="margin-top: 0px; margin-bottom: 0px; ">
+			<li>
+				Gehen Sie in die Webseiten Konfiguration (nur f&uuml;r Webseiten Administratoren zug&auml;nglich) &nbsp;und erstellen Sie eine Seite (egal in welcher Kategorie). Danach setzen Sie diese Seite beim Webseite definieren als Startseite (Seite, die angezeigt wird, wenn keine Seite explizit ausgew&auml;hlt wurde).&nbsp;</li>
+			<li>
+				Diese Seite kann nur HTML-Bl&ouml;cke enthalten und kein automatisches Inhaltsverzeichnis. Zus&auml;tzlich werden aber alle webseitenweiten Bl&ouml;cke angezeigt, ebenso wie die Bl&ouml;cke der zugeh&ouml;rigen Kategorie (und ggf. der Elternkategorien).</li>
+		</ul>
+	</li>
+</ul>
+<br />
+<meta content="text/html;charset=UTF-8" http-equiv="Content-Type" />
+<ul style="margin-top: 0px; margin-bottom: 0px; ">
+	<li>
+		<strong>Kann man mehre Seiten in Unterverzeichnissen verwalten?<br />
+		Zum Beispiel:&nbsp;&nbsp;<a href="http://domain.com/" style="cursor: pointer; color: rgb(0, 48, 117); text-decoration: none; " target="_blank">http://domain.com</a>,&nbsp;<a href="http://domain.com/site-A/" style="cursor: pointer; color: rgb(0, 48, 117); text-decoration: none; " target="_blank">http://domain.com/site-A/</a>&nbsp;and&nbsp;<a href="http://domain.com/site-B/" style="cursor: pointer; color: rgb(0, 48, 117); text-decoration: none; " target="_blank">http://domain.com/site-B/</a>?</strong>
+		<ul style="margin-top: 0px; margin-bottom: 0px; ">
+			<li>
+				Es ist prinzipiell m&ouml;glich, aber: die Webseite mit dem Wurzelverzeichnis (<strong><a href="http://domain.com/" style="cursor: pointer; color: rgb(0, 48, 117); text-decoration: none; " target="_blank">http://domain.com</a>) </strong>muss zuletzt erstellt<strong>&nbsp;</strong>werden,&nbsp;&nbsp;da die dortigen URLs auch den URLs der anderen beiden Webseiten entsprechen.&nbsp;Aktuell gibt es keinen Weg, die Suche anders zu beeinflussen.</li>
+			<li>
+				Eine weitere M&ouml;glichkeit der Handhabung w&auml;re es, f&uuml;r jede Unterseite eine andere Kategorie mit entsprechenden Zugriffsrechten&nbsp;zu erstellen.&nbsp;</li>
+		</ul>
+	</li>
+</ul>
+<br />
+<meta content="text/html;charset=UTF-8" http-equiv="Content-Type" />
+<ul style="margin-top: 0px; margin-bottom: 0px; ">
+	<li>
+		<strong>Wie erstellt man anonymen Zugriff auf eine SiteManager Webseite?</strong>
+		<ul style="margin-top: 0px; margin-bottom: 0px; ">
+			<li>
+				Erstellen Sie einen Benutzer MIT einem Password (ohne geht nicht!) und tragen Sie Benutzername und Password&nbsp;&nbsp;beim&nbsp;Webseite&nbsp;definieren bzw. bearbeiten&nbsp;ein. Das&nbsp;Setup erstellt hierf&uuml;r diesen Benutzer automatisch bei der Installation von Egroupware: Benutzername &#39;anonymous&#39; in der Gruppe &#39;No Group&#39;.</li>
+			<li>
+				Der Benutzer &#39;anonymous&#39; &nbsp;ben&ouml;tigt Zugriff zur Anwendung &#39;Website&#39;, NICHT dagegen zum SiteManager selbst.</li>
+			<li>
+				Der Benutzer &#39;anonymous&#39; &nbsp;ben&ouml;tigt Lese-Zugriff&nbsp;&nbsp;auf die Bereiche (Kategorien), die der Webseiten-Leser sehen k&ouml;nnen soll!</li>
+		</ul>
+	</li>
+</ul>
+<br />
+<ul style="margin-top: 0px; margin-bottom: 0px; ">
+	<li>
+		<strong>Wie kann man einen EGroupware Kalender im&nbsp;SiteManager verf&uuml;gbar machen?</strong>
+		<ul style="margin-top: 0px; margin-bottom: 0px; ">
+			<li>
+				Der Benutzer &#39;anonymous&#39; &nbsp;ben&ouml;tigt Lese-Zugriff&nbsp;&nbsp;auf den Kalender des entsprechenden Benutzers bzw. der dargestellten Gruppe. Geben Sie KEINEN Zugriff auf die Anwendung Kalender, da sonst jeder von au&szlig;en beliebig Kalendereintr&auml;ge erstellen bzw. im Kalender selbst anzeigen k&ouml;nnte.&nbsp;</li>
+			<li>
+				Erstellen Sie einen Kalender-Block (z.B. calendar_list f&uuml;r die Listen-Ansicht, calendar_month f&uuml;r eine Mehrwochen- oder Monatsansicht oder calendar_planner f&uuml;r eine Planer-Ansicht). Falls die Bl&ouml;cke nicht direkt verf&uuml;gbar sind, m&uuml;ssen Sie die SiteManager Module (Bl&ouml;cke) f&uuml;r die Benutzung&nbsp;registrieren.</li>
+			<li>
+				Konfigurieren Sie den ausgew&auml;hlten Block entsprechend Ihren Bed&uuml;rfnissen, z.B. indem Sie Benutzer/Gruppe, Status-Filter und Kategorie ausw&auml;hlen.&nbsp;</li>
+			<li>
+				F&uuml;r die Listenansicht des Kalenders sollten Sie das Stylesheet Ihrer Webseite anpassen. Ein Beispiel finden Sie hier: &#39;calendar/sitemgr/class.module_calendar_list.inc.php&#39;.</li>
+		</ul>
+	</li>
+</ul>
+]]></arguments>
+								</content>
 								<content lang="en">
 									<state>2</state>
 									<arguments><![CDATA[<h3>
@@ -1168,7 +1603,7 @@ theme_header=green
 		<strong>How&nbsp;to&nbsp;move the generated website in the docroot?</strong>
 		<ul style="margin-top: 0px; margin-bottom: 0px; ">
 			<li>
-				Copy the&nbsp;SiteManager-site directory to the&nbsp;docroot, e.g. cd egroupware/sitemgr/sitemgr-site; cp -r * ../../..</li>
+				Copy the&nbsp;sitemgr-site directory to the&nbsp;docroot, e.g. cd egroupware/sitemgr/sitemgr-site; cp -r * ../../..</li>
 			<li>
 				Edit the copied config.inc.php file in the docroot and change phpgw_path to point to the&nbsp;eGW install dir, e.g. &#39;egroupware&#39;.</li>
 			<li>
@@ -1182,7 +1617,7 @@ theme_header=green
 		<strong>How&nbsp;to&nbsp;have the nice URLs with only the page-names instead of index.php?pagename=XYZ?</strong>
 		<ul style="margin-top: 0px; margin-bottom: 0px; ">
 			<li>
-				Edit the config.inc.php file in the&nbsp;SiteManager-site directory (or whereever&nbsp;copied&nbsp;from) and set htaccess_rewrite to True,</li>
+				Edit the config.inc.php file in the&nbsp;sitemgr-site directory (or whereever&nbsp;copied&nbsp;from) and set htaccess_rewrite to True,</li>
 			<li>
 				Rename the &#39;htaccess&#39; file in the same dir to &#39;.htaccess&#39;&nbsp;and</li>
 			<li>
@@ -1274,8 +1709,68 @@ theme_header=green
 							<module>html</module>
 							<sort_order>0</sort_order>
 							<view>0</view>
+							<title lang="de"> </title>
 							<title lang="en"> </title>
 							<contents>
+								<content lang="de">
+									<state>2</state>
+									<arguments><![CDATA[<p>
+	&nbsp;</p>
+<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+	<p>
+		<img alt="" src="http://sitemgr.egroupware.de/uploads/support_stylite.jpg" style="cursor: default; width: 647px; " /></p>
+	<h3>
+		Support nach Wunsch</h3>
+	<ul>
+		<li>
+			<strong>Training, Consulting und Support&nbsp;</strong>f&uuml;r&nbsp;EGroupware&nbsp;Benutzer und Installationen&nbsp;erh&auml;ltlich in&nbsp;Prepaid-Paketen</li>
+		<li>
+			System-Support f&uuml;r&nbsp;EGroupware&nbsp;Neueinsteiger, Updating, Finden und Beseitigen von Problemen sowie Ver&auml;nderungsprozessen</li>
+		<li>
+			Beratung bez&uuml;glich&nbsp;Sicherheit,&nbsp;<span class="Apple-style-span" style="white-space: normal; ">Linux&nbsp;</span>und&nbsp;allgemeinen Systemfragen</li>
+		<li>
+			Support durch&nbsp;Stylite&#39;s&nbsp;EGroupware&nbsp;Entwickler, Berater und&nbsp;Linux&nbsp;Systemexperten</li>
+		<li>
+			Service per <strong>Telefon, Bildschirm-&Uuml;bertragung oder Remote-Zugriff</strong></li>
+		<li>
+			<a href="http://www.stylite.de/egroupware_consulting_and_support" target="_blank">Mehr Informationen</a></li>
+	</ul>
+	<br />
+	<h3>
+		Schulungen</h3>
+	<ul>
+		<li>
+			Praktische Schulungen vor Ort</li>
+		<li>
+			Individuelle Abstimmung von&nbsp;Schulungsinhalten: Einf&uuml;hrung und&nbsp;&Uuml;berblick,&nbsp;Anpassung von Modulen an individuelle Kundenw&uuml;nsche, Administration</li>
+		<li>
+			max 8 Personen</li>
+		<li>
+			8 Stunden pro Tag</li>
+		<li>
+			<a href="http://www.stylite.de/egroupware_consulting_and_support" target="_blank">Mehr Informationen</a></li>
+	</ul>
+	<br />
+	<h3>
+		Starter Workshop</h3>
+	<ul>
+		<li>
+			<a href="http://www.stylite.de/egroupware_special_offers" target="_blank" title="Spezial Angebot für einen EGroupware Starter Workshop">Starter Workshop</a>&nbsp;f&uuml;r neue&nbsp;EGroupware&nbsp;Premium Line Kunden</li>
+		<li>
+			<a href="http://www.stylite.de/implementation_guideline" target="_blank" title="Implementations Leitfaden für einen EGroupware Starter Workshop">L&ouml;sungskonzepte&nbsp;f&uuml;r&nbsp;Stylite&nbsp;Workshops</a></li>
+	</ul>
+	<br />
+	<h3>
+		Kontakt&nbsp;Stylite</h3>
+	<ul>
+		<li>
+			Tel:&nbsp; +49 (0) 63 52 706 29 0</li>
+		<li>
+			Fax: +49 (0) 63 52 706 29 30</li>
+	</ul>
+</div>
+]]></arguments>
+								</content>
 								<content lang="en">
 									<state>2</state>
 									<arguments><![CDATA[<img alt="" src="http://sitemgr.egroupware.de/uploads/support_stylite.jpg" style="width: 100%;" />
@@ -1349,8 +1844,48 @@ theme_header=green
 							<module>html</module>
 							<sort_order>0</sort_order>
 							<view>0</view>
+							<title lang="de"> </title>
 							<title lang="en">  </title>
 							<contents>
+								<content lang="de">
+									<state>2</state>
+									<arguments><![CDATA[<p>
+	EGroupware ist ein weltweites Projekt. Viele Menschen weltweit unterst&uuml;tzen die Community durch Diskussion verschiedenster Fragen bez&uuml;glich EGroupware, Anwendung der Software und Anpassung der Software an den individuellen Gebrauch.&nbsp;</p>
+<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+	<p>
+		<strong>Bei Nutzung des Community Support im Benutzer-Forum beachten Sie bitte, dass Sie f&uuml;r diesen Support nicht bezahlen. Die dort gegebene Unterst&uuml;tzung erfolgt auf freiwilliger Basis und wird nicht verg&uuml;tet. Es lohnt sich, f&uuml;r eine sinnvolle Nutzung des Community Supports einen Blick in die unten aufgef&uuml;hrte Konvention zu werfen:</strong></p>
+	<ul>
+		<li>
+			Schauen Sie zun&auml;chst in den momentan verf&uuml;gbaren Informationsquellen nach der Antwort zu Ihren Fragen:
+			<ul>
+				<li>
+					Lesen Sie das Handbuch und suchen Sie in den anderen Beitr&auml;gen im Wiki. &nbsp;</li>
+			</ul>
+			<ul>
+				<li>
+					Durchsuchen Sie das&nbsp;<a href="http://www.egroupware.org/forum" target="_blank">Forum</a>&nbsp;zu Ihrer Frage, vielleicht gibt es dort bereits eine Antwort.&nbsp;</li>
+			</ul>
+		</li>
+		<li>
+			Keine private Kontaktaufnahme zu Community Mitgliedern oder Entwicklern.&nbsp;</li>
+		<li>
+			Ver&ouml;ffentlichen Sie Ihre Fragen nicht auf mehreren Listen.</li>
+	</ul>
+	<p>
+		<strong>Die Verbindung zwischen dem Benutzer-Forum und dem kommerziellen Support der&nbsp;Stylite EGroupware Entwickler&nbsp;</strong></p>
+	<ul>
+		<li>
+			Die&nbsp;Stylite&nbsp;EGroupware&nbsp;Entwickler sind Mitglieder der&nbsp;Projekt-Community und beteiligen sich im Benutzerforum. Sie analysieren Probleme und Anfragen der&nbsp;Nutzer weltweit, um L&ouml;sungen in die aktuelle Version von EGroupware einzubinden.&nbsp;</li>
+		<li>
+			Das Stylite Entwicklerteam arbeitet professionell an EGroupware.&nbsp;<strong>Stylite&nbsp;beantwortet normalerweise keine Support-Anfragen aus dem Benutzer-Forum</strong>, bietet jedoch Informationen und Feedback bez&uuml;glich tats&auml;chlichen EGroupware spezifischen Fragen und&nbsp;bez&uuml;glich der Software-Entwicklung.&nbsp;</li>
+		<li>
+			Stylite&nbsp;bietet <a href="http://www.stylite.de/EGroupware_consulting_and_support" target="_blank">Support-Service</a> f&uuml;r&nbsp;Kunden weltweit bez&uuml;glich&nbsp;der Nutzung von EGroupware, Linuxfragen, Schulung und individueller Nutzung der Software. Stylite Kunden stehen in direktem Kontakt mit den Stylite&nbsp;EGroupware Entwicklern und Systemexperten.&nbsp;</li>
+		<li>
+			Diskussion und Austausch mit anderen EGroupware Entwicklern findet im&nbsp;Entwickler-Forum statt.&nbsp;</li>
+	</ul>
+</div>
+]]></arguments>
+								</content>
 								<content lang="en">
 									<state>2</state>
 									<arguments><![CDATA[<p>
