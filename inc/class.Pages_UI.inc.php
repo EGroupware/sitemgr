@@ -141,18 +141,12 @@
 
 			if (count($this->sitelanguages) > 1)
 			{
-				$select = lang('as') . ' <select name="savelanguage">';
-			
+				$langs = array();
 				foreach ($this->sitelanguages as $lang)
 				{
-					$selected= '';
-					if ($lang == $openlanguage)
-					{
-						$selected = 'selected="selected" ';
-					}
-					$select .= '<option ' . $selected .'value="' . $lang . '">'. $GLOBALS['Common_BO']->getlangname($lang) . '</option>';
+					$langs[$lang] = $GLOBALS['Common_BO']->getlangname($lang);
 				}
-				$select .= '</select> ';
+				$select = html::select('savelanguage',$openlanguage,$langs,false,' onchange="this.form.submit()"');
 				$this->t->set_var('savelang',$select);
 			}
 
