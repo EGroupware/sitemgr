@@ -36,9 +36,9 @@
 		<td>{lang_hide}</td>
 	</tr>
 	<tr>
-		<td align="left">
+		<td align="left" style="white-space: nowrap;">
 			<input type="submit" name="btnSave" value="{lang_save}" />
-			<input type="submit" name="btnApply" value="{lang_apply}" /> 
+			<input type="submit" name="btnApply" value="{lang_apply}" />
 			<input type="reset" value="{lang_cancel}" onClick="self.close();" />
 		</td>
 		<td align="center">{savelang}</td>
