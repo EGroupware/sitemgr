@@ -15,7 +15,7 @@
 {
 
  /*
-	This hookfile is for generating an app-specific side menu used in the idots 
+	This hookfile is for generating an app-specific side menu used in the idots
 	template set.
 
 	$menu_title speaks for itself
@@ -27,6 +27,7 @@
 	if (!isset($GLOBALS['Common_BO']) || !is_object($GLOBALS['Common_BO']))
 	{
 		$GLOBALS['Common_BO'] = CreateObject('sitemgr.Common_BO');
+		$GLOBALS['Common_BO']->sites->set_currentsite(false,'Administration');
 	}
 	$menu_title = lang('Website') . ' ' . $GLOBALS['Common_BO']->sites->current_site['site_name'];
 	$file = $GLOBALS['Common_BO']->get_sitemenu();
