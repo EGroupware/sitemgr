@@ -103,8 +103,8 @@ class module_login extends Module
 				if($GLOBALS['egw_info']['server']['allow_cookie_auth'])
 				{
 					$content .= '<center><font class="content">' . lang("remember me");
-					$content .= html::select('remember_me', 'forever', array(
-						false => lang('not'),
+					$content .= html::select('remember_me', '', array(
+						'' => lang('not'),
 						'1hour' => lang('1 Hour'),
 						'1day' => lang('1 Day'),
 						'1week'=> lang('1 Week'),
