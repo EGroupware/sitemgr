@@ -116,13 +116,38 @@ class module_filecontents extends Module
 			if (preg_match('/<meta http-equiv="content-type" content="text\/html; ?charset=([^"]+)"/i',$ret,$parts))
 			{
 				$ret = translation::convert($ret,$parts[1]);
+				// fix the charset in content-type, as Zend_Dom_Query relies on it
+				$ret = str_replace('charset='.$parts[1].'"','charset='.translation::charset().'"',$ret);
 			}
-
+			// replace images and links with correct host
+			if ($is_html && ($url['scheme'] == 'http' || $url['scheme'] == 'https'))
+			{
+				$ret = strtr($ret,array(
+					'src="/' => 'src="'.$url['scheme'].'://'.$url['host'].'/',
+					'href="/' => 'href="'.$url['scheme'].'://'.$url['host'].'/',
+				));
+				// deal with relative pathes
+				if (preg_match('/(src|href)="(?!https?:\/\/)/',$ret))
+				{
+					// check for a possible base href
+					if (preg_match('/<base href="([^"]+)"/si',$ret,$matches))
+					{
+						$base = $matches[1];
+						if (substr($base,-1) != '/') $base .= '/';
+					}
+					else	// otherwise use directory of $path (egw_vfs::dirname deals with url's correctly)
+					{
+						$base = egw_vfs::dirname($path).'/';
+					}
+					$ret = preg_replace('/(src|href)="(?!https?:\/\/)/i','\\1="'.$base,$ret);
+				}
+			}
 			// for html use css query if given AND Zend Framework available
 			if ($arguments['css_query'] && @include_once('Zend/Dom/Query.php'))
 			{
 				$dom = new Zend_Dom_Query();	// specifying document direct in constructor uses Xml,
 				$dom->setDocumentHtml($ret);	// if document has xml head and does NOT work, if not valid xml
+				$dom->setEncoding(translation::charset());
 				$ret = '';
 				foreach($dom->query($arguments['css_query']) as $element)
 				{
@@ -132,14 +157,6 @@ class module_filecontents extends Module
 			elseif (preg_match('/<body>(.*)<\/body>/si',$ret,$matches))
 			{
 				$ret = $matches[1];
-			}
-			// replace images and links with correct host
-			if ($is_html && ($url['scheme'] == 'http' || $url['scheme'] == 'https'))
-			{
-				$ret = strtr($ret,array(
-					'src="/' => 'src="'.$url['scheme'].'://'.$url['host'].'/',
-					'href="/' => 'href="'.$url['scheme'].'://'.$url['host'].'/',
-				));
 			}
 		}
 		if(substr($path,-4) == '.txt')
