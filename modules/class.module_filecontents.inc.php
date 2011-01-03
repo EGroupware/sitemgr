@@ -13,8 +13,17 @@
 /**
  * Filecontents module: displays/includes content of files or urls
  *
+ * You have to configure allow_url_fopen On in your php.ini or egroupware.conf!
+ *
  * If Zend Framework is install, you can also use a css query to get a part of the included html.
  * Eg. "div#id" or "div.class"
+ *
+ * Zend Framework installation can be anywhere, usually outside of the docroot.
+ * It's library path has to be added to php's include path in your php.ini or egroupware.conf:
+ * eg. ZF install in /opt/ZendFramework --> add /opt/ZendFramework/library to your include_path.
+ * If you use open_basedir (eg. done by EGroupware RPM or DEB packages, you have to add the path there too!
+ *
+ * Filecontents module uses a proxy server, if one is configured in EGroupware's setup >> configuration.
  */
 class module_filecontents extends Module
 {
@@ -67,6 +76,10 @@ class module_filecontents extends Module
 	 */
 	function get_content(&$arguments,$properties)
 	{
+		if (!ini_get('allow_url_fopen'))
+		{
+			return lang('You need to set "%1" to "%2" in your php.ini or egroupware.conf Apache configuration!','allow_url_fopen','On');
+		}
 		if ((int)$arguments['cache_time'] &&
 			($ret = egw_cache::getInstance('sitemgr', $cache_token = md5(serialize($arguments)))))
 		{
@@ -92,7 +105,20 @@ class module_filecontents extends Module
 					($url['host'] ? $url['host'] : $_SERVER['HTTP_HOST']) .
 					str_replace($_SERVER['DOCUMENT_ROOT'],'',$path);
 			}
-			if ($fp = fopen($path,'rb'))
+			$http_options = array(
+				'timeout' => 5,	// default is 60s
+			);
+			// use a proxy, if one is configured in EGroupware setup >> configuration
+			if ($GLOBALS['egw_info']['server']['httpproxy_server'])
+			{
+				$http_options['proxy'] = 'tcp://'.
+					($GLOBALS['egw_info']['server']['httpproxy_server_username'] ? $GLOBALS['egw_info']['server']['httpproxy_server_username'].
+						($GLOBALS['egw_info']['server']['httpproxy_server_password'] ? ':'.$GLOBALS['egw_info']['server']['httpproxy_server_password'] : '').'@' : '').
+					$GLOBALS['egw_info']['server']['httpproxy_server'].
+					($GLOBALS['egw_info']['server']['httpproxy_port'] ? ':'.$GLOBALS['egw_info']['server']['httpproxy_port'] : '');
+				$http_options['request_fulluri'] = true;	// some proxy require that
+			}
+			if ($fp = fopen($path,'rb',false,stream_context_create(array('http' => $http_options))))
 			{
 				$ret = '';
 				while (!feof($fp))
