@@ -75,7 +75,6 @@ class sitemgr_import_xml implements importexport_iface_import_plugin
 		{
 			$this->reader = new XMLReader();
 		}
-		$this->common = $GLOBALS['Common_BO'] = CreateObject('sitemgr.Common_BO');
 	}
 
 	/**
@@ -205,6 +204,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin
 	 */
 	public function import_record(array $admins=null,array $cat_acl=null,$ignore_acl=false)
 	{
+		$this->common = $GLOBALS['Common_BO'] = CreateObject('sitemgr.Common_BO');
 		if(self::$debug) {
 			echo '<style type = "text/css">
 				.site, .category, .block, .page, .node {
