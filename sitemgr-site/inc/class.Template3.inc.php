@@ -502,7 +502,9 @@ class Template3
 				return $GLOBALS['sitemgr_info']['mode'] == 'Edit' ?
 					'<link href="templates/default/style/editmode.css" type="text/css" rel="StyleSheet" />' : '';
 			case 'java_script':
-				return $GLOBALS['egw']->common->get_java_script();
+				return common::get_java_script();
+			case 'body_attribs':
+				return common::get_body_attribs();
 			case 'need_footer':
 				return $GLOBALS['egw_info']['flags']['need_footer'];
 			case 'default_css':
