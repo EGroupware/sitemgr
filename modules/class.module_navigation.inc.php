@@ -599,7 +599,8 @@
 						{
 							$cat['link'] = $cat['name'];
 						}
-						$out .= $this->encapsulate($arguments,array($cat_id => $cat),'cat',$cat_id,$cat['depth'],__LINE__);
+						//_debug_array(array('id'=>$cat_id,'data'=>$cat));
+						if ($cat_id >0) $out .= $this->encapsulate($arguments,array($cat_id => $cat),'cat',$cat_id,$cat['depth'],__LINE__);
 					}
 					// only show pages (of a category), if the category itself is shown
 					if($cat['depth'] <= $arguments['max_pages_depth'] && $cat['depth'] != 0)
@@ -705,6 +706,7 @@
 
 				if($arguments['show_edit_icons'])
 				{
+					//echo function_backtrace().'<br>';
 					$out .= "<span class=\"nav-edit-icons\">";
 					$out .= $type == 'cat' ?
 						$this->objbo->getEditIconsCat($id) :
