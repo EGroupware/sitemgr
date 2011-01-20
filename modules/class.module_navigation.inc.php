@@ -600,7 +600,7 @@
 							$cat['link'] = $cat['name'];
 						}
 						//_debug_array(array('id'=>$cat_id,'data'=>$cat));
-						if ($cat_id >0) $out .= $this->encapsulate($arguments,array($cat_id => $cat),'cat',$cat_id,$cat['depth'],__LINE__);
+						$out .= $this->encapsulate($arguments,array($cat_id => $cat),'cat',$cat_id,$cat['depth'],__LINE__);
 					}
 					// only show pages (of a category), if the category itself is shown
 					if($cat['depth'] <= $arguments['max_pages_depth'] && $cat['depth'] != 0)
@@ -704,7 +704,7 @@
 				}
 				$out .= "          ".$entry['link']."\n";
 
-				if($arguments['show_edit_icons'])
+				if($arguments['show_edit_icons'] && $cat_id >0)
 				{
 					//echo function_backtrace().'<br>';
 					$out .= "<span class=\"nav-edit-icons\">";
