@@ -662,7 +662,7 @@
 				$out .= "          <li>\n";
 				$out .= "            ".$entry['link']."\n";
 
-				if($arguments['show_edit_icons'])
+				if($arguments['show_edit_icons']  && $cat_id >0)
 				{
 					$out .= "<span class=\"nav-edit-icons\">";
 					$out .= $type == 'cat' ?
