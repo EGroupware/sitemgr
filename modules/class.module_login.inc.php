@@ -35,8 +35,9 @@ class module_login extends Module
 		if (file_exists(EGW_SERVER_ROOT . '/registration'))
 		{
 			$this->arguments['registration'] = array(
-				'type' => 'checkbox',
-				'label' => lang('Display link to autoregistration below login form?')
+				'type' => 'select',
+				'label' => lang('Display link to autoregistration below login form?'),
+				'options' => registration_bo::get_blocks()
 			);
 		}
 		$this->properties = array();
@@ -78,7 +79,7 @@ class module_login extends Module
 		$this->arguments['login_dest']['options'] = $chooseable_apps;
 
 		$config = config::read('registration');
-		if (file_exists(EGW_SERVER_ROOT . '/registration') && $config['enable_registration'] != 'True')
+		if (file_exists(EGW_SERVER_ROOT . '/registration') && !$config['enable_registration'])
 		{
 			$this->arguments['registration']['label'] .= '<br><font color="red">'.
 				lang('<b>Autoregistration is not enabled / configured in the registration app !!!</b><br>You need to do so, to get the autoregistration link working.').
@@ -148,7 +149,7 @@ class module_login extends Module
 			if (file_exists(EGW_SERVER_ROOT . '/registration') && $arguments['registration'])
 			{
 				$content .= '<center><font class="content">' . lang("Don't have an account?") .'  ';
-				$content .= '<a href="'.phpgw_link('/registration/index.php').'"><br/>';
+				$content .= '<a href="'.sitemgr_link(array('page_name' => $arguments['registration'])).'"><br/>';
 				$content .= lang('Register for one now.') . '</a></font></center>';
 			}
 		}
