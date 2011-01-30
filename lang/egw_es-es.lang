@@ -123,6 +123,8 @@ currency code of the value specified in amount (eg. usd, eur)	sitemgr	es-es	Cód
 current section	sitemgr	es-es	Sección actual
 custom	sitemgr	es-es	personalizado
 custom etemplate for the contactform	sitemgr	es-es	Plantilla personalizada para el formulario de contacto
+custom template directory	sitemgr	es-es	Directorio para las plantillas personalizadas
+custom template directory does not exist or is not accessible by webserver!	sitemgr	es-es	¡El directorio para las plantillas personalizadas NO existe o NO está accesible para el servidor web!
 default	sitemgr	es-es	Predeterminado
 default home page id number	sitemgr	es-es	Número de ID de la página de inicio predeterminada
 define websites	common	es-es	Definir sitios web
@@ -137,7 +139,6 @@ deleting all data for %1	sitemgr	es-es	Borrar todos los datos de %1
 department	sitemgr	es-es	Departamento
 descending	sitemgr	es-es	descendente
 details for language %1 (%2)	sitemgr	es-es	Detalles para el idioma %1 (%2)
-directory is not writable by the webserver --> disabling upload	sitemgr	es-es	El directorio NO tiene permiso de escritura para el servidor web -> se desactiva poder subir ficheros
 discussions	sitemgr	es-es	Discusiones
 display contact	sitemgr	es-es	Mostrar contacto
 display link to autoregistration below login form?	sitemgr	es-es	¿Mostrar el enlace para registrarse automáticamente debajo del formulario?
@@ -168,6 +169,7 @@ edit site	sitemgr	es-es	Editar sitio
 edit site header and footer	common	es-es	Editar el encabezado y el pie del sitio
 edit this block	sitemgr	es-es	Editar este bloque
 edit website	sitemgr	es-es	Editar sitio web
+eg. be renaming %1 to %2 in the %3 directory for an apache.	sitemgr	es-es	Renombrando %1 a %2 en el directorio %3 para Apache.
 egw users	sitemgr	es-es	usuarios de eGW
 element successfully deleted.	sitemgr	es-es	El elemento se borró correctamente
 email address	sitemgr	es-es	Correo electrónico
@@ -213,6 +215,8 @@ galerie	sitemgr	es-es	Galería
 gallery plus chooser	sitemgr	es-es	Selector Gallery plus
 gallery plus chooser and download	sitemgr	es-es	Selector Gallery plus y descarga
 gallery plus download	sitemgr	es-es	Descarga Gallery plus
+generate search engine friendly urls	sitemgr	es-es	Generar URLs fáciles para los motores de búsqueda
+generates "%1" instead of "%2" urls.	sitemgr	es-es	Genera URLs "%1" en vez de "%2".
 go	sitemgr	es-es	Ir
 go back to page manager	sitemgr	es-es	Volver al Administrador de páginas
 go back to the category manager.	sitemgr	es-es	Volver al Administrador de categorías
@@ -443,6 +447,7 @@ size	sitemgr	es-es	Tamaño
 sorry, no content found for you search criteria	sitemgr	es-es	Lo sentimos, no se encontró contenido para su criterio de búsqueda
 sort files by	sitemgr	es-es	Ordenar ficheros por
 sort order	sitemgr	es-es	Orden en la página
+startdirectory in vfs for image uploads	sitemgr	es-es	Subdirectorio en el VFS para subir imágenes
 state	sitemgr	es-es	Estado
 string to return (default api version)	sitemgr	es-es	Cadena a devolver (versión predeterminada de API)
 strip html from block content?	sitemgr	es-es	¿Separar HTML del contenido por bloques?
@@ -458,6 +463,7 @@ suppress the current category	sitemgr	es-es	Suprimir la categoría actual
 suppress the current page	sitemgr	es-es	Suprime la página actual
 table of contents	sitemgr	es-es	Tabla de contenidos
 template based navigation module	sitemgr	es-es	Plantilla basada en el módulo de navegación
+template directory is relative to egroupware's files directory. you have to map that direcotory with an alias, so it is accessible like any stock template!	sitemgr	es-es	El directorio de plantillas es relativo el directorio de ficheros de EGroupware. Tiene que mapear ese directorio con un alias, para que esté accesible como cualquier otra plantilla.
 template select	sitemgr	es-es	Selección de plantilla
 text allignment	sitemgr	es-es	Alineación del texto
 text of page links	sitemgr	es-es	Texto de enlaces de la página
@@ -469,6 +475,7 @@ the config.inc.php file needs to be edited to point to the egroupware directory.
 the file to be downloaded	sitemgr	es-es	El fichero a descargar
 the filesystem path to your sitemgr-site directory '%1' is probably wrong. go to sitemgr --> define websites and edit/fix the concerned site.	sitemgr	es-es	La ruta local al directorio sitemgr-site del sitio '%1' probablemente es incorrecta. Vaya a la opción Definir sitios web y corrija el sitio adecuado.
 the first directory to think about is sitemgr-link.  if you move this to the parent directory of sitemgr (your egroupware root directory) then you can use setup to install the app and everyone with access to the app will get an icon on their navbar that links them directly to the public web site.  if you don't want this icon, there's no reason to ever bother with the directory.	sitemgr	es-es	El primer directorio en el que hay que pensar es sitemgr-link. Si lo mueve al directorio superior de sitemgr (el fichero raíz de la instalación de egroupware) entonces puede usar setup para instalar la aplicación y todos los que tengan acceso a la aplicación tendrán un icono en su barra de navegación que está enlazada directamente al sitio web público. Si no quiere este icono, no hay razón para preocuparse de este directorio.
+the given directory should be readable by the anonymous user for a regular public website!	sitemgr	es-es	El directorio indicado debe tener permisos de lectura para el usuario anónimo para un sitio web público normal.
 the messages for changes in this language will use the default text, if available.	sitemgr	es-es	Los mensajes para los cambios en este idioma usarán el texto predeterminado, si está disponible.
 the name field cannot contain punctuation or spaces (field modified).	sitemgr	es-es	El campo Nombre no puede contener signos de puntuación ni espacios (campo modificado).
 the page name must be unique.	sitemgr	es-es	El nombre de la página debe ser único
@@ -502,6 +509,7 @@ there was an error writing to the database.	sitemgr	es-es	Hubo un error al escri
 this block displays a javascript based tree menu	sitemgr	es-es	Este bloque muestra un menú en árbol en javascript
 this block displays the current section's table of contents	sitemgr	es-es	Este bloque muestra la tabla de contenidos de la sección actual
 this category has no pages.	sitemgr	es-es	Esta categoría no tiene páginas
+this directory is in egroupware's virtual filesystem, not in the filesystem of the webserver!	sitemgr	es-es	¡Este directorio es virtual en EGroupware, y NO existe para el servidor web!
 this is a simple sample module	sitemgr	es-es	Este es un ejemplo simple de un módulo
 this is only used as an internal name for the website.	sitemgr	es-es	Esto se usa sólo como un nombre interno del sitio web.
 this is used chiefly for meta data and the title bar. if you change the site languages below you have to save before being able to set this preference for a new language.	sitemgr	es-es	Esto se usa principalmente para metadatos y la barra de título. Si cambia los idiomas del sitio debajo, tiene que guardarlo antes de poder establecer esta preferencia para un idioma nuevo.
@@ -595,6 +603,7 @@ you don't have permission to write in the category	sitemgr	es-es	No tiene permis
 you don't have permission to write to that category.	sitemgr	es-es	No tiene permiso de escritura en esa categoría
 you failed to fill in one or more required fields.	sitemgr	es-es	No ha rellenado correctamente uno o más campos requeridos
 you have no rights to view wiki content or the wiki is not installed at all !!!	sitemgr	es-es	No tiene derechos para ver el contenido del wiki o el wiki no está instalado
+you have to enable url rewriting on the webserver!	sitemgr	es-es	¡Tiene que activar la reescritura de URLs en el servidor web!
 you may have deinstalled the used template '%1'. reinstall it or go to sitemgr --> configure website and select an other one.	sitemgr	es-es	Puede haber desinstalado la plantilla usada '%1'. Reinstálela o vaya a la opción de Configurar sitio web y seleccione otra.
 you must be an admin to edit categories.	sitemgr	es-es	Debe ser un administrador para editar todas las categorías.
 you must be an admin to edit the site header and footer.	sitemgr	es-es	Debe ser un administrador para editar el encabezado y el pie del sitio.
