@@ -145,7 +145,7 @@ class Sites_SO
 				{
 					self::$site_cache['site_dir'] = dirname($_SERVER['SCRIPT_FILENAME']);
 				}
-				elseif(self::$site_cache['site_dir'] = 'sitemgr'.SEP.'sitemgr-site')
+				elseif(self::$site_cache['site_dir'] == 'sitemgr'.SEP.'sitemgr-site')
 				{
 					self::$site_cache['site_dir'] = EGW_SERVER_ROOT.SEP.self::$site_cache['site_dir'];
 				}
