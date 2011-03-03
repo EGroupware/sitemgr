@@ -217,7 +217,7 @@ class module_download extends Module
 									<td>'.egw_vfs::mime_icon($file['mime'],false).'</td>
 									<td><a href="'.$this->link(array ('subdir' => $arguments['subdir'] ?
 										$arguments['subdir'].'/'.$file['name'] : $file['name'])).'">'.
-										urldecode($file['name']).'</a></td>
+										egw_vfs::decodePath($file['name']).'</a></td>
 									<td>'.$file['comment'].'</td>
 									<td align="right">'./*egw_vfs::hsize($file['size']).*/'</td>
 									<td>'. date($dateformat,$file['mtime'] ? $file['mtime'] : $file['ctime']).'</td>
@@ -234,7 +234,7 @@ class module_download extends Module
 					if ($link[0] == '/') $link = egw::link($link);
 					$out .= '<tr>
 							<td>'.egw_vfs::mime_icon($file['mime'],false).'</td>
-							<td><a href="'.htmlspecialchars($link).'" target="_blank">'.urldecode($file['name']).'</a></td>
+							<td><a href="'.htmlspecialchars($link).'" target="_blank">'.egw_vfs::decodePath($file['name']).'</a></td>
 							<td>'.$file['comment'].'</td>
 							<td align="right">'.egw_vfs::hsize($file['size']).'</td>
 							<td>'. date($dateformat,$file['mtime'] ? $file['mtime'] : $file['ctime']).'</td>
