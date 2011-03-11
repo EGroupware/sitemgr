@@ -3,7 +3,7 @@
 	<!--Export of eGroupWare SiteMgr website 'Default Website' on 2010-12-01-->
 	<name>Default Website</name>
 	<url>/egroupware/sitemgr/sitemgr-site/</url>
-	<directory>/opt/local/apache2/htdocs/egroupware/sitemgr/sitemgr-site</directory>
+	<directory>sitemgr/sitemgr-site</directory>
 	<themesel>ja_purity</themesel>
 	<default_theme>ja_purity</default_theme>
 	<anonymous_user>anonymous</anonymous_user>
