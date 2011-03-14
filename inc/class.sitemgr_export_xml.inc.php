@@ -204,6 +204,21 @@ class sitemgr_export_xml implements importexport_iface_export_plugin
 			{
 				xmlwriter_write_element($this->writer, 'index_page', $page->name);
 			}
+
+			// exporting ACL
+			xmlwriter_start_element($this->writer, 'permissions');
+			if (is_null($acl_bo)) $acl_bo = new ACL_BO; //CreateObject('sitemgr.ACL_BO');
+			foreach($acl_bo->get_permission_list($cat_id) as $account_id => $rights)
+			{
+				if ($rights && ($account_lid = $GLOBALS['egw']->accounts->id2name($account_id)))
+				{
+					xmlwriter_start_element($this->writer, $account_id < 0 ? 'group' : 'user');
+					xmlwriter_write_attribute($this->writer, 'rights', $rights);
+					xmlwriter_text($this->writer, $account_lid);
+					xmlwriter_end_element($this->writer);
+				}
+			}
+			xmlwriter_full_end_element($this->writer); // End permissions
 		}
 
 		// Sub-categories
