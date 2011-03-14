@@ -93,7 +93,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin
 		$data = array();
 		if($_FILES['exec']) {
 			$this->reader->open($_FILES['exec']['tmp_name']['file']);
-			$this->import_record();
+			$this->import_record(null,null,false,(boolean)$_POST['exec']['import_permissions']);
 			$data['message'] = lang('Imported') . "\n".implode("\n", $this->errors);
 			if(!self::$debug) {
 				$GLOBALS['egw']->redirect_link('/index.php', array(
@@ -200,9 +200,10 @@ class sitemgr_import_xml implements importexport_iface_import_plugin
 	 * @param array $admins=null which users to make site-admins, default current user
 	 * @param array $cat_acl=null array of user => EGW_ACL_READ|EGW_ACL_ADD, default current user
 	 * @param boolean $ignore_acl=false ignore acl of current user
+	 * @param boolean $import_permissions=false import permissions too, requires identical user and group names to exist!
 	 * @return integer site_id, so call can use it to eg. update some settings
 	 */
-	public function import_record(array $admins=null,array $cat_acl=null,$ignore_acl=false)
+	public function import_record(array $admins=null,array $cat_acl=null,$ignore_acl=false,$import_permissions=false)
 	{
 		$this->common = $GLOBALS['Common_BO'] = CreateObject('sitemgr.Common_BO');
 		if(self::$debug) {
@@ -222,10 +223,10 @@ class sitemgr_import_xml implements importexport_iface_import_plugin
 			if($this->reader->nodeType == XMLReader::ELEMENT) {
 				switch($this->reader->name) {
 					case 'site':
-						$this->import_site($admins,$cat_acl,$ignore_acl);
+						$this->import_site($admins,$cat_acl,$ignore_acl,$import_permissions);
 						break;
 					case 'category':
-						$this->import_category($cat_acl);
+						$this->import_category($cat_acl,$import_permissions);
 						break;
 					default:
 						echo 'Do not know how to deal with ' . $this->reader->name . ' at the top level.<br />';
@@ -241,8 +242,9 @@ class sitemgr_import_xml implements importexport_iface_import_plugin
 	 * @param array $admins=null which users to make site-admins, default current user
 	 * @param array $cat_acl=null array of user => EGW_ACL_READ|EGW_ACL_ADD, default current user
 	 * @param boolean $ignore_acl=false ignore acl of current user
+	 * @param boolean $import_permissions=false import permissions too, requires identical user and group names to exist!
 	 */
-	protected function import_site(array $admins=null,array $cat_acl=null,$ignore_acl=false)
+	protected function import_site(array $admins=null,array $cat_acl=null,$ignore_acl=false,$import_permissions=false)
 	{
 		if(self::$debug >= 1) {
 			echo '<div class="site">Import site ---<br />' ;
@@ -292,7 +294,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin
 			$this->common->acl->__construct(true);
 		}
 		// Site is a special category
-		$this->import_children('site',$cat_acl);
+		$this->import_children('site',$cat_acl,$import_permissions);
 
 		// Set home page, after all pages are stored
 		if ($site['home_page'])
@@ -309,8 +311,9 @@ class sitemgr_import_xml implements importexport_iface_import_plugin
 	 * Import a category
 	 *
 	 * @param array $cat_acl=null array of user => EGW_ACL_READ|EGW_ACL_ADD, default current user
+	 * @param boolean $import_permissions=false import permissions too, requires identical user and group names to exist!
 	 */
-	protected function import_category(array $cat_acl=null)
+	protected function import_category(array $cat_acl=null,$import_permissions=false)
 	{
 		if (is_null($cat_acl)) $cat_acl = array($GLOBALS['egw_info']['user']['account_id'] => EGW_ACL_READ|EGW_ACL_ADD);
 
@@ -319,7 +322,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin
 		$current_tag = null;
 		$dest = null;
 
-		$this->read_node(array('categories', 'blocks', 'pages'), $category, $lang_array);
+		$this->read_node(array('categories', 'blocks', 'pages', 'permissions'), $category, $lang_array);
 
 		if(self::$debug >= 1) {
 			$name = $category['name'] ? $category['name'] : $lang_array[$this->lang]['name'];
@@ -337,6 +340,10 @@ class sitemgr_import_xml implements importexport_iface_import_plugin
 			} else {
 				die('Bad cat');
 			}
+
+			// read permissions
+			$permissions = $this->read_permissions();
+			if ($import_permissions) $cat_acl = $permissions;
 
 			// Set current user as an admin, so the rest of the import works
 			foreach($cat_acl as $user => $rights)
@@ -380,8 +387,9 @@ class sitemgr_import_xml implements importexport_iface_import_plugin
 	 *
 	 * @param string $tag tag-name
 	 * @param array $cat_acl=null array of user => EGW_ACL_READ|EGW_ACL_ADD, default current user
+	 * @param boolean $import_permissions=false import permissions too, requires identical user and group names to exist!
 	 */
-	protected function import_children($tag,array $cat_acl=null)
+	protected function import_children($tag,array $cat_acl=null,$import_permissions=false)
 	{
 		if(!$tag) {
 			$tag = $this->reader->name;
@@ -401,7 +409,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin
 			if($this->reader->nodeType == XMLReader::ELEMENT) {
 				switch($this->reader->name) {
 					case 'category':
-						$this->import_category($cat_acl);
+						$this->import_category($cat_acl,$import_permissions);
 						break;
 					case 'block':
 						$this->import_block();
@@ -617,5 +625,49 @@ class sitemgr_import_xml implements importexport_iface_import_plugin
 			if(self::$debug >= 2) _debug_array($data);
 			echo '</div>';
 		}
+	}
+
+	/**
+	 * Read content of permissions tag incl. user and group children
+	 *
+	 * Unknows user are silently ignored, as are rights == 0 or if $this->reader is NOT on a permissions start-tag.
+	 *
+	 * @return array with account_id => rights pairs
+	 */
+	protected function read_permissions()
+	{
+		$permissions = array();
+		if ($this->reader->name == 'permissions' && $this->reader->nodeType == XMLReader::ELEMENT)
+		{
+			while($this->reader->read() &&
+				!($this->reader->name == 'permissions' && $this->reader->nodeType == XMLReader::END_ELEMENT))
+			{
+				if ($this->reader->nodeType == XMLReader::ELEMENT)
+				{
+					$current_tag = $this->reader->name;
+					$rights = (int)$this->reader->getAttribute('rights');
+					continue;
+				}
+				if ($this->reader->nodeType == XMLReader::END_ELEMENT)
+				{
+					unset($current_tag);
+					continue;
+				}
+				switch($current_tag)
+				{
+					case 'user':
+					case 'group':
+						$account_id = $GLOBALS['egw']->accounts->name2id($this->reader->value,
+							'account_lid',$current_tag == 'group' ? 'g' : 'u');
+
+						if ($account_id && $rights)
+						{
+							$permissions[$account_id] = $rights;
+						}
+						break;
+				}
+			}
+		}
+		return $permissions;
 	}
 }
