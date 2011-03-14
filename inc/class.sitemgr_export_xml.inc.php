@@ -65,7 +65,7 @@ class sitemgr_export_xml implements importexport_iface_export_plugin
 	}
 
 	public static function get_name() {
-		return lang('Site export');
+		return lang('Sitemgr export');
 	}
 
 	public static function get_description() {

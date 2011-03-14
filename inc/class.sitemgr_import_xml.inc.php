@@ -124,7 +124,7 @@ class sitemgr_import_xml implements importexport_iface_import_plugin
 	 * @return string name
 	 */
 	public static function get_name() {
-		return lang('Import site');
+		return lang('Sitemgr import');
 	}
 
 	/**
