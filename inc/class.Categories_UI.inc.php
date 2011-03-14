@@ -13,11 +13,42 @@
 
 class Categories_UI
 {
-	var $common_ui;
-	var $cat_bo;
-	var $acl;
-	var $isadmin;
-	var $t;
+	/**
+	 * Instance of Common_UI
+	 *
+	 * @var Common_UI
+	 */
+	public $common_ui;
+	/**
+	 * Reference to Common_BO's Categories_BO object
+	 *
+	 * @var Categories_BO
+	 */
+	public $cat_bo;
+	/**
+	 * Instance of Category_SO object
+	 *
+	 * @var Category_SO
+	 */
+	public $cat;
+	/**
+	 * Reference to Common_BO's ACL_BO object
+	 *
+	 * @var ACL_BO
+	 */
+	public $acl;
+	/**
+	 * Is current user a site-admin
+	 *
+	 * @var boolean
+	 */
+	public $isadmin;
+	/**
+	 * Reference to global Template class
+	 *
+	 * @var Template
+	 */
+	public $t;
 	var $sitelanguages;
 
 	var $public_functions = array
@@ -26,12 +57,15 @@ class Categories_UI
 		'delete' => True
 	);
 
+	/**
+	 * Constructor
+	 */
 	function Categories_UI()
 	{
-		$this->common_ui =& CreateObject('sitemgr.Common_UI',True);
+		$this->common_ui = CreateObject('sitemgr.Common_UI',True);
 		$this->t = $GLOBALS['egw']->template;
 		$this->cat_bo = $GLOBALS['Common_BO']->cats;
-		$this->cat =& CreateObject('sitemgr.Category_SO', True);
+		$this->cat = CreateObject('sitemgr.Category_SO', True);
 		$this->acl = $GLOBALS['Common_BO']->acl;
 		$this->isadmin = $this->acl->is_admin();
 		$this->sitelanguages = $GLOBALS['Common_BO']->sites->current_site['sitelanguages'];
