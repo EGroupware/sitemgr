@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<entry type="array" name="importExportDefinitions">
+  <entry type="array" name="metainfo">
+    <entry type="string" name="type">importexport definitions</entry>
+    <entry type="string" name="charset">utf-8</entry>
+    <entry type="integer" name="entries">2</entry>
+  </entry>
+  <entry type="array" name="definitions">
+    <entry type="array" name="import-sitemgr">
+      <entry type="string" name="name">import-sitemgr</entry>
+      <entry type="string" name="application">sitemgr</entry>
+      <entry type="string" name="plugin">sitemgr_import_xml</entry>
+      <entry type="string" name="type">import</entry>
+      <entry type="array" name="allowed_users">
+        <entry type="string" name="0">Default</entry>
+      </entry>
+      <entry type="string" name="plugin_options"/>
+      <entry type="string" name="modified">2011-03-21 11:06:55</entry>
+    </entry>
+    <entry type="array" name="export-sitemgr">
+      <entry type="string" name="name">export-sitemgr</entry>
+      <entry type="string" name="application">sitemgr</entry>
+      <entry type="string" name="plugin">sitemgr_export_xml</entry>
+      <entry type="string" name="type">export</entry>
+      <entry type="array" name="allowed_users">
+        <entry type="string" name="0">Default</entry>
+      </entry>
+      <entry type="string" name="plugin_options"/>
+      <entry type="string" name="modified">2011-03-21 11:07:24</entry>
+    </entry>
+  </entry>
+</entry>
