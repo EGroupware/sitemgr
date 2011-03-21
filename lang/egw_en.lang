@@ -457,6 +457,8 @@ site setup	common	en	Site Setup
 site tree menu	sitemgr	en	Site Tree Menu
 site wide	sitemgr	en	Site wide
 sitemgr	common	en	SiteMgr
+sitemgr export	sitemgr	en	Sitemgr export
+sitemgr import	sitemgr	en	Sitemgr import
 sitemgr manual	sitemgr	en	SiteMgr Manual
 sitemgr options	sitemgr	en	SiteMgr Options
 sitemgr setup instructions	sitemgr	en	SiteMgr Setup Instructions
@@ -640,6 +642,7 @@ you must be an admin to edit the site header and footer.	sitemgr	en	You must be 
 you must be an admin to manage module properties.	sitemgr	en	You must be an admin to manage module properties.
 you must be an administrator to setup the site manager.	sitemgr	en	You must be an administrator to setup the Site Manager.
 you need to be an administrator of this website to enter javascript!	sitemgr	en	You need to be an administrator of this website to enter javascript!
+you need to set "%1" to "%2" in your php.ini or egroupware.conf apache configuration!	sitemgr	en	You need to set "%1" to "%2" in your php.ini or egroupware.conf Apache configuration!
 you removed one ore more languages from your site languages.	sitemgr	en	You removed one ore more languages from your site languages.
 you will remove the message in the following language from your notification system:	sitemgr	en	You will remove the message in the following language from your notification system:
 your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr-link	en	Your administrator has not yet setup the web content manager for public viewing.  Go bug your administrator to get their butt in gear.

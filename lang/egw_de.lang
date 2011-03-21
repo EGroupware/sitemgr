@@ -457,6 +457,8 @@ site setup	common	de	Setup der Website
 site tree menu	sitemgr	de	Baumansicht der Seite
 site wide	sitemgr	de	websiteweit
 sitemgr	common	de	SiteMgr
+sitemgr export	sitemgr	de	SiteMgr Export
+sitemgr import	sitemgr	de	SiteMgr Import
 sitemgr manual	sitemgr	de	SiteMgr Handbuch
 sitemgr options	sitemgr	de	SiteMgr Optionen
 sitemgr setup instructions	sitemgr	de	SiteMgr Setup Informationen
@@ -640,6 +642,7 @@ you must be an admin to edit the site header and footer.	sitemgr	de	Sie müssen 
 you must be an admin to manage module properties.	sitemgr	de	Sie müssen Admin sein, um Einstellungen an Modulen vornehmen zu dürfen.
 you must be an administrator to setup the site manager.	sitemgr	de	Sie müssen administrative Rechte haben zum Konfigurieren des Site Managers.
 you need to be an administrator of this website to enter javascript!	sitemgr	de	Sie müssen ein Administrator dieser Website sein, um Javascript eingeben zu dürfen!
+you need to set "%1" to "%2" in your php.ini or egroupware.conf apache configuration!	sitemgr	de	Sie müssen %1 zu %2 in Ihrer php.ini oder egroupware.conf Apache Konfiguration ändern!
 you removed one ore more languages from your site languages.	sitemgr	de	Sie haben eine oder mehrere Sprachen von der Seite entfernt.
 you will remove the message in the following language from your notification system:	sitemgr	de	Sie entfernen gerade die Nachrichten der folgenden Sprachen von dem Benachrichtigungssystem:
 your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr-link	de	Ihr Administrator hat das Kontentmanagementsystem noch nicht für die freie Betrachtung von aussen konfiguriert. Kontaktieren Sie bitte den Administrator.
