@@ -101,9 +101,9 @@ class module_filecontents extends Module
 		{
 			if (!@$url['scheme'])
 			{
-				$path = ($_SERVER['HTTPS'] ? 'https://' : 'http://') .
-					($url['host'] ? $url['host'] : $_SERVER['HTTP_HOST']) .
-					str_replace($_SERVER['DOCUMENT_ROOT'],'',$path);
+				$url['scheme'] = $_SERVER['HTTPS'] ? 'https' : 'http';
+				if (empty($url['host'])) $url['host'] = $_SERVER['HTTP_HOST'];
+				$path = $url['scheme'].'://'.$url['host'].str_replace($_SERVER['DOCUMENT_ROOT'],'',$path);
 			}
 			$http_options = array(
 				'timeout' => 5,	// default is 60s
@@ -118,32 +118,38 @@ class module_filecontents extends Module
 					($GLOBALS['egw_info']['server']['httpproxy_port'] ? ':'.$GLOBALS['egw_info']['server']['httpproxy_port'] : '');
 				$http_options['request_fulluri'] = true;	// some proxy require that
 			}
-			if ($fp = fopen($path,'rb',false,stream_context_create(array('http' => $http_options))))
+			if (($ret = file_get_contents($path,false,stream_context_create(array('http' => $http_options)))))
 			{
-				$ret = '';
-				while (!feof($fp))
+				if ($url['scheme'] == 'http' || $url['scheme'] == 'https')
 				{
-					$ret .= fread($fp,1024);
+					foreach($http_response_header as $header)
+					{
+						if (substr($header,0,14) == 'Content-Type: ')
+						{
+							list($content_type,$charset) = explode('; charset=',substr($header,14));
+							break;
+						}
+					}
 				}
-				fclose ($fp);
-				$is_html = substr($path,-4) != '.txt';
-			}
-			else
-			{
-				$ret = lang('File %1 is not readable by the webserver !!!',$path);
+				$is_html = $content_type === 'text/html' || !$content_type && substr($path,-4) != '.txt';
 			}
 		}
 		else
 		{
 			$ret = file_get_contents($path);
 		}
+		if ($ret === false)
+		{
+			$ret = lang('File %1 is not readable by the webserver !!!',$path);
+		}
+		//echo "<p>$header --> content_type=$content_type, charset=$charset, is_html=".array2string($is_html)."</p>\n";
 		if ($is_html)
 		{
-			if (preg_match('/<meta http-equiv="content-type" content="text\/html; ?charset=([^"]+)"/i',$ret,$parts))
+			if ($charset || preg_match('/<meta http-equiv="content-type" content="text\/html; ?charset=([^"]+)"/i',$ret,$parts) && ($charset = $parts[1]))
 			{
-				$ret = translation::convert($ret,$parts[1]);
+				$ret = translation::convert($ret,$charset);
 				// fix the charset in content-type, as Zend_Dom_Query relies on it
-				$ret = str_replace('charset='.$parts[1].'"','charset='.translation::charset().'"',$ret);
+				$ret = str_replace('charset='.$charset.'"','charset='.translation::charset().'"',$ret);
 			}
 			// replace images and links with correct host
 			if ($is_html && ($url['scheme'] == 'http' || $url['scheme'] == 'https'))
@@ -185,9 +191,10 @@ class module_filecontents extends Module
 				$ret = $matches[1];
 			}
 		}
-		if(substr($path,-4) == '.txt')
+		if(substr($path,-4) == '.txt' || $content_type === 'text/plain')
 		{
-			$ret = "<pre>\n$ret\n</pre>\n";
+			$ret = "<pre style='white-space: pre-wrap; text-align: left;'>\n".
+				html::htmlspecialchars($ret)."\n</pre>\n";
 		}
 		if (isset($cache_token))
 		{
