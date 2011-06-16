@@ -68,7 +68,7 @@ automatically generated notification	sitemgr	en	Automatically generated notifica
 back to module manager	sitemgr	en	Back to module manager
 back to the list of languages	sitemgr	en	Back to the list of languages
 basic settings	sitemgr	en	Basic settings
-before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr-link	en	Before the public web site can be viewed, you must configure the various locations and preferences.  Go to the Site Manager setup page by following this link:
+before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr-link	en	Before the public website can be viewed, you must configure the various locations and preferences.  Go to the Site Manager setup page by following this link:
 block not found.	sitemgr	en	Block not found.
 block reloaded	sitemgr	en	Block reloaded.
 block returned no content.	sitemgr	en	Block returned no content.
@@ -346,7 +346,7 @@ only on the first page	sitemgr	en	Only on the first page
 options in search result page	sitemgr	en	Options in search result page
 or enter the title for a new guestbook	sitemgr	en	Enter the title for a new guestbook
 or use a template compatible with %1.	sitemgr	en	Use a template compatible with %1.
-other websites	sitemgr	en	Other web sites
+other websites	sitemgr	en	Other websites
 overview of all available categories	sitemgr	en	Overview of all available categories
 overview of one specific category	sitemgr	en	Overview of one specific category
 own amazon partner-id or empty to donate to the egroupware project	sitemgr	en	Own Amazon partner ID or empty to donate to the EGroupware project
@@ -517,7 +517,7 @@ the url must be absolute and end in a slash, for example http://mydomain.com/mys
 the url to display	sitemgr	en	The URL to display
 the url to redirect to	sitemgr	en	The URL to redirect to
 the web	sitemgr	en	The web
-the website has changed. too see the change, follow this url: $url.	sitemgr	en	The web site has changed. Follow this URL: $URL.
+the website has changed. too see the change, follow this url: $url.	sitemgr	en	The website has changed. Follow this URL: $URL.
 the whole page	sitemgr	en	The whole page
 the xml files' common name	sitemgr	en	The XML files' common name
 theme "%1" not found!	sitemgr	en	Theme "%1" not found!
@@ -550,7 +550,7 @@ this module displays any kind of navigation element.	sitemgr	en	This module disp
 this module displays block from a adddressbook group.	sitemgr	en	This module displays block from an address book group.
 this module displays bookmarks in a javascript based tree	sitemgr	en	This module displays bookmarks in a java script based tree
 this module displays the current month	sitemgr	en	This module displays the current month
-this module displays the egw forums on the web site	sitemgr	en	This module displays the eGW forums on the web site
+this module displays the egw forums on the web site	sitemgr	en	This module displays the eGW forums on the website
 this module displays the root categories in one block each, with pages and subcategories (incl. their pages if activated).	sitemgr	en	This module displays the root categories in one block each, with pages and subcategories (incl. their pages if activated).
 this module displays the root categories, its pages and evtl. subcategories. it is meant for side areas	sitemgr	en	This module displays the root categories, its pages and evtl. subcategories. It is meant for side areas
 this module includes the contents of an url or file (readable by the webserver and in its docroot !)	sitemgr	en	This module includes the contents of an URL or file, readable by the web server and in its docroot!
@@ -594,7 +594,7 @@ url to sitemgr-site	sitemgr	en	URL to Site Manager site
 use current user selected language	sitemgr	en	Use current user selected language
 use default	sitemgr	en	Use default
 use phpnuke themes instead of templates	sitemgr	en	Use phpNuke themes instead of templates
-use this module for displaying book ads for the amazon web site	sitemgr	en	Use this module for displaying book ads for the amazon web site
+use this module for displaying book ads for the amazon web site	sitemgr	en	Use this module for displaying book ads for the amazon website
 use this module for displaying wiki-pages	sitemgr	en	Use this module for displaying wiki pages
 user name	sitemgr	en	User name
 validator	sitemgr	en	Validator
