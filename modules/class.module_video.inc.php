@@ -109,7 +109,7 @@ class module_video extends Module
 			$html .= "\t\t".'<param name="allowFullScreen" value="true" />'."\n";
 			$html .= "\t\t".'<param name="wmode" value="transparent" />'."\n";
 			$html .= "\t\t".'<param name="flashVars" value="config={'."'playlist':[".($arguments['poster'] ? "'".htmlspecialchars($arguments['poster'])."'," : '').
-				"{'url':'".htmlspecialchars($arguments['mp4_url'])."'".(in_array('autoplay', $arguments['options']) ? ", 'autoplay':true" : '').'}]}" />'."\n";
+				"{'url':'".htmlspecialchars($arguments['mp4_url'])."', 'autoPlay':".(in_array('autoplay', $arguments['options']) ? 'true' : 'false').'}]}" />'."\n";
 
 			if ($arguments['poster'])
 			{
