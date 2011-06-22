@@ -48,8 +48,9 @@ class module_video extends Module
 				'multiple' => 5,
 				'label' => lang('Options'),
 				'options' => array(
-					'autoplay' => lang('autoplay'),
 					'controls' => lang('controls'),
+					'autoplay' => lang('autoplay'),
+					'loop'     => lang('loop video'),
 					'download' => lang('extra download'),
 					'no_flash' => lang('no flash fallback'),
 					'showhtml' => lang('show html markup'),
@@ -96,7 +97,7 @@ class module_video extends Module
 		}
 		// force firefox to fallback to flash, if no webm or ogg url given, by not giving a html5 video tag,
 		// as unfortunately it does not fallback automatically, if one is given but no supported video format
-		if (html::$user_agent == 'firefox' && !$arguments['webm_url'] && !$arguments['ogg_url'])
+		if (in_array(html::$user_agent,array('firefox','opera')) && !$arguments['webm_url'] && !$arguments['ogg_url'])
 		{
 			$html = '';
 			if (($key = array_search('no_flash',$arguments['options'])) !== false) unset($arguments['options'][$key]);
@@ -124,7 +125,7 @@ class module_video extends Module
 			}
 			$html .= "\t</object>\n";
 		}
-		if (html::$user_agent != 'firefox' || $arguments['webm_url'] || $arguments['ogg_url'])
+		if (!in_array(html::$user_agent,array('firefox','opera')) || $arguments['webm_url'] || $arguments['ogg_url'])
 		{
 			$html .= "</video>\n";
 		}
