@@ -74,7 +74,7 @@ class module_video extends Module
 				'type' => 'select',
 				'label' => lang('Preload'),
 				'options' => array(
-					'' => lang('Not set'),
+					'0' => lang('Not set'),
 					'auto' => lang('Auto'),
 					'metadata' => lang('Metadata'),
 					'none' => lang('None'),
@@ -122,7 +122,7 @@ class module_video extends Module
 			$html .= "\t\t".'<param name="flashVars" value="config={'."'playlist':[".($arguments['poster'] ? "'".htmlspecialchars($arguments['poster'])."'," : '').
 				"{'url':'".htmlspecialchars($arguments['mp4_url'])."', 'autoPlay':".(in_array('autoplay', $arguments['options']) ? 'true' : 'false').
 				// flash/flowplayer knows only boolean autoBuffering attribute: whether loading of clip into player's memory should begin straight away
-				', autoBuffering: '.(in_array($arguments['preload'],array('none', 'metadata')) ? 'false' : 'true').'}]}" />'."\n";
+				", 'autoBuffering':".(in_array($arguments['preload'],array('none', 'metadata')) ? 'false' : 'true').'}]}" />'."\n";
 
 			if ($arguments['poster'])
 			{
