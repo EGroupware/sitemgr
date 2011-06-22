@@ -69,7 +69,17 @@ class module_video extends Module
 			'class' => array(
 				'type' => 'textfield',
 				'label' => 'CSS class',
-			)
+			),
+			'preload' => array(
+				'type' => 'select',
+				'label' => lang('Preload'),
+				'options' => array(
+					'' => lang('Not set'),
+					'auto' => lang('Auto'),
+					'metadata' => lang('Metadata'),
+					'none' => lang('None'),
+				),
+			),
 		);
 		$this->title = lang('HTML5 video module with Flash fallback');
 		$this->description = lang('This module lets you playback videos.');
@@ -78,11 +88,11 @@ class module_video extends Module
 	function get_content(&$arguments,$properties)
 	{
 		$html = '<video';
-		foreach(array('autoplay', 'controls') as $option)
+		foreach(array('autoplay', 'controls', 'loop') as $option)
 		{
 			if (in_array($option, $arguments['options'])) $html .= ' '.$option.'="'.$option.'"';
 		}
-		foreach(array('poster', 'width', 'height', 'class') as $option)
+		foreach(array('poster', 'width', 'height', 'class', 'preload') as $option)
 		{
 			if ($arguments[$option]) $html .= ' '.$option.'="'.htmlspecialchars($arguments[$option]).'"';
 		}
@@ -95,7 +105,7 @@ class module_video extends Module
 				$download .= ($download?', ':'').html::a_href(ucfirst(substr($url,0,-4)), $arguments[$url]);
 			}
 		}
-		// force firefox to fallback to flash, if no webm or ogg url given, by not giving a html5 video tag,
+		// force firefox/opera to fallback to flash, if no webm or ogg url given, by not giving a html5 video tag,
 		// as unfortunately it does not fallback automatically, if one is given but no supported video format
 		if (in_array(html::$user_agent,array('firefox','opera')) && !$arguments['webm_url'] && !$arguments['ogg_url'])
 		{
