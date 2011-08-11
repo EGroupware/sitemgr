@@ -97,53 +97,57 @@ class Theme_BO
 		}
 		if ($info)
 		{
-			if (file_exists($xml_details) && ($details = simplexml_load_file($xml_details)))
+			if (file_exists($xml_details))
 			{
-				foreach($details->attributes() as $name => $value)
+				libxml_use_internal_errors(true);	// suppress warnings: some templates put the Joomla version in the xml version, causing a warning
+				if (($details = simplexml_load_file($xml_details)))
 				{
-					if ($name == 'type' && $value != 'template') return false;
-					if ($name == 'version')
+					foreach($details->attributes() as $name => $value)
 					{
-						$info['joomla-version'] = (string)$value;
-						$info['type'] = 'Joomla '.$value;
-					}
-				}
-				foreach($details as $name => $value)
-				{
-					if(!$value->children())
-					{
-						if ($name == 'description') $name = 'title';
-						$info[$name] = (string)$value;
-						if ($name == 'authorUrl')
+						if ($name == 'type' && $value != 'template') return false;
+						if ($name == 'version')
 						{
-							if (substr($info['authorUrl'],0,4) != 'http')
-							{
-								$info['authorUrl'] = 'http://'.$info['authorUrl'];
-							}
-							static $replace = array(
-								'http://www.joomlart.com' => 'http://www.joomlart.com/affiliate/idevaffiliate.php?id=1520'
-							);
-							$info['authorUrl2'] = strtr($info['authorUrl'],$replace);
-							$info['authorUrl'] = parse_url($info['authorUrl'],PHP_URL_HOST);
+							$info['joomla-version'] = (string)$value;
+							$info['type'] = 'Joomla '.$value;
 						}
 					}
-					elseif($name == 'params')
+					foreach($details as $name => $value)
 					{
-						//_debug_array($value);
-						$info['params'] = array();
-						foreach($value as $param)
+						if(!$value->children())
 						{
-							$arr = array();
-							foreach($param->attributes() as $name => $val)
+							if ($name == 'description') $name = 'title';
+							$info[$name] = (string)$value;
+							if ($name == 'authorUrl')
 							{
-								$arr[$name] = (string)$val;
+								if (substr($info['authorUrl'],0,4) != 'http')
+								{
+									$info['authorUrl'] = 'http://'.$info['authorUrl'];
+								}
+								static $replace = array(
+									'http://www.joomlart.com' => 'http://www.joomlart.com/affiliate/idevaffiliate.php?id=1520'
+								);
+								$info['authorUrl2'] = strtr($info['authorUrl'],$replace);
+								$info['authorUrl'] = parse_url($info['authorUrl'],PHP_URL_HOST);
 							}
-							foreach($param as $name => $val)
+						}
+						elseif($name == 'params')
+						{
+							//_debug_array($value);
+							$info['params'] = array();
+							foreach($value as $param)
 							{
-								$val = (array)$val;
-								if ($name == 'option') $arr[$name][(string)$val['@attributes']['value']] = (string)$val[0];
+								$arr = array();
+								foreach($param->attributes() as $name => $val)
+								{
+									$arr[$name] = (string)$val;
+								}
+								foreach($param as $name => $val)
+								{
+									$val = (array)$val;
+									if ($name == 'option') $arr[$name][(string)$val['@attributes']['value']] = (string)$val[0];
+								}
+								$info['params'][] = $arr;
 							}
-							$info['params'][] = $arr;
 						}
 					}
 				}
