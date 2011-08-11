@@ -294,6 +294,9 @@ class ui extends JObject
 							//if ($suppress_hide_pages) $suppress_hide='&suppress_hide_pages=on';
 							$module_navigation_path = array('','navigation','nav_type=8&no_show_sep=on'.$suppress_hide);
 							return $this->t->exec_module($module_navigation_path);
+						case 'login':
+						case 'search':
+							return $this->t->exec_module(array('',$name));
 					}
 			}
 		}
