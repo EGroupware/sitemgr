@@ -29,9 +29,9 @@
 		 */
 		public $cat_bo;
 		/**
-		 * Reference to Common_BO's Categories_BO object
+		 * Reference to Common_BO's Pages_BO object
 		 *
-		 * @var Categories_BO
+		 * @var Pages_BO
 		 */
 		public $pages_bo;
 
