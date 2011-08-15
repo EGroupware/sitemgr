@@ -22,6 +22,19 @@
 		var $sitelanguages;
 		var $worklanguage;
 		var $errormsg;
+		/**
+		 * Reference to Common_BO's Categories_BO object
+		 *
+		 * @var Categories_BO
+		 */
+		public $cat_bo;
+		/**
+		 * Reference to Common_BO's Categories_BO object
+		 *
+		 * @var Categories_BO
+		 */
+		public $pages_bo;
+
 
 		var $public_functions = array
 		(
@@ -39,6 +52,8 @@
 			$this->acl =& $GLOBALS['Common_BO']->acl;
 			$this->modulebo =& $GLOBALS['Common_BO']->modules;
 			$this->viewable =& $GLOBALS['Common_BO']->viewable;
+			$this->cat_bo = $GLOBALS['Common_BO']->cats;
+			$this->pages_bo = $GLOBALS['Common_BO']->pages;
 
 			$this->sitelanguages = $GLOBALS['Common_BO']->sites->current_site['sitelanguages'];
 			$GLOBALS['sitemgr_info']['userlang'] = $GLOBALS['egw']->session->appsession('language','sitemgr-site');
@@ -70,7 +85,7 @@
 			}
 			elseif ($page_id)
 			{
-				$page = $GLOBALS['Common_BO']->pages->getPage($page_id);
+				$page = $this->pages_bo->getPage($page_id);
 				if (!$GLOBALS['Common_BO']->acl->can_write_category($page->cat_id))
 				{
 					$GLOBALS['egw']->redirect_link('/index.php','menuaction=sitemgr.Outline_UI.manage');
@@ -82,7 +97,7 @@
 			}
 			elseif ($cat_id && $cat_id != CURRENT_SITE_ID)
 			{
-				$cat = $GLOBALS['Common_BO']->cats->getCategory($cat_id);
+				$cat = $this->cat_bo->getCategory($cat_id);
 				if (!$GLOBALS['Common_BO']->acl->can_write_category($cat_id))
 				{
 					$GLOBALS['egw']->redirect_link('/index.php','menuaction=sitemgr.Outline_UI.manage');
@@ -351,11 +366,11 @@
 			{
 				while(list($cat_id,) = @each($_POST['cat']))
 				{
-					$GLOBALS['Common_BO']->cats->commit($cat_id);
+					$this->cat_bo->commit($cat_id);
 				}
 				while(list($page_id,) = @each($_POST['page']))
 				{
-					$GLOBALS['Common_BO']->pages->commit($page_id);
+					$this->pages_bo->commit($page_id);
 				}
 				while(list($block_id,) = @each($_POST['block']))
 				{
@@ -378,10 +393,10 @@
 			));
 
 			//Categories
-			$cats = $GLOBALS['Common_BO']->cats->getpermittedcatsCommitable();
+			$cats = $this->cat_bo->getpermittedcatsCommitable();
 			while (list(,$cat_id) = @each($cats))
 			{
-				$cat = $GLOBALS['Common_BO']->cats->getCategory($cat_id,$this->sitelanguages[0]);
+				$cat = $this->cat_bo->getCategory($cat_id,$this->sitelanguages[0]);
 				$this->t->set_var(array(
 					'category' => $cat->name,
 					'catid' => $cat_id,
@@ -395,11 +410,11 @@
 			}
 
 			//Pages
-			$pages = $GLOBALS['Common_BO']->pages->getpageIDListCommitable();
+			$pages = $this->pages_bo->getpageIDListCommitable();
 
 			while (list(,$page_id) = @each($pages))
 			{
-				$page = $GLOBALS['Common_BO']->pages->getPage($page_id);
+				$page = $this->pages_bo->getPage($page_id);
 				$this->t->set_var(array(
 					'page' => $page->name,
 					'pageid' => $page_id,
@@ -444,11 +459,11 @@
 					{
 						if ($_POST['btnReactivate'])
 						{
-							$GLOBALS['Common_BO']->cats->reactivate($cat_id);
+							$this->cat_bo->reactivate($cat_id);
 						}
 						elseif ($GLOBALS['Common_BO']->acl->is_admin()) // we need to do the ACL-check as we have to force
 						{
-							$GLOBALS['Common_BO']->cats->removeCategory($cat_id,True,True);
+							$this->cat_bo->removeCategory($cat_id,True,True);
 						}
 					}
 				}
@@ -458,11 +473,11 @@
 					{
 						if ($_POST['btnReactivate'])
 						{
-							$GLOBALS['Common_BO']->pages->reactivate($page_id);
+							$this->pages_bo->reactivate($page_id);
 						}
 						else
 						{
-							$GLOBALS['Common_BO']->pages->removePage($page_id);
+							$this->pages_bo->removePage($page_id);
 						}
 					}
 				}
@@ -500,12 +515,12 @@
 			));
 
 			//Categories
-			$cats = $GLOBALS['Common_BO']->cats->getpermittedcatsArchived();
+			$cats = $this->cat_bo->getpermittedcatsArchived();
 			//we have to append the archived cats to the currentcats, in order to be able to access them later
-			$GLOBALS['Common_BO']->cats->currentcats = array_merge($GLOBALS['Common_BO']->cats->currentcats,$cats);
+			$this->cat_bo->currentcats = array_merge($this->cat_bo->currentcats,$cats);
 			while (list(,$cat_id) = @each($cats))
 			{
-				$cat = $GLOBALS['Common_BO']->cats->getCategory($cat_id,$this->sitelanguages[0],True);
+				$cat = $this->cat_bo->getCategory($cat_id,$this->sitelanguages[0],True);
 				$this->t->set_var(array(
 					'category' => $cat->name,
 					'catid' => $cat_id,
@@ -518,11 +533,11 @@
 			}
 
 			//Pages
-			$pages = $GLOBALS['Common_BO']->pages->getpageIDListArchived();
+			$pages = $this->pages_bo->getpageIDListArchived();
 
 			while (list(,$page_id) = @each($pages))
 			{
-				$page = $GLOBALS['Common_BO']->pages->getPage($page_id);
+				$page = $this->pages_bo->getPage($page_id);
 				$this->t->set_var(array(
 					'page' => $page->name,
 					'pageid' => $page_id,
@@ -588,45 +603,84 @@
 			{
 				$scope = "$cat_id,$page_id";
 				$scopes = array();
+
+				// Whole Website
 				if ($GLOBALS['Common_BO']->acl->can_write_category(CURRENT_SITE_ID))
 				{
-					$scopes[CURRENT_SITE_ID.',0'] = $this->blockscope(CURRENT_SITE_ID,0);
-				}
-				if ($cat_id != CURRENT_SITE_ID)
-				{
-					if ($GLOBALS['Common_BO']->acl->can_write_category($cat_id))
+					$scopes[CURRENT_SITE_ID.',0'] = array();
+					$scopes[CURRENT_SITE_ID.',0']['label'] = lang('Site wide');
+					if (($cat_id == CURRENT_SITE_ID) && ($page_id == 0))
 					{
-						$scopes["$cat_id,0"] = $this->blockscope($cat_id,0);
+						$scopes[CURRENT_SITE_ID.',0']['extra'] = 'style="font-style: italic; text-decoration: underline;"';
 					}
-					if ($page_id)
+					else
 					{
-						$scopes[$scope] = $this->blockscope($cat_id,$page_id);
+						$scopes[CURRENT_SITE_ID.',0']['extra'] = 'style="font-style: italic;"';
 					}
 				}
-				if (count($scopes) > 1)
+				// Create list of all available (editable) categories
+				foreach($this->cat_bo->getpermittedcatsWrite() as $cats_id)
 				{
-					return html::select('scope',array($scope),$scopes,True);
-				}
-				else
-				{
-					return $scopes[$scope];
+					$cat = $this->cat_bo->getCategory($cats_id);
+					$padding = str_pad('',12*($cat->depth-1),'&nbsp;');
+					$scopes[$cats_id.',0'] = array();
+					$scopes[$cats_id.',0']['label'] = $padding.$cat->name.' ('.lang('Category').')';
+					if (($cats_id == $cat_id) && ($page_id == 0))
+					{
+						$scopes[$cats_id.',0']['extra'] = 'style="font-weight: bold; text-decoration: underline;"';
+					}
+					else
+					{
+						$scopes[$cats_id.',0']['extra'] = 'style="font-weight: bold;"';
+					}
+					foreach ($this->pages_bo->getPageIDList($cats_id) as $pages_id)
+					{
+						$page = $this->pages_bo->getpage($pages_id);
+						$padding = str_pad('',12*($cat->depth),'&nbsp;');
+						$scopes[$cats_id.','.$pages_id] = array();
+						$scopes[$cats_id.','.$pages_id]['label'] = $padding.$page->name;
+						$scopes[$cats_id.','.$pages_id]['title'] = $page->title;
+						if (($cats_id == $cat_id) && ($page_id == $pages_id))
+						{
+							$scopes[$cats_id.','.$pages_id]['extra'] = 'style="text-decoration: underline;"';
+						}
+					}
 				}
 			}
-			if ($cat_id == CURRENT_SITE_ID)
+			elseif ($cat_id == CURRENT_SITE_ID)
 			{
-				$scope = lang('Site wide');
+				$scopes[$scope] = lang('Site wide');
 			}
 			else
 			{
-				$cat = $GLOBALS['Common_BO']->cats->getCategory($cat_id);
-				$scope = lang('Category') . ' ' . $cat->name;
+				$cat = $this->cat_bo->getCategory($cat_id);
+				$scopes[$scope] = lang('Category') . ' ' . $cat->name;
 				if ($page_id)
 				{
-					$page = $GLOBALS['Common_BO']->pages->getPage($page_id);
-					$scope .= ' - ' . lang('Page') . ' ' . $page->name;
+					$page = $this->pages_bo->getPage($page_id);
+					$scopes[$scope] .= ' - ' . lang('Page') . ' ' . $page->name;
 				}
 			}
-			return $scope;
+			if (count($scopes) > 1)
+			{
+				$out = "<select name=\"scope\">\n";
+
+				foreach($scopes as $k => $data)
+				{
+					$out .= html::select_option($k,
+						is_array($data) && isset($data['label']) ? $data['label'] : $data,
+						array($scope),
+						True,
+						is_array($data) && isset($data['title']) ? $data['title'] : '',
+						is_array($data) && isset($data['extra']) ? $data['extra'] : '');
+				}
+				$out .= "</select>\n";
+				return $out;
+			}
+			else
+			{
+				return $scopes[$scope];
+			}
 		}
 
 		//if the block is shown on its own ($standalone), we add information about its,scope
@@ -730,7 +784,7 @@
 				}
 				elseif ($block->cat_id != CURRENT_SITE_ID)
 				{
-					$cat = $GLOBALS['Common_BO']->cats->getCategory($block->cat_id);
+					$cat = $this->cat_bo->getCategory($block->cat_id);
 					$blockscope =  lang('Category') . ' - ' . $cat->name;
 				}
 				else
