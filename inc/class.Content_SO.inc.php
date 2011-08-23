@@ -418,11 +418,12 @@
 		 */
 		function &getblock($block_id,$lang)
 		{
+			if (!$lang) $nolang=true;
 			$lang = $this->db->quote($lang);
 			$sql = "SELECT t1.block_id AS id,area,cat_id,page_id,area,t1.module_id,module_name,sort_order,title,viewable AS view".
 				" FROM $this->blocks_table AS t1".
 				" LEFT JOIN $this->modules_table as t2 ON t1.module_id=t2.module_id".
-				" LEFT JOIN $this->blocks_lang_table AS t3 ON (t1.block_id=t3.block_id AND t3.lang=$lang)".
+				" LEFT JOIN $this->blocks_lang_table AS t3 ON (t1.block_id=t3.block_id ".($nolang?"":"AND t3.lang=$lang").")".
 				" WHERE t1.block_id=".(int)$block_id;
 
 			$this->db->query($sql,__LINE__,__FILE__);
