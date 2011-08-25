@@ -58,6 +58,7 @@ $areas = array(
 	'wiki' => array('__PAGE__'),
 );
 $dir = dir(EGW_SERVER_ROOT);
+$i = 1;
 while(($app = $dir->read()))
 {
 	$moddir = EGW_SERVER_ROOT . '/' . $app . ($app == 'sitemgr' ? '/modules' : '/sitemgr');
@@ -80,20 +81,25 @@ while(($app = $dir->read()))
 				}
 				$oProc->query("INSERT INTO {$sitemgr_table_prefix}_modules (module_name,description) VALUES ('$module','$description')",__LINE__,__FILE__);
 				$id = $module_id[$module] = $oProc->m_odb->get_last_insert_id($sitemgr_table_prefix.'_modules','module_id');
-
+				if (!$id) $id = $module_id[$module] = $i;
 				// allow to display all modules, not mentioned above, on __PAGE__
 				if (!isset($areas[$module]) && !in_array($module,array('hello','translation_status','xml')))
 				{
 					$areas[$module] = array('__PAGE__');
 				}
+				// stuff for {$sitemgr_table_prefix}_active_modules is somehow done within the xml import of the site, as site_id is not known at
+				// this time, we take that out of the active code.
+				/*
 				foreach((array)$areas[$module] as $area)
 				{
 					$oProc->query("INSERT INTO {$sitemgr_table_prefix}_active_modules (area,cat_id,module_id) VALUES ('$area',$site_id,$id)",__LINE__,__FILE__);
 				}
+				*/
 			}
 		}
 		$d->close();
 	}
+	$i++;
 }
 $dir->close();
 
