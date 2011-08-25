@@ -139,6 +139,7 @@ class Sites_SO
 					'site_id' => $site_id,
 				),__LINE__,__FILE__)->fetch()))
 			{
+				self::$site_cache['htaccess_rewrite'] = $this->db->from_bool(self::$site_cache['htaccess_rewrite']);
 				// if we run inside sitemgr, use the script dir as site-dir
 				// fixes problems if sitemgr-site directory got moved
 				if (isset($GLOBALS['site_id']) && file_exists(dirname($_SERVER['SCRIPT_FILENAME']).'/config.inc.php'))
