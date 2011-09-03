@@ -8,7 +8,7 @@
  * @copyright (c) 2007 by Jose Luis Gordo Romero <jgordor-AT-gmail.com>
  * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
  */
- 
+
 require_once(EGW_INCLUDE_ROOT.'/sitemgr/inc/class.sontfmess.inc.php');
 
 /**
@@ -18,27 +18,32 @@ class bontfmess extends sontfmess
 {
 	/**
 	 * Current user
-	 * 
+	 *
 	 * @var int;
 	 */
 	var $user;
+
 	/**
 	 * Bo Site Object
+	 *
+	 * @var Sites_BO
 	 */
 	var $bosite;
+
+
 	/**
 	 * Constructor
 	 *
 	 * @return bonotifications
 	 */
 	function bontfmess()
-	{		
+	{
 		$this->sontfmess();
 		$this->bosite = CreateObject("sitemgr.Sites_BO");
-		
+
 		$this->user = $GLOBALS['egw_info']['user']['account_id'];
 	}
-	
+
 	function get_site_langs($site_id)
 	{
 		$site = $this->bosite->read($site_id);

@@ -13,20 +13,36 @@
 
 	class Outline_UI
 	{
+		/**
+		 * @var Common_UI
+		 */
 		var $common_ui;
+		/**
+		 * @var Template
+		 */
 		var $t;
+		/**
+		 * @var ACL_BO
+		 */
 		var $acl;
+		/**
+		 * @var Pages_BO
+		 */
 		var $pagebo;
+		/**
+		 * @var Categories_BO
+		 */
 		var $cat_bo;
+
 		var $isadmin;
-		
-		
+
+
 		var $public_functions=array
 		(
 			'manage' => True,
 		);
-		
-		function Outline_UI()			
+
+		function Outline_UI()
 		{
 			$this->common_ui =& CreateObject('sitemgr.Common_UI',True);
 			$this->t = $GLOBALS['egw']->template;
@@ -46,7 +62,7 @@
 
 			if ($this->isadmin)
 			{
-				$this->t->set_var('addcategory','<a target="editwindow" href="' . 
+				$this->t->set_var('addcategory','<a target="editwindow" href="' .
 					$GLOBALS['egw']->link('/index.php','menuaction=sitemgr.Categories_UI.edit').
 					'">' . lang('Add a category') .'</a>'
 				);
@@ -117,7 +133,7 @@
 				$link_data['menuaction'] = "sitemgr.Content_UI.manage";
 				$this->t->set_var('catcontent','<a href="' . $GLOBALS['egw']->link('/index.php',$link_data) .
 					'">' . lang('Manage category wide content') . '</a>');
-				$this->t->parse('CBlock', 'CategoryBlock', true); 
+				$this->t->parse('CBlock', 'CategoryBlock', true);
 			}
 			$this->t->pfp('out','ManageOutline');
 			$this->common_ui->DisplayFooter();

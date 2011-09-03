@@ -16,20 +16,28 @@ $GLOBALS['egw_info']['flags']['included_classes']['generic_list_ui'] = True;
 
 class Notifications_UI extends generic_list_ui
 {
+	/**
+	 * @var Common_UI
+	 */
+	var $common_ui;
+	/**
+	 * @var Notifications_BO
+	 */
+	var $bo;
 
-	var $site_bo;
 	var $site;
+
 
 	function Notifications_UI()
 	{
 		$common_ui =& CreateObject('sitemgr.Common_UI',True);
 		$this->bo=CreateObject("sitemgr.Notifications_BO");
 		$this->site=False;
-		
-		$this->generic_list_ui('sitemgr', 'Notifications_UI', 'sitemgr.notifications', 
+
+		$this->generic_list_ui('sitemgr', 'Notifications_UI', 'sitemgr.notifications',
 			'sitemgr.notifications.edit', 'sitemgr.notifications.delete');
 	}
-	
+
 	function get_sel_fields($content,$template)
 	{
 
@@ -37,7 +45,7 @@ class Notifications_UI extends generic_list_ui
 			 //is site_id defined?
 			if ($this->limited) {
 				$res=array('all'=>lang('All languages'))+$this->bo->get_site_langs();
-			}  
+			}
 			return(
 				array(    // the options for our selectboxes for states
 						'site_language' => $res
@@ -50,7 +58,7 @@ class Notifications_UI extends generic_list_ui
 	function preprocess_content($content,$template)
 	{
 		$langs=$this->bo->get_site_langs();
-		$content['multilingual']=(count($langs)==1);  
+		$content['multilingual']=(count($langs)==1);
 
 		if ($template==$this->list_template) {
 			foreach ((array)$content['entry'] as $key => $value) {
@@ -63,7 +71,7 @@ class Notifications_UI extends generic_list_ui
 				$content['entry'][$key]['multilingual']=$content['multilingual'];
 			}
 		}
-		
+
 		return $content;
 	}
 
@@ -71,7 +79,7 @@ class Notifications_UI extends generic_list_ui
 	function edit_elt($content='',$msg = '')
 	{
 		if (isset($content['messages'])) {
-			ExecMethod('sitemgr.NtfMessages_UI.list_all',$content);   
+			ExecMethod('sitemgr.NtfMessages_UI.list_all',$content);
 		}
 		else {
 			parent::edit_elt($content,$msg);

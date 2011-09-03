@@ -14,7 +14,25 @@
 	//copied from class admin.uiservers
 	class Sites_UI
 	{
+		/**
+		 * Instance of Common_UI class
+		 *
+		 * @var Common_UI
+		 */
 		var $common_ui;
+		/**
+		 * Reference to Common_BO's Sites_BO class
+		 *
+		 * @var Sites_BO
+		 */
+		var $bo;
+		/**
+		 * Reference to the nextmatchs class
+		 *
+		 * @var nextmatchs
+		 */
+		var $nextmatchs;
+
 		var $public_functions = array(
 			'list_sites' => True,
 			'edit'         => True,
@@ -30,8 +48,6 @@
 
 		var $debug = False;
 
-		var $bo = '';
-		var $nextmatchs = '';
 
 		function Sites_UI()
 		{

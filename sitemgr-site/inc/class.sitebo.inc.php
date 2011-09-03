@@ -13,8 +13,23 @@
 
 	class sitebo
 	{
+		/**
+		 * Reference to Common_BO's Pages_BO object
+		 *
+		 * @var Pages_BO
+		 */
 		var $pages_bo;
+		/**
+		 * Reference to Common_BO's Categories_BO object
+		 *
+		 * @var Categories_BO
+		 */
 		var $catbo;
+		/**
+		 * Reference to ACL object of Common_BO
+		 *
+		 * @var ACL_BO
+		 */
 		var $acl;
 
 		function sitebo()
@@ -351,9 +366,9 @@
 	// get the icons with links to be added to a cat in edit-mode
 	function getEditIconsCat($cat_id)
 	{
-		if ($GLOBALS['sitemgr_info']['mode'] == 'Edit' && $GLOBALS['Common_BO']->acl->can_write_category($cat_id))
+		if ($GLOBALS['sitemgr_info']['mode'] == 'Edit' && $this->acl->can_write_category($cat_id))
 		{
-			$cat = $GLOBALS['Common_BO']->cats->getCategory($cat_id,$GLOBALS['Common_BO']->sites->current_site['sitelanguages'][0]);
+			$cat = $this->catbo->getCategory($cat_id,$GLOBALS['Common_BO']->sites->current_site['sitelanguages'][0]);
 
 			return $this->get_icons(array(
 				'new_page' => array(lang('Add page to category'),'menuaction'=>'sitemgr.Pages_UI.edit'),
@@ -371,7 +386,7 @@
 	// get the icons with links to be added to a page in edit-mode
 	function getEditIconsPage($page_id,$cat_id)
 	{
-		if ($GLOBALS['sitemgr_info']['mode'] == 'Edit' && $GLOBALS['Common_BO']->acl->can_write_category($cat_id))
+		if ($GLOBALS['sitemgr_info']['mode'] == 'Edit' && $this->acl->can_write_category($cat_id))
 		{
 			return $this->get_icons(array(
 				'edit' => array(lang('Edit page'),'menuaction'=>'sitemgr.Pages_UI.edit'),
@@ -386,7 +401,7 @@
 
 	function getEditIconsTop()
 	{
-		if ($GLOBALS['sitemgr_info']['mode'] == 'Edit' && $GLOBALS['Common_BO']->acl->can_write_category(CURRENT_SITE_ID))
+		if ($GLOBALS['sitemgr_info']['mode'] == 'Edit' && $this->acl->can_write_category(CURRENT_SITE_ID))
 		{
 			return $this->get_icons(array(
 				'new' => array(lang('Add a category'),'adminonly'=>True,'menuaction'=>'sitemgr.Categories_UI.edit')

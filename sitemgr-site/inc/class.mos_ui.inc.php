@@ -137,7 +137,13 @@ class mos_database
 
 class ui
 {
+	/**
+	 * Instance of template class
+	 *
+	 * @var Template
+	 */
 	var $t;
+
 
 	function __construct()
 	{
@@ -156,10 +162,7 @@ class ui
 
 	function displayPageByName($page_name)
 	{
-		global $objbo;
-		global $page;
-		$objbo->loadPage($GLOBALS['Common_BO']->pages->so->PageToID($page_name));
-		$this->generatePage();
+		$this->displayPage($GLOBALS['Common_BO']->pages->so->PageToID($page_name));
 	}
 
 	function displayPage($page_id)

@@ -13,20 +13,41 @@
 
 	class Pages_UI
 	{
+		/**
+		 * Instance of template class
+		 *
+		 * @var Common_UI
+		 */
 		var $common_ui;
+		/**
+		 * Instance of template class
+		 *
+		 * @var Template
+		 */
 		var $t;
+		/**
+		 * Reference to Common_BO's Pages_BO object
+		 *
+		 * @var Pages_BO
+		 */
 		var $pagebo;
+		/**
+		 * Reference to Common_BO's Categories_BO object
+		 *
+		 * @var Categories_BO
+		 */
 		var $categorybo;
-		var $pageso; // page class
+
 		var $sitelanguages;
-		
+
+
 		var $public_functions=array
 		(
 			'edit' => True,
 			'delete' => True,
 		 );
-		
-		function Pages_UI()     
+
+		function Pages_UI()
 		{
 			$this->common_ui =& CreateObject('sitemgr.Common_UI',True);
 			$this->t = $GLOBALS['egw']->template;
@@ -34,7 +55,7 @@
 			$this->categorybo = &$GLOBALS['Common_BO']->cats;
 			$this->sitelanguages = $GLOBALS['Common_BO']->sites->current_site['sitelanguages'];
 		}
-	
+
 		function delete($page_id = 0)
 		{
 			if (!$page_id) $page_id = $_GET['page_id'];
@@ -78,7 +99,7 @@
 				else
 				{
 					if(!$page_id)
-					{   
+					{
 						$page_id = $this->pagebo->addPage($inputcategoryid);
 						if(!$page_id)
 						{
@@ -114,10 +135,10 @@
 				}
 			}
 
-			$openlanguage = $savelanguage ? $savelanguage : 
+			$openlanguage = $savelanguage ? $savelanguage :
 				($GLOBALS['sitemgr_info']['userlang']?$GLOBALS['sitemgr_info']['userlang']:
 					$this->sitelanguages[0]);
-			
+
 			if($page_id)
 			{
 				$page = $this->pagebo->getPage($page_id,$openlanguage,True);
@@ -188,7 +209,7 @@
 			$option_list=$this->categorybo->getCategoryOptionList();
 			if (!$selected_id)
 			{
-				$selected=' SELECTED'; 
+				$selected=' SELECTED';
 			}
 			$retval="\n".'<SELECT NAME="inputcategoryid">'."\n";
 			foreach($option_list as $option)
@@ -207,5 +228,5 @@
 			$retval.='</SELECT>';
 			return $retval;
 		}
-	} 
+	}
 ?>

@@ -18,18 +18,22 @@ define("MAX_STR_LENGTH",200);
 
 class Notifications_BO extends generic_list_bo
 {
-
+	/**
+	 * @var Sites_BO
+	 */
 	var $site_bo;
+
 	var $site;
+
 
 	function Notifications_BO()
 	{
 		$this->site_bo=CreateObject("sitemgr.Sites_BO");
 		$this->site=False;
 		$this->so=CreateObject("sitemgr.Notifications_SO");
-		
+
 	}
-	
+
 	function get_site_langs()
 	{
 
@@ -43,5 +47,5 @@ class Notifications_BO extends generic_list_bo
 		}
 		return $res;
 	}
-	
+
 }

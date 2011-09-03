@@ -13,7 +13,13 @@
 
 	class notification_so
 	{
+		/**
+		 * Clone of the global db-object
+		 *
+		 * @var egw_db
+		 */
 		var $db;
+
 
 		function notification_so()
 		{
@@ -85,16 +91,16 @@
 			{
 				return $this->db->Query_ID->fields;
 			}
-			
+
 			//even default language not found, state the default text
 			return False;
 		}
 
-		function get_permissions($cat_id) 
+		function get_permissions($cat_id)
 		{
 			$account=$GLOBALS['egw']->accounts->name2id(
 				$GLOBALS['Common_BO']->sites->current_site['anonymous_user']);
-				
+
 			if ($account == $GLOBALS['egw_info']['user']['account_id'])
 			{
 				$acl =& $GLOBALS['egw']->acl;

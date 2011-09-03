@@ -13,6 +13,11 @@
 
 	class NtfMessages_SO
 	{
+		/**
+		 * Clone of the global db-object
+		 *
+		 * @var egw_db
+		 */
 		var $db;
 
 		function NtfMessages_SO()

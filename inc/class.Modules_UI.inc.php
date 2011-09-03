@@ -13,12 +13,26 @@
 
 	class Modules_UI
 	{
+		/**
+		 * @var Common_UI
+		 */
 		var $common_ui;
+		/**
+		 * @var Template
+		 */
 		var $t;
+		/**
+		 * @var Modules_BO
+		 */
 		var $bo;
+		/**
+		 * @var ACL_BO
+		 */
 		var $acl;
+
 		var $modules;
 		var $errormsg;
+
 
 		var $public_functions = array
 		(
@@ -158,7 +172,7 @@
 				}
 
 				$this->common_ui->DisplayHeader();
-				
+
 				if ($cat_id != CURRENT_SITE_ID)
 				{
 						$cat = $this->catbo->getCategory($cat_id);
@@ -189,7 +203,7 @@
 						'label' => $element['label'],
 						'form' => $element['form'])
 					);
-					$this->t->parse('EBlock','EditorElement', true);				
+					$this->t->parse('EBlock','EditorElement', true);
 				}
 
 				$this->t->set_var(Array(
@@ -200,7 +214,7 @@
 					),
 					'module_id' => $inputmodule_id,
 					'contentarea' => $inputarea,
-					'savebutton' => ($editormoduleelements ? 
+					'savebutton' => ($editormoduleelements ?
 						'<input type="submit" value="'.lang('Save').'" name="btnSaveProperties" />' :
 						lang('There are no properties defined for this module')
 					),

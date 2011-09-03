@@ -107,7 +107,7 @@
 		}
 
 		/**
-		 * Retrives the block-id from a version-id
+		 * Retrieves the block-id from a version-id
 		 * @param int $versionid version-id
 		 * @return int block-id or false
 		 */
@@ -133,7 +133,7 @@
 		}
 
 		/**
-		 * Retrives all block's for a given scope (cat,page)
+		 * Retrieves all block's for a given scope (cat,page)
 		 * @param int $cat_id cat-id
 		 * @param int $page_id page-id or 0 for cat- or site-wide blocks
 		 * @return array of block-objects, with only block-id, module-id & -name and content-area set
@@ -156,7 +156,7 @@
 		}
 
 		/**
-		 * Retrives all blocks for a given content-area, cat-list, page and language
+		 * Retrieves all blocks for a given content-area, cat-list, page and language
 		 * @param string $area name of content-area
 		 * @param array $cat_list array of cat-ids
 		 * @param int $page_id page-id or 0 for eg. an index-page
@@ -197,7 +197,7 @@
 		}
 
 		/**
-		* Retrives the id's for all content-versions of a block
+		* Retrieves the id's for all content-versions of a block
 		* @param int $blockid block-id
 		* @return array of int version-id's
 		*/
@@ -239,7 +239,7 @@
 		}
 
 		/**
-		* Retrives all content-versions for a given block and language
+		* Retrieves all content-versions for a given block and language
 		* @param int $blockid block-id
 		* @param string $lang 2-char language id
 		* @return array of version-id - version-information-array's
@@ -296,7 +296,7 @@
 		}
 
 		/**
-		 * Retrives the visible blocks in a content-area for given cat-list and page
+		 * Retrieves the visible blocks in a content-area for given cat-list and page
 		 * @param string $area name of content area
 		 * @param array $cat_list array of int cat-id's
 		 * @param int $page_id page-id or 0 for eg. an index page
@@ -350,7 +350,7 @@
 		}
 
 		/**
-		 * Retrives the availible languages for the title of a block
+		 * Retrieves the available languages for the title of a block
 		 * @param int $block_id block-id
 		 * @return array of 2-char language id's
 		 */
@@ -369,7 +369,7 @@
 		}
 
 		/**
-		 * Retrives the availible languages for a blocks content-version
+		 * Retrieves the available languages for a blocks content-version
 		 * @param int $version_id version-id
 		 * @return array of 2-char language id's
 		 */
@@ -388,7 +388,7 @@
 		}
 
 		/**
-		 * Retrives the content (arguments) for a block's content-version and a language
+		 * Retrieves the content (arguments) for a block's content-version and a language
 		 * @param int $version_id version-id
 		 * @param string/boolean $lang 2-char language-id or false for the first language found
 		 * @return array/boolean arguments array or false if language not found
@@ -411,7 +411,7 @@
 		}
 
 		/**
-		 * Retrives a block for a given block-id and language
+		 * Retrieves a block for a given block-id and language
 		 * @param int $block_id block-id
 		 * @param string $lang 2-char language id
 		 * @return object/boolean block-object or false if not found
@@ -456,7 +456,7 @@
 		}
 
 		/**
-		 * Retrives the title of a block in a given language
+		 * Retrieves the title of a block in a given language
 		 * @param int $block_id block-id
 		 * @return string/boolean title of the block or false if not found
 		 */
@@ -480,7 +480,7 @@
 		}
 
 		/**
-		 * Save block-data: sort-order and by whom viewable
+		 * Save block-data: sort-order, area and by whom viewable
 		 * @param object $block block-object
 		 * @return boolean true on success, false otherwise
 		 */
@@ -489,6 +489,7 @@
 			return $this->db->update($this->blocks_table,array(
 					'sort_order'  => $block->sort_order,
 					'viewable'    => $block->view,
+					'area'        => $block->area,
 				),array('block_id' => $block->id),__LINE__,__FILE__);
 		}
 

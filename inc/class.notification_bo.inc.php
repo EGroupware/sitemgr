@@ -13,7 +13,9 @@
 
 	class notification_bo
 	{
-	 
+		/**
+		 * @var notification_so
+		 */
 		var $so;
 
 		function notification_bo()
@@ -52,7 +54,7 @@
 			}
 			return $msg;
 		}
-		
+
 		function prepare_url($extravars = '')
 		{
 			// Change http://xyz/index.php?page_name=page1 to
@@ -88,7 +90,7 @@
 			}
 			return $url . (count($vars) ? '?'.implode('&',$vars) : '');
 		}
-		
+
 		function prepare_message($site_id,$lang,$def_lang,$url,$data)
 		{
 			$msg = $this->so->get_message($site_id,$lang,$def_lang);
@@ -111,26 +113,26 @@
 						$data=$this->translate($data,$transl);
 				}
 			}
-			
+
 			if (is_array($data))
 				$data=$this->translate($data,False,$lang);
-				
+
 			$url=$this->prepare_url($url);
-			
+
 			return str_replace(array('$URL','$DATA','$SITE'),array($url,$data,
 				$GLOBALS['Common_BO']->sites->current_site['site_name_'.$lang]),$msg);
 		}
-		
-		function shall_send($cat_id,$state) 
+
+		function shall_send($cat_id,$state)
 		{
 			//only send a message if the anonymous user may read the category and
 			//if the version is either published or preunpublished.
-			
+
 			if (is_array($state)){
 				$Shall=False;
 				foreach($state as $versionid => $s)
 				{
-					$Shall = $Shall || 
+					$Shall = $Shall ||
 						($s==SITEMGR_STATE_PUBLISH || $s==SITEMGR_STATE_PREUNPUBLISH);
 				}
 //        if (!$Shall) {
@@ -142,26 +144,26 @@
 				$cat_so=CreateObject("sitemgr.Categories_SO");
 				if (!$cat_so->isactive($cat_id,array(SITEMGR_STATE_PUBLISH,SITEMGR_STATE_PREUNPUBLISH))) {
 //          echo __FILE__.__LINE__."\nCategory invisible. \nCat:|$cat_id|, Sta:|$state|<BR>";
- 
+
 					return False;
 				}
 			}
 			else if ($state!=SITEMGR_STATE_PUBLISH && $state!=SITEMGR_STATE_PREUNPUBLISH) {
 //         echo __FILE__.__LINE__."\nChange invisible. \nCat:|$cat_id|, Sta:|$state|<BR>";
-			
+
 				 return False;
 			}
-			
+
 			return $this->so->get_permissions($cat_id) & EGW_ACL_READ;
 		}
 
-		function notify_users($site_id,$cat_id,$state,$lang,$def_lang,$url,$data="N/A") 
+		function notify_users($site_id,$cat_id,$state,$lang,$def_lang,$url,$data="N/A")
 		{
 			if (!$this->shall_send($cat_id,$state)) {
 //        echo __FILE__.__LINE__."\nMessages not sent due to permission errors. \nCat:|$cat_id|, Sta:|$state|<BR>";
 				return;
 			}
-				
+
 			$addresses=$this->get_notifications($site_id,$lang);
 
 			if (count($addresses)) {
@@ -171,16 +173,16 @@
 				$smtp->Subject=$msg['subject'];
 				$smtp->Body=$msg['message'];
 				$smtp->WordWrap=$msg['WordWrap'];
-				
+
 				foreach($addresses as $value) {
 					$smtp->AddAddress($value);
-//echo __FILE__.__LINE__."<PRE>\n";        
+//echo __FILE__.__LINE__."<PRE>\n";
 //print_r($smtp->Subject);
 //echo "\n========\n";
 //print_r($smtp->Body);
 //echo "\n</PRE>";
 					if (!$smtp->Send()) {
-//echo __FILE__.__LINE__.$value.": $smtp->ErrorInfo <BR/>";             
+//echo __FILE__.__LINE__.$value.": $smtp->ErrorInfo <BR/>";
 					}
 					$smtp->ClearAddresses();
 				}

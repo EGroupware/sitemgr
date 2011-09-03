@@ -14,8 +14,15 @@
 
 	class Modules_SO
 	{
+		/**
+		 * Clone of the global db-object
+		 *
+		 * @var egw_db
+		 */
 		var $db;
+
 		var $properties_table,$modules_table,$active_modules_table;
+
 
 		function Modules_SO()
 		{
@@ -101,7 +108,7 @@
 			$this->db->select($this->modules_table,'module_id',array(
 					'module_name' => $modulename
 				),__LINE__,__FILE__);
-				
+
 			return $this->db->next_record() ? $this->db->f('module_id') : False;
 		}
 
@@ -140,9 +147,9 @@
 					'area'	=> $contentarea,
 					'cat_id'=> $cat_id,
 				),__LINE__,__FILE__);
-			
+
 			if (!is_array($modules)) return;
-			
+
 			foreach($modules as $module_id)
 			{
 				$this->db->insert($this->active_modules_table,array(
@@ -161,7 +168,7 @@
 					'area'	=> $contentarea,
 					'cat_id'=> $cat_id,
 				)),__LINE__,__FILE__);
-			
+
 			return $this->constructmodulearray();
 		}
 	}

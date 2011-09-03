@@ -25,7 +25,8 @@ class Sites_BO
 	 *
 	 * @var Sites_SO
 	 */
-	var $so    = '';
+	var $so;
+
 	var $start = 0;
 	var $query = '';
 	var $sort  = '';

@@ -18,20 +18,23 @@ define("MAX_STR_LENGTH",200);
 
 class NtfMessages_UI extends generic_list_ui
 {
-
+	/**
+	 * @var NtfMessages_BO
+	 */
 	var $site_bo;
+
 	var $site;
+
 
 	function NtfMessages_UI()
 	{
-		$common_ui =& CreateObject('sitemgr.Common_UI',True);
 		$this->bo=CreateObject('sitemgr.NtfMessages_BO');
 		$this->site=False;
-		
-		$this->generic_list_ui('sitemgr', 'NtfMessages_UI', 'sitemgr.notify_messages', 
+
+		$this->generic_list_ui('sitemgr', 'NtfMessages_UI', 'sitemgr.notify_messages',
 			'sitemgr.notify_messages.edit', 'sitemgr.notify_messages.delete');
 	}
-	
+
 	function get_sel_fields($content,$template)
 	{
 
@@ -48,7 +51,7 @@ class NtfMessages_UI extends generic_list_ui
 				}
 				else
 					$res=$this->bo->get_site_langs();
-			}  
+			}
 			else $res=array();
 			return(
 				array(    // the options for our selectboxes for states
@@ -77,7 +80,7 @@ class NtfMessages_UI extends generic_list_ui
 		}
 		return array();
 	}
-	
+
 	function preprocess_content($content,$template)
 	{
 		if ($template==$this->list_template) {
@@ -102,15 +105,15 @@ class NtfMessages_UI extends generic_list_ui
 			$langs=$this->bo->get_site_langs();
 			$content['language']=$langs[$content['language']];
 		}
-		
-		
+
+
 		return $content;
 	}
 
 	function edit_elt($content='',$msg = '')
 	{
 		if (isset($content['notifications'])) {
-			ExecMethod('sitemgr.Notifications_UI.list_all',$content);   
+			ExecMethod('sitemgr.Notifications_UI.list_all',$content);
 		}
 		else {
 			parent::edit_elt($content,$msg);

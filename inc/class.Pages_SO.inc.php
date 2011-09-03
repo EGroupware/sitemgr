@@ -14,8 +14,15 @@
 
 	class Pages_SO
 	{
+		/**
+		 * Clone of the global db-object
+		 *
+		 * @var egw_db
+		 */
 		var $db;
+
 		var $pages_table,$pages_lang_table;
+
 
 		function Pages_SO()
 		{
@@ -52,7 +59,7 @@
 					$where['state'] = $states;
 				}
 				$this->db->select($this->pages_table,'page_id',$where,__LINE__,__FILE__,False,
-					'ORDER BY cat_id, sort_order ASC'); 
+					'ORDER BY cat_id, sort_order ASC');
 
 				while ($this->db->next_record())
 				{
@@ -92,7 +99,7 @@
 		function getlangarrayforpage($page_id)
 		{
 			$this->db->select($this->pages_lang_table,'lang',array('page_id' => $page_id),__LINE__,__FILE__);
-			
+
 			$retval = array();
 			while ($this->db->next_record())
 			{
@@ -105,7 +112,7 @@
 		{
 			$cats = new categories(categories::GLOBAL_ACCOUNT, 'sitemgr');
 			$cat_list = $cats->return_sorted_array(0, False, '', '', '', False, CURRENT_SITE_ID);
-			
+
 			if($cat_list)
 			{
 				foreach($cat_list as $val)
@@ -152,13 +159,13 @@
 				$page->name = stripslashes($this->db->f('name'));
 				$page->hidden = $this->db->f('hide_page');
 				$page->state = $this->db->f('state');
-				
+
 				if ($lang)
 				{
 					$where['lang'] = $lang;
 				}
 				$this->db->select($this->pages_lang_table,'*',$where,__LINE__,__FILE__);
-				
+
 				if ($this->db->next_record())
 				{
 					$page->title= stripslashes($this->db->f('title'));
@@ -168,7 +175,7 @@
 				else
 				{
 					$page->title = $lang ? lang("not yet translated") :
-						"This page has no data in any langugage: this should not happen";
+						"This page has no data in any language. This should not happen";
 				}
 				return $page;
 			}
@@ -184,10 +191,10 @@
 					'hide_page'	=> $pageInfo->hidden,
 					'state'		=> $pageInfo->state,
 				),array(
-					'page_id' 	=> $pageInfo->id			
+					'page_id' 	=> $pageInfo->id
 				), __LINE__,__FILE__);
 		}
-		
+
 		function savePageLang($pageInfo,$lang)
 		{
 			return $this->db->insert($this->pages_lang_table,array(
@@ -195,7 +202,7 @@
 					'subtitle'	=> $pageInfo->subtitle,
 				),array(
 					'page_id' 	=> $pageInfo->id,
-					'lang'		=> $lang,			
+					'lang'		=> $lang,
 				), __LINE__,__FILE__);
 		}
 

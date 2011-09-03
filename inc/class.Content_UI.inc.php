@@ -13,27 +13,58 @@
 
 	class Content_UI
 	{
+		/**
+		 * Reference to Common_UI's Common_UI object
+		 *
+		 * @var Common_UI
+		 */
 		var $common_ui;
+		/**
+		 * Instance of template class
+		 *
+		 * @var Template
+		 */
 		var $t;
+		/**
+		 * Reference to Common_BO's Content_BO object
+		 *
+		 * @var Content_BO
+		 */
 		var $bo;
+		/**
+		 * Reference to Common_BO's Modules_BO object
+		 *
+		 * @var Modules_BO
+		 */
 		var $modulebo;
+		/**
+		 * Reference to ACL object of Common_BO
+		 *
+		 * @var ACL_BO
+		 */
 		var $acl;
+		/**
+		 * Reference to viewable object of Common_BO
+		 *
+		 * @var Viewable_BO
+		 */
 		var $viewable;
-		var $sitelanguages;
-		var $worklanguage;
-		var $errormsg;
 		/**
 		 * Reference to Common_BO's Categories_BO object
 		 *
 		 * @var Categories_BO
 		 */
-		public $cat_bo;
+		var $cat_bo;
 		/**
 		 * Reference to Common_BO's Pages_BO object
 		 *
 		 * @var Pages_BO
 		 */
-		public $pages_bo;
+		var $pages_bo;
+
+		var $sitelanguages;
+		var $worklanguage;
+		var $errormsg;
 
 
 		var $public_functions = array
@@ -56,7 +87,7 @@
 			$this->pages_bo = $GLOBALS['Common_BO']->pages;
 
 			$this->sitelanguages = $GLOBALS['Common_BO']->sites->current_site['sitelanguages'];
-			$GLOBALS['sitemgr_info']['userlang'] = $GLOBALS['egw']->session->appsession('language','sitemgr-site');
+				$GLOBALS['sitemgr_info']['userlang'] = $GLOBALS['egw']->session->appsession('language','sitemgr-site');
 			$this->worklanguage = isset($_POST['savelanguage']) && preg_match('/^[a-z]{2}(-[a-z]{2})?$/',$_POST['savelanguage']) ? $_POST['savelanguage'] :
 				($GLOBALS['sitemgr_info']['userlang'] ? $GLOBALS['sitemgr_info']['userlang'] : $this->sitelanguages[0]);
 			//error_log(__METHOD__."() sitemgr_info[userlanguage]={$GLOBALS['sitemgr_info']['userlang']}, common[lang]={$GLOBALS['egw_info']['user']['preferences']['common']['lang']}, _POST[savelanguage]=$_POST[savelanguage], sitelanguages=".implode(', ',$this->sitelanguages)." --> worklanguage=$this->worklanguage");
@@ -86,7 +117,7 @@
 			elseif ($page_id)
 			{
 				$page = $this->pages_bo->getPage($page_id);
-				if (!$GLOBALS['Common_BO']->acl->can_write_category($page->cat_id))
+				if (!$this->acl->can_write_category($page->cat_id))
 				{
 					$GLOBALS['egw']->redirect_link('/index.php','menuaction=sitemgr.Outline_UI.manage');
 				}
@@ -98,7 +129,7 @@
 			elseif ($cat_id && $cat_id != CURRENT_SITE_ID)
 			{
 				$cat = $this->cat_bo->getCategory($cat_id);
-				if (!$GLOBALS['Common_BO']->acl->can_write_category($cat_id))
+				if (!$this->acl->can_write_category($cat_id))
 				{
 					$GLOBALS['egw']->redirect_link('/index.php','menuaction=sitemgr.Outline_UI.manage');
 				}
@@ -165,6 +196,7 @@
 					$block->id = $inputblockid;
 					$block->title = $inputblocktitle;
 					$block->sort_order = $inputblocksort;
+					$block->area = $inputarea;
 					$block->view = $inputblockview;
 
 					if (isset($element))	// not all blocks have elements (eg. Administration)
@@ -245,7 +277,7 @@
 			{
 				$block = $this->bo->getblock($block_id,$this->worklanguage);
 
-				if (!($block && $GLOBALS['Common_BO']->acl->can_write_category($block->cat_id)))
+				if (!($block && $this->acl->can_write_category($block->cat_id)))
 				{
 					echo '<p><center><b>'.lang('Attempt to edit non-editable block').'</b></center>';
 					$GLOBALS['egw']->common->egw_exit(True);
@@ -360,6 +392,7 @@
 			$this->common_ui->DisplayFooter();
 		}
 
+
 		function commit()
 		{
 			if ($_POST['btnCommit'])
@@ -435,6 +468,7 @@
 					'block' => $this->bo->getlangblocktitle($block_id,$this->sitelanguages[0]),
 					'blockid' => $block_id,
 					'scope' => $this->blockscope($block->cat_id,$block->page_id),
+					'area' => $this->blockarea($block),
 					'addedorremovedorreplaced' => ($block->cnt == 2) ? 'replaced' :
 						(($block->state == SITEMGR_STATE_PREPUBLISH) ? 'added' : 'removed'),
 					'edit' =>  $GLOBALS['egw']->link('/index.php',array(
@@ -461,7 +495,7 @@
 						{
 							$this->cat_bo->reactivate($cat_id);
 						}
-						elseif ($GLOBALS['Common_BO']->acl->is_admin()) // we need to do the ACL-check as we have to force
+						elseif ($this->acl->is_admin()) // we need to do the ACL-check as we have to force
 						{
 							$this->cat_bo->removeCategory($cat_id,True,True);
 						}
@@ -557,6 +591,7 @@
 					'block' => $this->bo->getlangblocktitle($block_id,$this->sitelanguages[0]),
 					'blockid' => $block_id,
 					'scope' => $this->blockscope($block->cat_id,$block->page_id),
+					'area' => $this->blockarea($block),
 					'edit' =>  $GLOBALS['egw']->link('/index.php',array(
 						'block_id' => $block_id,
 						'menuaction' => 'sitemgr.Content_UI.manage'
@@ -597,6 +632,54 @@
 			return $returnValue;
 		}
 
+		function blockarea($block,$editable=False)
+		{
+			$area = $block->area;
+			$areas = array(
+				$area => array(
+					'label' => $area,
+					'extra' => 'style="text-decoration: underline;"',
+				),
+			);
+
+			if ($editable)
+			{
+				$contentAreas = $this->bo->getContentAreas();
+
+				if (is_array($contentAreas))
+				{
+					foreach($contentAreas as $k => $data)
+					{
+						if ($data != $area)
+						{
+							$areas[$data]['label'] = $data;
+						}
+					}
+				}
+			}
+			if (count($areas) > 1)
+			{
+				$out = "<select name=\"inputarea\">\n";
+
+				foreach($areas as $k => $data)
+				{
+					$out .= html::select_option($k,
+						is_array($data) && isset($data['label']) ? $data['label'] : $data,
+						array($area),
+						True,
+						is_array($data) && isset($data['title']) ? $data['title'] : '',
+						is_array($data) && isset($data['extra']) ? $data['extra'] : '');
+				}
+				$out .= "</select>\n";
+				return $out;
+			}
+			else
+			{
+				return $areas[$area];
+			}
+		}
+
+
 		function blockscope($cat_id,$page_id,$editable=False)
 		{
 			if ($editable)
@@ -605,7 +688,7 @@
 				$scopes = array();
 
 				// Whole Website
-				if ($GLOBALS['Common_BO']->acl->can_write_category(CURRENT_SITE_ID))
+				if ($this->acl->can_write_category(CURRENT_SITE_ID))
 				{
 					$scopes[CURRENT_SITE_ID.',0'] = array();
 					$scopes[CURRENT_SITE_ID.',0']['label'] = lang('Site wide');
@@ -729,6 +812,10 @@
 						'label' => lang('Scope'),
 						'form' => $this->blockscope($block->cat_id,$block->page_id,True)
 					);
+					$editorstandardelements[] = array(
+						'label' => lang('Area'),
+						'form' => $this->blockarea($block,True)
+					);
 				}
 
 				$moduleobject->set_block($block);
@@ -795,6 +882,9 @@
 				$viewstandardelements = array(
 					array('label' => lang('Scope'),
 							'value' => $blockscope
+					),
+					array('label' => lang('Area'),
+							'value' => $block->area
 					),
 					array('label' => lang('Title'),
 							'value' => ($block->title ? $block->title : $moduleobject->title)

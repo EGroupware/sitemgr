@@ -15,6 +15,9 @@
 
 	class Modules_BO
 	{
+		/**
+		 * @var Modules_SO
+		 */
 		var $so;
 
 		function Modules_BO()
@@ -63,13 +66,13 @@
 			$classname = 'module_' . $modulename;
 			list($app) = explode('_',$modulename);
 			$files = array();
-	
+
 			if (@file_exists($file = $files[] = EGW_INCLUDE_ROOT.'/'.$app.'/sitemgr/class.'.$classname.'.inc.php') ||
 				@file_exists($file = $files[] = EGW_INCLUDE_ROOT.'/'.$modulename.'/sitemgr/class.'.$classname.'.inc.php') ||
 				@file_exists($file = $files[] = EGW_INCLUDE_ROOT.'/sitemgr/modules/class.'.$classname.'.inc.php'))
 			{
 				include_once($file);
-				
+
 				$obj = new $classname;
 			}
 			else
@@ -104,7 +107,7 @@
 						if (preg_match ("/class\.module_(.*)\.inc\.php$/", $file, $module))
 						{
 							$modulename = $module[1];
-	
+
 							$moduleobject =& $this->createmodule($modulename);
 							if ($moduleobject)
 							{
@@ -175,7 +178,7 @@
 			return array();
 		}
 
-		//this function calculates the properties by climbing up the hierarchy tree in the same way as 
+		//this function calculates the properties by climbing up the hierarchy tree in the same way as
 		//getcascadingmodulepermissions does
 		function getcascadingmoduleproperties($module_id,$contentarea,$cat_id,$modulename=False)
 		{

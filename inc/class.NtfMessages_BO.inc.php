@@ -18,8 +18,15 @@ define("MAX_STR_LENGTH",200);
 
 class NtfMessages_BO extends generic_list_bo
 {
-
+	/**
+	 * @var NtfMesssages_SO
+	 */
+	var $so;
+	/**
+	 * @var Sites_BO
+	 */
 	var $site_bo;
+
 	var $site;
 
 	function NtfMessages_BO()
@@ -27,9 +34,9 @@ class NtfMessages_BO extends generic_list_bo
 		$this->site_bo=CreateObject("sitemgr.Sites_BO");
 		$this->site=False;
 		$this->so=CreateObject("sitemgr.NtfMessages_SO");
-		
+
 	}
-	
+
 	function get_site_langs()
 	{
 
@@ -43,7 +50,7 @@ class NtfMessages_BO extends generic_list_bo
 		}
 		return $res;
 	}
-	
+
 	function get_new_message_langs()
 	{
 		return array_diff($this->get_site_langs(),(array)$this->so->list_languages());

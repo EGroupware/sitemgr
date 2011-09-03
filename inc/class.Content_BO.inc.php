@@ -26,15 +26,31 @@ define('SITEMGR_VIEWABLE_ANONYMOUS',3);
 
 	class Content_BO
 	{
+		/**
+		 * Reference to content object of Common_SO
+		 *
+		 * @var Content_SO
+		 */
 		var $so;
+
 		var $blockcach;
 		var $blockdefcach;
-		
+
 		function Content_BO()
 		{
 			$this->so =& CreateObject('sitemgr.Content_SO', true);
 		}
 
+		/**
+		 * @TODO This function performs a match on the index file, regardless
+		 * - included files
+		 * - expressions which may be included in the area name inclusion
+		 * - cases where the are name may come as a variable.
+		 * - blocks which are available only under special template settings
+		 * This function should be considered for a re-write, using the
+		 * Actual parser (e.g. in a ob_start sandbox) to figure out which
+		 * area names are actually requested.
+		 */
 		function getContentAreas()
 		{
 			$templatedir =  $GLOBALS['Common_BO']->sites->current_site['site_dir'] .  SEP . 'templates' .
@@ -54,11 +70,14 @@ define('SITEMGR_VIEWABLE_ANONYMOUS',3);
 			}
 			elseif (file_exists($templatefile = $templatedir . 'index.php'))  // mambo open source template
 			{
+				$center_available = False;
 				$str = implode('', @file($templatefile));
-				if (preg_match_all("/(mosLoadModules|include|include_once|require|require_once)[ (\"']+([^\"']+)/",$str,$matches))
+
+				if (preg_match_all("/(mosLoadModules|include|include_once|require|require_once|<[ ]*jdoc:include[ \d\w\"'=]+name=)[ (]*[\"'] *([^\"']+)/",$str,$matches))
 				{
 					$matches = $matches[2];
-					$conversation = array('includes/footer.php' => 'footer','mainbody.php'=>'center','mainmenu.php'=>'mainmenu');
+					// Apply a conversion of file references to area names
+					$conversation = array('includes/footer.php'=>'footer','mainbody.php'=>'center','mainmenu.php'=>'mainmenu');
 					foreach($matches as $n => $name)
 					{
 						if (substr($name,-4) == '.php')
@@ -72,8 +91,19 @@ define('SITEMGR_VIEWABLE_ANONYMOUS',3);
 								$matches[$n] = $conversation[$name];
 							}
 						}
+						// Remember whether the center has been found
+						if ($name == 'center')
+						{
+							$center_available = True;
+						}
 					}
-					//echo "<p>getContentAreas($templatefile)=".implode(',',$matches)."</p>";
+					// Perform a second match - cannot be sanely merged into above match
+					if ((! $center_available) && (preg_match("/<[ ]*jdoc:include[ ]+type=\"component\"/",$str,$dummy)))
+					{
+						$matches[] = 'center';
+					}
+					sort($matches);
+					// echo "<p>getContentAreas($templatefile)=".implode(',',$matches)."</p>";
 					return $matches;
 				}
 				else
@@ -170,8 +200,8 @@ define('SITEMGR_VIEWABLE_ANONYMOUS',3);
 		//there is no ACL, since these functions are called in a context where getcategory and getpage have been called before and would have intercepted a breach
 		function &getvisibleblockdefsforarea($area,$cat_id,$page_id,$isadmin,$isuser)
 		{
-			$cat_ancestorlist = ($cat_id != CURRENT_SITE_ID) ? 
-				$GLOBALS['Common_BO']->cats->getCategoryancestorids($cat_id,True) : 
+			$cat_ancestorlist = ($cat_id != CURRENT_SITE_ID) ?
+				$GLOBALS['Common_BO']->cats->getCategoryancestorids($cat_id,True) :
 				False;
 			return !isset($this->blockdefcach['all'][$area][$cat_id][$page_id][$isadmin][$isuser]) ?
 				($this->blockdefcach['all'][$area][$cat_id][$page_id][$isadmin][$isuser] = $this->so->getvisibleblockdefsforarea($area,$cat_ancestorlist,$page_id,$isadmin,$isuser)) :
@@ -180,11 +210,11 @@ define('SITEMGR_VIEWABLE_ANONYMOUS',3);
 
 		function &getallblocksforarea($area,$cat_id,$page_id,$lang)
 		{
-			$cat_ancestorlist = ($cat_id != CURRENT_SITE_ID) ? 
-				$GLOBALS['Common_BO']->cats->getCategoryancestorids($cat_id,True) : 
+			$cat_ancestorlist = ($cat_id != CURRENT_SITE_ID) ?
+				$GLOBALS['Common_BO']->cats->getCategoryancestorids($cat_id,True) :
 				False;
-			return !isset($this->blockcach['all'][$area][$cat_id][$page_id][$lang]) ? 
-				($this->blockcach['all'][$area][$cat_id][$page_id][$lang] = $this->so->getallblocksforarea($area,$cat_ancestorlist,$page_id,$lang)) : 
+			return !isset($this->blockcach['all'][$area][$cat_id][$page_id][$lang]) ?
+				($this->blockcach['all'][$area][$cat_id][$page_id][$lang] = $this->so->getallblocksforarea($area,$cat_ancestorlist,$page_id,$lang)) :
 				$this->blockcach['all'][$area][$cat_id][$page_id][$lang];
 		}
 
@@ -223,7 +253,7 @@ define('SITEMGR_VIEWABLE_ANONYMOUS',3);
 			return $this->so->getlangarrayforversion($version_id);
 		}
 
-		//this function retrieves blocks only for a certain scope (site-wide, specific to one category or specific to one page), 
+		//this function retrieves blocks only for a certain scope (site-wide, specific to one category or specific to one page),
 		//but for all areas.
 		function &getblocksforscope($cat_id,$page_id)
 		{
@@ -325,13 +355,13 @@ define('SITEMGR_VIEWABLE_ANONYMOUS',3);
 		}
 
 		//takes the array (version_id => version_state) posted from the UI as argument
-		//and checks if there is only one in (pre(un))published state 
+		//and checks if there is only one in (pre(un))published state
 		//(exeption one prepublished, and one preunpublished can coexsit)
 		function saveversionstate($block_id,$state)
 		{
 			$count_array = array_count_values($state);
-			$active_versions = $count_array[SITEMGR_STATE_PREPUBLISH] + 
-				$count_array[SITEMGR_STATE_PUBLISH] + 
+			$active_versions = $count_array[SITEMGR_STATE_PREPUBLISH] +
+				$count_array[SITEMGR_STATE_PUBLISH] +
 				$count_array[SITEMGR_STATE_PREUNPUBLISH];
 			if (($active_versions < 2) || (($active_versions == 2) && ($count_array[SITEMGR_STATE_PUBLISH] == 0)))
 			{
@@ -354,7 +384,7 @@ define('SITEMGR_VIEWABLE_ANONYMOUS',3);
 				false;
 		}
 
-		//this function can be called from a block's get_content function. It stores modification to the 
+		//this function can be called from a block's get_content function. It stores modification to the
 		//blocks arguments in the database
 		function savepublicdata(&$block)
 		{

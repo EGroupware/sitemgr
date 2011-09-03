@@ -26,12 +26,6 @@ class Categories_UI
 	 */
 	public $cat_bo;
 	/**
-	 * Instance of Category_SO object
-	 *
-	 * @var Category_SO
-	 */
-	public $cat;
-	/**
 	 * Reference to Common_BO's ACL_BO object
 	 *
 	 * @var ACL_BO
@@ -49,6 +43,7 @@ class Categories_UI
 	 * @var Template
 	 */
 	public $t;
+
 	var $sitelanguages;
 
 	var $public_functions = array
@@ -56,6 +51,7 @@ class Categories_UI
 		'edit' => True,
 		'delete' => True
 	);
+
 
 	/**
 	 * Constructor
@@ -65,7 +61,6 @@ class Categories_UI
 		$this->common_ui = CreateObject('sitemgr.Common_UI',True);
 		$this->t = $GLOBALS['egw']->template;
 		$this->cat_bo = $GLOBALS['Common_BO']->cats;
-		$this->cat = CreateObject('sitemgr.Category_SO', True);
 		$this->acl = $GLOBALS['Common_BO']->acl;
 		$this->isadmin = $this->acl->is_admin();
 		$this->sitelanguages = $GLOBALS['Common_BO']->sites->current_site['sitelanguages'];

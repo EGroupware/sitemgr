@@ -12,7 +12,20 @@
 
 class search_bo
 {
-	var $so,$pages_bo,$catbo;
+	/**
+	 *
+	 * @var search_so
+	 */
+	var $so;
+	/**
+	 * @var Pages_BO
+	 */
+	var $pages_bo;
+	/**
+	 * @var Categories_BO
+	 */
+	var $catbo;
+
 
 	function search_bo()
 	{
@@ -27,18 +40,18 @@ class search_bo
 		$searched = $this->so->search(htmlspecialchars(stripslashes($query)),$lang,$mode);
 		if ($searched)
 		{
-			foreach ($searched as $item) 
-			{			
+			foreach ($searched as $item)
+			{
 				if ($GLOBALS['Common_BO']->acl->can_read_category($item['cat_id'])) //$has_perm
 				{
 					// Content in a category (not page) has page_id=0, then don't search for info
-											
+
 					$cat = $this->catbo->getCategory($item['cat_id'],$GLOBALS['sitemgr_info']['userlang']);
-					
+
 					if ($item['page_id'] != 0)
 					{
 						$page = $this->pages_bo->getPage($item['page_id'],$GLOBALS['sitemgr_info']['userlang']);
-						$link_page = '<a href="'.sitemgr_link('page_name='.$page->name).'">'.$page->title.'</a>';								
+						$link_page = '<a href="'.sitemgr_link('page_name='.$page->name).'">'.$page->title.'</a>';
 					}
 					else
 					{
@@ -50,7 +63,7 @@ class search_bo
 					$res[] = array('link_cat' => $link_cat, 'link_page' => $link_page, 'content' => $this->extract_content($item['content'],$query,$mode));
 					$matches = $matches + 1;
 				}
-			} 
+			}
 			return array('search' => $query, 'matches' => $matches, 'result' => $res);
 		}
 		else
@@ -58,13 +71,13 @@ class search_bo
 			return array('search' => $query, 'matches' => $matches, 'result' => "No records found");
 		}
 	}
-	
+
 	function extract_content($content,$query,$mode)
 	{
 		$content = unserialize($content);
 		$content = strip_tags($content['htmlcontent']);
-		
-		
+
+
 		if ($mode == "exact") {
 			$searchwords = array($query);
 			$needle = $query;
@@ -74,26 +87,26 @@ class search_bo
 		}
 
 		$content = $this->extract_word($content,$needle);
-		
+
 		// highlight_string
 	  	foreach ($searchwords as $hlword) {
-			$content = preg_replace( '/' . preg_quote( $hlword, '/' ) . '/i', '<span class="highlight">\0</span>', $content ); 
+			$content = preg_replace( '/' . preg_quote( $hlword, '/' ) . '/i', '<span class="highlight">\0</span>', $content );
 		}
 
-		return $content;		
+		return $content;
 	}
-	
+
 	function extract_word($content,$word,$length=200)
 	{
 		// strips tags won't remove the actual jscript
-		$content = preg_replace( "'<script[^>]*>.*?</script>'si", "", $content );	
-		$content = preg_replace( '/{.+?}/', '', $content);			
-		
+		$content = preg_replace( "'<script[^>]*>.*?</script>'si", "", $content );
+		$content = preg_replace( '/{.+?}/', '', $content);
+
 		// replace line breaking tags with whitespace
 		$content = preg_replace( "'<(br[^/>]*?/|hr[^/>]*?/|/(div|h[1-6]|li|p|td))>'si", ' ', $content );
-		
-		$content = $this->SmartSubstr(strip_tags($content),$length,$word); 
-	
+
+		$content = $this->SmartSubstr(strip_tags($content),$length,$word);
+
 		return $content;
 	}
 
