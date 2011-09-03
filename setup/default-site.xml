@@ -808,8 +808,12 @@ usertool=7
 									<arguments><![CDATA[a:6:{s:6:"format";s:3:"dir";s:4:"path";s:8:"/uploads";s:5:"order";s:8:"name asc";s:4:"file";s:0:"";s:4:"text";s:0:"";s:12:"confirmation";s:0:"";}]]></arguments>
 									<sort_order>0</sort_order>
 									<view>0</view>
+									<title lang="de">Datei download</title>
 									<title lang="en">File download</title>
 									<contents>
+										<content lang="de">
+											<state>2</state>
+										</content>
 										<content lang="en">
 											<state>2</state>
 										</content>
@@ -1070,10 +1074,10 @@ usertool=7
 			<description lang="de">Sitemanager konfigurieren</description>
 			<name lang="en">Configuration</name>
 			<description lang="en">Sitemanager configuration</description>
-			<index_page>templates</index_page>
+			<index_page>template</index_page>
 			<pages>
 				<page>
-					<name>templates</name>
+					<name>template</name>
 					<sort_order>0</sort_order>
 					<hidden>0</hidden>
 					<state>2</state>
@@ -1153,29 +1157,29 @@ usertool=7
 		<tr>
 			<td>
 				<p>
-					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_zibal"><strong>JA&nbsp;Zibal</strong></a></p>
+					<a href="http://sitemgr.egroupware.de/?page_name=template&amp;themesel=ja_zibal"><strong>JA&nbsp;Zibal</strong></a></p>
 				<p>
-					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_zibal"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Zibal.jpg" style="width: 200px; height: 130px;" /></a></p>
+					<a href="http://sitemgr.egroupware.de/?page_name=template&amp;themesel=ja_zibal"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Zibal.jpg" style="width: 200px; height: 130px;" /></a></p>
 			</td>
 			<td>
 				<p>
-					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_lolite"><strong>JA&nbsp;Iolite</strong></a></p>
+					<a href="http://sitemgr.egroupware.de/?page_name=template&amp;themesel=ja_lolite"><strong>JA&nbsp;Iolite</strong></a></p>
 				<p>
-					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_iolite"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Iolite.jpg" style="width: 200px; height: 130px;" /></a></p>
+					<a href="http://sitemgr.egroupware.de/?page_name=template&amp;themesel=ja_iolite"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Iolite.jpg" style="width: 200px; height: 130px;" /></a></p>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<p>
-					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_mageia"><strong>JA&nbsp;Mageia</strong></a></p>
+					<a href="http://sitemgr.egroupware.de/?page_name=template&amp;themesel=ja_mageia"><strong>JA&nbsp;Mageia</strong></a></p>
 				<p>
-					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_mageia"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Mageia.jpg" style="width: 200px; height: 130px;" /></a></p>
+					<a href="http://sitemgr.egroupware.de/?page_name=template&amp;themesel=ja_mageia"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Mageia.jpg" style="width: 200px; height: 130px;" /></a></p>
 			</td>
 			<td>
 				<p>
-					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_sulfur"><strong>JA&nbsp;Sulfur</strong></a></p>
+					<a href="http://sitemgr.egroupware.de/?page_name=template&amp;themesel=ja_sulfur"><strong>JA&nbsp;Sulfur</strong></a></p>
 				<p>
-					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_sulfur"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Sulfur.jpg" style="width: 200px; height: 130px;" /></a></p>
+					<a href="http://sitemgr.egroupware.de/?page_name=template&amp;themesel=ja_sulfur"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Sulfur.jpg" style="width: 200px; height: 130px;" /></a></p>
 			</td>
 		</tr>
 	</tbody>
@@ -1189,15 +1193,15 @@ usertool=7
 		<tr>
 			<td>
 				<p>
-					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_halite"><strong>JA&nbsp;Halite</strong></a></p>
+					<a href="http://sitemgr.egroupware.de/?page_name=template&amp;themesel=ja_halite"><strong>JA&nbsp;Halite</strong></a></p>
 				<p>
-					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_halite"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Halite.jpg" style="width: 200px; height: 130px;" /></a></p>
+					<a href="http://sitemgr.egroupware.de/?page_name=template&amp;themesel=ja_halite"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Halite.jpg" style="width: 200px; height: 130px;" /></a></p>
 			</td>
 			<td>
 				<p>
-					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_purity"><strong>JA&nbsp;Purity</strong></a></p>
+					<a href="http://sitemgr.egroupware.de/?page_name=template&amp;themesel=ja_purity"><strong>JA&nbsp;Purity</strong></a></p>
 				<p>
-					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_purity"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Purity.jpg" style="width: 200px; height: 130px;" /></a></p>
+					<a href="http://sitemgr.egroupware.de/?page_name=template&amp;themesel=ja_purity"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Purity.jpg" style="width: 200px; height: 130px;" /></a></p>
 			</td>
 		</tr>
 	</tbody>
@@ -1211,15 +1215,15 @@ usertool=7
 		<tr>
 			<td>
 				<p>
-					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_zinc"><strong>JA&nbsp;Zinc</strong></a></p>
+					<a href="http://sitemgr.egroupware.de/?page_name=template&amp;themesel=ja_zinc"><strong>JA&nbsp;Zinc</strong></a></p>
 				<p>
-					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_zinc"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Zinc.jpg" style="width: 200px; height: 130px;" /></a></p>
+					<a href="http://sitemgr.egroupware.de/?page_name=template&amp;themesel=ja_zinc"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Zinc.jpg" style="width: 200px; height: 130px;" /></a></p>
 			</td>
 			<td>
 				<p>
-					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_olyra"><strong>JA&nbsp;Olyra</strong></a></p>
+					<a href="http://sitemgr.egroupware.de/?page_name=template&amp;themesel=ja_olyra"><strong>JA&nbsp;Olyra</strong></a></p>
 				<p>
-					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_olyra"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Olyra.jpg" style="width: 200px; height: 130px;" /></a></p>
+					<a href="http://sitemgr.egroupware.de/?page_name=template&amp;themesel=ja_olyra"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Olyra.jpg" style="width: 200px; height: 130px;" /></a></p>
 			</td>
 		</tr>
 	</tbody>
@@ -1236,29 +1240,29 @@ usertool=7
 		<tr>
 			<td>
 				<p>
-					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_zibal"><strong>JA&nbsp;Zibal</strong></a></p>
+					<a href="http://sitemgr.egroupware.de/?page_name=template&amp;themesel=ja_zibal"><strong>JA&nbsp;Zibal</strong></a></p>
 				<p>
-					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_zibal"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Zibal.jpg" style="width: 200px; height: 130px;" /></a></p>
+					<a href="http://sitemgr.egroupware.de/?page_name=template&amp;themesel=ja_zibal"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Zibal.jpg" style="width: 200px; height: 130px;" /></a></p>
 			</td>
 			<td>
 				<p>
-					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_lolite"><strong>JA&nbsp;Iolite</strong></a></p>
+					<a href="http://sitemgr.egroupware.de/?page_name=template&amp;themesel=ja_lolite"><strong>JA&nbsp;Iolite</strong></a></p>
 				<p>
-					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_iolite"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Iolite.jpg" style="width: 200px; height: 130px;" /></a></p>
+					<a href="http://sitemgr.egroupware.de/?page_name=template&amp;themesel=ja_iolite"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Iolite.jpg" style="width: 200px; height: 130px;" /></a></p>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<p>
-					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_mageia"><strong>JA&nbsp;Mageia</strong></a></p>
+					<a href="http://sitemgr.egroupware.de/?page_name=template&amp;themesel=ja_mageia"><strong>JA&nbsp;Mageia</strong></a></p>
 				<p>
-					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_mageia"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Mageia.jpg" style="width: 200px; height: 130px;" /></a></p>
+					<a href="http://sitemgr.egroupware.de/?page_name=template&amp;themesel=ja_mageia"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Mageia.jpg" style="width: 200px; height: 130px;" /></a></p>
 			</td>
 			<td>
 				<p>
-					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_sulfur"><strong>JA&nbsp;Sulfur</strong></a></p>
+					<a href="http://sitemgr.egroupware.de/?page_name=template&amp;themesel=ja_sulfur"><strong>JA&nbsp;Sulfur</strong></a></p>
 				<p>
-					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_sulfur"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Sulfur.jpg" style="width: 200px; height: 130px;" /></a></p>
+					<a href="http://sitemgr.egroupware.de/?page_name=template&amp;themesel=ja_sulfur"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Sulfur.jpg" style="width: 200px; height: 130px;" /></a></p>
 			</td>
 		</tr>
 	</tbody>
@@ -1272,15 +1276,15 @@ usertool=7
 		<tr>
 			<td>
 				<p>
-					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_halite"><strong>JA&nbsp;Halite</strong></a></p>
+					<a href="http://sitemgr.egroupware.de/?page_name=template&amp;themesel=ja_halite"><strong>JA&nbsp;Halite</strong></a></p>
 				<p>
-					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_halite"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Halite.jpg" style="width: 200px; height: 130px;" /></a></p>
+					<a href="http://sitemgr.egroupware.de/?page_name=template&amp;themesel=ja_halite"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Halite.jpg" style="width: 200px; height: 130px;" /></a></p>
 			</td>
 			<td>
 				<p>
-					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_purity"><strong>JA&nbsp;Purity</strong></a></p>
+					<a href="http://sitemgr.egroupware.de/?page_name=template&amp;themesel=ja_purity"><strong>JA&nbsp;Purity</strong></a></p>
 				<p>
-					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_purity"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Purity.jpg" style="width: 200px; height: 130px;" /></a></p>
+					<a href="http://sitemgr.egroupware.de/?page_name=template&amp;themesel=ja_purity"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Purity.jpg" style="width: 200px; height: 130px;" /></a></p>
 			</td>
 		</tr>
 	</tbody>
@@ -1294,15 +1298,15 @@ usertool=7
 		<tr>
 			<td>
 				<p>
-					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_zinc"><strong>JA&nbsp;Zinc</strong></a></p>
+					<a href="http://sitemgr.egroupware.de/?page_name=template&amp;themesel=ja_zinc"><strong>JA&nbsp;Zinc</strong></a></p>
 				<p>
-					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_zinc"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Zinc.jpg" style="width: 200px; height: 130px;" /></a></p>
+					<a href="http://sitemgr.egroupware.de/?page_name=template&amp;themesel=ja_zinc"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Zinc.jpg" style="width: 200px; height: 130px;" /></a></p>
 			</td>
 			<td>
 				<p>
-					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_olyra"><strong>JA&nbsp;Olyra</strong></a></p>
+					<a href="http://sitemgr.egroupware.de/?page_name=template&amp;themesel=ja_olyra"><strong>JA&nbsp;Olyra</strong></a></p>
 				<p>
-					<a href="http://sitemgr.egroupware.de/?page_name=templates&amp;themesel=ja_olyra"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Olyra.jpg" style="width: 200px; height: 130px;" /></a></p>
+					<a href="http://sitemgr.egroupware.de/?page_name=template&amp;themesel=ja_olyra"><img alt="" src="http://sitemgr.egroupware.de/uploads/JA_Olyra.jpg" style="width: 200px; height: 130px;" /></a></p>
 			</td>
 		</tr>
 	</tbody>
@@ -1346,6 +1350,49 @@ usertool=7
 								</content>
 								<content lang="en">
 									<state>2</state>
+								</content>
+							</contents>
+						</block>
+					</blocks>
+				</page>
+				<page>
+					<name>templates</name>
+					<sort_order>0</sort_order>
+					<hidden>1</hidden>
+					<state>2</state>
+					<title lang="de">Template Umleitung</title>
+					<subtitle lang="de">Umleitung zur Seite template</subtitle>
+					<title lang="en">Templates-Redirect</title>
+					<subtitle lang="en">Redirect to the template page</subtitle>
+					<blocks>
+						<block>
+							<area>center</area>
+							<module>redirect</module>
+							<arguments><![CDATA[a:2:{s:3:"URL";s:8:"template";s:7:"timeout";s:1:"0";}]]></arguments><sort_order>0</sort_order><view>0</view><title lang="de">Weiterleitung zu template</title><title lang="en">Redirect to template</title>
+							<contents>
+								<content lang="de">
+									<state>2</state>
+								</content>
+								<content lang="en">
+									<state>2</state>
+								</content>
+							</contents>
+						</block>
+						<block>
+							<area>center</area>
+							<module>html</module>
+							<sort_order>0</sort_order>
+							<view>0</view>
+							<title lang="de">Redirect Erläuterung</title>
+							<title lang="en">Redirect Explanation</title>
+							<contents>
+								<content lang="de">
+									<state>2</state>
+									<arguments><![CDATA[Umleitung zur Seite &quot;template&quot;. Die Seite &quot;templates&quot; kann in Umgebungen, in denen suchmaschinen-freundliche URLs verwendet werden zu dem Problem f&uuml;hren, dass stattdessen der Ordner &quot;sitemgr/sitemgr-site/templates&quot; angezeigt wird.]]></arguments>
+								</content>
+								<content lang="en">
+									<state>2</state>
+									<arguments><![CDATA[Redirect to page &quot;template&quot;. The page &quot;templates&quot; could lead to the directory &quot;sitemgr/sitemgr-site/templates&quot; being displayed insted of the page in environments which make use of search engine friendly URLS are used.]]></arguments>
 								</content>
 							</contents>
 						</block>
