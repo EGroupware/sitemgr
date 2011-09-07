@@ -52,6 +52,7 @@
 	{
 		var $lastcatdepth = 0;
 		var $lastpagedepth = 0;
+		var $debug = False;
 
 		function module_navigation()
 		{
@@ -321,8 +322,9 @@
 
 		function get_content(&$arguments,$properties)
 		{
-			$out =  "<!-- navigation-context begins here -->\n".
-				"<div id=\"navigation-context".$arguments['nav_type']."\">\n".
+			$out = '';
+			if ($this->debug) $out .=  "<!-- navigation-context begins here: -->\n";
+			$out .= "<div id=\"navigation-context".$arguments['nav_type']."\">\n".
 				"  <div id=\"navigation-";
 			switch ($arguments['nav_type'])
 			{
@@ -369,7 +371,9 @@
 				case 5 : // Sitetree
 					$out .= "sitetree\">\n";
 					$out .= $this->type_sitetree($arguments,$properties);
-					$out .= "  </div>\n<!-- navigation context ends here -->\n</div>\n";
+					$out .= "  </div>\n";
+					$out .= "</div>\n";
+					if ($this->debug) $out .= "<!-- navigation context ends here. -->\n";
 					return $out;
 				case 6 : // Toc
 					$out .= "toc\">\n";
@@ -444,7 +448,9 @@
 				case 10 : // tabs
 					$out .= "tabs\">\n";
 					$out .= $this->type_tabs($arguments,$properties);
-					$out .= "  </div>\n<!-- navigation context ends here -->\n</div>\n";
+					$out .= "  </div>\n";
+					$out .= "</div>\n";
+					if ($this->debug) $out .= "<!-- navigation context ends here. -->\n";
 					return $out;
 				case 11: // xml sitemap
 					return $this->type_xml_sitemap($arguments,$properties);
@@ -452,7 +458,9 @@
 				default:
 					$out .= "navigation\">\n";
 					$out .= $this->type_navigation($arguments,$properties);
-					$out .= "  </div>\n<!-- navigation context ends here -->\n</div>\n";
+					$out .= "  </div>\n";
+					$out .= "</div>\n";
+					if ($this->debug) $out .= "<!-- navigation context ends here. -->\n";
 					return $out;
 			}
 
@@ -481,7 +489,8 @@
 					$this->objbo->getCatLinks((int)$this->page->cat_id,False,True);
 				if(count($catlinks))
 				{
-					$out .= "\n<div class=\"nav-header-subsection\">".lang('Subsections:')."</div>\n";
+					$out .= "\n";
+					$out .= $this->ind()."<div class=\"nav-header-subsection\">".lang('Subsections:')."</div>\n";
 					$out .= $arguments['category_id'] ?
 						$this->encapsulate($arguments,$catlinks,'cat',(int)$arguments['category_id']) :
 						$this->encapsulate($arguments,$catlinks,'cat',(int)$this->page->cat_id);
@@ -530,7 +539,7 @@
 						{
 							unset($cat_tree2[$num]); unset($cat_tree_data2[$num]);
 						}
-						// we need only pages of this cat, but not cat itseve!
+						// we need only pages of this cat, but not cat itself!
 						if($category['depth'] ==  $arguments['max_cat_depth'] && $this->page->cat_id != $cat_tree2[$num])
 						{
 							$cat_tree_data2[$num]['pages_only'] = true;
@@ -546,7 +555,7 @@
 						if(!$popcat_data['pages_only'] && !($arguments['suppress_main_cats'] && $popcat_data['depth'] == 1))
 						{
 							// if current page is the index page for $popcat, call encapsulate with page-id to highlight the page
-							if ($popcat == $this->category->id && $this->category->index_page_id == $this->page->id)
+							if ($popcat == $this->category->id && $this->category->index_page_id === $this->page->id)
 							{
 								$out .= $this->encapsulate($arguments,array($this->page->id => $popcat_data),'page',$popcat,$cat['depth'],__LINE__);
 							}
@@ -618,18 +627,41 @@
 				$out .= "    </div>\n";
 			}
 
-			$out .= "  </div>\n<!-- navigation context ends here -->\n</div>\n";
+			$out .= "  </div>\n";
+			$out .= "</div>\n";
+			if ($this->debug) $out .= "<!-- navigation context ends here. -->\n";
 
-			/* uncomment, if you want to debug/check opening and closing div-tags
-			$div_opened = count(explode('<div',$out))-1;
-			$div_closed = count(explode('</div>',$out))-1;
-			if ($div_opened != $div_closed)
+			/* debug/check opening and closing div-tags */
+			if ($this->debug)
 			{
-				error_log(__METHOD__."(".array2string($arguments).") unbalanced div tags: $div_opened opened != $div_closed closed");
-				return "<div style='position: absolute; background-color: white; color: black; z-index: 9999;'><p style='color: red; font-weight: bold'>unbalanced div tags: $div_opened opened != $div_closed closed<br />arguments = ".array2string($arguments)."</p>\n<pre style='border: 3px dashed red;'>".htmlspecialchars($out)."</pre></div>\n";
+				$div_opened = count(explode('<div',$out))-1;
+				$div_closed = count(explode('</div>',$out))-1;
+				if ($div_opened != $div_closed)
+				{
+					error_log(__METHOD__."(".array2string($arguments).") unbalanced div tags: $div_opened opened != $div_closed closed");
+					$msg = '';
+					$msg .= "<div style='position: absolute; background-color: white; color: black; z-index: 9999;'>\n";
+					$msg .= "  <p style='color: red; font-weight: bold'>unbalanced div tags: $div_opened opened != $div_closed closed<br />\n";
+					$msg .= "    arguments = ".array2string($arguments)."</p>\n";
+					$msg .= "  <pre style='border: 3px dashed red;'>".htmlspecialchars($out)."</pre>\n";
+					$msg .= "</div>\n";
+					$out .= $msg;
+				}
 			}
-			*/
 			return $out;
+		}
+
+		/**
+		 * Add indentation
+		 * @return an indentation according to the current $this->lastcatdepth
+		 */
+		private function ind($times=NULL)
+		{
+			if (is_null($times))
+			{
+				$times = 2 * $this->lastcatdepth;
+			}
+			return str_repeat(" ", $times);
 		}
 
 		/**
@@ -645,8 +677,9 @@
 		 */
 		function encapsulate($arguments,$data,$type,$cat_id,$depth=1,$line='other')
 		{
-			//error_log(__METHOD__."(...,".array2string($data).",$type,$cat_id,$depth,called from line $line)");
 			$out = '';
+			//error_log(__METHOD__."(...,".array2string($data).",$type,$cat_id,$depth,called from line $line)");
+			if ($this->debug) $out .= $this->ind().'    <!-- '.__METHOD__.' type='.$type.' cat_id='.$cat_id.' depth='.$depth.' from_line='.$line.' -->'."\n";
 			// some navigation types need opening and closing tags per category, others not
 			if(!$arguments['no-nav-cat-block-divs'] && empty($arguments['main_cats_to_include']))
 			{
@@ -658,28 +691,38 @@
 					{
 						while($this->lastcatdepth != $depth - 1 && $this->lastcatdepth != 0)
 						{
-							$out .= "  </div>\n";
-							//$out .= "  <!-- NAV CAT BLOCK OF DEPTH ". $this->lastcatdepth. " ENDS HERE-->\n";
+							$out .= $this->ind()."  </div>\n";
+							if ($this->debug) $out .= $this->ind()."  <!-- NAV CAT BLOCK OF DEPTH ". $this->lastcatdepth. " ENDS HERE. -->\n";
 							$this->lastcatdepth--;
 						}
 					}
-					$this->lastcatdepth = $depth;
 
 					// marker to end last block
 					if ($depth == 0) return $out;
 
-					//$out .= "  <!-- NAV CAT BLOCK OF DEPTH ". $depth. " STARTS HERE-->\n";
-					$out .= "  <div class=\"nav-cat-block blockdepth-".$depth. ($this->page->cat_id == $cat_id ? ' active' : ' inactive'). "\">\n";
+					if ($this->lastcatdepth < $depth)
+					{
+						if (($this->lastcatdepth  + 1) < $depth)
+						{
+							error_log(__METHOD__.": lastcatdepth (".$this->lastcatdepth.") < depth (".$depth.") - should not happen");
+						}
+						while($this->lastcatdepth < $depth)
+						{
+							$this->lastcatdepth++;
+							if ($this->debug) $out .= $this->ind()."  <!-- NAV CAT BLOCK OF DEPTH ". $this->lastcatdepth. " STARTS HERE: -->\n";
+							$out .= $this->ind()."  <div class=\"nav-cat-block blockdepth-".$this->lastcatdepth. ($this->page->cat_id == $cat_id ? ' active' : ' inactive'). "\">\n";
+						}
+					}
 				}
 			}
-			$out .= "    <div class=\"nav-".$type."-entry depth-".$depth."\">\n";
+			$out .= $this->ind()."    <div class=\"nav-".$type."-entry depth-".$depth."\">\n";
 			if ($depth == 1 && $arguments['nav_type'] == 3)	// menu class for Joomla 1.5 (only for index_block)
 			{
-				$out .= "      <ul class=\"menu\">\n";
+				$out .= $this->ind()."      <ul class=\"menu\">\n";
 			}
 			else
 			{
-				$out .= "      <ul>\n";
+				$out .= $this->ind()."      <ul>\n";
 			}
 			if (is_array($data))
 			foreach($data as $id => $entry)
@@ -696,13 +739,13 @@
 				}
 				if ($id == $this->page->cat_id && $type != 'page')	// active class for current cat in Joomla 1.5
 				{
-					$out .= "        <li class=\"active\">\n";
+					$out .= $this->ind()."        <li class=\"active\">\n";
 				}
 				else
 				{
-					$out .= "        <li>\n";
+					$out .= $this->ind()."        <li>\n";
 				}
-				$out .= "          ".$entry['link']."\n";
+				$out .= $this->ind()."          ".$entry['link']."\n";
 
 				if($arguments['show_edit_icons'] && $cat_id >0)
 				{
@@ -721,10 +764,10 @@
 					$out .= "</span>\n";
 				}
 
-				$out .= "        </li>\n";
+				$out .= $this->ind()."        </li>\n";
 			}
-			$out .= "      </ul>\n";
-			$out .= "    </div>\n";
+			$out .= $this->ind()."      </ul>\n";
+			$out .= $this->ind()."    </div>\n";
 			return $out;
 		}
 
