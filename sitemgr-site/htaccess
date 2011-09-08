@@ -6,17 +6,34 @@
 #   http://mymachine.com/index.php?page_name=page1
 # and you're running Apache, then customize and add
 # the below lines to your .htaccess file, or
-# copy this file to .htaccess.  Note that your
-# Apache web server needs to be setup to read
+# copy this file to .htaccess.
+# Note that your Apache web server needs to be setup to read
 # .htaccess files and allow use of the RewriteEngine
 # directive (AllowOverride FileInfo). 
-# you have to change the RewriteBase directive to the URI 
-# of your sitemgr install, and you have to change
-# the htaccess_rewrite variable in config.inc.php to True
-# from False.
+
+# You have to enable the search engine friendly URLs
+# in the website configuration
 RewriteEngine On
 RewriteBase /
-
-# otherwise you got a sitemgr page instead of the robots.txt, which renders it useless!
+# Get robots.txt and not a sitemgr page, which would render robots.txt useless!
 RewriteCond %{SCRIPT_FILENAME} !robots\.txt
 RewriteRule ^([^/]*)$ index.php?page_name=$1&%{QUERY_STRING}
+
+# Select the eGroupware domain, if different from the first one configured.
+#SetEnv EGW_SITEMGR_DOMAIN default
+
+# A configuration in the global apache configuration directory
+# for a site at http://mymachine.com/cms/ in the default domain:
+# (with a copy or symbolic link to sitemgr-site at DOCROOT/cms/)
+# would look like:
+#<Directory /var/www/cms>
+#	# Select the eGroupware domain, if different from the first one configured.
+#	#SetEnv EGW_SITEMGR_DOMAIN default
+#
+#	RewriteEngine On
+#	RewriteBase /cms/
+#	# Get robots.txt and not a sitemgr page, which would render robots.txt useless!
+#	RewriteCond %{SCRIPT_FILENAME} !robots\.txt
+#	RewriteRule ^([^/]*)$ index.php?page_name=$1&%{QUERY_STRING}
+#</Directory>
+

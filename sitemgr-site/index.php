@@ -71,6 +71,17 @@ $GLOBALS['egw_info'] = array(
 		'autocreate_session_callback' => 'sitemgr_get_site',
 ));
 
+/* Preset the domain variables in case the environment variable is set.
+ * Can be overwritten by config.inc.php, but eases the configuration and update procedure
+ * when the variable is set in the apache configuration for the sitemgr directory.
+ */
+if (($domain = getenv('EGW_SITEMGR_DOMAIN')) !== False) {
+	$GLOBALS['egw_info']['user']['domain'] =
+		$GLOBALS['egw_info']['server']['default_domain'] =
+		$domain;
+	unset($domain);
+}
+
 include('./config.inc.php');
 if (!file_exists($sitemgr_info['egw_path'] . 'header.inc.php'))
 {
