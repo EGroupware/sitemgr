@@ -18,6 +18,7 @@ class module_download extends Module
 {
 	function module_download()
 	{
+		$this->i18n = True;
 		$this->arguments = array (
 			'format' => array (
 				'type'  => 'select',
@@ -77,13 +78,14 @@ class module_download extends Module
 				'type' => 'textfield',
 				'label' => lang('Text for optional confirmation message, before download get displayed'),
 				'params' => array('size' => 60),
+				'i18n' => True,
 			),
 		);
 		$this->post = array (
 			'subdir' => array('type' => 'textfield'),
 			'delete' => array('type' => 'textfield')
 		);
-		$this->get = array ('subdir','uploading');
+		$this->get = array ('subdir','uploading','download');
 		$this->title = lang('File download');
 		$this->description = lang('This module create a link for downloading a file(s) from the VFS');
 	}
@@ -91,6 +93,24 @@ class module_download extends Module
 	function get_content(&$arguments, $properties)
 	{
 		translation::add_app('filemanager');
+
+		/* Serve the download request.
+		 * Do not serve diretly through a URL to webdav.php because a session is required
+		 * and the download links should be capable of being forwarded through e.g. mail
+		 * which is where they will not have a session before download, leading to an
+		 * unconfortable basic auth popup.
+		 */
+		if ($arguments['download'])
+		{
+			$link = egw_vfs::download_url($arguments['download'],$arguments['op'] == 2);
+			if ($link[0] == '/')
+			{
+				$link = egw::link($link);
+			}
+			ob_end_clean();		// for mos templates, stop the output buffering
+			// error_log('Download Redirect Link: '.$link);
+			egw::redirect($link);
+		}
 
 		if (substr($arguments['path'],-1) == '/')
 		{
@@ -230,8 +250,22 @@ class module_download extends Module
 
 				foreach ($ls_dir as $path => &$file)
 				{
-					$link = egw_vfs::download_url($path,$arguments['op'] == 2);
-					if ($link[0] == '/') $link = egw::link($link);
+					/* If optional confirmation is required, a visit to the website is required.
+					 * This implies, a session will be available and we can linkdirectly.
+					 * All other cases should provide a link which goes through the website,
+					 * which will create a session with the specific web site credentials.
+					 */
+					if ($arguments['confirmation'])
+					{
+						$link = egw_vfs::download_url($path,$arguments['op'] == 2);
+						if ($link[0] == '/') $link = egw::link($link);
+					}
+					else
+					{
+						$link = $this->link(array(
+							'download' => $path,
+						));
+					}
 					$out .= '<tr>
 							<td>'.egw_vfs::mime_icon($file['mime'],false).'</td>
 							<td><a href="'.htmlspecialchars($link).'" target="_blank">'.egw_vfs::decodePath($file['name']).'</a></td>
@@ -254,8 +288,22 @@ class module_download extends Module
 
 			case 'file' :
 			default :
-				$link = egw_vfs::download_url($arguments['path'].'/'.$arguments['file'],$arguments['op'] == 2);
-				if ($link[0] == '/') $link = egw::link($link);
+				/* If optional confirmation is required, a visit to the website is required.
+				 * This implies, a session will be available and we can linkdirectly.
+				 * All other cases should provide a link which goes through the website,
+				 * which will create a session with the specific web site credentials.
+				 */
+				if ($arguments['confirmation'])
+				{
+					$link = egw_vfs::download_url($arguments['path'].'/'.$arguments['file']);
+					if ($link[0] == '/') $link = egw::link($link,$arguments['op'] == 2);
+				}
+				else
+				{
+					$link = $this->link(array(
+						'download' => $arguments['path'].'/'.$arguments['file'],
+					));
+				}
 				$out = $arguments['text'] ? ('<a href="'.htmlspecialchars($link).'" target="_blank">'.$arguments['text'].'</a>') : $link;
 				break;
 		}
