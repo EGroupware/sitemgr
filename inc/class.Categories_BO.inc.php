@@ -389,7 +389,9 @@
 			{
 				return True;
 			}
-			elseif($GLOBALS['Common_BO']->pages->so->PageToID('404NotFound'))
+			// function sitemgr_link exists only when called from sitemgr-site's index.php,
+			// not, when called from the sitemgr admin UI / eGroupware's main index.php.
+			elseif(($GLOBALS['Common_BO']->pages->so->PageToID('404NotFound') && function_exists('sitemgr_link')))
 			{
 				$GLOBALS['egw']->redirect(sitemgr_link(array('page_name' => '404NotFound')));
 			}
