@@ -246,7 +246,7 @@ html module	sitemgr	en	HTML module
 i'm sorry, you do not have write permissions for any site categories.	sitemgr	en	You do not have write permissions for any site categories.
 id	sitemgr	en	ID
 identifier you can use to track an internal inventory number	sitemgr	en	Identifier you can use to track an internal inventory number
-if nonsecure redirect to:	sitemgr	en	If nonsecure, redirect to:
+if nonsecure show link to:	sitemgr	en	If nonsecure, show link to:
 if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	en	Create a user that will be used for public viewing of the site e.g. anonymous.
 image type	sitemgr	en	Image type
 implies read permission	sitemgr	en	Implies read permission

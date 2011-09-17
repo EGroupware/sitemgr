@@ -16,10 +16,13 @@ class module_login extends Module
 	function module_login()
 	{
 		$this->arguments = array(
+			'force_security' => array(
+				'type' => 'checkbox',
+				'label' => lang('Redirect to secure login.'),
+			),
 			'security_redirect' => array(
 				'type' => 'textfield',
-				'label' => lang('If nonsecure redirect to:') . '<br>'.
-					lang('(leave blank to allow insecure logins)')
+				'label' => lang('If nonsecure show link to:'),
 			),
 			'login_dest' => array(
 				'type' => 'select',
@@ -90,10 +93,16 @@ class module_login extends Module
 
 	function get_content(&$arguments,$properties)
 	{
+		$content = '';
 		if($GLOBALS['egw_info']['user']['userid'] == $GLOBALS['sitemgr_info']['anonymous_user'])
 		{
+			$action = phpgw_link('/login.php');
+			if ($arguments['force_security']) {
+				$action = 'https://'.$_SERVER['HTTP_HOST'].$GLOBALS['egw_info']['server']['webserver_url'].'/login.php';
+			}
+
 			if (empty($arguments['security_redirect']) || $_SERVER['HTTPS']){
-				$content = '<form name="login" action="'.phpgw_link('/login.php').'" method="post">';
+				$content .= '<form name="login" action="'.$action.'" method="post">';
 				$content .= '<input type="hidden" name="passwd_type" value="text">';
 				$content .= '<input type="hidden" name="logindomain" value="'. $GLOBALS['egw_info']['user']['domain'] .'">';
 				$content .= '<center><font class="content">' . lang('Login Name') .'<br>';
@@ -155,7 +164,7 @@ class module_login extends Module
 		}
 		else
 		{
-			$content  = '<form name="login" action="'.phpgw_link('/logout.php').'" method="post">';
+			$content .= '<form name="login" action="'.phpgw_link('/logout.php').'" method="post">';
 			$content .= '<font class="content">'. lang('Logged in as:') .'<br>';
 			$content .= ' ['.$GLOBALS['egw_info']['user']['userid']. '] '. $GLOBALS['egw_info']['user']['fullname'];
 			$content .= '</font><br><br><center>';

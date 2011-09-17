@@ -221,7 +221,7 @@ html module	sitemgr	pt-br	Módulo HTML
 i'm sorry, you do not have write permissions for any site categories.	sitemgr	pt-br	Desculpe, você não tem permissões para escrever em nenhuma categoria nesse site.
 id	sitemgr	pt-br	ID
 identifier you can use to track an internal inventory number	sitemgr	pt-br	Identificador que você pode usar para rastrear um número de inventário interno.
-if nonsecure redirect to:	sitemgr	pt-br	Se não-seguro, redirecionar para:
+if nonsecure show link to:	sitemgr	pt-br	Se não-seguro, redirecionar para:
 if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	pt-br	Se você ainda não o fez, deve criar imediatamente um usuário para permitir acesso público, Nome recomendado: anônimo
 image type	sitemgr	pt-br	tipo de imagem
 implies read permission	sitemgr	pt-br	implica permissões de leitura

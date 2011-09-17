@@ -196,7 +196,7 @@ horizontal	sitemgr	pl	poziomo
 html frame	sitemgr	pl	Ramka HTML
 html module	sitemgr	pl	Moduł HTML
 i'm sorry, you do not have write permissions for any site categories.	sitemgr	pl	Przykro mi, ale nie masz uprawnień do zapisu stron w żadnej kategorii.
-if nonsecure redirect to:	sitemgr	pl	Jeśli nie jest bezpieczne przekieruj do:
+if nonsecure show link to:	sitemgr	pl	Jeśli nie jest bezpieczne przekieruj do:
 if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	pl	Jeśli nie uczyniłeś tego dotychczas, powinieneś stworzyć urzytkownika anonimowego do oglądania stron. Zalecana nazwa to: anonymous.
 image type	sitemgr	pl	typ obrazka
 implies read permission	sitemgr	pl	zawiera prawo do odczytu

@@ -235,7 +235,7 @@ html frame	sitemgr	fi	HTML -kehys
 html module	sitemgr	fi	HTML -moduli
 i'm sorry, you do not have write permissions for any site categories.	sitemgr	fi	Sinulla ei ole ACL-kirjoitusoikeutta mihinkään sivuston kategoriaan.
 id	sitemgr	fi	ID/Tunniste
-if nonsecure redirect to:	sitemgr	fi	Jos suojaamaton, ohjaa tänne:
+if nonsecure show link to:	sitemgr	fi	Jos suojaamaton, ohjaa tänne:
 if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	fi	Jos et ole jo tehnyt niin, luo käyttäjä jota käytetään yleisön puolelta sivuston katseluun. Suositeltu nimi: anonymous
 image type	sitemgr	fi	Kuvan tyyppi
 implies read permission	sitemgr	fi	Sisältää lukuoikeuden

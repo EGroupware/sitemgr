@@ -198,7 +198,7 @@ horizontal	sitemgr	fa	افقی
 html frame	sitemgr	fa	قاب زنگام
 html module	sitemgr	fa	پیمانه زنگام
 i'm sorry, you do not have write permissions for any site categories.	sitemgr	fa	متأسفانه شما حق نوشتن برای هیچ دسته ای از سایت را ندارید
-if nonsecure redirect to:	sitemgr	fa	اگر نا امن است برو به:
+if nonsecure show link to:	sitemgr	fa	اگر نا امن است برو به:
 if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	fa	اگر قبلا این کار را انجام نداده اید، یک کاربر بسازید که دسترسی به نمایش این سایت داشته باشد. نام پیشنهادی: anonymous
 image type	sitemgr	fa	نوع تصویر
 implies read permission	sitemgr	fa	مجوزخواندن را می رساند

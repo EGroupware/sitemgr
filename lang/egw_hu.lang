@@ -202,7 +202,7 @@ html frame	sitemgr	hu	HTML keret
 html module	sitemgr	hu	HTML modul
 i'm sorry, you do not have write permissions for any site categories.	sitemgr	hu	Önnek nincs írási jogosultsága szájt kategóriákhoz.
 id	sitemgr	hu	ID
-if nonsecure redirect to:	sitemgr	hu	Ha nem biztonságos, irányítson ide:
+if nonsecure show link to:	sitemgr	hu	Ha nem biztonságos, irányítson ide:
 image type	sitemgr	hu	kép típusa
 implies read permission	sitemgr	hu	olvasási jogosultságot biztosít
 index	sitemgr	hu	Index

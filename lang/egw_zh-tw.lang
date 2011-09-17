@@ -220,7 +220,7 @@ html module	sitemgr	zh-tw	HTML模組
 i'm sorry, you do not have write permissions for any site categories.	sitemgr	zh-tw	抱歉，您沒有權限寫入任何網站類別
 id	sitemgr	zh-tw	編號
 identifier you can use to track an internal inventory number	sitemgr	zh-tw	您可以用來追蹤內部資產編號的識別號碼
-if nonsecure redirect to:	sitemgr	zh-tw	如果不安全就引導到：
+if nonsecure show link to:	sitemgr	zh-tw	如果不安全就引導到：
 if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	zh-tw	如果您還沒建立一個用來提供給訪客的帳號。建議的名稱是： anonymous
 image type	sitemgr	zh-tw	圖片格式
 implies read permission	sitemgr	zh-tw	表示讀取權限

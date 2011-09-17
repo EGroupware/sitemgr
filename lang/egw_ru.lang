@@ -220,7 +220,7 @@ html module	sitemgr	ru	Модуль HTML
 i'm sorry, you do not have write permissions for any site categories.	sitemgr	ru	Просим прощения, но у вас нет прав на запись в какую-либо категорию сайта.
 id	sitemgr	ru	ИД
 identifier you can use to track an internal inventory number	sitemgr	ru	Идентификатор, который вы можете использовать для отслеживания внутреннего инвентарного номера
-if nonsecure redirect to:	sitemgr	ru	Если не защищено, перенаправить в:
+if nonsecure show link to:	sitemgr	ru	Если не защищено, перенаправить в:
 if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	ru	Если вы до сих пор так не сделали, создайте пользователя для публичного просмотра сайта. Рекомендуемое имя: anonymous.
 image type	sitemgr	ru	тип изображения
 implies read permission	sitemgr	ru	подразумевает доступ на чтение

@@ -246,7 +246,7 @@ html module	sitemgr	de	HTML Modul
 i'm sorry, you do not have write permissions for any site categories.	sitemgr	de	Sie haben keine Schreibrechte für die Seiten Kategorien.
 id	sitemgr	de	ID
 identifier you can use to track an internal inventory number	sitemgr	de	Bezeichnung die benutzt werden kann als interne Inventarnummer
-if nonsecure redirect to:	sitemgr	de	Wenn unsicher weiterleiten nach:
+if nonsecure show link to:	sitemgr	de	Wenn unsicher zeige Link nach:
 if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	de	Falls Sie es nicht schon erfolgt ist, legen Sie bitte im Administrationsmenü einen Benutzer an, welcher benutzt wird als Benutzer für den öffentlichen Teil der Seite. Empfohlener Benutzername: anonymous
 image type	sitemgr	de	Bild Typ
 implies read permission	sitemgr	de	impliziert Leserechte

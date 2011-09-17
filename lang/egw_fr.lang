@@ -193,7 +193,7 @@ horizontal	sitemgr	fr	Horizontal
 html frame	sitemgr	fr	Cadre HTML
 html module	sitemgr	fr	Module HTML
 i'm sorry, you do not have write permissions for any site categories.	sitemgr	fr	Désolé, vous n'avez les droits d'écriture pour aucune catégorie du site.
-if nonsecure redirect to:	sitemgr	fr	Si non sécurisé rediriger vers:
+if nonsecure show link to:	sitemgr	fr	Si non sécurisé rediriger vers:
 if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	fr	Si vous ne l'avez pas déjà fait, créez un utilisateur qui va être utilisé pour le visionnage public du site.  Nom recommandé: anonyme.
 image type	sitemgr	fr	Type d'image
 implies read permission	sitemgr	fr	Implique les permissions en lecture

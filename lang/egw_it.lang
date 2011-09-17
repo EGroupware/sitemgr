@@ -210,7 +210,7 @@ html module	sitemgr	it	Modulo Html
 i'm sorry, you do not have write permissions for any site categories.	sitemgr	it	Mi dispiace , non hai i permessi di scrittura per qualsiasi categoria del sito .
 id	sitemgr	it	ID
 identifier you can use to track an internal inventory number	sitemgr	it	Identificatore che rende possibile il monitoraggio di un numero di inventario interno
-if nonsecure redirect to:	sitemgr	it	Se non sicuro fai il redirect a :
+if nonsecure show link to:	sitemgr	it	Se non sicuro fai il redirect a :
 if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	it	Se non l'hai già fatto , crea un utente che verrà usato per avere pubblico accesso al sito. Nome dell'utente raccomandato: anonymous
 image type	sitemgr	it	tipo dell'immagine
 implies read permission	sitemgr	it	implica i permessi di lettura

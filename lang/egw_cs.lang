@@ -246,7 +246,7 @@ html module	sitemgr	cs	HTML modul
 i'm sorry, you do not have write permissions for any site categories.	sitemgr	cs	Je mi líto, ale nemáte oprávnění k zápisu pro žádnou kategorii webu.
 id	sitemgr	cs	ID
 identifier you can use to track an internal inventory number	sitemgr	cs	Identifikátor, který můžete použít pro sledování interního inventárního čísla
-if nonsecure redirect to:	sitemgr	cs	Nezabezpečené přesměrovat na:
+if nonsecure show link to:	sitemgr	cs	Nezabezpečené přesměrovat na:
 if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	cs	Pokud jste tak již neudělal(a), vytvořte uživatele, který bude sloužit k veřejnému prohlížení webu. Doporučené jméno: anonymous.
 image type	sitemgr	cs	typ obrázku
 implies read permission	sitemgr	cs	z toho vyplývají práva pro čtení
