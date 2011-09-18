@@ -951,12 +951,13 @@
 			else
 			{
 				$content .= "\n" .
-					'<table border="0" cellspacing="0" cellpadding="0" width="100%">' .
+					'<table border="0" cellspacing="0" cellpadding="0" width="100%">'."\n".
 					$this->showcat($topcats) .
-					'</table>' .
+					"</table>\n" .
 					"\n";
 				//$content .= '<br><a href="'.sitemgr_link('toc=1').'"><font size="1">(' . lang('Table of contents') . ')</font></a>';
-				$content .= '<br><a href="'.sitemgr_link2('/index.php','index=1').'"><font size="1">(' . lang('Table of contents') . ')</font></a>';
+				$content .= "<br>\n";
+				$content .= '<a href="'.sitemgr_link2('/index.php','index=1').'"><font size="1">(' . lang('Table of contents') . ')</font></a>'."\n";
 			}
 			return $content;
 		}

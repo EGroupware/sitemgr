@@ -25,6 +25,12 @@ class xslt_transform
 {
 	var $arguments;
 
+	/**
+	 * Dynamically load the XSL extension and make the XSL content available.
+	 *
+	 * @param string $xsltfile The XSLT file
+	 * @param mixed $xsltparameters Parameters
+	 */
 	function xslt_transform($xsltfile,$xsltparameters=NULL)
 	{
 		//$this->xsltfile = $xsltfile;

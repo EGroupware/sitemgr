@@ -51,12 +51,17 @@ class Module
 		$this->transformer_chain[] =& $transformer;
 	}
 
-	//before calling the functions get_user_interface, get_output,
-	//the function set_block is used, so that we know in what scope we are, know the arguments,
-	//and can retrieve the properties
-	//this function can be overriden (but do not forget to call parent::set_block) in order to do some configuration
-	//that depends on the blocks arguments
-	//the produce argument is set when content is generated, so we can do some stuff we do not need when editing the block
+	/**
+	 * know in what scope we are, know the arguments, and retrieve the properties
+	 *
+	 * Before calling the functions get_user_interface, get_output,
+	 * the function set_block is used to make the block arguments etc. available.
+	 * This function can be overriden (but do not forget to call parent::set_block) in order to do some configuration
+	 * that depends on the blocks arguments
+	 *
+	 * @param block reference to the block for which content is generated
+	 * @param produce argument is set when content is generated, so we can do some stuff we do not need when editing the block
+	 */
 	function set_block(&$block,$produce=False)
 	{
 		if ($produce)
