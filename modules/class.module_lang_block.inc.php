@@ -17,13 +17,18 @@ class module_lang_block extends Module
 	{
 		$this->arguments = array(
 			'layout' => array(
-                                    'type' => 'select',
-                                    'label' => lang('Select layout for lang selection'),
-                                    'options' => array(
-                                            'plain' => lang('Plain selectbox'),
-                                            'flags' => lang('Flag symbols').' (images/*.gif)',
-                                            'flags.png' => lang('Flag symbols').' (images/*.png)',
+				'type' => 'select',
+				'label' => lang('Select layout for lang selection'),
+				'options' => array(
+					'plain' => lang('Plain selectbox'),
+					'flags' => lang('Flag symbols').' (images/*.gif)',
+					'flags.png' => lang('Flag symbols').' (images/*.png)',
 				),
+			),
+			'flag_path' => array(
+				'type' => 'textfield',
+				'label' => lang('URL to directory containing the flag images.'),
+				'default' => 'images/',
 			),
 		);
 
@@ -40,17 +45,23 @@ class module_lang_block extends Module
 			{
 				$content = '
 					<div id="langsel_flags">
-				 		<ul>';
+				 		<div class="langsel_flag">';
 				foreach ($GLOBALS['sitemgr_info']['sitelanguages'] as $lang)
-                                    {
+				{
+					$imagepath = ($arguments['flag_path']) ? $arguments['flag_path'] : 'images/';
+					// Ensure the URL to contain a trailing slash
+					if (strrchr($imagepath, '/') != '/')
+					{
+						$imagepath .= '/';
+					}
 					$content .= '
-							<li><a href="#." onClick="location.href=\''. str_replace('&','&amp;',$this->link(array(),array('lang'=>$lang))) . 
-								'\' ">'. '<img src="images/'. $lang. 
+							<a href="'. $this->link(array(),array('lang'=>$lang)) .
+								'">'. '<img src="'. $imagepath . $lang.
 								($arguments['layout'] == 'flags' ? '.gif' : '.png').
-								'" class="langsel_flags_image">'. '</a></li>';
+								'" class="langsel_flags_image"></a>';
 				}
 				$content .= '
-						</ul>
+						</div>
 					</div>';
 			}
 			else
