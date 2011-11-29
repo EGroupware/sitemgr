@@ -44,6 +44,7 @@ class module_filecontents extends Module
 				'type' => 'textfield',
 				'label' => lang('The complete URL or path to a file to be included'),
 				'params' => array('size' => 50),
+				'i18n' => true
 			),
 		);
 		// if Zend Framework is installed, allow css queries to get parts of html
@@ -54,16 +55,20 @@ class module_filecontents extends Module
 				'label' => lang('CSS selector to use only part of html file').'<br />'.
 					lang('eg. %1 or %2','"div#id", "table.classname"','"div[attr=\'value\'] > h1"'),
 				'params' => array('size' => 50),
+				'i18n' => true
 			);
 		}
 		$this->arguments['cache_time'] = array(
 			'type' => 'textfield',
 			'label' => lang('How long to cache downloaded content (seconds)'),
 			'params' => array('size' => 5),
+			'i18n' => true
 
 		);
 		$this->title = lang('File contents');
 		$this->description = lang('This module includes the contents of an URL or file (readable by the webserver and in its docroot !)');
+		$this->i18n = true;
+		
 	}
 
 	/**
@@ -253,8 +258,18 @@ class module_filecontents extends Module
 	 * @param array &$data arguments of block
 	 * @return boolean
 	 */
-	function validate(&$data)
+	function validate(&$internationalized)
 	{
+		// Validate() is called from different places, handle different possible inputs
+		if($internationalized['i18n'])
+		{
+			$data =& $internationalized['i18n'];
+		}
+		else
+		{
+			$data =& $internationalized;
+		}
+
 		// check if regular expression contains /e modifier, we can NOT allow that!
 		if (!empty($data['preg']))
 		{
