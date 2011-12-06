@@ -10,6 +10,7 @@
 
  <xsl:output method="html" indent="yes" encoding="us-ascii"/>
  <xsl:param name="blockid" />
+ <xsl:param name="expandNow" />
 
  <!-- XBEL ========================================================-->
  <xsl:template match="xbel">
@@ -52,11 +53,11 @@ function toggle<xsl:value-of select="$blockid"/>(image, catid)
 		styleObj.style.display = 'none';
 	}
 }
-</script>
+  </script>
   <table border="0" cellspacing="0" cellpadding="0">
    <xsl:apply-templates select="folder"/>
   </table>
- </xsl:template>
+</xsl:template>
 
  <!-- FOLDER ======================================================-->
  <xsl:template match="folder">
@@ -81,6 +82,17 @@ function toggle<xsl:value-of select="$blockid"/>(image, catid)
 	  <xsl:text>')</xsl:text>
 	 </xsl:attribute>
 	</img>
+    <xsl:choose>
+     <xsl:when test="@folded != 'yes'">
+      <xsl:choose>
+       <xsl:when test="$expandNow = 'yes'">
+        <script type='text/javascript'>
+         add<xsl:value-of select="$blockid"/>('<xsl:value-of select="@id"/>');
+        </script>
+       </xsl:when>
+      </xsl:choose>
+     </xsl:when>
+    </xsl:choose>
    </td>
 	<td>
 	 <b>
