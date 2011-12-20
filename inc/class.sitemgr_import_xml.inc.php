@@ -25,6 +25,11 @@ if (!interface_exists('importexport_iface_import_plugin'))
 class sitemgr_import_xml implements importexport_iface_import_plugin
 {
 	/**
+	 * List of warnings encountered
+	 */
+	protected $warnings = array();
+
+	/**
 	 * List of errors encountered
 	 */
 	protected $errors = array();
@@ -168,6 +173,18 @@ class sitemgr_import_xml implements importexport_iface_import_plugin
 	 */
 	public function get_selectors_etpl() {
 		return array();
+	}
+
+	/**
+	* Returns warnings that were encountered during importing
+	* Maximum of one warning message per record, but you can concatenate them if you need to
+	*
+	* @return Array (
+	*	record_# => warning message
+	*	)
+	*/
+	public function get_warnings() {
+		return $this->warnings;
 	}
 
 	/**
