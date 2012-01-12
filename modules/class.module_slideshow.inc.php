@@ -61,6 +61,7 @@ class module_slideshow extends Module
 				'type' => 'select',
 				'label' => lang('transitions'),
 				'multiple' => 5,
+				'default' => 'random',
 				'options' => array(
 					'random' => lang('Random'),
 					'sliceDown'=>'sliceDown',
@@ -110,6 +111,14 @@ class module_slideshow extends Module
 				'type' => 'f'
 			),true);
 
+			if(count($ls_dir) == 0) {
+				$interface[] = array(
+					'label' => '<b>'.lang('No images found').'</b><hr/>',
+					'large' => true,
+					'form' => ''
+				);
+				return $interface;
+			}
 			$table = array(
 				'h1'	=> array(
 					lang('Image'),
@@ -141,7 +150,7 @@ class module_slideshow extends Module
 			$interface[] = array(
 				'label' => '<b>'.lang('Images').'</b><hr/>',
 				'large' => true,
-				'form' => html::table($table)
+				'form' => html::table($table, 'width="100%"')
 			);
 
 		}
@@ -150,6 +159,38 @@ class module_slideshow extends Module
 	function get_content(&$arguments,$properties)
 	{
 		$div_id = 'slider'.$this->block->id;
+
+		// Get files
+		$ls_dir = egw_vfs::find($arguments['image_dir'],array(
+			'need_mime' => true,
+			'maxdepth' => 1,
+			'type' => 'f'
+		),true);
+		$props = egw_vfs::propfind(array_keys($ls_dir));
+
+		$i = 0; // Used for IDs
+
+		$sort = array();
+		foreach($ls_dir as $path => &$file)
+		{
+			// Add data from block
+			if(!$arguments['images'][$path]) $arguments['images'][$path] = array('include'=>false);
+			$file += $arguments['images'][$path];
+			if($file['include'])
+			{
+				$sort[$path] = $file['order'];
+			}
+			else
+			{
+				unset($ls_dir[$path]);
+			}
+		}
+		if($arguments['random'])
+		{
+			$sort = array_flip(shuffle(array_flip($sort)));
+		}
+		array_multisort($sort, SORT_ASC, $ls_dir);
+
 /* Flux slider
 		$html = '<script src="'.$GLOBALS['sitemgr_info']['site_url'].'../modules/joelambert-Flux-Slider-bf5d327/js/flux.min.js'.'"></script>
 		<script type="text/javascript">
@@ -190,20 +231,6 @@ jQuery(document).ready(function() {
 		$html .= '
 			}
 		</style>';
-_debug_array($arguments);
-		$html .= '
-		<script type="text/javascript">
-jQuery(document).ready(function() {
-jQuery("#'.$div_id.'").nivoSlider({
-	animSpeed: 500, // Slide transition speed
-        pauseTime: '.($arguments['slide_time'] ? $arguments['slide_time'] * 1000 : 3000) .', // How long each slide will show
-	prevText: "'.lang('Prev').'",
-	nextText: "'.lang('Next').'",
-	controlNav: '.($arguments['controlNav'] ? 'true' : 'false').',
-	effect: "'.implode(',',$arguments['transitions']).'"
-});
-});
-</script>';
 
 		// Needed for JS
 		$arguments['class'] .= ' nivoSlider theme-default';
@@ -216,35 +243,22 @@ jQuery("#'.$div_id.'").nivoSlider({
 		
 		$html .= ">\n";
 		
+		// No images?
+		if(count($ls_dir) == 0) return $html;
 
-		$ls_dir = egw_vfs::find($arguments['image_dir'],array(
-			'need_mime' => true,
-			'maxdepth' => 1,
-			'type' => 'f'
-		),true);
-		$props = egw_vfs::propfind(array_keys($ls_dir));
-
-		$i = 0; // Used for IDs
-
-		$sort = array();
-		foreach($ls_dir as $path => &$file)
-		{
-			// Add data from block
-			$file += $arguments['images'][$path];
-			if($file['include'])
-			{
-				$sort[$path] = $file['order'];
-			}
-			else
-			{
-				unset($ls_dir[$path]);
-			}
-		}
-		if($arguments['random'])
-		{
-			$sort = array_flip(shuffle(array_flip($sort)));
-		}
-		array_multisort($sort, SORT_ASC, $ls_dir);
+		$html .= '
+		<script type="text/javascript">
+jQuery(document).ready(function() {
+jQuery("#'.$div_id.'").nivoSlider({
+	animSpeed: 500, // Slide transition speed
+        pauseTime: '.($arguments['slide_time'] ? $arguments['slide_time'] * 1000 : 3000) .', // How long each slide will show
+	prevText: "'.lang('Prev').'",
+	nextText: "'.lang('Next').'",
+	controlNav: '.($arguments['controlNav'] ? 'true' : 'false').',
+	effect: "'.($arguments['transitions'] ? implode(',',$arguments['transitions']) : 'random').'"
+});
+});
+</script>';
 		foreach($ls_dir as $path => &$file)
 		{
 			if($file['link']) $html .= '<a href="' . $file['link'] . '">';
