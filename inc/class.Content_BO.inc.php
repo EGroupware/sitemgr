@@ -70,17 +70,8 @@ define('SITEMGR_VIEWABLE_ANONYMOUS',3);
 			}
 			elseif (file_exists($templatefile = $templatedir . 'templateDetails.xml'))
 			{
-				// Mambo / joomla - just read areas
-				if(class_exists('SimpleXMLElement'))
-				{
-					$xml = simplexml_load_file($templatefile);
-					$areas = array();
-					foreach($xml->positions->position as $area)
-					{
-						$areas[] = (string)$area;
-					}
-					return $areas;
-				}
+				$info = $GLOBALS['Common_BO']->theme->getThemeInfos($GLOBALS['Common_BO']->sites->current_site['themesel']);
+				return $info['areas'];
 			}
 			elseif (file_exists($templatefile = $templatedir . 'index.php'))  // mambo open source template
 			{

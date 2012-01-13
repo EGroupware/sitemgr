@@ -150,6 +150,11 @@ class Theme_BO
 							}
 						}
 					}
+					foreach($details->positions->position as $area)
+                                        {
+                                                $info['areas'][] = (string)$area;
+                                        }
+
 				}
 			}
 			foreach(array('copyright','license','author','version') as $name)
