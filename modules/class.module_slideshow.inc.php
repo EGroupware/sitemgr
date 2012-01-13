@@ -43,8 +43,7 @@ class module_slideshow extends Module
 			),
 			'controlNav' => array(
 				'type' => 'checkbox',
-				'label' => lang('Index'),
-				'default' => true
+				'label' => lang('Index')
 			),
 			'class' => array(
 				'type' => 'textfield',
@@ -142,7 +141,7 @@ class module_slideshow extends Module
 					html::image('',egw::link('/etemplate/thumbnail.php',array('path'=>$file['path']))),
 					html::checkbox("element[{$this->block->version}][i18n][images][{$path}][include]", $file['include']),
 					html::fckEditor("element[{$this->block->version}][i18n][images][{$path}][caption]",$file['caption'],
-						'simple', array('toolbar_expanded' =>'false'), '100px'),
+						'advanced', array('toolbar_expanded' =>'false'), '100px'),
 					html::input("element[{$this->block->version}][i18n][images][{$path}][link]",$file['link']),
 					html::input("element[{$this->block->version}][i18n][images][{$path}][order]",$file['order'],'','size="3"')
 				);
@@ -187,9 +186,11 @@ class module_slideshow extends Module
 		}
 		if($arguments['random'])
 		{
-			$sort = array_flip(shuffle(array_flip($sort)));
+			$sort = array_flip($sort);
+			shuffle($sort);
+			$sort = array_flip($sort);
 		}
-		array_multisort($sort, SORT_ASC, $ls_dir);
+		array_multisort($ls_dir, SORT_ASC, $sort);
 
 /* Flux slider
 		$html = '<script src="'.$GLOBALS['sitemgr_info']['site_url'].'../modules/joelambert-Flux-Slider-bf5d327/js/flux.min.js'.'"></script>
@@ -218,19 +219,21 @@ jQuery(document).ready(function() {
 		// Nivo slider
 		$html = '<script src="'.$GLOBALS['sitemgr_info']['site_url'].'../modules/nivo-slider/jquery.nivo.slider.js'.'"></script>
 
-		<!-- Required layout, basic styles -->
-		<link rel="stylesheet" href="'.$GLOBALS['sitemgr_info']['site_url'].'../modules/nivo-slider/nivo-slider.css'.'" type="text/css" media="screen" />
-		<!-- Make it look a little nicer -->
-		<link rel="stylesheet" href="'.$GLOBALS['sitemgr_info']['site_url'].'../modules/nivo-slider/themes/default/default.css'.'" type="text/css" media="screen" />
 
 		<style>
-			.nivoSlider {';
-				
+			#'.$div_id.'.nivoSlider {';
 		if($arguments['width']) $html .= 'width:'.$arguments['width'] .'px;';
  		if($arguments['height']) $html .= 'height:'.$arguments['height'].'px;';
 		$html .= '
 			}
-		</style>';
+			.nivoSlider a {
+				padding: 0px !important;
+			}
+		</style>
+		<!-- Required layout, basic styles -->
+		<link rel="stylesheet" href="'.$GLOBALS['sitemgr_info']['site_url'].'../modules/nivo-slider/nivo-slider.css'.'" type="text/css" media="screen" />
+		<!-- Make it look a little nicer -->
+		<link rel="stylesheet" href="'.$GLOBALS['sitemgr_info']['site_url'].'../modules/nivo-slider/themes/default/default.css'.'" type="text/css" media="screen" />';
 
 		// Needed for JS
 		$arguments['class'] .= ' nivoSlider theme-default';
@@ -246,19 +249,6 @@ jQuery(document).ready(function() {
 		// No images?
 		if(count($ls_dir) == 0) return $html;
 
-		$html .= '
-		<script type="text/javascript">
-jQuery(document).ready(function() {
-jQuery("#'.$div_id.'").nivoSlider({
-	animSpeed: 500, // Slide transition speed
-        pauseTime: '.($arguments['slide_time'] ? $arguments['slide_time'] * 1000 : 3000) .', // How long each slide will show
-	prevText: "'.lang('Prev').'",
-	nextText: "'.lang('Next').'",
-	controlNav: '.($arguments['controlNav'] ? 'true' : 'false').',
-	effect: "'.($arguments['transitions'] ? implode(',',$arguments['transitions']) : 'random').'"
-});
-});
-</script>';
 		foreach($ls_dir as $path => &$file)
 		{
 			if($file['link']) $html .= '<a href="' . $file['link'] . '">';
@@ -276,6 +266,19 @@ jQuery("#'.$div_id.'").nivoSlider({
 			$html .= $file['caption']."\n";
 			$html .= '</div>';
 		}
+		$html .= '
+		<script type="text/javascript">
+jQuery(document).ready(function() {
+jQuery("#'.$div_id.'").nivoSlider({
+	animSpeed: 500, // Slide transition speed
+        pauseTime: '.($arguments['slide_time'] ? $arguments['slide_time'] * 1000 : 3000) .', // How long each slide will show
+	prevText: "'.lang('Prev').'",
+	nextText: "'.lang('Next').'",
+	controlNav: '.($arguments['controlNav'] ? 'true' : 'false').',
+	effect: "'.($arguments['transitions'] ? implode(',',$arguments['transitions']) : 'random').'"
+});
+});
+</script>';
 		return $html;
 	}
 }
