@@ -68,6 +68,20 @@ define('SITEMGR_VIEWABLE_ANONYMOUS',3);
 					return lang('No content areas found in selected template');
 				}
 			}
+			elseif (file_exists($templatefile = $templatedir . 'templateDetails.xml'))
+			{
+				// Mambo / joomla - just read areas
+				if(class_exists('SimpleXMLElement'))
+				{
+					$xml = simplexml_load_file($templatefile);
+					$areas = array();
+					foreach($xml->positions->position as $area)
+					{
+						$areas[] = (string)$area;
+					}
+					return $areas;
+				}
+			}
 			elseif (file_exists($templatefile = $templatedir . 'index.php'))  // mambo open source template
 			{
 				$center_available = False;
