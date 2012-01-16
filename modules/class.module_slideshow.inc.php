@@ -188,9 +188,9 @@ class module_slideshow extends Module
 		{
 			$sort = array_flip($sort);
 			shuffle($sort);
-			$sort = array_flip($sort);
 		}
-		array_multisort($ls_dir, SORT_ASC, $sort);
+		$ls_dir = array_values($ls_dir);
+		array_multisort($sort, SORT_ASC, $ls_dir);
 
 /* Flux slider
 		$html = '<script src="'.$GLOBALS['sitemgr_info']['site_url'].'../modules/joelambert-Flux-Slider-bf5d327/js/flux.min.js'.'"></script>
@@ -249,8 +249,9 @@ jQuery(document).ready(function() {
 		// No images?
 		if(count($ls_dir) == 0) return $html;
 
-		foreach($ls_dir as $path => &$file)
+		foreach($ls_dir as &$file)
 		{
+			$path = $file['path'];
 			if($file['link']) $html .= '<a href="' . $file['link'] . '">';
 			$html .= "\t".'<img src="'.htmlspecialchars(egw::link(egw_vfs::download_url($path))).($file['caption'] ? '" title="#'.$div_id.'_'.$i++ : '').'" />'."\n";
 			if($file['link']) $html .= '</a>';
