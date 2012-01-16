@@ -19,6 +19,7 @@ class module_slideshow extends Module
 {
 	function __construct()
 	{
+		parent::__construct();
 		$this->i18n = true;
 		$this->arguments = array(
 			'width' => array(
@@ -45,16 +46,19 @@ class module_slideshow extends Module
 				'type' => 'checkbox',
 				'label' => lang('Index')
 			),
-			'class' => array(
-				'type' => 'textfield',
-				'label' => 'CSS classes:<br />'.
+			'css' => array(
+				'type' => 'textarea',
+				'label' => lang('CSS classes').':<br />'.
 					lang('Slideshow').': nivoSlider<br/>'.
 					lang('Caption').': nivo-caption<br />'.
-					lang('Index').': nivo-controlNav, nivo-control, active<br />'.
-					lang('Additional CSS class').':<br/>',
+					lang('Index').': nivo-controlNav, nivo-control, active<br />',
+					// These two lines added later, when block->id is available
+					/*
+					($this->block->id ? 'Div ID: #slider'.$this->block->id : '').
+					lang('Custom CSS:'),
+					*/
 				'large' => true,
-				'i18n' => true,
-
+				'params' => array('cols' => 120, 'rows' => 5)
 			),
 			'transitions' => array(
 				'type' => 'select',
@@ -95,6 +99,18 @@ class module_slideshow extends Module
 	{
 		$interface = parent::get_user_interface();
 		$values = $this->block->arguments;
+
+		// Add in block unique ID for user reference
+		foreach($interface as &$element) {
+			if(strpos($element['form'], '[css]'))
+			{
+				 $element['label'] .= 
+					($this->block->id ? 'Div ID: #slider'.$this->block->id.'<br />' : '').
+					lang('Custom CSS:');
+			}
+		}
+		reset($interface); // Needed, or framework will skip everything before
+
 		if (!egw_vfs::file_exists($values['image_dir']) || !egw_vfs::is_readable($values['image_dir'] || !is_dir($values['image_dir'])))
 		{
 			$interface[] = array(
@@ -220,6 +236,10 @@ jQuery(document).ready(function() {
 		$html = '<script src="'.$GLOBALS['sitemgr_info']['site_url'].'../modules/nivo-slider/jquery.nivo.slider.js'.'"></script>
 
 
+		<!-- Required layout, basic styles -->
+		<link rel="stylesheet" href="'.$GLOBALS['sitemgr_info']['site_url'].'../modules/nivo-slider/nivo-slider.css'.'" type="text/css" media="screen" />
+		<!-- Make it look a little nicer -->
+		<link rel="stylesheet" href="'.$GLOBALS['sitemgr_info']['site_url'].'../modules/nivo-slider/themes/default/default.css'.'" type="text/css" media="screen" />
 		<style>
 			#'.$div_id.'.nivoSlider {';
 		if($arguments['width']) $html .= 'width:'.$arguments['width'] .'px;';
@@ -229,11 +249,8 @@ jQuery(document).ready(function() {
 			.nivoSlider a {
 				padding: 0px !important;
 			}
-		</style>
-		<!-- Required layout, basic styles -->
-		<link rel="stylesheet" href="'.$GLOBALS['sitemgr_info']['site_url'].'../modules/nivo-slider/nivo-slider.css'.'" type="text/css" media="screen" />
-		<!-- Make it look a little nicer -->
-		<link rel="stylesheet" href="'.$GLOBALS['sitemgr_info']['site_url'].'../modules/nivo-slider/themes/default/default.css'.'" type="text/css" media="screen" />';
+			'.$arguments['css'].'
+		</style>';
 
 		// Needed for JS
 		$arguments['class'] .= ' nivoSlider theme-default';
