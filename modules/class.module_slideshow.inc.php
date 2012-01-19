@@ -246,6 +246,9 @@ jQuery(document).ready(function() {
  		if($arguments['height']) $html .= 'height:'.$arguments['height'].'px;';
 		$html .= '
 			}
+			#'.$div_id.' .nivo-controlNav {
+				bottom: -25px;
+			}
 			.nivoSlider a {
 				padding: 0px !important;
 			}
