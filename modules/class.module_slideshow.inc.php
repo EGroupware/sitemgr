@@ -58,13 +58,13 @@ class module_slideshow extends Module
 					lang('Custom CSS:'),
 					*/
 				'large' => true,
-				'params' => array('cols' => 120, 'rows' => 5)
+				'params' => array('cols' => 100, 'rows' => 8),
 			),
 			'transitions' => array(
 				'type' => 'select',
 				'label' => lang('transitions'),
 				'multiple' => 5,
-				'default' => 'random',
+				'default' => array('fade'),
 				'options' => array(
 					'random' => lang('Random'),
 					'sliceDown'=>'sliceDown',
@@ -97,19 +97,56 @@ class module_slideshow extends Module
 
 	function get_user_interface()
 	{
-		$interface = parent::get_user_interface();
 		$values = $this->block->arguments;
 
 		// Add in block unique ID for user reference
-		foreach($interface as &$element) {
-			if(strpos($element['form'], '[css]'))
-			{
-				 $element['label'] .= 
-					($this->block->id ? 'Div ID: #slider'.$this->block->id.'<br />' : '').
-					lang('Custom CSS:');
-			}
+		$this->arguments['css']['label'] .= 
+			($this->block->id ? 'Div ID: #slider'.$this->block->id.'<br />' : '').
+			lang('Custom CSS:');
+		// Some default CSS stuff - snippets for various effects
+		if(!$values['css'])
+		{
+			$this->arguments['css']['default'] = "
+/* Index below images */
+#slider{$this->block->id} .nivoSlider {
+	margin-bottom: 30px;
+}
+#slider{$this->block->id} .nivo-controlNav {
+	bottom: -25px;
+}
+
+/* Index inside images 
+#slider{$this->block->id} .nivo-controlNav {
+	bottom: -5px;
+}
+#slider{$this->block->id} .nivo-caption p {
+	padding-bottom: 15px;
+}
+*/
+
+/* Numeric index 
+#slider{$this->block->id} .nivo-control {
+	background: inherit;
+	text-indent: 0px;
+}
+*/
+
+/* Caption on right 
+#slider{$this->block->id} .nivo-caption {
+	left: inherit;
+	right: 0px;
+	height: 100%;
+	width: 40%;
+	border-left: 1ex solid silver;
+}
+#slider{$this->block->id} .nivo-caption p {
+	height: 100%;
+	padding: 20px 60px 20px 20px;
+}
+*/
+";
 		}
-		reset($interface); // Needed, or framework will skip everything before
+		$interface = parent::get_user_interface();
 
 		if (!egw_vfs::file_exists($values['image_dir']) || !egw_vfs::is_readable($values['image_dir'] || !is_dir($values['image_dir'])))
 		{
@@ -154,7 +191,7 @@ class module_slideshow extends Module
 			foreach($ls_dir as $path => &$file)
 			{
 				$table[] = array(
-					html::image('',egw::link('/etemplate/thumbnail.php',array('path'=>$file['path']))),
+					html::image('',egw::link('/etemplate/thumbnail.php',array('path'=>$file['path']))) . '<br />'.$file['name'],
 					html::checkbox("element[{$this->block->version}][i18n][images][{$path}][include]", $file['include']),
 					html::fckEditor("element[{$this->block->version}][i18n][images][{$path}][caption]",$file['caption'],
 						'advanced', array('toolbar_expanded' =>'false'), '100px'),
@@ -245,9 +282,6 @@ jQuery(document).ready(function() {
 		if($arguments['width']) $html .= 'width:'.$arguments['width'] .'px;';
  		if($arguments['height']) $html .= 'height:'.$arguments['height'].'px;';
 		$html .= '
-			}
-			#'.$div_id.' .nivo-controlNav {
-				bottom: -25px;
 			}
 			.nivoSlider a {
 				padding: 0px !important;
