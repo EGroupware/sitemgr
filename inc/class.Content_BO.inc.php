@@ -52,6 +52,11 @@ define('SITEMGR_VIEWABLE_ANONYMOUS',3);
 					return lang('No content areas found in selected template');
 				}
 			}
+			elseif (file_exists($templatefile = $templatedir . 'templateDetails.xml'))
+			{
+				$info = $GLOBALS['Common_BO']->theme->getThemeInfos($GLOBALS['Common_BO']->sites->current_site['themesel']);
+				return $info['areas'];
+			}
 			elseif (file_exists($templatefile = $templatedir . 'index.php'))  // mambo open source template
 			{
 				$str = implode('', @file($templatefile));
