@@ -100,7 +100,7 @@ class module_slideshow extends Module
 		$values = $this->block->arguments;
 
 		// Add in block unique ID for user reference
-		$this->arguments['css']['label'] .= 
+		$this->arguments['css']['label'] .=
 			($this->block->id ? 'Div ID: #slider'.$this->block->id.'<br />' : '').
 			lang('Custom CSS:');
 		// Some default CSS stuff - snippets for various effects
@@ -115,7 +115,7 @@ class module_slideshow extends Module
 	bottom: -25px;
 }
 
-/* Index inside images 
+/* Index inside images
 #slider{$this->block->id} .nivo-controlNav {
 	bottom: -5px;
 }
@@ -124,14 +124,14 @@ class module_slideshow extends Module
 }
 */
 
-/* Numeric index 
+/* Numeric index
 #slider{$this->block->id} .nivo-control {
 	background: inherit;
 	text-indent: 0px;
 }
 */
 
-/* Caption on right 
+/* Caption on right
 #slider{$this->block->id} .nivo-caption {
 	left: inherit;
 	right: 0px;
@@ -251,7 +251,7 @@ class module_slideshow extends Module
 jQuery(document).ready(function() {
 	if(!flux.browser.supportsTransitions)
 					alert("Flux Slider requires a browser that supports CSS3 transitions");
-				
+
 				window.f = new flux.slider("#slider", {';
 		$options = array();
 		foreach($arguments['options'] as $option)
@@ -262,7 +262,7 @@ jQuery(document).ready(function() {
 		{
 			if($arguments[$option]) $options[] = "$option: {$arguments[$option]}";
 		}
-		
+
 		if($options) $html .= implode(', ', $options);
 		$html .= '});
 
@@ -297,9 +297,9 @@ jQuery(document).ready(function() {
 		{
 			if ($arguments[$option]) $html .= ' '.$option.'="'.htmlspecialchars($arguments[$option]). ($option !='class' ? 'px':'').'"';
 		}
-		
+
 		$html .= ">\n";
-		
+
 		// No images?
 		if(count($ls_dir) == 0) return $html;
 
@@ -307,7 +307,10 @@ jQuery(document).ready(function() {
 		{
 			$path = $file['path'];
 			if($file['link']) $html .= '<a href="' . $file['link'] . '">';
-			$html .= "\t".'<img src="'.htmlspecialchars(egw::link(egw_vfs::download_url($path))).($file['caption'] ? '" title="#'.$div_id.'_'.$i++ : '').'" />'."\n";
+			$url = egw_vfs::download_url($path);
+			// only use egw_link, if url is not yet a full url, eg. filesystem stream-wrapper can set a direct download url!
+			if ($url[0] == '/') $url = egw::link($url);
+			$html .= "\t".'<img src="'.htmlspecialchars($url).($file['caption'] ? '" title="#'.$div_id.'_'.$i++ : '').'" />'."\n";
 			if($file['link']) $html .= '</a>';
 		}
 		$html .= '</div>';
