@@ -22,7 +22,7 @@ function sitemgr_get_site(&$anon_account)
 
 	$site_urls[] = $path = preg_replace('/\/[^\/]*$/','',$_SERVER['PHP_SELF']) . '/';
 	$site_urls[] = ($_SERVER['HTTPS'] ? 'https://' : 'http://') . $_SERVER['SERVER_ADDR'] . $path;
-	$site_urls[] = $site_url  = ($_SERVER['HTTPS'] ? 'https://' : 'http://') . $_SERVER['SERVER_NAME'] . $path;
+	$site_urls[] = $site_url  = ($_SERVER['HTTPS'] ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $path;
 
 	//echo "<p>sitemgr_get_site('$site_url')</p>\n";
 	$GLOBALS['egw']->db->select('egw_sitemgr_sites','anonymous_user,anonymous_passwd,site_id',
