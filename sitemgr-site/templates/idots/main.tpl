@@ -16,8 +16,7 @@
 		<meta name="GENERATOR" content="eGroupWare Web Site Manager" />
 		<meta name="keywords" content="eGroupWare" />
 		<meta name="language" content="{lang}" />
-		<link rel="icon" href="templates/idots/images/favicon.ico" type="image/x-ico" />
-		<link rel="shortcut icon" href="templates/idots/images/favicon.ico" />
+		{favicon}
 		{editmode_styles}
 		<link href="templates/idots/style/style.css" type="text/css" rel="StyleSheet" />
 		<!-- This solves the Internet Explorer PNG-transparency bug, but only for IE 5.5 and 6.0 -->

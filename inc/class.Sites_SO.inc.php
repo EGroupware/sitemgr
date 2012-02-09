@@ -160,6 +160,20 @@ class Sites_SO
 					self::$site_cache['custom_css'] = $config['custom_css_'.$site_id];
 					self::$site_cache['params_ini'] = $config['params_ini_'.$site_id];
 				}
+				// for database schema version < 1.9.003 read favicon from configuration
+				if (version_compare($GLOBALS['egw_info']['apps']['sitemgr']['version'], '1.9.003', '<') ||
+					is_null(self::$site_cache['favicon_url']))
+				{
+					if (!isset($config)) $config = config::read('sitemgr');
+					if (empty($config['favicon_url_'.$site_id]))	// use EGw favicon as default
+					{
+						$config['favicon_url_'.$site_id] = $GLOBALS['egw_info']['server']['webserver_url'].
+							'/phpgwapi/templates/default/images/favicon.ico';
+						if ($config[0] != '/') $config['favicon_url_'.$site_id] = parse_url($config['favicon_url_'.$site_id],PHP_URL_PATH);
+					}
+					self::$site_cache['favicon_url'] = $config['favicon_url_'.$site_id];
+				}
+				//error_log(__METHOD__."($site_id, $only_url_dir) self::\$site_cache=".array2string(self::$site_cache));
 			}
 		}
 		return !$only_url_dir || !self::$site_cache ? self::$site_cache : array(
@@ -242,8 +256,15 @@ class Sites_SO
 	 */
 	public function update_logo_css_params($site_id,array $data)
 	{
+		//error_log(__METHOD__."($site_id, ".array2string($data).") sitemgr[version]={$GLOBALS['egw_info']['apps']['sitemgr']['version']}");
 		if ($site_id == self::$site_cache['site_id']) self::$site_cache = null;
 
+		// for database schema version < 1.9.003 store favicon as configuration
+		if (version_compare($GLOBALS['egw_info']['apps']['sitemgr']['version'], '1.9.003', '<'))
+		{
+			// store information in sitemgr config
+			config::save_value('favicon_url_'.$site_id,$data['favicon_url'],'sitemgr');
+		}
 		// for database schema version < 1.9.002 store as configuration
 		if (version_compare($GLOBALS['egw_info']['apps']['sitemgr']['version'], '1.9.002', '<'))
 		{
@@ -258,6 +279,7 @@ class Sites_SO
 				'logo_url' => $data['logo_url'],
 				'custom_css' => $data['custom_css'],
 				'params_ini'  => $data['params_ini'],
+				'favicon_url' => $data['favicon_url'],
 			),array(
 				'site_id' => $site_id
 			),__LINE__,__FILE__);

@@ -123,9 +123,10 @@ div#ja-header h1 a img, div#header h1 a img, div#header h1 img {
 	 * @param string &$logo_url=null on return url of logo
 	 * @param int $site_id=null default current site ($this->sites->current_site['site_id'])
 	 * @param string $template=null default current site ($this->sites->current_site['themesel'])
+	 * @param string &$favicon_url=null on return url of favicon
 	 * @return string custom css
 	 */
-	function get_custom_css($return_parsed=true,&$logo_url=null,$site_id=null,$template=null)
+	function get_custom_css($return_parsed=true,&$logo_url=null,$site_id=null,$template=null,&$favicon_url=null)
 	{
 		if (is_null($site_id))
 		{
@@ -138,6 +139,7 @@ div#ja-header h1 a img, div#header h1 a img, div#header h1 img {
 		if (is_null($template)) $template = $site['themesel'];
 
 		$logo_url = $site['logo_url'];
+		$favicon_url = $site['favicon_url'];
 		$custom_css = $site['custom_css'];
 		if (empty($custom_css))
 		{

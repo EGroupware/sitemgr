@@ -159,7 +159,8 @@ $phpgw_baseline = array(
 			'htaccess_rewrite' => array('type' => 'bool'),
 			'logo_url' => array('type' => 'varchar','precision' => '255'),
 			'params_ini' => array('type' => 'text'),
-			'custom_css' => array('type' => 'text')
+			'custom_css' => array('type' => 'text'),
+			'favicon_url' => array('type' => 'varchar','precision' => '255')
 		),
 		'pk' => array('site_id'),
 		'fk' => array(),

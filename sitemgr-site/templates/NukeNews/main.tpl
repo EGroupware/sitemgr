@@ -14,6 +14,7 @@
 		<META NAME="REVISIT-AFTER" CONTENT="1 DAYS">
 		<META NAME="RATING" CONTENT="GENERAL">
 		<META NAME="GENERATOR" CONTENT="eGroupWare Web Site Manager">
+		{favicon}
 		{editmode_styles}
 		<LINK REL="StyleSheet" HREF="templates/NukeNews/style/style.css" TYPE="text/css">
 		{java_script}

@@ -1048,3 +1048,14 @@ function sitemgr_upgrade1_9_001()
 	return $GLOBALS['setup_info']['sitemgr']['currentver'] = '1.9.002';
 }
 
+
+function sitemgr_upgrade1_9_002()
+{
+	$GLOBALS['egw_setup']->oProc->AddColumn('egw_sitemgr_sites','favicon_url',array(
+		'type' => 'varchar',
+		'precision' => '255'
+	));
+
+	return $GLOBALS['setup_info']['sitemgr']['currentver'] = '1.9.003';
+}
+
