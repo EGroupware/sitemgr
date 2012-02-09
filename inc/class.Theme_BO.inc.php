@@ -152,10 +152,9 @@ class Theme_BO
 					}
 					$info['areas'] = array('center'); // Generally not in file, but used by sitemgr.
 					foreach((array)$details->positions->position as $area)
-                                        {
-                                                $info['areas'][] = (string)$area;
-                                        }
-
+					{
+						$info['areas'][] = (string)$area;
+					}
 				}
 			}
 			foreach(array('copyright','license','author','version') as $name)
