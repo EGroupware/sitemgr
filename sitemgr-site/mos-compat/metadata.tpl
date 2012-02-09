@@ -11,6 +11,7 @@
 		<meta name="GENERATOR" content="eGroupWare Web Site Manager" />
 		<meta name="keywords" content="eGroupWare" />
 		<meta name="language" content="{lang}" />
+		{favicon}
 		{editmode_styles}
 		{java_script}
 		{default_css}

@@ -12,9 +12,9 @@
 	<meta name="REVISIT-AFTER" content="1 DAYS">
 	<meta name="rating" content="general">
 	<meta name="language" content="{lang}" />
-		{editmode_styles}
-	<link rel="stylesheet" type="text/css" 
-	      href="templates/realss/realss.css"/>
+	{favicon}
+	{editmode_styles}
+	<link rel="stylesheet" type="text/css" href="templates/realss/realss.css"/>
 	{java_script}
 </head>
 <body>
@@ -22,10 +22,10 @@
 <!-------------- title bar -------------->
 <table align="center" id="contentarea_top" style="width: 784px">
 <tr><td>
-	<a href="index.php"><img src="templates/realss/images/logo.png" 
+	<a href="index.php"><img src="templates/realss/images/logo.png"
 	                         alt="Welcome to {sitename}" ></a>
 </td><td>
-	{contentarea:header} 
+	{contentarea:header}
 </td></tr>
 </table>
 <!-------------- content bar -------------->
@@ -38,8 +38,8 @@
 		<img src="templates/realss/images/center_bt_top.png"
 		     style="display:block"/>
 		<div id="middle_bt">
-		<!-- the block title does not necessarily make sense 
-		in central content area. 
+		<!-- the block title does not necessarily make sense
+		in central content area.
 		If you want it change display:block to enable it. -->
 		<h1 style="display: none;">{title} {editicons}</h1>
 		<h3 style="display: none;">{subtitle}</h3>

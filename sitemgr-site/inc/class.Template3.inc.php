@@ -509,6 +509,16 @@ class Template3
 				return $GLOBALS['egw_info']['flags']['need_footer'];
 			case 'default_css':
 				return '<link href="templates/default/style/default.css" type="text/css" rel="StyleSheet" />';
+			case 'favicon':
+				$url = $GLOBALS['sitemgr_info']['favicon_url'];
+				if (empty($url)) return '';
+				if ($url[0] == '/') $url = ($_SERVER['HTTPS']?'https://':'http://').$_SERVER['HTTP_HOST'].$url;
+				$type = 'image/x-icon';
+				if (($ext = strtolower(substr($url,-4))) == '.gif' || $ext == '.png')
+				{
+					$type = 'image/'.substr($ext,1);
+				}
+				return "<link rel=\"icon\" href=\"$url\" type=\"$type\" />\n<link rel=\"shortcut icon\" href=\"$url\" type=\"$type\" />";
 			default:
 				return '{'.$var.'}';	// leave it unchanged, happens eg. with js-code
 		}

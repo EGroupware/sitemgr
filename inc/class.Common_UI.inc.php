@@ -167,6 +167,7 @@ class Common_UI
 			}
 		}
 		return $this->sites->so->update_logo_css_params($site['site_id'],array(
+			'favicon_url' => $content['favicon_url'],
 			'logo_url' => $content['logo_url'],
 			'custom_css' => $content['custom_css'] == Common_BO::CUSTOM_CSS_DEFAULT ? null : $content['custom_css'],
 			'params_ini' => $jparam->getINI(JParameter::ALL_NAMESPACES),
@@ -213,7 +214,7 @@ class Common_UI
 		}
 
 		// query custom css and logo-url
-		$arr['custom_css'] = $GLOBALS['Common_BO']->get_custom_css(false,$arr['logo_url']);
+		$arr['custom_css'] = $GLOBALS['Common_BO']->get_custom_css(false,$arr['logo_url'],null,null,$arr['favicon_url']);
 
 		return $arr;
 	}

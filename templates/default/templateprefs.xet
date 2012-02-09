@@ -25,7 +25,7 @@ tr &gt; td {
 }
 		</styles>
 	</template>
-	<template id="sitemgr.templateprefs.css" template="" lang="" group="0" version="1.8.001">
+	<template id="sitemgr.templateprefs.css" template="" lang="" group="0" version="1.8.002">
 		<grid width="100%" height="400" overflow="auto">
 			<columns>
 				<column/>
@@ -33,16 +33,20 @@ tr &gt; td {
 			</columns>
 			<rows>
 				<row class="row">
-					<description value="Logo URL" options=",,,logo_url"/>
-					<textbox id="logo_url" size="64" class="inputFullWidth" statustext="Specify the URL (NOT path or filename) of your logo (requires the correct custom CSS to overwrite the logo of your template!)"/>
+					<description for="favicon_url" value="Favicon URL"/>
+					<textbox statustext="Specify the URL (NOT path or filename) of your favicon (for gif or png url must use that extension!)" id="favicon_url" size="64" class="inputFullWidth"/>
+				</row>
+				<row class="row">
+					<description for="logo_url" value="Logo URL"/>
+					<textbox statustext="Specify the URL (NOT path or filename) of your logo (requires the correct custom CSS to overwrite the logo of your template!)" id="logo_url" size="64" class="inputFullWidth"/>
 				</row>
 				<row class="row" valign="top">
-					<description value="Custom CSS" options=",,,custom_css"/>
-					<textbox multiline="true" id="custom_css" rows="25" cols="64" class="textareaFullWidth"/>
+					<description for="custom_css" value="Custom CSS"/>
+					<textbox multiline="true" id="custom_css" rows="23" cols="64" class="textareaFullWidth"/>
 				</row>
 				<row>
 					<description/>
-					<html class="gray" id="custom_css_help"/>
+					<html id="custom_css_help" class="gray"/>
 				</row>
 			</rows>
 		</grid>
@@ -60,10 +64,10 @@ tr &gt; td {
 					<description id="name" class="templateName"/>
 				</row>
 				<row>
-					<tabbox id="tabs">
+					<tabbox id="sitemgr.templateprefs.prefs|sitemgr.templateprefs.css">
 						<tabs>
-							<tab label="Template preferences" statustext=""/>
-							<tab label="Logo, custom CSS" statustext=""/>
+							<tab id="sitemgr.templateprefs.prefs" label="Template preferences"/>
+							<tab id="sitemgr.templateprefs.css" label="Logo, custom CSS"/>
 						</tabs>
 						<tabpanels>
 							<template id="sitemgr.templateprefs.prefs"/>
@@ -74,8 +78,8 @@ tr &gt; td {
 				<row>
 					<hbox>
 						<button label="Save" id="button[save]"/>
-						<button id="button[apply]" label="Apply"/>
-						<button id="button[cancel]" label="Cancel" onclick="window.close(); return false;"/>
+						<button label="Apply" id="button[apply]"/>
+						<button label="Cancel" id="button[cancel]" onclick="window.close(); return false;"/>
 					</hbox>
 				</row>
 			</rows>
