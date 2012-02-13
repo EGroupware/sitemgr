@@ -270,13 +270,14 @@ jQuery(document).ready(function() {
 */
 
 		// Nivo slider
-		$html = '<script src="'.$GLOBALS['sitemgr_info']['site_url'].'../modules/nivo-slider/jquery.nivo.slider.js'.'"></script>
+		$base_url = $GLOBALS['egw_info']['server']['webserver_url'].'/sitemgr/modules/nivo-slider';
+		$html = '<script src="'.$base_url.'/jquery.nivo.slider.js'.'"></script>
 
 
 		<!-- Required layout, basic styles -->
-		<link rel="stylesheet" href="'.$GLOBALS['sitemgr_info']['site_url'].'../modules/nivo-slider/nivo-slider.css'.'" type="text/css" media="screen" />
+		<link rel="stylesheet" href="'.$base_url.'/nivo-slider.css'.'" type="text/css" media="screen" />
 		<!-- Make it look a little nicer -->
-		<link rel="stylesheet" href="'.$GLOBALS['sitemgr_info']['site_url'].'../modules/nivo-slider/themes/default/default.css'.'" type="text/css" media="screen" />
+		<link rel="stylesheet" href="'.$base_url.'/themes/default/default.css'.'" type="text/css" media="screen" />
 		<style>
 			#'.$div_id.'.nivoSlider {';
 		if($arguments['width']) $html .= 'width:'.$arguments['width'] .'px;';
