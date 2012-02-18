@@ -191,7 +191,7 @@ horizontal	sitemgr	sl	Vodoravno
 html frame	sitemgr	sl	Okvir HTML
 html module	sitemgr	sl	HTML modul
 i'm sorry, you do not have write permissions for any site categories.	sitemgr	sl	Na žalost nimate pravic za pisanje za katerokoli kategorijo strani.
-if nonsecure show link to:	sitemgr	sl	Če povezava ni varna, preusmeri:
+if nonsecure redirect to:	sitemgr	sl	Če povezava ni varna, preusmeri:
 if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	sl	Če še niste naredili, ustvarite uporabnika, ki bo uporabljan za javni pregled tega spletišča. Priporočeno ime: anonimno
 image type	sitemgr	sl	Tip slike
 implies read permission	sitemgr	sl	Vštej pravice za branje
