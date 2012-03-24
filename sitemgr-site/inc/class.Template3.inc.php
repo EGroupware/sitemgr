@@ -173,7 +173,7 @@ class Template3
 			echo('<b>Halted.</b>');
 		}
 
-		$GLOBALS['egw']->common->egw_exit(True);
+		common::egw_exit(True);
 	}
 
 	/**
@@ -297,7 +297,7 @@ class Template3
 		//compatibility with former sideblocks template
 		elseif (($areaname == "left" || $areaname == "right") && file_exists($this->root . SEP . 'sideblock.tpl'))
 		{
-			$t =& Createobject('phpgwapi.Template');
+			$t = new Template();
 			$t->set_root($this->root);
 			$t->set_file('SideBlock','sideblock.tpl');
 			$transformer = new sideblock_transform($t);
@@ -469,31 +469,59 @@ class Template3
 		{
 			case 'title':
 			case 'page_title':
-				return $page->title;
+				return html::htmlspecialchars($page->title);
 			case 'editicons':
 				// edit icons are now displayed by edit_transform of contentarea center
 				return '';
 			case 'subtitle':
 			case 'page_subtitle':
-				return $page->subtitle;
+				return html::htmlspecialchars($page->subtitle);
 			case 'sitename':
 			case 'site_name':
-				return $GLOBALS['sitemgr_info']['site_name_' . $GLOBALS['egw_info']['user']['preferences']['common']['lang']];
+				return html::htmlspecialchars($GLOBALS['sitemgr_info']['site_name_' . $GLOBALS['egw_info']['user']['preferences']['common']['lang']]);
+			case 'description':
+				if (!empty($page->description))
+				{
+					return html::htmlspecialchars($page->description);
+				}
+				if ($page->cat_id && $page->cat_id != CURRENT_SITE_ID)
+				{
+					if (!isset($page->category)) $page->category = $objbo->getcatwrapper($page->cat_id);
+
+					if (!empty($page->category->description))
+					{
+						return html::htmlspecialchars($page->category->description);
+					}
+				}
+				// fall thought to site-description
 			case 'slogan':
 				//this one is often used as tag for description in our templates for description in metatags
 			case 'sitedesc':
 			case 'site_desc':
-				return $GLOBALS['sitemgr_info']['site_desc_' . $GLOBALS['egw_info']['user']['preferences']['common']['lang']];
-// 			case 'footer':
-// 			case 'site_footer':
-// 				return $GLOBALS['Common_BO']->headerfooter->getsitefooter($GLOBALS['egw_info']['user']['preferences']['common']['lang']);
-// 			case 'header':
-// 			case 'site_header':
-// 				return $GLOBALS['Common_BO']->headerfooter->getsiteheader($GLOBALS['egw_info']['user']['preferences']['common']['lang']);
+				return html::htmlspecialchars($GLOBALS['sitemgr_info']['site_desc_' . $GLOBALS['egw_info']['user']['preferences']['common']['lang']]);
+			case 'keywords':
+				if (!empty($page->keywords))
+				{
+					return html::htmlspecialchars($page->keywords);
+				}
+				if ($page->cat_id && $page->cat_id != CURRENT_SITE_ID)
+				{
+					if (!isset($page->category)) $page->category = $objbo->getcatwrapper($page->cat_id);
+
+					if (!empty($page->category->keywords))
+					{
+						return html::htmlspecialchars($page->category->keywords);
+					}
+				}
+				if (!empty($GLOBALS['sitemgr_info']['site_keywords_' . $GLOBALS['egw_info']['user']['preferences']['common']['lang']]))
+				{
+					return html::htmlspecialchars($GLOBALS['sitemgr_info']['site_keywords_' . $GLOBALS['egw_info']['user']['preferences']['common']['lang']]);
+				}
+				return 'EGroupware';
 			case 'user':
 				return $GLOBALS['egw_info']['user']['account_lid'];
 			case 'charset':
-				return is_object($GLOBALS['egw']->translation) ? $GLOBALS['egw']->translation->charset() : 'iso-8859-1';
+				return translation::charset();
 			case 'lang':
 				return $GLOBALS['sitemgr_info']['userlang'];
 			case 'year':
@@ -519,6 +547,8 @@ class Template3
 					$type = 'image/'.substr($ext,1);
 				}
 				return "<link rel=\"icon\" href=\"$url\" type=\"$type\" />\n<link rel=\"shortcut icon\" href=\"$url\" type=\"$type\" />";
+			case 'version':
+				return $GLOBALS['egw_info']['apps']['sitemgr']['version'];
 			default:
 				return '{'.$var.'}';	// leave it unchanged, happens eg. with js-code
 		}
