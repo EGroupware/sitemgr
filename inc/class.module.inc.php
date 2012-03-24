@@ -434,9 +434,13 @@ function switch_hide(id,params)
 		}
 		else
 		{
+			static $charset;
+			if (is_null($charset)) $charset = translation::charset();
+
+			$title = htmlspecialchars($this->block->title, ENT_NOQUOTES, $charset, false);
 			for ( $i = 0; $i < count( $this->transformer_chain ); ++$i )
 			{
-				$content = $this->transformer_chain[$i]->apply_transform($this->block->title,$content,$this->block);
+				$content = $this->transformer_chain[$i]->apply_transform($title,$content,$this->block);
 			}
 			//store session variables
 			if ($this->session)
