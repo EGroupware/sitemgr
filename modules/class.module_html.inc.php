@@ -1,41 +1,56 @@
 <?php
-	/**************************************************************************\
-	* eGroupWare SiteMgr - Web Content Management                              *
-	* http://www.egroupware.org                                                *
-	* --------------------------------------------                             *
-	*  This program is free software; you can redistribute it and/or modify it *
-	*  under the terms of the GNU General Public License as published by the   *
-	*  Free Software Foundation; either version 2 of the License, or (at your  *
-	*  option) any later version.                                              *
-	\**************************************************************************/
+/**
+ * EGroupware SiteMgr - HTML block
+ *
+ * @link http://www.egroupware.org
+ * @package sitemgr
+ * @subpackage modules
+ * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
+ * @version $Id$
+ */
 
-	/* $Id$ */
-
-	class module_html extends Module
+/**
+ * HTML block
+ */
+class module_html extends Module
+{
+	function __construct()
 	{
-		function module_html()
+		$this->i18n = true;
+		$this->arguments = array(
+			'htmlcontent' => array(
+				'type' => 'htmlarea',
+				'label' => lang('Enter the block content here'),
+				'large' => True,	// show label above content
+				'i18n' => True,
+			)
+		);
+		$this->properties = array('striphtml' => array('type' => 'checkbox', 'label' => lang('Strip HTML from block content?')));
+		$this->title = lang('HTML module');
+		$this->description = lang('This module is a simple HTML editor');
+	}
+
+	/**
+	 * Return module content
+	 */
+	function get_content(&$arguments,$properties)
+	{
+		$content = $arguments['htmlcontent'];
+
+		// global module property to remove html
+		if ($properties['striphtml'])
 		{
-			$this->i18n = true;
-			$this->arguments = array(
-				'htmlcontent' => array(
-					'type' => 'htmlarea',
-					'label' => lang('Enter the block content here'),
-					'large' => True,	// show label above content
-					'i18n' => True,
-				)
-			);
-			$this->properties = array('striphtml' => array('type' => 'checkbox', 'label' => lang('Strip HTML from block content?')));
-			$this->title = lang('HTML module');
-			$this->description = lang('This module is a simple HTML editor');
+			$content = $GLOBALS['egw']->strip_html($content);
+		}
+		// spamsaver emailaddress and activating the links
+		$content = html::activate_links($content);
+
+		// remove CKeditor SCAYT (spell-check-as-you-type) tags, which dont validate
+		if (strpos($content, 'data-scayt_word="') !== false)
+		{
+			$content = preg_replace('/data-scayt(_word|id)="[^"]*"/','',$content);
 		}
 
-		function get_content(&$arguments,$properties)
-		{
-			if ($properties['striphtml'])
-			{
-				return $GLOBALS['egw']->strip_html($arguments['htmlcontent']);
-			}
-			// spamsaver emailaddress and activating the links
-			return html::activate_links($arguments['htmlcontent']);
-		}
+		return $content;
 	}
+}
