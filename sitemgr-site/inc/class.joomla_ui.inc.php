@@ -403,7 +403,15 @@ class joomla_transformer
 		if ($style) $this->style = $style;
 	}
 
-	public function apply_transform($title,$content)
+	/**
+	 * Apply joomla transformer adding a div with certain class around each block
+	 *
+	 * @param string $title
+	 * @param string $content
+	 * @param Block_SO $block
+	 * @return string html content
+	 */
+	public function apply_transform($title,$content,Block_SO $block)
 	{
 		/**
 		 * @var ui
@@ -415,6 +423,7 @@ class joomla_transformer
 			'content' => $content,
 			'style'   => $this->style,
 			'showtitle' => !empty($title),
+			'id'      => $block->id,
 		);
 		foreach(explode(' ', $this->style) as $style)
 		{
