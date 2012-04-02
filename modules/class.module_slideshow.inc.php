@@ -271,14 +271,14 @@ jQuery(document).ready(function() {
 
 		// Nivo slider
 		$base_url = $GLOBALS['egw_info']['server']['webserver_url'].'/sitemgr/modules/nivo-slider';
-		$html = '<script src="'.$base_url.'/jquery.nivo.slider.js'.'"></script>
+		$html = '<script src="'.$base_url.'/jquery.nivo.slider.js'.'" type="text/javascript"></script>
 
 
 		<!-- Required layout, basic styles -->
-		<link rel="stylesheet" href="'.$base_url.'/nivo-slider.css'.'" type="text/css" media="screen" />
+		<link rel="stylesheet" href="'.$base_url.'/nivo-slider.css'.'" type="text/css" media="screen" ></link>
 		<!-- Make it look a little nicer -->
-		<link rel="stylesheet" href="'.$base_url.'/themes/default/default.css'.'" type="text/css" media="screen" />
-		<style>
+		<link rel="stylesheet" href="'.$base_url.'/themes/default/default.css'.'" type="text/css" media="screen" ></link>
+		<style type="text/css">
 			#'.$div_id.'.nivoSlider {';
 		if($arguments['width']) $html .= 'width:'.$arguments['width'] .'px;';
  		if($arguments['height']) $html .= 'height:'.$arguments['height'].'px;';
@@ -294,7 +294,7 @@ jQuery(document).ready(function() {
 		$arguments['class'] .= ' nivoSlider theme-default';
 
 		$html .= '<div id="'.$div_id.'" ';
-		foreach(array('width', 'height', 'class') as $option)
+		foreach(array('class') as $option)
 		{
 			if ($arguments[$option]) $html .= ' '.$option.'="'.htmlspecialchars($arguments[$option]). ($option !='class' ? 'px':'').'"';
 		}
@@ -311,7 +311,9 @@ jQuery(document).ready(function() {
 			$url = egw_vfs::download_url($path);
 			// only use egw_link, if url is not yet a full url, eg. filesystem stream-wrapper can set a direct download url!
 			if ($url[0] == '/') $url = egw::link($url);
-			$html .= "\t".'<img src="'.htmlspecialchars($url).($file['caption'] ? '" title="#'.$div_id.'_'.$i++ : '').'" />'."\n";
+			$html .= "\t".'<img src="'.htmlspecialchars($url).
+				($file['caption'] ? '" title="#'.$div_id.'_'.$i++ : '').
+				'" alt="'.$file['caption'].'" />'."\n";
 			if($file['link']) $html .= '</a>';
 		}
 		$html .= '</div>';
