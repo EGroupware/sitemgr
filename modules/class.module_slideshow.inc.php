@@ -271,25 +271,39 @@ jQuery(document).ready(function() {
 
 		// Nivo slider
 		$base_url = $GLOBALS['egw_info']['server']['webserver_url'].'/sitemgr/modules/nivo-slider';
-		$html = '<script src="'.$base_url.'/jquery.nivo.slider.js'.'" type="text/javascript"></script>
+		$html = '<script type="text/javascript">
+	var fileref = document.createElement("script");
+	fileref.setAttribute("type", "text/javascript");
+	fileref.setAttribute("src", "'.$base_url.'/jquery.nivo.slider.js'.'");
+	document.getElementsByTagName("head")[0].appendChild(fileref);
 
+	// Required layout, basic styles
+	var fileref = document.createElement("link");
+	fileref.setAttribute("rel", "stylesheet");
+	fileref.setAttribute("type", "text/css");
+	fileref.setAttribute("href", "'.$base_url.'/nivo-slider.css'.'");
+	document.getElementsByTagName("head")[0].appendChild(fileref);
 
-		<!-- Required layout, basic styles -->
-		<link rel="stylesheet" href="'.$base_url.'/nivo-slider.css'.'" type="text/css" media="screen" ></link>
-		<!-- Make it look a little nicer -->
-		<link rel="stylesheet" href="'.$base_url.'/themes/default/default.css'.'" type="text/css" media="screen" ></link>
-		<style type="text/css">
-			#'.$div_id.'.nivoSlider {';
-		if($arguments['width']) $html .= 'width:'.$arguments['width'] .'px;';
- 		if($arguments['height']) $html .= 'height:'.$arguments['height'].'px;';
-		$html .= '
-			}
-			.nivoSlider a {
-				padding: 0px !important;
-			}
-			'.$arguments['css'].'
-		</style>';
-
+	// Make it look a little nicer
+	var styleref = document.createElement("link");
+	styleref.setAttribute("rel", "stylesheet");
+	styleref.setAttribute("type", "text/css");
+	styleref.setAttribute("href", "'.$base_url.'/themes/default/default.css'.'");
+	document.getElementsByTagName("head")[0].appendChild(styleref);
+	
+	var style = document.createElement("style");
+	style.setAttribute("type", "text/css");';
+	$customCSS = '#'.$div_id.'.nivoSlider {'.
+		($arguments['width'] ? 'width:' .$arguments['width'] .'px;' : '').
+ 		($arguments['height']? 'height:'.$arguments['height'].'px;' : '').
+		'}
+		.nivoSlider a {
+			padding: 0px !important;
+		} '.htmlentities($arguments['css']);
+	$html .= '  style.setHTML("'.str_replace(array("\n","\r")," ",$customCSS).'");
+	document.getElementsByTagName("head")[0].appendChild(style);
+</script>
+';
 		// Needed for JS
 		$arguments['class'] .= ' nivoSlider theme-default';
 
