@@ -267,14 +267,44 @@ jQuery(document).ready(function() {
 		$html .= '});
 
 });</script>';
-*/
+//*/
 
 		// Nivo slider
 		$base_url = $GLOBALS['egw_info']['server']['webserver_url'].'/sitemgr/modules/nivo-slider';
+		$nivo = '
+jQuery("#'.$div_id.'").nivoSlider({
+	animSpeed: 500, // Slide transition speed
+        pauseTime: '.($arguments['slide_time'] ? $arguments['slide_time'] * 1000 : 3000) .', // How long each slide will show
+	prevText: "'.lang('Prev').'",
+	nextText: "'.lang('Next').'",
+	controlNav: '.($arguments['controlNav'] ? 'true' : 'false').',
+	effect: "'.($arguments['transitions'] ? implode(',',$arguments['transitions']) : 'random').'"
+});';
+
+/* Valid HTML - no API */
 		$html = '<script type="text/javascript">
 	var fileref = document.createElement("script");
 	fileref.setAttribute("type", "text/javascript");
 	fileref.setAttribute("src", "'.$base_url.'/jquery.nivo.slider.js'.'");
+
+	// Setup the onload handler for FF, Opera, Chrome
+	fileref.onload = function(e) {'.$nivo.'	};
+
+	// IE
+	if (typeof fileref.readyState != "undefined")
+	{
+		if (fileref.readyState != "complete" &&
+			fileref.readyState != "loaded")
+		{
+			fileref.onreadystatechange = function() {
+				var node = window.event.srcElement;
+				if (node.readyState == "complete" || node.readyState == "loaded")
+				{'.$nivo.'
+			
+				}
+			};
+		}
+	}
 	document.getElementsByTagName("head")[0].appendChild(fileref);
 
 	// Required layout, basic styles
@@ -304,6 +334,15 @@ jQuery(document).ready(function() {
 	document.getElementsByTagName("head")[0].appendChild(style);
 </script>
 ';
+
+/* Use egw_api
+		$html = '<script type="text/javascript">
+	egw.includeJS("'.$base_url.'/jquery.nivo.slider.js", function() {'.$nivo.'}, this);
+	egw.includeCSS("'.$base_url.'/nivo-slider.css");
+	egw.includeCSS("'.$base_url.'/themes/default/default.css");
+</script>';
+*/
+
 		// Needed for JS
 		$arguments['class'] .= ' nivoSlider theme-default';
 
@@ -312,6 +351,13 @@ jQuery(document).ready(function() {
 		{
 			if ($arguments[$option]) $html .= ' '.$option.'="'.htmlspecialchars($arguments[$option]). ($option !='class' ? 'px':'').'"';
 		}
+		
+		$style = '';
+		foreach(array('width','height') as $option)
+		{
+			if ($arguments[$option]) $style .= ' '.$option.': '.htmlspecialchars($arguments[$option]). 'px;';
+		}
+		if($style) $html .= " style='$style'";
 
 		$html .= ">\n";
 
@@ -341,19 +387,6 @@ jQuery(document).ready(function() {
 			$html .= $file['caption']."\n";
 			$html .= '</div>';
 		}
-		$html .= '
-		<script type="text/javascript">
-jQuery(document).ready(function() {
-jQuery("#'.$div_id.'").nivoSlider({
-	animSpeed: 500, // Slide transition speed
-        pauseTime: '.($arguments['slide_time'] ? $arguments['slide_time'] * 1000 : 3000) .', // How long each slide will show
-	prevText: "'.lang('Prev').'",
-	nextText: "'.lang('Next').'",
-	controlNav: '.($arguments['controlNav'] ? 'true' : 'false').',
-	effect: "'.($arguments['transitions'] ? implode(',',$arguments['transitions']) : 'random').'"
-});
-});
-</script>';
 		return $html;
 	}
 }
