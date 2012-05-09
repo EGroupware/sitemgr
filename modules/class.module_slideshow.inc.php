@@ -330,7 +330,8 @@ jQuery("#'.$div_id.'").nivoSlider({
 		.nivoSlider a {
 			padding: 0px !important;
 		} '.htmlentities($arguments['css']);
-	$html .= '  style.setHTML("'.str_replace(array("\n","\r")," ",$customCSS).'");
+	$html .= ' if(style.setHTML) { style.setHTML("'.str_replace(array("\n","\r")," ",$customCSS).'"); }
+	else if(style.style) { style.style = "'.str_replace(array("\n","\r")," ",$customCSS).'"; }
 	document.getElementsByTagName("head")[0].appendChild(style);
 </script>
 ';
