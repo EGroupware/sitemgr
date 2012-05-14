@@ -374,7 +374,7 @@ jQuery("#'.$div_id.'").nivoSlider({
 			if ($url[0] == '/') $url = egw::link($url);
 			$html .= "\t".'<img src="'.htmlspecialchars($url).
 				($file['caption'] ? '" title="#'.$div_id.'_'.$i++ : '').
-				'" alt="'.$file['caption'].'" />'."\n";
+				'" alt="'.strip_tags($file['caption']).'" />'."\n";
 			if($file['link']) $html .= '</a>';
 		}
 		$html .= '</div>';
