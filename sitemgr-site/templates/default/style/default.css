@@ -158,3 +158,45 @@ table.moduletable {
 /* pathway per direct module include should behave inline */
 #pathway div, #pathway ul, #ja-pathway div, #ja-pathway ul { display: inline; }
 #pathway li, #ja-pathway li { float: none ! important; display: inline; }
+
+/**
+ * Accordion module
+ */
+div.accordion {
+	width: 100%;
+	margin-bottom: 18px;
+}
+div.accordion-group {
+	margin-bottom:2px;
+	border:1px solid #e5e5e5;
+	border-top: none;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	border-radius:4px
+}
+div.accordion-header {
+	background-color: silver;
+	background-image: url(../../../images/gradient30.png);
+	border-bottom: 0;
+	text-align:left;
+	padding: 5px 10px;
+	display:block
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	border-radius:4px
+}
+div.accordion-header:hover {
+	background-color: grey;
+	background-image: url(../../../images/gradient30blue.png);
+}
+a.accordion-toggle, a.accordion-toggle:hover {
+	display: block;
+	font-weight: bold;
+	font-size: 120%;
+	text-decoration: none;
+}
+div.accordion-content, div.accordion-content-linked {
+	padding: 5px 10px;
+	display: none;
+}
+

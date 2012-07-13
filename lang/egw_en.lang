@@ -1,5 +1,6 @@
 %1 content manager	sitemgr	en	%1 content manager
 %1 module manager	sitemgr	en	%1 module manager
+%1. group	sitemgr	en	%1. group
 '%1' is no valid sitemgr-site directory !!!	sitemgr	en	'%1' is no valid sitemgr site directory!
 (do not put spaces or punctuation in the name field.)	sitemgr	en	Do not put spaces or punctuation in the name field.
 (leave blank to allow insecure logins)	sitemgr	en	Leave blank to allow insecure logins
@@ -11,6 +12,7 @@
 1 week	common	en	1 Week
 <b>autoregistration is not enabled / configured in the registration app !!!</b><br>you need to do so, to get the autoregistration link working.	sitemgr	en	<b>Auto registration is not enabled / configured in the registration app!</b><br>It needs to be done to get the auto registration link working.
 a simple picture galery	sitemgr	en	A simple picture gallery
+accordion	sitemgr	en	Accordion
 actif	sitemgr	en	Active
 actions	sitemgr	en	Actions
 add a category	sitemgr	en	Add a category
@@ -233,6 +235,7 @@ google	sitemgr	en	Google
 google search	sitemgr	en	Google search
 group access permissions	sitemgr	en	Group access permissions
 group name	sitemgr	en	Group name
+groups linked: opening one closes others	sitemgr	en	groups linked: opening one closes others
 header editor	sitemgr	en	Header editor
 headlines	sitemgr	en	Headlines
 hello	sitemgr	en	Hello
@@ -257,6 +260,8 @@ imported	sitemgr	en	Imported.
 index	sitemgr	en	Index
 individual access permission	sitemgr	en	Individual access permission
 individual access permissions	sitemgr	en	Individual access permissions
+initially all closed	sitemgr	en	Initially all closed
+initially first group open	sitemgr	en	Initially first group open
 interface to google website	sitemgr	en	Interface to google website
 invalid template directory '%1' !!!	sitemgr	en	Invalid template directory '%1' !
 just download one from our %1template gallery%2 on %3.	sitemgr	en	Download one from %1template gallery%2 on %3.
@@ -338,11 +343,13 @@ not yet translated	sitemgr	en	Not yet translated
 note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr-link	en	Note that you may get this message if your preferences are incorrect. For example if config.inc.php is not found in the directory that you specified.
 notification message not found !!!	sitemgr	en	Notification message not found!
 notification not found !!!	sitemgr	en	Notification not found!
+number of groups	sitemgr	en	Number of groups
 number of results	sitemgr	en	Number of results
 oldest first	sitemgr	en	Oldest first
 on all pages	sitemgr	en	On all pages
 only gallery	sitemgr	en	Only gallery
 only on the first page	sitemgr	en	Only on the first page
+opening mode	sitemgr	en	Opening mode
 options in search result page	sitemgr	en	Options in search result page
 or enter the title for a new guestbook	sitemgr	en	Enter the title for a new guestbook
 or use a template compatible with %1.	sitemgr	en	Use a template compatible with %1.
@@ -571,6 +578,7 @@ this module provides the path to the element currently shown	sitemgr	en	This mod
 this module provides the site index, it is automatically used by the index get parameter	sitemgr	en	This module provides the site index, it is automatically used by the index GET parameter
 this module search throw the content (page title/description and html content)	sitemgr	en	This module search throw the content (Page title/description and html content)
 this module show the status / percentage of the translation of egw	sitemgr	en	This module show the status / percentage of the translation of eGW
+this module shows an accordion: clickable headers show otherwise hidden content.	sitemgr	en	This module shows an accordion: clickable headers show otherwise hidden content.
 this must be an absolute directory location.  <b>no trailing slash</b>.	sitemgr	en	This must be an absolute directory location.  <b>No trailing slash</b>.
 this should be a comma-separated list of language-codes.	sitemgr	en	This should be a comma-separated list of language-codes.
 this should be a page that is readable by everyone. if you leave this blank, the site index will be shown by default.	sitemgr	en	This should be a page that is readable by everyone. If you leave this blank, the site index will be shown by default.
