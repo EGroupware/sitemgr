@@ -1,5 +1,6 @@
 %1 content manager	sitemgr	de	%1 Inhaltsmanager
 %1 module manager	sitemgr	de	%1 Modulmanager
+%1. group	sitemgr	de	%1. Gruppe
 '%1' is no valid sitemgr-site directory !!!	sitemgr	de	'%1' ist kein gültiges sitemgr-site Verzeichnis !!!
 (do not put spaces or punctuation in the name field.)	sitemgr	de	(Im Namensfeld sind keine Leer- oder Satzzeichen erlaubt.)
 (leave blank to allow insecure logins)	sitemgr	de	(leer lassen um unsichere Anmeldungen zu erlauben)
@@ -11,6 +12,7 @@
 1 week	common	de	Für eine Woche
 <b>autoregistration is not enabled / configured in the registration app !!!</b><br>you need to do so, to get the autoregistration link working.	sitemgr	de	<b>Autoregistrierung ist nicht eingeschaltet oder konfiguriert in der Anwendung Registrierung !!!</b><br>Sie müssen das machen, damit der Link zur Autoregistrierung funktioniert.
 a simple picture galery	sitemgr	de	Eine einfache Bilder Gallerie
+accordion	sitemgr	de	Akkordeon
 actif	sitemgr	de	Aktiv
 actions	sitemgr	de	Befehle
 add a category	sitemgr	de	Kategorie hinzufügen
@@ -233,6 +235,7 @@ google	sitemgr	de	Google
 google search	sitemgr	de	Google Suche
 group access permissions	sitemgr	de	Gruppen Zugriffsrechte
 group name	sitemgr	de	Gruppenname
+groups linked: opening one closes others	sitemgr	de	Gruppen verbunden: das Öffnen einer schließt die andern
 header editor	sitemgr	de	Kopfzeilen Editor
 headlines	sitemgr	de	Kopfzeilen
 hello	sitemgr	de	Hallo
@@ -257,6 +260,8 @@ imported	sitemgr	de	Importiert
 index	sitemgr	de	Inhaltsverzeichnis
 individual access permission	sitemgr	de	Individuelles Zugriffrecht
 individual access permissions	sitemgr	de	Individuelle Zugriffsrechte
+initially all closed	sitemgr	de	Anfangs alle geschlossen
+initially first group open	sitemgr	de	Erste Gruppe anfangs offen
 interface to google website	sitemgr	de	Schnittstelle zur Google Webseite
 invalid template directory '%1' !!!	sitemgr	de	Ungültiges Designvorlagen-Verzeichnis '%1' !!!
 just download one from our %1template gallery%2 on %3.	sitemgr	de	Laden Sie einfach eines von userer %1Template Gallerie%2 auf %3 herunter.
@@ -338,11 +343,13 @@ not yet translated	sitemgr	de	noch nicht übersetzt
 note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr-link	de	Sie können diese Nachricht auch erhalten, wenn Ihre Einstellungen nicht richtig sind. Zum Beispiel wenn config.inc.php nicht im angegebenen Verzeichnis gefunden wurde.
 notification message not found !!!	sitemgr	de	Benachrichtigungsmeldung nicht gefunden !!!
 notification not found !!!	sitemgr	de	Benachrichtigung nicht gefunden !!!
+number of groups	sitemgr	de	Anzahl Gruppen
 number of results	sitemgr	de	Anzahl der Ergebnisse
 oldest first	sitemgr	de	älteste zuerst
 on all pages	sitemgr	de	auf allen Seiten
 only gallery	sitemgr	de	Nur Galerie
 only on the first page	sitemgr	de	nur auf der ersten Seite
+opening mode	sitemgr	de	Öffnungsmodus
 options in search result page	sitemgr	de	Optionen in der Ergebnisseite der Suche
 or enter the title for a new guestbook	sitemgr	de	oder geben Sie einen Title für das neue Gästebuch ein
 or use a template compatible with %1.	sitemgr	de	Oder benutzen Sie ein Template kompatible mit %1.
@@ -571,6 +578,7 @@ this module provides the path to the element currently shown	sitemgr	de	Dieses M
 this module provides the site index, it is automatically used by the index get parameter	sitemgr	de	Dieses Modul stellt einen Seiten Index zur Verfügung. Es wird automatisch durch den Index GET parameter erstellt.
 this module search throw the content (page title/description and html content)	sitemgr	de	Diese Module zeigt das Ergebnis der Suche (Seitentitel, Beschreibung und HTML Inhalt)
 this module show the status / percentage of the translation of egw	sitemgr	de	Diese Module zeit den prozentualen Status der Übersetzungen von eGW
+this module shows an accordion: clickable headers show otherwise hidden content.	sitemgr	de	Diese Modul ist ein Akkordeon: anklickbare Kopfzeilen zeigen normal verborgenen Inhalt
 this must be an absolute directory location.  <b>no trailing slash</b>.	sitemgr	de	Hier muss der Adsolute Pfad zu Verzeichniss angegeben werden. Zum Beispiel: /var/www/html/Ihre_Firma/sitemgr_site. <b>Keinen "/" am Ende des Pfades angeben!</b>
 this should be a comma-separated list of language-codes.	sitemgr	de	Geben Sie hier eine durch Kommatas unterteilte Liste der Sprachen ein. Zum Beispiel: en, de, fr
 this should be a page that is readable by everyone. if you leave this blank, the site index will be shown by default.	sitemgr	de	Diese Seite sollte von einem Benutzer ohne spezielle Rechte gesehen werden können (z. B. Anonymous). Falls Sie hier nichts eintragen, wird der Seiten Index als Standard angezeigt.
