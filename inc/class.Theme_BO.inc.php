@@ -102,6 +102,7 @@ class Theme_BO
 				libxml_use_internal_errors(true);	// suppress warnings: some templates put the Joomla version in the xml version, causing a warning
 				if (($details = simplexml_load_file($xml_details)))
 				{
+					//echo "<pre>".htmlspecialchars(file_get_contents($xml_details))."</pre>\n";
 					foreach($details->attributes() as $name => $value)
 					{
 						if ($name == 'type' && $value != 'template') return false;
@@ -143,8 +144,10 @@ class Theme_BO
 								}
 								foreach($param as $name => $val)
 								{
-									$val = (array)$val;
-									if ($name == 'option') $arr[$name][(string)$val['@attributes']['value']] = (string)$val[0];
+									if ($name == 'option')
+									{
+										$arr[$name][(string)$val['value']] = (string)$val;
+									}
 								}
 								$info['params'][] = $arr;
 							}
