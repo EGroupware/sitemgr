@@ -6,7 +6,7 @@
  * @package sitemgr
  * @subpackage sitemgr-site
  * @author Ralf Becker <RalfBecker-AT-outdoor-training.de>
- * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
+ * @license http://opensource.org/licenses/gpl-license.php GPL2+ - GNU General Public License version 2, or (at your option) any later version
  * @copyright Ralf Becker <RalfBecker-AT-outdoor-training.de>
  * @version $Id$
  */
@@ -16,7 +16,7 @@
  *
  * It also emulates some of the JDocumentHTML methods
  */
-class ui extends JObject
+class ui extends JObject implements site_renderer
 {
 	/**
 	 * Instance of template object
@@ -117,60 +117,6 @@ class ui extends JObject
 
 		// global mainframe object used by some templates
 		$GLOBALS['mainframe'] = new JObject();
-	}
-
-	/**
-	 * Displays page by name (SiteMgr UI method)
-	 *
-	 * @param string $page_name
-	 */
-	function displayPageByName($page_name)
-	{
-		$this->displayPage($GLOBALS['Common_BO']->pages->so->PageToID($page_name));
-	}
-
-	/**
-	 * Displays page by id (SiteMgr UI method)
-	 *
-	 * @param int $page_id
-	 */
-	function displayPage($page_id)
-	{
-		global $objbo;
-		$objbo->loadPage($page_id);
-		$this->generatePage();
-	}
-
-	/**
-	 * Displays index (SiteMgr UI method)
-	 */
-	function displayIndex()
-	{
-		global $objbo;
-		$objbo->loadIndex();
-		$this->generatePage();
-	}
-
-	/**
-	 * Displays TOC (SiteMgr UI method)
-	 *
-	 * @param int $categoryid=false
-	 */
-	function displayTOC($categoryid=false)
-	{
-		global $objbo;
-		$objbo->loadTOC($categoryid);
-		$this->generatePage();
-	}
-
-	/**
-	 * Displays search (SiteMgr UI method)
-	 */
-	function displaySearch($search_result,$lang,$mode,$options)
-	{
-		global $objbo;
-		$objbo->loadSearchResult($search_result,$lang,$mode,$options);
-		$this->generatePage();
 	}
 
 	/**

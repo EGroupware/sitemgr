@@ -6,9 +6,9 @@
  * @package sitemgr
  * @subpackage sitemgr-site
  * @author Ralf Becker <RalfBecker-AT-outdoor-training.de>
- * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
+ * @license http://opensource.org/licenses/gpl-license.php GPL2+ - GNU General Public License version 2, or (at your option) any later version
  * @copyright Ralf Becker <RalfBecker-AT-outdoor-training.de>
- * @version $Id$ 
+ * @version $Id$
  */
 
 function mosCountModules($contentarea)
@@ -135,7 +135,7 @@ class mos_database
 	}
 }
 
-class ui
+class ui implements site_renderer
 {
 	/**
 	 * Instance of template class
@@ -158,39 +158,6 @@ class ui
 		}
 		$this->t = new Template3($this->templateroot);
 		$this->t->transformer_root = $this->mos_compat_dir = realpath(dirname(__FILE__).'/../mos-compat');
-	}
-
-	function displayPageByName($page_name)
-	{
-		$this->displayPage($GLOBALS['Common_BO']->pages->so->PageToID($page_name));
-	}
-
-	function displayPage($page_id)
-	{
-		global $objbo;
-		$objbo->loadPage($page_id);
-		$this->generatePage();
-	}
-
-	function displayIndex()
-	{
-		global $objbo;
-		$objbo->loadIndex();
-		$this->generatePage();
-	}
-
-	function displayTOC($categoryid=false)
-	{
-		global $objbo;
-		$objbo->loadTOC($categoryid);
-		$this->generatePage();
-	}
-
-	function displaySearch($search_result,$lang,$mode,$options)
-	{
-		global $objbo;
-		$objbo->loadSearchResult($search_result,$lang,$mode,$options);
-		$this->generatePage();
 	}
 
 	function generatePage()
