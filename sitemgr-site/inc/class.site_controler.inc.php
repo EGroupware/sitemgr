@@ -118,7 +118,7 @@ class site_controler
 	 */
 	public function processRequest()
 	{
-		global $page, $objbo, $objui, $Common_BO;
+		global $page, $objbo, $objui, $sitemgr_info, $Common_BO;
 
 		$page = CreateObject('sitemgr.Page_SO');
 
