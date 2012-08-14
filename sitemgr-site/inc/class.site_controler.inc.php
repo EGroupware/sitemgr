@@ -185,7 +185,7 @@ class site_controler
 			}
 		}
 		// check if we have a cached version of the page
-		if (isset($cache_name))
+/*		if (isset($cache_name))
 		{
 			// cache need to be language specific
 			$cache_name = $GLOBALS['egw_info']['user']['preferences']['common']['lang'].'-'.$cache_name;
@@ -216,16 +216,16 @@ class site_controler
 					$objbo->loadPage($id);
 					break;
 			}
-		}
+		}*/
 		$objui = $this->instanciateRenderer($GLOBALS['sitemgr_info']['themesel']);
 		$objui->generatePage();
 		error_log(__METHOD__."() rendered page $cache_name in ".number_format(microtime(true)-$GLOBALS['egw_info']['flags']['page_start_time'], 3).'sec');
 
 		// only use cache for Production site and GET requests
-//		if (isset($cache_name) && $this->mode == 'Production' && $_SERVER['REQUEST_METHOD'] == 'GET')
+/*		if (isset($cache_name) && $this->mode == 'Production' && $_SERVER['REQUEST_METHOD'] == 'GET')
 		{
 			egw_cache::setInstance(__CLASS__, $cache_name, ob_get_contents(), $cache_time = 7200);
-		}
+		}*/
 	}
 }
 
