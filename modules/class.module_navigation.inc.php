@@ -466,7 +466,10 @@
 
 			$this->objbo =& $GLOBALS['objbo'];
 			$this->page =& $GLOBALS['page'];
-			$this->category =& $this->objbo->getcatwrapper($this->page->cat_id);
+			if($this->page->cat_id)
+			{
+				$this->category =& $this->objbo->getcatwrapper($this->page->cat_id);
+			}
 			//error_log(__METHOD__."(".array2string($arguments).") page=".array2string($this->page).", category=".array2string($this->category));
 
 			if (!$arguments['suppress_parent'])
