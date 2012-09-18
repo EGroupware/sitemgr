@@ -83,6 +83,7 @@ class module_accordion extends Module
 		jQuery(".accordion-toggle").click(function() {
 			jQuery(this).parent().parent().parent().find("div.accordion-content-linked").slideUp();
 			jQuery(this).parent().next().slideToggle();
+			return false;
 		})
 	});
 </script>
