@@ -11,6 +11,8 @@
  * @version $Id$
  */
 
+require_once __DIR__ . '/class.site_controler.inc.php';
+
 /**
  * UI Object for Joomla 1.5 templates
  *

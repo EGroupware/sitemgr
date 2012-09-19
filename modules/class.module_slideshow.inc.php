@@ -353,7 +353,7 @@ jQuery("#'.$div_id.'").nivoSlider({
 			if ($arguments[$option]) $html .= ' '.$option.'="'.htmlspecialchars($arguments[$option]). ($option !='class' ? 'px':'').'"';
 		}
 		
-		$style = "background:url($base_url/themes/default/loading.gif) no-repeat 50% 50%; ";
+		$style = "background:url($base_url/themes/default/loading.gif) no-repeat 50% 50%; background-color: rgba(255,255,255,0.5);";
 		foreach(array('width','height') as $option)
 		{
 			if ($arguments[$option]) $style .= ' '.$option.': '.htmlspecialchars($arguments[$option]). 'px;';
