@@ -107,6 +107,15 @@ class module_slideshow extends Module
 		if(!$values['css'])
 		{
 			$this->arguments['css']['default'] = "
+/* Dark arrows
+#slider{$this->block->id} .nivo-directionNav a {
+background: url(../modules/nivo-slider/themes/default/dark_arrows.png);
+}
+#slider{$this->block->id} .nivo-directionNav .nivo-nextNav {
+background-position: -30px 0;
+}
+*/
+
 /* Index below images */
 #slider{$this->block->id} .nivoSlider {
 	margin-bottom: 30px;
