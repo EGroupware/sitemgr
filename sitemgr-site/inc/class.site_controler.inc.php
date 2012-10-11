@@ -185,13 +185,13 @@ class site_controler
 			}
 		}
 		// check if we have a cached version of the page
-/*		if (isset($cache_name))
+		if (isset($cache_name))
 		{
 			// cache need to be language specific
 			$cache_name = $GLOBALS['egw_info']['user']['preferences']['common']['lang'].'-'.$cache_name;
 
 			// only use cache for Production site and GET requests
-			if ($this->mode == 'Production' && $_SERVER['REQUEST_METHOD'] == 'GET' &&
+			/*if ($this->mode == 'Production' && $_SERVER['REQUEST_METHOD'] == 'GET' &&
 				($cache = egw_cache::getInstance(__CLASS__, $cache_name)))
 			{
 				// add a content-type header to overwrite an existing default charset in apache (AddDefaultCharset directiv)
@@ -201,7 +201,7 @@ class site_controler
 				error_log(__METHOD__."() loaded cached page $cache_name in ".number_format(microtime(true)-$GLOBALS['egw_info']['flags']['page_start_time'], 3).'sec');
 
 				common::egw_exit();
-			}
+			}*/
 			ob_start();
 			list(, $type, $id) = explode('-', $cache_name);
 			switch($type)
@@ -216,7 +216,7 @@ class site_controler
 					$objbo->loadPage($id);
 					break;
 			}
-		}*/
+		}
 		$objui = $this->instanciateRenderer($GLOBALS['sitemgr_info']['themesel']);
 		$objui->generatePage();
 		error_log(__METHOD__."() rendered page $cache_name in ".number_format(microtime(true)-$GLOBALS['egw_info']['flags']['page_start_time'], 3).'sec');
