@@ -38,9 +38,12 @@
 		$menu_title = lang('Other websites');
 		display_sidebox($appname,$menu_title,$file);
 	}
+	/*
+	No preferences right now
 	$menu_title = lang('Preferences');
 	$file = Array(
 		'Preferences' => $GLOBALS['egw']->link('/index.php',array('menuaction'=>'preferences.uisettings.index','appname'=>'sitemgr')),
 	);
 	display_sidebox($appname,$menu_title,$file);
+	*/
 }
