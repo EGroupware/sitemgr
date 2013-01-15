@@ -68,7 +68,7 @@ class module_filecontents extends Module
 		$this->title = lang('File contents');
 		$this->description = lang('This module includes the contents of an URL or file (readable by the webserver and in its docroot !)');
 		$this->i18n = true;
-		
+
 	}
 
 	/**
@@ -294,12 +294,14 @@ class module_filecontents extends Module
 		}
 		if (!is_readable($url['path']))
 		{
-			$this->validation_error = lang('File %1 is not readable by the webserver !!!',$data['filepath']);
+			$this->validation_error = lang('File %1 is not readable by the webserver !!!',
+				preg_replace('|://[^/]+@|', '://', $data['filepath']));	// remove credentials from error-msg
 			return false;
 		}
 		if (!$this->in_docroot($data['filepath']))
 		{
-			$this->validation_error = lang('File %1 is outside the docroot of the webserver !!!<br>This module does NOT allow - for security reasons - to open files outside the docroot.',$data['filepath']);
+			$this->validation_error = lang('File %1 is outside the docroot of the webserver !!!<br>This module does NOT allow - for security reasons - to open files outside the docroot.',
+				preg_replace('|://[^/]+@|', '://', $data['filepath']));	// remove credentials from error-msg
 			return false;
 		}
 		return true;
