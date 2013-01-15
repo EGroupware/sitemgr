@@ -127,7 +127,8 @@ class module_filecontents extends Module
 		}
 		if ($ret === false)
 		{
-			$ret = lang('File %1 is not readable by the webserver !!!',$path);
+			$ret = lang('File %1 is not readable by the webserver !!!',
+				preg_replace('|://[^/]+@|', '://', $path));	// remove credentials from error-msg
 		}
 		//echo "<p>$header --> content_type=$content_type, charset=$charset, is_html=".array2string($is_html)."</p>\n";
 		if ($is_html)
