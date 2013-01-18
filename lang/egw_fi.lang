@@ -10,7 +10,6 @@
 1 month	common	fi	1 kuukausi
 1 week	common	fi	1 viikko
 <b>autoregistration is not enabled / configured in the registration app !!!</b><br>you need to do so, to get the autoregistration link working.	sitemgr	fi	<b>Automaattinen rekisteröinti ei ole käytössä/konfiguroitu rekisteröinnin sovelluksessa!!!</b><br>Sinun tarvitsee tehdä niin saadaksesi automaattinen rekisteröintilinkki toimimaan.
-<b>want more templates?</b><br />just download one from the template gallery at %1www.egroupware.org%2 or use a %3mambo open source%4 version 4.5 compatible template eg. from %5. unpack the downloaded template in your templates directory (%6).	sitemgr	fi	<b> Haluatko lisää mallipohjia?</b><br>Lataa lisää malleja %1www.eGroupWare.org%2 galleriasta tai käytä %3 Mambo Open Source %4 versiota 4.5 kanssa yhteensopivaa mallia esim. %5. Pura ladattu malli mallipohjien hakemistossa (%6).
 a simple picture galery	sitemgr	fi	Yksinkertainen kuva galleria
 actif	sitemgr	fi	Aktiivinen
 actions	sitemgr	fi	Toiminnot
@@ -98,8 +97,6 @@ choose template	sitemgr	fi	Valitse mallipohja
 choose the categories to display	sitemgr	fi	Valitse näytettävä kategoria
 choose the valid html type (note: not all icons are available):	sitemgr	fi	Valitse voimassaoleva HTML muoto (Huom. kaikki ikonit eivät ole käytettävissä)
 choose your site's theme or template.  note that if you changed the above checkbox you need to save before choosing a theme or template.	sitemgr	fi	Valitse sivusi tyyli tai mallipohja. Huomautus, jos muutat edellä mainittua valintalaatikkoa, tallentaa se ennenkuin valitset tyyliä tai mallipohjaa.
-city	sitemgr	fi	Kaupunki
-click here to login through a safe connection.	sitemgr	fi	Napsauta tästä kirjautuaksesi suojatulla yhteydellä
 code file	sitemgr	fi	Kooditiedosto
 codebase url	sitemgr	fi	Codebase URL
 collapse threads	sitemgr	fi	Kutistaa hakemistorungon haarat
@@ -118,7 +115,6 @@ content manager	sitemgr	fi	Sisällön hallinta
 contentarea	sitemgr	fi	Sisältöalue
 contributor menu	sitemgr	fi	Muokkaaja valikko
 copyright	sitemgr	fi	Tekijänoikeus
-country	sitemgr	fi	Maa
 create new version	sitemgr	fi	Luo uusi versio
 css styles	sitemgr	fi	CSS -tyylit
 currency code of the value specified in amount (eg. usd, eur)	sitemgr	fi	Valuuttakoodi (esim. USD, EUR)
@@ -133,13 +129,13 @@ delete category	sitemgr	fi	Poista kategoria
 delete page	sitemgr	fi	Poista sivu
 delete this application	sitemgr	fi	Poista tämä sovellus
 delete this block	sitemgr	fi	Poista tämä lohko
+delete this file or directory	sitemgr	fi	Poista tämä tiedosto tai hakemisto.
 delete this guestbook	sitemgr	fi	Poista tämä vieraskirja
 delete version	sitemgr	fi	Poista versio
 deleting all data for %1	sitemgr	fi	Poistetaan kaikki tieto %1
 department	sitemgr	fi	Osasto
 descending	sitemgr	fi	Laskeva
 details for language %1 (%2)	sitemgr	fi	Yksityiskohdat kieleen %1 (%2)
-directory is not writable by the webserver --> disabling upload	sitemgr	fi	Web-palvelimella EI ole kirjoitusoikeutta hakemistoon --> Lataaminen estetty
 discussions	sitemgr	fi	Keskustelu
 display contact	sitemgr	fi	Näytä yhteystieto
 display link to autoregistration below login form?	sitemgr	fi	Näytetäänkö linkki automaattisenrekisteröinnin alapuolella kirjautumis lomakkeessa?
@@ -193,6 +189,7 @@ error writing to the database: %1.	sitemgr	fi	Virhe kirjoittaessa tietokantaan: 
 everybody	sitemgr	fi	Jokainen
 exact phrase	sitemgr	fi	Tarkka fraasi
 expand current category	sitemgr	fi	Laajenna nykyistä kategoriaa.
+export	sitemgr	fi	Vienti
 fax	sitemgr	fi	Fax
 file %1 is not readable by the webserver !!!	sitemgr	fi	Tiedosto %1 ei ole luettavissa verkkopalvelimelta !!!
 file %1 is outside the docroot of the webserver !!!<br>this module does not allow - for security reasons - to open files outside the docroot.	sitemgr	fi	Tiedosto %1 on palvelimen päätiedostopolun ulkopuolella! <br> Tämä moduuli EI salli - tietoturvasyistä - tiedostojen avaamista päätiedostopolun ulkopuolelta.
@@ -229,7 +226,6 @@ hello	sitemgr	fi	Hei
 hello world	sitemgr	fi	Hei maailma
 helps you respect html/xhtml standards.	sitemgr	fi	Auttaa sinua noudattamaan HTML / XHTML standardeja
 highlight current page	sitemgr	fi	Korosta nykyinen sivu
-home phone	sitemgr	fi	Kotipuhelin
 horizontal	sitemgr	fi	Vaakaasuuntaan
 html frame	sitemgr	fi	HTML -kehys
 html module	sitemgr	fi	HTML -moduli
@@ -239,6 +235,7 @@ if nonsecure show link to:	sitemgr	fi	Jos suojaamaton, ohjaa tänne:
 if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	fi	Jos et ole jo tehnyt niin, luo käyttäjä jota käytetään yleisön puolelta sivuston katseluun. Suositeltu nimi: anonymous
 image type	sitemgr	fi	Kuvan tyyppi
 implies read permission	sitemgr	fi	Sisältää lukuoikeuden
+import	sitemgr	fi	Tuonti
 index	sitemgr	fi	Indeksi
 individual access permission	sitemgr	fi	Yksittäinen käyttöoikeus
 individual access permissions	sitemgr	fi	Yksittäiset käyttöoikeudet
@@ -251,7 +248,6 @@ last entries to the guestbook	sitemgr	fi	Viimeinen merkintä vieraskirjaan
 latest reply	sitemgr	fi	Viimeisin vastaus
 links for the tabs (comma seperated)	sitemgr	fi	Linkit välilehtiin (pilkulla erotetut)
 list of permitted modules specific to content area %1	sitemgr	fi	Sallittujen moduleiden lista sisällön alueeseen %1
-loged in as:	sitemgr	fi	Kirjautuneena:
 login	sitemgr	fi	Kirjaudu sisään
 login name	sitemgr	fi	Käyttäjätunnus
 main content	sitemgr	fi	Pääsisältö
@@ -278,7 +274,6 @@ message not found !!!	sitemgr	fi	Viestiä ei löytynyt!
 message text:	sitemgr	fi	Viestin teksti
 messages are defined for all site languages.	sitemgr	fi	Viestit määritellään sivuston kaikille kielille.
 migrating data for %1 to %2	sitemgr	fi	Siirretään dataa %1:lle %2:teen
-mobile phone	sitemgr	fi	GSM
 module %1 is not permitted in this context!	sitemgr	fi	Moduuli %1 ei ole sallittu tässä viitekehyksessä!
 module manager	sitemgr	fi	Moduulihallinta
 module: %1, scope: %2, contentarea: %3, viewable: %4	sitemgr	fi	Moduli: %1, Laajuus: %2, Sisältöalue: %3, Esikatselu: %4
@@ -438,7 +433,6 @@ sorry, no content found for you search criteria	sitemgr	fi	Hakutuloksia ei löyt
 sort files by	sitemgr	fi	Lajittele tiedostot
 sort order	sitemgr	fi	Lajittelujärjestys
 state	sitemgr	fi	Tila
-street	sitemgr	fi	Katu
 string to return (default api version)	sitemgr	fi	Paina String palataksesi
 strip html from block content?	sitemgr	fi	Poista HTML-merkinnät lohkon sisällöstä?
 subcategories	sitemgr	fi	Alikategoriat
@@ -457,6 +451,7 @@ template select	sitemgr	fi	Mallin valinta
 text allignment	sitemgr	fi	Tekstin asemointi
 text of page links	sitemgr	fi	Linkkien teksti
 textarea	sitemgr	fi	Tekstialue
+the anonymous user needs read it!	sitemgr	fi	Tuntematon käyttäjä tarvitsee lukemiseen tarvittavat ACL-oikeudet!
 the category to display, 0 for complete table of contents	sitemgr	fi	Näytettävä kategoria, 0=täydellinen hakuluettelo
 the complete url or path to a file to be included	sitemgr	fi	Täydellinen URL tai tiedostopolku on lisäämättä
 the config.inc.php file needs to be edited to point to the egroupware directory. copy the config.inc.php.template file to config.inc.php and then edit it.	sitemgr	fi	config.inc.php tiedoston pitää olla muokattavissa ja sen pitää sijaita EGroupwaren hakemistossa. Kopioi config.inc.php.template nimellä config.inc.php ja muokkaa sitä.
@@ -537,12 +532,14 @@ translate page	sitemgr	fi	Käännä sivu
 translate site-wide content blocks	sitemgr	fi	Käännä sivuston laajuiset sisältölohkot
 translation manager	sitemgr	fi	Käännösten hallinta
 translation status	sitemgr	fi	Käännöksen tila
+unsubscribe	sitemgr	fi	Peruuta tilaus
 up to parent	sitemgr	fi	Ylävalikkoon
 up to table of contents	sitemgr	fi	Sisältöluetteloon
 update notification	sitemgr	fi	Päivitä huomautusviesti
 updating to new category system	sitemgr	fi	Päivitetään uuteen kategoriajärjestelmään
 url pointing to the image-directory	sitemgr	fi	Kuvahakemistoon osoittava URL
 url to sitemgr-site	sitemgr	fi	URL Sivustonhallintaan
+use default	sitemgr	fi	Käytä oletusta
 use phpnuke themes instead of templates	sitemgr	fi	Käytä phpNuke-teemoja näiden teemojen sijaan
 use this module for displaying book ads for the amazon web site	sitemgr	fi	Käytä tätä moduulia näyttääksesi julkaisun mainokset Amazon verkkosivustolla
 use this module for displaying wiki-pages	sitemgr	fi	Käytä tätä moduulia näyttäämään Wiki-sivut
@@ -566,7 +563,6 @@ which main categories should be included (comma separated list, empty for all)	s
 wiki	sitemgr	fi	Wiki
 wiki startpage	sitemgr	fi	Wiki -aloitussivu
 with which view should the module be displayed in the beginning?	sitemgr	fi	Missä näkymässä moduulin tulisi näkyä aluksi?
-work phone	sitemgr	fi	Työpuhelin
 write permission	sitemgr	fi	ACL-kirjoitusoikeus
 xml browser	sitemgr	fi	XML selaustoiminto
 yes, please delete it	sitemgr	fi	Kyllä, poista se
@@ -594,6 +590,5 @@ you will remove the message in the following language from your notification sys
 your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr-link	fi	Pääkäyttäjä ei ole vielä asettanut sisällönhallintaa julkiseksi. Huomauta tästä pääkäyttäjälle.
 your calendar	sitemgr	fi	Kalenterisi
 your comment	sitemgr	fi	Kommenttisi
-your connection is not safe.	sitemgr	fi	Yhteytesi ei ole suojattu.
 your name	sitemgr	fi	Nimesi
 zip code	sitemgr	fi	Postinumero

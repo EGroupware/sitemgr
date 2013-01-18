@@ -9,7 +9,6 @@
 1 month	common	ru	1 Месяц
 1 week	common	ru	1 Неделя
 <b>autoregistration is not enabled / configured in the registration app !!!</b><br>you need to do so, to get the autoregistration link working.	sitemgr	ru	<b>Автоматическая регистрация не включена или не сконфигурирована в приложении регистрации!!</b><br>Вам следует это сделать чтобы ссылка на автоматическую регистрацию начала работать.
-<b>want more templates?</b><br />just download one from the template gallery at %1www.egroupware.org%2 or use a %3mambo open source%4 version 4.5 compatible template eg. from %5. unpack the downloaded template in your templates directory (%6).	sitemgr	ru	<b>Захотелось больше шаблонов?</b><br/>Вам следует всего лишь загрузить их из галереи шаблонов по адресу %1www.eGroupWare.org%2 либо использовать шаблоны %3Mambo Open Source%4 совместимые с версией 4.5 напр. из %5. Распакуйте полученные шаблоны в вашу папку шаблонов (%6).
 a simple picture galery	sitemgr	ru	Простая картинная галерея
 actif	sitemgr	ru	Активно (?)
 actions	sitemgr	ru	Действия
@@ -23,6 +22,8 @@ add new page to this category	sitemgr	ru	Добавить новую стран�
 add page	sitemgr	ru	Добавить Страницу
 add page to category	sitemgr	ru	Добавить страницу в категорию
 add website	sitemgr	ru	Добавить Веб-сайт
+address line 2	sitemgr	ru	Строка адреса 2
+addressbook the contact should be shown	sitemgr	ru	Адресная книга, в которой контакт будет показан
 administration	sitemgr	ru	Администрирование
 administrative menu	sitemgr	ru	Меню Администратора
 administrators	sitemgr	ru	администраторы
@@ -56,6 +57,7 @@ are contributors allowed to define new guestbooks?	sitemgr	ru	Разрешено
 are you sure you want to delete site %1 and all its content? you cannot retrieve it if you continue.	sitemgr	ru	Вы уверенны, что желаете удалить сайт %1 и все его содержимое? Вы не сможете восстановить его если продолжите.
 are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	ru	Вы уверенны, что желаете удалить категорию %1 и все назначенные ей страницы? Вы не сможете восстановить удаленные страницы если продолжите.
 as	common	ru	как
+ascending	sitemgr	ru	По возростанию
 asin[=title] pairs (title is optional)	sitemgr	ru	пары ASIN[=заголовок] (заголовок - необязательно)
 ask customer	sitemgr	ru	Спросить клиента (?)
 attempt to access information outside current website	sitemgr	ru	Попытка доступа к информации вне данного вебсайта
@@ -65,7 +67,7 @@ automatically generated notification	sitemgr	ru	Автоматически со�
 back to module manager	sitemgr	ru	Назад к управлению модулями
 back to the list of languages	sitemgr	ru	Назад к списку языков
 basic settings	sitemgr	ru	Основные настройки
-before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr	ru	Прежде чем публичный веб-сайт может быть просмотрен, вы должны настроить различные пути расположения и прочие параметры. Пожалуйста перейдите на страницу установки менеджера сайта по следующей ссылке:
+before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr-link	ru	Прежде чем публичный веб-сайт может быть просмотрен, вы должны настроить различные пути расположения и прочие параметры. Пожалуйста перейдите на страницу установки менеджера сайта по следующей ссылке:
 block not found.	sitemgr	ru	Блок не найден
 block reloaded	sitemgr	ru	Блок перезагружен
 block returned no content.	sitemgr	ru	Блок не возвратил содержимого
@@ -94,7 +96,6 @@ choose template	sitemgr	ru	Выбирите шаблон
 choose the categories to display	sitemgr	ru	Выберите категории для показа
 choose the valid html type (note: not all icons are available):	sitemgr	ru	Выберите верный тип HTML (прим.: не все значки доступны):
 choose your site's theme or template.  note that if you changed the above checkbox you need to save before choosing a theme or template.	sitemgr	ru	Выберите тему или шаблон вашего сайта. Помните, что если вы изменили выбор выше, вам необходимо сохраниться перед выбором темы или шаблона.
-click here to login through a safe connection.	sitemgr	ru	Щелкните здесь для соединения по безопасному каналу
 code file	sitemgr	ru	Файл кода
 codebase url	sitemgr	ru	URL кодовой базы
 collapse threads	sitemgr	ru	Сворачиватьь треды
@@ -104,6 +105,7 @@ common prefix of the image-name (a number starting with 1 will be appended)	site
 configure module properties	sitemgr	ru	Настройка параметров модуля
 configure sitemgr	sitemgr	ru	Настройка МенеджераСайта(SitMgr)
 configure website	sitemgr	ru	Настройка веб-сайта
+contact fields to show	sitemgr	ru	Поля контакта для просмотра
 contact the administrator.	sitemgr	ru	Связаться с администратором.
 content areas	sitemgr	ru	Области содержимого
 content blocks	sitemgr	ru	Блоки содержимого
@@ -117,6 +119,7 @@ css styles	sitemgr	ru	стили CSS
 currency code of the value specified in amount (eg. usd, eur)	sitemgr	ru	Код валюты значения указываемого в поле количества (amount) (напр. USD,EUR,RUR)
 current section	sitemgr	ru	Текущая Секция
 custom	sitemgr	ru	пользовательский
+custom etemplate for the contactform	sitemgr	ru	Пользовательский е-Шаблон для формы контактов
 default	sitemgr	ru	По умолчанию
 default home page id number	sitemgr	ru	Идентификационный номер домашней страницы по умолчанию
 define websites	common	ru	Определить веб-сайты
@@ -128,9 +131,11 @@ delete this block	sitemgr	ru	Удалить данный блок
 delete this guestbook	sitemgr	ru	Удалить данную гостевую книгу
 delete version	sitemgr	ru	Удалить Версию
 deleting all data for %1	sitemgr	ru	Удаление всех данный %1
+department	sitemgr	ru	Отдел
+descending	sitemgr	ru	По убыванию
 details for language %1 (%2)	sitemgr	ru	Подробности для языка %1 (%2)
-directory is not writable by the webserver --> disabling upload	sitemgr	ru	У веб-сервера НЕТ прав на запись в папку --> отклчение публикации
 discussions	sitemgr	ru	Обсуждения (дискуссии)
+display contact	sitemgr	ru	Показать Контакт
 display link to autoregistration below login form?	sitemgr	ru	Показывать ссылку авторегстрации в нижней части формы входа?
 do you realy want to delete the selected categories (including all pages), pages and blocks?	sitemgr	ru	Вы уверены, что желаете удалить выбранные Категории (включая все страницы), Страницы и Блоки?
 do you realy want to delete this block?	sitemgr	ru	Вы правда желаете удалить этот блок?
@@ -139,7 +144,6 @@ do you want to delete them?	sitemgr	ru	Вы желаете удалить их?
 documentation	sitemgr	ru	Документация
 domain-name (offical dns-name eg. www.egroupware.org) if you want to give the user a choice between searching this site or the whole web. leaving it empty allows to search the web only.	sitemgr	ru	Доменное имя (официальное DNS-имя напр. www/eGroupWare.ru) если вы желаете дать пользовател. выбор между поиском по этому сайту или в интернете. Оставьте пустым для поиска только в интернете.
 don't have an account?	sitemgr	ru	Нет учетной записи?
-don't use egroupware css ">" separator (for templates that uses images/simbols for lists)	sitemgr	ru	Не использовать разделитель egroupware css ">" (для шаблонов которые используют картинки/символы для списков)
 done	sitemgr	ru	Готово
 dont ask	sitemgr	ru	Не спрашивайте
 download as zip-archiv	sitemgr	ru	скачать как ZIP-архив
@@ -181,6 +185,8 @@ error writing to the database: %1.	sitemgr	ru	Ошибка записи в ба�
 everybody	sitemgr	ru	Каждый
 exact phrase	sitemgr	ru	Фраза полностью
 expand current category	sitemgr	ru	Раскрыть данную категорию
+export	sitemgr	ru	экспорт
+fax	sitemgr	ru	Факс
 file %1 is not readable by the webserver !!!	sitemgr	ru	Файл %1 не может быть прочитан веб-сервером !!!
 file %1 is outside the docroot of the webserver !!!<br>this module does not allow - for security reasons - to open files outside the docroot.	sitemgr	ru	Файл %1 находится вне корня документов веб-сервера !!! <br> Этот модуль в целях безопасности не позволяет открывать файлы вне корневой папки документов.
 file contents	sitemgr	ru	Содержимое файла
@@ -224,6 +230,7 @@ if nonsecure show link to:	sitemgr	ru	Если не защищено, перен
 if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	ru	Если вы до сих пор так не сделали, создайте пользователя для публичного просмотра сайта. Рекомендуемое имя: anonymous.
 image type	sitemgr	ru	тип изображения
 implies read permission	sitemgr	ru	подразумевает доступ на чтение
+import	sitemgr	ru	Импорт
 index	sitemgr	ru	Индекс
 individual access permission	sitemgr	ru	Индивидуальные права на доступ
 individual access permissions	sitemgr	ru	Индивидуальные права на доступ
@@ -236,7 +243,6 @@ last entries to the guestbook	sitemgr	ru	Последние записи в го
 latest reply	sitemgr	ru	Последние отзывы
 links for the tabs (comma seperated)	sitemgr	ru	Ссылки на закладки (через запятую)
 list of permitted modules specific to content area %1	sitemgr	ru	Список разрешенных модулей для определенных (специальных) областей содержимого %1
-loged in as:	sitemgr	ru	Вошли как:
 login	sitemgr	ru	Вход
 login name	sitemgr	ru	Имя для Входа
 main content	sitemgr	ru	Основное содержимое
@@ -255,8 +261,6 @@ manage site content	sitemgr	ru	Управление Наполнением Са�
 manage site-wide content	sitemgr	ru	Управление наполнением всего сайта
 manage site-wide module properties	sitemgr	ru	Управление параметрами модулей всего сайта
 manage translations	sitemgr	ru	Управление переводами
-manange notifications	sitemgr	ru	Управление напоминаниями
-manange notifications messages	sitemgr	ru	Управление Сообщениями Напоминаний
 master list of permitted modules	sitemgr	ru	Базовый список разрешенных модулей
 maximal category depth to be shown	sitemgr	ru	Максимальная глубина показа категорий
 maximal page depth to be shown	sitemgr	ru	Максимальная глубина показа страниц
@@ -299,7 +303,7 @@ no, chooser only (for side-areas)	sitemgr	ru	Нет, только селекто
 no, chooser with preview	sitemgr	ru	Нет, селектор с предварительным просмотром
 not	common	ru	не
 not yet translated	sitemgr	ru	еще не переведено
-note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	ru	Заметьте, что Вы можете получить это сообщение если ваши настройки - некорректны. Например, если config.inc.php не найден в папке, которую Вы указали.
+note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr-link	ru	Заметьте, что Вы можете получить это сообщение если ваши настройки - некорректны. Например, если config.inc.php не найден в папке, которую Вы указали.
 notification message not found !!!	sitemgr	ru	Сообщение Уведомления не найдено !!!
 notification not found !!!	sitemgr	ru	Уведомление не найдено !!!
 number of results	sitemgr	ru	Количество результатов
@@ -339,6 +343,7 @@ plain selectbox	sitemgr	ru	Плоская рамка выбора
 please enter a name for that site !	sitemgr	ru	Пожалуйста, введите имя этого сайта !
 please sign the guestbook	sitemgr	ru	Пожалуйста, подпишите гостевую книгу
 post a message to this thread	sitemgr	ru	Создать Сообщение В Этой Нити
+prefix	sitemgr	ru	Префикс
 prepublished	sitemgr	ru	предварительно опубликовано
 preunpublished	sitemgr	ru	предварительно снято с публикации
 previous	sitemgr	ru	Предыдущий
@@ -413,11 +418,10 @@ sitemgr	common	ru	Управление Сайтом
 sitemgr manual	sitemgr	ru	Руководство по Управлению Сайтом
 sitemgr options	sitemgr	ru	Настройки Управления Сайтом
 sitemgr setup instructions	sitemgr	ru	Инструкции по установке Управления Сайтом
-sitemgr setup page	sitemgr	ru	страница установки управления сайтом
+sitemgr setup page	sitemgr-link	ru	страница установки управления сайтом
 sitemgr web content manager	common	ru	Управление веб-содержимым Управления Сайтом
 sitemgr websites	sitemgr	ru	Веб-сайты Управления Сайтом
 sitemgr-link	common	ru	Веб-сайт
-sitio	sitemgr	ru	Сайт (?)
 size	sitemgr	ru	Размер
 sorry, no content found for you search criteria	sitemgr	ru	Извините, но ничего не найдено по заданным критериям поиска
 sort order	sitemgr	ru	Порядок Сортировки
@@ -439,6 +443,7 @@ template select	sitemgr	ru	Выбор шаблона
 text allignment	sitemgr	ru	Выравнивание текста
 text of page links	sitemgr	ru	Текст страницы ссылок
 textarea	sitemgr	ru	область текста
+the anonymous user needs read it!	sitemgr	ru	Анонимному пользователю нужно читать это!
 the category to display, 0 for complete table of contents	sitemgr	ru	Категория для показа, 0 для полного содержания
 the complete url or path to a file to be included	sitemgr	ru	Полный URL или путь к включаемому файлу
 the config.inc.php file needs to be edited to point to the egroupware directory. copy the config.inc.php.template file to config.inc.php and then edit it.	sitemgr	ru	Необходимо отредактировать файл config.inc.php, чтобы указать каталог eGroupWare. Скопируйте файл config.inc.php.template в config.inc.php и потом отредактируйте последний.
@@ -486,6 +491,7 @@ this module create a link for downloading a file(s) from the vfs	sitemgr	ru	Эт
 this module demonstrates how handling data stored in xml and building an interacvite interface from it	sitemgr	ru	Этот модуль демонстрирует как обрабатываются данные, хранимые в XML, и как из них создаётся интерактивный интерфейс
 this module displays a login form	sitemgr	ru	Этот модуль показывает форму входа
 this module displays any kind of navigation element.	sitemgr	ru	Этот модуль показывает навигационный элемент любого типа.
+this module displays block from a adddressbook group.	sitemgr	ru	Этот модуль показывает блок из Группы Адресной книги.
 this module displays bookmarks in a javascript based tree	sitemgr	ru	Этот модуль показывает закладки и виде дерева, основанного на javascript'е
 this module displays the current month	sitemgr	ru	Этот модуль показывает текущий месяц
 this module displays the egw forums on the web site	sitemgr	ru	Этот модуль показывает на сайте форумы eGW
@@ -528,6 +534,7 @@ updating to new category system	sitemgr	ru	Обновление до новой 
 url pointing to the image-directory	sitemgr	ru	Ссылка указывающая на папку изображений
 url to sitemgr-site	sitemgr	ru	ссылка на сайт
 use current user selected language	sitemgr	ru	Использовать язык выбранный текущим пользователем
+use default	sitemgr	ru	использовать по умолчанию
 use phpnuke themes instead of templates	sitemgr	ru	Использовать темы hpuke dvtcnj if,kjyjd
 use this module for displaying book ads for the amazon web site	sitemgr	ru	Используйте этот модуль для показа книжных добавок для веб сайта амазон
 use this module for displaying wiki-pages	sitemgr	ru	Используйте этот модуль для показа веб-страниц
@@ -548,7 +555,6 @@ week	sitemgr	ru	неделя
 what do you want to do with existing translations of categories and pages for this language?	sitemgr	ru	Что Вы хотите сделать с существующими переводами категорий и страниц для этого языка?
 when is a tab activated?	sitemgr	ru	Когда вкладка активирована
 which application should be executed after login?	sitemgr	ru	Какое приложение должно быть выполнено после входа?
-which main categories schuld be included (comma seperated list, empty for all)	sitemgr	ru	Какие главные категории должны быть включены (разделенный запятыми список, пусто для всех)
 wiki	sitemgr	ru	Вики
 wiki startpage	sitemgr	ru	Стартовая страница вики
 with which view should the module be displayed in the beginning?	sitemgr	ru	С каким видом должен быть показан модуль вначале?
@@ -575,8 +581,8 @@ you must be an admin to manage module properties.	sitemgr	ru	Вы должны �
 you must be an administrator to setup the site manager.	sitemgr	ru	Вы должны быть адмиистратором для установки Управления Сайтом.
 you removed one ore more languages from your site languages.	sitemgr	ru	Вы удалили один или более языков из списка поддерживаемых вашим сайтом.
 you will remove the message in the following language from your notification system:	sitemgr	ru	Вы удалите из своей системы напоминаний сообщение на следующем языке.
-your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr	ru	Ваш администратор еще не установил систему управления содержимым для публичного просмотра. Сообщите своему администратору чтобы он позаботился об этом.
+your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr-link	ru	Ваш администратор еще не установил систему управления содержимым для публичного просмотра. Сообщите своему администратору чтобы он позаботился об этом.
 your calendar	sitemgr	ru	Ваш Календарь
 your comment	sitemgr	ru	Ваш комментарий
-your connection is not safe.	sitemgr	ru	Ваше подсоединение небезопасно.
 your name	sitemgr	ru	Ваше имя
+zip code	sitemgr	ru	Почтовый индекс

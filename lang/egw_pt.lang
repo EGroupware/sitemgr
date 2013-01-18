@@ -9,9 +9,9 @@
 1 month	common	pt	1 Mês
 1 week	common	pt	1 Semana
 <b>autoregistration is not enabled / configured in the registration app !!!</b><br>you need to do so, to get the autoregistration link working.	sitemgr	pt	<b>O registo automático não está activado / configurado na aplicação de registo !!!</b><br>YÉ necessário fazê-lo para que a ligação do registo automático funcione.
-<b>want more templates?</b><br />just download one from the template gallery at %1www.egroupware.org%2 or use a %3mambo open source%4 version 4.5 compatible template eg. from %5. unpack the downloaded template in your templates directory (%6).	sitemgr	pt	<b>Deseja mais modelos?</b><br />Basta transferir um da galeria de modelos disponível em %1www.eGroupWare.org%2 ou utilizar os modelos compatíveis da Versão 4.5 do %3Mambo Open Source%4, ex.: de %5. Coloque o modelo transferido na sua directoria de modelos (%6).
 a simple picture galery	sitemgr	pt	Uma galeria de imagens simples
 actif	sitemgr	pt	Activo/a
+actions	sitemgr	pt	Acções
 add a category	sitemgr	pt	Adicionar uma categoria
 add a new application	sitemgr	pt	Adicionar uma nova aplicação
 add a new guestbook	sitemgr	pt	Adicionar um novo livro de visitas
@@ -22,6 +22,7 @@ add new page to this category	sitemgr	pt	Adicionar uma nova página a esta categ
 add page	sitemgr	pt	Adicionar página
 add page to category	sitemgr	pt	Adicionar página à categoria
 add website	sitemgr	pt	Adicionar sítio Web
+address line 2	sitemgr	pt	Linha de endereço 2
 administration	sitemgr	pt	Administração
 administrative menu	sitemgr	pt	Menu administrativo
 administrators	sitemgr	pt	Administradores
@@ -48,6 +49,7 @@ are contributors allowed to define new guestbooks?	sitemgr	pt	Os colaboradores p
 are you sure you want to delete site %1 and all its content? you cannot retrieve it if you continue.	sitemgr	pt	Tem a certeza de que deseja eliminar o sítio %1 e todo o seu conteúdo? Se continuar, não será possível recuperá-lo.
 are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	pt	Tem a certeza de que deseja eliminar a categoria %1 e as páginas associadas? Se continuar, não será possível recuperar as páginas eliminadas.
 as	common	pt	como
+ascending	sitemgr	pt	Ordem crescentes
 asin[=title] pairs (title is optional)	sitemgr	pt	ASIN[=título] pares (título é opcional)
 attempt to access information outside current website	sitemgr	pt	Tentar aceder a informação noutro sítio Web
 attempt to edit non-editable block	sitemgr	pt	Tentar editar bloco não editável
@@ -56,7 +58,7 @@ automatically generated notification	sitemgr	pt	Aviso gerado automaticamente
 back to module manager	sitemgr	pt	Voltar ao gestor de módulos
 back to the list of languages	sitemgr	pt	Voltar à lista de idiomas
 basic settings	sitemgr	pt	Configurações base
-before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr	pt	Antes do sítio Web público ser visível, é necessário configurar a localização e as preferências. Por favor, aceda à página de configurações do gestor de sítios clicando nesta ligação:
+before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr-link	pt	Antes do sítio Web público ser visível, é necessário configurar a localização e as preferências. Por favor, aceda à página de configurações do gestor de sítios clicando nesta ligação:
 block not found.	sitemgr	pt	Bloco não encontrado.
 block reloaded	sitemgr	pt	Bloco recarregado
 block returned no content.	sitemgr	pt	Bloco não retornou conteúdo.
@@ -72,6 +74,7 @@ category description	sitemgr	pt	Descrição da categoria
 category manager	sitemgr	pt	Gestor da categoria
 category name	sitemgr	pt	Nome da categoria
 category saved	sitemgr	pt	Categoria guardada
+center	sitemgr	pt	Centro
 changes saved.	sitemgr	pt	Alterações guardadas.
 check here after every upgrade	sitemgr	pt	Marque aqui depois de cada actualização
 check to hide from condensed site index.	sitemgr	pt	Marque para ocultar no índice do sítio condensado
@@ -79,18 +82,16 @@ choose a category	sitemgr	pt	Escolher uma categoria
 choose a format	sitemgr	pt	Escolher um formato
 choose a guestbook	sitemgr	pt	Escolher um livro de visitas
 choose language	sitemgr	pt	Escolher idioma
-choose news layout	sitemgr	pt	Escolher apresentação de notícias
 choose template	sitemgr	pt	Escolher modelo
 choose the categories to display	sitemgr	pt	Escolher as categorias a apresentar
 choose the valid html type (note: not all icons are available):	sitemgr	pt	Escolher o tipo de HTML válido (nota: nem todos os ícones estão disponíveis):
 choose your site's theme or template.  note that if you changed the above checkbox you need to save before choosing a theme or template.	sitemgr	pt	Escolha o tema ou modelo do seu sítio. Tenha em atenção que se fez alterações na caixa de selecção anterior, é necessário guardá-las antes de escolher um tema ou modelo.
-click here to login through a safe connection.	sitemgr	pt	Clique aqui para aceder através de uma ligação segura.
 code file	sitemgr	pt	Ficheiro de código
 codebase url	sitemgr	pt	URL codebase
 collapse threads	sitemgr	pt	Condensar conversas
+comment	sitemgr	pt	Comentário
 commit changes	sitemgr	pt	Commit de alterações
 common prefix of the image-name (a number starting with 1 will be appended)	sitemgr	pt	Prefixo comum do nome de imagem (deve ser um número começado por 1)
-complete news	sitemgr	pt	Notícias concluídas
 configure module properties	sitemgr	pt	Configurar propriedades do módulo
 configure sitemgr	sitemgr	pt	Configurar gestor de sítios
 configure website	sitemgr	pt	Configurar sítio Web
@@ -117,16 +118,15 @@ delete this block	sitemgr	pt	Eliminar este bloco
 delete this guestbook	sitemgr	pt	Eliminar este livro de visitas
 delete version	sitemgr	pt	Eliminar versão
 deleting all data for %1	sitemgr	pt	A eliminar todos os dados de %1
+department	sitemgr	pt	Departamento
+descending	sitemgr	pt	Ordem decrescente
 details for language %1 (%2)	sitemgr	pt	Detalhes para o idioma %1 (%2)
-directory for uploads (images etc.)	sitemgr	pt	Directoria para envios (imagens, etc.)
-directory is not writeable by webserver. please correct this situation!	sitemgr	pt	A directoria não é editável pelo servidor Web. Por favor, corrija esta situação!
 discussions	sitemgr	pt	Debates
 display link to autoregistration below login form?	sitemgr	pt	Exibir ligação de auto-registo no fim do formulário de acesso?
 do you realy want to delete the selected categories (including all pages), pages and blocks?	sitemgr	pt	Deseja eliminar as categorias (incluindo todas as páginas), páginas e blocos seleccionados ?
 do you realy want to delete this block?	sitemgr	pt	Tem a certeza de que deseja eliminar este bloco?
 do you realy want to delete this page?	sitemgr	pt	Tem a certeza de que deseja eliminar esta página?
 do you want to delete them?	sitemgr	pt	Tem a certeza de que deseja eliminá-los?
-do you want to publish a rss feed for this news category	sitemgr	pt	Deseja publicar uma fonte RSS para esta categoria de notícias
 documentation	sitemgr	pt	Documentação
 domain-name (offical dns-name eg. www.egroupware.org) if you want to give the user a choice between searching this site or the whole web. leaving it empty allows to search the web only.	sitemgr	pt	Nome de domínio (nome oficial do DNS. Ex: www.eGroupWare.org) se quiser dar ao utilizador a escolha entre pesquisar neste sítio ou em toda a Web. Ao deixar vazio, possibilita apenas a pesquisa em toda a Web.
 don't have an account?	sitemgr	pt	Ainda não tem uma conta?
@@ -147,20 +147,27 @@ edit this block	sitemgr	pt	Editar este bloco
 edit website	sitemgr	pt	Editar sítio Web
 egw users	sitemgr	pt	Utilizadores do eGroupWare
 element successfully deleted.	sitemgr	pt	Elemento eliminado com sucesso.
+email address	sitemgr	pt	endereço de correio electrónico
 enter a name	sitemgr	pt	Inserir um nome
 enter the block content here	sitemgr	pt	Inserir o conteúdo do bloco aqui
 enter the email to be notified about changes of the website.	sitemgr	pt	Insira o endereço de correio electrónico para ser avisado das alterações do sítio Web.
 enter the email to be notified about changes of the website:	sitemgr	pt	Insira o endereço de correio electrónico para ser avisado das alterações do sítio Web:
 enter the page content here	sitemgr	pt	Inserir o conteúdo da página aqui
 enterprise knowledge articles repository	sitemgr	pt	Incluir o repositório de artigos do conhecimento
+entry deleted	sitemgr	pt	Registo eliminado
 entry duplicated.	sitemgr	pt	Registo duplicado.
+entry saved	sitemgr	pt	Registo guardado
 entry saved.	sitemgr	pt	Registo guardado.
 error accessing page	common	pt	Erro ao aceder à página
 error deleting the element.	sitemgr	pt	Erro ao eliminar o elemento.
+error deleting the entry!!!	sitemgr	pt	Erro ao eliminar o registo!!!
+error saving the entry!!!	sitemgr	pt	Erro ao guardar o registo!!!
 error writing to the database.	sitemgr	pt	Erro ao escrever na base de dados.
 error writing to the database: %1.	sitemgr	pt	Erro ao escrever na base de dados: %1.
 everybody	sitemgr	pt	Todos
 expand current category	sitemgr	pt	Expandir a categoria actual
+export	sitemgr	pt	Exportar
+fax	sitemgr	pt	Fax
 file %1 is not readable by the webserver !!!	sitemgr	pt	O ficheiro %1 não é legível pelo servidor Web !!!
 file %1 is outside the docroot of the webserver !!!<br>this module does not allow - for security reasons - to open files outside the docroot.	sitemgr	pt	O ficheiro %1 é externo ao docroot do servidor Web !!!<br>Este módulo NÃO permite - por razões de segurança - a abertura de ficheiros fora do docroot.
 file contents	sitemgr	pt	Conteúdo de ficheiro
@@ -197,10 +204,12 @@ horizontal	sitemgr	pt	Horizontal
 html frame	sitemgr	pt	Frame HTML
 html module	sitemgr	pt	Módulo HTML
 i'm sorry, you do not have write permissions for any site categories.	sitemgr	pt	Lamentamos, mas não tem permissões de escrita em nenhuma das categorias do sítio.
+id	sitemgr	pt	ID
 if nonsecure show link to:	sitemgr	pt	Se não for seguro redireccionar para:
 if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	pt	Se ainda não o fez, crie um utilizador para uso geral dos visitante ao sítio. Nome recomendado: anonymous.
 image type	sitemgr	pt	Tipo de imagem
 implies read permission	sitemgr	pt	Implica permissões de leitura
+import	sitemgr	pt	Importar
 index	sitemgr	pt	Índice
 individual access permission	sitemgr	pt	Permissão de acesso individual
 individual access permissions	sitemgr	pt	Permissões de acesso individual
@@ -211,7 +220,6 @@ languages the site user can choose from	sitemgr	pt	Idiomas disponíveis para esc
 last entries to the guestbook	sitemgr	pt	Últimos registos no livro de visitas
 latest reply	sitemgr	pt	Última resposta
 list of permitted modules specific to content area %1	sitemgr	pt	Lista de módulos específicos permitidos para a área de conteúdos %1
-loged in as:	sitemgr	pt	Ligado como:
 login	sitemgr	pt	Acesso
 login name	sitemgr	pt	Nome de acesso
 main content	sitemgr	pt	Conteúdo principal
@@ -237,7 +245,6 @@ migrating data for %1 to %2	sitemgr	pt	A migrar dados de %1 para %2
 module %1 is not permitted in this context!	sitemgr	pt	O módulo %1 não é permitido neste contexto!
 module manager	sitemgr	pt	Gestor de módulos
 module: %1, scope: %2, contentarea: %3, viewable: %4	sitemgr	pt	Módulo: %1, Intervalo: %2, Área de conteúdos: %3, Visibilidade: %4
-more news	sitemgr	pt	Mais notícias
 move block down (increase sort order)	sitemgr	pt	Mover bloco para cima (ordem ascendente)
 move block up (decrease sort order)	sitemgr	pt	Mover bloco para baixo (ordem decrescente)
 move to	sitemgr	pt	Mover para
@@ -246,14 +253,12 @@ name has been translated to lower case	sitemgr	pt	O nome foi traduzido em letras
 new application	sitemgr	pt	Nova aplicação
 new guestbook	sitemgr	pt	Novo livro de visitas
 new sitemgr site	sitemgr	pt	Novo sítio do gestor de sítios
-news module	sitemgr	pt	Módulo de notícias
 no additional arguments required	sitemgr	pt	Não é necessário nenhum argumento adicional.
 no anonymous user accounts installed.  notify the administrator.	sitemgr	pt	Não existe nenhuma conta de utilizador anónimo instalada. Avise o administrador.
 no content areas found in selected template	sitemgr	pt	Nenhuma área de conteúdo encontrada no modelo seleccionado.
 no content found	sitemgr	pt	Nenhum conteúdo encontrado.
 no groups defined.	sitemgr	pt	Nenhum grupo definido.
 no link to full index	sitemgr	pt	Nenhuma ligação para o índice completo.
-no matching news item	sitemgr	pt	Nenhum ítem de notícias correspondente.
 no modules permitted for this content area/category	sitemgr	pt	Nenhum módulo permitido para esta categoria/área de conteúdos
 no new modules found !!!	sitemgr	pt	Não foram encontrados novos módulos !!!
 no options available.	sitemgr	pt	Nenhuma opção disponível.
@@ -268,9 +273,7 @@ no, chooser only (for side-areas)	sitemgr	pt	Não, escolha apenas (para áreas d
 no, chooser with preview	sitemgr	pt	Não, escolha com pré-visualização
 not	common	pt	não
 not yet translated	sitemgr	pt	Por traduzir
-note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	pt	Repare que poderá receber esta mensagem se as suas preferências estiverem incorrectas. Por exemplo, se o config.inc.php não for encontrado na directoria que especificou.
-note, this directory has to be writeable by webserver!	sitemgr	pt	Nota: Esta directoria tem de ser editável pelo servidor Web
-number of news items to be displayed on page	sitemgr	pt	Número de itens de notícias a ser apresentados na página
+note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr-link	pt	Repare que poderá receber esta mensagem se as suas preferências estiverem incorrectas. Por exemplo, se o config.inc.php não for encontrado na directoria que especificou.
 on all pages	sitemgr	pt	Em todas as páginas
 only gallery	sitemgr	pt	Apenas na galeria
 only on the first page	sitemgr	pt	Apenas na primeira página
@@ -294,6 +297,7 @@ parent directory	sitemgr	pt	Directoria principal
 parent section:	sitemgr	pt	Secção principal:
 password	sitemgr	pt	Senha
 password that you assigned for the anonymous user account.	sitemgr	pt	Senha que destinou à conta do utilizador anónimo.
+path	sitemgr	pt	Caminho
 path to image-directory '%1' is not valid or readable by the webserver !!!	sitemgr	pt	Caminho para a directoria de imagens '%1' não é válido ou legível pelo servidor Web !!!
 path to zip binary if not in path of the webserver	sitemgr	pt	Caminho para o zip binary se não for o mesmo do que o servidor Web
 percentage	sitemgr	pt	Percentagem
@@ -302,6 +306,7 @@ plain selectbox	sitemgr	pt	Caixa de selecção
 please enter a name for that site !	sitemgr	pt	Por favor, atribua um nome para esse sítio !
 please sign the guestbook	sitemgr	pt	Por favor, assine o livro de visitas
 post a message to this thread	sitemgr	pt	Deixe uma mensagem nesta conversa
+prefix	sitemgr	pt	Prefixo
 prepublished	sitemgr	pt	Pré-publicado
 preunpublished	sitemgr	pt	Pré-não-publicado
 previous	sitemgr	pt	Anterior
@@ -316,6 +321,7 @@ register new modules	sitemgr	pt	Registar novos módulos
 reload	sitemgr	pt	Recarregar
 remember me	common	pt	Lembrar-se de mim
 replies	sitemgr	pt	Respostas
+required	sitemgr	pt	Necessário
 required fields	sitemgr	pt	Campos obrigatórios
 reset	sitemgr	pt	Repor
 return to forums	sitemgr	pt	Voltar aos fóruns
@@ -343,7 +349,6 @@ show contents of a directory with subdirectories	sitemgr	pt	Exibir conteúdos de
 show current section only	sitemgr	pt	Exibir secção actual apenas
 show details for the applications	sitemgr	pt	Exibir detalhes das aplicações
 show only (in the next field) selected templates	sitemgr	pt	Exibir apenas (no campo seguinte) os modelos seleccionados
-show only headers containing links for complete news	sitemgr	pt	Exibir apenas os cabeçalhos que contenham ligações para notícias concluídas
 show path?	sitemgr	pt	Exibir caminho?
 show searchbox	sitemgr	pt	Exibir caixa de pesquisa
 show site index	sitemgr	pt	Exibir índice do sítio
@@ -365,10 +370,11 @@ sitemgr	common	pt	Gestor de sítios
 sitemgr manual	sitemgr	pt	Manual do gestor de sítios
 sitemgr options	sitemgr	pt	Opções do gestor de sítios
 sitemgr setup instructions	sitemgr	pt	Instruções de configuração do gestor de sítios
-sitemgr setup page	sitemgr	pt	Página de configuração do gestor de sítios
+sitemgr setup page	sitemgr-link	pt	Página de configuração do gestor de sítios
 sitemgr web content manager	common	pt	Gestor de conteúdos Web do gestor de sítios
 sitemgr websites	sitemgr	pt	Sítios Web do gestor de sítios
 sitemgr-link	common	pt	Sítio Web
+size	sitemgr	pt	Tamanho
 sort order	sitemgr	pt	Ordenar
 state	sitemgr	pt	Estado
 strip html from block content?	sitemgr	pt	Remover o HTML do conteúdo do bloco?
@@ -452,7 +458,6 @@ this module provides a complete table of contents, it is automatically used by t
 this module provides a condensed table of contents, meant for side areas	sitemgr	pt	Este módulo fornece uma tabela de conteúdos condensada. Foi pensado para áreas laterais.
 this module provides the path to the element currently shown	sitemgr	pt	Este módulo fornece o caminho ao elemento exibido actualmente
 this module provides the site index, it is automatically used by the index get parameter	sitemgr	pt	Este módulo fornece o índice do sítio. É utilizado automaticamente pelo parâmetro do índice GET
-this module publishes news from the news_admin application on your website. be aware of news_admin's acl restrictions.	sitemgr	pt	Este módulo publica notícias da aplicação Gestor de notícias do seu sítio Web. Tenha em conta as restrições das ACL do Gestor de notícias.
 this module show the status / percentage of the translation of egw	sitemgr	pt	Este módulo exibe o estado / percentagem da tradução do eGroupWare
 this must be an absolute directory location.  <b>no trailing slash</b>.	sitemgr	pt	Tem de ser uma localização de directoria absoluta. <b>Sem a barra final</b>.
 this should be a comma-separated list of language-codes.	sitemgr	pt	Esta devia ser uma lista de códigos de idiomas separados por vírgulas.
@@ -471,9 +476,9 @@ up to parent	sitemgr	pt	Subir para principal
 up to table of contents	sitemgr	pt	Subir para tabela de conteúdos
 update notification	sitemgr	pt	Actualizar aviso
 updating to new category system	sitemgr	pt	A actualizar para o novo sistema de categorias
-url of directory for uploads (images etc.)	sitemgr	pt	URL da directoria para envios (imagens, etc.)
 url pointing to the image-directory	sitemgr	pt	URL a apontar para a directoria de imagens
 url to sitemgr-site	sitemgr	pt	URL do sítio do gestor de sítios
+use default	sitemgr	pt	Utilizar definições por omissão
 use phpnuke themes instead of templates	sitemgr	pt	Utilizar temas phpNuke em vez de modelos
 use this module for displaying book ads for the amazon web site	sitemgr	pt	Utilize este módulo para apresentar publicidade de livros do sítio Web da Amazon.
 use this module for displaying wiki-pages	sitemgr	pt	Utilizar este módulo para apresentar páginas do Wiki
@@ -518,8 +523,8 @@ you must be an admin to edit the site header and footer.	sitemgr	pt	É necessár
 you must be an admin to manage module properties.	sitemgr	pt	É necessário ser um administrador para gerir as propriedades de módulos
 you must be an administrator to setup the site manager.	sitemgr	pt	É necessário ser um administrador para configurar o gestor de sítios.
 you removed one ore more languages from your site languages.	sitemgr	pt	Removeu um ou mais idiomas do seu sítio de idiomas.
-your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr	pt	O administrador não configurou o gestor de conteúdos Web para visualização pública. Contacte o administrador avisando-o deste facto.
+your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr-link	pt	O administrador não configurou o gestor de conteúdos Web para visualização pública. Contacte o administrador avisando-o deste facto.
 your calendar	sitemgr	pt	O seu calendário
 your comment	sitemgr	pt	O seu comentário
-your connection is not safe.	sitemgr	pt	A sua ligação não é segura.
 your name	sitemgr	pt	O seu nome
+zip code	sitemgr	pt	Código postal

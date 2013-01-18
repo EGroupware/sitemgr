@@ -3,8 +3,8 @@
 '%1' is no valid sitemgr-site directory !!!	sitemgr	lv	"%1" nav derīga sitemgr-site direktorija!!!
 (do not put spaces or punctuation in the name field.)	sitemgr	lv	(Neliec atstarpes vai punktus Vārda laukā)
 <b>autoregistration is not enabled / configured in the registration app !!!</b><br>you need to do so, to get the autoregistration link working.	sitemgr	lv	<b>Autoreģistrācija nav ieslēgta / configured in the registration app !!!</b><br>You need to do so, to get the autoregistration link working.
-<b>want more templates?</b><br />just download one from the template gallery at %1www.egroupware.org%2 or use a %3mambo open source%4 version 4.5 compatible template eg. from %5. unpack the downloaded template in your templates directory (%6).	sitemgr	lv	<b>Velies vairāk veidnes?</b><br/> Tikai lejupielādē vienu no veidņu galerijām %www.eGroupWare.org%2 vai lieto %3Mambo Open Source%4 Version 4.5 savietojamu veidņu <i>eg.</i> no %5.Atpako lejupielādēto veidni savā veidņu direktorijā(%6).
 a simple picture galery	sitemgr	lv	Vienkārša bilžu galerija
+actions	sitemgr	lv	Darbības
 add a category	sitemgr	lv	Pievienot kategoriju
 add a new application	sitemgr	lv	Pievienot jaunu aplikāciju
 add a new guestbook	sitemgr	lv	Pievienot jaunu viesu grāmatu
@@ -15,6 +15,7 @@ add new page to this category	sitemgr	lv	Pievienot jaunu lapu šai kategorijai
 add page	sitemgr	lv	Pievienot lapu
 add page to category	sitemgr	lv	Pievienot lapu kategorijai
 add website	sitemgr	lv	Pievienot tīmekļa vietni
+address line 2	sitemgr	lv	Adreses 2. rindiņa
 administration	sitemgr	lv	Administrēšana
 administrative menu	sitemgr	lv	Administratīvā izvēlne
 administrators	sitemgr	lv	administratori
@@ -38,6 +39,7 @@ are contributors allowed to define new guestbooks?	sitemgr	lv	Vai atbalstītāji
 are you sure you want to delete site %1 and all its content? you cannot retrieve it if you continue.	sitemgr	lv	Vai esi pārliecināts, ka vēlies dzēst vietni %1 un visu tās saturu? Tu nevarēsi atjaunot, ja turpināsi.
 are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	lv	Vai esi drošs, ka vēlies dzēst kategoriju %1 un visas ar to saistītās lapas? Tu nevarēsi atgūt izdzēstās lapas, ka turpināsi.
 as	common	lv	kā
+ascending	sitemgr	lv	Augošs
 asin[=title] pairs (title is optional)	sitemgr	lv	ASIN[=virsraksts] pāris (virsraksts pēc izvēles)
 attempt to access information outside current website	sitemgr	lv	Mēģināt piekļūt informāciju ārpus konkrētās tīmekļa vietnes
 attempt to edit non-editable block	sitemgr	lv	Mēģināt rediģēt nerediģējamu bloku
@@ -45,7 +47,7 @@ automatic index	sitemgr	lv	Automātiska indeksēšana
 back to module manager	sitemgr	lv	Atpakaļ uz moduļa pārvaldnieku
 back to the list of languages	sitemgr	lv	Atpakaļ uz valodu sarakstu
 basic settings	sitemgr	lv	Pamata uzstādījumi
-before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr	lv	Pirms punliska tīmekļa vietne var tikt parādīta, tev jākonfigurē dažādi novietojumi un izvēles. Lūdzu dodies uz sitemgr iestatīšanas lapu pēc sekojošas saites:
+before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr-link	lv	Pirms punliska tīmekļa vietne var tikt parādīta, tev jākonfigurē dažādi novietojumi un izvēles. Lūdzu dodies uz sitemgr iestatīšanas lapu pēc sekojošas saites:
 block not found.	sitemgr	lv	Bloks netika atrasts
 block reloaded	sitemgr	lv	Bloks pārlādēts
 block returned no content.	sitemgr	lv	Bloks neatgrieza saturu
@@ -61,6 +63,7 @@ category description	sitemgr	lv	Sadaļas apraksts
 category manager	sitemgr	lv	Sadaļas menedžeris
 category name	sitemgr	lv	Sadaļas nosaukums
 category saved	sitemgr	lv	Sadaļa saglabāta
+center	sitemgr	lv	Centrs
 changes saved.	sitemgr	lv	Izmaiņas saglabātas.
 check here after every upgrade	sitemgr	lv	Ieķeksē šeit pēc katrām izmaiņām
 check to hide from condensed site index.	sitemgr	lv	Ieķeksē lai nerādītu īsajā satura sarakstā
@@ -70,6 +73,7 @@ choose language	sitemgr	lv	Izvēlies valodu
 choose template	sitemgr	lv	Izvēlies tēmu
 choose the categories to display	sitemgr	lv	Izvēlies sadaļas
 collapse threads	sitemgr	lv	Sagraut draudus
+comment	sitemgr	lv	Komentārs
 commit changes	sitemgr	lv	Nodot izmaiņas
 common prefix of the image-name (a number starting with 1 will be appended)	sitemgr	lv	kopējs prefikss attēla nosaukumam (tiks pievienots skaitlis, kurš sākas ar 1)
 configure module properties	sitemgr	lv	Konfigurēt moduļa atribūtus
@@ -85,6 +89,7 @@ contributor menu	sitemgr	lv	Atbalstītaja izvēlne
 copyright	sitemgr	lv	Autortiesības
 create new version	sitemgr	lv	Izveidot jaunu versiju
 current section	sitemgr	lv	Patreizējā sekcija
+custom	sitemgr	lv	Mainīt
 default	sitemgr	lv	Noklusējums
 default home page id number	sitemgr	lv	Noklusējuma mājas lapas ID numurs
 define websites	common	lv	Definē tīmekļa vietnes
@@ -96,6 +101,8 @@ delete this block	sitemgr	lv	Dzēst šo bloku
 delete this guestbook	sitemgr	lv	Dzēst šo viesu gramatu
 delete version	sitemgr	lv	Dzēst  versiju
 deleting all data for %1	sitemgr	lv	Dzēš visus %1 datus
+department	sitemgr	lv	Nodaļa
+descending	sitemgr	lv	Dilstošs
 details for language %1 (%2)	sitemgr	lv	valodas %1detaļas (%2)
 discussions	sitemgr	lv	Diskusijas
 display link to autoregistration below login form?	sitemgr	lv	Parādīt saiti automātiskai reģistācijas zem pieteikuma formas?
@@ -103,7 +110,6 @@ do you realy want to delete the selected categories (including all pages), pages
 do you realy want to delete this block?	sitemgr	lv	Tiešām vēlies dzēst šo bloku?
 do you realy want to delete this page?	sitemgr	lv	Tiešām vēlies dzēst šo lapu?
 do you want to delete them?	sitemgr	lv	Vai tu tos vēlies dzēst?
-do you want to publish a rss feed for this news category	sitemgr	lv	Vai vēlies publicēt RSS padevi šai ziņu kategorijai?
 documentation	sitemgr	lv	Dokumentācija
 domain-name (offical dns-name eg. www.egroupware.org) if you want to give the user a choice between searching this site or the whole web. leaving it empty allows to search the web only.	sitemgr	lv	Domēna vārds (oficiālais DNS vārds, piem., www.eGroupWare.org), ja tu vēlies dot lietotājam izvēli starp meklēsanu šajā vietnē vai visā tīmeklī. Ja atstāsi tukšu, tas ļaus meklēt tikai tīmeklī.
 don't have an account?	sitemgr	lv	Nav konta?
@@ -122,15 +128,20 @@ edit site	sitemgr	lv	Rediģēt vietni
 edit site header and footer	common	lv	Rediģēt vietnes galveni un kājeni
 edit this block	sitemgr	lv	Rediģēt šo bloku
 edit website	sitemgr	lv	Rediģēt tīmekļa vietni
+email address	sitemgr	lv	e-pasta adrese
 enter a name	sitemgr	lv	Ievadi vārdu
 enter the block content here	sitemgr	lv	Ievadi bloka saturu šeit
 enter the page content here	sitemgr	lv	Ievadi lapas saturu šeit
+entry saved	sitemgr	lv	Ieraksts saglabāts
 error accessing page	common	lv	Kļūda piekļūstot lapai
 everybody	sitemgr	lv	ikviens
+export	sitemgr	lv	Eksportēt
+fax	sitemgr	lv	Fakss
 file %1 is not readable by the webserver !!!	sitemgr	lv	Datne %1 nav lasāma!!!
 file %1 is outside the docroot of the webserver !!!<br>this module does not allow - for security reasons - to open files outside the docroot.	sitemgr	lv	Datne %1 ir ārpus tīmekļa servera dokumenta saknes!!!<br>Došības apsvērumu dēļ, šis modulis neļauj atvērt datni ārpus dokumenta saknes
 file contents	sitemgr	lv	Datnes saturs
 file download	sitemgr	lv	Lejupielādēt datni
+filename	sitemgr	lv	faila nosaukums
 filesystem path of the directory where xml files are stored	sitemgr	lv	Direktorija datņu sistēmas ceļš, kurā novietoti XML datnes
 filesystem path of the image-directory	sitemgr	lv	Attēlu direktorija datņu sistēmas ceļš
 filesystem path to sitemgr-site directory	sitemgr	lv	Datņu sistēmas ceļš uz sitemgr vietnes direktoriju
@@ -157,8 +168,10 @@ hello	sitemgr	lv	Sveiki
 hello world	sitemgr	lv	Sveika pasaule
 html module	sitemgr	lv	HTML modulis
 i'm sorry, you do not have write permissions for any site categories.	sitemgr	lv	Atvainojiet, jums nav rakstīšanas atļaujas nevienas vietnes kategorijai
+id	sitemgr	lv	ID
 image type	sitemgr	lv	attēla tips
 implies read permission	sitemgr	lv	ietver lasīšanas atļauju
+import	sitemgr	lv	Importēt
 index	sitemgr	lv	Indekss
 individual access permission	sitemgr	lv	Individuāla piekļuves atļauja
 individual access permissions	sitemgr	lv	Individuālas piekļuves atļaujas
@@ -189,7 +202,6 @@ migrating data for %1 to %2	sitemgr	lv	Parvietojošies dati %1 uz %2
 module %1 is not permitted in this context!	sitemgr	lv	Modulis %1 nav atļauts šajā kontekstā
 module manager	sitemgr	lv	Moduļu pārvaldnieks
 module: %1, scope: %2, contentarea: %3, viewable: %4	sitemgr	lv	Modulis:%1, Iespēja:%2, Satura lauks:%3, redzams:%4
-more news	sitemgr	lv	Vairāk ziņu
 move block down (increase sort order)	sitemgr	lv	Pārvietot bloku lejā (pieaugošā secībā)
 move block up (decrease sort order)	sitemgr	lv	Pārvietot bloku augšā (disltošā secībā)
 move to	sitemgr	lv	Pārvietot uz
@@ -197,13 +209,11 @@ name	sitemgr	lv	Vārds
 new application	sitemgr	lv	Jauna aplikācija
 new guestbook	sitemgr	lv	Jauna viesu grāmata
 new sitemgr site	sitemgr	lv	Jauna sitemgr vietne
-news module	sitemgr	lv	Ziņu modulis
 no anonymous user accounts installed.  notify the administrator.	sitemgr	lv	NAV INSTALĒTS ANONĪMĀ LIETOTĀJA KONTS. PAZIŅO ADMINISTRATORAM
 no content areas found in selected template	sitemgr	lv	Atzīmētajā veidnē nav atrasti satura lauki
 no content found	sitemgr	lv	Nav atrasts saturs
 no groups defined.	sitemgr	lv	Nav definētas grupas
 no link to full index	sitemgr	lv	Nav saite uz indeksu
-no matching news item	sitemgr	lv	Nav atbilstošas ziņas
 no modules permitted for this content area/category	sitemgr	lv	Šim satura laukam /kategorijai nav atļautu  moduļu
 no new modules found !!!	sitemgr	lv	Moduļi netika atrasti
 no options available.	sitemgr	lv	Nas pieejamas izvēles
@@ -214,8 +224,8 @@ no templates found.	sitemgr	lv	Nev atrastas veidnes
 no thumbnail availible	sitemgr	lv	Nav pieejams sīktēls
 no users defined.	sitemgr	lv	Nav definētu lietotāju
 no websites defined	sitemgr	lv	Nav definētu tīmekļa vietņu
+not	common	lv	ne
 not yet translated	sitemgr	lv	vēl nav iztulkots
-number of news items to be displayed on page	sitemgr	lv	Lapā rādāmo ziņu vienību skaits
 only gallery	sitemgr	lv	Tikai galerija
 or enter the title for a new guestbook	sitemgr	lv	vai ievadi virsrakstu jaunai viesu grāmatai
 other websites	sitemgr	lv	Citas tīmekļa lapas
@@ -237,11 +247,11 @@ password	sitemgr	lv	Parole
 password that you assigned for the anonymous user account.	sitemgr	lv	Parole, kuru tu piešķīri anonīmā lietotaja kontam
 path to image-directory '%1' is not valid or readable by the webserver !!!	sitemgr	lv	Ceļš uz attēlu direktoriju"%1" nav derīgs vai tīmekļa serveris nespēj to izlasīt
 percentage	sitemgr	lv	Procenti
-phpgw users	sitemgr	lv	phpgw lietotāji
 phrases in total	sitemgr	lv	Frāzes kopā
 please enter a name for that site !	sitemgr	lv	Lūdzu ievadi vietnes nosaukumu!
 please sign the guestbook	sitemgr	lv	Lūdzu  paraksties viesu grāmatā
 post a message to this thread	sitemgr	lv	Sūtīt vēstuli uz  šiem draudiem
+prefix	sitemgr	lv	Prefiks
 prepublished	sitemgr	lv	iepriekšizdots
 preunpublished	sitemgr	lv	ieprikšneizdots
 previous	sitemgr	lv	Iepriekšējais
@@ -254,6 +264,7 @@ refresh	sitemgr	lv	Atsvaidzināt
 register new modules	sitemgr	lv	Reģistrēt jaunus moduļus
 reload	sitemgr	lv	Pārlādēt
 replies	sitemgr	lv	Atbild
+required	sitemgr	lv	Pieprasīts
 required fields	sitemgr	lv	Pieprasītie lauki
 reset	sitemgr	lv	Atiestate
 return to forums	sitemgr	lv	Atgriezties uz forumu
@@ -292,9 +303,10 @@ sitemgr	common	lv	ViA iekštīkla administrēšana
 sitemgr manual	sitemgr	lv	Dokumentācija
 sitemgr options	sitemgr	lv	SiteMgr opcijas
 sitemgr setup instructions	sitemgr	lv	SiteMgr iestatīšanas instrukcijas
-sitemgr setup page	sitemgr	lv	sitemgr iestatīšanas lapa
+sitemgr setup page	sitemgr-link	lv	sitemgr iestatīšanas lapa
 sitemgr web content manager	common	lv	SiteMgr tīmekļa satura pārvaldnieks
 sitemgr websites	sitemgr	lv	Sitemgr tīmekļa vietnes
+size	sitemgr	lv	Izmērs
 sort order	sitemgr	lv	Vieta pēc kārtas
 state	sitemgr	lv	Pašreizējais stāvoklis
 subcategories	sitemgr	lv	Apakškategorijas
@@ -336,7 +348,6 @@ this module demonstrates how handling data stored in xml and building an interac
 this module displays a login form	sitemgr	lv	Šis modulis rāda pieteikuma formu
 this module displays bookmarks in a javascript based tree	sitemgr	lv	Šis modulis parāda grāmatzīmes kokā,kas balstās uz javaskriptu
 this module displays the current month	sitemgr	lv	Šis modulis parāda patreizējo mēnesi
-this module displays the phpgw forums on the web site	sitemgr	lv	Šis modulis parāda phpgw forumus tīmekļa vietnē
 this module displays the root categories, its pages and evtl. subcategories. it is meant for side areas	sitemgr	lv	Šis modulis parāda saknes kategorijas, to lapas un evtl.apakškategorijas. Tas domāts sānu laukiem
 this module includes the contents of an url or file (readable by the webserver and in its docroot !)	sitemgr	lv	Šis modulis ietver sevī URL saturu vai datni(tīmekļa serverī salasāmu un tās saknes dokumentu)
 this module is a simple html editor	sitemgr	lv	Šis modulis ir vienkāršs HTML redaktors
@@ -355,10 +366,12 @@ translate page	sitemgr	lv	Tulkot lapu
 translate site-wide content blocks	sitemgr	lv	Tulkot kopējos lapas satura blokus
 translation manager	sitemgr	lv	Tulkošanas pārvaldnieks
 translation status	sitemgr	lv	Tulkošanas statuss
+unsubscribe	sitemgr	lv	Atrakstīties
 up to parent	sitemgr	lv	Augšup
 up to table of contents	sitemgr	lv	Atvērt satura rādītāju
 updating to new category system	sitemgr	lv	Atjaunināt uz jauno kategriju sistēmu
 url to sitemgr-site	sitemgr	lv	URL uz sitemgr vietni
+use default	sitemgr	lv	Lietot noklusējumu
 use this module for displaying wiki-pages	sitemgr	lv	Lietot šo moduli, lai parādītu wiki-lapas
 user name	sitemgr	lv	Lietotāja vārds
 view administrative menu	sitemgr	lv	Rādīt administratīvo izvēlni
@@ -395,7 +408,8 @@ you must be an admin to edit the site header and footer.	sitemgr	lv	Lai rediģē
 you must be an admin to manage module properties.	sitemgr	lv	Lai pārvaldītu moduļa rekvizītus, tev jābūt administratoram
 you must be an administrator to setup the site manager.	sitemgr	lv	Tev jābūt vietnes administratoram, lai administrētu Vietnes Menedžeri.
 you removed one ore more languages from your site languages.	sitemgr	lv	Tu izslēdzi vienu vai vairākas valodas no valodu saraksta.
-your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr	lv	Jūsu administrators vēl nav nodrošinājis satura administrēšanas vadības skatīšanu publiskam lietotājam. Varat jau mēģināt par to viņam aizrādīt! :)
+your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr-link	lv	Jūsu administrators vēl nav nodrošinājis satura administrēšanas vadības skatīšanu publiskam lietotājam. Varat jau mēģināt par to viņam aizrādīt! :)
 your calendar	sitemgr	lv	Tavs kalendārs
 your comment	sitemgr	lv	Tavi komentāri
 your name	sitemgr	lv	Tavs vārds
+zip code	sitemgr	lv	Pasta inekss
