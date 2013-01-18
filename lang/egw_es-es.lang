@@ -199,7 +199,7 @@ error writing to the database: %1.	sitemgr	es-es	Error al escribir en la base de
 everybody	sitemgr	es-es	todo el mundo
 exact phrase	sitemgr	es-es	Frase exacta
 expand current category	sitemgr	es-es	Expandir la categoría actual
-export	sitemgr	es-es	Exportar
+export	sitemgr	es-es	exportar
 export a sitemgr site	sitemgr	es-es	Exportar para un sitio del Administrador de sitios
 fax	sitemgr	es-es	fax
 file %1 is not readable by the webserver !!!	sitemgr	es-es	¡¡ El servidor web no puede leer el fichero %1!!
@@ -250,7 +250,7 @@ if nonsecure redirect to:	sitemgr	es-es	Si no es seguro, redirigir a:
 if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	es-es	Si todavía no lo ha hecho, cree un usuario que se pueda usar para ver el sitio. Nombre recomendado: anonymous.
 image type	sitemgr	es-es	tipo de imagen
 implies read permission	sitemgr	es-es	implica permiso de lectura
-import	sitemgr	es-es	importar
+import	sitemgr	es-es	Importar
 import a sitemgr website	sitemgr	es-es	Importar un sitio web para el Administrador de sitios
 import site	sitemgr	es-es	Importar sitio
 imported	sitemgr	es-es	Importado
