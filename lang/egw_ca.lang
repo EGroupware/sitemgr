@@ -2,6 +2,7 @@
 %1 module manager	sitemgr	ca	Administrador de módulos para %1
 a simple picture galery	sitemgr	ca	Una galería simple de imágenes
 actif	sitemgr	ca	Actif
+actions	sitemgr	ca	Accions
 add a category	sitemgr	ca	Añadir una categoría
 add a new application	sitemgr	ca	Añadir una aplicación nueva
 add block to content area %1	sitemgr	ca	Añadir bloque al área de contenido %1
@@ -10,11 +11,13 @@ add new page to this category	sitemgr	ca	Añadir una página nueva a esta catego
 add page	sitemgr	ca	Añadir página
 add page to category	sitemgr	ca	Añadir página a la categoría
 add website	sitemgr	ca	Añadir sitio web
+address line 2	sitemgr	ca	Adreça línia 2
 administration	sitemgr	ca	Administración
 administrative menu	sitemgr	ca	Menú administrativo
 administrators	sitemgr	ca	administradores
 all categories	sitemgr	ca	Todas las categorías
 all forums in category %1	sitemgr	ca	Todos los foros en la categoría %1
+allow posting of questions	sitemgr	ca	Permet comentaris de preguntes
 amazon	sitemgr	ca	Amazon
 an application directory	sitemgr	ca	Un directorio de una aplicación
 anonymous	sitemgr	ca	anónimo
@@ -27,11 +30,12 @@ archived content	sitemgr	ca	Contenido archivado
 are you sure you want to delete site %1 and all its content? you cannot retrieve it if you continue.	sitemgr	ca	¿Seguro que desea borrar el sitio %1 y todo su contenido? No podrá recuperarlo si continúa.
 are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	ca	¿Seguro que desea borrar la categoría %1 y todas sus páginas asociadas? No podrá recuperar las páginas borradas si continúa.
 as	common	ca	como
+ascending	sitemgr	ca	Ascendent
 attempt to access information outside current website	sitemgr	ca	Intento de acceder a la información fuera del sitio web actual
 attempt to edit non-editable block	sitemgr	ca	Intento de editar un bloque no editable
 back to module manager	sitemgr	ca	Volver al administrador de módulos
 basic settings	sitemgr	ca	Configuracón básica
-before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr	ca	Antes de poder ver el sitio público, debe configurar las distintas ubicaciones y preferencias. Por favor, vaya a la página de configuración del administrador de sitios web pulsando este enlace:
+before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr-link	ca	Antes de poder ver el sitio público, debe configurar las distintas ubicaciones y preferencias. Por favor, vaya a la página de configuración del administrador de sitios web pulsando este enlace:
 block not found.	sitemgr	ca	No se encontró el bloque
 block returned no content.	sitemgr	ca	El bloque no devolvío contenidos.
 bookmarks	sitemgr	ca	Marcadores
@@ -43,6 +47,7 @@ category description	sitemgr	ca	Descripción de la categoría
 category manager	sitemgr	ca	Administrador de categorías
 category name	sitemgr	ca	Nombre de la categoría
 category saved	sitemgr	ca	Categoría guardada
+center	sitemgr	ca	Centrar
 changes saved.	sitemgr	ca	Cambios guardados
 check here after every upgrade	sitemgr	ca	marque aquí después de cada actualización
 check to hide from condensed site index.	sitemgr	ca	Marque para ocultar del índice del sitio condensado
@@ -51,6 +56,7 @@ choose language	sitemgr	ca	Elija idioma
 choose the categories to display	sitemgr	ca	Elegir las categorías a mostrar
 choose your site's theme or template.  note that if you changed the above checkbox you need to save before choosing a theme or template.	sitemgr	ca	Elija el tema o la plantilla de su ssitio. Si cambió la casilla de arriba necesita guardar antes de elegir un tema o plantilla.
 collapse threads	sitemgr	ca	Contraer conversaciones
+comment	sitemgr	ca	Comentario
 commit changes	sitemgr	ca	Subir cambios
 configure module properties	sitemgr	ca	Configurar las propiedades del módulo
 configure sitemgr	sitemgr	ca	Configurar el Administrador de sitios web
@@ -63,6 +69,7 @@ contentarea	sitemgr	ca	Area de contenidos
 contributor menu	sitemgr	ca	Menú del colaborador
 create new version	sitemgr	ca	Crear una versión nueva
 current section	sitemgr	ca	Sección actual
+custom	sitemgr	ca	Personalitzat
 default	sitemgr	ca	Predeterminado
 default home page id number	sitemgr	ca	Número de ID de la página de inicio predeterminada
 define websites	common	ca	Definir sitios web
@@ -73,9 +80,12 @@ delete this application	sitemgr	ca	Borrar esta aplicación
 delete this block	sitemgr	ca	Borrar este bloque
 delete version	sitemgr	ca	Borrar versión
 deleting all data for %1	sitemgr	ca	Borrar todos los datos de %1
+department	sitemgr	ca	Departament
+descending	sitemgr	ca	Descendent
 discussions	sitemgr	ca	Discusiones
 display link to autoregistration below login form?	sitemgr	ca	¿Mostrar el enlace para registrarse automáticamente debajo del formulario?
 do you want to delete them?	sitemgr	ca	¿Desea borrarlos?
+documentation	sitemgr	ca	Documentación
 don't have an account?	sitemgr	ca	¿No tiene una cuenta?
 done	sitemgr	ca	Hecho
 downloaded	sitemgr	ca	descargado
@@ -91,13 +101,19 @@ edit site header and footer	common	ca	Editar el encabezado y el pie del sitio
 edit this block	sitemgr	ca	Editar este bloque
 edit website	sitemgr	ca	Editar sitio web
 egw users	sitemgr	ca	usuarios de eGW
+email address	sitemgr	ca	adreça de correu
 enter a name	sitemgr	ca	Introduzca un nombre
 enter the block content here	sitemgr	ca	Introduzca aquí el contenido del bloque aquí
 enter the page content here	sitemgr	ca	Introduzca aquí el contenido de la página
+enterprise knowledge articles repository	sitemgr	ca	Dipòsit d'articles de l'empres
+entry saved	sitemgr	ca	Entrada guardada
 error accessing page	common	ca	Error al acceder a la página
 everybody	sitemgr	ca	todo el mundo
+export	sitemgr	ca	Exportar
+fax	sitemgr	ca	Fax
 file contents	sitemgr	ca	Contenido del fichero
 file download	sitemgr	ca	Descarga del fichero
+filename	sitemgr	ca	nom del fitxer
 filesystem path of the directory where xml files are stored	sitemgr	ca	Ruta del directorio donde se almacenan los ficheros SML
 filesystem path to sitemgr-site directory	sitemgr	ca	Ruta en el sistema para el directorio del sitio del Administrador de sitios
 fill in permissions from parent category? if you check this, below values will be ignored	sitemgr	ca	¿Rellenar permisos con los de la categoría superior? Si marca esto, se ignorarán los valores de debajo.
@@ -119,12 +135,16 @@ hello	sitemgr	ca	Hola
 hello world	sitemgr	ca	Hola, mundo
 html module	sitemgr	ca	Módulo HTML
 i'm sorry, you do not have write permissions for any site categories.	sitemgr	ca	Lo siento, no tiene permiso de escritura para ninguna de las categorías del sitio.
+id	sitemgr	ca	id
 if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	ca	Si todavía no lo ha hecho, cree un usuario que se pueda usar para ver el sitio. Nombre recomendado: anónimo.
 image type	sitemgr	ca	tipo de imagen
 implies read permission	sitemgr	ca	implica permiso de lectura
+import	sitemgr	ca	Importar
+index	sitemgr	ca	Índex
 individual access permission	sitemgr	ca	Permiso de acceso individual
 individual access permissions	sitemgr	ca	Permisos de acceso individuales
 interface to google website	sitemgr	ca	interfaz a Google
+knowledge base	sitemgr	ca	Base de Coneixement
 languages the site user can choose from	sitemgr	ca	Idiomas que puede elegir el usuario del sitio
 latest reply	sitemgr	ca	Última respuesta
 list of permitted modules specific to content area %1	sitemgr	ca	Lista de módulos permitidos específicos al área de contenidos %1
@@ -169,7 +189,7 @@ no templates found.	sitemgr	ca	No se encontraron plantillas
 no users defined.	sitemgr	ca	No hay usuarios definidos
 no websites defined	sitemgr	ca	No hay sitios web definidos
 not yet translated	sitemgr	ca	pendiente de traducir
-note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	ca	Puede que vea este mensaje si sus preferencias son incorrectas. Por ejemplo, si config.inc.php no está en el directorio especificado.
+note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr-link	ca	Puede que vea este mensaje si sus preferencias son incorrectas. Por ejemplo, si config.inc.php no está en el directorio especificado.
 other websites	sitemgr	ca	Otros sitios web
 overview of all available categories	sitemgr	ca	Descripción de todas las categorías disponibles
 overview of one specific category	sitemgr	ca	Descripción de una categoría específica
@@ -187,6 +207,7 @@ password	sitemgr	ca	Contraseña
 password that you assigned for the anonymous user account.	sitemgr	ca	Contraseña asignada al usuario anónimo
 please enter a name for that site !	sitemgr	ca	Por favor, introduzca un nombre para ese sitio
 post a message to this thread	sitemgr	ca	Publicar un mensaje en esta conversación
+prefix	sitemgr	ca	Prefix
 prepublished	sitemgr	ca	publicado previamente
 preunpublished	sitemgr	ca	sin publicar previamente
 previous	sitemgr	ca	Anterior
@@ -198,7 +219,9 @@ redirection	sitemgr	ca	Redirección
 refresh	sitemgr	ca	Refrescar
 register for one now.	sitemgr	ca	Registrar por uno ahora
 register new modules	sitemgr	ca	Registrar módulos nuevos
+reload	sitemgr	ca	recargar
 replies	sitemgr	ca	Respuestas
+required	sitemgr	ca	Obligatori
 required fields	sitemgr	ca	Campos requeridos
 reset	sitemgr	ca	Restaurar
 return to forums	sitemgr	ca	Volver a los foros
@@ -231,9 +254,10 @@ site wide	sitemgr	ca	Por todo el sitio
 sitemgr	common	ca	Administrador de sitios web
 sitemgr options	sitemgr	ca	Opciones del Administrador de sitios
 sitemgr setup instructions	sitemgr	ca	Instrucciones para configurar el Administrador de sitios
-sitemgr setup page	sitemgr	ca	Página de configuración del Administrador de sitios
+sitemgr setup page	sitemgr-link	ca	Página de configuración del Administrador de sitios
 sitemgr web content manager	common	ca	Administrador de contenidos del Administrador de sitios web
 sitemgr websites	sitemgr	ca	Sitios web
+size	sitemgr	ca	Mida
 sort order	sitemgr	ca	Forma de ordenación
 state	sitemgr	ca	Estado
 strip html from block content?	sitemgr	ca	¿Separar HTML del contenido por bloques?
@@ -299,10 +323,12 @@ translate category	sitemgr	ca	Traducir categoría
 translate page	sitemgr	ca	Traducir página
 translate site-wide content blocks	sitemgr	ca	Traducir bloques de contenido por todo el sitio web
 translation manager	sitemgr	ca	Administrador de traducciones
+unsubscribe	sitemgr	ca	Desubscriure
 up to parent	sitemgr	ca	Subir al directorio superior
 up to table of contents	sitemgr	ca	Subir a la tabla de contenidos
 updating to new category system	sitemgr	ca	Actualizando a sistema de nueva categoría
 url to sitemgr-site	sitemgr	ca	URL al directorio <tt>sitemgr-site</tt>
+use default	sitemgr	ca	Utilitza el valor per defecte
 use phpnuke themes instead of templates	sitemgr	ca	Usar temas de phpNuke en vez de plantillas
 use this module for displaying book ads for the amazon web site	sitemgr	ca	Usar este módulo para mostrar publicidad de libros de amazon
 user name	sitemgr	ca	Nombre de usuario
@@ -317,6 +343,7 @@ web site manager	sitemgr	ca	Administrador del sitio web
 website	sitemgr	ca	Sitio web
 week	sitemgr	ca	semana
 what do you want to do with existing translations of categories and pages for this language?	sitemgr	ca	¿Qué desea hacer con las traducciones existentes de las categorías y las páginas para este idioma?
+wiki	sitemgr	ca	Wiki
 with which view should the module be displayed in the beginning?	sitemgr	ca	¿Con qué vista se debe mostrar el módulo al principio?
 write permission	sitemgr	ca	Permiso de escritura
 xml browser	sitemgr	ca	Navegador XML
@@ -337,10 +364,6 @@ you must be an admin to edit the site header and footer.	sitemgr	ca	Debe ser un 
 you must be an admin to manage module properties.	sitemgr	ca	Debe ser un administrador para manejar las propiedades del módulo.
 you must be an administrator to setup the site manager.	sitemgr	ca	Debe ser un administrador para configurar el Administrador del sitio.
 you removed one ore more languages from your site languages.	sitemgr	ca	Eliminó uno o más idiomas de los del sitio.
-your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr	ca	El administrador todavía no ha configurado el Administrador de contenido web para verlo públicamente. Informe de esta circunstancia al administrador.
+your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr-link	ca	El administrador todavía no ha configurado el Administrador de contenido web para verlo públicamente. Informe de esta circunstancia al administrador.
 your calendar	sitemgr	ca	Su calendario
-You need to make sure the sitemgr-link app is in the egroupware directory.  If you made a symbolic link... it isn't working.	sitemgr-link	ca	You need to make sure the sitemgr-link app is in the egroupware directory.  If you made a symbolic link... it isn't working.
-Before the public web site can be viewed, you must configure the various locations and preferences.  Please go to the sitemgr setup page by following this link:	sitemgr-link	ca	Before the public web site can be viewed, you must configure the various locations and preferences.  Please go to the sitemgr setup page by following this link:
-sitemgr setup page	sitemgr-link	ca	sitemgr setup page
-Note that you may get this message if your preferences are incorrect.  For example, if config.inc.php is not found in the directory that you specified.	sitemgr-link	ca	Note that you may get this message if your preferences are incorrect.  For example, if config.inc.php is not found in the directory that you specified.
-Your administrator has not yet setup the web content manager for public viewing.  Go bug your administrator to get their butt in gear.	sitemgr-link	ca	Your administrator has not yet setup the web content manager for public viewing.  Go bug your administrator to get their butt in gear.
+zip code	sitemgr	ca	Codi postal

@@ -10,7 +10,6 @@
 1 month	common	es-es	1 mes
 1 week	common	es-es	1 semana
 <b>autoregistration is not enabled / configured in the registration app !!!</b><br>you need to do so, to get the autoregistration link working.	sitemgr	es-es	<b>El autorregistro no está activado o configurado en la aplicación de suscripciones</b><br>Necesita hacerlo para que funcione el enlace de suscripciones.
-<b>want more templates?</b><br />just download one from the template gallery at %1www.egroupware.org%2 or use a %3mambo open source%4 version 4.5 compatible template eg. from %5. unpack the downloaded template in your templates directory (%6).	sitemgr	es-es	<b>¿Quiere más plantillas?</b><br />Simplemente descargue una de la galería de plantillas de %1www.eGroupWare.org%2 o use una plantilla compatible con versión 4.5 de %3Mambo Open Source%4 de %5. Descomprima la plantilla en su directorio de plantillas (%6).
 a simple picture galery	sitemgr	es-es	Una galería simple de imágenes
 actif	sitemgr	es-es	Actif
 actions	sitemgr	es-es	Acciones
@@ -98,7 +97,7 @@ choose template	sitemgr	es-es	Elegir plantilla
 choose the categories to display	sitemgr	es-es	Elegir las categorías a mostrar
 choose the valid html type (note: not all icons are available):	sitemgr	es-es	Elegir el tipo de HTML VALIDO (nota: no todos los iconos están disponibles):
 choose your site's theme or template.  note that if you changed the above checkbox you need to save before choosing a theme or template.	sitemgr	es-es	Elija el tema o la plantilla de su sitio. Si cambió la casilla de arriba, necesita guardar antes de elegir un tema o plantilla.
-click here to login through a safe connection.	sitemgr	es-es	Pulsar aquí para iniciar la sesión mediante una conexión segura
+click here to login through a secure connection.	sitemgr	es-es	Pulse aquí para iniciar la sesión mediante una conexión segura.
 code file	sitemgr	es-es	Fichero de código
 codebase url	sitemgr	es-es	URL del código base
 collapse threads	sitemgr	es-es	Contraer conversaciones
@@ -117,11 +116,14 @@ content manager	sitemgr	es-es	Administrador de contenido
 contentarea	sitemgr	es-es	Area de contenidos
 contributor menu	sitemgr	es-es	Menú del colaborador
 copyright	sitemgr	es-es	Derecho de copia
+could not add block %1	sitemgr	es-es	No se pudo añadir el bloque %1
 create new version	sitemgr	es-es	Crear una versión nueva
+css selector to use only part of html file	sitemgr	es-es	Selector CSS a usar para sólo parte del fichero html
 css styles	sitemgr	es-es	Estilos CSS
 currency code of the value specified in amount (eg. usd, eur)	sitemgr	es-es	Código monetario del valor especificado en la cantidad (p. ej. USD, EUR)
 current section	sitemgr	es-es	Sección actual
 custom	sitemgr	es-es	personalizado
+custom css will be included in each page as last style-sheet in the header.	sitemgr	es-es	El CSS personalizado se incluirá en cada página como última hoja de estilo en el encabezado.
 custom etemplate for the contactform	sitemgr	es-es	Plantilla personalizada para el formulario de contacto
 custom template directory	sitemgr	es-es	Directorio para las plantillas personalizadas
 custom template directory does not exist or is not accessible by webserver!	sitemgr	es-es	¡El directorio para las plantillas personalizadas NO existe o NO está accesible para el servidor web!
@@ -133,6 +135,7 @@ delete category	sitemgr	es-es	Borrar categoría
 delete page	sitemgr	es-es	Borrar página
 delete this application	sitemgr	es-es	Borrar esta aplicación
 delete this block	sitemgr	es-es	Borrar este bloque
+delete this file or directory	sitemgr	es-es	Borrar este fichero o directorio
 delete this guestbook	sitemgr	es-es	Borrar este libro de invitados
 delete version	sitemgr	es-es	Borrar versión
 deleting all data for %1	sitemgr	es-es	Borrar todos los datos de %1
@@ -167,9 +170,11 @@ edit page	sitemgr	es-es	Editar página
 edit properties of module %1 for %2 with scope %3	sitemgr	es-es	Editar las propiedades del módulo %1 para %2 en el ámbito %3
 edit site	sitemgr	es-es	Editar sitio
 edit site header and footer	common	es-es	Editar el encabezado y el pie del sitio
+edit template preferences for %1	sitemgr	es-es	Editar las preferencias de la plantilla para %1
 edit this block	sitemgr	es-es	Editar este bloque
 edit website	sitemgr	es-es	Editar sitio web
-eg. be renaming %1 to %2 in the %3 directory for an apache.	sitemgr	es-es	Renombrando %1 a %2 en el directorio %3 para Apache.
+eg. %1 or %2	sitemgr	es-es	p. eje. %1 o %2
+eg. by renaming %1 to %2 in the %3 directory for an apache.	sitemgr	es-es	P. ej. renombrando %1 a %2 en el directorio %2 para un apache.
 egw users	sitemgr	es-es	usuarios de eGW
 element successfully deleted.	sitemgr	es-es	El elemento se borró correctamente
 email address	sitemgr	es-es	Correo electrónico
@@ -194,6 +199,8 @@ error writing to the database: %1.	sitemgr	es-es	Error al escribir en la base de
 everybody	sitemgr	es-es	todo el mundo
 exact phrase	sitemgr	es-es	Frase exacta
 expand current category	sitemgr	es-es	Expandir la categoría actual
+export	sitemgr	es-es	exportar
+export a sitemgr site	sitemgr	es-es	Exportar para un sitio del Administrador de sitios
 fax	sitemgr	es-es	fax
 file %1 is not readable by the webserver !!!	sitemgr	es-es	¡¡ El servidor web no puede leer el fichero %1!!
 file %1 is outside the docroot of the webserver !!!<br>this module does not allow - for security reasons - to open files outside the docroot.	sitemgr	es-es	¡¡El fichero %1 está fuera de la raíz del servidor!!<br>Este módulo NO permite, por motivos de seguridad, abrir ficheros fuera de la raíz del servidor.
@@ -233,6 +240,7 @@ hello world	sitemgr	es-es	Hola, mundo
 helps you respect html/xhtml standards.	sitemgr	es-es	Ayuda a respetar los estándares HTML/XHTML
 highlight current page	sitemgr	es-es	Resaltar la página actual
 horizontal	sitemgr	es-es	Horizontal
+how long to cache downloaded content (seconds)	sitemgr	es-es	Cuánto dura la caché del contenido descargado (segundos)
 html frame	sitemgr	es-es	Marco HTML
 html module	sitemgr	es-es	Módulo HTML
 i'm sorry, you do not have write permissions for any site categories.	sitemgr	es-es	Lo siento, no tiene permiso de escritura para ninguna de las categorías del sitio.
@@ -242,11 +250,16 @@ if nonsecure redirect to:	sitemgr	es-es	Si no es seguro, redirigir a:
 if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	es-es	Si todavía no lo ha hecho, cree un usuario que se pueda usar para ver el sitio. Nombre recomendado: anonymous.
 image type	sitemgr	es-es	tipo de imagen
 implies read permission	sitemgr	es-es	implica permiso de lectura
+import	sitemgr	es-es	Importar
+import a sitemgr website	sitemgr	es-es	Importar un sitio web para el Administrador de sitios
+import site	sitemgr	es-es	Importar sitio
+imported	sitemgr	es-es	Importado
 index	sitemgr	es-es	Indice
 individual access permission	sitemgr	es-es	Permiso de acceso individual
 individual access permissions	sitemgr	es-es	Permisos de acceso individuales
 interface to google website	sitemgr	es-es	interfaz a Google
 invalid template directory '%1' !!!	sitemgr	es-es	El directorio de plantillas '%1' no es válido
+just download one from our %1template gallery%2 on %3.	sitemgr	es-es	Sólo descargar una de nuestras %1galerías de plantillas%2 en %3.
 knowledge base	sitemgr	es-es	Base de conocimiento
 language:	sitemgr	es-es	Lenguaje
 languages the site user can choose from	sitemgr	es-es	Idiomas que puede elegir el usuario del sitio
@@ -254,9 +267,11 @@ last entries to the guestbook	sitemgr	es-es	Últimas entradas en el libro de inv
 latest reply	sitemgr	es-es	Última respuesta
 links for the tabs (comma seperated)	sitemgr	es-es	Enlaces para los tabs (separados por comas)
 list of permitted modules specific to content area %1	sitemgr	es-es	Lista de módulos permitidos específicos al área de contenidos %1
-loged in as:	sitemgr	es-es	Sesión iniciada como:
+logged in as:	sitemgr	es-es	Sesión iniciada como:
 login	sitemgr	es-es	Inicio de sesión
 login name	sitemgr	es-es	Nombre de usuario
+logo url	sitemgr	es-es	URL del logo
+logo, custom css	sitemgr	es-es	CSS personalizado del logo
 main content	sitemgr	es-es	Contenido principal
 mains	sitemgr	es-es	Principal
 manage archived content	sitemgr	es-es	Administrar contenido archivado
@@ -317,6 +332,7 @@ no users defined.	sitemgr	es-es	No hay usuarios definidos
 no websites defined	sitemgr	es-es	No hay sitios web definidos
 no, chooser only (for side-areas)	sitemgr	es-es	No, sólo el selector (para áreas laterales)
 no, chooser with preview	sitemgr	es-es	No, selector con vista previa
+none selected	sitemgr	es-es	No se ha seleccionado ninguno
 not	common	es-es	no
 not yet translated	sitemgr	es-es	pendiente de traducir
 note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr-link	es-es	Tenga en cuenta que puede obtener este mensaje si sus preferencias no son correctas. Por ejemplo, si no encuentra el fichero config.inc.php en el directorio especificado.
@@ -329,6 +345,7 @@ only gallery	sitemgr	es-es	Sólo galería
 only on the first page	sitemgr	es-es	sólo en la primera página
 options in search result page	sitemgr	es-es	Opciones en la página de resultados de búsqueda
 or enter the title for a new guestbook	sitemgr	es-es	o introducir el título para un nuevo libro de invitados
+or use a template compatible with %1.	sitemgr	es-es	O usar una plantilla compatible con %1.
 other websites	sitemgr	es-es	Otros sitios web
 overview of all available categories	sitemgr	es-es	Descripción de todas las categorías disponibles
 overview of one specific category	sitemgr	es-es	Descripción de una categoría específica
@@ -343,6 +360,7 @@ page subtitle	sitemgr	es-es	Subtítulo de la página
 page title	sitemgr	es-es	Título de la página
 pages	sitemgr	es-es	Páginas
 pages:	sitemgr	es-es	Páginas:
+parameters saved.	sitemgr	es-es	Se han guardado los parámetros.
 parent	sitemgr	es-es	Superior
 parent directory	sitemgr	es-es	directorio superior
 parent section:	sitemgr	es-es	Sección superior:
@@ -374,6 +392,7 @@ redirection	sitemgr	es-es	Redirección
 refresh	sitemgr	es-es	Refrescar
 register for one now.	sitemgr	es-es	Registrar por uno ahora
 register new modules	sitemgr	es-es	Registrar módulos nuevos
+regular expression modifier "%1" in "%2" is not allowed!	sitemgr	es-es	¡El modificador de la expresión regular "%1" en "%2" NO está permitido!
 reload	sitemgr	es-es	Recargar
 remember me	common	es-es	recordarme
 replies	sitemgr	es-es	Respuestas
@@ -409,6 +428,7 @@ shipping address	sitemgr	es-es	Dirección de suministro
 should the file be viewed in the browser or downloaded	sitemgr	es-es	¿Ver el fichero en el navegador o descargarlo?
 show a file upload (if user has write rights to current directory)	sitemgr	es-es	Mostrar la subida de un fichero (si el usuario tiene derechos de escritura en el directorio actual)
 show a template-gallery (thumbnail and informations)	sitemgr	es-es	Mostrar una galería de plantillas (diapositiva e información)
+show comments?	sitemgr	es-es	¿Mostrar los comentarios?
 show contents of a directory	sitemgr	es-es	Mostrar el contenido de un directorio
 show contents of a directory with subdirectories	sitemgr	es-es	Mostrar el contenido de un directorio con subdirectorios
 show current section only	sitemgr	es-es	Mostrar sólo la selección actual
@@ -428,6 +448,7 @@ site %1 has been added, you need to %2configure the site%3 now	sitemgr	es-es	Se 
 site %1 has been updated	sitemgr	es-es	El sitio %1 ha sido actualizado
 site administrators	sitemgr	es-es	Administradores del sitio
 site description	sitemgr	es-es	Descripción del sitio
+site export	sitemgr	es-es	Exportar sitio
 site format manager	sitemgr	es-es	Administrador del formato del sitio
 site index	sitemgr	es-es	Indice del sitio
 site language	sitemgr	es-es	Idioma del sitio
@@ -464,8 +485,12 @@ suppress the current page	sitemgr	es-es	Suprime la página actual
 table of contents	sitemgr	es-es	Tabla de contenidos
 template based navigation module	sitemgr	es-es	Plantilla basada en el módulo de navegación
 template directory is relative to egroupware's files directory. you have to map that direcotory with an alias, so it is accessible like any stock template!	sitemgr	es-es	El directorio de plantillas es relativo el directorio de ficheros de EGroupware. Tiene que mapear ese directorio con un alias, para que esté accesible como cualquier otra plantilla.
+template has no parameters!	sitemgr	es-es	¡La plantilla no tiene parámetros!
+template preferences	sitemgr	es-es	Preferencias de la plantilla
+template preferences and custom css	sitemgr	es-es	Preferencias de la plantilla y CSS personalizado
 template select	sitemgr	es-es	Selección de plantilla
 text allignment	sitemgr	es-es	Alineación del texto
+text for optional confirmation message, before download get displayed	sitemgr	es-es	Texto para el mensaje opcional de confirmación, antes de que se muestre la descarga
 text of page links	sitemgr	es-es	Texto de enlaces de la página
 textarea	sitemgr	es-es	Area de texto
 the anonymous user needs read it!	sitemgr	es-es	¡El usuario anónimo necesita leerlo!
@@ -493,6 +518,7 @@ the web	sitemgr	es-es	la web
 the website has changed. too see the change, follow this url: $url.	sitemgr	es-es	El sitio web ha cambiado. Para ver el cambio, siga esta URL: $URL.
 the whole page	sitemgr	es-es	la página completa
 the xml files' common name	sitemgr	es-es	el nombre común de los ficheros XML
+theme "%1" not found!	sitemgr	es-es	¡No se ha encontrado el tema "%1"!
 theme or template select	sitemgr	es-es	Selección de tema o plantilla
 there are %1 elements in the list.	sitemgr	es-es	Hay %1 elementos en la lista.
 there are no categories	sitemgr	es-es	No hay categorías
@@ -555,6 +581,7 @@ translate page	sitemgr	es-es	Traducir página
 translate site-wide content blocks	sitemgr	es-es	Traducir bloques de contenido globales a todo el sitio web
 translation manager	sitemgr	es-es	Administrador de traducciones
 translation status	sitemgr	es-es	Estado de la traducción
+unpack the downloaded template in your templates directory (%1) or use a custom template directory.	sitemgr	es-es	Desempaquete la plantilla descargada en su directorio de platillas (%1) o use un directorio de plantillas personalizado.
 unsubscribe	sitemgr	es-es	Desuscribir
 up to parent	sitemgr	es-es	Subir al directorio superior
 up to table of contents	sitemgr	es-es	Subir a la tabla de contenidos
@@ -563,6 +590,7 @@ updating to new category system	sitemgr	es-es	Actualizando a nuevo sistema de ca
 url pointing to the image-directory	sitemgr	es-es	URL que apunta al directorio de imágenes
 url to sitemgr-site	sitemgr	es-es	URL al directorio sitemgr-site
 use current user selected language	sitemgr	es-es	Usar el idioma seleccionado del usuario actual
+use default	sitemgr	es-es	Usar predeterminado
 use phpnuke themes instead of templates	sitemgr	es-es	Usar temas de phpNuke en vez de plantillas
 use this module for displaying book ads for the amazon web site	sitemgr	es-es	Usar este módulo para mostrar publicidad de libros de amazon
 use this module for displaying wiki-pages	sitemgr	es-es	Usar este módulo para mostrar páginas del wiki
@@ -575,6 +603,7 @@ view generated site	sitemgr	es-es	Ver sitio generado
 view template on this site	sitemgr	es-es	Ver plantilla en este sitio
 view threads	sitemgr	es-es	Ver conversaciones
 viewed	sitemgr	es-es	visto
+want more templates?	sitemgr	es-es	¿Quiere más plantillas?
 web content manager	common	es-es	Administrador de contenidos del Administrador de sitios web
 web content manager administration	sitemgr	es-es	Administración del gestor de contenido web
 web site manager	sitemgr	es-es	Administrador del sitio web
@@ -596,6 +625,7 @@ you are not entitled to edit block %1	sitemgr	es-es	No está autorizado a editar
 you can choose the modules that can be used on the site. the first list is a sort of master list, that is consulted if you do not configure lists specific to contentareas or (sub)categories. then you can choose lists specific to each content area. in the category manager these lists can be overriden for each (sub)category.	sitemgr	es-es	Puede elegir los módulos que se pueden usar en el sitio. La primera lista es una especie de lista maestra, que se consulta si no configura las listas específicas a las áreas de contenidos o (sub)categorías. Luego puede elegir listas específicas a cada área de contenidos. En el administrador de categorías, estas listas se pueden ignorar para cada (sub)categoría.
 you can either migrate them to a new language or delete them	sitemgr	es-es	Puede migrarlas a un nuevo idioma o borrarlas.
 you can override each content blocks default title. be aware that not in all content areas the block title will be visible.	sitemgr	es-es	Puede ignorar el título predeterminado de cada bloque de contenido. Tenga cuidado, ya que el título del bloque no estará visible en todo el contenido.
+you can use %1 to fetch the above defined url of your logo.	sitemgr	es-es	Puede usar %1 para coger la URL definida arriba del logo.
 you did not choose a module.	sitemgr	es-es	No ha elegido un módulo
 you do not have access to any content on this site.	sitemgr	es-es	No tiene acceso a ningún contenido en este sitio
 you do not have write permissions for any site categories.	sitemgr	es-es	No tiene permiso de escritura para ninguna categoría de ningún sitio.
@@ -615,6 +645,6 @@ you will remove the message in the following language from your notification sys
 your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr-link	es-es	Su administrador todavia no ha configurado el gestor de contenidos web para que se vea públicamente. Póngase en contacto con él para que lo active.
 your calendar	sitemgr	es-es	Su calendario
 your comment	sitemgr	es-es	Su comentario
-your connection is not safe.	sitemgr	es-es	Su conexión no es segura.
+your connection is not secure.	sitemgr	es-es	Su conexión no es segura.
 your name	sitemgr	es-es	Su nombre
 zip code	sitemgr	es-es	código zip

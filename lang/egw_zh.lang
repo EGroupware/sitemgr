@@ -9,7 +9,6 @@
 1 month	common	zh	1个月
 1 week	common	zh	1星期
 <b>autoregistration is not enabled / configured in the registration app !!!</b><br>you need to do so, to get the autoregistration link working.	sitemgr	zh	<b>自动注册功能未启用 / 请在注册应用程序中设置！</b>您必须完成相应设置后才能使得自动注册链接工作。
-<b>want more templates?</b><br />just download one from the template gallery at %1www.egroupware.org%2 or use a %3mambo open source%4 version 4.5 compatible template eg. from %5. unpack the downloaded template in your templates directory (%6).	sitemgr	zh	<b>希望有更多的模板？</b><br />只要从模板图库 %1www.egroupware.org%2 下载一个或使用一个 %3Mambo 开源 %4 版本 4.5 兼容的模板，如：从 %5。解压下载的模板到你的模板目录 (%6)。
 a simple picture galery	sitemgr	zh	一个简单的图库
 actif	sitemgr	zh	复活
 actions	sitemgr	zh	操作
@@ -23,6 +22,7 @@ add new page to this category	sitemgr	zh	添加新页面到该类别
 add page	sitemgr	zh	添加页面
 add page to category	sitemgr	zh	添加页面到类别
 add website	sitemgr	zh	添加网站
+address line 2	sitemgr	zh	地址 2
 administration	sitemgr	zh	系统管理
 administrative menu	sitemgr	zh	管理的菜单
 administrators	sitemgr	zh	系统管理员
@@ -56,6 +56,7 @@ are contributors allowed to define new guestbooks?	sitemgr	zh	投稿者可以定
 are you sure you want to delete site %1 and all its content? you cannot retrieve it if you continue.	sitemgr	zh	您确定要删除站点 %1 与它的所有内容？如果您继续，您将无法还原。
 are you sure you want to delete the category %1 and all of its associated pages?  you cannot retrieve the deleted pages if you continue.	sitemgr	zh	您确定您要删除类别 %1 与它的所有相关页面吗？如果您继续，您将无法还原被删除的页面。
 as	common	zh	象
+ascending	sitemgr	zh	升序
 asin[=title] pairs (title is optional)	sitemgr	zh	ASIN[=标题] 巴黎 (标题为可选)
 ask customer	sitemgr	zh	询问用户
 attempt to access information outside current website	sitemgr	zh	试图访问的信息在当前网站以外
@@ -65,7 +66,7 @@ automatically generated notification	sitemgr	zh	自动生成通知
 back to module manager	sitemgr	zh	回到模块管理器
 back to the list of languages	sitemgr	zh	回到语言列表
 basic settings	sitemgr	zh	基本设置
-before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr	zh	在公开网站能够浏览查看之前，您必须配置不同的位置与参数选择。请继续通过以下链接到 SiteMgr 设置页面：
+before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr-link	zh	在公开网站能够浏览查看之前，您必须配置不同的位置与参数选择。请继续通过以下链接到 SiteMgr 设置页面：
 block not found.	sitemgr	zh	找不到块。
 block reloaded	sitemgr	zh	区块已重新加载
 block returned no content.	sitemgr	zh	区块返回没有内容。
@@ -94,7 +95,6 @@ choose template	sitemgr	zh	选择模板
 choose the categories to display	sitemgr	zh	选择要显示的分类
 choose the valid html type (note: not all icons are available):	sitemgr	zh	选择有效的 HTML 类型(注意：并非所有图标都可用)：
 choose your site's theme or template.  note that if you changed the above checkbox you need to save before choosing a theme or template.	sitemgr	zh	选择您的站点的主题或模板。注意，如果您改变了上述复选框您需要在选择主题或模板之前保存。
-click here to login through a safe connection.	sitemgr	zh	点击这里以通过安全连接登录。
 code file	sitemgr	zh	编码文件
 codebase url	sitemgr	zh	编码库网址
 collapse threads	sitemgr	zh	展开
@@ -104,6 +104,7 @@ common prefix of the image-name (a number starting with 1 will be appended)	site
 configure module properties	sitemgr	zh	设置模块属性
 configure sitemgr	sitemgr	zh	配置 SiteMgr
 configure website	sitemgr	zh	配置网站
+contact fields to show	sitemgr	zh	要显示的联系人字段
 contact the administrator.	sitemgr	zh	联系系统管理员。
 content areas	sitemgr	zh	内容区域
 content blocks	sitemgr	zh	内容区块
@@ -117,6 +118,7 @@ css styles	sitemgr	zh	CSS 样式
 currency code of the value specified in amount (eg. usd, eur)	sitemgr	zh	金额指定的货币代码(例如：USD、EUR)
 current section	sitemgr	zh	当前部份
 custom	sitemgr	zh	自定义
+custom etemplate for the contactform	sitemgr	zh	为联系人表单自定义模板
 default	sitemgr	zh	默认
 default home page id number	sitemgr	zh	默认主页 ID 编号
 define websites	common	zh	定义网站
@@ -128,8 +130,9 @@ delete this block	sitemgr	zh	删除这个区块
 delete this guestbook	sitemgr	zh	删除这个留言板
 delete version	sitemgr	zh	删除版本
 deleting all data for %1	sitemgr	zh	删除 %1 的所有资料
+department	sitemgr	zh	部门
+descending	sitemgr	zh	降序
 details for language %1 (%2)	sitemgr	zh	语言%1(%2)的细节
-directory is not writable by the webserver --> disabling upload	sitemgr	zh	Web服务器无法写入目录 --> 禁用上传
 discussions	sitemgr	zh	讨论
 display link to autoregistration below login form?	sitemgr	zh	在以下表单显示自动注册链接？
 do you realy want to delete the selected categories (including all pages), pages and blocks?	sitemgr	zh	您确定要删除选择的类别(包含所有页面)、页面与区块吗？
@@ -139,7 +142,6 @@ do you want to delete them?	sitemgr	zh	您确定要删除它们？
 documentation	sitemgr	zh	文档资料
 domain-name (offical dns-name eg. www.egroupware.org) if you want to give the user a choice between searching this site or the whole web. leaving it empty allows to search the web only.	sitemgr	zh	您想要提供给用户在搜寻这个站点或整个网络之间进行选择的域名(正式的域名，例如：www.eGroupWare.org)，留空只搜索网站。
 don't have an account?	sitemgr	zh	没有账户？
-don't use egroupware css ">" separator (for templates that uses images/simbols for lists)	sitemgr	zh	不要使用 egroupware css 的分隔符 ">" (模板使用图片/符号列表)
 done	sitemgr	zh	完成
 dont ask	sitemgr	zh	不要询问
 download as zip-archiv	sitemgr	zh	以 ZIP-档案格式下载
@@ -176,15 +178,19 @@ error accessing page	common	zh	访问页面错误
 error deleting the element.	sitemgr	zh	删除元素时发生错误。
 error deleting the entry!!!	sitemgr	zh	条目删除时发生错误！
 error saving the entry!!!	sitemgr	zh	保存条目时发生错误！
+error uploading file!	sitemgr	zh	上传文件错误！
 error writing to the database.	sitemgr	zh	写入数据库时发生错误。
 error writing to the database: %1.	sitemgr	zh	写入数据库时发生错误：%1。
 everybody	sitemgr	zh	所有人
 exact phrase	sitemgr	zh	精确短语
 expand current category	sitemgr	zh	展开目前类别
+export	sitemgr	zh	导出
+fax	sitemgr	zh	传真
 file %1 is not readable by the webserver !!!	sitemgr	zh	文件 %1 对于 Web服务器为不可读！
 file %1 is outside the docroot of the webserver !!!<br>this module does not allow - for security reasons - to open files outside the docroot.	sitemgr	zh	文件 %1 处在了 Web服务器根目录以外的地方！出于安全原因，该模块不允许开放根目录以外的文件。
 file contents	sitemgr	zh	文件内容
 file download	sitemgr	zh	文件下载
+file successful uploaded.	sitemgr	zh	文件上传成功。
 filename	sitemgr	zh	文件名称
 filesystem path of the directory where xml files are stored	sitemgr	zh	XML文件储存目录所在文件系统的路径
 filesystem path of the image-directory	sitemgr	zh	图片目录的文件系统路径
@@ -224,6 +230,7 @@ if nonsecure redirect to:	sitemgr	zh	如果不安全就重定向到：
 if you haven't done so already, create a user that will be used for public viewing of the site.  recommended name: anonymous.	sitemgr	zh	如果你还没有如此这样做，请创建一个用户将被用于站点的公开查看帐户。推荐名称：anonymous。
 image type	sitemgr	zh	图片类型
 implies read permission	sitemgr	zh	意味着读取权限
+import	sitemgr	zh	导入
 index	sitemgr	zh	索引
 individual access permission	sitemgr	zh	个人访问权限
 individual access permissions	sitemgr	zh	个人访问权限
@@ -236,7 +243,6 @@ last entries to the guestbook	sitemgr	zh	留言板的最新条目
 latest reply	sitemgr	zh	最后回应
 links for the tabs (comma seperated)	sitemgr	zh	标签的链接(逗号分隔)
 list of permitted modules specific to content area %1	sitemgr	zh	具体到内容区域 %1 的允许模块列表
-loged in as:	sitemgr	zh	登录为：
 login	sitemgr	zh	登录
 login name	sitemgr	zh	登录名
 main content	sitemgr	zh	主要内容
@@ -256,8 +262,6 @@ manage site content	sitemgr	zh	管理站点内容
 manage site-wide content	sitemgr	zh	管理全站内容
 manage site-wide module properties	sitemgr	zh	管理全站模块属性
 manage translations	sitemgr	zh	管理翻译
-manange notifications	sitemgr	zh	管理通知
-manange notifications messages	sitemgr	zh	管理通知信息
 master list of permitted modules	sitemgr	zh	容许模块总表
 maximal category depth to be shown	sitemgr	zh	显示类别深度上限
 maximal page depth to be shown	sitemgr	zh	显示页面深度上限
@@ -299,7 +303,7 @@ no, chooser only (for side-areas)	sitemgr	zh	不，仅选择器(为侧边区域)
 no, chooser with preview	sitemgr	zh	不，选择器与预览
 not	common	zh	否
 not yet translated	sitemgr	zh	尚未翻译
-note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr	zh	注意，如果您的参数选择不正确您可能收到这则消息，例如：config.inc.php 不在您指定的目录中。
+note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr-link	zh	注意，如果您的参数选择不正确您可能收到这则消息，例如：config.inc.php 不在您指定的目录中。
 notification message not found !!!	sitemgr	zh	找不到通知讯息！
 notification not found !!!	sitemgr	zh	找不到通知！
 number of results	sitemgr	zh	结果数量
@@ -339,6 +343,7 @@ plain selectbox	sitemgr	zh	空白的下拉菜单
 please enter a name for that site !	sitemgr	zh	请输入网站的名称！
 please sign the guestbook	sitemgr	zh	请留言
 post a message to this thread	sitemgr	zh	回复
+prefix	sitemgr	zh	前缀
 prepublished	sitemgr	zh	预发布
 preunpublished	sitemgr	zh	预未发布
 previous	sitemgr	zh	上一个
@@ -412,11 +417,10 @@ sitemgr	common	zh	[SiteMgr]内容管理器
 sitemgr manual	sitemgr	zh	SiteMgr 使用指南
 sitemgr options	sitemgr	zh	SiteMgr 选项
 sitemgr setup instructions	sitemgr	zh	SiteMgr 安装指导
-sitemgr setup page	sitemgr	zh	Sitemgr 安装页面
+sitemgr setup page	sitemgr-link	zh	Sitemgr 安装页面
 sitemgr web content manager	common	zh	SiteMgr 网站内容管理器
 sitemgr websites	sitemgr	zh	SiteMgr-网站
 sitemgr-link	common	zh	SiteMgr-网站
-sitio	sitemgr	zh	站点
 size	sitemgr	zh	大小
 sorry, no content found for you search criteria	sitemgr	zh	抱歉，您的搜索条件找不到任何内容
 sort order	sitemgr	zh	分类排序
@@ -450,7 +454,6 @@ the page name must be unique.	sitemgr	zh	页面名称必须是唯一的。
 the page was successfully saved.	sitemgr	zh	页面保存成功。
 the path to the file to be downloaded	sitemgr	zh	要下载的文件路径
 the person to say hello to	sitemgr	zh	访客名称
-the second directory is the sitemgr-site directory.  this can be moved <i>anywhere</i>. it can also be named <i>anything</i>.  wherever it winds up, when you point a web browser to it, you will get the generated website.  assuming, of course, that you've accurately completed the setup fields below and also <b><i>edited the config.inc.php</i></b> file.	sitemgr	zh	第二个目录是 SiteMgr-Site 目录，它可被移到<i>任何位置</i>，也可以被<i>重命名</i>。无论怎样，当您使用浏览器指向它时，您会看到生成的网站。当然这必须是在您已经正确地完成了以下字段的设置并编辑了 <b><i>config.inc.php</i></b> 文件。
 the text for the link, if empty the module returns the raw url (without a link)	sitemgr	zh	链接的文字，如果留空该模块返回原始的网址(没有链接)
 the url can be relative or absolute.  name must end in a slash.	sitemgr	zh	网址可以是相对或绝对地址，最后必须加上斜线。
 the url must be absolute and end in a slash, for example http://mydomain.com/mysite/	sitemgr	zh	网址必须是绝对地址，而且最后必须加上斜线，例如 http://mydomain.com/mysite/
@@ -478,7 +481,6 @@ this block displays the current section's table of contents	sitemgr	zh	这个块
 this category has no pages.	sitemgr	zh	这个类别没有页面。
 this is a simple sample module	sitemgr	zh	这是一个简单的范例模块
 this is only used as an internal name for the website.	sitemgr	zh	这只是用来作为网站的一个内部名称。
-this is used chiefly for meta data and the title bar.  if you change the site languages below you have to save before being able to set this preference for a new language.	sitemgr	zh	这主要用于 meta data 和标题栏，如果您要在下面更改站点语言，您必须在开始为新语言设置此参数之前保存当前设置。
 this is used chiefly for meta data. if you change the site languages below you have to save before being able to set this preference for a new language.	sitemgr	zh	这主要用于 meta data，如果您要在下面更改站点语言，您必须在开始为新语言设置此参数之前保存当前设置。
 this module create a link for downloading a file from the vfs	sitemgr	zh	这个模块为从虚拟文件系统下载文件创建一个链接
 this module create a link for downloading a file(s) from the vfs	sitemgr	zh	这个模块为从虚拟文件系统下载文件创建一个链接
@@ -527,6 +529,7 @@ updating to new category system	sitemgr	zh	更新到新类别系统
 url pointing to the image-directory	sitemgr	zh	图片目录的网址
 url to sitemgr-site	sitemgr	zh	连到网站的网址
 use current user selected language	sitemgr	zh	使用目前用户选择的语言
+use default	sitemgr	zh	使用默认值
 use phpnuke themes instead of templates	sitemgr	zh	用phpNuke的主题取代模板
 use this module for displaying book ads for the amazon web site	sitemgr	zh	使用这个模块来显示amazon 网站预定广告
 use this module for displaying wiki-pages	sitemgr	zh	使用这个模块来显示WIKI页面
@@ -547,7 +550,6 @@ week	sitemgr	zh	周
 what do you want to do with existing translations of categories and pages for this language?	sitemgr	zh	对于已经存在的类别的翻译与这一语言的页面您想要做什么？
 when is a tab activated?	sitemgr	zh	当选项卡被激活时？
 which application should be executed after login?	sitemgr	zh	应该在登录后执行那个应用程序？
-which main categories schuld be included (comma seperated list, empty for all)	sitemgr	zh	要包含哪个主要类别(逗号分隔，留空表示全部)
 wiki	sitemgr	zh	维基(Wiki)
 wiki startpage	sitemgr	zh	Wiki首页
 with which view should the module be displayed in the beginning?	sitemgr	zh	该模块在开始时应该以哪一种查看模式显示？
@@ -574,13 +576,8 @@ you must be an admin to manage module properties.	sitemgr	zh	您必须具备管�
 you must be an administrator to setup the site manager.	sitemgr	zh	您必须具备管理员身份才能设置站点管理器。
 you removed one ore more languages from your site languages.	sitemgr	zh	您已经从站点语言中移除了一个或多个语言。
 you will remove the message in the following language from your notification system:	sitemgr	zh	您将从您的通知系统中移除以下语言中的讯息：
-your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr	zh	您的管理员还没有将网站内容管理器设置为供公开浏览查看，请敦促你们的系统管理员尽快介入并作相应处理。
+your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr-link	zh	您的管理员还没有将网站内容管理器设置为供公开浏览查看，请敦促你们的系统管理员尽快介入并作相应处理。
 your calendar	sitemgr	zh	您的日历
 your comment	sitemgr	zh	您的注释
-your connection is not safe.	sitemgr	zh	您的连接不是安全的。
 your name	sitemgr	zh	您的名字
-before the public web site can be viewed, you must configure the various locations and preferences.  please go to the sitemgr setup page by following this link:	sitemgr-link	zh	在发布网站使其可被浏览之前，您必须配置不同的地址和选项。请通过以下链接前往 Sitemgr 设定页：
-note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr-link	zh	注意：如果您的参数不正确，您可能得到这个消息。例如，如果 config.inc.php(配置文件)不存在您所指定的目录。
-sitemgr setup page	sitemgr-link	zh	Sitemgr 设置页面
-you need to make sure the sitemgr-link app is in the egroupware directory.  if you made a symbolic link... it isn't working.	sitemgr-link	zh	您必须确保 Sitemgr-Link 应用程序是在 eGroupWare 目录里。如果您做了一个符号连接...，它是不会工作的。
-your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr-link	zh	您的系统管理员还没有设置网页内容管理供公众浏览，将此告诉您的系统管理员以获得它们的相应链接。
+zip code	sitemgr	zh	邮政编码

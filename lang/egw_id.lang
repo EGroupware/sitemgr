@@ -1,15 +1,15 @@
-id	sitemgr	id	ID
-no anonymous user accounts installed.  notify the administrator.	sitemgr	id	NO ANONYMOUS USER ACCOUNTS INSTALLED.  NOTIFY THE ADMINISTRATOR.
-there is no website configured for url %1.  notify the administrator.	sitemgr	id	THERE IS NO WEBSITE CONFIGURED FOR URL %1.  NOTIFY THE ADMINISTRATOR.
 1 day	common	id	1 Day
 1 hour	common	id	1 Hour
 1 month	common	id	1 Month
 1 week	common	id	1 Week
 actif	sitemgr	id	Actif
 actions	sitemgr	id	Actions
+add a category	sitemgr	id	tambah kategori
 add category	sitemgr	id	Add Category
 add page	sitemgr	id	Add Page
 add website	sitemgr	id	Add Website
+address line 2	sitemgr	id	Alamat Baris 2
+addressbook the contact should be shown	sitemgr	id	Kontak Buku Alamat ditampilkan
 administration	sitemgr	id	Administration
 administrative menu	sitemgr	id	Administrative Menu
 administrators	sitemgr	id	administrators
@@ -17,6 +17,7 @@ all categories	sitemgr	id	All categories
 all languages	sitemgr	id	all languages
 all sites	sitemgr	id	All Sites
 all words	sitemgr	id	All words
+allow posting of questions	sitemgr	id	Bolehkan mengirim pertanyaan
 amazon	sitemgr	id	Amazon
 anonymous	sitemgr	id	anonymous
 any words	sitemgr	id	Any words
@@ -25,6 +26,7 @@ application	sitemgr	id	Application
 archived	sitemgr	id	archived
 archived content	sitemgr	id	Archived content
 as	common	id	as
+ascending	sitemgr	id	Menaik
 ask customer	sitemgr	id	Ask customer
 automatic index	sitemgr	id	Automatic index
 basic settings	sitemgr	id	Basic Settings
@@ -39,6 +41,7 @@ category name	sitemgr	id	Category Name
 category saved	sitemgr	id	Category saved
 center	sitemgr	id	Center
 changes saved.	sitemgr	id	Changes saved.
+choose a category	sitemgr	id	Pilih kategori
 choose language	sitemgr	id	Choose language
 choose template	sitemgr	id	Choose template
 code file	sitemgr	id	Code file
@@ -63,7 +66,10 @@ delete block	sitemgr	id	Delete block
 delete category	sitemgr	id	Delete category
 delete page	sitemgr	id	Delete page
 delete version	sitemgr	id	Delete Version
+department	sitemgr	id	Departemen
+descending	sitemgr	id	Menurun
 discussions	sitemgr	id	Discussions
+display contact	sitemgr	id	Tampilkan Kontak
 documentation	sitemgr	id	Documentation
 done	sitemgr	id	Done
 dont ask	sitemgr	id	Dont ask
@@ -82,8 +88,12 @@ entry deleted	sitemgr	id	Entry deleted
 entry duplicated.	sitemgr	id	Entry duplicated.
 entry saved	sitemgr	id	Entry saved
 entry saved.	sitemgr	id	Entry saved.
+error deleting the entry!!!	sitemgr	id	Error deleting the entry!!!
+error saving the entry!!!	sitemgr	id	Error saving the entry!!!
 everybody	sitemgr	id	Everybody
 exact phrase	sitemgr	id	Exact Phrase
+export	sitemgr	id	ekspor
+fax	sitemgr	id	Fax
 file contents	sitemgr	id	File contents
 file download	sitemgr	id	File download
 filename	sitemgr	id	Filename
@@ -104,7 +114,9 @@ hello world	sitemgr	id	Hello world
 horizontal	sitemgr	id	Horizontal
 html frame	sitemgr	id	HTML Frame
 html module	sitemgr	id	HTML module
+id	sitemgr	id	ID
 image type	sitemgr	id	image type
+import	sitemgr	id	Impor
 index	sitemgr	id	Index
 knowledge base	sitemgr	id	Knowledge Base
 language:	sitemgr	id	Language:
@@ -125,6 +137,7 @@ move to	sitemgr	id	Move to
 name	sitemgr	id	Name
 new application	sitemgr	id	New application
 new guestbook	sitemgr	id	New guestbook
+no anonymous user accounts installed.  notify the administrator.	sitemgr	id	NO ANONYMOUS USER ACCOUNTS INSTALLED.  NOTIFY THE ADMINISTRATOR.
 not	common	id	not
 only gallery	sitemgr	id	Only gallery
 other websites	sitemgr	id	Other websites
@@ -146,6 +159,7 @@ path	sitemgr	id	Path
 paypal	sitemgr	id	Paypal
 percentage	sitemgr	id	Percentage
 plain selectbox	sitemgr	id	Plain selectbox
+prefix	sitemgr	id	Sebutan/Gelar
 prepublished	sitemgr	id	prepublished
 preunpublished	sitemgr	id	preunpublished
 previous	sitemgr	id	Previous
@@ -169,6 +183,7 @@ search keyword	sitemgr	id	search keyword
 search modes	sitemgr	id	Search modes
 search with	sitemgr	id	Search with
 seen by	sitemgr	id	Seen by
+select a category	sitemgr	id	pilih Kategori
 shipping address	sitemgr	id	Shipping address
 show path?	sitemgr	id	show path?
 show searchbox	sitemgr	id	Show searchbox
@@ -192,10 +207,12 @@ state	sitemgr	id	State
 subcategories	sitemgr	id	Subcategories
 subsections:	sitemgr	id	Subsections:
 subtitle	sitemgr	id	Subtitle
+table of contents	sitemgr	id	Daftar Isi
 template select	sitemgr	id	Template select
 text allignment	sitemgr	id	Text allignment
 textarea	sitemgr	id	textarea
 the web	sitemgr	id	the web
+there is no website configured for url %1.  notify the administrator.	sitemgr	id	THERE IS NO WEBSITE CONFIGURED FOR URL %1.  NOTIFY THE ADMINISTRATOR.
 this site	sitemgr	id	this site
 title	sitemgr	id	Title
 topic	sitemgr	id	Topic
@@ -206,6 +223,7 @@ translation manager	sitemgr	id	Translation Manager
 translation status	sitemgr	id	Translation Status
 unsubscribe	sitemgr	id	Unsubscribe
 update notification	sitemgr	id	Update Notification
+use default	sitemgr	id	Gunakan bawaan
 user name	sitemgr	id	User Name
 validator	sitemgr	id	Validator
 vertical	sitemgr	id	Vertical
@@ -220,3 +238,4 @@ xml browser	sitemgr	id	XML browser
 your calendar	sitemgr	id	Your Calendar
 your comment	sitemgr	id	Your comment
 your name	sitemgr	id	Your name
+zip code	sitemgr	id	Kodepos
