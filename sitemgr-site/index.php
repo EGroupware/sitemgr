@@ -140,6 +140,14 @@ $objbo->setsitemgrPreferredLanguage();
 $GLOBALS['egw']->translation->add_app('common');	// as we run as sitemgr-site
 $GLOBALS['egw']->translation->add_app('sitemgr');	// as we run as sitemgr-site
 
+
+// set Cache-Control and Expires header for anon GET requests, if configured
+if ((int)$sitemgr_info['cache_expires'] > 0 && $_SERVER['REQUEST_METHOD'] == 'GET' &&
+	$sitemgr_info['anonymous_user'] == $GLOBALS['egw_info']['user']['account_lid'])
+{
+	egw_session::cache_control((int)$sitemgr_info['cache_expires']);
+}
+
 if ($GLOBALS['sitemgr_info']['themesel'][0] == '/')
 {
 	$templateroot = $GLOBALS['egw_info']['server']['files_dir'] . $GLOBALS['sitemgr_info']['themesel'];

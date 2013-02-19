@@ -173,6 +173,13 @@ class Sites_SO
 					}
 					self::$site_cache['favicon_url'] = $config['favicon_url_'.$site_id];
 				}
+				// read global Expires time for anon access
+				//if (version_compare($GLOBALS['egw_info']['apps']['sitemgr']['version'], '1.9.xxx', '<') ||
+				//	is_null(self::$site_cache['cache_expires']))
+				{
+					if (!isset($config)) $config = config::read('sitemgr');
+					self::$site_cache['cache_expires'] = $config['cache_expires_'.$site_id];
+				}
 				//error_log(__METHOD__."($site_id, $only_url_dir) self::\$site_cache=".array2string(self::$site_cache));
 			}
 		}
@@ -310,6 +317,9 @@ class Sites_SO
 	public function saveprefs(array $prefs,$site_id=CURRENT_SITE_ID)
 	{
 		if ($site_id == self::$site_cache['site_id']) self::$site_cache = null;
+
+		// store expires time for anon session in config, 'til we add it to schema
+		config::save_value('cache_expires_'.$site_id,$prefs['cache_expires'],'sitemgr');
 
 		return $this->db->update($this->sites_table,array(
 				'themesel' => $prefs['themesel'],

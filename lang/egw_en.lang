@@ -40,6 +40,7 @@ all words	sitemgr	en	All words
 allignment of navigation elements	sitemgr	en	Alignment of navigation elements
 allow customer to input a note	sitemgr	en	Allow customer to input a note
 allow posting of questions	sitemgr	en	Allow posting of questions
+allow proxys and cdns caching	sitemgr	en	Allow proxys and CDNs caching
 amazon	sitemgr	en	Amazon
 amazon server (without www), eg. amazon.com	sitemgr	en	Amazon server (without www), eg. amazon.com
 an application directory	sitemgr	en	An application directory
@@ -583,6 +584,7 @@ this must be an absolute directory location.  <b>no trailing slash</b>.	sitemgr	
 this should be a comma-separated list of language-codes.	sitemgr	en	This should be a comma-separated list of language-codes.
 this should be a page that is readable by everyone. if you leave this blank, the site index will be shown by default.	sitemgr	en	This should be a page that is readable by everyone. If you leave this blank, the site index will be shown by default.
 this site	sitemgr	en	This site
+time in seconds proxys are allowed to cache all anonymous requests.	sitemgr	en	Time in seconds proxys are allowed to cache ALL anonymous requests.
 title	sitemgr	en	Title
 topic	sitemgr	en	Topic
 translate	sitemgr	en	Translate

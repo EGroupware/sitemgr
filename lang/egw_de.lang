@@ -40,6 +40,7 @@ all words	sitemgr	de	Alle Worte
 allignment of navigation elements	sitemgr	de	Ausrichtung der Elemente der Navigation
 allow customer to input a note	sitemgr	de	Erlaube Kunden eine Notiz einzugeben
 allow posting of questions	sitemgr	de	Das Eingeben von Fragen erlauben
+allow proxys and cdns caching	sitemgr	de	Erlaube Proxys und CDNs zu cachen
 amazon	sitemgr	de	Amazon
 amazon server (without www), eg. amazon.com	sitemgr	de	Amazon Server (ohne www), z.B. amazon.de
 an application directory	sitemgr	de	Ein Applikations-Ordner
@@ -583,6 +584,7 @@ this must be an absolute directory location.  <b>no trailing slash</b>.	sitemgr	
 this should be a comma-separated list of language-codes.	sitemgr	de	Geben Sie hier eine durch Kommata unterteilte Liste der Sprachen ein. Zum Beispiel: en, de, fr
 this should be a page that is readable by everyone. if you leave this blank, the site index will be shown by default.	sitemgr	de	Diese Seite sollte von einem Benutzer ohne spezielle Rechte gesehen werden können (z. B. Anonymous). Falls Sie hier nichts eintragen, wird der Seiten Index als Standard angezeigt.
 this site	sitemgr	de	diese Site
+time in seconds proxys are allowed to cache all anonymous requests.	sitemgr	de	Zeit in Sekunden die Proxys ALLE anonymen Anfragen cachen dürfen.
 title	sitemgr	de	Titel
 topic	sitemgr	de	Thema
 translate	sitemgr	de	Übersetzen
