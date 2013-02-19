@@ -587,6 +587,10 @@ class Common_UI
 				'note'=>lang('This should be a comma-separated list of language-codes.'),
 				'default'=>'en'
 			);
+			$preferences['cache_expires'] = array(
+				'title' => lang('Allow proxys and CDNs caching'),
+				'note' => lang('Time in seconds proxys are allowed to cache ALL anonymous requests.'),
+			);
 
 			$this->t->set_file('sitemgr_prefs','sitemgr_preferences.tpl');
 			$this->t->set_var('formaction',$GLOBALS['egw']->link(

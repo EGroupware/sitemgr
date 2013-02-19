@@ -48,6 +48,13 @@ class site_controler
 		$objbo->setsitemgrPreferredLanguage();
 		translation::add_app('common');	// as we run as sitemgr-site
 		translation::add_app('sitemgr');	// as we run as sitemgr-site
+
+		// set Cache-Control and Expires header for anon GET requests, if configured
+		if ((int)$sitemgr_info['cache_expires'] > 0 && $_SERVER['REQUEST_METHOD'] == 'GET' &&
+			$sitemgr_info['anonymous_user'] == $GLOBALS['egw_info']['user']['account_lid'])
+		{
+			egw_session::cache_control((int)$sitemgr_info['cache_expires']);
+		}
 	}
 
 	/**
