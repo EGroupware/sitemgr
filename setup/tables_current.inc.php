@@ -1,21 +1,20 @@
 <?php
-	/**************************************************************************\
-	* eGroupWare SiteMgr - Web Content Management                              *
-	* http://www.egroupware.org                                                *
-	* --------------------------------------------                             *
-	*  This program is free software; you can redistribute it and/or modify it *
-	*  under the terms of the GNU General Public License as published by the   *
-	*  Free Software Foundation; either version 2 of the License, or (at your  *
-	*  option) any later version.                                              *
-	\**************************************************************************/
-
-	/* $Id$ */
+/**
+ * EGroupware - SiteMgr
+ * http://www.egroupware.org
+ * Created by eTemplates DB-Tools written by ralfbecker@outdoor-training.de
+ *
+ * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
+ * @package sitemgr
+ * @subpackage setup
+ * @version $Id$
+ */
 
 $phpgw_baseline = array(
 	'egw_sitemgr_pages' => array(
 		'fd' => array(
 			'page_id' => array('type' => 'auto','nullable' => False),
-			'cat_id' => array('type' => 'int','precision' => '4'),
+			'cat_id' => array('type' => 'int','meta' => 'category','precision' => '4'),
 			'sort_order' => array('type' => 'int','precision' => '4'),
 			'hide_page' => array('type' => 'int','precision' => '4'),
 			'name' => array('type' => 'varchar','precision' => '100'),
@@ -40,7 +39,7 @@ $phpgw_baseline = array(
 	),
 	'egw_sitemgr_categories_state' => array(
 		'fd' => array(
-			'cat_id' => array('type' => 'int','precision' => '4','nullable' => False),
+			'cat_id' => array('type' => 'int','meta' => 'category','precision' => '4','nullable' => False),
 			'state' => array('type' => 'int','precision' => '2'),
 			'index_page_id' => array('type' => 'int','precision' => '4','default' => '0')
 		),
@@ -51,7 +50,7 @@ $phpgw_baseline = array(
 	),
 	'egw_sitemgr_categories_lang' => array(
 		'fd' => array(
-			'cat_id' => array('type' => 'int','precision' => '4','nullable' => False),
+			'cat_id' => array('type' => 'int','meta' => 'category','precision' => '4','nullable' => False),
 			'lang' => array('type' => 'varchar','precision' => '5','nullable' => False),
 			'name' => array('type' => 'varchar','precision' => '100'),
 			'description' => array('type' => 'varchar','precision' => '255')
@@ -76,7 +75,7 @@ $phpgw_baseline = array(
 		'fd' => array(
 			'block_id' => array('type' => 'auto','nullable' => False),
 			'area' => array('type' => 'varchar','precision' => '50'),
-			'cat_id' => array('type' => 'int','precision' => '4'),
+			'cat_id' => array('type' => 'int','meta' => 'category','precision' => '4'),
 			'page_id' => array('type' => 'int','precision' => '4'),
 			'module_id' => array('type' => 'int','precision' => '4','nullable' => False),
 			'sort_order' => array('type' => 'int','precision' => '4'),
@@ -124,7 +123,7 @@ $phpgw_baseline = array(
 	'egw_sitemgr_active_modules' => array(
 		'fd' => array(
 			'area' => array('type' => 'varchar','precision' => '50','nullable' => False),
-			'cat_id' => array('type' => 'int','precision' => '4','nullable' => False),
+			'cat_id' => array('type' => 'int','meta' => 'category','precision' => '4','nullable' => False),
 			'module_id' => array('type' => 'int','precision' => '4','nullable' => False)
 		),
 		'pk' => array('area','cat_id','module_id'),
@@ -172,7 +171,7 @@ $phpgw_baseline = array(
 			'notification_id' => array('type' => 'auto','nullable' => False),
 			'site_id' => array('type' => 'int','precision' => '4','nullable' => False),
 			'site_language' => array('type' => 'varchar','precision' => '5','nullable' => False,'default' => 'all'),
-			'cat_id' => array('type' => 'int','precision' => '4','nullable' => False,'default' => '0'),
+			'cat_id' => array('type' => 'int','meta' => 'category','precision' => '4','nullable' => False,'default' => '0'),
 			'email' => array('type' => 'varchar','precision' => '255','nullable' => False)
 		),
 		'pk' => array('notification_id'),
