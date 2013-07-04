@@ -157,7 +157,7 @@ class module_login extends Module
 		{
 			$content  = '<form name="login" action="'.phpgw_link('/logout.php').'" method="post">';
 			$content .= '<font class="content">'. lang('Logged in as:') .'<br>';
-			$content .= ' ['.$GLOBALS['egw_info']['user']['userid']. '] '. $GLOBALS['egw_info']['user']['fullname'];
+			$content .= ' ['.$GLOBALS['egw_info']['user']['userid']. '] '. $GLOBALS['egw_info']['user']['account_fullname'];
 			$content .= '</font><br><br><center>';
 			$content .= '<input type="submit" value="' . lang('Logout') .'" name="submitit">';
 			$content .= '</center></form>';
