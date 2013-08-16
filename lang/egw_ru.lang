@@ -40,6 +40,7 @@ all words	sitemgr	ru	Все слова
 allignment of navigation elements	sitemgr	ru	Выравнивание элементов управления
 allow customer to input a note	sitemgr	ru	Позволить пользователю вводить сообщения
 allow posting of questions	sitemgr	ru	Позволять публикацию вопросов
+allow proxys and cdns caching	sitemgr	ru	Разрешить прокси и CDN-кеширование
 amazon	sitemgr	ru	Амазон
 amazon server (without www), eg. amazon.com	sitemgr	ru	Сервер Амазон (без www), напр. amazon.com
 an application directory	sitemgr	ru	Папка приложения
@@ -583,6 +584,7 @@ this must be an absolute directory location.  <b>no trailing slash</b>.	sitemgr	
 this should be a comma-separated list of language-codes.	sitemgr	ru	Это должен быть разделенный запятыми список кодов языка.
 this should be a page that is readable by everyone. if you leave this blank, the site index will be shown by default.	sitemgr	ru	Это должна быть страница, читаемая всеми. Если Вы оставите это пустым, по-умолчанию будет показан индекс сайта.
 this site	sitemgr	ru	Этот сайт
+time in seconds proxys are allowed to cache all anonymous requests.	sitemgr	ru	Время кеширования анонимных запросов прокси-сервером (в секундах)
 title	sitemgr	ru	Название
 topic	sitemgr	ru	Статья
 translate	sitemgr	ru	Перевод
