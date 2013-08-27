@@ -95,6 +95,7 @@ common prefix of the image-name (a number starting with 1 will be appended)	site
 configure module properties	sitemgr	fr	Configurer les propriétés du module
 configure sitemgr	sitemgr	fr	Configurer SiteMgr
 configure website	sitemgr	fr	Configurer le site Web
+contact fields to show	sitemgr	fr	Champs à afficher
 contact the administrator.	sitemgr	fr	Contactez l'administrateur.
 content areas	sitemgr	fr	Zones de contenu
 content blocks	sitemgr	fr	Blocs de contenu
@@ -107,6 +108,7 @@ create new version	sitemgr	fr	Créer une nouvelle version
 css styles	sitemgr	fr	styles CSS
 current section	sitemgr	fr	Section actuelle
 custom	sitemgr	fr	personnalisé
+custom etemplate for the contactform	sitemgr	fr	eTemplate personnalisé pour le formulaire contact
 default	sitemgr	fr	Défaut
 default home page id number	sitemgr	fr	ID de la page racine par défaut
 define websites	common	fr	Définir les sites Web
@@ -115,6 +117,7 @@ delete category	sitemgr	fr	Effacer la catégorie
 delete page	sitemgr	fr	Effacer la page
 delete this application	sitemgr	fr	Effacer cette application
 delete this block	sitemgr	fr	Effacer ce bloc
+delete this file or directory	sitemgr	fr	Supprimer ce fichier ou répertoire ?
 delete this guestbook	sitemgr	fr	Effacer ce livre d'or
 delete version	sitemgr	fr	Effacer la version
 deleting all data for %1	sitemgr	fr	Effacement de toutes les données pour %1
@@ -122,6 +125,7 @@ department	sitemgr	fr	Département
 descending	sitemgr	fr	Décroissant
 details for language %1 (%2)	sitemgr	fr	Détails pour la langue %1 (%2)
 discussions	sitemgr	fr	Discussions
+display contact	sitemgr	fr	Afficher le contact
 display link to autoregistration below login form?	sitemgr	fr	Afficher le lien vers l'auto-enregistrement sous le formulaire de login?
 do you realy want to delete the selected categories (including all pages), pages and blocks?	sitemgr	fr	Voulez-vous vraiment effacer les Catégories sélectionnées (y-compris toutes les paes), Pages et Blocs?
 do you realy want to delete this block?	sitemgr	fr	Voulez-vous vraiment effacer ce bloc?
@@ -162,6 +166,7 @@ error accessing page	common	fr	Erreur en accédant à la page
 error deleting the element.	sitemgr	fr	Erreur lors de l'effacement de l'élément.
 error deleting the entry!!!	sitemgr	fr	Erreur lors de la suppression de l'entrée !!!
 error saving the entry!!!	sitemgr	fr	Erreur lors de l'enregistrement de l'entrée !!!
+error uploading file!	sitemgr	fr	Erreur à l'upload du fichier !
 error writing to the database.	sitemgr	fr	Erreur lors de l'écriture en base de données.
 error writing to the database: %1.	sitemgr	fr	Erreur lors de l'écriture en base de données: %1.
 everybody	sitemgr	fr	Tout le monde
@@ -172,6 +177,7 @@ file %1 is not readable by the webserver !!!	sitemgr	fr	Fichier %1 pas lisible p
 file %1 is outside the docroot of the webserver !!!<br>this module does not allow - for security reasons - to open files outside the docroot.	sitemgr	fr	Le fichier %1 se trouve en dehors du 'docroot' du serveur Web !!!<br>Ce module ne permet pas - pour des raisons de sécurité - d'ouvrir des fichiers à l'extérieur de 'docroot'
 file contents	sitemgr	fr	Le fichier contient
 file download	sitemgr	fr	Download du fichier
+file successful uploaded.	sitemgr	fr	Fichier uploadé avec succès !
 filename	sitemgr	fr	Nom du fichier
 filesystem path of the directory where xml files are stored	sitemgr	fr	Chemin du répertoire dans le système de fichiers où les fichiers xml seront stockés
 filesystem path of the image-directory	sitemgr	fr	Chemin du répertoire d'images dans le système de fichiers
@@ -337,6 +343,7 @@ select the templates the user is allowed to see	sitemgr	fr	Sélectionnez les mod
 select type of navigation	sitemgr	fr	Choisissez le type de Navigation
 selected template %1 does not exist.	sitemgr	fr	Le gabarit %1 sélectionné n'existe pas.
 selected theme %1 does not exist.	sitemgr	fr	Le thème %1 sélectionné n'existe pas.
+send emailcopy to receiver	sitemgr	fr	Envoyer une copie email au destinataire
 should the file be viewed in the browser or downloaded	sitemgr	fr	Le fichier doit-il être vu dans le navigateur ou downloadé
 show a template-gallery (thumbnail and informations)	sitemgr	fr	Afficher une galerie de modèles (échantillons et informations)
 show contents of a directory	sitemgr	fr	Affiche le contenu d'un répertoire
@@ -385,6 +392,7 @@ template based navigation module	sitemgr	fr	Module de navigation basé sur un mo
 template select	sitemgr	fr	Choix de gabarit
 text allignment	sitemgr	fr	Alignement de texte
 textarea	sitemgr	fr	Zone de texte
+the anonymous user needs read it!	sitemgr	fr	L'utilisateur anonyme doit avoir des droits de lecture !
 the category to display, 0 for complete table of contents	sitemgr	fr	La catégorie à afficher, 0 pour une table complète des contenus
 the complete url or path to a file to be included	sitemgr	fr	L'URL complète ou le chemin du fichier à inclure
 the config.inc.php file needs to be edited to point to the egroupware directory. copy the config.inc.php.template file to config.inc.php and then edit it.	sitemgr	fr	Le fichier config.inc.php doit être édité pour pointer vers le répertoire de eGroupWare. Copiez le fichier config.inc.php.template vers config.inc.php puis éditez-le.
@@ -396,6 +404,7 @@ the page name must be unique.	sitemgr	fr	Le nom de la page doit être unique.
 the page was successfully saved.	sitemgr	fr	La page a été enregistrée avec succès.
 the path to the file to be downloaded	sitemgr	fr	Le chemin vers le fichier à downloader
 the person to say hello to	sitemgr	fr	La personne à qui dire bonjour
+the requested path %1 is not available.	sitemgr	fr	Le chemin demandé %1 n'est pas disponible !
 the second directory is the sitemgr-site directory.  this can be moved <i>anywhere</i>.  it can also be named <i>anything</i>.  wherever it winds up, when you point a web browser to it, you will get the generated website.  assuming, of course, that you've accurately completed the setup fields below and also <b><i>edited the config.inc.php</i></b> file.	sitemgr	fr	Le deuxième répertoire est le répertoire de sitemgr-site.  Ceci peut être déplacé <i>n'importe où</i>.  Ceci peut être renommé en <i>n'importe quoi</i>.  Dès qu'il est monté, quand vous pointez un navigateur vers lui, vous avez le site Web généré.  En considérant, bien sûr, que vous avez correctement complété les champs du setup ci-dessous et aussi <b><i>édité le fichier config.inc.php</i></b>.
 the text for the link, if empty the module returns the raw url (without a link)	sitemgr	fr	Le texte pour le lien, si vide le module retourne l'URL brut (sans l'élément A de HTML)
 the url can be relative or absolute.  name must end in a slash.	sitemgr	fr	L'URL peut être relative ou absolue.  Le nom doit finir avec un slash (/).
@@ -431,6 +440,7 @@ this module create a link for downloading a file(s) from the vfs	sitemgr	fr	Ce m
 this module demonstrates how handling data stored in xml and building an interacvite interface from it	sitemgr	fr	Ce module démontre comment gérer les données stockées dans XML et construire une interface interactive depuis elles
 this module displays a login form	sitemgr	fr	Ce module affiche un formulaire de login
 this module displays any kind of navigation element.	sitemgr	fr	Ce module affiche n'importe quel élément de navigation.
+this module displays block from a adddressbook group.	sitemgr	fr	Ce module affiche un bloc de groupe du carnet d'adresses
 this module displays bookmarks in a javascript based tree	sitemgr	fr	Ce module affiche les signets dans un arbre basé sur javascript
 this module displays the current month	sitemgr	fr	Ce module affiche le mois actuel
 this module displays the egw forums on the web site	sitemgr	fr	Ce module affiche les forums eGroupWare sur le site Web
