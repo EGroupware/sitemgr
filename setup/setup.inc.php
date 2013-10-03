@@ -48,7 +48,6 @@ Arijit Ghosh (arijitg -AT- uci.edu)');
 $setup_info['sitemgr']['note'] = '';
 
 /* The hooks this app includes, needed for hooks registration */
-$setup_info['sitemgr']['hooks'][] = 'preferences';
 $setup_info['sitemgr']['hooks'][] = 'about';
 $setup_info['sitemgr']['hooks'][] = 'admin';
 $setup_info['sitemgr']['hooks'][] = 'sidebox_menu';
