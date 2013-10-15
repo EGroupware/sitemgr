@@ -21,7 +21,7 @@ $GLOBALS['egw_setup']->add_acl('sitemgr-link','run',$defaultgroup);
 
 // Create anonymous user and NoGroup group for sitemgr
 $GLOBALS['egw_setup']->add_account('NoGroup','No','Rights',False,False);
-$anonymous = $GLOBALS['egw_setup']->add_account($anonuser='anonymous','SiteMgr','User',$anonpasswd='anonymous','NoGroup');
+$anonymous = $GLOBALS['egw_setup']->add_account($anonuser='anonymous','SiteMgr','User','anonymous','NoGroup',$changepw=False,$email='',$anonpasswd);
 // give the anonymous user only sitemgr-link-rights
 $GLOBALS['egw_setup']->add_acl('sitemgr-link','run',$anonymous);
 $GLOBALS['egw_setup']->add_acl('phpgwapi','anonymous',$anonymous);
