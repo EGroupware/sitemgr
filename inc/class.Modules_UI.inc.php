@@ -13,10 +13,36 @@
 
 	class Modules_UI
 	{
+		/**
+		 * Instance of Common_UI object
+		 *
+		 * @var Common_UI
+		 */
 		var $common_ui;
+		/**
+		 * Reference to global Template object
+		 *
+		 * @var Template
+		 */
 		var $t;
+		/**
+		 * Reference to Modules_BO object of Common_BO
+		 *
+		 * @var Modules_BO
+		 */
 		var $bo;
+		/**
+		 * Reference to ACL_BO object of Common_BO
+		 *
+		 * @var ACL_BO
+		 */
 		var $acl;
+		/**
+		 * Reference to Categories_BO object of Common_BO
+		 *
+		 * @var Categories_BO
+		 */
+		var $catbo;
 		var $modules;
 		var $errormsg;
 
@@ -29,11 +55,11 @@
 
 		function Modules_UI()
 		{
-			$this->common_ui =& CreateObject('sitemgr.Common_UI',True);
+			$this->common_ui = CreateObject('sitemgr.Common_UI',True);
 			$this->t = $GLOBALS['egw']->template;
-			$this->bo = &$GLOBALS['Common_BO']->modules;
-			$this->acl = &$GLOBALS['Common_BO']->acl;
-			$this->catbo = &$GLOBALS['Common_BO']->cats;
+			$this->bo = $GLOBALS['Common_BO']->modules;
+			$this->acl = $GLOBALS['Common_BO']->acl;
+			$this->catbo = $GLOBALS['Common_BO']->cats;
 		}
 
 		function manage($msg = '')
@@ -158,7 +184,7 @@
 				}
 
 				$this->common_ui->DisplayHeader();
-				
+
 				if ($cat_id != CURRENT_SITE_ID)
 				{
 						$cat = $this->catbo->getCategory($cat_id);
@@ -189,7 +215,7 @@
 						'label' => $element['label'],
 						'form' => $element['form'])
 					);
-					$this->t->parse('EBlock','EditorElement', true);				
+					$this->t->parse('EBlock','EditorElement', true);
 				}
 
 				$this->t->set_var(Array(
@@ -200,7 +226,7 @@
 					),
 					'module_id' => $inputmodule_id,
 					'contentarea' => $inputarea,
-					'savebutton' => ($editormoduleelements ? 
+					'savebutton' => ($editormoduleelements ?
 						'<input type="submit" value="'.lang('Save').'" name="btnSaveProperties" />' :
 						lang('There are no properties defined for this module')
 					),

@@ -15,12 +15,26 @@
 
 	class Modules_BO
 	{
+		/**
+		 * Instance of Modules_SO object
+		 *
+		 * @var Modules_SO
+		 */
 		var $so;
+
+		/**
+		 * Directory for instance specific modules
+		 *
+		 * @var string
+		 */
+		var $instance_modules;
 
 		function Modules_BO()
 		{
 			//all sitemgr BOs should be instantiated via a globalized Common_BO object,
 			$this->so =& CreateObject('sitemgr.Modules_SO', true);
+
+			$this->instance_modules = $GLOBALS['egw_info']['server']['files_dir'].'/sitemgr';
 		}
 
 		function getmoduleid($modulename)
@@ -63,13 +77,14 @@
 			$classname = 'module_' . $modulename;
 			list($app) = explode('_',$modulename);
 			$files = array();
-	
-			if (@file_exists($file = $files[] = EGW_INCLUDE_ROOT.'/'.$app.'/sitemgr/class.'.$classname.'.inc.php') ||
+
+			if (@file_exists($file = $files[] = $this->instance_modules.'/class.'.$classname.'.inc.php') ||
+				@file_exists($file = $files[] = EGW_INCLUDE_ROOT.'/'.$app.'/sitemgr/class.'.$classname.'.inc.php') ||
 				@file_exists($file = $files[] = EGW_INCLUDE_ROOT.'/'.$modulename.'/sitemgr/class.'.$classname.'.inc.php') ||
 				@file_exists($file = $files[] = EGW_INCLUDE_ROOT.'/sitemgr/modules/class.'.$classname.'.inc.php'))
 			{
 				include_once($file);
-				
+
 				$obj = new $classname;
 			}
 			else
@@ -93,9 +108,26 @@
 		function findmodules()
 		{
 			$new_modules = array();
-			foreach($GLOBALS['egw_info']['apps'] as $app => $data)
+			$apps = array_keys($GLOBALS['egw_info']['apps']);
+			if (file_exists($this->instance_modules))
 			{
-				$moddir = EGW_SERVER_ROOT . '/' . $app . ($app == 'sitemgr' ? '/modules' : '/sitemgr');
+				$apps[] = '*instance*';
+			}
+			foreach($apps as $app)
+			{
+				$moddir = EGW_SERVER_ROOT . '/' . $app;
+				switch($app)
+				{
+					case 'sitemgr':
+						$moddir .= '/modules';
+						break;
+					case '*instance*':
+						$moddir = $this->instance_modules;
+						break;
+					default:
+						$moddir .= '/sitemgr';
+						break;
+				}
 				if (is_dir($moddir))
 				{
 					$d = dir($moddir);
@@ -104,13 +136,13 @@
 						if (preg_match ("/class\.module_(.*)\.inc\.php$/", $file, $module))
 						{
 							$modulename = $module[1];
-	
+
 							$moduleobject =& $this->createmodule($modulename);
 							if ($moduleobject)
 							{
 								$description = '';
 								// we grab the description direct from the module source, as we need the untranslated one
-								if (ereg('\$this->description = lang\(\'([^'."\n".']*)\'\);',implode("\n",file($moddir.'/'.$file)),$parts))
+								if (preg_match('|\$this->description = lang\(\'([^'."\n".']*)\'\);|', file_get_contents($moddir.'/'.$file), $parts))
 								{
 									$description = str_replace("\\'","'",$parts[1]);
 								}
@@ -175,7 +207,7 @@
 			return array();
 		}
 
-		//this function calculates the properties by climbing up the hierarchy tree in the same way as 
+		//this function calculates the properties by climbing up the hierarchy tree in the same way as
 		//getcascadingmodulepermissions does
 		function getcascadingmoduleproperties($module_id,$contentarea,$cat_id,$modulename=False)
 		{
