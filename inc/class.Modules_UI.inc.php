@@ -14,22 +14,35 @@
 	class Modules_UI
 	{
 		/**
+		 * Instance of Common_UI object
+		 *
 		 * @var Common_UI
 		 */
 		var $common_ui;
 		/**
+		 * Reference to global Template object
+		 *
 		 * @var Template
 		 */
 		var $t;
 		/**
+		 * Reference to Modules_BO object of Common_BO
+		 *
 		 * @var Modules_BO
 		 */
 		var $bo;
 		/**
+		 * Reference to ACL_BO object of Common_BO
+		 *
 		 * @var ACL_BO
 		 */
 		var $acl;
-
+		/**
+		 * Reference to Categories_BO object of Common_BO
+		 *
+		 * @var Categories_BO
+		 */
+		var $catbo;
 		var $modules;
 		var $errormsg;
 
@@ -43,11 +56,11 @@
 
 		function Modules_UI()
 		{
-			$this->common_ui =& CreateObject('sitemgr.Common_UI',True);
+			$this->common_ui = CreateObject('sitemgr.Common_UI',True);
 			$this->t = $GLOBALS['egw']->template;
-			$this->bo = &$GLOBALS['Common_BO']->modules;
-			$this->acl = &$GLOBALS['Common_BO']->acl;
-			$this->catbo = &$GLOBALS['Common_BO']->cats;
+			$this->bo = $GLOBALS['Common_BO']->modules;
+			$this->acl = $GLOBALS['Common_BO']->acl;
+			$this->catbo = $GLOBALS['Common_BO']->cats;
 		}
 
 		function manage($msg = '')
