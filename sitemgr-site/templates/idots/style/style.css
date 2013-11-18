@@ -33,7 +33,7 @@ img
 }
 
 ul {
-	list-style: url("../images/orange-ball.png");
+	list-style: url("../../default/images/bullet.png");
 }
 
 a:link,a:visited

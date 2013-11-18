@@ -20,7 +20,7 @@ class right_bt
 <div class="divSidebox">
 	<div class="divSideboxHeader"><span>'. $title .'</span></div>
 	<div class="divSideboxEntry">
-		'. str_replace('&middot;','<img src="templates/idots/images/orange-ball.png" alt="+" />',$content). '</div>
+		'. str_replace('&middot;','<img src="templates/default/images/bullet.png" alt="+" />',$content). '</div>
 </div>
 <div class="sideboxSpace"></div>';
 	}
