@@ -580,7 +580,7 @@ this module provides the site index, it is automatically used by the index get p
 this module search throw the content (page title/description and html content)	sitemgr	de	Diese Module zeigt das Ergebnis der Suche (Seitentitel, Beschreibung und HTML Inhalt)
 this module show the status / percentage of the translation of egw	sitemgr	de	Diese Module zeit den prozentualen Status der Übersetzungen von eGW
 this module shows an accordion: clickable headers show otherwise hidden content.	sitemgr	de	Diese Modul ist ein Akkordeon: anklickbare Kopfzeilen zeigen normal verborgenen Inhalt
-this must be an absolute directory location.  <b>no trailing slash</b>.	sitemgr	de	Hier muss der Adsolute Pfad zu Verzeichniss angegeben werden. Zum Beispiel: /var/www/html/Ihre_Firma/sitemgr_site. <b>Keinen "/" am Ende des Pfades angeben!</b>
+this must be an absolute directory location.  <b>no trailing slash</b>.	sitemgr	de	Hier muss der Absolute Pfad zum Verzeichnis angegeben werden. Zum Beispiel: /var/www/html/Ihre_Firma/sitemgr_site. <b>Keinen "/" am Ende des Pfades angeben!</b>
 this should be a comma-separated list of language-codes.	sitemgr	de	Geben Sie hier eine durch Kommata unterteilte Liste der Sprachen ein. Zum Beispiel: en, de, fr
 this should be a page that is readable by everyone. if you leave this blank, the site index will be shown by default.	sitemgr	de	Diese Seite sollte von einem Benutzer ohne spezielle Rechte gesehen werden können (z. B. Anonymous). Falls Sie hier nichts eintragen, wird der Seiten Index als Standard angezeigt.
 this site	sitemgr	de	diese Site
