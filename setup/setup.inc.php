@@ -51,6 +51,7 @@ $setup_info['sitemgr']['note'] = '';
 $setup_info['sitemgr']['hooks'][] = 'about';
 $setup_info['sitemgr']['hooks'][] = 'admin';
 $setup_info['sitemgr']['hooks'][] = 'sidebox_menu';
+$setup_info['sitemgr']['hooks']['csp-frame-src'] = 'sitemgr.Sites_SO.csp_frame_src';
 
 /* Dependencies for this app to work */
 $setup_info['sitemgr']['depends'][] = array(

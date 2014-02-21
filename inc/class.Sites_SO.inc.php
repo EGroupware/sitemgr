@@ -226,6 +226,8 @@ class Sites_SO
 				'anonymous_passwd' => $site['anonpasswd'],
 			),False,__LINE__,__FILE__);
 
+		egw_cache::unsetInstance(__CLASS__, 'csp_frame_src');
+
 		return $site_id;
 	}
 
@@ -239,6 +241,8 @@ class Sites_SO
 	public function update($site_id,array $site)
 	{
 		if ($site_id == self::$site_cache['site_id']) self::$site_cache = null;
+
+		egw_cache::unsetInstance(__CLASS__, 'csp_frame_src');
 
 		return $this->db->update($this->sites_table,array(
 				'site_name' => $site['name'],
@@ -302,6 +306,8 @@ class Sites_SO
 	{
 		if ($site_id == self::$site_cache['site_id']) self::$site_cache = null;
 
+		egw_cache::unsetInstance(__CLASS__, 'csp_frame_src');
+
 		return $this->db->delete($this->sites_table,array(
 				'site_id' => $site_id
 			),__LINE__,__FILE__);
@@ -345,5 +351,26 @@ class Sites_SO
 		$this->db->update($this->sites_table,array(
 				'home_page_id' => $page,
 			),array('site_id' => $site_id),__LINE__,__FILE__);
+	}
+
+	/**
+	 * Hook to return additional CSP frame sources
+	 *
+	 * @return array with domains used
+	 */
+	function csp_frame_src()
+	{
+		$frame_src = egw_cache::getInstance(__CLASS__, 'csp_frame_src');
+
+		if (!isset($frame_src))
+		{
+			$frame_src = array();
+			foreach($this->db->select($this->sites_table, 'site_url', "site_url LIKE 'http%'", __LINE__, __FILE__) as $row)
+			{
+				$frame_src[] = parse_url($row['site_url'], PHP_URL_HOST);
+			}
+			egw_cache::setInstance(__CLASS__, 'csp_frame_src', $frame_src);
+		}
+		return $frame_src;
 	}
 }
