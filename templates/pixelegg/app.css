@@ -1,0 +1,36 @@
+/**
+ * EGroupware: CSS with less preprocessor
+
+ * SITEMANGR
+ *
+ * Please do NOT change app.css directly, instead change app.less and compile it!
+ *
+ * @link http://www.egroupware.org
+ * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
+ * @author Stefan Reinhardt <stefan.reinhardt@pixelegg.de>
+ * @package addressbook
+ * @version $Id: app.less 46282 2014-03-17 13:00:43Z hnategh $
+ */
+/*@import (less) "../default/app.css";*/
+@media all {
+  /* #############################################################################
+// iframe
+// Rahmen + padding**/
+  /*################## iframe ####################*/
+  /*#            #                               #*/
+  /*#            #                               #*/
+  /*#            #      Addressbook              #*/
+  /*#            #                               #*/
+  /*#            #                               #*/
+  /*#            #                               #*/
+  /*#            ############################### #*/
+  /*#            #                               #*/
+  /*#            #                               #*/
+  /*#            #                               #*/
+  /*#            #       infolog                 #*/
+  /*#            #                               #*/
+  /*#            #                               #*/
+  /*#            #                               #*/
+  /*##############################################*/
+}
+/*##################################################################*/

@@ -42,7 +42,15 @@
 	top: -10px;
 	text-align: right;
 	border-style: none;
+
 }
+
+.editIcons img,
+.editIconsPage a img{
+        width: 16px;
+        height: 16px;
+}
+
 
 /* iconice text for module- or contentarea-name in edit-mode */
 .editIconText
