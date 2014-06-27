@@ -40,10 +40,12 @@
 
 		function get_content(&$arguments,$properties)
 		{
+			unset($properties);	// not used, but required by function signature
+
 			$details = $arguments['details'];
 			//echo "<p>translation status for lang='$details'</p>\n";
 
-			$lang_ctimes = unserialize($GLOBALS['egw_info']['server']['lang_ctimes']);
+			$lang_ctimes = $GLOBALS['egw_info']['server']['lang_ctimes'];
 			$lastest = 0;
 			foreach($lang_ctimes as $lang => $ctimes)
 			{
@@ -58,33 +60,55 @@
 			$cache = array();
 			if (file_exists($cache_file) && (int) $ctime_cache > $lastest)
 			{
-				$cache = unserialize(file_get_contents($cache_file));
+				$cache = json_decode(file_get_contents($cache_file), true);
 			}
 			if (!$cache || !isset($cache[$details]))	// requested details are not in the cache ==> query the database
 			{
 				$cache[$details] = array();
 				if (!$details)
 				{
-					// we use a join with egw_lang itself to eliminate additional (obsolete) phrases not in the english langfile
-					$request = $this->db->query('SELECT l.lang,lang_name,count( l.message_id ) AS count FROM '.
-						translation::LANG_TABLE.' en,'.translation::LANG_TABLE.' l LEFT JOIN '.translation::LANGUAGES_TABLE.
-						" ON l.lang=lang_id WHERE en.lang='en' AND l.app_name=en.app_name AND l.message_id=en.message_id GROUP BY l.lang,lang_name ORDER BY count DESC,l.lang");
+					$en_phrases = array_keys(translation::load_app_files(null, 'en', 'all-apps'));
+					foreach(translation::get_available_langs() as $lang => $language)
+					{
+						$lang_phrases = array_keys(translation::load_app_files(null, $lang, 'all-apps'));
+						$valid_phrases = array_intersect($lang_phrases, $en_phrases);
+						$cache[$details][] = array(
+							'lang' => $lang,
+							'lang_name' => $language,
+							'count' => count($valid_phrases),
+						);
+					}
 				}
 				else
 				{
-					// we use a join with egw_lang itself to eliminate additional (obsolete) phrases not in the english langfile
-					$request = $this->db->query("SELECT l.app_name,l.lang,count( l.message_id ) AS count,l.lang,CASE WHEN l.lang='en' THEN 1 ELSE 0 END AS is_en FROM ".
-						translation::LANG_TABLE.' l,'.translation::LANG_TABLE.
-						" en WHERE l.app_name=en.app_name AND l.message_id=en.message_id AND en.lang='en' AND l.lang IN (".
-						$this->db->quote($details).",'en') GROUP BY l.app_name,l.lang,is_en ORDER BY is_en DESC,count DESC,l.app_name");
+					$cache['en'] = array();
+					foreach(array_keys($GLOBALS['egw_info']['apps']) as $app)
+					{
+						$en_phrases = array_keys(translation::load_app_files(null, 'en', $app));
+						if (count($en_phrases) <= 2) continue;
+						$cache['en'][] = array(
+							'app_name' => $app,
+							'lang' => 'en',
+							'count' => count($en_phrases),
+						);
+						$lang_phrases = array_keys(translation::load_app_files(null, $details, $app));
+						$valid_phrases = array_intersect($lang_phrases, $en_phrases);
+						$cache[$details][] = array(
+							'app_name' => $app,
+							'lang' => $details,
+							'count' => count($valid_phrases),
+						);
+					}
+					usort($cache['en'], function($a, $b) {
+						return $b['count'] - $a['count'];
+					});
 				}
-				foreach($request as $row)
-				{
-					$cache[$details][] = $row;
-				}
+				usort($cache[$details], function($a, $b) {
+					return $b['count'] - $a['count'];
+				});
 				//echo "read details for '$details'"; _debug_array($cache[$details]);
 				$c = fopen($cache_file,'w');
-				fputs($c,serialize($cache));
+				fputs($c, json_encode($cache));
 				fclose($c);
 			}
 
@@ -105,6 +129,7 @@
 					'total'   => lang('Phrases in total'),
 					'.total'  => 'colspan="2"',
 				);
+				$max = null;
 				foreach($cache[$details] as $row)
 				{
 					if (empty($row['lang']) || empty($row['lang_name']))
@@ -136,6 +161,10 @@
 			);
 
 			$max = array();
+			foreach($cache['en'] as $row)
+			{
+				$max[$row['app_name']] = $row['count'];
+			}
 			foreach($cache[$details] as $row)
 			{
 				if (empty($row['app_name'])) continue;
@@ -169,7 +198,7 @@
 					'total'   => '0 / '.$m
 				);
 			}
-			$lang_name = $this->db->query('SELECT lang_name FROM '.translation::LANGUAGES_TABLE.' WHERE lang_id='.$this->db->quote($details),__FILE__,__LINE__)->fetchColumn();
+			$lang_name = translation::lang2language($details);
 
 			return '<h3>'.lang('Details for language %1 (%2)',$this->try_lang($lang_name),$details)."</h3>\n".
 				html::table($table,'cellspacing="5"').
