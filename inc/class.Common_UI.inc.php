@@ -70,6 +70,7 @@ class Common_UI
 	 */
 	public function __construct()
 	{
+		egw_framework::csp_script_src_attrs('unsafe-inline');
 		$GLOBALS['Common_BO'] = CreateObject('sitemgr.Common_BO');
 		$this->do_sites_exist = $GLOBALS['Common_BO']->sites->set_currentsite(False,'Administration');
 		$this->t = new Template($GLOBALS['egw']->common->get_tpl_dir('sitemgr'));
