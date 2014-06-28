@@ -43,74 +43,8 @@
 			unset($properties);	// not used, but required by function signature
 
 			$details = $arguments['details'];
+			$stats = translation::statistics($details);
 			//echo "<p>translation status for lang='$details'</p>\n";
-
-			$lang_ctimes = $GLOBALS['egw_info']['server']['lang_ctimes'];
-			$lastest = 0;
-			foreach($lang_ctimes as $lang => $ctimes)
-			{
-				if ($lastest < ($l = max($ctimes))) $lastest = $l;
-			}
-			//echo "<p>latest lang modification = $lastest = ".date('Y-m-d H:i',$lastest)."</p>\n";
-
-			$cache_file = $GLOBALS['egw_info']['server']['temp_dir'].'/translation_status.cache';
-			$ctime_cache = @filectime($cache_file);
-			//echo "<p>cache file = '$cache_file', filectime = $ctime_cache = ".date('Y-m-d H:i',$ctime_cache)."</p>\n";
-
-			$cache = array();
-			if (file_exists($cache_file) && (int) $ctime_cache > $lastest)
-			{
-				$cache = json_decode(file_get_contents($cache_file), true);
-			}
-			if (!$cache || !isset($cache[$details]))	// requested details are not in the cache ==> query the database
-			{
-				$cache[$details] = array();
-				if (!$details)
-				{
-					$en_phrases = array_keys(translation::load_app_files(null, 'en', 'all-apps'));
-					foreach(translation::get_available_langs() as $lang => $language)
-					{
-						$lang_phrases = array_keys(translation::load_app_files(null, $lang, 'all-apps'));
-						$valid_phrases = array_intersect($lang_phrases, $en_phrases);
-						$cache[$details][] = array(
-							'lang' => $lang,
-							'lang_name' => $language,
-							'count' => count($valid_phrases),
-						);
-					}
-				}
-				else
-				{
-					$cache['en'] = array();
-					foreach(array_keys($GLOBALS['egw_info']['apps']) as $app)
-					{
-						$en_phrases = array_keys(translation::load_app_files(null, 'en', $app));
-						if (count($en_phrases) <= 2) continue;
-						$cache['en'][] = array(
-							'app_name' => $app,
-							'lang' => 'en',
-							'count' => count($en_phrases),
-						);
-						$lang_phrases = array_keys(translation::load_app_files(null, $details, $app));
-						$valid_phrases = array_intersect($lang_phrases, $en_phrases);
-						$cache[$details][] = array(
-							'app_name' => $app,
-							'lang' => $details,
-							'count' => count($valid_phrases),
-						);
-					}
-					usort($cache['en'], function($a, $b) {
-						return $b['count'] - $a['count'];
-					});
-				}
-				usort($cache[$details], function($a, $b) {
-					return $b['count'] - $a['count'];
-				});
-				//echo "read details for '$details'"; _debug_array($cache[$details]);
-				$c = fopen($cache_file,'w');
-				fputs($c, json_encode($cache));
-				fclose($c);
-			}
 
 			$colors = array();
 			foreach(preg_split('/, ?/',$arguments['colors']) as $value)
@@ -130,14 +64,10 @@
 					'.total'  => 'colspan="2"',
 				);
 				$max = null;
-				foreach($cache[$details] as $row)
+				foreach($stats as $lang => $num)
 				{
-					if (empty($row['lang']) || empty($row['lang_name']))
-					{
-						continue;
-					}
-					if (!isset($max)) $max = $row['count'];
-					$percent = sprintf('%0.1lf',100.0 * $row['count'] / $max);
+					if (!isset($max)) $max = $num;
+					$percent = sprintf('%0.1lf',100.0 * $num / $max);
 					foreach($colors as $minimum => $color)
 					{
 						if ($percent >= $minimum)
@@ -146,10 +76,10 @@
 						}
 					}
 					$table[] = array(
-						'lang' => $this->try_lang($row['lang_name']).' ('.$row['lang'].')',
+						'lang' => $this->try_lang(translation::lang2language($lang)).' ('.$lang.')',
 						'percent' => html::progressbar($percent,$percent.'%','','50px',$color,'8px'),
-						'total'   => $row[count],
-						'details' => '<a href="'.$this->link(array('details'=>$row['lang'])).'" title="'.lang('Show details for the applications').'">('.lang('details').')</a>'
+						'total'   => $num,
+						'details' => '<a href="'.$this->link(array('details'=>$lang)).'" title="'.lang('Show details for the applications').'">('.lang('details').')</a>'
 					);
 				}
 				return html::table($table,'cellspacing="5"');
@@ -160,23 +90,9 @@
 				'total'   => lang('Phrases in total')
 			);
 
-			$max = array();
-			foreach($cache['en'] as $row)
+			foreach(translation::statistics('en') as $app => $max)
 			{
-				$max[$row['app_name']] = $row['count'];
-			}
-			foreach($cache[$details] as $row)
-			{
-				if (empty($row['app_name'])) continue;
-
-				if ($row['lang'] != $details)
-				{
-					$max[$row['app_name']] = $row['count'];
-					continue;
-				}
-				$m = $max[$row['app_name']] ? $max[$row['app_name']] : $row['count'];
-				$percent = sprintf('%0.1lf',100.0 * $row['count'] / $m);
-				unset($max[$row['app_name']]);
+				$percent = sprintf('%0.1lf',100.0 * $stats[$app] / $max);
 				foreach($colors as $minimum => $color)
 				{
 					if ($percent >= $minimum)
@@ -185,17 +101,9 @@
 					}
 				}
 				$table[] = array(
-					'app' => ($row['app_name'] == 'common' ? 'API' : $this->try_lang($row['app_name'])).' ('.$row['app_name'].')',
+					'app' => ($app == 'phpgwapi' ? 'API' : $this->try_lang($app)).' ('.$app.')',
 					'percent' => html::progressbar($percent,$percent.'%','','50px',$color,'8px'),
-					'total'   => $row[count].' / '.$m
-				);
-			}
-			foreach($max as $app => $m)
-			{
-				$table[] = array(
-					'app' => ($app == 'common' ? 'API' : $this->try_lang($app)).' ('.$app.')',
-					'percent' => html::progressbar(0,'0.0%','','50px',$color,'8px'),
-					'total'   => '0 / '.$m
+					'total'   => $stats[$app].' / '.$max
 				);
 			}
 			$lang_name = translation::lang2language($details);
