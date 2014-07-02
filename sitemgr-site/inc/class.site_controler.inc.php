@@ -23,7 +23,7 @@ class site_controler
 
 	public function __construct()
 	{
-		global $Common_BO, $objbo, $sitemgr_info;
+		global $Common_BO, $objbo, $sitemgr_info, $site_url;
 
 		$Common_BO = CreateObject('sitemgr.Common_BO');
 
