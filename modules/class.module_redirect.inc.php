@@ -21,6 +21,11 @@ class module_redirect extends Module
 				'params' => array('size' => 50),
 				'label' => lang('The URL to redirect to'),
 			),
+			'status' => array(
+				'type' => 'textfield',
+				'params' => array('size' => 20),
+				'label' => lang('HTTP status code to use (default: "302 Found")'),
+			),
 			'timeout' => array(
 				'type' => 'textfield',
 				'params' => array('size' => 1),
@@ -44,7 +49,8 @@ class module_redirect extends Module
 			if ($arguments['timeout'] == 0)
 			{
 				ob_end_clean();		// for mos templates, stop the output buffering
-				$GLOBALS['egw']->redirect($arguments['URL']);
+				if ((int)$arguments['status'] > 0) header('HTTP/1.1 '.$arguments['status']);
+				egw::redirect($arguments['URL']);
 			}
 			else
 			{
