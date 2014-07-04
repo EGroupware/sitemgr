@@ -1,8 +1,10 @@
 %1 content manager	sitemgr	pt-br	%1  Gerenciador de Conteúdo
 %1 module manager	sitemgr	pt-br	%1 Módulo de Gerenciamento
+%1. group	sitemgr	pt-br	% 1. grupo
 '%1' is no valid sitemgr-site directory !!!	sitemgr	pt-br	'%1' não é um diretório válido do sitemgr-site!!!
 (do not put spaces or punctuation in the name field.)	sitemgr	pt-br	(Não inclua pontuação ou espaços nos nomes)
 (leave blank to allow insecure logins)	sitemgr	pt-br	(deixe em branco para permitir logins inseguros)
+(leave blank to stay on current page)	sitemgr	pt-br	Deixe em branco para permanecer na página atual
 (only used in case of single file)	sitemgr	pt-br	(usar somente em caso de arquivo único)
 1 day	common	pt-br	1 Dia
 1 hour	common	pt-br	1 Hora
@@ -10,6 +12,7 @@
 1 week	common	pt-br	1 Semana
 <b>autoregistration is not enabled / configured in the registration app !!!</b><br>you need to do so, to get the autoregistration link working.	sitemgr	pt-br	<b>Auto-registro não está habilitado / configurado nos recursos do módulo de registro!!!</b><br>Você precisa abilitar essa função para que ela funcione corretamente.
 a simple picture galery	sitemgr	pt-br	Uma simples galeria de imagens
+accordion	sitemgr	pt-br	acordeão
 actif	sitemgr	pt-br	AtueSe
 actions	sitemgr	pt-br	Ações
 add a category	sitemgr	pt-br	Adicionar uma categoria
@@ -37,6 +40,7 @@ all words	sitemgr	pt-br	Todas as palavras
 allignment of navigation elements	sitemgr	pt-br	Alinhamento dos elementos de navegação
 allow customer to input a note	sitemgr	pt-br	Permitir que o cliente inclua uma nota
 allow posting of questions	sitemgr	pt-br	Permitir postagem de perguntas
+allow proxys and cdns caching	sitemgr	pt-br	Permitir proxys e CDNs cache
 amazon	sitemgr	pt-br	Amazon
 amazon server (without www), eg. amazon.com	sitemgr	pt-br	Servidor Amazon (sem o www), ex. amazon.com
 an application directory	sitemgr	pt-br	Diretório de aplicativo
@@ -96,6 +100,7 @@ choose template	sitemgr	pt-br	Escolha o modelo
 choose the categories to display	sitemgr	pt-br	Escolha as categorias a serem publicadas
 choose the valid html type (note: not all icons are available):	sitemgr	pt-br	Escolha o tipo HTML VÁLIDO (nota: nem todos os ícones estão disponíveis):
 choose your site's theme or template.  note that if you changed the above checkbox you need to save before choosing a theme or template.	sitemgr	pt-br	Escolha o tema ou o modelo local. Anote-o, porque se você mudar o checkbox acima você necessitará salvar o anterior para escolher um tema ou um modelo novo.
+click here to login through a secure connection.	sitemgr	pt-br	Clique para entrar através de uma conexão segura
 code file	sitemgr	pt-br	Arquivo código
 codebase url	sitemgr	pt-br	Linha base da URL
 collapse threads	sitemgr	pt-br	Remover seqüências
@@ -114,12 +119,15 @@ content manager	sitemgr	pt-br	Gerenciador de Conteúdo
 contentarea	sitemgr	pt-br	Área de Conteúdo
 contributor menu	sitemgr	pt-br	Menu de Contribuições
 copyright	sitemgr	pt-br	Copyright
+could not add block %1	sitemgr	pt-br	Não foi possível adicionar% 1 bloco
 create new version	sitemgr	pt-br	Criar uma nova versão
+css selector to use only part of html file	sitemgr	pt-br	Seletor CSS para usar apenas parte do arquivo HTML
 css styles	sitemgr	pt-br	Estilos CSS
 currency code of the value specified in amount (eg. usd, eur)	sitemgr	pt-br	Código monetário do valor especificado (exemplo: BRL, USD, EUR)
 current section	sitemgr	pt-br	Sessão corrente
 custom	sitemgr	pt-br	Personalizado
 custom etemplate for the contactform	sitemgr	pt-br	eModelo personalizado para o formulário de contatos
+custom template directory	sitemgr	pt-br	Diretório template personalizado
 default	sitemgr	pt-br	Padrão
 default home page id number	sitemgr	pt-br	Número ID da página inicial
 define websites	common	pt-br	Definir Site  Web
@@ -163,8 +171,10 @@ edit page	sitemgr	pt-br	Editar Página
 edit properties of module %1 for %2 with scope %3	sitemgr	pt-br	Editar propriedades do módulo %1 para %2 com o escopo %3
 edit site	sitemgr	pt-br	Editar Site
 edit site header and footer	common	pt-br	Editar Cabeçalho e Rodapé da página
+edit template preferences for %1	sitemgr	pt-br	Preferências Editar modelo para 1%
 edit this block	sitemgr	pt-br	Editar este bloco
 edit website	sitemgr	pt-br	Editar Página Web
+eg. %1 or %2	sitemgr	pt-br	por exemplo. 1% ou 2%
 egw users	sitemgr	pt-br	usuários eGW
 element successfully deleted.	sitemgr	pt-br	Elemento removido com sucesso.
 email address	sitemgr	pt-br	Endereço de e-mail
@@ -190,6 +200,7 @@ everybody	sitemgr	pt-br	todo mundo
 exact phrase	sitemgr	pt-br	Frase exata
 expand current category	sitemgr	pt-br	Expandir categoria atual
 export	sitemgr	pt-br	exportar
+export a sitemgr site	sitemgr	pt-br	Exportar um site Site Manager
 fax	sitemgr	pt-br	Fax
 file %1 is not readable by the webserver !!!	sitemgr	pt-br	Arquivo %1 não pode ser lido pelo servidor web!!!
 file %1 is outside the docroot of the webserver !!!<br>this module does not allow - for security reasons - to open files outside the docroot.	sitemgr	pt-br	O arquivo %1 está fora do servidor web!!!<br>Este módulo não permite por razões de segurança, abrir arquivos fora do diretório raiz de documentos do servidor web!!!
@@ -211,6 +222,7 @@ galerie	sitemgr	pt-br	Galeria
 gallery plus chooser	sitemgr	pt-br	Galeria mais Selecionador
 gallery plus chooser and download	sitemgr	pt-br	Galeria mais Selecionador e  Download
 gallery plus download	sitemgr	pt-br	Galeria mais Download
+generate search engine friendly urls	sitemgr	pt-br	Gerar URLs motor de busca amigável
 go	sitemgr	pt-br	Ir
 go back to page manager	sitemgr	pt-br	Voltar ao gerenciamento  de página
 go back to the category manager.	sitemgr	pt-br	Voltar ao gerenciamento de categoria
@@ -220,12 +232,15 @@ google	sitemgr	pt-br	Google
 google search	sitemgr	pt-br	Pesquisa Google
 group access permissions	sitemgr	pt-br	Permissões de Grupo de Acesso
 group name	sitemgr	pt-br	Nome do Grupo
+groups linked: opening one closes others	sitemgr	pt-br	grupos ligados: uma abertura fecha outros
 header editor	sitemgr	pt-br	Editor de Cabeçalho
 headlines	sitemgr	pt-br	Manchetes
 hello	sitemgr	pt-br	Olá
 hello world	sitemgr	pt-br	Hello World
 helps you respect html/xhtml standards.	sitemgr	pt-br	Ajudar você sobre padrões HTML/XHTML
+highlight current page	sitemgr	pt-br	Destaque página atual
 horizontal	sitemgr	pt-br	Horizontal
+how long to cache downloaded content (seconds)	sitemgr	pt-br	Quanto tempo para armazenar em cache conteúdo baixado (segundos)
 html frame	sitemgr	pt-br	Frame HTML
 html module	sitemgr	pt-br	Módulo HTML
 i'm sorry, you do not have write permissions for any site categories.	sitemgr	pt-br	Desculpe, você não tem permissões para escrever em nenhuma categoria nesse site.
@@ -236,9 +251,14 @@ if you haven't done so already, create a user that will be used for public viewi
 image type	sitemgr	pt-br	tipo de imagem
 implies read permission	sitemgr	pt-br	implica permissões de leitura
 import	sitemgr	pt-br	Importar
+import a sitemgr website	sitemgr	pt-br	Site Gerente de Importação do Site
+import site	sitemgr	pt-br	Importação local
+imported	sitemgr	pt-br	Importado.
 index	sitemgr	pt-br	Índice
 individual access permission	sitemgr	pt-br	Permissão de acesso individual
 individual access permissions	sitemgr	pt-br	Permissões de acesso individual
+initially all closed	sitemgr	pt-br	Inicialmente todas fechadas
+initially first group open	sitemgr	pt-br	Inicialmente primeiro grupo aberto
 interface to google website	sitemgr	pt-br	Interface para a página do google
 invalid template directory '%1' !!!	sitemgr	pt-br	%1' Diretório de modelos inválido!!!
 knowledge base	sitemgr	pt-br	Base de Conhecimento
@@ -248,8 +268,11 @@ last entries to the guestbook	sitemgr	pt-br	Últimos registros do livre de visit
 latest reply	sitemgr	pt-br	Última resposta
 links for the tabs (comma seperated)	sitemgr	pt-br	Links para as abas (separados por vírgula)
 list of permitted modules specific to content area %1	sitemgr	pt-br	Lista de módulos permitidos específicos para a área de conteúdo %1
+logged in as:	sitemgr	pt-br	Logado como:
 login	sitemgr	pt-br	Conexão
 login name	sitemgr	pt-br	Nome para Conexão
+logo url	sitemgr	pt-br	Logo URL
+logo, custom css	sitemgr	pt-br	Logo, CSS Personalizado
 main content	sitemgr	pt-br	Conteúdo principal
 mains	sitemgr	pt-br	Principais
 manage archived content	sitemgr	pt-br	Gerenciar de conteúdo arquivado
@@ -277,6 +300,7 @@ migrating data for %1 to %2	sitemgr	pt-br	Migrando dados de %1 para %2
 module %1 is not permitted in this context!	sitemgr	pt-br	Módulo %1 não é permitido neste contexto!
 module '%1' not found in: %2! --> exiting	sitemgr	pt-br	Módulo '%1' não foi encontrado em: %2! --> saindo
 module manager	sitemgr	pt-br	Gerenciador de Módulo
+module returns api version or an arbitrary string.	sitemgr	pt-br	Módulo retorna versão da API ou uma seqüência arbitrária
 module: %1, scope: %2, contentarea: %3, viewable: %4	sitemgr	pt-br	Módulo: %1, Escopo: %2, Área de conteúdo: %3, Visibilidade: %4
 move block down (increase sort order)	sitemgr	pt-br	Mover bloco para baixo (classificação ascendente)
 move block up (decrease sort order)	sitemgr	pt-br	Mover bloco para baixo (classificação descrecente)
@@ -288,6 +312,7 @@ name of the tabs (comma seperated)	sitemgr	pt-br	Nome das abas (separados por v�
 new application	sitemgr	pt-br	Novo aplicativo
 new guestbook	sitemgr	pt-br	Novo livro de visitas
 new sitemgr site	sitemgr	pt-br	Nova Página do Gerenciador de Sites
+newest first	sitemgr	pt-br	Mais recentes primeiro
 no additional arguments required	sitemgr	pt-br	Nenhum argumento adicional requerido
 no anonymous user accounts installed.  notify the administrator.	sitemgr	pt-br	NÃO EXISTE UMA CONTA DE ACESSO ANÔNIMO INSTALADA. NOTIFIQUE O ADMINISTRADOR.
 no content areas found in selected template	sitemgr	pt-br	Não existe áreas de conteúdo no modelo selecionado
@@ -307,17 +332,22 @@ no users defined.	sitemgr	pt-br	Nenhum usuário definido
 no websites defined	sitemgr	pt-br	Nenhum site web definido.
 no, chooser only (for side-areas)	sitemgr	pt-br	Não, Use apenas o selecionador  (para áreas laterais)
 no, chooser with preview	sitemgr	pt-br	Nenhum. Selecionador com visualização
+none selected	sitemgr	pt-br	Nenhum selecionado
 not	common	pt-br	não
 not yet translated	sitemgr	pt-br	ainda não traduzido
 note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr-link	pt-br	Note que você pode receber esta mensagem se suas preferências estiverem incorretas. Por exemplo, se config.inc.php não for encontrado no diretório que você especificou.
 notification message not found !!!	sitemgr	pt-br	Mensagem de notificação não encontrada!!
 notification not found !!!	sitemgr	pt-br	Notificação não encontrada!!
+number of groups	sitemgr	pt-br	Número de grupos
 number of results	sitemgr	pt-br	Número de resultados
+oldest first	sitemgr	pt-br	Mais antigos primeiro
 on all pages	sitemgr	pt-br	em todas as páginas
 only gallery	sitemgr	pt-br	Apenas galeria
 only on the first page	sitemgr	pt-br	apenas na primeira página
+opening mode	sitemgr	pt-br	modo de abertura
 options in search result page	sitemgr	pt-br	Opções na página de resultado de pesquisa
 or enter the title for a new guestbook	sitemgr	pt-br	ou digite o título para um novo livro de visitas
+or use a template compatible with %1.	sitemgr	pt-br	Use um modelo compatível com% 1.
 other websites	sitemgr	pt-br	Outros sites web
 overview of all available categories	sitemgr	pt-br	Vista geral de todas as categorias disponíveis
 overview of one specific category	sitemgr	pt-br	Vista geral de uma única categoria específica
@@ -332,6 +362,7 @@ page subtitle	sitemgr	pt-br	Subtítulo da página.
 page title	sitemgr	pt-br	Titulo da Página
 pages	sitemgr	pt-br	Páginas
 pages:	sitemgr	pt-br	Páginas:
+parameters saved.	sitemgr	pt-br	Parâmetros salvos.
 parent	sitemgr	pt-br	Principal
 parent directory	sitemgr	pt-br	Diretório principal
 parent section:	sitemgr	pt-br	Sessões principais:
@@ -381,6 +412,7 @@ search keyword	sitemgr	pt-br	palavra chave da pesquisa
 search language options	sitemgr	pt-br	Opções de idioma da pesquisa
 search modes	sitemgr	pt-br	Tipos de pesquisa
 search with	sitemgr	pt-br	Pesquisar com
+seconds before redirect	sitemgr	pt-br	Segundos antes de redirecionamento
 seen by	sitemgr	pt-br	Visto por
 select a category	sitemgr	pt-br	Selecionar uma categoria
 select a forum	sitemgr	pt-br	Selecionar um fórum
@@ -391,10 +423,12 @@ select the templates the user is allowed to see	sitemgr	pt-br	Selecione os model
 select type of navigation	sitemgr	pt-br	Selecione o tipo de navegação
 selected template %1 does not exist.	sitemgr	pt-br	Modelo escolhido %1 não existe.
 selected theme %1 does not exist.	sitemgr	pt-br	Tema escolhido %1 não existe.
+send emailcopy to receiver	sitemgr	pt-br	Enviar cópia de e-mail para o receptor
 seperate cats / pages of one tab by :	sitemgr	pt-br	Separar Categorias / Páginas de uma aba por :
 shipping address	sitemgr	pt-br	Endereço de envio:
 should the file be viewed in the browser or downloaded	sitemgr	pt-br	O arquivo deverá ser visto no navegador ou baixado
 show a template-gallery (thumbnail and informations)	sitemgr	pt-br	Exibir a galeria de modelos (miniatura e informações)
+show comments?	sitemgr	pt-br	mostrar comentários
 show contents of a directory	sitemgr	pt-br	Exibir conteúdo de um diretório
 show contents of a directory with subdirectories	sitemgr	pt-br	Exibir conteúdo de um diretório com sub-diretórios
 show current section only	sitemgr	pt-br	Exibir somente atual seção
@@ -405,6 +439,7 @@ show path?	sitemgr	pt-br	Exibir caminho?
 show searchbox	sitemgr	pt-br	Exibir campo de busca
 show site index	sitemgr	pt-br	Exibir Index do site
 show subcategories	sitemgr	pt-br	Exibir subcategorias
+show the link as text?	sitemgr	pt-br	Mostrar o link como texto
 show the title of the wiki page	sitemgr	pt-br	Exibir o título da página wiki
 simple: only selected mode, no more options displayed	sitemgr	pt-br	Simples: Somente tipo selecionado, nenhum tipo adicional exibido
 single file download	sitemgr	pt-br	Baixar único arquivo
@@ -413,6 +448,7 @@ site %1 has been added, you need to %2configure the site%3 now	sitemgr	pt-br	o S
 site %1 has been updated	sitemgr	pt-br	Site %1 foi atualizado
 site administrators	sitemgr	pt-br	administradores do Site
 site description	sitemgr	pt-br	Descrição do Site
+site export	sitemgr	pt-br	exportação do Site
 site format manager	sitemgr	pt-br	Gerenciador de formato do Site.
 site index	sitemgr	pt-br	Índice do Site
 site language	sitemgr	pt-br	Idioma do Site
@@ -421,6 +457,8 @@ site setup	common	pt-br	Configurações do Site
 site tree menu	sitemgr	pt-br	Árvore de Menus do Site
 site wide	sitemgr	pt-br	Todo Site
 sitemgr	common	pt-br	Gerenciador de Sites
+sitemgr export	sitemgr	pt-br	Gerenciador de Sites exportação
+sitemgr import	sitemgr	pt-br	Gerenciador de Sites importação
 sitemgr manual	sitemgr	pt-br	Manual do Gerenciador de Sites
 sitemgr options	sitemgr	pt-br	Opções do Gerenciador de Sites
 sitemgr setup instructions	sitemgr	pt-br	Instruções de Configuração do  Gerenciador de Sites
@@ -593,5 +631,6 @@ you will remove the message in the following language from your notification sys
 your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr-link	pt-br	Seu administrador ainda não configurou o gerenciador de conteúdo web para exibição pública. Contacte seu administrador para resolver esta questão.
 your calendar	sitemgr	pt-br	Seu calendário.
 your comment	sitemgr	pt-br	Seu comentário
+your connection is not secure.	sitemgr	pt-br	Sua conexão não é segura.
 your name	sitemgr	pt-br	Seu nome
 zip code	sitemgr	pt-br	CEP
