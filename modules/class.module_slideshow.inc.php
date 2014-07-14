@@ -290,7 +290,7 @@ jQuery("#'.$div_id.'").nivoSlider({
 	effect: "'.($arguments['transitions'] ? implode(',',$arguments['transitions']) : 'random').'"
 });';
 
-/* Valid HTML - no API */
+/* Valid HTML - no API
 		$html = '<script type="text/javascript">
 	var fileref = document.createElement("script");
 	fileref.setAttribute("type", "text/javascript");
@@ -344,6 +344,14 @@ jQuery("#'.$div_id.'").nivoSlider({
 	document.getElementsByTagName("head")[0].appendChild(style);
 </script>
 ';
+/* Use LAB directly */
+	$html = '<script type="text/javascript">
+		egw_LAB.script("'.$base_url.'/jquery.nivo.slider.js").wait(function() {'
+	. $nivo.'
+	egw.includeCSS("'.$base_url.'/nivo-slider.css");
+	egw.includeCSS("'.$base_url.'/themes/default/default.css");
+		});
+			</script>';
 
 /* Use egw_api
 		$html = '<script type="text/javascript">
