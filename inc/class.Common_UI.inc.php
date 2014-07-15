@@ -385,6 +385,11 @@ class Common_UI
 	{
 		if (($site = $GLOBALS['Common_BO']->sites->read(CURRENT_SITE_ID)) && $site['site_url'])
 		{
+			// for HTTPS, we also have to use https:// as src in iframe, as mixed content get blocked now nearly everywhere
+			if ($_SERVER['HTTPS'] && substr($site['site_url'], 0, 7) === 'http://')
+			{
+				$site['site_url'] = 'https://'.substr($site['site_url'], 7);
+			}
 			$site['site_url'] .= '?mode=Edit&sessionid='.@$GLOBALS['egw_info']['user']['sessionid'] .
 				'&kp3=' . @$GLOBALS['egw_info']['user']['kp3'] .
 				'&domain=' . @$GLOBALS['egw_info']['user']['domain'];
