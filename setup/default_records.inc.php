@@ -65,6 +65,7 @@ while(($app = $dir->read()))
 	if (is_dir($moddir))
 	{
 		$d = dir($moddir);
+		$db = $GLOBALS['egw_setup']->db;
 		while (($file = $d->read()))
 		{
 			if (preg_match ('/class\.module_(.*)\.inc\.php$/', $file, $module))
@@ -73,28 +74,23 @@ while(($app = $dir->read()))
 
 				if (preg_match('/\$this->description = lang\([\'"]([^'."\n".']*)[\'"]\);/',file_get_contents($moddir.'/'.$file),$parts))
 				{
-					$description = $GLOBALS['egw_setup']->db->db_addslashes(str_replace("\\'","'",$parts[1]));
+					$description = str_replace("\\'","'",$parts[1]);
 				}
 				else
 				{
 					$description = '';
 				}
-				$oProc->query("INSERT INTO {$sitemgr_table_prefix}_modules (module_name,description) VALUES ('$module','$description')",__LINE__,__FILE__);
-				$id = $module_id[$module] = $oProc->m_odb->get_last_insert_id($sitemgr_table_prefix.'_modules','module_id');
+				$db->insert($sitemgr_table_prefix.'_modules', array(
+					'module_name' => $module,
+					'description' => $description,
+				), false, __LINE__, __FILE__, 'sitemgr');
+				$id = $module_id[$module] = $db->get_last_insert_id($sitemgr_table_prefix.'_modules','module_id');
 				if (!$id) $id = $module_id[$module] = $i;
 				// allow to display all modules, not mentioned above, on __PAGE__
 				if (!isset($areas[$module]) && !in_array($module,array('hello','translation_status','xml')))
 				{
 					$areas[$module] = array('__PAGE__');
 				}
-				// stuff for {$sitemgr_table_prefix}_active_modules is somehow done within the xml import of the site, as site_id is not known at
-				// this time, we take that out of the active code.
-				/*
-				foreach((array)$areas[$module] as $area)
-				{
-					$oProc->query("INSERT INTO {$sitemgr_table_prefix}_active_modules (area,cat_id,module_id) VALUES ('$area',$site_id,$id)",__LINE__,__FILE__);
-				}
-				*/
 			}
 		}
 		$d->close();
