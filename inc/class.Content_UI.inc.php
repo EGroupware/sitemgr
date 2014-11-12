@@ -657,6 +657,8 @@
 					}
 				}
 			}
+			$out = "<select name=\"inputarea\">\n";
+
 			foreach($areas as $k => $data)
 			{
 				$out .= html::select_option($k,
