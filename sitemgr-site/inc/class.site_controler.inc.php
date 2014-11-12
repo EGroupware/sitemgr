@@ -86,9 +86,9 @@ class site_controler
 			if (is_null($version) || !isset($version[$themesel]))
 			{
 				$theme_info = $Common_BO->theme->getThemeInfos($themesel);
-				$version[$themsel] = $theme_info['joomla-version'];
+				$version[$themesel] = $theme_info['joomla-version'];
 			}
-			if (version_compare($version[$themsel], '1.3','>='))	// joomla 1.5+ template
+			if (version_compare($version[$themesel], '1.3','>='))	// joomla 1.5+ template
 			{
 				include_once __DIR__.'/class.joomla_ui.inc.php';
 			}
@@ -113,7 +113,7 @@ class site_controler
 			}
 			elseif (!is_dir($templateroot) || !is_readable($templateroot))
 			{
-				echo lang("You may have deinstalled the used template '%1'. Reinstall it or go to SiteMgr --> Configure Website and select an other one.",$themsel);
+				echo lang("You may have deinstalled the used template '%1'. Reinstall it or go to SiteMgr --> Configure Website and select an other one.",$themesel);
 			}
 			common::egw_exit();
 		}
@@ -144,22 +144,22 @@ class site_controler
 
 		if ($_GET['page_name'] && $_GET['page_name'] != 'index.php')
 		{
-			$cache_name = 'page-'.($page_id = $Common_BO->pages->so->PageToID($_GET['page_name']));
+			$cache_name = 'page::'.($page_id = $Common_BO->pages->so->PageToID($_GET['page_name']));
 		}
 		elseif((int) $_GET['category_id'] && ($cat = $Common_BO->cats->getCategory($_GET['category_id'])))
 		{
 			if ($cat->index_page_id > 0 && ($page = $Common_BO->pages->getPage($cat->index_page_id)) && $page->id)
 			{
-				$cache_name = 'page-'.$page->id;
+				$cache_name = 'page::'.$page->id;
 			}
 			else
 			{
-				$cache_name = 'toc-'.(int)$_GET['category_id'];
+				$cache_name = 'toc::'.(int)$_GET['category_id'];
 			}
 		}
 		elseif ((int)$_GET['page_id'])
 		{
-			$cache_name = 'page-'.(int)$_GET['page_id'];
+			$cache_name = 'page::'.(int)$_GET['page_id'];
 		}
 		elseif (isset($index))
 		{
@@ -184,7 +184,7 @@ class site_controler
 		{
 			if ($sitemgr_info['home_page_id'])
 			{
-				$cache_name = 'page-'.$sitemgr_info['home_page_id'];
+				$cache_name = 'page::'.$sitemgr_info['home_page_id'];
 			}
 			else
 			{
@@ -195,7 +195,7 @@ class site_controler
 		if (isset($cache_name))
 		{
 			// cache need to be language specific
-			$cache_name = $GLOBALS['egw_info']['user']['preferences']['common']['lang'].'-'.$cache_name;
+			$cache_name = $GLOBALS['egw_info']['user']['preferences']['common']['lang'].'::'.$cache_name;
 
 			// only use cache for Production site and GET requests
 			/*if ($this->mode == 'Production' && $_SERVER['REQUEST_METHOD'] == 'GET' &&
@@ -210,7 +210,7 @@ class site_controler
 				common::egw_exit();
 			}*/
 			ob_start();
-			list(, $type, $id) = explode('-', $cache_name);
+			list(, $type, $id) = explode('::', $cache_name);
 			switch($type)
 			{
 				case 'index':
@@ -226,7 +226,7 @@ class site_controler
 		}
 		$objui = $this->instanciateRenderer($GLOBALS['sitemgr_info']['themesel']);
 		$objui->generatePage();
-		error_log(__METHOD__."() rendered page $cache_name in ".number_format(microtime(true)-$GLOBALS['egw_info']['flags']['page_start_time'], 3).'sec');
+		//error_log(__METHOD__."() rendered page $cache_name in ".number_format(microtime(true)-$GLOBALS['egw_info']['flags']['page_start_time'], 3).'sec');
 
 		// only use cache for Production site and GET requests
 /*		if (isset($cache_name) && $this->mode == 'Production' && $_SERVER['REQUEST_METHOD'] == 'GET')
