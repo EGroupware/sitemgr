@@ -657,26 +657,17 @@
 					}
 				}
 			}
-			if (count($areas) > 1)
+			foreach($areas as $k => $data)
 			{
-				$out = "<select name=\"inputarea\">\n";
-
-				foreach($areas as $k => $data)
-				{
-					$out .= html::select_option($k,
-						is_array($data) && isset($data['label']) ? $data['label'] : $data,
-						array($area),
-						True,
-						is_array($data) && isset($data['title']) ? $data['title'] : '',
-						is_array($data) && isset($data['extra']) ? $data['extra'] : '');
-				}
-				$out .= "</select>\n";
-				return $out;
+				$out .= html::select_option($k,
+					is_array($data) && isset($data['label']) ? $data['label'] : $data,
+					array($area),
+					True,
+					is_array($data) && isset($data['title']) ? $data['title'] : '',
+					is_array($data) && isset($data['extra']) ? $data['extra'] : '');
 			}
-			else
-			{
-				return $areas[$area];
-			}
+			$out .= "</select>\n";
+			return $out;
 		}
 
 
