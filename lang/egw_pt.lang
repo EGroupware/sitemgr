@@ -162,6 +162,7 @@ error accessing page	common	pt	Erro ao aceder à página
 error deleting the element.	sitemgr	pt	Erro ao eliminar o elemento.
 error deleting the entry!!!	sitemgr	pt	Erro ao eliminar o registo!!!
 error saving the entry!!!	sitemgr	pt	Erro ao guardar o registo!!!
+error uploading file!	sitemgr	pt	O upload de arquivos de erro!
 error writing to the database.	sitemgr	pt	Erro ao escrever na base de dados.
 error writing to the database: %1.	sitemgr	pt	Erro ao escrever na base de dados: %1.
 everybody	sitemgr	pt	Todos

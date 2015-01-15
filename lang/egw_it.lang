@@ -221,6 +221,7 @@ if you haven't done so already, create a user that will be used for public viewi
 image type	sitemgr	it	tipo dell'immagine
 implies read permission	sitemgr	it	implica i permessi di lettura
 import	sitemgr	it	Importa
+imported	sitemgr	it	Importato
 index	sitemgr	it	Index
 individual access permission	sitemgr	it	Permesso d'accesso individuale
 individual access permissions	sitemgr	it	Permessi d'accesso individuale

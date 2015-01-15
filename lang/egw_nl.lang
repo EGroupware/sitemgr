@@ -393,6 +393,7 @@ select the templates the user is allowed to see	sitemgr	nl	Kies de sjablonen die
 select type of navigation	sitemgr	nl	Kies het navigatietype
 selected template %1 does not exist.	sitemgr	nl	Het gekozen sjabloon %1 bestaat niet.
 selected theme %1 does not exist.	sitemgr	nl	Het gekozen thema %1 bestaat niet.
+send emailcopy to receiver	sitemgr	nl	Zend een kopie mail naar ontvanger
 seperate cats / pages of one tab by :	sitemgr	nl	Categorieen / Pagina's op een tabblad scheiden door:
 shipping address	sitemgr	nl	Verzend adres
 should the file be viewed in the browser or downloaded	sitemgr	nl	Moet het bestand in de browser getoond worden of als download aangeboden worden
