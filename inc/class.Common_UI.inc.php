@@ -327,7 +327,7 @@ class Common_UI
 					break;
 			}
 		}
-		config::save_value('custom_fields', $cfs, 'sitemgr');
+		egw_customfields::save('sitemgr', $cfs);
 	}
 
 	function DisplayMenu()
