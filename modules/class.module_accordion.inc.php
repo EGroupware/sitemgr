@@ -96,8 +96,7 @@ egw_LAB.wait(function() {
 			});
 			return false;
 		});
-	})
-});
+	});
 });
 </script>
 ';
