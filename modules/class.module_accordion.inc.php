@@ -79,6 +79,7 @@ class module_accordion extends Module
 		if ($first)
 		{
 			$html .= '<script type="text/javascript">
+egw_LAB.wait(function() {
 	jQuery(function() {
 		jQuery(".accordion-toggle").click(function() {
 			jQuery(this).parent().parent().parent().find("div.accordion-content-linked").slideUp();
@@ -94,8 +95,9 @@ class module_accordion extends Module
 			$html .= '
 			});
 			return false;
-		})
+		});
 	});
+});
 </script>
 ';
 			$first = false;
