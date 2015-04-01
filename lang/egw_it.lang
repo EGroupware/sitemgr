@@ -23,6 +23,7 @@ add page	sitemgr	it	Aggiungi Pagina
 add page to category	sitemgr	it	Aggiungi pagina a categoria
 add website	sitemgr	it	Aggiungi Sito Web
 address line 2	sitemgr	it	Indirizzo linea 2
+addressbook the contact should be shown	sitemgr	it	La rubrica in cui il contatto dovrà essere mostrato
 administration	sitemgr	it	Amministrazione
 administrative menu	sitemgr	it	Menù Amministrazione
 administrators	sitemgr	it	amministratori
@@ -101,6 +102,7 @@ common prefix of the image-name (a number starting with 1 will be appended)	site
 configure module properties	sitemgr	it	Configura proprietà modulo
 configure sitemgr	sitemgr	it	Configura Sitemgr
 configure website	sitemgr	it	Configura Sito
+contact fields to show	sitemgr	it	Campi di contatto da mostrare
 contact the administrator.	sitemgr	it	Contatta l'amministratore
 content areas	sitemgr	it	Aree contenuti
 content blocks	sitemgr	it	Blocchi di contenuti
@@ -113,6 +115,7 @@ css styles	sitemgr	it	Stili di foglio (CSS)
 currency code of the value specified in amount (eg. usd, eur)	sitemgr	it	Valuta dell'ammontare specificato
 current section	sitemgr	it	Sezione corrente
 custom	sitemgr	it	Personalizzato
+custom etemplate for the contactform	sitemgr	it	Template personalizzato per il modulo di contatto
 default	sitemgr	it	Default
 default home page id number	sitemgr	it	Numero ID di default della Homapage
 define websites	common	it	Definisci i siti
@@ -129,6 +132,7 @@ department	sitemgr	it	Dipartimento
 descending	sitemgr	it	Discendente
 details for language %1 (%2)	sitemgr	it	Dettagli per lingua %1 (%2)
 discussions	sitemgr	it	Discussioni
+display contact	sitemgr	it	Mostra contatto
 display link to autoregistration below login form?	sitemgr	it	Visualizzazione del link per l'autoregistrazione di suguito dopo il form di login ?
 do you realy want to delete the selected categories (including all pages), pages and blocks?	sitemgr	it	Vuoi veramente cancellare le categorie selezionate ( inclusse tutte le pagine), Pagine e blocchi ?
 do you realy want to delete this block?	sitemgr	it	Vuoi veramente cancellare questo blocco ?
@@ -364,6 +368,7 @@ select the templates the user is allowed to see	sitemgr	it	Selezione i template 
 select type of navigation	sitemgr	it	Selezionare il tipo di navigazione
 selected template %1 does not exist.	sitemgr	it	Il template %1 selezionato  non esiste.
 selected theme %1 does not exist.	sitemgr	it	Il Tema %1 selezionato non esiste.
+send emailcopy to receiver	sitemgr	it	Invia copia al destinatario
 shipping address	sitemgr	it	Indirizzo di spedizione
 show contents of a directory	sitemgr	it	Visualizza contenuto di una directory
 show contents of a directory with subdirectories	sitemgr	it	Visualizza contenuto di una directory con sotto-directory
@@ -413,6 +418,7 @@ template select	sitemgr	it	Selezione template
 text allignment	sitemgr	it	Allineamento testo
 text of page links	sitemgr	it	Testo del link di pagina
 textarea	sitemgr	it	Area di Testo
+the anonymous user needs read it!	sitemgr	it	L'utente anonimo ha bisogno di permessi di lettura
 the category to display, 0 for complete table of contents	sitemgr	it	La categoria da visualizzare, 0 per la completa tabella di contenuti
 the complete url or path to a file to be included	sitemgr	it	Url completo o percorso del file che deve essere incluso
 the config.inc.php file needs to be edited to point to the egroupware directory. copy the config.inc.php.template file to config.inc.php and then edit it.	sitemgr	it	Il file config.inc.php deve essere modificato nel puntamento della directory di eGroupWare. Copia il file config.inc.php.template in config.inc.php e a quel punto fai la modifica.
@@ -460,6 +466,7 @@ this module create a link for downloading a file from the vfs	sitemgr	it	Questo 
 this module create a link for downloading a file(s) from the vfs	sitemgr	it	Questo modulo crea un link per il download di files dal VFS
 this module displays a login form	sitemgr	it	Questo modulo visualizza Un form di Login
 this module displays any kind of navigation element.	sitemgr	it	Questo modulo visualizza ogni tipo di elemto di navigazione.
+this module displays block from a adddressbook group.	sitemgr	it	Questo modulo mostra un blocco di indirizzi dalla rubrica di gruppo
 this module displays bookmarks in a javascript based tree	sitemgr	it	Questo modulo visualizza i preferiti in una struttura basata su javascript
 this module displays the current month	sitemgr	it	Questo modulo visualizza il mese corrente
 this module displays the egw forums on the web site	sitemgr	it	Questo modulo visualizza i forum eGW sul sito
