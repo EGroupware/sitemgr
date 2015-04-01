@@ -47,9 +47,11 @@ only on the first page	sitemgr	sk	iba na prvej stránke
 page content	sitemgr	sk	Obsah stránky
 parent	sitemgr	sk	Rodič
 path	sitemgr	sk	Cesta
+percentage	sitemgr	sk	Percento
 prefix	sitemgr	sk	Titul
 previous	sitemgr	sk	Predchádzajúca
 published	sitemgr	sk	Publikované
+refresh	sitemgr	sk	Obnoviť
 reload	sitemgr	sk	Znovunačítať
 required	sitemgr	sk	Vyžadované
 reset	sitemgr	sk	Vynulovať
@@ -57,6 +59,7 @@ select a category	sitemgr	sk	Vyberte kategóriu
 send emailcopy to receiver	sitemgr	sk	Poslať kópiu e-mailu adresátovi
 show the title of the wiki page	sitemgr	sk	Zobraziť titulok wiki stránky
 site	sitemgr	sk	Stránka
+sort order	sitemgr	sk	Usporiadať podľa
 state	sitemgr	sk	Štát
 table of contents	sitemgr	sk	Obsahová tabuľka
 textarea	sitemgr	sk	Oblasť textu
@@ -73,4 +76,5 @@ use this module for displaying wiki-pages	sitemgr	sk	Použiť tento modul pre zo
 week	sitemgr	sk	Týždeň
 wiki	sitemgr	sk	Wiki
 wiki startpage	sitemgr	sk	Wiki úvodná stránka
+your name	sitemgr	sk	Vaše meno
 zip code	sitemgr	sk	PSČ
