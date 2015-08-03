@@ -244,6 +244,7 @@
 			else
 			{
 				$site = array(
+					'site_id' => $site_id,
 					'site_name' => $site['name'] ? $site['name'] : '',
 					'site_dir' => $site['dir'] ? $site['dir'] : 'sitemgr'.SEP.'sitemgr-site',
 					'site_url' => $site['url'] ? $site['url'] : $GLOBALS['egw_info']['server']['webserver_url'] . '/sitemgr/sitemgr-site/',
