@@ -178,7 +178,7 @@ class module_download extends Module
 						'subdir' => $arguments['subdir'],
 					)).'" method="POST" enctype="multipart/form-data">';
 				}
-				$out .= '<table class="moduletable">
+				$out .= '<table class="moduletable module-download">
 						<tr>
 							<td width="1%">'./*mime png*/ ''.'</td>
 							<td>'.lang('Filename').'</td>
