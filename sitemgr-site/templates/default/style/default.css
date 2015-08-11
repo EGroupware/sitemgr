@@ -135,17 +135,17 @@ This code would produce 100% complability with old module, but looks ugly in cas
 /*-----------------------------------------------*/
 /*| styles for tables -> addressbook module     |*/
 /*-----------------------------------------------*/
-.th { 
-	color: black; 
-	background-color: #D3DCE3; 
+.th {
+	color: black;
+	background-color: #D3DCE3;
 }
-.row_on { 
-	color: black; 
-	background-color: #F1F1F1; 
+.row_on {
+	color: black;
+	background-color: #F1F1F1;
 }
-.row_off { 
-	color: black; 
-	background-color: #ffffff; 
+.row_off {
+	color: black;
+	background-color: #ffffff;
 }
 
 /**
@@ -200,3 +200,9 @@ div.accordion-content, div.accordion-content-linked {
 	display: none;
 }
 
+/**
+ * Download module
+ */
+table.module-download > tbody > tr > td > img {
+	width: 32px;
+}
