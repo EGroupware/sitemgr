@@ -33,9 +33,9 @@ class bonotifications extends sonotifications
 	 *
 	 * @return bonotifications
 	 */
-	function bonotifications()
+	function __construct()
 	{
-		$this->sonotifications();
+		parent::__construct();
 		$this->bosite = CreateObject("sitemgr.Sites_BO");
 
 		$this->user = $GLOBALS['egw_info']['user']['account_id'];

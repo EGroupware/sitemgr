@@ -22,9 +22,9 @@ class sonotifications extends so_sql
 	var $notifications_table = 'egw_sitemgr_notifications';
 	var $messages_table = 'egw_sitemgr_notify_messages';
 	
-	function sonotifications()
+	function __construct()
 	{
-		$this->so_sql('sitemgr',$this->notifications_table);
+		parent::__construct('sitemgr',$this->notifications_table);
 	}
 
 	function create_notification($email,$all_langs)
@@ -94,7 +94,7 @@ class sonotifications extends so_sql
 		return False;
 	}
 
-	function get_permissions($cat_id) 
+	function get_permissions($cat_id)
 	{
 		$account=$GLOBALS['egw']->accounts->name2id(
 			$GLOBALS['Common_BO']->sites->current_site['anonymous_user']);
