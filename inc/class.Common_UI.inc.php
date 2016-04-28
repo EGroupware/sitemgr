@@ -397,7 +397,7 @@ class Common_UI
 			common::egw_header();
 			parse_navbar();
 			// jdots already uses an iframe, so no need to create an other one
-			if ($GLOBALS['egw']->framework->template == 'jdots')
+			if (in_array($GLOBALS['egw']->framework->template, array('jdots', 'pixelegg')))
 			{
 				echo "<script type='text/javascript'>\nwindow.setTimeout(\"location='{$site['site_url']}';\",10);\n</script>\n";
 			}
