@@ -28,7 +28,7 @@ if(isset($_GET['location']))
 	if($dest_site_id)
 	{
 		$GLOBALS['egw_info']['user']['preferences']['sitemgr']['currentsite'] = $dest_site_id;
-		$GLOBALS['egw']->preferences->change('sitemgr','currentsite', $dest_site_id);
+		$GLOBALS['egw']->preferences->add('sitemgr','currentsite', $dest_site_id);
 		$GLOBALS['egw']->preferences->save_repository(True);
 	}
 }

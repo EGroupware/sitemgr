@@ -219,7 +219,7 @@ class Sites_BO
 			if ($siteswitch)
 			{
 				$this->current_site = $this->read($siteswitch);
-				$GLOBALS['egw']->preferences->change('sitemgr','currentsite',$siteswitch);
+				$GLOBALS['egw']->preferences->add('sitemgr','currentsite',$siteswitch);
 				$GLOBALS['egw']->preferences->save_repository(True);
 			}
 			else
@@ -237,7 +237,7 @@ class Sites_BO
 			if ($allsites)
 			{
 				$this->current_site = $this->read($allsites[0]);
-				$GLOBALS['egw']->preferences->change('sitemgr','currentsite',$allsites[0]);
+				$GLOBALS['egw']->preferences->add('sitemgr','currentsite',$allsites[0]);
 				$GLOBALS['egw']->preferences->save_repository(True);
 			}
 			else
@@ -280,7 +280,7 @@ class Sites_BO
 		{
 			$allsites = $this->so->list_siteids();
 			$info = $this->so->read2($allsites[0]);
-			$GLOBALS['egw']->preferences->change('sitemgr','currentsite',$allsites[0]);
+			$GLOBALS['egw']->preferences->add('sitemgr','currentsite',$allsites[0]);
 			$GLOBALS['egw']->preferences->save_repository(True);
 		}
 		return $info;

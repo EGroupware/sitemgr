@@ -115,7 +115,7 @@ if (!$site_id)
 if ($GLOBALS['egw_info']['user']['preferences']['sitemgr']['currentsite'] != $site_id)
 {
 	$GLOBALS['egw_info']['user']['preferences']['sitemgr']['currentsite'] = $site_id;
-	$GLOBALS['egw']->preferences->change('sitemgr','currentsite', $site_id);
+	$GLOBALS['egw']->preferences->add('sitemgr','currentsite', $site_id);
 	$GLOBALS['egw']->preferences->save_repository(True);
 }
 
