@@ -232,7 +232,7 @@
 
 		function get_user_interface()
 		{
-			$GLOBALS['egw']->js->validate_file('tabs','tabs');
+			egw_framework::validate_file('tabs','tabs','phpgwapi');
 
 			// I know, this is ugly. If you find a better solution for this, please help!
 			$interface[] = array(
