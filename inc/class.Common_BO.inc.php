@@ -300,6 +300,10 @@ div#ja-header h1 a img, div#header h1 a img, div#header h1 img {
 		if ($isadmin)
 		{
 			$file['Define websites'] = egw::link('/index.php','menuaction=sitemgr.Sites_UI.list_sites');
+
+			$file['Import website'] = "javascript:egw.openPopup('".
+				egw::link('/index.php','menuaction=sitemgr.sitemgr_import_xml.ui_import','',false).
+				"',640,480,'_blank')";
 		}
 		return $file;
 	}
