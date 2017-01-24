@@ -1064,3 +1064,29 @@ function sitemgr_upgrade1_9_003()
 {
 	return $GLOBALS['setup_info']['sitemgr']['currentver'] = '14.1';
 }
+
+/**
+ * Updating egw_sitemgr_content(_lang) to json_encoding
+ *
+ * @return string
+ */
+function sitemgr_upgrade14_1()
+{
+	foreach($GLOBALS['egw_setup']->db->select('egw_sitemgr_content', '*', "arguments LIKE 'a:%'", __LINE__, __FILE__, false, '', 'sitemgr') as $row)
+	{
+		$args = json_php_unserialize($row['arguments']);
+		unset($row['arguments'], $row['state']);
+		$GLOBALS['egw_setup']->db->update('egw_sitemgr_content', array(
+			'arguments' => json_encode($args, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE),
+		), $row, __LINE__, __FILE__, 'sitemgr');
+	}
+	foreach($GLOBALS['egw_setup']->db->select('egw_sitemgr_content_lang', '*', "arguments_lang LIKE 'a:%' OR arguments_lang='N;'", __LINE__, __FILE__, false, '', 'sitemgr') as $row)
+	{
+		$args = json_php_unserialize($row['arguments_lang']);
+		unset($row['arguments_lang']);
+		$GLOBALS['egw_setup']->db->update('egw_sitemgr_content_lang', array(
+			'arguments_lang' => json_encode($args, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE),
+		), $row, __LINE__, __FILE__, 'sitemgr');
+	}
+	return $GLOBALS['setup_info']['sitemgr']['currentver'] = '16.1';
+}
