@@ -102,6 +102,11 @@ class ui extends JObject implements site_renderer
 		// attributes used by Joomla 1.5
 		$this->template = basename($themesel);
 		$this->baseurl = $GLOBALS['sitemgr_info']['site_url'];
+		// prepend used protocol and host, if site_url is just a path, as some Joomla templates can't deal with it otherwise
+		if ($this->baseurl[0] == '/')
+		{
+			$this->baseurl = ($_SERVER['HTTPS'] ? 'https://' : 'http://').$_SERVER['HTTP_HOST'].$this->baseurl;
+		}
 		$this->sitename = $this->t->get_meta('sitename').': '.$this->t->get_meta('title');
 		if (in_array($dir=lang('language_direction_rtl'),array('rtl','ltr'))) $this->direction = $dir;
 		$this->language = $this->t->get_meta('lang');
