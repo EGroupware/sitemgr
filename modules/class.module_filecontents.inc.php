@@ -125,7 +125,7 @@ class module_filecontents extends Module
 			}
 			$context = array('http' => $http_options);
 			// php < 7.0 does not enable SNI be default
-			if ($url['schema'] == 'https' && PHP_VERSION < 7.0)
+			if ($url['scheme'] == 'https' && PHP_VERSION < 7.0)
 			{
 				$context['ssl'] = array(
 					'SNI_enabled' => true,
