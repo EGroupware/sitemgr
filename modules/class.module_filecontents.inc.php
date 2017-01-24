@@ -129,7 +129,6 @@ class module_filecontents extends Module
 			{
 				$context['ssl'] = array(
 					'SNI_enabled' => true,
-					'SNI_server_name' => $url['host'],
 				);
 			}
 			if (($ret = file_get_contents($path,false,stream_context_create($context))))
