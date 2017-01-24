@@ -123,7 +123,16 @@ class module_filecontents extends Module
 					($GLOBALS['egw_info']['server']['httpproxy_port'] ? ':'.$GLOBALS['egw_info']['server']['httpproxy_port'] : '');
 				$http_options['request_fulluri'] = true;	// some proxy require that
 			}
-			if (($ret = file_get_contents($path,false,stream_context_create(array('http' => $http_options)))))
+			$context = array('http' => $http_options);
+			// php < 7.0 does not enable SNI be default
+			if ($url['schema'] == 'https' && PHP_VERSION < 7.0)
+			{
+				$context['ssl'] = array(
+					'SNI_enabled' => true,
+					'SNI_server_name' => $url['host'],
+				);
+			}
+			if (($ret = file_get_contents($path,false,stream_context_create($context))))
 			{
 				if ($url['scheme'] == 'http' || $url['scheme'] == 'https')
 				{
