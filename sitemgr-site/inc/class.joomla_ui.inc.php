@@ -793,7 +793,7 @@ class JURI extends JObject
 
 class JText extends JObject
 {
-	public function _($str)
+	public static function _($str)
 	{
 		return lang($str);
 	}
