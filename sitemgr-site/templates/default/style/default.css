@@ -17,7 +17,7 @@
 .nav-header-subsection { font-weight: bold; }
 .nav-header-parent { font-weight: bold; }
 .nav-title { font-weight: bold; }
-.nav-edit-icons {}
+.nav-edit-icons > a > img { height:16px;}
 .nav-cat-description { font-style: italic; font-weight: normal;}
 .nav-cat-description:before{ content: " " "-" " " ;}
 .nav-page-description { font-style: italic; font-weight: normal;}
