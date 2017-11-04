@@ -1,5 +1,6 @@
 %1 content manager	sitemgr	cs	%1 správce obsahu
 %1 module manager	sitemgr	cs	%1 správce modulů
+%1. group	sitemgr	cs	%1. skupina
 '%1' is no valid sitemgr-site directory !!!	sitemgr	cs	'%1' není platným adresářem webu pro Správce  webu!!!
 (do not put spaces or punctuation in the name field.)	sitemgr	cs	(Do pole jméno nevkládejte mezery ani punktaci.)
 (leave blank to allow insecure logins)	sitemgr	cs	(ponechte prázdné pro nezabezpečená přihlášení)
@@ -11,6 +12,7 @@
 1 week	common	cs	1 týden
 <b>autoregistration is not enabled / configured in the registration app !!!</b><br>you need to do so, to get the autoregistration link working.	sitemgr	cs	<b>Automatická registrace není povolena / nastavena v registrační aplikaci !!!</b><br>Musíte jí nakonfigurovat, aby začal odkaz pro automatickou registraci fungovat.
 a simple picture galery	sitemgr	cs	Jednoduchá galerie obrázků
+accordion	sitemgr	cs	Skládací
 actif	sitemgr	cs	Aktivní
 actions	sitemgr	cs	Akce
 add a category	sitemgr	cs	Přidat kategorii
@@ -38,6 +40,7 @@ all words	sitemgr	cs	Všechna slova
 allignment of navigation elements	sitemgr	cs	Uspořádání navigačních prvků
 allow customer to input a note	sitemgr	cs	Povolit zákazníkovi vložení poznámky
 allow posting of questions	sitemgr	cs	Povolit zasílání otázek
+allow proxys and cdns caching	sitemgr	cs	Povolit dočasnou paměť pro proxy a CDN
 amazon	sitemgr	cs	Amazon
 amazon server (without www), eg. amazon.com	sitemgr	cs	Amazon server (bez www), např. amazon.com
 an application directory	sitemgr	cs	Adresář aplikace
@@ -233,6 +236,7 @@ google	sitemgr	cs	Google
 google search	sitemgr	cs	Vyhledávání Google
 group access permissions	sitemgr	cs	Přístupová oprávnění pro skupinu
 group name	sitemgr	cs	Jméno skupiny
+groups linked: opening one closes others	sitemgr	cs	Skupiny jsou propojené: otevření jedné zavře druhou
 header editor	sitemgr	cs	Editor záhlaví
 headlines	sitemgr	cs	Nadpisy
 hello	sitemgr	cs	Ahoj
@@ -257,6 +261,8 @@ imported	sitemgr	cs	Importováno
 index	sitemgr	cs	Index
 individual access permission	sitemgr	cs	Individuální přístupové právo
 individual access permissions	sitemgr	cs	Individuální přístupová práva
+initially all closed	sitemgr	cs	Jako výchozí je vše schováno
+initially first group open	sitemgr	cs	Jako výchozí je zobrazena první skupina
 interface to google website	sitemgr	cs	Rozhranní k webu Google
 invalid template directory '%1' !!!	sitemgr	cs	Neplatný adresář šablon '%1' !!!
 just download one from our %1template gallery%2 on %3.	sitemgr	cs	Prostě si jednu stáhněte z naší %1galerie šablon%2 na %3.
@@ -338,11 +344,13 @@ not yet translated	sitemgr	cs	zatím nepřeloženo
 note that you may get this message if your preferences are incorrect.  for example, if config.inc.php is not found in the directory that you specified.	sitemgr-link	cs	Pamatujte, že můžete dostat tuto zprávu, pokud Vaše předvolby nejsou v pořádku. Například pokud soubor config.inc.php není v adresáři, který jste uvedl(a).
 notification message not found !!!	sitemgr	cs	Text upozornění nebyl nalezen!!!
 notification not found !!!	sitemgr	cs	Upozornění nebylo nalezeno!!!
+number of groups	sitemgr	cs	Počet skupin
 number of results	sitemgr	cs	Počet výsledků
 oldest first	sitemgr	cs	nejstarší jako první
 on all pages	sitemgr	cs	na všech stránkách
 only gallery	sitemgr	cs	Jen galerie
 only on the first page	sitemgr	cs	jen na první straně
+opening mode	sitemgr	cs	Režim otevírání
 options in search result page	sitemgr	cs	Volby na stránce výsledků vyhledávání
 or enter the title for a new guestbook	sitemgr	cs	nebo zadejte název pro novou knihu návštěv
 or use a template compatible with %1.	sitemgr	cs	Nebo použijte šablonu kompatibilní s %1.
@@ -457,6 +465,8 @@ site setup	common	cs	Nastavení webu
 site tree menu	sitemgr	cs	Stromové menu webu
 site wide	sitemgr	cs	Celý web
 sitemgr	common	cs	Správce webu
+sitemgr export	sitemgr	cs	Export správce webu
+sitemgr import	sitemgr	cs	Import správce webu
 sitemgr manual	sitemgr	cs	Manuál Správce webu
 sitemgr options	sitemgr	cs	Volby Správce webu
 sitemgr setup instructions	sitemgr	cs	Instrukce pro nastavení Správce webu
@@ -569,10 +579,12 @@ this module provides the path to the element currently shown	sitemgr	cs	Tento mo
 this module provides the site index, it is automatically used by the index get parameter	sitemgr	cs	Tento modul poskytuje index webu, je automaticky používán GET parametrem index
 this module search throw the content (page title/description and html content)	sitemgr	cs	Tento modul prohledává skrze celý obsah (název stránky/popis a HTML obsah)
 this module show the status / percentage of the translation of egw	sitemgr	cs	Tento modul zobrazuje stav / procento překladu eGroupWaru
+this module shows an accordion: clickable headers show otherwise hidden content.	sitemgr	cs	Tento modul se zobrazuje jako skládací: kliknutím na hlavičku se zobrazí další skrytý obsah.
 this must be an absolute directory location.  <b>no trailing slash</b>.	sitemgr	cs	Toto musí být absolutní umístění adresáře. <b>Bez koncového lomítka</b>.
 this should be a comma-separated list of language-codes.	sitemgr	cs	Toto by měl být seznam kódů jazyků oddělených čárkami.
 this should be a page that is readable by everyone. if you leave this blank, the site index will be shown by default.	sitemgr	cs	Toto by měla být stránka čitelná pro všechny. Pokud ponecháte prázdné, bude standardně zobrazen index webu.
 this site	sitemgr	cs	tento web
+time in seconds proxys are allowed to cache all anonymous requests.	sitemgr	cs	Čas ve vteřinách, po který může proxy zaznamenávat do vyrovnávací paměti všechny anonymní požadavky.
 title	sitemgr	cs	Název
 topic	sitemgr	cs	Téma
 translate	sitemgr	cs	Přeložit
@@ -640,6 +652,7 @@ you must be an admin to edit the site header and footer.	sitemgr	cs	Pro editaci 
 you must be an admin to manage module properties.	sitemgr	cs	Pro správu vlastností modulu musíte být administrátorem.
 you must be an administrator to setup the site manager.	sitemgr	cs	Pro nastavení Správce webu musíte být administrátorem.
 you need to be an administrator of this website to enter javascript!	sitemgr	cs	Vkládat javascript mohou jen administrátoři tohoto webu!
+you need to set "%1" to "%2" in your php.ini or egroupware.conf apache configuration!	sitemgr	cs	Nejprve je nutné nastavit "%1" na "%2" ve vašem php.ini nebo egroupware.conf v konfiguraci Apache!
 you removed one ore more languages from your site languages.	sitemgr	cs	Odstranil(a) jste jeden nebo více jazyků z Vašeho webu.
 you will remove the message in the following language from your notification system:	sitemgr	cs	Odstraníte zprávu v následujícím jazyce ze systému upozornění:
 your administrator has not yet setup the web content manager for public viewing.  go bug your administrator to get their butt in gear.	sitemgr-link	cs	Váš administrátor dosud nenastavil Správce obsahu webu pro veřejné prohlížení. Jděte popohnat svého administrátora.
