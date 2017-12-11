@@ -206,3 +206,7 @@ div.accordion-content, div.accordion-content-linked {
 table.module-download > tbody > tr > td > img {
 	width: 32px;
 }
+
+span.nav-edit-icons > a > img {
+	height: 16px;
+}
