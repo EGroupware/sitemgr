@@ -98,7 +98,7 @@ class sitemgr_export_xml implements importexport_iface_export_plugin
 	 *              preserv         => array,
 	 * )
 	 */
-	public function get_options_etpl() {
+	public function get_options_etpl(importexport_definition &$definition=null) {
 		return array();
 	}
 
