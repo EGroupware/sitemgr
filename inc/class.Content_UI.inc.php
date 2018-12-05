@@ -78,7 +78,7 @@
 		{
 			$this->common_ui =& CreateObject('sitemgr.Common_UI',True);
 			$this->t = $GLOBALS['egw']->template;
-			$this->t->egroupware_hack = False;
+			if ($this->t) $this->t->egroupware_hack = False;
 			$this->bo =& $GLOBALS['Common_BO']->content;
 			$this->acl =& $GLOBALS['Common_BO']->acl;
 			$this->modulebo =& $GLOBALS['Common_BO']->modules;

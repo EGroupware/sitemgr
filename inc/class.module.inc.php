@@ -31,19 +31,25 @@ class Module
 {
 	var $i18n; //flag a module must use if it wants its content to be translatable
 	var $validation_error;
-	var $transformer_chain;
-	var $arguments;
-	var $properties;
+	var $transformer_chain = array();
+	var $arguments = array();
+	var $properties = array();
+	var $title = "Standard module";
+	var $description = "Parent class that all modules should extend";
 	var $block;
 
-	function Module()
+	function __construct()
 	{
-
 		$this->arguments = array();
 		$this->properties = array();
 		$this->transformer_chain = array();
 		$this->title = "Standard module";
 		$this->description = "Parent class that all modules should extend";
+	}
+
+	function Module()
+	{
+		$this->__construct();
 	}
 
 	function add_transformer(&$transformer)
