@@ -1,28 +1,28 @@
 actions	sitemgr	tr	Eylemler
 add a category	sitemgr	tr	kategori ekle
 address line 2	sitemgr	tr	Adres 2. sat?r?
-administration	sitemgr	tr	Yönetim
+administration	sitemgr	tr	YÃ¶netim
 application	sitemgr	tr	Uygulama
 ascending	sitemgr	tr	Artan
 bookmarks	sitemgr	tr	Favoriler
 calendar	sitemgr	tr	Takvim
-custom	sitemgr	tr	Özel
-default	sitemgr	tr	Varsayýlan
+custom	sitemgr	tr	Ã–zel
+default	sitemgr	tr	VarsayÄ±lan
 delete category	sitemgr	tr	Kategori sil
-department	sitemgr	tr	Bölüm
+department	sitemgr	tr	BÃ¶lÃ¼m
 descending	sitemgr	tr	Azalan
 done	sitemgr	tr	tamam
-export	sitemgr	tr	Ýhraç Et
+export	sitemgr	tr	Ä°hraÃ§ Et
 fax	sitemgr	tr	Fax
-group name	sitemgr	tr	Grup Ýsmi
+group name	sitemgr	tr	Grup Ä°smi
 import	sitemgr	tr	?thal Et
-name	sitemgr	tr	Ýsim
-prefix	sitemgr	tr	Önek
+name	sitemgr	tr	Ä°sim
+prefix	sitemgr	tr	Ã–nek
 refresh	sitemgr	tr	Yenile
-reset	sitemgr	tr	Sýfýrla
+reset	sitemgr	tr	SÄ±fÄ±rla
 site	sitemgr	tr	Site
 state	sitemgr	tr	Durum
-title	sitemgr	tr	Baþlýk
-translate	sitemgr	tr	Çeviri Yap
+title	sitemgr	tr	BaÅŸlÄ±k
+translate	sitemgr	tr	Ã‡eviri Yap
 week	sitemgr	tr	Hafta
 zip code	sitemgr	tr	Posta Kodu
