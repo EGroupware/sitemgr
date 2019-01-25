@@ -357,7 +357,6 @@ function switch_hide(id,params)
 		switch($input['type'])
 		{
 			case 'htmlarea':
-				egw_framework::validate_file('ckeditor','ckeditor','phpgwapi');
 				return html::fckEditor($elementname,$default,
 					'',
 					null,'300px','100%',	// 300px to fit in the popup, one can use fitWindow to expand it
