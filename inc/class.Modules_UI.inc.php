@@ -265,7 +265,9 @@
 			if ($multiple <= 0)
 			{
 				static $label_sort;
-				if (!isset($label_sort)) $label_sort = create_function('$a,$b', 'return strcasecmp($a["label"],$b["label"]);');
+				if (!isset($label_sort)) $label_sort = function($a,$b) {
+					return strcasecmp($a["label"],$b["label"]);
+				};
 				uasort($options,$label_sort);
 			}
 			$method = $multiple > 0 ? 'checkbox_multiselect' : 'select';

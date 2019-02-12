@@ -609,7 +609,13 @@
 			$returnValue = '';
 			static $label_sort;
 
-			if (!isset($label_sort)) $label_sort = create_function('$a,$b', 'return strcasecmp($a["module_name"],$b["module_name"]);');
+			if (!isset($label_sort))
+			{
+				$label_sort = function($a,$b)
+				{
+					return strcasecmp($a["module_name"],$b["module_name"]);
+				};
+			}
 			uasort($modules,$label_sort);
 
 			foreach($modules as $id => $module)
