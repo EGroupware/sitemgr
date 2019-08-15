@@ -16,7 +16,8 @@ $setup_info['sitemgr']['app_order'] = 14;
 $setup_info['sitemgr']['tables']    = array('egw_sitemgr_pages','egw_sitemgr_pages_lang','egw_sitemgr_categories_state','egw_sitemgr_categories_lang','egw_sitemgr_modules','egw_sitemgr_blocks','egw_sitemgr_blocks_lang','egw_sitemgr_content','egw_sitemgr_content_lang','egw_sitemgr_active_modules','egw_sitemgr_properties','egw_sitemgr_sites','egw_sitemgr_notifications','egw_sitemgr_notify_messages');
 
 // uncomment to automatic deinstall SiteMgr, if it contains only the demo website (old installs have 1 page, newer ones 20)
-//$setup_info['wiki']['autodeinstall'] = "SELECT (SELECT COUNT(*)<=1 FROM egw_sitemgr_pages) OR (SELECT COUNT(*)=20 FROM egw_sitemgr_pages) AND (SELECT COUNT(*)=1 FROM egw_sitemgr_sites)";
+//$setup_info['sitemgr-link']['autodeinstall'] = "SELECT (SELECT COUNT(*)<=1 FROM egw_sitemgr_pages) OR (SELECT COUNT(*)=20 FROM egw_sitemgr_pages) AND (SELECT COUNT(*)=1 FROM egw_sitemgr_sites)";
+//$setup_info['sitemgr']['autodeinstall'] = "SELECT (SELECT COUNT(*)<=1 FROM egw_sitemgr_pages) OR (SELECT COUNT(*)=20 FROM egw_sitemgr_pages) AND (SELECT COUNT(*)=1 FROM egw_sitemgr_sites)";
 
 $setup_info['sitemgr']['only_db']    = array('mysql');	// sitemgr install seems not to work on PostgreSQL currently and stalls the whole setup, might have something to do with transactions
 $setup_info['sitemgr']['enable']    = 1;
