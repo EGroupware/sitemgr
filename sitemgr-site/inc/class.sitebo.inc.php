@@ -148,7 +148,7 @@ class sitebo
 			foreach($cats as $cat_id => $cat)
 			{
 				$pages = $this->getPageLinks($cat_id,$showhidden,$subtitles);
-				if (count($pages)>0)
+				if ($pages)
 				{
 					foreach($pages as $page_id => $link)
 					{
